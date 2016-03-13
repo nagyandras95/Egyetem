@@ -1,0 +1,56 @@
+IF DB_ID('AuctionsPortal') IS NOT NULL
+	DROP DATABASE AuctionsPortal;
+GO
+
+CREATE DATABASE AuctionsPortal;
+GO
+USE AuctionsPortal;
+GO
+
+CREATE TABLE Advetiser(
+	AdvetiserId PRIMARY KEY IDENTITY(1,1)
+	Name VARCHAR(30) NOT NULL,
+	UserName VARCHAR(30) NOT NULL,
+	Password VARCHAR(30) NOT NULL
+)
+
+CREATE TABLE User (
+	UserID PRIMARY KEY IDENTITY(1,1),
+	Name VARCHAR(30) NOT NULL,
+	UserName VARCHAR(30) NOT NULL,
+	PhoneNumber INTEGER,
+	EMail VARCHAR(30)
+)
+
+CREATE TABLE Catgory (
+	CagoryID PRIMARY KEY IDENTITY(1,1),
+	CatgoryName VARCHAR(30)
+)
+
+CREATE TABLE Item (
+	ItemID PRIMARY KEY IDENTITY(1,1),
+	Name VARCHAR(30),
+	CagoryID INTEGER NOT NULL,
+	Description VARCHAR(100),
+	StartingCall INTEGER NOT NULL,
+	CloseDate DATE,
+	Image VARBINARY(max) NOT NULL
+	CONSTRAINT ItemToCatgory 
+        FOREIGN KEY (CagoryID) 
+        REFERENCES Catgory (CagoryID)
+	
+)
+
+CREATE TABLE Bidding {
+	ItemID INTEGER NOT NULL,
+	UserID INTEGER NOT NULL,
+	Amount INTEGER NOT NULL,
+	CallDate Date
+	CONSTRAINT BiddingToItem 
+        FOREIGN KEY (ItemID) 
+        REFERENCES Item (ItemID)
+	CONSTRAINT BiddingToUser
+        FOREIGN KEY (UserID) 
+        REFERENCES User (UserID)
+	
+}
