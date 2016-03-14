@@ -1,3 +1,4 @@
+
 IF DB_ID('AuctionsPortal') IS NOT NULL
 	DROP DATABASE AuctionsPortal;
 GO
@@ -8,27 +9,30 @@ USE AuctionsPortal;
 GO
 
 CREATE TABLE Advetiser(
-	AdvetiserId PRIMARY KEY IDENTITY(1,1)
+	AdvetiserId INTEGER PRIMARY KEY IDENTITY(1,1),
 	Name VARCHAR(30) NOT NULL,
 	UserName VARCHAR(30) NOT NULL,
 	Password VARCHAR(30) NOT NULL
-)
+);
+GO
 
-CREATE TABLE User (
-	UserID PRIMARY KEY IDENTITY(1,1),
+CREATE TABLE Users (
+	UserID INTEGER PRIMARY KEY IDENTITY(1,1),
 	Name VARCHAR(30) NOT NULL,
 	UserName VARCHAR(30) NOT NULL,
 	PhoneNumber INTEGER,
 	EMail VARCHAR(30)
-)
+);
+GO
 
 CREATE TABLE Catgory (
-	CagoryID PRIMARY KEY IDENTITY(1,1),
+	CagoryID INTEGER PRIMARY KEY IDENTITY(1,1),
 	CatgoryName VARCHAR(30)
-)
+);
+GO
 
 CREATE TABLE Item (
-	ItemID PRIMARY KEY IDENTITY(1,1),
+	ItemID INTEGER PRIMARY KEY IDENTITY(1,1),
 	Name VARCHAR(30),
 	CagoryID INTEGER NOT NULL,
 	Description VARCHAR(100),
@@ -39,18 +43,24 @@ CREATE TABLE Item (
         FOREIGN KEY (CagoryID) 
         REFERENCES Catgory (CagoryID)
 	
-)
+);
+GO
 
-CREATE TABLE Bidding {
+CREATE TABLE Bidding (
 	ItemID INTEGER NOT NULL,
 	UserID INTEGER NOT NULL,
 	Amount INTEGER NOT NULL,
 	CallDate Date
 	CONSTRAINT BiddingToItem 
         FOREIGN KEY (ItemID) 
-        REFERENCES Item (ItemID)
+        REFERENCES Item (ItemID),
 	CONSTRAINT BiddingToUser
         FOREIGN KEY (UserID) 
-        REFERENCES User (UserID)
+        REFERENCES Users (UserID)
 	
-}
+	
+);
+GO
+
+INSERT INTO Catgory VALUES('Butor');
+GO
