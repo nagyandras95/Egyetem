@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AuctionsPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Advetiser">
+    <Key>
+      <PropertyRef Name="AdvetiserId" />
+    </Key>
+    <Property Name="AdvetiserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Bidding">
+    <Key>
+      <PropertyRef Name="BiddingID" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Amount" />
+    </Key>
+    <Property Name="BiddingID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="CallDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Catgory">
+    <Key>
+      <PropertyRef Name="CagoryID" />
+    </Key>
+    <Property Name="CagoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CatgoryName" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="CagoryID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="StartingCall" Type="int" Nullable="false" />
+    <Property Name="CloseDate" Type="date" />
+    <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PhoneNumber" Type="int" />
+    <Property Name="EMail" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="BiddingToItem">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BiddingToUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Bidding">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemToCatgory">
+    <End Role="Catgory" Type="Self.Catgory" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catgory">
+        <PropertyRef Name="CagoryID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="CagoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AuctionsPortalModelStoreContainer">
+    <EntitySet Name="Advetiser" EntityType="Self.Advetiser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Catgory" EntityType="Self.Catgory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bidding" EntityType="Self.Bidding" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bidding].[BiddingID] AS [BiddingID], 
+    [Bidding].[ItemID] AS [ItemID], 
+    [Bidding].[UserID] AS [UserID], 
+    [Bidding].[Amount] AS [Amount], 
+    [Bidding].[CallDate] AS [CallDate]
+    FROM [dbo].[Bidding] AS [Bidding]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="BiddingToUser" Association="Self.BiddingToUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
+      <End Role="Catgory" EntitySet="Catgory" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

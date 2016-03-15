@@ -12,23 +12,20 @@ namespace Auctions_Portal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Item
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Item()
+        public User()
         {
             this.Biddings = new HashSet<Bidding>();
         }
     
-        public int ItemID { get; set; }
+        public int UserID { get; set; }
         public string Name { get; set; }
-        public int CagoryID { get; set; }
-        public string Description { get; set; }
-        public int StartingCall { get; set; }
-        public Nullable<System.DateTime> CloseDate { get; set; }
-        public byte[] Image { get; set; }
+        public string UserName { get; set; }
+        public Nullable<int> PhoneNumber { get; set; }
+        public string EMail { get; set; }
     
-        public virtual Catgory Catgory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bidding> Biddings { get; set; }
     }

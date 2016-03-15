@@ -31,7 +31,7 @@
     <div class="content">
         <div class="leftColumn">
             <h3>Keresés kategórák szerint</h3>
-            @* amennyiben nincsenek megadva a városok *@
+            @* amennyiben nincsenek megadva kategórák *@
             @if (ViewBag.Categories == null || ViewBag.Categories.Length == 0)
             {
                 <span>Nincs aukció</span>
@@ -39,11 +39,11 @@
             else
             {
                 <ul>
-                    @* felsoroljuk a városokat *@
+                    @* felsoroljuk a kategórákat *@
                     @foreach (Catgory category in ViewBag.Categories)
                     {
                         <li>
-                            @* létrehozunk egy linket minden városra az Index akcióra az azonosító paraméterrel *@
+                            @* létrehozunk egy linket minden katgórára az Index akcióra az azonosító paraméterrel *@
                             @Html.ActionLink(category.CatgoryName, "List", "Home", new { caegoryID = category.CagoryID }, new { })
                             @* a paramétert egy anonim típusban adjuk meg *@
                         </li>
