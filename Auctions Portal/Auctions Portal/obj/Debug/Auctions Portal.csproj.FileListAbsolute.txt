@@ -48,3 +48,53 @@ C:\Users\May\git\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.dll
 C:\Users\May\git\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.SqlServer.dll
 C:\Users\May\git\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.xml
 C:\Users\May\git\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.SqlServer.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\ApplicationInsights.config
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\csc.exe
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\vbc.exe
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Auctions Portal.dll.config
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Auctions Portal.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Auctions Portal.pdb
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.SqlServer.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.Web.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Helpers.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Mvc.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Razor.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Webpages.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Webpages.Razor.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\EntityFramework.SqlServer.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.Web.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Razor.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Webpages.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Webpages.Razor.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Helpers.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\bin\System.Web.Mvc.xml
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\obj\Debug\Auctions Portal.csprojResolveAssemblyReference.cache
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\obj\Debug\Auctions Portal.dll
+C:\Users\Nagy András\Source\Repos\Egyetem\Auctions Portal\Auctions Portal\obj\Debug\Auctions Portal.pdb

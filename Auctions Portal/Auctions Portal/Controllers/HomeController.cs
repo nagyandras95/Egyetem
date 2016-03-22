@@ -23,7 +23,7 @@ namespace Auctions_Portal.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View("Index", _entities.Catgories.ToList());
+            return View("Index", _entities.Biddings.Include("Item").ToList());
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Auctions_Portal.Controllers
                 return RedirectToAction("Index"); 
 
      
-            return View("Index", _entities.Biddings.Include("Item").Include("Catgory").Where(i => i.Item.CagoryID== catrgoyId).ToList());
+            return View("Index", _entities.Biddings.ToList());
         }
 
         public ActionResult Details(Int32? biddingID)
