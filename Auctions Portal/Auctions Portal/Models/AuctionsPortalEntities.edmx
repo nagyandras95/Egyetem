@@ -14,16 +14,11 @@
           <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Bidding">
           <Key>
             <PropertyRef Name="BiddingID" />
-            <PropertyRef Name="ItemID" />
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="Amount" />
           </Key>
-          <Property Name="BiddingID" Type="int" Nullable="false" />
+          <Property Name="BiddingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ItemID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
@@ -46,7 +41,14 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
           <Property Name="Description" Type="varchar" MaxLength="100" />
           <Property Name="StartingCall" Type="int" Nullable="false" />
           <Property Name="CloseDate" Type="date" />
-          <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemImage">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ImageS" Type="varbinary(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -57,6 +59,146 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
           <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="PhoneNumber" Type="int" />
           <Property Name="EMail" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="BiddingToItem">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="Bidding">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BiddingToUser">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Bidding">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ImageToitem">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="ItemImage" Type="Self.ItemImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemImage">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemToCatgory">
+          <End Role="Catgory" Type="Self.Catgory" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catgory">
+              <PropertyRef Name="CagoryID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AuctionsPortalModelStoreContainer">
+          <EntitySet Name="Advetiser" EntityType="Self.Advetiser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bidding" EntityType="Self.Bidding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catgory" EntityType="Self.Catgory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemImage" EntityType="Self.ItemImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Bidding" EntitySet="Bidding" />
+          </AssociationSet>
+          <AssociationSet Name="BiddingToUser" Association="Self.BiddingToUser">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bidding" EntitySet="Bidding" />
+          </AssociationSet>
+          <AssociationSet Name="ImageToitem" Association="Self.ImageToitem">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemImage" EntitySet="ItemImage" />
+          </AssociationSet>
+          <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
+            <End Role="Catgory" EntitySet="Catgory" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AuctionsPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Advetiser">
+          <Key>
+            <PropertyRef Name="AdvetiserId" />
+          </Key>
+          <Property Name="AdvetiserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bidding">
+          <Key>
+            <PropertyRef Name="BiddingID" />
+          </Key>
+          <Property Name="BiddingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="CallDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Item" Relationship="Self.BiddingToItem" FromRole="Bidding" ToRole="Item" />
+          <NavigationProperty Name="Users" Relationship="Self.BiddingToUser" FromRole="Bidding" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Catgory">
+          <Key>
+            <PropertyRef Name="CagoryID" />
+          </Key>
+          <Property Name="CagoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatgoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Item" Relationship="Self.ItemToCatgory" FromRole="Catgory" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CagoryID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartingCall" Type="Int32" Nullable="false" />
+          <Property Name="CloseDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Bidding" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />
+          <NavigationProperty Name="Catgory" Relationship="Self.ItemToCatgory" FromRole="Item" ToRole="Catgory" />
+          <NavigationProperty Name="ItemImage" Relationship="Self.ImageToitem" FromRole="Item" ToRole="ItemImage" />
+        </EntityType>
+        <EntityType Name="ItemImage">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="ImageS" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.ImageToitem" FromRole="ItemImage" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="Int32" />
+          <Property Name="EMail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bidding" Relationship="Self.BiddingToUser" FromRole="Users" ToRole="Bidding" />
         </EntityType>
         <Association Name="BiddingToItem">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
@@ -94,20 +236,25 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AuctionsPortalModelStoreContainer">
-          <EntitySet Name="Advetiser" EntityType="Self.Advetiser" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Catgory" EntityType="Self.Catgory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Bidding" EntityType="Self.Bidding" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Bidding].[BiddingID] AS [BiddingID], 
-    [Bidding].[ItemID] AS [ItemID], 
-    [Bidding].[UserID] AS [UserID], 
-    [Bidding].[Amount] AS [Amount], 
-    [Bidding].[CallDate] AS [CallDate]
-    FROM [dbo].[Bidding] AS [Bidding]</DefiningQuery>
-          </EntitySet>
+        <Association Name="ImageToitem">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="ItemImage" Type="Self.ItemImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemImage">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AuctionsPortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advetiser" EntityType="Self.Advetiser" />
+          <EntitySet Name="Bidding" EntityType="Self.Bidding" />
+          <EntitySet Name="Catgory" EntityType="Self.Catgory" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="ItemImage" EntityType="Self.ItemImage" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
             <End Role="Item" EntitySet="Item" />
             <End Role="Bidding" EntitySet="Bidding" />
@@ -120,122 +267,9 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
             <End Role="Catgory" EntitySet="Catgory" />
             <End Role="Item" EntitySet="Item" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="AuctionsPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Advetiser">
-          <Key>
-            <PropertyRef Name="AdvetiserId" />
-          </Key>
-          <Property Name="AdvetiserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Catgory">
-          <Key>
-            <PropertyRef Name="CagoryID" />
-          </Key>
-          <Property Name="CagoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CatgoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Items" Relationship="Self.ItemToCatgory" FromRole="Catgory" ToRole="Item" />
-        </EntityType>
-        <EntityType Name="Item">
-          <Key>
-            <PropertyRef Name="ItemID" />
-          </Key>
-          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="CagoryID" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="StartingCall" Type="Int32" Nullable="false" />
-          <Property Name="CloseDate" Type="DateTime" Precision="0" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <NavigationProperty Name="Catgory" Relationship="Self.ItemToCatgory" FromRole="Item" ToRole="Catgory" />
-          <NavigationProperty Name="Biddings" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PhoneNumber" Type="Int32" />
-          <Property Name="EMail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Biddings" Relationship="Self.BiddingToUser" FromRole="Users" ToRole="Bidding" />
-        </EntityType>
-        <EntityType Name="Bidding">
-          <Key>
-            <PropertyRef Name="BiddingID" />
-            <PropertyRef Name="ItemID" />
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="Amount" />
-          </Key>
-          <Property Name="BiddingID" Type="Int32" Nullable="false" />
-          <Property Name="ItemID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Int32" Nullable="false" />
-          <Property Name="CallDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Item" Relationship="Self.BiddingToItem" FromRole="Bidding" ToRole="Item" />
-          <NavigationProperty Name="User" Relationship="Self.BiddingToUser" FromRole="Bidding" ToRole="Users" />
-        </EntityType>
-        <Association Name="ItemToCatgory">
-          <End Role="Catgory" Type="Self.Catgory" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Catgory">
-              <PropertyRef Name="CagoryID" />
-            </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="CagoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BiddingToItem">
-          <End Role="Item" Type="Self.Item" Multiplicity="1" />
-          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Item">
-              <PropertyRef Name="ItemID" />
-            </Principal>
-            <Dependent Role="Bidding">
-              <PropertyRef Name="ItemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BiddingToUser">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Bidding">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="AuctionsPortalEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Advetisers" EntityType="Self.Advetiser" />
-          <EntitySet Name="Catgories" EntityType="Self.Catgory" />
-          <EntitySet Name="Items" EntityType="Self.Item" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="Biddings" EntityType="Self.Bidding" />
-          <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
-            <End Role="Catgory" EntitySet="Catgories" />
-            <End Role="Item" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
-            <End Role="Item" EntitySet="Items" />
-            <End Role="Bidding" EntitySet="Biddings" />
-          </AssociationSet>
-          <AssociationSet Name="BiddingToUser" Association="Self.BiddingToUser">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Bidding" EntitySet="Biddings" />
+          <AssociationSet Name="ImageToitem" Association="Self.ImageToitem">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemImage" EntitySet="ItemImage" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -244,7 +278,7 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AuctionsPortalModelStoreContainer" CdmEntityContainer="AuctionsPortalEntities">
-          <EntitySetMapping Name="Advetisers">
+          <EntitySetMapping Name="Advetiser">
             <EntityTypeMapping TypeName="AuctionsPortalModel.Advetiser">
               <MappingFragment StoreEntitySet="Advetiser">
                 <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
@@ -254,7 +288,18 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Catgories">
+          <EntitySetMapping Name="Bidding">
+            <EntityTypeMapping TypeName="AuctionsPortalModel.Bidding">
+              <MappingFragment StoreEntitySet="Bidding">
+                <ScalarProperty Name="BiddingID" ColumnName="BiddingID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catgory">
             <EntityTypeMapping TypeName="AuctionsPortalModel.Catgory">
               <MappingFragment StoreEntitySet="Catgory">
                 <ScalarProperty Name="CagoryID" ColumnName="CagoryID" />
@@ -262,7 +307,7 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Items">
+          <EntitySetMapping Name="Item">
             <EntityTypeMapping TypeName="AuctionsPortalModel.Item">
               <MappingFragment StoreEntitySet="Item">
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
@@ -271,29 +316,26 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="StartingCall" ColumnName="StartingCall" />
                 <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemImage">
+            <EntityTypeMapping TypeName="AuctionsPortalModel.ItemImage">
+              <MappingFragment StoreEntitySet="ItemImage">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ImageS" ColumnName="ImageS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="AuctionsPortalModel.User">
+            <EntityTypeMapping TypeName="AuctionsPortalModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="EMail" ColumnName="EMail" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Biddings">
-            <EntityTypeMapping TypeName="AuctionsPortalModel.Bidding">
-              <MappingFragment StoreEntitySet="Bidding">
-                <ScalarProperty Name="BiddingID" ColumnName="BiddingID" />
-                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="CallDate" ColumnName="CallDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -311,7 +353,7 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

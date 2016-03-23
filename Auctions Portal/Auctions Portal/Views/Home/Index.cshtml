@@ -28,7 +28,7 @@ else
                                 </td>
                                 <td>
                                     <div class="biddingItemHead">
-                                        @Html.ActionLink(Model[j].Item.Name,"Details", new { caegoryID = Model[j].BiddingID })
+                                        @Html.ActionLink(Model[j].Item.Name,"Details", new { biddingID = Model[j].BiddingID })
                                     </div>
                                     <div class="biddingItemContent">
                                         <strong>Tárgy: </strong>@Model[j].Item.Name<br />

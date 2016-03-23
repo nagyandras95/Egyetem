@@ -9,16 +9,11 @@
     <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Bidding">
     <Key>
       <PropertyRef Name="BiddingID" />
-      <PropertyRef Name="ItemID" />
-      <PropertyRef Name="UserID" />
-      <PropertyRef Name="Amount" />
     </Key>
-    <Property Name="BiddingID" Type="int" Nullable="false" />
+    <Property Name="BiddingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ItemID" Type="int" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="Amount" Type="int" Nullable="false" />
@@ -41,7 +36,14 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
     <Property Name="Description" Type="varchar" MaxLength="100" />
     <Property Name="StartingCall" Type="int" Nullable="false" />
     <Property Name="CloseDate" Type="date" />
-    <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemImage">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ImageS" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -77,6 +79,18 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ImageToitem">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="ItemImage" Type="Self.ItemImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="ItemImage">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="ItemToCatgory">
     <End Role="Catgory" Type="Self.Catgory" Multiplicity="1" />
     <End Role="Item" Type="Self.Item" Multiplicity="*" />
@@ -91,18 +105,11 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
   </Association>
   <EntityContainer Name="AuctionsPortalModelStoreContainer">
     <EntitySet Name="Advetiser" EntityType="Self.Advetiser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bidding" EntityType="Self.Bidding" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Catgory" EntityType="Self.Catgory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemImage" EntityType="Self.ItemImage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Bidding" EntityType="Self.Bidding" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Bidding].[BiddingID] AS [BiddingID], 
-    [Bidding].[ItemID] AS [ItemID], 
-    [Bidding].[UserID] AS [UserID], 
-    [Bidding].[Amount] AS [Amount], 
-    [Bidding].[CallDate] AS [CallDate]
-    FROM [dbo].[Bidding] AS [Bidding]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
       <End Role="Item" EntitySet="Item" />
       <End Role="Bidding" EntitySet="Bidding" />
@@ -110,6 +117,10 @@ warning 6002: The table/view 'AuctionsPortal.dbo.Bidding' does not have a primar
     <AssociationSet Name="BiddingToUser" Association="Self.BiddingToUser">
       <End Role="Users" EntitySet="Users" />
       <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="ImageToitem" Association="Self.ImageToitem">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ItemImage" EntitySet="ItemImage" />
     </AssociationSet>
     <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
       <End Role="Catgory" EntitySet="Catgory" />

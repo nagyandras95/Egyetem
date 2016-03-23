@@ -38,11 +38,21 @@ CREATE TABLE Item (
 	Description VARCHAR(100),
 	StartingCall INTEGER NOT NULL,
 	CloseDate DATE,
-	Image VARBINARY(max) NOT NULL
 	CONSTRAINT ItemToCatgory 
         FOREIGN KEY (CagoryID) 
         REFERENCES Catgory (CagoryID)
 	
+);
+GO
+
+CREATE TABLE ItemImage
+(
+	ImageID INTEGER PRIMARY KEY IDENTITY(1,1),
+	ItemID INTEGER NOT NULL,
+	ImageS VARBINARY(max) NOT NULL
+	CONSTRAINT ImageToitem 
+        FOREIGN KEY (ItemID) 
+        REFERENCES Item (ItemID)
 );
 GO
 
@@ -60,4 +70,21 @@ CREATE TABLE Bidding (
         REFERENCES Users (UserID)
 	
 );
+GO
+
+insert into Catgory values ('Bútor');
+insert into Catgory values ('Hangszer');
+insert into Catgory values ('Ékszer');
+
+insert into Item values ('Lámpa',1,'Szép lámpa',500,null);
+insert into Item values ('Asztal',1,'Szép asztal',1000,null);
+insert into Item values ('Szekrény',1,'Szép szekrény',2000,null);
+
+
+insert into Users values ('Nagy András', 'na',0630,'nagyandras95@inf.elte.hu');
+
+insert into Bidding values (1,1,500,'2016-11-11');
+insert into Bidding values (2,1,500,'2016-11-11');
+insert into Bidding values (3,1,500,'2016-11-11');
+
 GO

@@ -4,15 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="47cd5d5f8a1a490ebd4786ec4dfe372b" Name="Diagram1">
-        <EntityTypeShape EntityType="AuctionsPortalModel.Advetiser" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AuctionsPortalModel.Catgory" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AuctionsPortalModel.Item" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AuctionsPortalModel.User" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AuctionsPortalModel.Bidding" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="AuctionsPortalModel.ItemToCatgory" ManuallyRouted="false" />
+      <Diagram DiagramId="0fe4bc30693948bfb00b77d94e7f8f79" Name="Diagram1">
+        <EntityTypeShape EntityType="AuctionsPortalModel.Advetiser" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AuctionsPortalModel.Bidding" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AuctionsPortalModel.Catgory" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AuctionsPortalModel.Item" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AuctionsPortalModel.ItemImage" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AuctionsPortalModel.Users" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <AssociationConnector Association="AuctionsPortalModel.BiddingToItem" ManuallyRouted="false" />
         <AssociationConnector Association="AuctionsPortalModel.BiddingToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="AuctionsPortalModel.ItemToCatgory" ManuallyRouted="false" />
+        <AssociationConnector Association="AuctionsPortalModel.ImageToitem" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

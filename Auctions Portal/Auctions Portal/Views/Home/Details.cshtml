@@ -1,7 +1,86 @@
-﻿
+﻿@using Auctions_Portal.Models;
+
+@model Bidding
+
 @{
-    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // megadjuk az elrendezést
 }
 
-<h2>Details</h2>
+@if (Model == null)
+{
+    <div class="contentText">Jelenleg nincs elérhető aukció</div>
+}
+else
+{
+    <div class="contentHead">@Model.Item.Name</div>
+    <div class="contentBody">
+        <table width="600">
+            <tr>
+                <td>
+                    <strong>Kategória:</strong> @Model.Item.Catgory.CatgoryName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Aktuális összeg: </strong> @Model.Amount Ft
+                </td>
 
+            </tr>
+            <tr>
+                <td>
+                    <div class="contentComment">
+                        <strong>Leírás:</strong> @Model.Item.Description
+                    </div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <strong>Meghírdetés dátuma:</strong> @Model.CallDate
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Lezárás dátuma:</strong>
+                    @if(Model.Item.CloseDate != null)
+                    {
+                        @Model.Item.CloseDate
+                    }
+                    else
+                    {
+                       <div>Az aukció még nincs lezárva.</div>
+                    }
+                </td>
+            </tr>
+
+            @if (ViewBag.Images != null && ViewBag.Images.Count > 0) // ha van kép a tárgyhoz
+            {
+                <tr>
+                    <td>
+                        <div class="contentComment">
+                            <strong>Képek:</strong><br />
+                            @foreach (Int32 id in ViewBag.Images) // a képek azonosítóit a nézet adataihoz töltöttük be
+                            {
+                                    
+                                    <img src="@Url.Action("Image", new { imageId = id })" class="contentImage" />
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div class="contentComment">
+                            <strong>Képek:</strong><br />
+
+                                <img src="~/Content/no_image.png" class="contentImage" />
+                            
+                        </div>
+                    </td>
+                </tr>
+          }
+        </table>
+</div>
+}

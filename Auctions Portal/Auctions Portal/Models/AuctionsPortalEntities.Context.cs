@@ -25,10 +25,11 @@ namespace Auctions_Portal.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Advetiser> Advetisers { get; set; }
-        public virtual DbSet<Catgory> Catgories { get; set; }
-        public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Bidding> Biddings { get; set; }
+        public virtual DbSet<Advetiser> Advetiser { get; set; }
+        public virtual DbSet<Bidding> Bidding { get; set; }
+        public virtual DbSet<Catgory> Catgory { get; set; }
+        public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<ItemImage> ItemImage { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

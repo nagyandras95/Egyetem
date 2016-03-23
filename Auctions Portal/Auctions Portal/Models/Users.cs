@@ -12,12 +12,12 @@ namespace Auctions_Portal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Users()
         {
-            this.Biddings = new HashSet<Bidding>();
+            this.Bidding = new HashSet<Bidding>();
         }
     
         public int UserID { get; set; }
@@ -27,6 +27,6 @@ namespace Auctions_Portal.Models
         public string EMail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bidding> Biddings { get; set; }
+        public virtual ICollection<Bidding> Bidding { get; set; }
     }
 }

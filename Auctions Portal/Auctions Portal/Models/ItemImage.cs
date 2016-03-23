@@ -12,15 +12,12 @@ namespace Auctions_Portal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Bidding
+    public partial class ItemImage
     {
-        public int BiddingID { get; set; }
+        public int ImageID { get; set; }
         public int ItemID { get; set; }
-        public int UserID { get; set; }
-        public int Amount { get; set; }
-        public Nullable<System.DateTime> CallDate { get; set; }
+        public byte[] ImageS { get; set; }
     
         public virtual Item Item { get; set; }
-        public virtual Users Users { get; set; }
     }
 }

@@ -9,13 +9,25 @@
     <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
+  <EntityType Name="Bidding">
+    <Key>
+      <PropertyRef Name="BiddingID" />
+    </Key>
+    <Property Name="BiddingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="CallDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Item" Relationship="Self.BiddingToItem" FromRole="Bidding" ToRole="Item" />
+    <NavigationProperty Name="Users" Relationship="Self.BiddingToUser" FromRole="Bidding" ToRole="Users" />
+  </EntityType>
   <EntityType Name="Catgory">
     <Key>
       <PropertyRef Name="CagoryID" />
     </Key>
     <Property Name="CagoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CatgoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Items" Relationship="Self.ItemToCatgory" FromRole="Catgory" ToRole="Item" />
+    <NavigationProperty Name="Item" Relationship="Self.ItemToCatgory" FromRole="Catgory" ToRole="Item" />
   </EntityType>
   <EntityType Name="Item">
     <Key>
@@ -27,11 +39,20 @@
     <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="StartingCall" Type="Int32" Nullable="false" />
     <Property Name="CloseDate" Type="DateTime" Precision="0" />
-    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Bidding" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />
     <NavigationProperty Name="Catgory" Relationship="Self.ItemToCatgory" FromRole="Item" ToRole="Catgory" />
-    <NavigationProperty Name="Biddings" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />
+    <NavigationProperty Name="ItemImage" Relationship="Self.ImageToitem" FromRole="Item" ToRole="ItemImage" />
   </EntityType>
-  <EntityType Name="User">
+  <EntityType Name="ItemImage">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ImageS" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.ImageToitem" FromRole="ItemImage" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
@@ -40,35 +61,8 @@
     <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PhoneNumber" Type="Int32" />
     <Property Name="EMail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Biddings" Relationship="Self.BiddingToUser" FromRole="Users" ToRole="Bidding" />
+    <NavigationProperty Name="Bidding" Relationship="Self.BiddingToUser" FromRole="Users" ToRole="Bidding" />
   </EntityType>
-  <EntityType Name="Bidding">
-    <Key>
-      <PropertyRef Name="BiddingID" />
-      <PropertyRef Name="ItemID" />
-      <PropertyRef Name="UserID" />
-      <PropertyRef Name="Amount" />
-    </Key>
-    <Property Name="BiddingID" Type="Int32" Nullable="false" />
-    <Property Name="ItemID" Type="Int32" Nullable="false" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Amount" Type="Int32" Nullable="false" />
-    <Property Name="CallDate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Item" Relationship="Self.BiddingToItem" FromRole="Bidding" ToRole="Item" />
-    <NavigationProperty Name="User" Relationship="Self.BiddingToUser" FromRole="Bidding" ToRole="Users" />
-  </EntityType>
-  <Association Name="ItemToCatgory">
-    <End Role="Catgory" Type="Self.Catgory" Multiplicity="1" />
-    <End Role="Item" Type="Self.Item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Catgory">
-        <PropertyRef Name="CagoryID" />
-      </Principal>
-      <Dependent Role="Item">
-        <PropertyRef Name="CagoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="BiddingToItem">
     <End Role="Item" Type="Self.Item" Multiplicity="1" />
     <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
@@ -82,7 +76,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="BiddingToUser">
-    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
@@ -93,23 +87,52 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ItemToCatgory">
+    <End Role="Catgory" Type="Self.Catgory" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catgory">
+        <PropertyRef Name="CagoryID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="CagoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ImageToitem">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="ItemImage" Type="Self.ItemImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="ItemImage">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="AuctionsPortalEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Advetisers" EntityType="Self.Advetiser" />
-    <EntitySet Name="Catgories" EntityType="Self.Catgory" />
-    <EntitySet Name="Items" EntityType="Self.Item" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Biddings" EntityType="Self.Bidding" />
-    <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
-      <End Role="Catgory" EntitySet="Catgories" />
-      <End Role="Item" EntitySet="Items" />
-    </AssociationSet>
+    <EntitySet Name="Advetiser" EntityType="Self.Advetiser" />
+    <EntitySet Name="Bidding" EntityType="Self.Bidding" />
+    <EntitySet Name="Catgory" EntityType="Self.Catgory" />
+    <EntitySet Name="Item" EntityType="Self.Item" />
+    <EntitySet Name="ItemImage" EntityType="Self.ItemImage" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
     <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
-      <End Role="Item" EntitySet="Items" />
-      <End Role="Bidding" EntitySet="Biddings" />
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Bidding" EntitySet="Bidding" />
     </AssociationSet>
     <AssociationSet Name="BiddingToUser" Association="Self.BiddingToUser">
       <End Role="Users" EntitySet="Users" />
-      <End Role="Bidding" EntitySet="Biddings" />
+      <End Role="Bidding" EntitySet="Bidding" />
+    </AssociationSet>
+    <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
+      <End Role="Catgory" EntitySet="Catgory" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="ImageToitem" Association="Self.ImageToitem">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ItemImage" EntitySet="ItemImage" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
