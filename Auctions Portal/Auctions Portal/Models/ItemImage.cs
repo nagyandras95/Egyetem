@@ -14,9 +14,9 @@ namespace Auctions_Portal.Models
     
     public partial class ItemImage
     {
-        public int ImageID { get; set; }
-        public int ItemID { get; set; }
-        public byte[] ImageS { get; set; }
+        public int ImageId { get; set; }
+        public int ItemId { get; set; }
+        public byte[] Image { get; set; }
     
         public virtual Item Item { get; set; }
     }

@@ -40,11 +40,11 @@
             {
                 <ul>
                     @* felsoroljuk a kategórákat *@
-                    @foreach (Catgory category in ViewBag.Categories)
+                    @foreach (Category category in ViewBag.Categories)
                     {
                         <li>
                             @* létrehozunk egy linket minden katgórára az Index akcióra az azonosító paraméterrel *@
-                            @Html.ActionLink(category.CatgoryName, "List", "Home", new { categoryID = category.CagoryID }, new { })
+                            @Html.ActionLink(category.CatgoryName, "List", "Home", new { categoryId = category.CategoryId }, new { })
                             @* a paramétert egy anonim típusban adjuk meg *@
                         </li>
                     }

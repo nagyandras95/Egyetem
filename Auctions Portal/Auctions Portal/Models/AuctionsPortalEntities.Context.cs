@@ -27,7 +27,7 @@ namespace Auctions_Portal.Models
     
         public virtual DbSet<Advetiser> Advetiser { get; set; }
         public virtual DbSet<Bidding> Bidding { get; set; }
-        public virtual DbSet<Catgory> Catgory { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Item> Item { get; set; }
         public virtual DbSet<ItemImage> ItemImage { get; set; }
         public virtual DbSet<Users> Users { get; set; }

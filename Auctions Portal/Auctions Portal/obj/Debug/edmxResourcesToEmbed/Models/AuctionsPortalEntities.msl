@@ -14,18 +14,18 @@
     <EntitySetMapping Name="Bidding">
       <EntityTypeMapping TypeName="AuctionsPortalModel.Bidding">
         <MappingFragment StoreEntitySet="Bidding">
-          <ScalarProperty Name="BiddingID" ColumnName="BiddingID" />
-          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
           <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Catgory">
-      <EntityTypeMapping TypeName="AuctionsPortalModel.Catgory">
-        <MappingFragment StoreEntitySet="Catgory">
-          <ScalarProperty Name="CagoryID" ColumnName="CagoryID" />
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="AuctionsPortalModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="CatgoryName" ColumnName="CatgoryName" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -33,9 +33,9 @@
     <EntitySetMapping Name="Item">
       <EntityTypeMapping TypeName="AuctionsPortalModel.Item">
         <MappingFragment StoreEntitySet="Item">
-          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="CagoryID" ColumnName="CagoryID" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="StartingCall" ColumnName="StartingCall" />
           <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
@@ -45,17 +45,18 @@
     <EntitySetMapping Name="ItemImage">
       <EntityTypeMapping TypeName="AuctionsPortalModel.ItemImage">
         <MappingFragment StoreEntitySet="ItemImage">
-          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
-          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
-          <ScalarProperty Name="ImageS" ColumnName="ImageS" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="AuctionsPortalModel.Users">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="EMail" ColumnName="EMail" />

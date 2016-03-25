@@ -15,7 +15,7 @@ namespace Auctions_Portal.Controllers
         {
             _entities = new AuctionsPortalEntities();
 
-            ViewBag.Categories = _entities.Catgory.ToArray();
+            ViewBag.Categories = _entities.Category.ToArray();
 
 
         }
@@ -29,32 +29,32 @@ namespace Auctions_Portal.Controllers
         /// <summary>
         /// Listing bidding
         /// </summary>
-        /// <param name="categoryID">Identification of catgory</param>
+        /// <param name="categoryId">Identification of catgory</param>
         /// <returns>View of biddings.</returns>
-        public ActionResult List(Int32? categoryID)
+        public ActionResult List(Int32? categoryId)
         {
-            if (categoryID == null || !_entities.Bidding.Any(b => b.Item.CagoryID == categoryID))
+            if (categoryId == null || !_entities.Bidding.Any(b => b.Item.CategoryId == categoryId))
                 return RedirectToAction("Index"); 
 
      
-            return View("Index", _entities.Bidding.Include("Item").Where(b => b.Item.CagoryID == categoryID).ToList());
+            return View("Index", _entities.Bidding.Include("Item").Where(b => b.Item.CategoryId == categoryId).ToList());
         }
 
 
         /// <summary>
         /// Details of a bidding
         /// </summary>
-        /// <param name="biddingID">Identification of bidding</param>
+        /// <param name="biddingId">Identification of bidding</param>
         /// <returns>View of details.</returns>
-        public ActionResult Details(Int32? biddingID)
+        public ActionResult Details(Int32? biddingId)
         {
-            if (biddingID == null)
+            if (biddingId == null)
             {
                 return RedirectToAction("Index");
             }
                 
 
-            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault( i => i.BiddingID == biddingID);
+            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault( i => i.ItemId == biddingId);
 
             if(bidding == null)
             {
@@ -62,7 +62,7 @@ namespace Auctions_Portal.Controllers
             }
 
             ViewBag.Title = "Ajánlat és a tárgy részletei: " + bidding.Item.Name; // az oldal címe
-            ViewBag.Images = _entities.ItemImage.Where(image => image.ItemID == bidding.Item.ItemID).Select(image => image.ImageID).ToList();
+            ViewBag.Images = _entities.ItemImage.Where(image => image.ItemId == bidding.Item.ItemId).Select(image => image.ImageId).ToList();
 
             return View("Details", bidding);
 
@@ -80,7 +80,7 @@ namespace Auctions_Portal.Controllers
                 return File("~/Content/no_image.png", "image/png");
 
             // lekérjük a megadott azonosítóval rendelkező képet
-            Byte[] imageContent = _entities.ItemImage.Where(image => image.ImageID == imageId).Select(image => image.ImageS).FirstOrDefault();
+            Byte[] imageContent = _entities.ItemImage.Where(image => image.ItemId == imageId).Select(image => image.Image).FirstOrDefault();
 
             if (imageContent == null) // amennyiben nem sikerült betölteni, egy alapértelmezett képet adunk vissza
                 return File("~/Content/no_image.png", "image/png");

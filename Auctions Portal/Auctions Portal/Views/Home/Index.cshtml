@@ -28,10 +28,11 @@ else
                                 </td>
                                 <td>
                                     <div class="biddingItemHead">
-                                        @Html.ActionLink(Model[j].Item.Name,"Details", new { biddingID = Model[j].BiddingID })
+                                        @Html.ActionLink(Model[j].Item.Name,"Details", new { biddingId = Model[j].ItemId })
                                     </div>
                                     <div class="biddingItemContent">
                                         <strong>Tárgy: </strong>@Model[j].Item.Name<br />
+                                        <strong>Hírdető: </strong>@Model[j].Advetiser.Name<br />
                                         <strong>Leírás: </strong>@Model[j].Item.Description.Substring(0, Model[j].Item.Description.IndexOf(".") + 1) @* a kommentnek csak az első mondatát írjuk ki *@
                                     </div>
                                 </td>

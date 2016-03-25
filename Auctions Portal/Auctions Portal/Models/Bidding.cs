@@ -14,12 +14,13 @@ namespace Auctions_Portal.Models
     
     public partial class Bidding
     {
-        public int BiddingID { get; set; }
-        public int ItemID { get; set; }
-        public int UserID { get; set; }
-        public int Amount { get; set; }
-        public Nullable<System.DateTime> CallDate { get; set; }
+        public int ItemId { get; set; }
+        public int AdvetiserId { get; set; }
+        public System.DateTime CallDate { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public Nullable<int> Amount { get; set; }
     
+        public virtual Advetiser Advetiser { get; set; }
         public virtual Item Item { get; set; }
         public virtual Users Users { get; set; }
     }

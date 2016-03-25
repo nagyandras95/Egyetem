@@ -12,15 +12,15 @@ namespace Auctions_Portal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Catgory
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Catgory()
+        public Category()
         {
             this.Item = new HashSet<Item>();
         }
     
-        public int CagoryID { get; set; }
+        public int CategoryId { get; set; }
         public string CatgoryName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
