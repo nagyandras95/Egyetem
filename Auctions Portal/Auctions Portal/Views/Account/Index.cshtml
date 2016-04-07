@@ -1,0 +1,108 @@
+﻿@using Auctions_Portal.Models
+
+@model UserRegistrationViewModel
+
+@{
+    ViewBag.Title = "Registartion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* megjeleníthetünk üzeneteket *@
+
+@if (ViewBag.Error != null)
+{
+    <div class="failureNotification">@ViewBag.Error</div>
+}
+
+<h2>Regisztráció</h2>
+
+<div class="contentBody">
+
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td colspan="2" valign="middle">
+                    <div class="contentHead">
+                        Regisztrációs adatok:
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="120">
+                    <table>
+                        <tr>
+                            <td valign="middle" height="24">
+                                Teljes név:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" height="24">
+                                Felhasználó név:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" height="24">
+                                E-mail cím:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" height="24">
+                                Telefonszám:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" height="24">
+                                Jelszó:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" height="24">
+                                Megerősített jelszó:
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="480">
+                    <table width="480">
+                        <tr>
+                            <td>
+                                @Html.TextBoxFor(reg => reg.OriginalName, new { size = "40" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.TextBoxFor(reg => reg.UserName, new { size = "60" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.EditorFor(reg => reg.EmailAdress, new { htmlAttributes = new { size = "40" } })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.EditorFor(reg => reg.PhoneNumber)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.PasswordFor(reg => reg.Password)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.PasswordFor(reg => reg.ConfirmPassword)
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <input type="submit" value="Regisztráció" class="button" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
