@@ -13,7 +13,7 @@
 else
 {
     <table>
-        @* felsoroljuk az épületeket (egy sorban kettőt) *@
+        @* felsoroljuk az ajálatokat (egy sorban kettőt) *@
         @for (Int32 i = 0; i < (Model.Count + 1) / 2; i++)
         {
             <tr>
@@ -22,10 +22,6 @@ else
                     <td>
                         <table border="0" width="300">
                             <tr class="biddingItem">
-                                <td>
-                                    
-                                    @* betöltjük az épület képét is *@
-                                </td>
                                 <td>
                                     <div class="biddingItemHead">
                                         @Html.ActionLink(Model[j].Item.Name,"Details", new { biddingId = Model[j].ItemId })

@@ -188,6 +188,7 @@
     <Compile Include="Models\Bidding.cs">
       <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BiddingViewModel.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
     </Compile>

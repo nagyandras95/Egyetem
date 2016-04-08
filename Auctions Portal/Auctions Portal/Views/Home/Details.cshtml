@@ -81,6 +81,16 @@ else
                     </td>
                 </tr>
           }
+          @if (Session["user"] != null)
+          {
+            <tr>
+                <td>
+                    <div class="button">
+                        @Html.ActionLink("Ajámlattétel", "Bidding", "Home", new { biddingId = Model.ItemId })
+                    </div>
+                </td>
+            </tr>
+          }
         </table>
 </div>
 }

@@ -69,6 +69,68 @@ namespace Auctions_Portal.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult Bidding(Int32? biddingId)
+        {
+            if(biddingId == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault(i => i.ItemId == biddingId);
+
+            BiddingViewModel biddingAmount = new BiddingViewModel();
+            biddingAmount.BiddingId = (Int32) biddingId;
+            if (biddingAmount == null)
+            {
+                biddingAmount.Amount = bidding.Item.StartingCall;
+            }
+            else
+            {
+                biddingAmount.Amount = (Int32) bidding.Amount + 500;
+            }
+            return View("Bidding", biddingAmount);
+
+        }
+
+        [HttpPost]
+        public ActionResult Bidding(BiddingViewModel biddingAmount)
+        {
+            if(biddingAmount == null || Session["user"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault(i => i.ItemId == biddingAmount.BiddingId);
+            if(bidding == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            if(bidding.Amount == null && biddingAmount.Amount < bidding.Item.StartingCall ||
+                bidding.Amount != null && biddingAmount.Amount < bidding.Amount)
+            {
+                ViewBag.Error = "Túl alcsony összeg";
+                return View("Bidding", biddingAmount);
+            }
+
+            if(Session["user"] != null)
+            {
+                Users user = _entities.Users.FirstOrDefault(u => u.UserName == (String) Session["user"]);
+
+                bidding.UserId = user.UserId;
+                bidding.Users = user;
+
+                _entities.Bidding.Attach(bidding);
+                var entry = _entities.Entry(bidding);
+                entry.Property(e => e.UserId).IsModified = true;
+                entry.Property(e => e.Users).IsModified = true;
+                _entities.SaveChanges();
+            }
+
+            return View("Index", "Home");
+        }
+
         /// <summary>
         /// Query an item image.
         /// </summary>
@@ -87,5 +149,7 @@ namespace Auctions_Portal.Controllers
 
             return File(imageContent, "image/png");
         }
+
+       
     }
 }
