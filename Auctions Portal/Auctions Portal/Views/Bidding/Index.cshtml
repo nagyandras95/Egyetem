@@ -36,7 +36,8 @@
                         <table width="480">
                             <tr>
                                 <td>
-                                    @Html.TextBoxFor(b => b.Amount, new { size = "60" })
+                                    @Html.EditorFor(b => b.Amount, new { size = "60" })
+                                    @Html.ValidationMessageFor(b => b.Amount)
                                 </td>
                             </tr>
                         </table>

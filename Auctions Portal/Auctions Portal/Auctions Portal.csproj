@@ -79,6 +79,10 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -131,26 +135,26 @@
     <Content Include="Content\Styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\AuctionsPortalEntities.Context.tt">
+    <Content Include="Models\AuctionPortalEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AuctionsPortalEntities.edmx</DependentUpon>
-      <LastGenOutput>AuctionsPortalEntities.Context.cs</LastGenOutput>
+      <DependentUpon>AuctionPortalEntities.edmx</DependentUpon>
+      <LastGenOutput>AuctionPortalEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\AuctionsPortalEntities.tt">
+    <Content Include="Models\AuctionPortalEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AuctionsPortalEntities.edmx</DependentUpon>
-      <LastGenOutput>AuctionsPortalEntities.cs</LastGenOutput>
+      <DependentUpon>AuctionPortalEntities.edmx</DependentUpon>
+      <LastGenOutput>AuctionPortalEntities.cs</LastGenOutput>
     </Content>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\AuctionsPortalEntities.edmx">
+    <EntityDeploy Include="Models\AuctionPortalEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AuctionsPortalEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>AuctionPortalEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\AuctionsPortalEntities.edmx.diagram">
-      <DependentUpon>AuctionsPortalEntities.edmx</DependentUpon>
+    <Content Include="Models\AuctionPortalEntities.edmx.diagram">
+      <DependentUpon>AuctionPortalEntities.edmx</DependentUpon>
     </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
@@ -162,46 +166,54 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BiddingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Advetiser.cs">
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AuctionsPortalEntities.Context.cs">
+    <Compile Include="Models\AuctionPortalEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AuctionsPortalEntities.Context.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AuctionsPortalEntities.cs">
+    <Compile Include="Models\AuctionPortalEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AuctionsPortalEntities.Designer.cs">
+    <Compile Include="Models\AuctionPortalEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AuctionsPortalEntities.edmx</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuctionService.cs" />
     <Compile Include="Models\Bidding.cs">
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BiddingAmountValidator.cs" />
     <Compile Include="Models\BiddingViewModel.cs" />
     <Compile Include="Models\Category.cs">
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IAccountService.cs" />
+    <Compile Include="Models\AccountService.cs" />
+    <Compile Include="Models\IAuctionService.cs" />
+    <Compile Include="Models\IdentityGuest.cs" />
     <Compile Include="Models\Item.cs">
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemImage.cs">
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\UserRegistrationViewModel.cs" />
     <Compile Include="Models\Users.cs">
-      <DependentUpon>AuctionsPortalEntities.tt</DependentUpon>
+      <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -219,10 +231,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\RegResult.cshtml" />
-    <Content Include="Views\Home\Bidding.cshtml" />
+    <Content Include="Views\Bidding\Index.cshtml" />
+    <Content Include="Views\Bidding\Result.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

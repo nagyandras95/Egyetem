@@ -18,11 +18,11 @@ GO
 
 CREATE TABLE Users (
 	UserId INTEGER PRIMARY KEY IDENTITY(1,1),
-	Name VARCHAR(30) NOT NULL,
-	Password VARCHAR(30) NOT NULL,
+	Name VARCHAR(40) NOT NULL,
+	Password BINARY(64) NOT NULL,
 	UserName VARCHAR(30) NOT NULL,
-	PhoneNumber VARCHAR(15),
-	EMail VARCHAR(30)
+	PhoneNumber VARCHAR(15) NOT NULL,
+	EMail VARCHAR(30) NOT NULL
 );
 GO
 
@@ -113,9 +113,6 @@ insert into Item values ('A legcsinibb gyûrû',5,'Nincs jobb gyûrû ennél. Vedd me
 
 
 insert into Advetiser values ('Nagy András','na','123456');
-
-insert into Users values ('Páli Dániel','123456','pd','+36-30/4301237','palidani@inf.elte.hu');
-insert into Users values ('Noll Péter','123456','np','+36-30/9437969','nollpeti@inf.elte.hu');
 
 insert into Bidding values (1,1,'2016-11-11',null,null);
 insert into Bidding values (2,1,'2016-11-11',null,null);

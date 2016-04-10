@@ -30,36 +30,28 @@
             </tr>
             <tr>
                 <td width="120">
-                    <table>
-                        <tr>
-                            <td valign="middle" height="24">
-                                Felhasználó név:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="middle" height="24">
-                                Jelszó:
-                            </td>
-                        </tr>
-                    </table>
+                    Felhasználónév:
                 </td>
-                <td width="480">
-                    <table width="480">
-                        <tr>
-                            <td>
-                                @Html.TextBoxFor(log => log.UserName, new { size = "60" })
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                @Html.PasswordFor(log => log.Password)
-                            </td>
-                        </tr>
-                    </table>
+                <td class="failureNotificationSmall">
+                    @Html.EditorFor(log => log.UserName)
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="right">
+                <td width="120">
+                    Jelszó:
+                </td>
+                <td class="failureNotificationSmall">
+                    @Html.EditorFor(log => log.Password)
+                </td>
+            </tr>
+            <tr>
+                <td width="120"></td>
+                <td>
+                    @Html.CheckBoxFor(log => log.RememberLogin) Bejelentkezés megjegyzése
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height="50">
                     <input type="submit" value="Bejelentkezés" class="button" />
                 </td>
             </tr>

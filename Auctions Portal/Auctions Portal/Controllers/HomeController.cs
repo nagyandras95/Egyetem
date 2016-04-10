@@ -6,24 +6,14 @@ using Auctions_Portal.Models;
 
 namespace Auctions_Portal.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
 
-        private AuctionsPortalEntities _entities;
-
-        public HomeController()
-        {
-            _entities = new AuctionsPortalEntities();
-
-            ViewBag.Categories = _entities.Category.ToArray();
-
-
-        }
 
         // GET: Home
         public ActionResult Index()
         {
-            return View("Index", _entities.Bidding.Include("Item").ToList());
+            return View("Index", _auctionService.Biddings.ToList());
         }
 
         /// <summary>
@@ -33,11 +23,17 @@ namespace Auctions_Portal.Controllers
         /// <returns>View of biddings.</returns>
         public ActionResult List(Int32? categoryId)
         {
-            if (categoryId == null || !_entities.Bidding.Any(b => b.Item.CategoryId == categoryId))
-                return RedirectToAction("Index"); 
+            if (categoryId == null)
+                return RedirectToAction("Index");
+
+            List<Bidding> biddings = _auctionService.GetBiddings(categoryId).ToList();
+            if(biddings == null)
+            {
+                return RedirectToAction("Index");
+            }
 
      
-            return View("Index", _entities.Bidding.Include("Item").Where(b => b.Item.CategoryId == categoryId).ToList());
+            return View("Index", biddings);
         }
 
 
@@ -52,9 +48,8 @@ namespace Auctions_Portal.Controllers
             {
                 return RedirectToAction("Index");
             }
-                
 
-            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault( i => i.ItemId == biddingId);
+            Bidding bidding = _auctionService.GetBidding(biddingId);
 
             if(bidding == null)
             {
@@ -62,74 +57,13 @@ namespace Auctions_Portal.Controllers
             }
 
             ViewBag.Title = "Ajánlat és a tárgy részletei: " + bidding.Item.Name; // az oldal címe
-            ViewBag.Images = _entities.ItemImage.Where(image => image.ItemId == bidding.Item.ItemId).Select(image => image.ImageId).ToList();
+            ViewBag.Images = _auctionService.GetItemImageIds(bidding.Item.ItemId).ToList();
 
             return View("Details", bidding);
 
 
         }
 
-        [HttpGet]
-        public ActionResult Bidding(Int32? biddingId)
-        {
-            if(biddingId == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault(i => i.ItemId == biddingId);
-
-            BiddingViewModel biddingAmount = new BiddingViewModel();
-            biddingAmount.BiddingId = (Int32) biddingId;
-            if (biddingAmount == null)
-            {
-                biddingAmount.Amount = bidding.Item.StartingCall;
-            }
-            else
-            {
-                biddingAmount.Amount = (Int32) bidding.Amount + 500;
-            }
-            return View("Bidding", biddingAmount);
-
-        }
-
-        [HttpPost]
-        public ActionResult Bidding(BiddingViewModel biddingAmount)
-        {
-            if(biddingAmount == null || Session["user"] == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            Bidding bidding = _entities.Bidding.Include("Item").FirstOrDefault(i => i.ItemId == biddingAmount.BiddingId);
-            if(bidding == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            if(bidding.Amount == null && biddingAmount.Amount < bidding.Item.StartingCall ||
-                bidding.Amount != null && biddingAmount.Amount < bidding.Amount)
-            {
-                ViewBag.Error = "Túl alcsony összeg";
-                return View("Bidding", biddingAmount);
-            }
-
-            if(Session["user"] != null)
-            {
-                Users user = _entities.Users.FirstOrDefault(u => u.UserName == (String) Session["user"]);
-
-                bidding.UserId = user.UserId;
-                bidding.Users = user;
-
-                _entities.Bidding.Attach(bidding);
-                var entry = _entities.Entry(bidding);
-                entry.Property(e => e.UserId).IsModified = true;
-                entry.Property(e => e.Users).IsModified = true;
-                _entities.SaveChanges();
-            }
-
-            return View("Index", "Home");
-        }
 
         /// <summary>
         /// Query an item image.
@@ -142,7 +76,7 @@ namespace Auctions_Portal.Controllers
                 return File("~/Content/no_image.png", "image/png");
 
             // lekérjük a megadott azonosítóval rendelkező képet
-            Byte[] imageContent = _entities.ItemImage.Where(image => image.ItemId == imageId).Select(image => image.Image).FirstOrDefault();
+            Byte[] imageContent = _auctionService.GetBuildingImage(imageId);
 
             if (imageContent == null) // amennyiben nem sikerült betölteni, egy alapértelmezett képet adunk vissza
                 return File("~/Content/no_image.png", "image/png");

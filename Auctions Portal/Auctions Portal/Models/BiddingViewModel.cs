@@ -8,10 +8,11 @@ namespace Auctions_Portal.Models
         [HiddenInput(DisplayValue = false)]
         public Int32 BiddingId { get; set; }
 
+        public Bidding Bidding { get; internal set; }
         /// <summary>
         /// The amount of bidding
         /// </summary>
         public Int32 Amount { get; set; }
-
+        
     }
 }
