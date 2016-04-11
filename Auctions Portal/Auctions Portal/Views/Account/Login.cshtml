@@ -14,13 +14,21 @@
     <div class="failureNotification">@ViewBag.Error</div>
 }
 
-<h2>Regisztráció</h2>
+<h2>Bejelentkezés</h2>
 
 <div class="contentBody">
 
     @using (Html.BeginForm())
     {
+        @Html.AntiForgeryToken() // védelem XSRF támadás ellen
+
         <table>
+            <tr>
+                <td colspan="2">
+                    <div class="failureNotification">@ViewBag.Information</div>
+                    <div class="failureNotification">@Html.ValidationSummary(true, "A bejelentkezés sikertelen!")</div>
+                </td>
+            </tr>
             <tr>
                 <td colspan="2" valign="middle">
                     <div class="contentHead">

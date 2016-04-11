@@ -1,6 +1,6 @@
 ﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+//using Microsoft.AspNet.Identity;
+//using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;

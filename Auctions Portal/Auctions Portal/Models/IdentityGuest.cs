@@ -1,9 +1,9 @@
 ﻿using System;
-using Microsoft.AspNet.Identity.EntityFramework;
+//using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Auctions_Portal.Models
 {
-    public class IdentityGuest : IdentityUser
+    public class IdentityGuest //: IdentityUser
     {
 
         /// <summary>

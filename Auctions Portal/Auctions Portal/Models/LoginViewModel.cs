@@ -18,7 +18,6 @@ namespace Auctions_Portal.Models
         /// User's password
         /// </summary>
         [DataType(DataType.Password)]
-        [UIHint("Password")]
         [Required(ErrorMessage = "Hiányzik a jelszó!")]
         public String Password { get; set; }
 
