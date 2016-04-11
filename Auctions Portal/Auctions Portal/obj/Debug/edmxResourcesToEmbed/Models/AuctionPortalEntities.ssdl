@@ -50,11 +50,11 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Password" Type="binary" MaxLength="64" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
-    <Property Name="EMail" Type="varchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="EMail" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <Association Name="BiddingToAdvatiser">
     <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />

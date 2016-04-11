@@ -25,6 +25,40 @@
             <h1>
                 Aukciós portál
             </h1>
+            <h3>
+               Az oldalon jelenleg @ViewBag.UserCount regisztrált felhasználó böngészik.
+            </h3>
+        </div>
+        <div class="headerAdmin">
+            @if (ViewBag.CurrentUserName == null)
+            {
+                <table>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Bejelentkezés", "Login", "Account")
+                        </td>
+                        <td>
+                            @Html.ActionLink("Regisztráció", "Register", "Account")
+                        </td>
+                    </tr>
+                </table>
+            }
+            else {
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            Üdvözöljük, @ViewBag.CurrentGuestName!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Kijelentkezés", "Logout", "Account")
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            }
         </div>
     </div>
 
@@ -32,7 +66,7 @@
         <div class="leftColumn">
             <h3>Keresés kategórák szerint</h3>
             @* amennyiben nincsenek megadva kategórák *@
-            @if (ViewBag.Categories == null || ViewBag.Categories.Length == 0)
+            @if (ViewBag.Categories == null || ViewBag.Categories.Count == 0)
             {
                 <span>Nincs aukció</span>
             }

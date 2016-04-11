@@ -81,6 +81,15 @@ else
                     </td>
                 </tr>
           }
+
+            <tr>
+                <td>
+                    <div class="button">
+                        @Html.ActionLink("Ajámlattétel", "Index", "Bidding", new { biddingId = Model.ItemId }, new { @class = "contentLink" })
+                    </div>
+                </td>
+            </tr>
+          
         </table>
 </div>
 }

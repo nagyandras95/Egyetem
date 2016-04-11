@@ -21,5 +21,8 @@ namespace Auctions_Portal.Models
         [UIHint("Password")]
         [Required(ErrorMessage = "Hiányzik a jelszó!")]
         public String Password { get; set; }
+
+
+        public Boolean RememberLogin { get; set; }
     }
 }
