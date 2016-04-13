@@ -12,18 +12,18 @@ namespace Auctions_Portal.Controllers
         // GET: Bidding
         public ActionResult Index()
         {
-            return View();
+            return View("MakeBidding");
         }
 
         [HttpGet]
-        public ActionResult Index(Int32? biddingId)
+        public ActionResult MakeBidding(Int32? itemId)
         {
-            if (biddingId == null)
+            if (itemId == null)
             {
                 return RedirectToAction("Index");
             }
 
-            BiddingViewModel biddingAmount = _auctionService.NewBidding(biddingId);
+            BiddingViewModel biddingAmount = _auctionService.NewBidding(itemId);
             if (biddingAmount == null)
             {
                 return RedirectToAction("Index");
@@ -35,20 +35,20 @@ namespace Auctions_Portal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Int32? biddingId, BiddingViewModel biddingAmount)
+        public ActionResult MakeBidding(Int32? itemId, BiddingViewModel biddingAmount)
         {
             if (biddingAmount == null || biddingAmount == null)
             {
                 return RedirectToAction("Index");
             }
 
-            biddingAmount.Bidding = _auctionService.GetBidding(biddingId);
+            biddingAmount.Bidding = _auctionService.GetBidding(itemId);
             if (biddingAmount.Bidding == null)
             {
                 return RedirectToAction("Index","Home");
             }
 
-            switch(BiddingAmountValidator.Validate((Int32)biddingId, biddingAmount.Bidding.Amount, biddingAmount.Amount,
+            switch(BiddingAmountValidator.Validate((Int32)itemId, biddingAmount.Bidding.Amount, biddingAmount.Amount,
                 biddingAmount.Bidding.Item.StartingCall))
             {
                 case BiddingAmountError.TooFew :
@@ -68,7 +68,7 @@ namespace Auctions_Portal.Controllers
 
             String userName = _accountService.CurrentUserName;
 
-            if (!_auctionService.SaveBidding(biddingId, userName, biddingAmount))
+            if (!_auctionService.SaveBidding(itemId, userName, biddingAmount))
             {
                 ModelState.AddModelError("", "A ajánlattétel sikertelen volt, kérem, próbálja újra!");
                 return View("Index", biddingAmount);

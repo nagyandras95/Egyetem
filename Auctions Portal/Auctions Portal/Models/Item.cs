@@ -17,17 +17,21 @@ namespace Auctions_Portal.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Item()
         {
+            this.Bidding = new HashSet<Bidding>();
             this.ItemImage = new HashSet<ItemImage>();
         }
     
         public int ItemId { get; set; }
         public string Name { get; set; }
         public int CategoryId { get; set; }
+        public int AdvetiserId { get; set; }
         public string Description { get; set; }
         public int StartingCall { get; set; }
         public System.DateTime CloseDate { get; set; }
     
-        public virtual Bidding Bidding { get; set; }
+        public virtual Advetiser Advetiser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bidding> Bidding { get; set; }
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemImage> ItemImage { get; set; }

@@ -17,7 +17,7 @@ namespace Auctions_Portal.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Advetiser()
         {
-            this.Bidding = new HashSet<Bidding>();
+            this.Item = new HashSet<Item>();
         }
     
         public int AdvetiserId { get; set; }
@@ -26,6 +26,6 @@ namespace Auctions_Portal.Models
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bidding> Bidding { get; set; }
+        public virtual ICollection<Item> Item { get; set; }
     }
 }

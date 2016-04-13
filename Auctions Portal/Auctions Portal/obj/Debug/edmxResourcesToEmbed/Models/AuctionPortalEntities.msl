@@ -14,8 +14,8 @@
     <EntitySetMapping Name="Bidding">
       <EntityTypeMapping TypeName="AuctionsPortalModel.Bidding">
         <MappingFragment StoreEntitySet="Bidding">
+          <ScalarProperty Name="BiddingId" ColumnName="BiddingId" />
           <ScalarProperty Name="ItemId" ColumnName="ItemId" />
-          <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
           <ScalarProperty Name="CallDate" ColumnName="CallDate" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -36,6 +36,7 @@
           <ScalarProperty Name="ItemId" ColumnName="ItemId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="StartingCall" ColumnName="StartingCall" />
           <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />

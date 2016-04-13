@@ -11,10 +11,10 @@
   </EntityType>
   <EntityType Name="Bidding">
     <Key>
-      <PropertyRef Name="ItemId" />
+      <PropertyRef Name="BiddingId" />
     </Key>
+    <Property Name="BiddingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ItemId" Type="int" Nullable="false" />
-    <Property Name="AdvetiserId" Type="int" Nullable="false" />
     <Property Name="CallDate" Type="date" Nullable="false" />
     <Property Name="UserId" Type="int" />
     <Property Name="Amount" Type="int" />
@@ -31,8 +31,9 @@
       <PropertyRef Name="ItemId" />
     </Key>
     <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="AdvetiserId" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="200" />
     <Property Name="StartingCall" Type="int" Nullable="false" />
     <Property Name="CloseDate" Type="date" Nullable="false" />
@@ -56,21 +57,9 @@
     <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="EMail" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
-  <Association Name="BiddingToAdvatiser">
-    <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />
-    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Advetiser">
-        <PropertyRef Name="AdvetiserId" />
-      </Principal>
-      <Dependent Role="Bidding">
-        <PropertyRef Name="AdvetiserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="BiddingToItem">
     <End Role="Item" Type="Self.Item" Multiplicity="1" />
-    <End Role="Bidding" Type="Self.Bidding" Multiplicity="0..1" />
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Item">
         <PropertyRef Name="ItemId" />
@@ -104,6 +93,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ItemToAdvatiser">
+    <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Advetiser">
+        <PropertyRef Name="AdvetiserId" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="AdvetiserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="ItemToCatgory">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />
     <End Role="Item" Type="Self.Item" Multiplicity="*" />
@@ -123,10 +124,6 @@
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ItemImage" EntityType="Self.ItemImage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="BiddingToAdvatiser" Association="Self.BiddingToAdvatiser">
-      <End Role="Advetiser" EntitySet="Advetiser" />
-      <End Role="Bidding" EntitySet="Bidding" />
-    </AssociationSet>
     <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
       <End Role="Item" EntitySet="Item" />
       <End Role="Bidding" EntitySet="Bidding" />
@@ -138,6 +135,10 @@
     <AssociationSet Name="ImageToItem" Association="Self.ImageToItem">
       <End Role="Item" EntitySet="Item" />
       <End Role="ItemImage" EntitySet="ItemImage" />
+    </AssociationSet>
+    <AssociationSet Name="ItemToAdvatiser" Association="Self.ItemToAdvatiser">
+      <End Role="Advetiser" EntitySet="Advetiser" />
+      <End Role="Item" EntitySet="Item" />
     </AssociationSet>
     <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
       <End Role="Category" EntitySet="Category" />

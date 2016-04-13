@@ -16,10 +16,10 @@
         </EntityType>
         <EntityType Name="Bidding">
           <Key>
-            <PropertyRef Name="ItemId" />
+            <PropertyRef Name="BiddingId" />
           </Key>
+          <Property Name="BiddingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ItemId" Type="int" Nullable="false" />
-          <Property Name="AdvetiserId" Type="int" Nullable="false" />
           <Property Name="CallDate" Type="date" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="Amount" Type="int" />
@@ -36,8 +36,9 @@
             <PropertyRef Name="ItemId" />
           </Key>
           <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="AdvetiserId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="200" />
           <Property Name="StartingCall" Type="int" Nullable="false" />
           <Property Name="CloseDate" Type="date" Nullable="false" />
@@ -61,21 +62,9 @@
           <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="EMail" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <Association Name="BiddingToAdvatiser">
-          <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />
-          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Advetiser">
-              <PropertyRef Name="AdvetiserId" />
-            </Principal>
-            <Dependent Role="Bidding">
-              <PropertyRef Name="AdvetiserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="BiddingToItem">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
-          <End Role="Bidding" Type="Self.Bidding" Multiplicity="0..1" />
+          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="ItemId" />
@@ -109,6 +98,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="ItemToAdvatiser">
+          <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advetiser">
+              <PropertyRef Name="AdvetiserId" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="AdvetiserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ItemToCatgory">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Item" Type="Self.Item" Multiplicity="*" />
@@ -128,10 +129,6 @@
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemImage" EntityType="Self.ItemImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="BiddingToAdvatiser" Association="Self.BiddingToAdvatiser">
-            <End Role="Advetiser" EntitySet="Advetiser" />
-            <End Role="Bidding" EntitySet="Bidding" />
-          </AssociationSet>
           <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
             <End Role="Item" EntitySet="Item" />
             <End Role="Bidding" EntitySet="Bidding" />
@@ -143,6 +140,10 @@
           <AssociationSet Name="ImageToItem" Association="Self.ImageToItem">
             <End Role="Item" EntitySet="Item" />
             <End Role="ItemImage" EntitySet="ItemImage" />
+          </AssociationSet>
+          <AssociationSet Name="ItemToAdvatiser" Association="Self.ItemToAdvatiser">
+            <End Role="Advetiser" EntitySet="Advetiser" />
+            <End Role="Item" EntitySet="Item" />
           </AssociationSet>
           <AssociationSet Name="ItemToCatgory" Association="Self.ItemToCatgory">
             <End Role="Category" EntitySet="Category" />
@@ -162,18 +163,17 @@
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Bidding" Relationship="Self.BiddingToAdvatiser" FromRole="Advetiser" ToRole="Bidding" />
+          <NavigationProperty Name="Item" Relationship="Self.ItemToAdvatiser" FromRole="Advetiser" ToRole="Item" />
         </EntityType>
         <EntityType Name="Bidding">
           <Key>
-            <PropertyRef Name="ItemId" />
+            <PropertyRef Name="BiddingId" />
           </Key>
+          <Property Name="BiddingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="AdvetiserId" Type="Int32" Nullable="false" />
           <Property Name="CallDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="Amount" Type="Int32" />
-          <NavigationProperty Name="Advetiser" Relationship="Self.BiddingToAdvatiser" FromRole="Bidding" ToRole="Advetiser" />
           <NavigationProperty Name="Item" Relationship="Self.BiddingToItem" FromRole="Bidding" ToRole="Item" />
           <NavigationProperty Name="Users" Relationship="Self.BiddingToUser" FromRole="Bidding" ToRole="Users" />
         </EntityType>
@@ -190,11 +190,13 @@
             <PropertyRef Name="ItemId" />
           </Key>
           <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="AdvetiserId" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="StartingCall" Type="Int32" Nullable="false" />
           <Property Name="CloseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Advetiser" Relationship="Self.ItemToAdvatiser" FromRole="Item" ToRole="Advetiser" />
           <NavigationProperty Name="Bidding" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />
           <NavigationProperty Name="Category" Relationship="Self.ItemToCatgory" FromRole="Item" ToRole="Category" />
           <NavigationProperty Name="ItemImage" Relationship="Self.ImageToItem" FromRole="Item" ToRole="ItemImage" />
@@ -220,21 +222,21 @@
           <Property Name="EMail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Bidding" Relationship="Self.BiddingToUser" FromRole="Users" ToRole="Bidding" />
         </EntityType>
-        <Association Name="BiddingToAdvatiser">
+        <Association Name="ItemToAdvatiser">
           <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />
-          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Advetiser">
               <PropertyRef Name="AdvetiserId" />
             </Principal>
-            <Dependent Role="Bidding">
+            <Dependent Role="Item">
               <PropertyRef Name="AdvetiserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BiddingToItem">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
-          <End Role="Bidding" Type="Self.Bidding" Multiplicity="0..1" />
+          <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="ItemId" />
@@ -287,9 +289,9 @@
           <EntitySet Name="Item" EntityType="Self.Item" />
           <EntitySet Name="ItemImage" EntityType="Self.ItemImage" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="BiddingToAdvatiser" Association="Self.BiddingToAdvatiser">
+          <AssociationSet Name="ItemToAdvatiser" Association="Self.ItemToAdvatiser">
             <End Role="Advetiser" EntitySet="Advetiser" />
-            <End Role="Bidding" EntitySet="Bidding" />
+            <End Role="Item" EntitySet="Item" />
           </AssociationSet>
           <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
             <End Role="Item" EntitySet="Item" />
@@ -327,8 +329,8 @@
           <EntitySetMapping Name="Bidding">
             <EntityTypeMapping TypeName="AuctionsPortalModel.Bidding">
               <MappingFragment StoreEntitySet="Bidding">
+                <ScalarProperty Name="BiddingId" ColumnName="BiddingId" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
-                <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
                 <ScalarProperty Name="CallDate" ColumnName="CallDate" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -349,6 +351,7 @@
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="StartingCall" ColumnName="StartingCall" />
                 <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
