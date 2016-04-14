@@ -24,7 +24,11 @@ namespace Auctions_Portal.Controllers
             ViewBag.UserCount = _accountService.UserCount;          
 
             if (_accountService.CurrentUserName != null)
+            {
                 ViewBag.CurrentUserName = _accountService.GetUser(_accountService.CurrentUserName).Name;
+                ViewBag.CurrentUserId = _accountService.GetUser(_accountService.CurrentUserName).UserId;
+            }
+                
         }
     }
 }

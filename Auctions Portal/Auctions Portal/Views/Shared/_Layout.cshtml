@@ -47,7 +47,7 @@
                 <table>
                     <tr>
                         <td colspan="2">
-                            Üdvözöljük, @ViewBag.CurrentGuestName!
+                            Üdvözöljük, @ViewBag.CurrentUserName!
                         </td>
                     </tr>
                     <tr>
@@ -85,6 +85,23 @@
                 </ul>
             }
         </div>
+      
+        <div class="mostRightColumn">
+               @if (ViewBag.CurrentUserName == null)
+               {
+                    <span>Nincs elérhető funkció</span>
+               }
+               else
+               {
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Saját licitek listázása.", "ListBidded","Home", new { userId = ViewBag.CurrentUserId }, new { })
+                        </li>
+                    </ul>
+               }
+
+        </div>
+        
         <div class="rightColumn">
             @RenderBody()
             @* betöltjük a tényleges oldal törzsét *@

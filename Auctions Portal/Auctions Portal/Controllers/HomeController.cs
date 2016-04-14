@@ -13,7 +13,7 @@ namespace Auctions_Portal.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View("Index", _auctionService.Biddings.ToList());
+            return View("Index", _auctionService.ActiveAdvertisements.ToList());
         }
 
         /// <summary>
@@ -26,14 +26,14 @@ namespace Auctions_Portal.Controllers
             if (categoryId == null)
                 return RedirectToAction("Index");
 
-            List<Bidding> biddings = _auctionService.GetBiddings(categoryId).ToList();
-            if(biddings == null)
+            List<Item> items = _auctionService.GetAdvertisements(categoryId).ToList();
+            if(items == null)
             {
                 return RedirectToAction("Index");
             }
 
      
-            return View("Index", biddings);
+            return View("Index", items);
         }
 
 
@@ -42,24 +42,29 @@ namespace Auctions_Portal.Controllers
         /// </summary>
         /// <param name="biddingId">Identification of bidding</param>
         /// <returns>View of details.</returns>
-        public ActionResult Details(Int32? biddingId)
+        public ActionResult Details(Int32? itemId)
         {
-            if (biddingId == null)
+            if (itemId == null)
             {
                 return RedirectToAction("Index");
             }
 
-            Bidding bidding = _auctionService.GetBidding(biddingId);
+            
+            Item item = _auctionService.GetItem(itemId);
 
-            if(bidding == null)
+            if(item == null)
             {
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Title = "Ajánlat és a tárgy részletei: " + bidding.Item.Name; // az oldal címe
-            ViewBag.Images = _auctionService.GetItemImageIds(bidding.Item.ItemId).ToList();
+            Int32? biggestAmount = _auctionService.GetLastAmount(itemId);
+            if(biggestAmount == null)
+                return RedirectToAction("Index");
 
-            return View("Details", bidding);
+            ViewBag.Title = "Ajánlat és a tárgy részletei: " + item.Name; // az oldal címe
+            ViewBag.Images = _auctionService.GetItemImageIds(item.ItemId).ToList();
+
+            return View("Details", new Tuple<Item,Int32>(item, (Int32)biggestAmount));
 
 
         }

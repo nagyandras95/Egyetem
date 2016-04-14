@@ -8,18 +8,17 @@
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Bidding" Relationship="Self.BiddingToAdvatiser" FromRole="Advetiser" ToRole="Bidding" />
+    <NavigationProperty Name="Item" Relationship="Self.ItemToAdvatiser" FromRole="Advetiser" ToRole="Item" />
   </EntityType>
   <EntityType Name="Bidding">
     <Key>
-      <PropertyRef Name="ItemId" />
+      <PropertyRef Name="BiddingId" />
     </Key>
+    <Property Name="BiddingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ItemId" Type="Int32" Nullable="false" />
-    <Property Name="AdvetiserId" Type="Int32" Nullable="false" />
     <Property Name="CallDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="Amount" Type="Int32" />
-    <NavigationProperty Name="Advetiser" Relationship="Self.BiddingToAdvatiser" FromRole="Bidding" ToRole="Advetiser" />
     <NavigationProperty Name="Item" Relationship="Self.BiddingToItem" FromRole="Bidding" ToRole="Item" />
     <NavigationProperty Name="Users" Relationship="Self.BiddingToUser" FromRole="Bidding" ToRole="Users" />
   </EntityType>
@@ -36,11 +35,13 @@
       <PropertyRef Name="ItemId" />
     </Key>
     <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="AdvetiserId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="StartingCall" Type="Int32" Nullable="false" />
     <Property Name="CloseDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Advetiser" Relationship="Self.ItemToAdvatiser" FromRole="Item" ToRole="Advetiser" />
     <NavigationProperty Name="Bidding" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />
     <NavigationProperty Name="Category" Relationship="Self.ItemToCatgory" FromRole="Item" ToRole="Category" />
     <NavigationProperty Name="ItemImage" Relationship="Self.ImageToItem" FromRole="Item" ToRole="ItemImage" />
@@ -66,21 +67,21 @@
     <Property Name="EMail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Bidding" Relationship="Self.BiddingToUser" FromRole="Users" ToRole="Bidding" />
   </EntityType>
-  <Association Name="BiddingToAdvatiser">
+  <Association Name="ItemToAdvatiser">
     <End Role="Advetiser" Type="Self.Advetiser" Multiplicity="1" />
-    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Advetiser">
         <PropertyRef Name="AdvetiserId" />
       </Principal>
-      <Dependent Role="Bidding">
+      <Dependent Role="Item">
         <PropertyRef Name="AdvetiserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="BiddingToItem">
     <End Role="Item" Type="Self.Item" Multiplicity="1" />
-    <End Role="Bidding" Type="Self.Bidding" Multiplicity="0..1" />
+    <End Role="Bidding" Type="Self.Bidding" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Item">
         <PropertyRef Name="ItemId" />
@@ -133,9 +134,9 @@
     <EntitySet Name="Item" EntityType="Self.Item" />
     <EntitySet Name="ItemImage" EntityType="Self.ItemImage" />
     <EntitySet Name="Users" EntityType="Self.Users" />
-    <AssociationSet Name="BiddingToAdvatiser" Association="Self.BiddingToAdvatiser">
+    <AssociationSet Name="ItemToAdvatiser" Association="Self.ItemToAdvatiser">
       <End Role="Advetiser" EntitySet="Advetiser" />
-      <End Role="Bidding" EntitySet="Bidding" />
+      <End Role="Item" EntitySet="Item" />
     </AssociationSet>
     <AssociationSet Name="BiddingToItem" Association="Self.BiddingToItem">
       <End Role="Item" EntitySet="Item" />

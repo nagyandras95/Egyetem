@@ -98,6 +98,16 @@ div.leftColumn
     height: 100%;
 }
 
+div.mostRightColumn
+{
+    position: relative;
+    text-align: right;
+    float: right;
+	width: 160pt;
+	padding: 5pt;
+    height: 100%;
+}
+
 div.leftColumn h3
 {
     text-align: left;

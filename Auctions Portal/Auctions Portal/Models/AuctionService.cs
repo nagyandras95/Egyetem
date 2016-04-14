@@ -32,6 +32,13 @@ namespace Auctions_Portal.Models
             }
         }
 
+        public IEnumerable<Item> ActiveAdvertisements
+        {
+            get
+            {
+                return _entities.Item.Where(item => item.CloseDate > DateTime.Today);
+            }
+        }
 
         public Bidding GetBidding(Int32? biddingId)
         {
@@ -39,6 +46,44 @@ namespace Auctions_Portal.Models
                 return null;
 
             return _entities.Bidding.Include("Item").FirstOrDefault(bidding => bidding.ItemId == biddingId);
+        }
+
+        public Item GetItem(int? itemId)
+        {
+            if (itemId == null || !_entities.Item.Any(item => item.ItemId == itemId))
+                return null;
+
+            return _entities.Item.FirstOrDefault(item => item.ItemId == itemId);
+        }
+
+        public Int32? GetLastAmount(Int32? itemId)
+        {
+            if(itemId == null || !_entities.Item.Any(item => item.ItemId == itemId))
+                return null;
+
+            if(!_entities.Bidding.Include("Item").Any(bidding => bidding.ItemId == itemId))
+                return 0;
+
+            return _entities.Bidding.Include("Item").OrderBy(bidding => bidding.CallDate).
+                Where(bidding => bidding.ItemId == itemId).LastOrDefault().Amount;
+
+
+        }
+
+        public IEnumerable<Item> GetUserBiddings(String userName)
+        {
+            List<Item> userItems = new List<Item>();
+            foreach (int itemId in GetUserItemIds(userName))
+            {
+                userItems.Add(_entities.Bidding.Where(b => b.ItemId == itemId).
+                    OrderBy(b => b.CallDate).LastOrDefault().Item);
+            }
+            return userItems;
+        }
+
+        public IEnumerable<int> GetUserItemIds(string userName)
+        {
+            return _entities.Bidding.Where(b => b.Users.UserName == userName).Select(b => b.ItemId);
         }
 
         public IEnumerable<int> GetItemImageIds(int? itemId)
@@ -49,12 +94,12 @@ namespace Auctions_Portal.Models
             return _entities.ItemImage.Where(image => image.ItemId == itemId).Select(image => image.ImageId);
         }
 
-        public IEnumerable<Bidding> GetBiddings(Int32? catgoryId)
+        public IEnumerable<Item> GetAdvertisements(Int32? catgoryId)
         {
-            if (catgoryId == null || !_entities.Bidding.Any(bidding => bidding.Item.CategoryId == catgoryId))
+            if (catgoryId == null || !_entities.Item.Any(item => item.CategoryId == catgoryId))
                 return null;
 
-            return _entities.Bidding.Where( b => b.Item.CategoryId == catgoryId);
+            return ActiveAdvertisements.Where( item => item.CategoryId == catgoryId);
         }
 
         public byte[] GetBuildingImage(int? imageId)
@@ -104,5 +149,7 @@ namespace Auctions_Portal.Models
 
             return true;
         }
+
+      
     }
 }

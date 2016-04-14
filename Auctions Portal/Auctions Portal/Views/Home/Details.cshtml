@@ -1,6 +1,6 @@
 ﻿@using Auctions_Portal.Models;
 
-@model Bidding
+@model Tuple<Item,Int32>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml"; // megadjuk az elrendezést
@@ -12,44 +12,38 @@
 }
 else
 {
-    <div class="contentHead">@Model.Item.Name</div>
+    <div class="contentHead">@Model.Item1.Name</div>
     <div class="contentBody">
         <table width="600">
             <tr>
                 <td>
-                    <strong>Kategória:</strong> @Model.Item.Category.CatgoryName
+                    <strong>Kategória:</strong> @Model.Item1.Category.CatgoryName
                 </td>
             </tr>
             <tr>
                 <td>
-                    <strong>Aktuális összeg: </strong> @Model.Amount Ft
+                    <strong>Aktuális összeg: </strong> @Model.Item2 Ft
                 </td>
 
             </tr>
             <tr>
                 <td>
                     <div class="contentComment">
-                        <strong>Leírás:</strong> @Model.Item.Description
+                        <strong>Leírás:</strong> @Model.Item1.Description
                     </div>
                 </td>
                 
             </tr>
+            <!--
             <tr>
                 <td>
-                    <strong>Meghírdetés dátuma:</strong> @Model.CallDate
+                    <strong>Meghírdetés dátuma:</strong>
                 </td>
             </tr>
+             -->
             <tr>
                 <td>
-                    <strong>Lezárás dátuma:</strong>
-                    @if(Model.Item.CloseDate != null)
-                    {
-                        @Model.Item.CloseDate
-                    }
-                    else
-                    {
-                       <div>Az aukció még nincs lezárva.</div>
-                    }
+                    <strong>Lezárás dátuma:</strong> @Model.Item1.CloseDate
                 </td>
             </tr>
 
@@ -85,7 +79,7 @@ else
             <tr>
                 <td>
                     <div class="button">
-                        @Html.ActionLink("Ajámlattétel", "Index", "Bidding", new { biddingId = Model.ItemId }, new { @class = "contentLink" })
+                        @Html.ActionLink("Ajánlattétel", "MakeBidding", "Bidding", new { itemId = Model.Item1.ItemId }, new { @class = "contentLink" })
                     </div>
                 </td>
             </tr>
