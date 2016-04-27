@@ -48,17 +48,30 @@ A feladatot a három rétegű, Model-View-Controller architektúrában valósít
 
 \section{A rendszer szerkezete}
 \subsection{Komponensek}
-Az MVC acthitektúrának megfelelően a programnak 3 fő komponense van.
+Az MVC acthitektúrának megfelelően a programnak 2 fontos komponense van.
 \begin{itemize}
-\item A Models névtér tartalmazza az adatbázis alapján generált entitásmodellt, a nézetmodelleket, az felhasználókezelését , valamint az adatbázis műveltekért felelős osztálymodelleket, valamint a validációért felelős statikus osztályokat.
-\item A Contorllers névtéren belül a kontrollerek helyezkednek el. A program 3 különböző kontrollere oszlik, valamint a közös funkcionalitást biztosító bázis kontrollere.
-\item A View-en belül helyezkedik el a közös megjelenítésért felelős nézet, a tárgyak listázásáért felelős főoldali nézet,  a be-ki jelenkezesértét és a regisztrációért felelős nézetek, valamint a tárgyak részleteit megadó, és a licitálás felület.
+\item Az adatbázis felelős a rendszer által használt adatok, és a felhasználó információk tárolására. Az adatbázishoz való kapcsolódást az ADO.NET Entity Freamwork segítségével biztosítjuk.
+\item A webes alkalmazási felület ASP.NET-ben MVC architektúrával megvalósítva, amely tartalmaz felhasználói nézeteket és ehhez kapcsolódó nézetmodelleket, kontrollereket, valamint az adatbázis modelljét, és a funkcionalitásért felelős kiszolgáló osztályokat.
+
+\includegraphics[scale=0.5]{komponens_diagram.jpg}
+
 \end{itemize}
 \subsection{Osztályok}
+\begin{itemize}
+\item A Models névtéren belül helyezkednek el a nézetmodelleket, az adatbázis modell, valamint az aukciót és a felhasználói műveletek végző osztályok.
+\item A Contorllers névtéren belül a kontrollerek helyezkednek el. A program 3 különböző kontrollere oszlik, valamint a közös funkcionalitást biztosító bázis kontrollere.
+\item A View-en belül helyezkedik el a közös megjelenítésért felelős nézet, a tárgyak listázásáért felelős főoldali nézet,  a be-ki jelenkezesértét és a regisztrációért felelős nézetek, valamint a tárgyak részleteit megadó, és a licitálás felület
+\end{itemize}
 \includegraphics[scale=0.5]{osztaly_szerkezet.jpg}
 
 \section{Adatbázis felépítése}
-
-\includegraphics[scale=1.0]{entity_connect.jpg}
+\begin{itemize}
+\item Az adatbázisban tároljuk az egyes meghirdetett tárgyakat, és a hirdetéshez kapcsolódó információkat.
+\item A felhasználó adatokat
+\item AZ összes ajánlatot, melyben benne van az ajánlat összege, dátuma, tárgya, és az ajánlatot megtett felhasználó.
+\item A tárgyakhoz tartozó képeket.
+\item Az egyes tárgyak kategóriáját.
+\end{itemize}
+\includegraphics[scale=0.5]{entity_connect.jpg}
 
 \end{document}

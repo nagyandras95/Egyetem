@@ -27,7 +27,7 @@
       <PropertyRef Name="CategoryId" />
     </Key>
     <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CatgoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CatgoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Item" Relationship="Self.ItemToCatgory" FromRole="Category" ToRole="Item" />
   </EntityType>
   <EntityType Name="Item">
@@ -40,6 +40,7 @@
     <Property Name="AdvetiserId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="StartingCall" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="CloseDate" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="Advetiser" Relationship="Self.ItemToAdvatiser" FromRole="Item" ToRole="Advetiser" />
     <NavigationProperty Name="Bidding" Relationship="Self.BiddingToItem" FromRole="Item" ToRole="Bidding" />

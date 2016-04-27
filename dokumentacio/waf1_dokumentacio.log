@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.9)  12 APR 2016 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.9)  19 APR 2016 09:39
 entering extended mode
 **./waf1_dokumentacio.tex
 (waf1_dokumentacio.tex
@@ -486,56 +486,49 @@ Overfull \hbox (91.79883pt too wide) in paragraph at lines 47--48
 [] 
  []
 
-[2]
-Overfull \hbox (13.92506pt too wide) in paragraph at lines 53--54
-[]\OT1/cmr/m/n/12 A Mod-els nevter tar-tal-mazza az adatbazis alapjan gener
-alt en-titasmodellt,
+[2] <komponens_diagram.jpg, id=13, 682.55pt x 150.5625pt>
+File: komponens_diagram.jpg Graphic file (type jpg)
+
+<use komponens_diagram.jpg>
+Package pdftex.def Info: komponens_diagram.jpg used on input line 56.
+(pdftex.def)             Requested size: 341.27417pt x 75.28105pt.
+
+Overfull \hbox (3.67656pt too wide) in paragraph at lines 61--62
+[]\OT1/cmr/m/n/12 A Mod-els nevteren belul helyezked-nek el a nezetmodellek
+et, az adatbazis
  []
 
-
-Overfull \hbox (31.42896pt too wide) in paragraph at lines 53--54
-\OT1/cmr/m/n/12 a nezetmodelleket, az fel-hasznalokezeleset , valamint az 
-adatbazis m}uveltekert
- []
-
-
-Overfull \hbox (24.1832pt too wide) in paragraph at lines 53--54
-\OT1/cmr/m/n/12 felel}os osztalymodelleket, valamint a validacioert felel}o
-s statikus osztalyokat. 
- []
-
-<osztaly_szerkezet.jpg, id=13, 893.3375pt x 552.0625pt>
+[3 <./felhasznaloi_diag.jpg> <./komponens_diagram.jpg>]
+<osztaly_szerkezet.jpg, id=17, 893.3375pt x 552.0625pt>
 File: osztaly_szerkezet.jpg Graphic file (type jpg)
 
 <use osztaly_szerkezet.jpg>
-Package pdftex.def Info: osztaly_szerkezet.jpg used on input line 58.
+Package pdftex.def Info: osztaly_szerkezet.jpg used on input line 65.
 (pdftex.def)             Requested size: 446.66765pt x 276.03056pt.
 
-Overfull \hbox (56.66765pt too wide) in paragraph at lines 58--59
+Overfull \hbox (56.66765pt too wide) in paragraph at lines 65--66
 [] 
  []
 
-[3 <./felhasznaloi_diag.jpg>]
-<entity_connect.jpg, id=17, 447.6725pt x 673.01437pt>
-File: entity_connect.jpg Graphic file (type jpg)
- <use entity_connect.jpg>
-Package pdftex.def Info: entity_connect.jpg used on input line 62.
-(pdftex.def)             Requested size: 447.6714pt x 673.01273pt.
 
-Overfull \hbox (57.6714pt too wide) in paragraph at lines 62--63
-[] 
+Overfull \hbox (13.93053pt too wide) in paragraph at lines 69--70
+[]\OT1/cmr/m/n/12 Az adatbazisban taroljuk az egyes meghird-e-tett targyakat
+, es a hirdeteshez
  []
 
 [4 <./osztaly_szerkezet.jpg>]
-Overfull \vbox (109.25606pt too high) has occurred while \output is active []
-
+<entity_connect.jpg, id=21, 447.6725pt x 736.25063pt>
+File: entity_connect.jpg Graphic file (type jpg)
+ <use entity_connect.jpg>
+Package pdftex.def Info: entity_connect.jpg used on input line 75.
+(pdftex.def)             Requested size: 223.8357pt x 368.1244pt.
 
 [5 <./entity_connect.jpg>] (waf1_dokumentacio.aux) ) 
 Here is how much of TeX's memory you used:
- 2257 strings out of 493634
- 28729 string characters out of 3132382
+ 2262 strings out of 493634
+ 28853 string characters out of 3132382
  85299 words of memory out of 3000000
- 5636 multiletter control sequences out of 15000+200000
+ 5640 multiletter control sequences out of 15000+200000
  8006 words of font info for 31 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  27i,7n,24p,370b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -545,9 +538,9 @@ rs/Nagy András/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmr12.pfb><C:/Users/Nagy András/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmr17.pfb><C:/Users/Nagy András/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on waf1_dokumentacio.pdf (5 pages, 269933 bytes).
+Output written on waf1_dokumentacio.pdf (5 pages, 288421 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
+ 38 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

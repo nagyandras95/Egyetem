@@ -24,7 +24,7 @@
       <PropertyRef Name="CategoryId" />
     </Key>
     <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CatgoryName" Type="varchar" MaxLength="30" />
+    <Property Name="CatgoryName" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Item">
     <Key>
@@ -36,6 +36,7 @@
     <Property Name="AdvetiserId" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="200" />
     <Property Name="StartingCall" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
     <Property Name="CloseDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="ItemImage">

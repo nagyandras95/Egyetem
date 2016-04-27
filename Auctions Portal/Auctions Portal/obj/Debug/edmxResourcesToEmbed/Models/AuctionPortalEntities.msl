@@ -39,6 +39,7 @@
           <ScalarProperty Name="AdvetiserId" ColumnName="AdvetiserId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="StartingCall" ColumnName="StartingCall" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
         </MappingFragment>
       </EntityTypeMapping>
