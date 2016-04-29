@@ -1,0 +1,109 @@
+﻿@using Auctions_Portal.Models
+
+@model UserRegistrationViewModel
+
+@{
+    ViewBag.Title = "Registartion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* megjeleníthetünk üzeneteket *@
+
+@if (ViewBag.Error != null)
+{
+    <div class="failureNotification">@ViewBag.Error</div>
+}
+
+<h2>Regisztráció</h2>
+
+<div class="contentBody">
+
+@using (Html.BeginForm()) // egy űrlapban töltjük ki a tartalmat
+{
+    @Html.AntiForgeryToken() // védelem XSRF támadás ellen
+
+    <table>
+        <tr>
+            <td colspan="3">
+                <div class="failureNotification">@Html.ValidationSummary(true, "A regisztráció sikertelen!")</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="contentHead">
+                    Személyes adatok:
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="120">
+                Név:
+            </td>
+            <td class="failureNotificationSmall" colspan="2">
+                @Html.TextBoxFor(user => user.OriginalName, new { size = "40" })
+                @Html.ValidationMessageFor(user => user.OriginalName)
+            </td>
+
+        </tr>
+        <tr>
+            <td width="120">
+                E-mail cím:
+            </td>
+            <td class="failureNotificationSmall" colspan="2">
+                @Html.TextBoxFor(user => user.EmailAdress, new { size = "40" })
+                @Html.ValidationMessageFor(user => user.EmailAdress)
+            </td>
+
+        </tr>
+        <tr>
+            <td width="120">
+                Telefonszám:
+            </td>
+            <td class="failureNotificationSmall" colspan="2">
+                @Html.TextBoxFor(user => user.PhoneNumber, new { size = "40" })
+                @Html.ValidationMessageFor(user => user.PhoneNumber)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="contentHead">
+                    Bejelentkezési adatok:
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="150" colspan="2">
+                Felhasználónév:
+            </td>
+            <td class="failureNotificationSmall">
+                @Html.EditorFor(user => user.UserName)
+                @Html.ValidationMessageFor(user => user.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td width="150" colspan="2">
+                Jelszó:
+            </td>
+            <td class="failureNotificationSmall">
+                @Html.EditorFor(user => user.Password)
+                @Html.ValidationMessageFor(user => user.Password)
+            </td>
+        </tr>
+        <tr>
+            <td width="150" colspan="2">
+                Jelszó megismétlése:
+            </td>
+            <td class="failureNotificationSmall">
+                @Html.EditorFor(user => user.ConfirmPassword)
+                @Html.ValidationMessageFor(user => user.ConfirmPassword)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" height="70">
+                <input type="submit" value="Regisztráció" class="button" />
+            </td>
+        </tr>
+    </table>
+}
+
+</div>

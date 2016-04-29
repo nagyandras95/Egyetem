@@ -1,0 +1,116 @@
+﻿@using Auctions_Portal.Models;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Akuciós portál</title>
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            Globalize.culture("@Culture"); @* megfelelő nyelvi környezet használata *@
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="headerText">
+            <h1>
+                Aukciós portál
+            </h1>
+            <h3>
+               Az oldalon jelenleg @ViewBag.UserCount regisztrált felhasználó böngészik.
+            </h3>
+        </div>
+        <div class="headerAdmin">
+            @if (ViewBag.CurrentUserName == null)
+            {
+                <table>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Bejelentkezés", "Login", "Account")
+                        </td>
+                        <td>
+                            @Html.ActionLink("Regisztráció", "Register", "Account")
+                        </td>
+                    </tr>
+                </table>
+            }
+            else {
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            Üdvözöljük, @ViewBag.CurrentUserName!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Kijelentkezés", "Logout", "Account")
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            }
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="leftColumn">
+            <h3>Keresés kategórák szerint</h3>
+            @* amennyiben nincsenek megadva kategórák *@
+            @if (ViewBag.Categories == null || ViewBag.Categories.Count == 0)
+            {
+                <span>Nincs aukció</span>
+            }
+            else
+            {
+                <ul>
+                    @* felsoroljuk a kategórákat *@
+                    @foreach (Category category in ViewBag.Categories)
+                    {
+                        <li>
+                            @* létrehozunk egy linket minden katgórára az Index akcióra az azonosító paraméterrel *@
+                            @Html.ActionLink(category.CatgoryName, "List", "Home", new {categoryId = category.CategoryId }, new { })
+                            @* a paramétert egy anonim típusban adjuk meg *@
+                        </li>
+                    }
+                </ul>
+
+                
+            }
+
+            
+        </div>
+      
+        <div class="mostRightColumn">
+                
+               @if(ViewBag.CurrentUserName != null)
+               {
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Saját licitek listázása", "ListUserBiddings","Home", new { userId = ViewBag.CurrentUserId }, new { })
+                        </li>
+                    </ul>
+               }
+
+
+        </div>
+        
+        <div class="rightColumn">
+            @RenderBody()
+            @* betöltjük a tényleges oldal törzsét *@
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

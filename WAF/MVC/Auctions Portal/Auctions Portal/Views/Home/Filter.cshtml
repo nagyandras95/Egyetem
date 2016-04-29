@@ -1,0 +1,35 @@
+﻿@using Auctions_Portal.Models;
+
+@model ItemListViewModel
+
+@{
+    ViewBag.Title = "Filter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Szűrés</h2>
+
+<div class="contentBody">
+
+    @using (Html.BeginForm())
+    {
+
+        <table>
+
+            <tr>
+                <td width="120">
+                    Tárgy neve:
+                </td>
+                <td class="failureNotificationSmall">
+                    @Html.EditorFor(filter => filter.ItemName)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height="50">
+                    <input type="submit" value="Szűrés" class="button" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+

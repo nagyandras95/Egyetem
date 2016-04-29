@@ -1,0 +1,14 @@
+﻿@using Auctions_Portal.Models;
+
+@model BiddingViewModel
+
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contentHead">Az ajánlattételt sikeresen rögzítettük</div>
+
+<div class="content">Az ajánlott összeg: <strong>@Model.Amount</strong> HUF.</div>
+

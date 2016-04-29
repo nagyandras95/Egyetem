@@ -1,0 +1,116 @@
+﻿@using Auctions_Portal.Models;
+
+@model ItemListViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; // megadjuk az elrendezést
+}
+
+@if (Model == null || Model.ListedItems.Count() == 0)
+{
+    <div class="contentText">Jelenleg nincs elérhető aukció.</div>
+}
+else
+{
+    <table>
+        @* felsoroljuk az ajálatokat (egy sorban kettőt) *@
+        @for (Int32 i = 0; i < (Model.ListedItems.Count + 1) / 2; i++)
+        {
+            <tr>
+                @for (Int32 j = i * 2; j < i * 2 + 2 && j < Model.ListedItems.Count; j++)
+                {
+                    <td>
+                        <table border="0" width="300">
+                            <tr class="biddingItem">
+                                <td>
+                                    <div class="biddingItemHead">
+                                        @Html.ActionLink(Model.ListedItems[j].Name,"Details", new { itemId = Model.ListedItems[j].ItemId })
+                                    </div>
+                                    <div class="biddingItemContent">
+                                        <strong>Tárgy: </strong>@Model.ListedItems[j].Name<br />
+                                        <strong>Hírdető: </strong>@Model.ListedItems[j].Advetiser.Name<br />
+                                        <strong>Leírás: </strong>@Model.ListedItems[j].Description.Substring(0, Model.ListedItems[j].Description.IndexOf(".") + 1) @* a kommentnek csak az első mondatát írjuk ki *@
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                }
+               
+            </tr>
+        }
+    </table>
+
+    <div class="biddingItemHead">
+        @if (Model.ItemName != null)
+        {       <ul>
+                <li>
+                    @Html.ActionLink("Követekző", "Scroll", new
+                           {
+                               categoryId = Model.Category,
+                               index = Model.ScrollIndex + 1,
+                               filteredName = Model.ItemName,
+                               howMany = Model.HowMany
+                           })
+                </li>
+
+
+            <li>
+                @Html.ActionLink("Előző", "Scroll", new
+                       {
+                           categoryId = Model.Category,
+                           index = Model.ScrollIndex - 1,
+                           filteredName = Model.ItemName,
+                           howMany = Model.HowMany
+
+                       })
+            </li>
+
+        </ul>
+        }
+        else
+        {
+            <ul>
+                <li>
+
+
+                    @Html.ActionLink("Előző", "Scroll", new
+           {
+               categoryId = Model.Category,
+               index = Model.ScrollIndex - 1,
+               filteredName = "",
+               howMany = Model.HowMany
+
+           })
+                </li>
+
+
+                <li>
+
+
+                    @Html.ActionLink("Követekző", "Scroll", new
+           {
+               categoryId = Model.Category,
+               index = Model.ScrollIndex + 1,
+               filteredName = "",
+               howMany = Model.HowMany
+
+           })
+                </li>
+            </ul>
+        }
+
+    </div>
+
+    <ul>
+        <li>
+            @Html.ActionLink("Szűrés", "Filter", new
+                  {
+                      categoryId = Model.Category,
+                      index = 0,
+                      howMany = Model.HowMany
+
+                  })
+        </li>
+    </ul>
+}
