@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using AuctionsPortal.Service.Models;
 using AuctionsPortal.Data;
 
 namespace AuctionsPortal.Service.Controllers
 {
-
-    class ItemController : ApiController
+    [RoutePrefix("api/items")]
+    class ItemsController : ApiController
     {
         private AuctionsPortalEntities _entities;
 
-    /// <summary>
-    /// Vezérlő példányosítása.
-    /// </summary>
-    public ItemController()
+        /// <summary>
+        /// Vezérlő példányosítása.
+        /// </summary>       
+        public ItemsController()
         {
             _entities = new AuctionsPortalEntities();
         }
@@ -26,7 +23,7 @@ namespace AuctionsPortal.Service.Controllers
         /// Vezérlő példányosítása.
         /// </summary>
         /// <param name="entities">Entitásmodell.</param>
-        public ItemController(AuctionsPortalEntities entities_)
+        public ItemsController(AuctionsPortalEntities entities_)
         {
             _entities = entities_;
         }
@@ -34,7 +31,7 @@ namespace AuctionsPortal.Service.Controllers
         /// <summary>
         /// Vezérlő megsemmisítése.
         /// </summary>
-        ~ItemController()
+        ~ItemsController()
         {
             Dispose(false);
         }
@@ -42,7 +39,10 @@ namespace AuctionsPortal.Service.Controllers
         /// <summary>
         /// Tárgyak lekérdezése.
         /// </summary>
-        public IHttpActionResult GetItems()
+        /// 
+        [Route("advertisements")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult Advertiesements()
         {
             try
             {
@@ -67,7 +67,9 @@ namespace AuctionsPortal.Service.Controllers
         /// Tárgyak lekérdezése.
         /// </summary>
         /// <param name="id">Kategória azonosító.</param>
-        public IHttpActionResult GetItemsForcategory(Int32 id)
+        [Route("category_items")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult ItemsForcategory(Int32 id)
         {
             try
             {
@@ -140,31 +142,6 @@ namespace AuctionsPortal.Service.Controllers
                 item.Description = itemDTO.Description;
 
                 _entities.SaveChanges(); // elmentjük a módosított tárgyat
-
-                return Ok();
-            }
-            catch
-            {
-                return InternalServerError();
-            }
-        }
-
-        /// <summary>
-        /// Tárgy törlése.
-        /// </summary>
-        /// <param name="id">Épület azonosító.</param>
-        public IHttpActionResult DeleteItem(Int32 id)
-        {
-            try
-            {
-                Item item = _entities.Item.FirstOrDefault(i => i.ItemId == id);
-
-                if (item == null) // ha nincs ilyen azonosító, akkor hibajelzést küldünk
-                    return NotFound();
-
-                _entities.Item.Remove(item);
-
-                _entities.SaveChanges(); // elmentjük a módosított épületet
 
                 return Ok();
             }

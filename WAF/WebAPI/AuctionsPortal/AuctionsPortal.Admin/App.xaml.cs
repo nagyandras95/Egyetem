@@ -38,6 +38,7 @@ namespace AuctionsPortal.Admin
             _mainViewModel.ItemEditingFinished += new EventHandler(MainViewModel_ItemEditingFinished);
             _mainViewModel.ImageEditingStarted += new EventHandler<ItemEventArgs>(MainViewModel_ImageEditingStarted);
             _mainViewModel.ExitApplication += new EventHandler(ViewModel_ExitApplication);
+            _mainViewModel.Login += new EventHandler(ViewModel_Login);
 
             _mainView = new MainWindow();
             _mainView.DataContext = _mainViewModel;
@@ -54,12 +55,18 @@ namespace AuctionsPortal.Admin
 
         private void ViewModel_LoginFailed(object sender, EventArgs e)
         {
-            MessageBox.Show("A bejelentkezés sikertelen!", "Utazási ügynökség", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            MessageBox.Show("A bejelentkezés sikertelen!", "Aukciós portál", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+        }
+
+        private void ViewModel_LoginSuccess(object sender, EventArgs e)
+        {
+
+            _loginView.Close();
         }
 
         private void ViewModel_MessageApplication(object sender, MessageEventArgs e)
         {
-            MessageBox.Show(e.Message, "Utazási ügynökség", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            MessageBox.Show(e.Message, "Aukciós portál", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
 
         private void MainViewModel_ItemEditingStarted(object sender, EventArgs e)
@@ -100,6 +107,17 @@ namespace AuctionsPortal.Admin
         private void ViewModel_ExitApplication(object sender, System.EventArgs e)
         {
             Shutdown();
+        }
+
+        private void ViewModel_Login(object sender, System.EventArgs e)
+        {
+            _loginViewModel = new LoginViewModel(_model);
+            _loginViewModel.LoginSuccess += new EventHandler(ViewModel_LoginSuccess);
+            _loginViewModel.LoginFailed += new EventHandler(ViewModel_LoginFailed);
+
+            _loginView = new LoginWindow();
+            _loginView.DataContext = _loginViewModel;
+            _loginView.Show();
         }
     }
 }

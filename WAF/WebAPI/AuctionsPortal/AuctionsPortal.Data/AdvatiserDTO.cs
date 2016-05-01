@@ -8,5 +8,11 @@ namespace AuctionsPortal.Data
 {
     public class AdvatiserDTO
     {
+
+        public String Name { get; set; }
+
+        public String UsnerName { get; set; }
+
+        public String Password { get; set; }
     }
 }

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="AuctionsPortal.Service.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="AuctionsPortal.Service.WebApiApplication" Language="C#" %>

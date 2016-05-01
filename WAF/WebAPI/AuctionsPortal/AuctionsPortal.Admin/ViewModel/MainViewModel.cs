@@ -118,6 +118,11 @@ namespace AuctionsPortal.Admin.ViewModel
         public DelegateCommand CancelChangesCommand { get; private set; }
 
         /// <summary>
+        /// Bejelentkezés parancs lekérdezése.
+        /// </summary>
+        public DelegateCommand LoginCommand { get; private set; }
+
+        /// <summary>
         /// Kilépés parancsának lekérdezése.
         /// </summary>
         public DelegateCommand ExitCommand { get; private set; }
@@ -136,6 +141,11 @@ namespace AuctionsPortal.Admin.ViewModel
         /// Alkalmazásból való kilépés eseménye.
         /// </summary>
         public event EventHandler ExitApplication;
+
+        /// <summary>
+        /// Bejelenktkező ablak eseménye
+        /// </summary>
+        public event EventHandler Login;
 
         /// <summary>
         /// Épület szerkesztés elindításának eseménye.
@@ -175,6 +185,7 @@ namespace AuctionsPortal.Admin.ViewModel
             DeleteImageCommand = new DelegateCommand(param => DeleteImage(param as ImageDTO));
             SaveChangesCommand = new DelegateCommand(param => SaveChanges());
             CancelChangesCommand = new DelegateCommand(param => CancelChanges());
+            LoginCommand = new DelegateCommand(patam => OnLogin());
             LoadCommand = new DelegateCommand(param => LoadAsync());
             SaveCommand = new DelegateCommand(param => SaveAsync());
             ExitCommand = new DelegateCommand(param => OnExitApplication());
@@ -311,6 +322,12 @@ namespace AuctionsPortal.Admin.ViewModel
         {
             if (ExitApplication != null)
                 ExitApplication(this, EventArgs.Empty);
+        }
+
+        private void OnLogin()
+        {
+            if (Login != null)
+                Login(this, EventArgs.Empty);
         }
 
         /// <summary>

@@ -67,7 +67,7 @@ namespace AuctionsPortal.Admin.Persistence
         {
             try
             {
-                HttpResponseMessage response = await _client.GetAsync("api/account/login/" + userName + "/" + userPassword);
+                HttpResponseMessage response = await _client.GetAsync("api/account/login/" + userName +  "/" + userPassword);
                 return response.IsSuccessStatusCode; // a művelet eredménye megadja a bejelentkezés sikeressségét
             }
             catch (Exception ex)
@@ -114,7 +114,7 @@ namespace AuctionsPortal.Admin.Persistence
             try
             {
                 // a kéréseket a kliensen keresztül végezzük
-                HttpResponseMessage response = await _client.GetAsync("api/items/");
+                HttpResponseMessage response = await _client.GetAsync("api/items/advertisements");
                 if (response.IsSuccessStatusCode) // amennyiben sikeres a művelet
                 {
                     IEnumerable<ItemDTO> items = await response.Content.ReadAsAsync<IEnumerable<ItemDTO>>();

@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
 using System.Web.Http;
 using System.Web;
+using AuctionsPortal.Data;
 using AuctionsPortal.Service.Models;
 
 namespace AuctionsPortal.Service.Controllers
 {
+    [RoutePrefix("api/account")] 
     public class AccountController : ApiController
     {
         private AuctionsPortalEntities _entities;
@@ -24,14 +25,15 @@ namespace AuctionsPortal.Service.Controllers
         }
 
         [Route("login/{userName}/{password}")]
-        [HttpGet]
-        public IHttpActionResult Login(String userName, String password)
-        {            
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult Login(String userName,String password)
+        {
 
-            Advetiser advitiser = _entities.Advetiser.FirstOrDefault(a => a.UserName == userName); // megkeressük a felhasználót
+           
+          Advetiser advitiser = _entities.Advetiser.FirstOrDefault(a => a.UserName == userName); // megkeressük a felhasználót
 
             if (advitiser == null)
-                return NotFound();
+                return NotFound();            
 
             // ellenőrizzük a jelszót (ehhez a kapott jelszót hash-eljük)
             Byte[] passwordBytes = null;
@@ -43,32 +45,17 @@ namespace AuctionsPortal.Service.Controllers
             if (!passwordBytes.SequenceEqual(advitiser.Password))
                 return NotFound();
 
-            // ha sikeres volt az ellenőrzés
+            if (HttpContext.Current.Session["user"] != null)
+                HttpContext.Current.Session["user"] = null;
+
+                // ha sikeres volt az ellenőrzés
             HttpContext.Current.Session["user"] = advitiser.UserName; // felvesszük a felhasználó nevét a munkamenetbe
             HttpContext.Current.Session.Timeout = 15; // max. 15 percig él a munkamenet
-
-            if (true) // ha meg kell jegyeznünk a felhasználót
-            {
-                HttpCookie cookie = new HttpCookie("user"); // akkor elküldjük azt sütiként
-                cookie["userName"] = advitiser.UserName;
-                cookie.Expires = DateTime.Today.AddDays(365); // egy évig lesz érvényes a süti
-                cookie.HttpOnly = true; // igyekszünk biztonságosság tenni a sütit
-                cookie.Secure = true;
-                HttpContext.Current.Response.Cookies.Add(cookie);
-            }
-            else // ha nem kell megjegyeznünk
-            {
-                // akkor kitöröljük a sütit (amennyiben volt)
-                HttpCookie cookie = new HttpCookie("user");
-                cookie.Expires = DateTime.MinValue; // azzal, hogy lejártnak minősítjük
-                HttpContext.Current.Response.Cookies.Add(cookie);
-            }
-
             return Ok();
         }
 
         [Route("logout")]
-        [HttpGet]
+        [System.Web.Http.HttpGet]
         [Authorize] // csak bejelentklezett felhasználóknak
         public IHttpActionResult Logout()
         {
@@ -80,6 +67,43 @@ namespace AuctionsPortal.Service.Controllers
 
             return Ok();
         }
+
+        /// <summary>
+        /// Új hírdető hozzáadása
+        /// </summary>
+        /// <param name="advatiserDTO"></param>
+        /// <returns></returns>
+        [Route("login/{advatiserDTO}")]
+        [Authorize]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult Register([FromBody] AdvatiserDTO advatiserDTO)
+        {
+            Advetiser advitiser = _entities.Advetiser.FirstOrDefault(a => a.UserName == advatiserDTO.UsnerName);
+
+            if (advitiser != null) ;
+
+            SHA512CryptoServiceProvider provider = new SHA512CryptoServiceProvider();
+            try
+            {
+                 Advetiser addedAdvatiser = _entities.Advetiser.Add(new Advetiser
+                 {
+                        Name = advatiserDTO.Name,
+                        UserName = advatiserDTO.UsnerName,
+                        Password = provider.ComputeHash(Encoding.UTF8.GetBytes(advatiserDTO.Password))
+                 });
+
+                    _entities.SaveChanges(); // elmentjük az új hírdetőt
+
+                    // visszaküldjük a létrehozott hírdetőt
+                    return Created(Request.RequestUri + advatiserDTO.UsnerName, advatiserDTO);
+                }
+                catch
+                {
+                    return InternalServerError();
+                }
+        }
+
+
 
     }
 }
