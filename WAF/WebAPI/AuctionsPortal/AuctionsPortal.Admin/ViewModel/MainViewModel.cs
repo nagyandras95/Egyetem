@@ -19,7 +19,7 @@ namespace AuctionsPortal.Admin.ViewModel
         private Boolean _isLoaded;
 
         /// <summary>
-        /// Épületek lekérdezése.
+        /// Tárgyak lekérdezése.
         /// </summary>
         public ObservableCollection<ItemDTO> Items
         {
@@ -83,7 +83,7 @@ namespace AuctionsPortal.Admin.ViewModel
         }
 
         /// <summary>
-        /// Szerkesztett épület lekérdezése.
+        /// Szerkesztett tárgy lekérdezése.
         /// </summary>
         public ItemDTO EditedItem { get; private set; }
 
@@ -100,7 +100,9 @@ namespace AuctionsPortal.Admin.ViewModel
         /// <summary>
         /// Módosítás parancsának lekérdezése.
         /// </summary>
-        public DelegateCommand UpdateBuildingCommand { get; private set; }
+        public DelegateCommand UpdateItemCommand { get; private set; }
+
+        public DelegateCommand CloseItemCommand { get; private set; }
 
         /// <summary>
         /// Kép törlés parancsának lekérdezése.
@@ -121,6 +123,8 @@ namespace AuctionsPortal.Admin.ViewModel
         /// Bejelentkezés parancs lekérdezése.
         /// </summary>
         public DelegateCommand LoginCommand { get; private set; }
+
+        public DelegateCommand LogoutCommand { get; private set; }
 
         /// <summary>
         /// Kilépés parancsának lekérdezése.
@@ -181,20 +185,27 @@ namespace AuctionsPortal.Admin.ViewModel
                 OnItemEditingStarted();
             });
             CreateImageCommand = new DelegateCommand(param => OnImageEditingStarted((param as ItemDTO).Id));
-            UpdateBuildingCommand = new DelegateCommand(param => UpdateBuilding(param as ItemDTO));
+            CloseItemCommand = new DelegateCommand(param => CloseItem((param as ItemDTO).Id));
+            UpdateItemCommand = new DelegateCommand(param => UpdateBuilding(param as ItemDTO));
             DeleteImageCommand = new DelegateCommand(param => DeleteImage(param as ImageDTO));
             SaveChangesCommand = new DelegateCommand(param => SaveChanges());
             CancelChangesCommand = new DelegateCommand(param => CancelChanges());
             LoginCommand = new DelegateCommand(patam => OnLogin());
+            LogoutCommand = new DelegateCommand(param => OnLogout());
             LoadCommand = new DelegateCommand(param => LoadAsync());
             SaveCommand = new DelegateCommand(param => SaveAsync());
             ExitCommand = new DelegateCommand(param => OnExitApplication());
         }
 
+        private void CloseItem(Int32 id)
+        {
+            _model.CloseItem(id);
+        }
+
         /// <summary>
-        /// Épület frissítése.
+        /// Tárgy frissítése.
         /// </summary>
-        /// <param name="item">Az épület.</param>
+        /// <param name="item">A tárgy.</param>
         private void UpdateBuilding(ItemDTO item)
         {
             if (item == null)
@@ -234,17 +245,17 @@ namespace AuctionsPortal.Admin.ViewModel
             // ellenőrzések
             if (String.IsNullOrEmpty(EditedItem.Name))
             {
-                OnMessageApplication("Az épületnév nincs megadva!");
+                OnMessageApplication("A tárgynév nincs megadva!");
                 return;
             }
             if (EditedItem.Category == null)
             {
-                OnMessageApplication("A város nincs megadva!");
+                OnMessageApplication("A kategóra nincs megadva!");
                 return;
             }
 
             // mentés
-            if (EditedItem.Id == 0) // ha új az épület
+            if (EditedItem.Id == 0) // ha új a tárgy
             {
                 _model.CreateItem(EditedItem);
                 Items.Add(EditedItem);
@@ -252,7 +263,7 @@ namespace AuctionsPortal.Admin.ViewModel
             }
             else // ha már létezik az épület
             {
-                _model.UpdateItem(EditedItem);
+                //_model.UpdateItem(EditedItem);
             }
 
             EditedItem = null;
@@ -330,6 +341,11 @@ namespace AuctionsPortal.Admin.ViewModel
                 Login(this, EventArgs.Empty);
         }
 
+        private async void OnLogout()
+        {
+            await _model.LogoutAsync();
+        }
+
         /// <summary>
         /// Épület szerkesztés elindításának eseménykiváltása.
         /// </summary>
@@ -338,6 +354,8 @@ namespace AuctionsPortal.Admin.ViewModel
             if (ItemEditingStarted != null)
                 ItemEditingStarted(this, EventArgs.Empty);
         }
+
+
 
         /// <summary>
         /// Épület szerkesztés befejeztének eseménykiváltása.

@@ -9,6 +9,8 @@ namespace AuctionsPortal.Data
     public class AdvatiserDTO
     {
 
+        public Int32 Id { get; set; }
+
         public String Name { get; set; }
 
         public String UsnerName { get; set; }

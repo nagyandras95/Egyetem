@@ -28,30 +28,32 @@
             </MenuItem>
             <MenuItem Header="Adminisztráció">
                 <MenuItem Header="Bejelentkezés" Command="{Binding LoginCommand}"/>
-                <MenuItem Header="Kijelentkezés" Command="{Binding LogoutCommand}"/>
+                <MenuItem Header="Kijelentkezés" Command="{Binding LogoutCommand}" IsEnabled="{Binding IsUserLoggedIn}"/>
                 <Separator />
                 <MenuItem Header="Új hírdető regisztrálása" Command="{Binding RegisterCommand}"/>
             </MenuItem>
         </Menu>
 
-        <DataGrid Name="buildingGrid" Grid.Row="1" Grid.ColumnSpan="2" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+        <DataGrid Name="itemGrid" Grid.Row="1" Grid.ColumnSpan="2" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <!-- adatrács, amelynek megadjuk az oszlopait -->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Név" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Kategória" Binding="{Binding Category}"  />
-                <DataGridTextColumn Header="Kezdő licit" Binding="{Binding StartingAmount}" />
+                <DataGridTextColumn Header="Kezdő licit" Binding="{Binding StartingCall}" />
                 <DataGridTextColumn Header="Jelenlegi licit" Binding="{Binding Amount}" />
+                <DataGridTextColumn Header="Meghirdetés dátuma" Binding="{Binding StartDate}"/>
+                <DataGridTextColumn Header="Lezárás dátuma" Binding="{Binding CloseDate}"/>
                 <DataGridTextColumn Header="Leírás" Binding="{Binding Description}" />
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Új hozzáadása" Margin="6,5,0,5" Command="{Binding CreateBuildingCommand}" Width="114" IsEnabled="{Binding IsLoaded}" />
-            <Button Content="Kijelölt lezárása" Margin="6,5,6,5" Command="{Binding DeleteBuildingCommand}" CommandParameter="{Binding SelectedBuilding}" Width="114" IsEnabled="{Binding IsLoaded}" />
+            <Button Content="Új hozzáadása" Margin="6,5,0,5" Command="{Binding CreateItemCommand}" Width="114" IsEnabled="{Binding IsLoaded}" />
+            <Button Content="Kijelölt lezárása" Margin="6,5,6,5" Command="{Binding CloseItemCommand}" CommandParameter="{Binding SelectedItem}" Width="114" IsEnabled="{Binding IsLoaded}" />
         </StackPanel>
 
-        <ListBox Grid.Row="3" Grid.ColumnSpan="2" Name="imageListBox" ItemsSource="{Binding ElementName=buildingGrid, Path=SelectedItem.Images}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <!-- az épülethez tartozó képeket egy listba helyezzük, amely vízszintesen görgethető -->
+        <ListBox Grid.Row="3" Grid.ColumnSpan="2" Name="imageListBox" ItemsSource="{Binding ElementName=itemGrid, Path=SelectedItem.Images}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <!-- a tárgyakhoz tartozó képeket egy listba helyezzük, amely vízszintesen görgethető -->
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel IsItemsHost="True" />
@@ -67,7 +69,7 @@
         </ListBox>
 
         <Grid Grid.Row="4" Grid.ColumnSpan="2">
-            <Button Content="Új kép hozzáadása" Margin="6,5,0,5" Command="{Binding CreateImageCommand}" CommandParameter="{Binding SelectedBuilding}" HorizontalAlignment="Left" Width="120" IsEnabled="{Binding IsLoaded}" />
+            <Button Content="Új kép hozzáadása" Margin="6,5,0,5" Command="{Binding CreateImageCommand}" CommandParameter="{Binding SelectedItem}" HorizontalAlignment="Left" Width="120" IsEnabled="{Binding IsLoaded}" />
             <Button Content="Kijelölt kép törlése" Margin="0,5,6,5" Command="{Binding DeleteImageCommand}" CommandParameter="{Binding ElementName=imageListBox, Path=SelectedItem}" HorizontalAlignment="Right" Width="120" IsEnabled="{Binding IsLoaded}" />
         </Grid>
     </Grid>

@@ -141,7 +141,7 @@ namespace AuctionsPortal.Admin.Model
 
         public async Task SaveAsync()
         {
-            // épületek
+            // tárgyak
             List<ItemDTO> itemsToSave = _itemFlags.Keys.ToList();
 
             foreach (ItemDTO item in itemsToSave)
@@ -209,16 +209,31 @@ namespace AuctionsPortal.Admin.Model
             return IsUserLoggedIn;
         }
 
+        public void CloseItem(Int32 itemId)
+        {
+            // keresés azonosító alapján
+            ItemDTO itemToClose = _items.FirstOrDefault(i => i.Id == itemId);
+
+
+            itemToClose.CloseDate = DateTime.Now;
+
+            _itemFlags[itemToClose] = DataFlag.Update;
+        
+
+            // jelezzük a változást
+            OnItemChanged(itemId);
+    }
+
         public void UpdateItem(ItemDTO item)
         {
             if (item == null)
-                throw new ArgumentNullException("building");
+                throw new ArgumentNullException("item");
 
             // keresés azonosító alapján
             ItemDTO itemToModify = _items.FirstOrDefault(i => i.Id == item.Id);
 
             if (itemToModify == null)
-                throw new ArgumentException("The building does not exist.", "building");
+                throw new ArgumentException("The item does not exist.", "item");
 
             // módosítások végrehajtása
             itemToModify.Category = item.Category;

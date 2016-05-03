@@ -3,11 +3,14 @@ using System.Linq;
 using System.Web.Http;
 using AuctionsPortal.Service.Models;
 using AuctionsPortal.Data;
+using System.Diagnostics;
+using System.Web;
+
 
 namespace AuctionsPortal.Service.Controllers
 {
     [RoutePrefix("api/items")]
-    class ItemsController : ApiController
+    public class ItemsController : ApiController
     {
         private AuctionsPortalEntities _entities;
 
@@ -42,14 +45,20 @@ namespace AuctionsPortal.Service.Controllers
         /// 
         [Route("advertisements")]
         [System.Web.Http.HttpGet]
-        public IHttpActionResult Advertiesements()
+        public IHttpActionResult Advertisements()
         {
+            if(HttpContext.Current.Session["user"] == null)
+                return Unauthorized();
+            
             try
             {
-                return Ok(_entities.Item.Include("Category").ToList().Select(item => new ItemDTO
+                String userName = (String) HttpContext.Current.Session["user"];
+                return Ok(_entities.Item.Include("Category").Where(item => item.Advetiser.UserName == userName).
+                    ToList().Select(item => new ItemDTO
                 {
                     Id = item.ItemId,
                     Name = item.Name,
+                    Advatiser = new AdvatiserDTO { Id = item.AdvetiserId, Name = item.Advetiser.Name, UsnerName = item.Advetiser.UserName},
                     Category = new CategoryDTO { Id = item.Category.CategoryId, Name = item.Category.CatgoryName },
                     StartingCall = item.StartingCall,
                     StartDate = item.StartDate,
@@ -67,10 +76,11 @@ namespace AuctionsPortal.Service.Controllers
         /// Tárgyak lekérdezése.
         /// </summary>
         /// <param name="id">Kategória azonosító.</param>
-        [Route("category_items")]
+        [Route("advertisements/{id}")]
         [System.Web.Http.HttpGet]
-        public IHttpActionResult ItemsForcategory(Int32 id)
+        public IHttpActionResult Advertisements(Int32 id)
         {
+
             try
             {
                 return Ok(_entities.Item.Include("Category").Where(i => i.CategoryId == id).ToList().Select(item => new ItemDTO
@@ -94,8 +104,13 @@ namespace AuctionsPortal.Service.Controllers
         /// Új tárgy létrehozása.
         /// </summary>
         /// <param name="buildingDTO">Tárgy.</param>
+        [System.Web.Http.HttpPost]
         public IHttpActionResult PostItem([FromBody] ItemDTO itemDTO)
         {
+            if (HttpContext.Current.Session["user"] == null)
+                return Unauthorized();
+            String currentUserName = (String)HttpContext.Current.Session["user"];
+            Int32 currentUserId = _entities.Advetiser.Where(a => a.UserName == a.UserName).FirstOrDefault().AdvetiserId;
             try
             {
                 Item addeditem= _entities.Item.Add(new Item
@@ -103,6 +118,7 @@ namespace AuctionsPortal.Service.Controllers
                     ItemId = itemDTO.Id,
                     Name = itemDTO.Name,
                     CategoryId = itemDTO.Category.Id,
+                    AdvetiserId = currentUserId,
                     StartingCall = itemDTO.StartingCall,
                     StartDate = itemDTO.StartDate,
                     CloseDate = itemDTO.CloseDate,
@@ -124,10 +140,15 @@ namespace AuctionsPortal.Service.Controllers
         /// Tárgy módosítása.
         /// </summary>
         /// <param name="buildingDTO">Tárgy.</param>
-        public IHttpActionResult PutBuilding([FromBody] ItemDTO itemDTO)
+        /// 
+        [System.Web.Http.HttpPut]
+        public IHttpActionResult PutItem([FromBody] ItemDTO itemDTO)
         {
+            if (HttpContext.Current.Session["user"] == null)
+                return Unauthorized();
             try
             {
+
                 Item item = _entities.Item.FirstOrDefault(i => i.ItemId == itemDTO.Id);
 
                 if (item == null) // ha nincs ilyen azonosító, akkor hibajelzést küldünk

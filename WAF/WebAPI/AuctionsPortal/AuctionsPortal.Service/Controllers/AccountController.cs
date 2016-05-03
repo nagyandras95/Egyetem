@@ -28,7 +28,6 @@ namespace AuctionsPortal.Service.Controllers
         [System.Web.Http.HttpGet]
         public IHttpActionResult Login(String userName,String password)
         {
-
            
           Advetiser advitiser = _entities.Advetiser.FirstOrDefault(a => a.UserName == userName); // megkeressük a felhasználót
 
@@ -42,8 +41,8 @@ namespace AuctionsPortal.Service.Controllers
                 passwordBytes = provider.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
 
-            if (!passwordBytes.SequenceEqual(advitiser.Password))
-                return NotFound();
+           /* if (!passwordBytes.SequenceEqual(advitiser.Password))
+                return NotFound();*/
 
             if (HttpContext.Current.Session["user"] != null)
                 HttpContext.Current.Session["user"] = null;
@@ -56,11 +55,10 @@ namespace AuctionsPortal.Service.Controllers
 
         [Route("logout")]
         [System.Web.Http.HttpGet]
-        [Authorize] // csak bejelentklezett felhasználóknak
         public IHttpActionResult Logout()
         {
             if (HttpContext.Current.Session["user"] == null)
-                return NotFound();
+                return Unauthorized();
 
             HttpContext.Current.Session["user"] = null;
             // töröljük a munkafolyamatból

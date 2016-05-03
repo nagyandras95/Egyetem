@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AuctionsPortal.Admin.View"
         mc:Ignorable="d"
-        Title="Aukciós portál - Tárgy szerkesztése" Height="150" Width="600" WindowStyle="ToolWindow">
+        Title="Aukciós portál - Új tárgy hozzáadása" Height="150" Width="600" WindowStyle="ToolWindow">
     <Grid Margin="0,0,0,6">
         <Grid.RowDefinitions>
             <RowDefinition Height="32" />
@@ -21,7 +21,7 @@
             <TextBlock Text="Név:" Margin="5" />
             <TextBox Width="150" Text="{Binding EditedItem.Name}" Margin="5"/>
             <TextBlock Text="Kategória:" Margin="5" />
-            <ComboBox Width="157" ItemsSource="{Binding Categories}" SelectedItem="{Binding EditedItem.City}" Margin="5" />
+            <ComboBox Width="157" ItemsSource="{Binding Categories}" SelectedItem="{Binding EditedItem.Category}" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Margin="1,2,-1,-2">
             <TextBlock Text="Leírás:" Margin="5,5,5,0" />
@@ -29,7 +29,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBlock Text="Kezdő licitösszeg:" Margin="5" />
-            <TextBox Width="65" Text="{Binding EditedBuilding.SeaDistance}" Margin="5"/>
+            <TextBox Width="65" Text="{Binding EditedItem.StartingCall}" Margin="5"/>
             <TextBlock Text="Lezárás dátuma:" Margin="5" />
             <DatePicker Width="121" Text="{Binding EditedItem.CloseDate}" Margin="5"/>
         </StackPanel>

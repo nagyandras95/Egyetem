@@ -39,6 +39,7 @@ namespace AuctionsPortal.Admin
             _mainViewModel.ImageEditingStarted += new EventHandler<ItemEventArgs>(MainViewModel_ImageEditingStarted);
             _mainViewModel.ExitApplication += new EventHandler(ViewModel_ExitApplication);
             _mainViewModel.Login += new EventHandler(ViewModel_Login);
+            
 
             _mainView = new MainWindow();
             _mainView.DataContext = _mainViewModel;

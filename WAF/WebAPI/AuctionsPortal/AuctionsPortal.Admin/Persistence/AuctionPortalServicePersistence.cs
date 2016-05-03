@@ -93,7 +93,7 @@ namespace AuctionsPortal.Admin.Persistence
         {
             try
             {
-                HttpResponseMessage response = await _client.GetAsync("api/categories/");
+                HttpResponseMessage response = await _client.GetAsync("api/category/");
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadAsAsync<IEnumerable<CategoryDTO>>();

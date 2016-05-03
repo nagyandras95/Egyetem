@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\may\documents\visual studio 2015\Projects\AuctionsPortal\AuctionsPortal.Service\Models\AuctionPortalEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Nagy András\Source\Repos\Egyetem1\WAF\WebAPI\AuctionsPortal\AuctionsPortal.Service\Models\AuctionPortalEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -11,7 +11,7 @@
           </Key>
           <Property Name="AdvetiserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Password" Type="binary" MaxLength="64" Nullable="false" />
         </EntityType>
         <EntityType Name="Bidding">
@@ -162,7 +162,7 @@
           </Key>
           <Property Name="AdvetiserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="Binary" MaxLength="64" FixedLength="true" Nullable="false" />
           <NavigationProperty Name="Item" Relationship="Self.ItemToAdvatiser" FromRole="Advetiser" ToRole="Item" />
         </EntityType>

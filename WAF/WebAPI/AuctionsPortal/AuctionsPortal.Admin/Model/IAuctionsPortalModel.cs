@@ -43,10 +43,10 @@ namespace AuctionsPortal.Admin.Model
         void CreateImage(Int32 itemId, Byte[] image);
 
         /// <summary>
-        /// Tárgy módosítása.
+        /// Tárgy lezárása.
         /// </summary>
         /// <param name="building">Az épület.</param>
-        void UpdateItem(ItemDTO item);
+        void CloseItem(Int32 itemId);
 
         /// <summary>
         /// Kép törlése.
