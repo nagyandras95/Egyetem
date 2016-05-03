@@ -101,6 +101,65 @@ namespace AuctionsPortal.Service.Controllers
         }
 
         /// <summary>
+        /// Tárgyak lekérdezése.
+        /// </summary>
+        /// 
+        [Route("biddings/{itemId}")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult Biddings(Int32 itemId)
+        {
+            if (HttpContext.Current.Session["user"] == null)
+                return Unauthorized();
+
+            
+
+            try
+            {
+                
+                return Ok(_entities.Bidding.Include("Item").Where(bidding => bidding.ItemId == itemId).
+                    ToList().Select(bidding => new BiddingDTO
+                    {
+                        BiddingId = bidding.BiddingId,
+                        ItemId = bidding.ItemId,
+                        UserId = (Int32) bidding.UserId,
+                        User = new UserDTO { UserName = bidding.Users.UserName,
+                            UserId = (Int32)bidding.UserId, Name = bidding.Users.Name},
+                        Amount = (Int32) bidding.Amount,
+                        CallDate = bidding.CallDate
+                        
+                    }));
+            }
+            catch
+            {
+                return InternalServerError();
+            }
+        }
+
+        [Route("max_amount/{itemId}")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult MaxAmount(Int32 itemId)
+        {
+            int max;
+            if(_entities.Bidding.Where(b=>b.ItemId == itemId).ToList().Count == 0 )
+            {
+
+                max = 0;
+            }
+            else
+            {
+                max = (int)_entities.Bidding.Include("Item").Where(b => b.ItemId == itemId).Max(b => b.Amount);
+            }
+            try
+            {
+                return Ok(max);
+            } catch
+            {
+                return InternalServerError();
+            }
+
+        }
+
+        /// <summary>
         /// Új tárgy létrehozása.
         /// </summary>
         /// <param name="buildingDTO">Tárgy.</param>
@@ -115,7 +174,7 @@ namespace AuctionsPortal.Service.Controllers
             {
                 Item addeditem= _entities.Item.Add(new Item
                 {
-                    ItemId = itemDTO.Id,
+                    
                     Name = itemDTO.Name,
                     CategoryId = itemDTO.Category.Id,
                     AdvetiserId = currentUserId,

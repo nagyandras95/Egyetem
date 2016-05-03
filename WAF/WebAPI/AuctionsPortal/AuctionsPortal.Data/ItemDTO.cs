@@ -12,6 +12,7 @@ namespace AuctionsPortal.Data
         public string Name { get; set; }
         public string Description { get; set; }
         public int StartingCall { get; set; }
+        public int Amount { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime CloseDate { get; set; }
         public IList<BiddingDTO> Biddings { get; set; }

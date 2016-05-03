@@ -17,6 +17,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
@@ -34,13 +35,13 @@
             </MenuItem>
         </Menu>
 
-        <DataGrid Name="itemGrid" Grid.Row="1" Grid.ColumnSpan="2" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+        <DataGrid Name="itemGrid" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <!-- adatrács, amelynek megadjuk az oszlopait -->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Név" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Kategória" Binding="{Binding Category}"  />
+                <DataGridTextColumn Header="Kategória" Binding="{Binding Category.Name}"  />
                 <DataGridTextColumn Header="Kezdő licit" Binding="{Binding StartingCall}" />
-                <DataGridTextColumn Header="Jelenlegi licit" Binding="{Binding Amount}" />
+                <DataGridTextColumn Header="Legmagasabb licit" Binding="{Binding Amount}" />
                 <DataGridTextColumn Header="Meghirdetés dátuma" Binding="{Binding StartDate}"/>
                 <DataGridTextColumn Header="Lezárás dátuma" Binding="{Binding CloseDate}"/>
                 <DataGridTextColumn Header="Leírás" Binding="{Binding Description}" />
@@ -68,7 +69,17 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+        <DataGrid Name="biddingGrid" Grid.Row="3" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=itemGrid, Path=SelectedItem.Biddings}"  Grid.ColumnSpan="2" Margin="0,0,0.333,0">
+            <!-- adatrács, amelynek megadjuk az oszlopait -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Dátum" Binding="{Binding CallDate}" />
+                <DataGridTextColumn Header="Összeg" Binding="{Binding Amount}" />
+                <DataGridTextColumn Header="Név" Binding="{Binding User.Name}"/>
+                <DataGridTextColumn Header="Felhasználónév" Binding="{Binding User.UserName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="3">
             <Button Content="Új kép hozzáadása" Margin="6,5,0,5" Command="{Binding CreateImageCommand}" CommandParameter="{Binding SelectedItem}" HorizontalAlignment="Left" Width="120" IsEnabled="{Binding IsLoaded}" />
             <Button Content="Kijelölt kép törlése" Margin="0,5,6,5" Command="{Binding DeleteImageCommand}" CommandParameter="{Binding ElementName=imageListBox, Path=SelectedItem}" HorizontalAlignment="Right" Width="120" IsEnabled="{Binding IsLoaded}" />
         </Grid>

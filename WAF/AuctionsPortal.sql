@@ -86,6 +86,9 @@ insert into Category values ('Ékszer');
 
 insert into Advetiser values ('Nagy András','na', HashBytes('MD5', '123456'));
 
+insert into Users values ('Noll Péter', HashBytes('MD5', '123456'),'nolpetya','123','petya@inf.elte.hu');
+
+
 insert into Item values ('Lámpa',1,1,'Szép lámpa. Vedd meg, mert zsír!!',500,'2016-04-4','2016-12-11');
 insert into Item values ('Asztal',1,1,'Szép asztal. Vedd meg, mert zsír!!',1000,'2016-04-5','2016-12-11');
 insert into Item values ('Szekrény',1,1,'Szép szekrény. Vedd meg, mert zsír!!',2000,'2016-04-6','2016-12-11');
@@ -134,5 +137,7 @@ insert into Item values ('Gyûrû18',5,1,'Nincs jobb gyûrû ennél. Vedd meg, mert z
 insert into Item values ('Gyûrû19',5,1,'Nincs jobb gyûrû ennél. Vedd meg, mert zsír!!',5000,'2016-04-19','2017-4-11');
 insert into Item values ('Gyûrû20',5,1,'Nincs jobb gyûrû ennél. Vedd meg, mert zsír!!',5000,'2016-04-19','2017-4-11');
 insert into Item values ('Gyûrû21',5,1,'Nincs jobb gyûrû ennél. Vedd meg, mert zsír!!',5000,'2016-04-19','2017-4-11');
+
+insert into Bidding values (1,'2016-04-30',1,10000);
 
 GO

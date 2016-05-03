@@ -31,7 +31,7 @@
             <TextBlock Text="Kezdő licitösszeg:" Margin="5" />
             <TextBox Width="65" Text="{Binding EditedItem.StartingCall}" Margin="5"/>
             <TextBlock Text="Lezárás dátuma:" Margin="5" />
-            <DatePicker Width="121" Text="{Binding EditedItem.CloseDate}" Margin="5"/>
+            <DatePicker Width="121" DisplayDate="{Binding EditedItem.CloseDate}" Margin="5"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Width="217" Height="33" VerticalAlignment="Top" Margin="0,9,178,-9">

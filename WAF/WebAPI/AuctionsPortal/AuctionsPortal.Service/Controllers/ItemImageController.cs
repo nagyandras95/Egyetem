@@ -7,7 +7,7 @@ using AuctionsPortal.Data;
 namespace AuctionsPortal.Service.Controllers
 {
     
-
+    [RoutePrefix("api/images")]
     public class ItemImageController : ApiController
     {
         private AuctionsPortalEntities _entities;
@@ -49,7 +49,7 @@ namespace AuctionsPortal.Service.Controllers
             if (image == null)
                 return NotFound();
 
-            // a képe átalakítjuk (kis és nagyképet egyaránt)
+            // a képet átalakítjuk
             return Ok(new ImageDTO
             {
                 Id = image.ImageId,
@@ -65,7 +65,6 @@ namespace AuctionsPortal.Service.Controllers
         /// <param name="size">Képméret.</param>
         /// <param name="content">Képi tartalom.</param>
         [Route] // itt nem kell paramétereznünk, csak jelezzük, hogy az egyedi útvonalat vesszük igénybe
-        [Authorize(Roles = "administrator")] // csak bejelentkezett adminisztrátoroknak
         public IHttpActionResult PostImage([FromBody] ImageDTO image)
         {
             if (image == null || !_entities.Item.Any(item => image.ItemId == item.ItemId))

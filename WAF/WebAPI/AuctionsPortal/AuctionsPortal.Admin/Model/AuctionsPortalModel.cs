@@ -89,9 +89,9 @@ namespace AuctionsPortal.Admin.Model
         public void CreateItem(ItemDTO item)
         {
             if (item == null)
-                throw new ArgumentNullException("building");
+                throw new ArgumentNullException("item");
             if (_items.Contains(item))
-                throw new ArgumentException("The building is already in the collection.", "building");
+                throw new ArgumentException("The item is already in the collection.", "building");
 
             item.Id = (_items.Count > 0 ? _items.Max(b => b.Id) : 0) + 1; // generálunk egy új, ideiglenes azonosítót (nem fog átkerülni a szerverre)
             _itemFlags.Add(item, DataFlag.Create);
@@ -160,7 +160,7 @@ namespace AuctionsPortal.Admin.Model
                 }
 
                 if (!result)
-                    throw new InvalidOperationException("Operation " + _itemFlags[item] + " failed on building " + item.Id);
+                    throw new InvalidOperationException("Operation " + _itemFlags[item] + " failed on item " + item.Id);
 
                 // ha sikeres volt a mentés, akkor törölhetjük az állapotjelzőt
                 _itemFlags.Remove(item);
@@ -213,12 +213,12 @@ namespace AuctionsPortal.Admin.Model
         {
             // keresés azonosító alapján
             ItemDTO itemToClose = _items.FirstOrDefault(i => i.Id == itemId);
-
+            if (itemToClose.Biddings.Count == 0)
+                return;
 
             itemToClose.CloseDate = DateTime.Now;
 
             _itemFlags[itemToClose] = DataFlag.Update;
-        
 
             // jelezzük a változást
             OnItemChanged(itemId);

@@ -67,7 +67,7 @@ namespace AuctionsPortal.Admin.ViewModel
         }
 
         /// <summary>
-        /// Kijelölt épület lekérdezése, vagy beállítása.
+        /// Kijelölt tárgy lekérdezése, vagy beállítása.
         /// </summary>
         public ItemDTO SelectedItem
         {
@@ -186,7 +186,7 @@ namespace AuctionsPortal.Admin.ViewModel
             });
             CreateImageCommand = new DelegateCommand(param => OnImageEditingStarted((param as ItemDTO).Id));
             CloseItemCommand = new DelegateCommand(param => CloseItem((param as ItemDTO).Id));
-            UpdateItemCommand = new DelegateCommand(param => UpdateBuilding(param as ItemDTO));
+            UpdateItemCommand = new DelegateCommand(param => UpdateItem(param as ItemDTO));
             DeleteImageCommand = new DelegateCommand(param => DeleteImage(param as ImageDTO));
             SaveChangesCommand = new DelegateCommand(param => SaveChanges());
             CancelChangesCommand = new DelegateCommand(param => CancelChanges());
@@ -206,7 +206,7 @@ namespace AuctionsPortal.Admin.ViewModel
         /// Tárgy frissítése.
         /// </summary>
         /// <param name="item">A tárgy.</param>
-        private void UpdateBuilding(ItemDTO item)
+        private void UpdateItem(ItemDTO item)
         {
             if (item == null)
                 return;
@@ -254,16 +254,18 @@ namespace AuctionsPortal.Admin.ViewModel
                 return;
             }
 
+            if (EditedItem.CloseDate == null || EditedItem.CloseDate <= DateTime.Now)
+            {
+                OnMessageApplication("Hibás lezásári dátum!");
+            }
+
             // mentés
             if (EditedItem.Id == 0) // ha új a tárgy
             {
+                EditedItem.StartDate = DateTime.Now;
                 _model.CreateItem(EditedItem);
                 Items.Add(EditedItem);
                 SelectedItem = EditedItem;
-            }
-            else // ha már létezik az épület
-            {
-                //_model.UpdateItem(EditedItem);
             }
 
             EditedItem = null;
@@ -315,7 +317,7 @@ namespace AuctionsPortal.Admin.ViewModel
         }
 
         /// <summary>
-        /// Épület megváltozásának eseménykezelése.
+        /// Tárgy megváltozásának eseménykezelése.
         /// </summary>
         private void Model_ItemChanged(object sender, ItemEventArgs e)
         {
@@ -323,7 +325,7 @@ namespace AuctionsPortal.Admin.ViewModel
             Items.RemoveAt(index); // módosítjuk a kollekciót
             Items.Insert(index, _model.Items[index]);
 
-            SelectedItem = Items[index]; // és az aktuális épületet
+            SelectedItem = Items[index]; // és az aktuális tárgyat
         }
 
         /// <summary>
@@ -358,7 +360,7 @@ namespace AuctionsPortal.Admin.ViewModel
 
 
         /// <summary>
-        /// Épület szerkesztés befejeztének eseménykiváltása.
+        /// Tárgy szerkesztés befejeztének eseménykiváltása.
         /// </summary>
         private void OnItemEditingFinished()
         {

@@ -120,13 +120,25 @@ namespace AuctionsPortal.Admin.Persistence
                     IEnumerable<ItemDTO> items = await response.Content.ReadAsAsync<IEnumerable<ItemDTO>>();
                     // a tartalmat JSON formátumból objektumokká alakítjuk
 
-                    // képek lekérdezése:
+                    // képek és ajnálatok lekérdezése:
                     foreach (ItemDTO item in items)
                     {
                         response = await _client.GetAsync("api/images/item/" + item.Id);
                         if (response.IsSuccessStatusCode)
                         {
                             item.Images = (await response.Content.ReadAsAsync<IEnumerable<ImageDTO>>()).ToList();
+                        }
+
+                        response = await _client.GetAsync("api/items/biddings/" + item.Id);
+                        if(response.IsSuccessStatusCode)
+                        {
+                            item.Biddings = (await response.Content.ReadAsAsync<IEnumerable<BiddingDTO>>()).ToList();
+                        }
+
+                        response = await _client.GetAsync("api/items/max_amount/" + item.Id);
+                        if(response.IsSuccessStatusCode)
+                        {
+                            item.Amount = (await response.Content.ReadAsAsync<int>());
                         }
                     }
 
