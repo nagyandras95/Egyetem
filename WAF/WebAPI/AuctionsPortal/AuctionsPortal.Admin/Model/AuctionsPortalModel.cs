@@ -209,6 +209,12 @@ namespace AuctionsPortal.Admin.Model
             return IsUserLoggedIn;
         }
 
+        public async Task<bool> RegisterAsync(AdvatiserDTO advatiser)
+        {
+            return await _persistence.RegisterAsync(advatiser);
+
+        }
+
         public void CloseItem(Int32 itemId)
         {
             // keresés azonosító alapján
@@ -261,5 +267,7 @@ namespace AuctionsPortal.Admin.Model
             if (ItemChanged != null)
                 ItemChanged(this, new ItemEventArgs { ItemId =  id});
         }
+
+
     }
 }

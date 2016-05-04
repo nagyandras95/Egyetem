@@ -1,12 +1,12 @@
 ﻿using System;
-using System;
 using System.Windows.Controls;
 using AuctionsPortal.Admin.Model;
+using AuctionsPortal.Data;
 using AuctionsPortal.Admin.Persistence;
 
 namespace AuctionsPortal.Admin.ViewModel
 {
-    public class LoginViewModel : ViewModelBase
+    public class AccountViewModel : ViewModelBase
     {
         private IAuctionsPortalModel _model;
 
@@ -25,6 +25,8 @@ namespace AuctionsPortal.Admin.ViewModel
         /// </summary>
         public String UserName { get; set; }
 
+        
+
         /// <summary>
         /// Alkalmazásból való kilépés eseménye.
         /// </summary>
@@ -40,11 +42,13 @@ namespace AuctionsPortal.Admin.ViewModel
         /// </summary>
         public event EventHandler LoginFailed;
 
+
+
         /// <summary>
         /// Nézetmodell példányosítása.
         /// </summary>
         /// <param name="model">A modell.</param>
-        public LoginViewModel(IAuctionsPortalModel model)
+        public AccountViewModel(IAuctionsPortalModel model)
         {
             if (model == null)
                 throw new ArgumentNullException("model");

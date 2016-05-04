@@ -71,14 +71,13 @@ namespace AuctionsPortal.Service.Controllers
         /// </summary>
         /// <param name="advatiserDTO"></param>
         /// <returns></returns>
-        [Route("login/{advatiserDTO}")]
-        [Authorize]
-        [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         public IHttpActionResult Register([FromBody] AdvatiserDTO advatiserDTO)
         {
-            Advetiser advitiser = _entities.Advetiser.FirstOrDefault(a => a.UserName == advatiserDTO.UsnerName);
+            Advetiser advitiser = _entities.Advetiser.FirstOrDefault(a => a.UserName == advatiserDTO.UserName);
 
-            if (advitiser != null) ;
+            if (advitiser != null)
+                return NotFound();
 
             SHA512CryptoServiceProvider provider = new SHA512CryptoServiceProvider();
             try
@@ -86,14 +85,14 @@ namespace AuctionsPortal.Service.Controllers
                  Advetiser addedAdvatiser = _entities.Advetiser.Add(new Advetiser
                  {
                         Name = advatiserDTO.Name,
-                        UserName = advatiserDTO.UsnerName,
+                        UserName = advatiserDTO.UserName,
                         Password = provider.ComputeHash(Encoding.UTF8.GetBytes(advatiserDTO.Password))
                  });
 
                     _entities.SaveChanges(); // elmentjük az új hírdetőt
 
                     // visszaküldjük a létrehozott hírdetőt
-                    return Created(Request.RequestUri + advatiserDTO.UsnerName, advatiserDTO);
+                    return Created(Request.RequestUri + advatiserDTO.UserName, advatiserDTO);
                 }
                 catch
                 {

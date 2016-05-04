@@ -89,6 +89,19 @@ namespace AuctionsPortal.Admin.Persistence
             }
         }
 
+        public async Task<bool> RegisterAsync(AdvatiserDTO advatiser)
+        {
+            try
+            {
+                HttpResponseMessage response = await _client.PostAsJsonAsync("api/account/", advatiser);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                throw new PersistenceUnavailableException(ex);
+            }
+        }
+
         public async Task<IEnumerable<CategoryDTO>> ReadCategoriesAsync()
         {
             try
@@ -167,5 +180,7 @@ namespace AuctionsPortal.Admin.Persistence
                 throw new PersistenceUnavailableException(ex);
             }
         }
+
+
     }
 }

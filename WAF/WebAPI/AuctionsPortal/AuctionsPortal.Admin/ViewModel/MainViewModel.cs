@@ -126,6 +126,8 @@ namespace AuctionsPortal.Admin.ViewModel
 
         public DelegateCommand LogoutCommand { get; private set; }
 
+        public DelegateCommand RegisterCommand { get; private set; }
+
         /// <summary>
         /// Kilépés parancsának lekérdezése.
         /// </summary>
@@ -150,6 +152,8 @@ namespace AuctionsPortal.Admin.ViewModel
         /// Bejelenktkező ablak eseménye
         /// </summary>
         public event EventHandler Login;
+
+        public event EventHandler Register;
 
         /// <summary>
         /// Épület szerkesztés elindításának eseménye.
@@ -190,10 +194,15 @@ namespace AuctionsPortal.Admin.ViewModel
             DeleteImageCommand = new DelegateCommand(param => DeleteImage(param as ImageDTO));
             SaveChangesCommand = new DelegateCommand(param => SaveChanges());
             CancelChangesCommand = new DelegateCommand(param => CancelChanges());
+
             LoginCommand = new DelegateCommand(patam => OnLogin());
             LogoutCommand = new DelegateCommand(param => OnLogout());
+
+            RegisterCommand = new DelegateCommand(param => OnRegister());
+
             LoadCommand = new DelegateCommand(param => LoadAsync());
             SaveCommand = new DelegateCommand(param => SaveAsync());
+
             ExitCommand = new DelegateCommand(param => OnExitApplication());
         }
 
@@ -341,6 +350,12 @@ namespace AuctionsPortal.Admin.ViewModel
         {
             if (Login != null)
                 Login(this, EventArgs.Empty);
+        }
+
+        private void OnRegister()
+        {
+            if (Register != null)
+                Register(this, EventArgs.Empty);
         }
 
         private async void OnLogout()

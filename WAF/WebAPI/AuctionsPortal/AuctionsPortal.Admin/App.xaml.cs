@@ -16,8 +16,10 @@ namespace AuctionsPortal.Admin
     {
 
         private IAuctionsPortalModel _model;
-        private LoginViewModel _loginViewModel;
+        private AccountViewModel _loginViewModel;
         private LoginWindow _loginView;
+        private RegisterViewModel _registerVieModel;
+        private AdvatiserWindow _registerVindow;
         private MainViewModel _mainViewModel;
         private MainWindow _mainView;
         private ItemEditorVindow _editorView;
@@ -39,6 +41,7 @@ namespace AuctionsPortal.Admin
             _mainViewModel.ImageEditingStarted += new EventHandler<ItemEventArgs>(MainViewModel_ImageEditingStarted);
             _mainViewModel.ExitApplication += new EventHandler(ViewModel_ExitApplication);
             _mainViewModel.Login += new EventHandler(ViewModel_Login);
+            _mainViewModel.Register += new EventHandler(ViewModel_Register);
             
 
             _mainView = new MainWindow();
@@ -63,6 +66,17 @@ namespace AuctionsPortal.Admin
         {
 
             _loginView.Close();
+        }
+
+        private void ViewModel_RegisterFaild(object sender, EventArgs e)
+        {
+            MessageBox.Show("A regisztráció sikertelen!", "Aukciós portál", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+        }
+
+        private void ViewModel_RegisterSuccess(object sender, EventArgs e)
+        {
+
+            _registerVindow.Close();
         }
 
         private void ViewModel_MessageApplication(object sender, MessageEventArgs e)
@@ -112,13 +126,25 @@ namespace AuctionsPortal.Admin
 
         private void ViewModel_Login(object sender, System.EventArgs e)
         {
-            _loginViewModel = new LoginViewModel(_model);
+            _loginViewModel = new AccountViewModel(_model);
             _loginViewModel.LoginSuccess += new EventHandler(ViewModel_LoginSuccess);
             _loginViewModel.LoginFailed += new EventHandler(ViewModel_LoginFailed);
 
             _loginView = new LoginWindow();
             _loginView.DataContext = _loginViewModel;
             _loginView.Show();
+        }
+
+        private void ViewModel_Register(object sender, System.EventArgs e)
+        {
+            _registerVieModel = new RegisterViewModel(_model);
+            _registerVieModel.RegisterSucces += new EventHandler(ViewModel_RegisterSuccess);
+            _registerVieModel.RegisterFaild += new EventHandler(ViewModel_RegisterFaild);
+
+            _registerVindow = new AdvatiserWindow();
+            _registerVindow.DataContext = _registerVieModel;
+            _registerVindow.Show();
+
         }
     }
 }

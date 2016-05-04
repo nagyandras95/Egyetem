@@ -64,6 +64,8 @@ namespace AuctionsPortal.Admin.Model
         /// </summary>
         Task SaveAsync();
 
+        Task<Boolean> RegisterAsync(AdvatiserDTO advatiser);
+
         /// <summary>
         /// Bejelentkezés.
         /// </summary>

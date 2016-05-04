@@ -58,7 +58,7 @@ namespace AuctionsPortal.Service.Controllers
                 {
                     Id = item.ItemId,
                     Name = item.Name,
-                    Advatiser = new AdvatiserDTO { Id = item.AdvetiserId, Name = item.Advetiser.Name, UsnerName = item.Advetiser.UserName},
+                    Advatiser = new AdvatiserDTO {Name = item.Advetiser.Name, UserName = item.Advetiser.UserName},
                     Category = new CategoryDTO { Id = item.Category.CategoryId, Name = item.Category.CatgoryName },
                     StartingCall = item.StartingCall,
                     StartDate = item.StartDate,

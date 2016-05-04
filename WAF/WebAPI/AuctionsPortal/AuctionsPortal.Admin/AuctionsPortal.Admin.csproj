@@ -63,6 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AdvatiserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ItemEditorVindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,11 +91,14 @@
     <Compile Include="Persistence\PersistenceUnavialableException.cs" />
     <Compile Include="ViewModel\DeleagteCommand.cs" />
     <Compile Include="ViewModel\ImageHandler.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MessageEventArgs.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AdvatiserWindow.xaml.cs">
+      <DependentUpon>AdvatiserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemEditorVindow.xaml.cs">
       <DependentUpon>ItemEditorVindow.xaml</DependentUpon>
     </Compile>

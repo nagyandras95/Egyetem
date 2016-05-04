@@ -54,5 +54,7 @@ namespace AuctionsPortal.Admin.Persistence
         /// Kijelentkezés.
         /// </summary>
         Task<Boolean> LogoutAsync();
+
+        Task<Boolean> RegisterAsync(AdvatiserDTO advatiser);
     }
 }
