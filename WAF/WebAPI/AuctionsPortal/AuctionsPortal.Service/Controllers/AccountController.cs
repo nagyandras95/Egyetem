@@ -41,8 +41,8 @@ namespace AuctionsPortal.Service.Controllers
                 passwordBytes = provider.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
 
-           /* if (!passwordBytes.SequenceEqual(advitiser.Password))
-                return NotFound();*/
+           if (!passwordBytes.SequenceEqual(advitiser.Password))
+                return NotFound();
 
             if (HttpContext.Current.Session["user"] != null)
                 HttpContext.Current.Session["user"] = null;

@@ -205,6 +205,12 @@ namespace AuctionsPortal.Admin.Model
                 return true;
 
             IsUserLoggedIn = !(await _persistence.LogoutAsync());
+            if(!IsUserLoggedIn)
+            {
+                _items.Clear();
+                _categories.Clear();
+            }
+                
 
             return IsUserLoggedIn;
         }

@@ -361,6 +361,14 @@ namespace AuctionsPortal.Admin.ViewModel
         private async void OnLogout()
         {
             await _model.LogoutAsync();
+            if(IsLoaded)
+            {
+                IsLoaded = false;
+                Items.Clear();
+                Categories.Clear();
+            }
+
+
         }
 
         /// <summary>

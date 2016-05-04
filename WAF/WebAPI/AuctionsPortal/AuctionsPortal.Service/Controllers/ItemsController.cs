@@ -169,7 +169,7 @@ namespace AuctionsPortal.Service.Controllers
             if (HttpContext.Current.Session["user"] == null)
                 return Unauthorized();
             String currentUserName = (String)HttpContext.Current.Session["user"];
-            Int32 currentUserId = _entities.Advetiser.Where(a => a.UserName == a.UserName).FirstOrDefault().AdvetiserId;
+            Int32 currentUserId = _entities.Advetiser.Where(a => a.UserName == currentUserName).FirstOrDefault().AdvetiserId;
             try
             {
                 Item addeditem= _entities.Item.Add(new Item

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.9)  4 MAY 2016 16:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.9)  4 MAY 2016 17:04
 entering extended mode
 **./waf1_dokumentacio.tex
 (waf1_dokumentacio.tex
@@ -516,68 +516,84 @@ Overfull \hbox (6.55421pt too wide) in paragraph at lines 71--72
 File: felhasznaloi_diag.jpg Graphic file (type jpg)
 
 <use felhasznaloi_diag.jpg>
-Package pdftex.def Info: felhasznaloi_diag.jpg used on input line 75.
+Package pdftex.def Info: felhasznaloi_diag.jpg used on input line 76.
 (pdftex.def)             Requested size: 481.79883pt x 230.86194pt.
 
-Overfull \hbox (91.79883pt too wide) in paragraph at lines 75--76
+Overfull \hbox (91.79883pt too wide) in paragraph at lines 76--77
 [] 
  []
 
-[3] <komponens_diagram.jpg, id=16, 682.55pt x 150.5625pt>
+[3] <felhasznalo_diag2.jpg, id=16, 893.3375pt x 431.6125pt>
+File: felhasznalo_diag2.jpg Graphic file (type jpg)
+
+<use felhasznalo_diag2.jpg>
+Package pdftex.def Info: felhasznalo_diag2.jpg used on input line 79.
+(pdftex.def)             Requested size: 446.66765pt x 215.80571pt.
+
+Overfull \hbox (56.66765pt too wide) in paragraph at lines 79--80
+[] 
+ []
+
+[4 <./felhasznaloi_diag.jpg> <./felhasznalo_diag2.jpg>]
+<komponens_diagram.jpg, id=20, 813.0375pt x 351.3125pt>
 File: komponens_diagram.jpg Graphic file (type jpg)
 
 <use komponens_diagram.jpg>
-Package pdftex.def Info: komponens_diagram.jpg used on input line 84.
-(pdftex.def)             Requested size: 341.27417pt x 75.28105pt.
+Package pdftex.def Info: komponens_diagram.jpg used on input line 89.
+(pdftex.def)             Requested size: 406.51776pt x 175.6558pt.
 
-Overfull \hbox (3.67656pt too wide) in paragraph at lines 89--90
+Overfull \hbox (45.89246pt too wide) in paragraph at lines 89--90
+[][] 
+ []
+
+
+Overfull \hbox (3.67656pt too wide) in paragraph at lines 95--96
 []\OT1/cmr/m/n/12 A Mod-els nevteren belul helyezked-nek el a nezetmodellek
 et, az adatbazis
  []
 
-[4 <./felhasznaloi_diag.jpg> <./komponens_diagram.jpg>]
-<osztaly_szerkezet.jpg, id=20, 893.3375pt x 552.0625pt>
+<osztaly_szerkezet.jpg, id=21, 893.3375pt x 552.0625pt>
 File: osztaly_szerkezet.jpg Graphic file (type jpg)
 
 <use osztaly_szerkezet.jpg>
-Package pdftex.def Info: osztaly_szerkezet.jpg used on input line 93.
+Package pdftex.def Info: osztaly_szerkezet.jpg used on input line 99.
 (pdftex.def)             Requested size: 446.66765pt x 276.03056pt.
 
-Overfull \hbox (56.66765pt too wide) in paragraph at lines 93--94
+Overfull \hbox (56.66765pt too wide) in paragraph at lines 99--100
 [] 
  []
 
-
-Overfull \hbox (13.93053pt too wide) in paragraph at lines 97--98
+[5 <./komponens_diagram.jpg>]
+Overfull \hbox (13.93053pt too wide) in paragraph at lines 107--108
 []\OT1/cmr/m/n/12 Az adatbazisban taroljuk az egyes meghird-e-tett targyakat
 , es a hirdeteshez
  []
 
-[5 <./osztaly_szerkezet.jpg>]
-<entity_connect.jpg, id=24, 447.6725pt x 736.25063pt>
+<entity_connect.jpg, id=25, 447.6725pt x 736.25063pt>
 File: entity_connect.jpg Graphic file (type jpg)
  <use entity_connect.jpg>
-Package pdftex.def Info: entity_connect.jpg used on input line 103.
+Package pdftex.def Info: entity_connect.jpg used on input line 113.
 (pdftex.def)             Requested size: 223.8357pt x 368.1244pt.
 
-[6 <./entity_connect.jpg>] (waf1_dokumentacio.aux) ) 
+[6 <./osztaly_szerkezet.jpg>] [7 <./entity_connect.jpg>] (waf1_dokumentacio.aux
+) ) 
 Here is how much of TeX's memory you used:
- 2263 strings out of 493634
- 28861 string characters out of 3132382
+ 2268 strings out of 493634
+ 28985 string characters out of 3132382
  87299 words of memory out of 3000000
- 5641 multiletter control sequences out of 15000+200000
+ 5645 multiletter control sequences out of 15000+200000
  8006 words of font info for 31 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  27i,7n,24p,370b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Nagy András/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Use
-rs/Nagy András/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><C:/Users/Nagy András/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr17.pfb><C:/Users/Nagy András/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on waf1_dokumentacio.pdf (6 pages, 292961 bytes).
+<C:/Users/Nagy András/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb><C:/Users/Nagy András/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Nagy András/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Nagy And
+rás/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b>
+Output written on waf1_dokumentacio.pdf (7 pages, 347013 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 47 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
