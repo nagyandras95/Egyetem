@@ -11,5 +11,14 @@ namespace AuctionsPortal.Data
         public Int32 Id { get; set; }
 
         public String Name { get; set; }
+
+
+        /// <summary>
+        /// Szöveggé alakítás.
+        /// </summary>
+        public override String ToString()
+        {
+            return Name;
+        }
     }
 }

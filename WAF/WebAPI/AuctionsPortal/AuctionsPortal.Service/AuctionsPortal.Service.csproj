@@ -181,6 +181,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuctionPortalEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuctionService.cs" />
     <Compile Include="Models\Bidding.cs">
       <DependentUpon>AuctionPortalEntities.tt</DependentUpon>
     </Compile>

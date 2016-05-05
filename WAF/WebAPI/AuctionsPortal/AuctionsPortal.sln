@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionsPortal.Service", "AuctionsPortal.Service\AuctionsPortal.Service.csproj", "{9018238B-D448-4D55-BD13-B0FEC26C97BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionsPortal.Service.Tests", "AuctionsPortal.Service.Tests\AuctionsPortal.Service.Tests.csproj", "{BA7504BC-80A7-417C-A741-657F45A20EFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionsPortal.Tests", "AuctionsPortal.Service.Tests\AuctionsPortal.Tests.csproj", "{BA7504BC-80A7-417C-A741-657F45A20EFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionsPortal.Data", "AuctionsPortal.Data\AuctionsPortal.Data.csproj", "{F8B6FC32-F233-4C37-87A5-FA75EB8EAED2}"
 EndProject

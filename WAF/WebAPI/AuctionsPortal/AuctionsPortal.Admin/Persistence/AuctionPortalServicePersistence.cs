@@ -7,7 +7,7 @@ using AuctionsPortal.Data;
 
 namespace AuctionsPortal.Admin.Persistence
 {
-    class AuctionPortalServicePersistence : IAuctionsPortalPesistence
+    public class AuctionPortalServicePersistence : IAuctionsPortalPesistence
     {
 
         private HttpClient _client;
