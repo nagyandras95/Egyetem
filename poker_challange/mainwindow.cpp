@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include "combination.h"
 #include "card.h"
 #include <QMenu>
@@ -23,16 +22,20 @@ MainWindow::MainWindow(QWidget *parent) :
     _exitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     _exitAction->setStatusTip(trUtf8("Exiting from assistant"));
 
-    _gameMenu = menuBar()->addMenu(trUtf8("&Game"));
+    /*_gameMenu = menuBar()->addMenu(trUtf8("&Game"));
     _gameMenu->addAction(_newGameAction);
     _gameMenu->addAction(_configureAction);
     _gameMenu->addSeparator();
     _gameMenu->addAction(_exitAction);
 
-    _infoMenu = menuBar()->addMenu(trUtf8("&Info"));
+    _infoMenu = menuBar()->addMenu(trUtf8("&Info"));*/
 
     _gameWidget = new GameWidget(this);
     setCentralWidget(_gameWidget);
+
+
+
+
 }
 
 MainWindow::~MainWindow()

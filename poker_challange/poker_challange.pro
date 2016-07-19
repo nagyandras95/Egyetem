@@ -19,12 +19,14 @@ SOURCES += main.cpp\
     card.cpp \
     combination.cpp \
     texasholdemmodel.cpp \
-    gamewidget.cpp
+    gamewidget.cpp \
+    hand_evaluator.cpp
 
 HEADERS  += mainwindow.h \
     card.h \
     combination.h \
     texasholdemmodel.h \
-    gamewidget.h
+    gamewidget.h \
+    hand_evaluator.h
 
 FORMS    += mainwindow.ui

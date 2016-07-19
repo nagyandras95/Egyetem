@@ -8,37 +8,26 @@ class card
 {
 public:
     card();   
-    card(color color_, int number_);
+    card(int number_,color color_);
     card(const card& c) {copy(c);}
-    card& operator=(card& c){
-        if(this != &c)
-        {
-            copy(c);
-        }
-
-        return c;
-    }
-
-
-    int get_number() const {return _number;}
-    color get_color() const {return _color;}
+    card& operator=(const card& c);
+    int get_number() const;
+    color get_color() const;
 
 
 private:
 
-    void copy(const card& c)
-    {
-        _number = c.get_number();
-        _color = c.get_color();
-    }
+    void copy(const card& c);
 
-    color _color;
     int _number;
+    color _color;
+
 };
 
 inline bool operator<(card c1, card c2) {return c1.get_number() < c2.get_number();}
 inline bool operator>(card c1, card c2){return c2 < c1;}
-inline bool operator==(card c1, card c2){return !(c1 < c2) && !(c2 > c2);}
+inline bool operator==(card c1, card c2){return !(c1 < c2) && !(c1 > c2) && c1.get_color() == c2.get_color();}
+inline bool operator!=(card c1, card c2) {return !(c1 == c2);}
 inline bool operator<=(card c1, card c2){return !(c1 > c2);}
 inline bool operator>=(card c1, card c2){return !(c1 < c2);}
 

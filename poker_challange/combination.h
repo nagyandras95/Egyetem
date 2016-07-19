@@ -20,12 +20,14 @@ private:
    int value;
    card max;
 
+
+
    static int PAIR_VALUE;
-   static int DRILL_VAELUE;
-   static int POKER_VALUE;
-   static int COLOR_SAME_VALUE;
+   static int DRILL_VALUE;
    static int STRAIGHT_VALUE;
    static int FLUSH_VALUE;
+   static int FULL_HOUSE_VALUE;
+   static int POKER_VALUE;
    static int STARTIGHT_FLUSH_VALUE;
 
 
