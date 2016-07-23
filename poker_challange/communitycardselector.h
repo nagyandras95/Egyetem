@@ -5,12 +5,20 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QComboBox>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QStringList>
 
-class CommunityCardSelector : public QObject
+class CommunityCardSelector : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CommunityCardSelector(QString labelMessage,QObject *parent = 0);
+    explicit CommunityCardSelector(QString labelMessage,const QStringList& valueList_, const QStringList& colorList_,
+                                   QWidget *parent = 0);
+
+    bool comminityCardIsActive() {return _enableChack->isChecked();}
+    std::pair<QComboBox*,QComboBox*> getCardBoxes() {return _boxes;}
 
 signals:
 
@@ -21,6 +29,10 @@ private:
     std::pair<QComboBox*,QComboBox*> _boxes;
     QLabel* _label;
     QCheckBox* _enableChack;
+
+    QVBoxLayout *_mainLayout;
+    QHBoxLayout *_communityCardLayout;
+    QHBoxLayout *_communityCardInfoLayout;
 };
 
 #endif // COMMUNITYCARDSELECTOR_H

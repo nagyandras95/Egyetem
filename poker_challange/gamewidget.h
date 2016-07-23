@@ -2,7 +2,6 @@
 #define GEMEWIDGET_H
 
 #include <QWidget>
-#include <QGridLayout>
 #include <QComboBox>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -15,6 +14,7 @@
 #include <QCheckBox>
 #include "card.h"
 #include "texasholdemmodel.h"
+#include "communitycardselector.h"
 
 
 class GameWidget : public QWidget
@@ -34,18 +34,14 @@ private:
     void setConfiguration();
     card resolveCard(std::pair<QComboBox*,QComboBox*>);
     QString matchColors(card::color);
-    card::color invert_match_colors(QString colorString);
+    card::color invertMatchColor(QString colorString);
 
     TexasHoldemModel _model;
-
-    QGridLayout* _layout;
 
     std::pair<QComboBox*,QComboBox*> _firstCardBoxes;
     std::pair<QComboBox*,QComboBox*> _secondCardBoxes;
 
-    std::vector<std::pair<QComboBox*,QComboBox*> > _communityCardsBoxes;
-    std::vector<QLabel*> _communityCardsLabels;
-    std::vector<QCheckBox*> _communityCardsChackes;
+    std::vector<CommunityCardSelector*> _communityCards;
 
     QStringList _valuesList;
     QStringList _colorsList;
@@ -53,10 +49,8 @@ private:
 
     QLabel* _card1Label;
     QLabel* _card2Label;
-
-    QHBoxLayout *_communityCardsLayout;
-    QHBoxLayout *_communityCardsInfoLayout;
     QHBoxLayout *_myCardsLayout;
+    QHBoxLayout *_communityCardsLayout;
     QVBoxLayout *_mainLayout;
 
 

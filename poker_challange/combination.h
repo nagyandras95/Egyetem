@@ -6,7 +6,7 @@
 #include <assert.h>
 #include <algorithm>
 
-std::pair<bool,bool> is_better(std::vector<card>,std::vector<card>);
+std::pair<bool,bool> is_better(std::vector<int>,std::vector<int>);
 
 
 class combination
@@ -17,13 +17,12 @@ public:
     int calc_value();
     int get_value() const {return value;}
     int get_nof_cards() const {return (int) cards.size();}
-    card get_max() {return max;}
 
-    const std::vector<card> get_critical_cards() const {return critical_cards;}
-    const std::vector<card> get_secondary_cards() const {return secondary_cards;}
-
+    const std::vector<int> get_critical_cards() const {return critical_cards;}
+    const std::vector<int> get_secondary_cards() const {return secondary_cards;}
 
 
+    static int MAX_VALUE;
     static int PAIR_VALUE;
     static int DRILL_VALUE;
     static int STRAIGHT_VALUE;
@@ -35,10 +34,9 @@ public:
 private:
    std::list<card> cards;
    int value;
-   card max;
 
-    std::vector<card> critical_cards;
-    std::vector<card> secondary_cards;
+   std::vector<int> critical_cards;
+   std::vector<int> secondary_cards;
 
 
 

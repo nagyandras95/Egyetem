@@ -3,8 +3,8 @@
 #include <assert.h>
 #include <algorithm>
 
-
-int combination::PAIR_VALUE = 14*2;
+int combination::MAX_VALUE = 14;
+int combination::PAIR_VALUE = combination::MAX_VALUE*2;
 int combination::DRILL_VALUE = combination::PAIR_VALUE*4;
 int combination::STRAIGHT_VALUE = combination::DRILL_VALUE*2;
 int combination::FLUSH_VALUE = combination::STRAIGHT_VALUE*2;
@@ -41,22 +41,24 @@ int combination::calc_value()
 
         same ? count_same_values++ : count_same_values = 1;
 
-        if(prev_count == 2)
-            critical_cards.push_back(*std::prev(it));
+        assert(count_same_values >= 1 &&  count_same_values <= 4);
 
-
+        if(prev_count == 2 && count_same_values == 1)
+            critical_cards.push_back(std::prev(it)->get_number());
+        else if(count_same_values == 3)
+            critical_cards.push_back(std::prev(it)->get_number() + combination::MAX_VALUE);
         else if(count_same_values == 1 && prev_count == 1)
         {
-            secondary_cards.push_back(*std::prev(it));
-
+            secondary_cards.push_back(std::prev(it)->get_number());
         }
 
         if(std::next(it) == cards.end())
         {
             if(count_same_values == 1)
-             secondary_cards.push_back(*it);
+             secondary_cards.push_back(it->get_number());
             else if(count_same_values == 2)
-                critical_cards.push_back(*it);
+              critical_cards.push_back(it->get_number());
+
         }
 
 
@@ -80,7 +82,7 @@ int combination::calc_value()
 
 }
 
-std::pair<bool, bool> is_better(const std::vector<card> cards1, const std::vector<card> cards2)
+std::pair<bool, bool> is_better(const std::vector<int> cards1, const std::vector<int> cards2)
 {
     assert(cards1.size() == cards2.size());
 
@@ -88,9 +90,9 @@ std::pair<bool, bool> is_better(const std::vector<card> cards1, const std::vecto
     for(int i = (int)cards1.size() - 1; i >= 0  && !ret.first; i++)
     {
         if(!ret.first)
-            ret.first = (cards1[i].get_number() - cards2[i].get_number()) > 0;
+            ret.first = (cards1[i] - cards2[i]) > 0;
         if(ret.second)
-            ret.second = (cards1[i].get_number() - cards2[i].get_number()) == 0;
+            ret.second = (cards1[i] - cards2[i]) == 0;
     }
 
     return ret;

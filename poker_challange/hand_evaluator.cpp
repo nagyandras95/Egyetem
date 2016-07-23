@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "hand_evaluator.h"
 #include "game_configuration.h"
 
@@ -39,13 +41,14 @@ combination hand_evaluator::rank_hand(std::pair<card, card> p)
     std::vector<combination> combinations;
     for(int i = 0; i < std::pow(2,c_cards.size()); i++)
     {
+        std::list<card> cards;
+        cards.push_back(p.first);
+        cards.push_back(p.second);
         std::vector<int> rep = get_reprezentation(i,c_cards.size());
         int count_one = std::count_if(rep.begin(),rep.end(),[](int e) {return e == 1;});
         if(count_one <= 3 && count_one > 0)
         {
-            std::list<card> cards;
-            cards.push_back(p.first);
-            cards.push_back(p.second);
+
             for(int i = 0; i < (int)rep.size(); i++)
             {
                 if(rep[i] == 1)
@@ -54,10 +57,11 @@ combination hand_evaluator::rank_hand(std::pair<card, card> p)
                 }
             }
 
-            combinations.push_back(combination(cards));
-        }
-    }
 
+        }
+        combinations.push_back(combination(cards));
+    }
+    assert(combinations.size() > 0);
     return *(std::max_element(combinations.begin(),combinations.end()));
 
 }
