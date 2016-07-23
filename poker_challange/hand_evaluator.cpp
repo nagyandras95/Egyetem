@@ -1,33 +1,34 @@
 #include "hand_evaluator.h"
+#include "game_configuration.h"
 
-hand_evaluator::hand_evaluator()
+hand_evaluator::hand_evaluator() {}
+
+game_configuration::options hand_evaluator::next_hint()
 {
 
+
+    return game_configuration::options::fold;
 }
 
-configuration::options hand_evaluator::next_hint()
-{
-
-
-    return configuration::options::fold;
-}
-
-int hand_evaluator::evaluate_hand()
+double hand_evaluator::evaluate_hand()
 {
     const std::list<card> unknown_cards = game_state.get_hidden_cards();
-    int my_hand_value = rank_hand(std::pair<card,card>(game_state.your_card1,game_state.your_card2));
+    combination my_hand_comb = rank_hand(std::pair<card,card>(game_state.your_card1,game_state.your_card2));
     int ahead = 0, behind = 0;
+    int count = 0;
     for(std::pair<card,card> p : get_all_pair(unknown_cards))
     {
-        int opp_value = rank_hand(p);
-        if(my_hand_value < opp_value ) ahead++;
+        combination opp_comb = rank_hand(p);
+        if(my_hand_comb < opp_comb) ahead++;
         else behind++;
+
+        count++;
     }
 
-    return behind/ahead;
+    return (behind)/(count);
 }
 
-int hand_evaluator::rank_hand(std::pair<card, card> p)
+combination hand_evaluator::rank_hand(std::pair<card, card> p)
 {
     std::vector<card> c_cards;
     for(card c : game_state.community_cards)
@@ -39,7 +40,8 @@ int hand_evaluator::rank_hand(std::pair<card, card> p)
     for(int i = 0; i < std::pow(2,c_cards.size()); i++)
     {
         std::vector<int> rep = get_reprezentation(i,c_cards.size());
-        if(std::count_if(rep.begin(),rep.end(),[](int e) {return e == 1;}) <= 3 )
+        int count_one = std::count_if(rep.begin(),rep.end(),[](int e) {return e == 1;});
+        if(count_one <= 3 && count_one > 0)
         {
             std::list<card> cards;
             cards.push_back(p.first);
@@ -56,7 +58,7 @@ int hand_evaluator::rank_hand(std::pair<card, card> p)
         }
     }
 
-    return std::max_element(combinations.begin(),combinations.end())->get_value();
+    return *(std::max_element(combinations.begin(),combinations.end()));
 
 }
 

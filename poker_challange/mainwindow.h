@@ -14,13 +14,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
 private:
-    TexasHoldemModel _model;
+
 
     QAction* _newGameAction; // új játék akció
     QAction* _exitAction; // kilépés akció
     QAction* _configureAction; // beállítások akciója
+    QAction* _hintAction;
 
     QMenu* _gameMenu; // játékmenü
     QMenu* _infoMenu;

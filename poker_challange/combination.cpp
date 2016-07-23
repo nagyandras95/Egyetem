@@ -1,4 +1,6 @@
 #include "combination.h"
+#include <vector>
+#include <assert.h>
 #include <algorithm>
 
 
@@ -15,11 +17,11 @@ combination::combination(std::list<card> cards_) : cards(cards_)
 {
     cards.sort();
     value = calc_value();
-    max = *std::max_element(cards.begin(),cards.end());
 }
 
 int combination::calc_value()
 {
+
     int number_of_pairs = 0;
     bool drill = false;
     bool poker = false;
@@ -31,9 +33,35 @@ int combination::calc_value()
     it++;
     for(;it != cards.end(); it++)
     {
-        same = *std::prev(it) == *(it);
+        same = std::prev(it)->get_number() == (it)->get_number();
+        int prev_count = count_same_values;
+
+
         all_same_color = all_same_color && std::prev(it)->get_color() == it->get_color();
+
         same ? count_same_values++ : count_same_values = 1;
+
+        if(prev_count == 2)
+            critical_cards.push_back(*std::prev(it));
+
+
+        else if(count_same_values == 1 && prev_count == 1)
+        {
+            secondary_cards.push_back(*std::prev(it));
+
+        }
+
+        if(std::next(it) == cards.end())
+        {
+            if(count_same_values == 1)
+             secondary_cards.push_back(*it);
+            else if(count_same_values == 2)
+                critical_cards.push_back(*it);
+        }
+
+
+
+
         number_of_pairs = count_same_values == 2 ? number_of_pairs + 1 : number_of_pairs;
         drill = drill || count_same_values == 3;
         poker = poker || count_same_values == 4;
@@ -41,10 +69,48 @@ int combination::calc_value()
 
     }
 
-    return PAIR_VALUE*number_of_pairs + DRILL_VALUE*drill + FLUSH_VALUE*(number_of_pairs == 1 && drill) + POKER_VALUE*poker +
-            FULL_HOUSE_VALUE*all_same_color + STRAIGHT_VALUE*straight + (all_same_color && straight)*STARTIGHT_FLUSH_VALUE;
+    std::sort(secondary_cards.begin(),secondary_cards.end());
+    std::sort(critical_cards.begin(),critical_cards.end());
+
+
+
+    return PAIR_VALUE*(number_of_pairs*!((int)drill)*!((int)poker)) + DRILL_VALUE*drill * (!(int)poker) * ((int) number_of_pairs == 0) +
+                        FLUSH_VALUE*(number_of_pairs == 1 && drill) + POKER_VALUE* ((int)poker) + FULL_HOUSE_VALUE * ( (int) (all_same_color && !straight ) ) +
+                       STRAIGHT_VALUE * ((int) (straight)) + (all_same_color && straight)*STARTIGHT_FLUSH_VALUE;
 
 }
 
+std::pair<bool, bool> is_better(const std::vector<card> cards1, const std::vector<card> cards2)
+{
+    assert(cards1.size() == cards2.size());
+
+    std::pair<bool,bool> ret(false,true); // better, equal
+    for(int i = (int)cards1.size() - 1; i >= 0  && !ret.first; i++)
+    {
+        if(!ret.first)
+            ret.first = (cards1[i].get_number() - cards2[i].get_number()) > 0;
+        if(ret.second)
+            ret.second = (cards1[i].get_number() - cards2[i].get_number()) == 0;
+    }
+
+    return ret;
+}
+
+bool operator<(const combination c1, const combination c2)
+{
+    int val1 = c1.get_value();
+    int val2 = c2.get_value();
+    if(val1 != val2)
+    {
+        return val1 < val2;
+    }
+    else
+    {
+        if(c1.get_nof_cards() != c2.get_nof_cards()) return c1.get_nof_cards() < c2.get_nof_cards();
+        std::pair<bool,bool> ev = is_better(c1.get_critical_cards(),c2.get_critical_cards());
+        if(!ev.first && ev.second) return is_better(c1.get_secondary_cards(),c2.get_secondary_cards()).first;
+        else return ev.first;
 
 
+    }
+}
