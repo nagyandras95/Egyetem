@@ -2,6 +2,7 @@
 #define GAME_CONFIGURATION_H
 
 #include "card.h"
+#include <vector>
 #include <list>
 
 class game_configuration
@@ -13,11 +14,16 @@ public:
     game_configuration();
     std::list<card> get_hidden_cards();
 
+    std::vector<card> get_community_cards() {return community_cards; }
+    std::list<std::vector<card> > get_possible_next_round_community_cards();
+
+    std::pair<card,card> get_your_pair() {return std::pair<card,card>(your_card1,your_card2);}
+
     card your_card1;
     card your_card2;
 
     std::list<card> hidden_cards;
-    std::list<card> community_cards;
+    std::vector<card> community_cards;
 
     int number_of_all_players;
     int number_of_faied_players;

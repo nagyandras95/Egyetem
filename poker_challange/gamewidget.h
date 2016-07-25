@@ -12,9 +12,10 @@
 #include <QStringList>
 #include <QString>
 #include <QCheckBox>
+#include <map>
 #include "card.h"
 #include "texasholdemmodel.h"
-#include "communitycardselector.h"
+#include "cardselector.h"
 
 
 class GameWidget : public QWidget
@@ -22,6 +23,7 @@ class GameWidget : public QWidget
     Q_OBJECT
 public:
     explicit GameWidget(QWidget *parent = 0);
+    ~GameWidget();
 
 
 signals:
@@ -32,26 +34,31 @@ public slots:
 private:
 
     void setConfiguration();
+    void initColorMatchingMap();
+
     card resolveCard(std::pair<QComboBox*,QComboBox*>);
+
     QString matchColors(card::color);
     card::color invertMatchColor(QString colorString);
 
+    QString matchValue(int);
+    int invertMatchValue(QString value);
+
     TexasHoldemModel _model;
 
-    std::pair<QComboBox*,QComboBox*> _firstCardBoxes;
-    std::pair<QComboBox*,QComboBox*> _secondCardBoxes;
+    CardSelector* _firstCard;
+    CardSelector* _secondCard;
 
-    std::vector<CommunityCardSelector*> _communityCards;
+    std::vector<CardSelector*> _communityCards;
 
     QStringList _valuesList;
     QStringList _colorsList;
 
-
-    QLabel* _card1Label;
-    QLabel* _card2Label;
     QHBoxLayout *_myCardsLayout;
     QHBoxLayout *_communityCardsLayout;
     QVBoxLayout *_mainLayout;
+
+    std::map<card::color,QString> _colorMatchingMap;
 
 
 

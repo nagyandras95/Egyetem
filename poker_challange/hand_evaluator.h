@@ -10,20 +10,16 @@
 #include "combination.h"
 #include "game_configuration.h"
 
-class hand_evaluator : public Ihand_evaluator
+class hand_evaluator : public ihand_evaluator
 {
 public:
     hand_evaluator();
     virtual ~hand_evaluator(){}
 
-
-    virtual game_configuration::options next_hint();
-    virtual double evaluate_hand();
-    virtual void set_state(game_configuration state_) {this->game_state = state_;}
-
-    game_configuration game_state;
+    virtual double evaluate_hand(const std::list<card>&,const std::vector<card>&,const std::pair<card,card>);
 private:
-    combination rank_hand(std::pair<card,card>);
+
+    combination rank_hand(const std::pair<card,card>,const std::vector<card>&);
     std::vector<int> get_reprezentation(int,int);
     std::list<std::pair<card,card> > get_all_pair(const std::list<card>&);
 

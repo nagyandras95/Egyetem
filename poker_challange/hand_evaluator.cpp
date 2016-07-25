@@ -5,55 +5,43 @@
 
 hand_evaluator::hand_evaluator() {}
 
-game_configuration::options hand_evaluator::next_hint()
+double hand_evaluator::evaluate_hand(const std::list<card>& unknown_cards,const std::vector<card>& community_cards,const std::pair<card,card> your_cards)
 {
-
-
-    return game_configuration::options::fold;
-}
-
-double hand_evaluator::evaluate_hand()
-{
-    const std::list<card> unknown_cards = game_state.get_hidden_cards();
-    combination my_hand_comb = rank_hand(std::pair<card,card>(game_state.your_card1,game_state.your_card2));
+    combination my_hand_comb = rank_hand(your_cards,community_cards);
     int ahead = 0, behind = 0;
     int count = 0;
     for(std::pair<card,card> p : get_all_pair(unknown_cards))
     {
-        combination opp_comb = rank_hand(p);
+        combination opp_comb = rank_hand(p,community_cards);
         if(my_hand_comb < opp_comb) ahead++;
         else behind++;
 
         count++;
     }
 
-    return (behind)/(count);
+    return (double) ((double) behind)/((double) count);
 }
 
-combination hand_evaluator::rank_hand(std::pair<card, card> p)
+combination hand_evaluator::rank_hand(const std::pair<card,card> p, const std::vector<card>& community_cards)
 {
-    std::vector<card> c_cards;
-    for(card c : game_state.community_cards)
-    {
-        c_cards.push_back(c);
-    }
 
     std::vector<combination> combinations;
-    for(int i = 0; i < std::pow(2,c_cards.size()); i++)
+    std::vector<card> all_card(community_cards.begin(),community_cards.end());
+    all_card.push_back(p.first);
+    all_card.push_back(p.second);
+    for(int i = 0; i < std::pow(2,all_card.size()); i++)
     {
         std::list<card> cards;
-        cards.push_back(p.first);
-        cards.push_back(p.second);
-        std::vector<int> rep = get_reprezentation(i,c_cards.size());
+        std::vector<int> rep = get_reprezentation(i,all_card.size());
         int count_one = std::count_if(rep.begin(),rep.end(),[](int e) {return e == 1;});
-        if(count_one <= 3 && count_one > 0)
+        if(count_one <= 5 && count_one > 1)
         {
 
             for(int i = 0; i < (int)rep.size(); i++)
             {
                 if(rep[i] == 1)
                 {
-                    cards.push_back(c_cards[i]);
+                    cards.push_back(all_card[i]);
                 }
             }
 

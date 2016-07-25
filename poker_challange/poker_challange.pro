@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     hand_evaluator.cpp \
     ihand_evaluator.cpp \
     game_configuration.cpp \
-    communitycardselector.cpp
+    communitycardselector.cpp \
+    cardselector.cpp \
+    privatecardselector.cpp
 
 HEADERS  += mainwindow.h \
     card.h \
@@ -33,6 +35,8 @@ HEADERS  += mainwindow.h \
     hand_evaluator.h \
     ihand_evaluator.h \
     game_configuration.h \
-    communitycardselector.h
+    communitycardselector.h \
+    cardselector.h \
+    privatecardselector.h
 
 FORMS    += mainwindow.ui

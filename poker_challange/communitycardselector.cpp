@@ -1,14 +1,11 @@
 #include "communitycardselector.h"
 
 CommunityCardSelector::CommunityCardSelector(QString labelMessage, const QStringList &valueList_, const QStringList &colorList_, QWidget *parent) :
-    QWidget(parent), _boxes(new QComboBox,new QComboBox), _label(new QLabel(labelMessage)), _enableChack(new QCheckBox),
+    CardSelector(labelMessage,valueList_,colorList_,parent), _enableChack(new QCheckBox),
     _mainLayout(new QVBoxLayout), _communityCardLayout(new QHBoxLayout), _communityCardInfoLayout(new QHBoxLayout)
 {
-    _boxes.first->addItems(valueList_);
-    _boxes.second->addItems(colorList_);
     _boxes.first->setEnabled(false);
     _boxes.second->setEnabled(false);
-
 
     _communityCardLayout->addWidget(_boxes.first);
     _communityCardLayout->addWidget(_boxes.second);
@@ -24,6 +21,19 @@ CommunityCardSelector::CommunityCardSelector(QString labelMessage, const QString
 
     connect(_enableChack, SIGNAL(stateChanged(int)),this,SLOT(setEnable(int)));
 
+}
+
+CommunityCardSelector::~CommunityCardSelector()
+{
+    _communityCardLayout->removeWidget(_boxes.first);
+    _communityCardLayout->removeWidget(_boxes.second);
+    _communityCardInfoLayout->removeWidget(_label);
+    _communityCardInfoLayout->removeWidget(_enableChack);
+
+    delete _communityCardLayout;
+    delete _communityCardInfoLayout;
+    delete _mainLayout;
+    delete _enableChack;
 }
 
 void CommunityCardSelector::setEnable(int status)

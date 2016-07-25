@@ -10,15 +10,17 @@
 #include <QHBoxLayout>
 #include <QStringList>
 
-class CommunityCardSelector : public QWidget
+#include "cardselector.h"
+
+class CommunityCardSelector : public CardSelector
 {
     Q_OBJECT
 public:
     explicit CommunityCardSelector(QString labelMessage,const QStringList& valueList_, const QStringList& colorList_,
                                    QWidget *parent = 0);
+    virtual ~CommunityCardSelector();
 
-    bool comminityCardIsActive() {return _enableChack->isChecked();}
-    std::pair<QComboBox*,QComboBox*> getCardBoxes() {return _boxes;}
+    virtual bool selectionIsActive() {return _enableChack->isChecked();}
 
 signals:
 
@@ -26,8 +28,6 @@ public slots:
 private slots:
     void setEnable(int);
 private:
-    std::pair<QComboBox*,QComboBox*> _boxes;
-    QLabel* _label;
     QCheckBox* _enableChack;
 
     QVBoxLayout *_mainLayout;
