@@ -17,6 +17,7 @@ public:
     virtual ~hand_evaluator(){}
 
     virtual double evaluate_hand(const std::list<card>&,const std::vector<card>&,const std::pair<card,card>);
+    virtual double evaluate_pair(const std::pair<card,card>);
 private:
 
     combination rank_hand(const std::pair<card,card>,const std::vector<card>&);

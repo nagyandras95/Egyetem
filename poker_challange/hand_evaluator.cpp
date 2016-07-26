@@ -22,6 +22,19 @@ double hand_evaluator::evaluate_hand(const std::list<card>& unknown_cards,const 
     return (double) ((double) behind)/((double) count);
 }
 
+double hand_evaluator::evaluate_pair(const std::pair<card, card> p)
+{
+    bool n_same = false, c_same = false, poss_staright = false;
+    n_same = p.first.get_number() == p.second.get_number();
+    c_same = p.first.get_color() == p.second.get_color();
+    poss_staright = std::abs(p.first - p.second) <= 4 && !n_same;
+
+    int def = 4*14;
+    int val = n_same*def + c_same*def*2 +  poss_staright*def*4 + std::max(p.first,p.second).get_number();
+
+
+}
+
 combination hand_evaluator::rank_hand(const std::pair<card,card> p, const std::vector<card>& community_cards)
 {
 
