@@ -4,7 +4,6 @@
 #include <list>
 #include <vector>
 
-#include "gamingtableconfiguration.h"
 #include "card.h"
 
 

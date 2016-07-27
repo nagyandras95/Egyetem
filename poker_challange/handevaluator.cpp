@@ -1,6 +1,6 @@
 #include <assert.h>
 
-#include "hand_evaluator.h"
+#include "handevaluator.h"
 #include "gamingtableconfiguration.h"
 
 HandEvaluator::HandEvaluator() {}
@@ -128,24 +128,4 @@ long double HandEvaluator::probability_distribution(int N, int M, int n)
     long double val = (long double)ratio / (long double)div;
 
    return val;
-}
-
-int HandEvaluator::variation(int n, int k)
-{
-    assert(n >= k);
-    return fact(n) / (fact(k)*fact(n-k));
-}
-
-long HandEvaluator::fact(int n)
-{
-    assert(n >= 0);
-
-    long f = 1;
-    for(int i = 1; i <= n; i++)
-    {
-        f = f * (long)i;
-    }
-
-
-    return f;
 }

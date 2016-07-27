@@ -1,4 +1,4 @@
-#include "gamingtableconfiguration.h"
+﻿#include "gamingtableconfiguration.h"
 
 #include <assert.h>
 
@@ -6,36 +6,74 @@ GamingTableConfiguration::GamingTableConfiguration()
 {
     for(int i = 2; i <= 14; i++ )
     {
-        hidden_cards.push_back(card(i,card::color::clubs));
-        hidden_cards.push_back(card(i,card::color::diamonds));
-        hidden_cards.push_back(card(i,card::color::hearts));
-        hidden_cards.push_back(card(i,card::color::spades));
+        hiddenCards.push_back(card(i,card::color::clubs));
+        hiddenCards.push_back(card(i,card::color::diamonds));
+        hiddenCards.push_back(card(i,card::color::hearts));
+        hiddenCards.push_back(card(i,card::color::spades));
     }
+
+    calculatedHiddenCards = false;
+
 }
 
-std::list<card> GamingTableConfiguration::get_hidden_cards()
+const std::list<card>& GamingTableConfiguration::getHiddenCards()
 {
-    hidden_cards.remove(your_card1);
-    hidden_cards.remove(your_card2);
-    for(card c : community_cards)
+    if(!calculatedHiddenCards)
     {
-        hidden_cards.remove(c);
+        hiddenCards.remove(yourCard1);
+        hiddenCards.remove(yourCard2);
+        for(card c : communityCards)
+        {
+            hiddenCards.remove(c);
+        }
+        calculatedHiddenCards = true;
     }
 
-    return hidden_cards;
+
+    return hiddenCards;
 }
 
-std::list<std::vector<card> > GamingTableConfiguration::get_possible_next_round_community_cards()
+std::list<std::vector<card> > GamingTableConfiguration::getPossibleNextRoundComminityCards()
 {
-    assert(community_cards.size() > 0 && community_cards.size() < 5);
+    assert(communityCards.size() > 0 && communityCards.size() < 5);
     std::list<std::vector<card> > possiblities;
     std::vector<card> comm_cards;
-    for(card c : get_hidden_cards())
+    for(card c : getHiddenCards())
     {
-        comm_cards = community_cards;
+        comm_cards = communityCards;
         comm_cards.push_back(c);
         possiblities.push_back(comm_cards);
     }
 
     return possiblities;
+}
+
+int GamingTableConfiguration::getNOfActivePlayers() const
+{
+    return nOfActivePlayers;
+}
+
+void GamingTableConfiguration::setNOfActivePlayers(int value)
+{
+    nOfActivePlayers = value;
+}
+
+int GamingTableConfiguration::getYourBet() const
+{
+    return yourBet;
+}
+
+void GamingTableConfiguration::setYourBet(int value)
+{
+    yourBet = value;
+}
+
+int GamingTableConfiguration::getPot() const
+{
+    return pot;
+}
+
+void GamingTableConfiguration::setPot(int value)
+{
+    pot = value;
 }

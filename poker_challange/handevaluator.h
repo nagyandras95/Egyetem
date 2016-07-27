@@ -4,9 +4,9 @@
 #include <list>
 #include <set>
 #include <vector>
-#include "card.h"
 #include <math.h>
 #include "ihandevaluator.h"
+#include "card.h"
 #include "combination.h"
 #include "gamingtableconfiguration.h"
 
@@ -26,8 +26,6 @@ private:
     std::list<std::pair<card,card> > get_all_pair(const std::list<card>&);
 
     long double probability_distribution(int,int,int);
-    int variation(int,int);
-    long fact(int);
 
 
 };

@@ -5,33 +5,48 @@
 #include <vector>
 #include <list>
 
-class GamingTableConfigurationn
+class GamingTableConfiguration
 {
 public:
     enum options {check,call,raise,fold};
     enum round {pre_flop, flop, turn, river};
 
     GamingTableConfiguration();
-    std::list<card> get_hidden_cards();
+    const std::list<card>& getHiddenCards();
 
-    std::vector<card> get_community_cards() {return community_cards; }
-    std::list<std::vector<card> > get_possible_next_round_community_cards();
+    std::vector<card> getCommunityCards() const {return communityCards;}
+    void setCommunityCards(const std::vector<card> cards) {communityCards = cards;}
+    std::list<std::vector<card> > getPossibleNextRoundComminityCards();
 
-    std::pair<card,card> get_your_pair() {return std::pair<card,card>(your_card1,your_card2);}
+    std::pair<card,card> getYourHand() const {return std::pair<card,card>(yourCard1,yourCard2);}
+    void setYourHand(const card& c1,const card& c2) {yourCard1 = c1; yourCard2 = c2;}
 
-    card your_card1;
-    card your_card2;
+    int getNOfActivePlayers() const;
+    void setNOfActivePlayers(int value);
 
-    std::list<card> hidden_cards;
-    std::vector<card> community_cards;
+    int getPot() const;
+    void setPot(int value);
 
-    int number_of_all_players;
-    int number_of_faied_players;
+    int getYourBet() const;
+    void setYourBet(int value);
 
-    int full_bet_amount;
-    int your_bet;
+private:
+    card yourCard1;
+    card yourCard2;
+
+    std::list<card> hiddenCards;
+    std::vector<card> communityCards;
+
+    int nOfActivePlayers;
+
+    int pot;
+    int yourBet;
 
     round current_round;
+
+
+    bool calculatedHiddenCards;
+
 
 };
 #endif // GAME_CONFIGURATION_H
