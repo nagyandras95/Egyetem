@@ -51,12 +51,17 @@ int combination::calc_value()
         else if(count_same_values == 1 && prev_count == 1)
         {
             secondary_cards.push_back(std::prev(it)->get_number());
+            ctiric_second_uinon.push_back(std::prev(it)->get_number());
         }
 
         if(std::next(it) == cards.end())
         {
             if(count_same_values == 1)
-             secondary_cards.push_back(it->get_number());
+            {
+                secondary_cards.push_back(it->get_number());
+                ctiric_second_uinon.push_back(it->get_number());
+            }
+
             else if(count_same_values == 2)
               critical_cards.push_back(it->get_number());
 
@@ -75,12 +80,18 @@ int combination::calc_value()
     if(all_same_color || straight)
     {
         critical_cards.clear();
+        secondary_cards.clear();
         for(card c : cards)
+        {
             secondary_cards.push_back(c.get_number());
+            ctiric_second_uinon.push_back(c.get_number());
+        }
+
+
     }
 
-    std::sort(secondary_cards.begin(),secondary_cards.end());
-    std::sort(critical_cards.begin(),critical_cards.end());
+    for(int val : critical_cards)
+        ctiric_second_uinon.push_back(val);
 
 
 
@@ -90,21 +101,17 @@ int combination::calc_value()
 
 }
 
-std::pair<bool, bool> is_better(const std::vector<int> cards1, const std::vector<int> cards2)
+bool is_better(const std::vector<int>& cards1, const std::vector<int>& cards2)
 {
 
     assert(cards1.size() == cards2.size());
-
-    std::pair<bool,bool> ret(false,true); // better, equal
-    for(int i = (int)cards1.size() - 1; i >= 0  && !ret.first; i++)
+    bool l = false;
+    for(int i = (int)cards1.size() - 1; i >= 0  && !l; i--)
     {
-        if(!ret.first)
-            ret.first = (cards1[i] - cards2[i]) > 0;
-        if(ret.second)
-            ret.second = (cards1[i] - cards2[i]) == 0;
+            l = (cards2[i] - cards1[i]) > 0;
     }
 
-    return ret;
+    return l;
 }
 
 bool operator<(const combination c1, const combination c2)
@@ -118,19 +125,7 @@ bool operator<(const combination c1, const combination c2)
     else
     {
         if(c1.get_nof_cards() != c2.get_nof_cards()) return c1.get_nof_cards() < c2.get_nof_cards();
-
-        if(c1.get_critical_cards().size() != c2.get_critical_cards().size())
-        {
-            qDebug() << "elromlott";
-        }
-        if(c1.get_secondary_cards().size() != c2.get_secondary_cards().size())
-        {
-            qDebug() << "ez is..";
-        }
-
-        std::pair<bool,bool> ev = is_better(c1.get_critical_cards(),c2.get_critical_cards());
-        if(!ev.first && ev.second) return is_better(c1.get_secondary_cards(),c2.get_secondary_cards()).first;
-        else return ev.first;
+        return is_better(c1.get_decisive_cards(),c2.get_decisive_cards());
 
 
     }

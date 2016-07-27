@@ -5,13 +5,13 @@
 #include <vector>
 #include <list>
 
-class game_configuration
+class GamingTableConfigurationn
 {
 public:
     enum options {check,call,raise,fold};
     enum round {pre_flop, flop, turn, river};
 
-    game_configuration();
+    GamingTableConfiguration();
     std::list<card> get_hidden_cards();
 
     std::vector<card> get_community_cards() {return community_cards; }
@@ -32,9 +32,6 @@ public:
     int your_bet;
 
     round current_round;
-
-    bool small_bind;
-    bool big_bind;
 
 };
 #endif // GAME_CONFIGURATION_H

@@ -6,7 +6,7 @@
 #include <assert.h>
 #include <algorithm>
 
-std::pair<bool,bool> is_better(std::vector<int>,std::vector<int>);
+std::pair<bool,bool> is_better(std::vector<int>&,std::vector<int>&);
 
 
 class combination
@@ -18,8 +18,7 @@ public:
     int get_value() const {return value;}
     int get_nof_cards() const {return (int) cards.size();}
 
-    const std::vector<int> get_critical_cards() const {return critical_cards;}
-    const std::vector<int> get_secondary_cards() const {return secondary_cards;}
+    const std::vector<int>& get_decisive_cards() const {return ctiric_second_uinon;}
 
 
     static int MAX_VALUE;
@@ -37,6 +36,7 @@ private:
 
    std::vector<int> critical_cards;
    std::vector<int> secondary_cards;
+   std::vector<int> ctiric_second_uinon;
 
 
 

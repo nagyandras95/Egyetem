@@ -20,23 +20,23 @@ SOURCES += main.cpp\
     combination.cpp \
     texasholdemmodel.cpp \
     gamewidget.cpp \
-    hand_evaluator.cpp \
-    ihand_evaluator.cpp \
-    game_configuration.cpp \
     communitycardselector.cpp \
     cardselector.cpp \
-    privatecardselector.cpp
+    privatecardselector.cpp \
+    amountsetter.cpp \
+    gamingtableconfiguration.cpp \
+    ihandevaluator.cpp \
+    handevaluator.cpp
 
 HEADERS  += mainwindow.h \
     card.h \
     combination.h \
     texasholdemmodel.h \
     gamewidget.h \
-    hand_evaluator.h \
-    ihand_evaluator.h \
-    game_configuration.h \
     communitycardselector.h \
     cardselector.h \
-    privatecardselector.h
-
-FORMS    += mainwindow.ui
+    privatecardselector.h \
+    amountsetter.h \
+    gamingtableconfiguration.h \
+    handevaluator.h \
+    ihandevaluator.h

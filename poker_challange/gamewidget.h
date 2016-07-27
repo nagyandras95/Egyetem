@@ -12,10 +12,12 @@
 #include <QStringList>
 #include <QString>
 #include <QCheckBox>
+#include <QSpinBox>
 #include <map>
 #include "card.h"
 #include "texasholdemmodel.h"
 #include "cardselector.h"
+#include "amountsetter.h"
 
 
 class GameWidget : public QWidget
@@ -35,6 +37,7 @@ private:
 
     void setConfiguration();
     void initColorMatchingMap();
+    void initDesecationMatching();
 
     card resolveCard(std::pair<QComboBox*,QComboBox*>);
 
@@ -51,14 +54,21 @@ private:
 
     std::vector<CardSelector*> _communityCards;
 
+    AmountSetter* _potSetter;
+    AmountSetter* _yourBetSetter;
+    AmountSetter* _nOfPlayersSetter;
+
     QStringList _valuesList;
     QStringList _colorsList;
 
     QHBoxLayout *_myCardsLayout;
     QHBoxLayout *_communityCardsLayout;
+    QHBoxLayout *_extraInfoLayout;
     QVBoxLayout *_mainLayout;
 
+
     std::map<card::color,QString> _colorMatchingMap;
+    std::map<GamingTableConfiguration::options,QString> _decesationMatching;
 
 
 

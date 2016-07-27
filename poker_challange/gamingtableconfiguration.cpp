@@ -1,8 +1,8 @@
-#include "game_configuration.h"
+#include "gamingtableconfiguration.h"
 
 #include <assert.h>
 
-game_configuration::game_configuration()
+GamingTableConfiguration::GamingTableConfiguration()
 {
     for(int i = 2; i <= 14; i++ )
     {
@@ -13,7 +13,7 @@ game_configuration::game_configuration()
     }
 }
 
-std::list<card> game_configuration::get_hidden_cards()
+std::list<card> GamingTableConfiguration::get_hidden_cards()
 {
     hidden_cards.remove(your_card1);
     hidden_cards.remove(your_card2);
@@ -25,7 +25,7 @@ std::list<card> game_configuration::get_hidden_cards()
     return hidden_cards;
 }
 
-std::list<std::vector<card> > game_configuration::get_possible_next_round_community_cards()
+std::list<std::vector<card> > GamingTableConfiguration::get_possible_next_round_community_cards()
 {
     assert(community_cards.size() > 0 && community_cards.size() < 5);
     std::list<std::vector<card> > possiblities;

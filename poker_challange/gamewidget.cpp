@@ -13,6 +13,7 @@
 GameWidget::GameWidget(QWidget *parent) : QWidget(parent)
 {
     initColorMatchingMap();
+    initDesecationMatching();
 
     for(int i = 2; i <= 14; i++)
     {
@@ -31,8 +32,16 @@ GameWidget::GameWidget(QWidget *parent) : QWidget(parent)
         _communityCards.push_back(new CommunityCardSelector("Card dilerred: ",_valuesList,_colorsList));
     }
 
+    _potSetter = new AmountSetter("Pot:");
+    _yourBetSetter = new AmountSetter("Your Bet:");
+    _nOfPlayersSetter = new AmountSetter("Plyers:");
+
+
     _myCardsLayout = new QHBoxLayout;
     _communityCardsLayout = new QHBoxLayout;
+    _extraInfoLayout = new QHBoxLayout;
+
+
 
     _myCardsLayout->addWidget(_firstCard);
     _myCardsLayout->addWidget(_secondCard);
@@ -41,9 +50,14 @@ GameWidget::GameWidget(QWidget *parent) : QWidget(parent)
         _communityCardsLayout->addWidget(_communityCards[i]);
     }
 
+    _extraInfoLayout->addWidget(_potSetter);
+    _extraInfoLayout->addWidget(_yourBetSetter);
+    _extraInfoLayout->addWidget(_nOfPlayersSetter);
+
     _mainLayout = new QVBoxLayout;
     _mainLayout->addLayout(_communityCardsLayout);
     _mainLayout->addLayout(_myCardsLayout);
+    _mainLayout->addLayout(_extraInfoLayout);
 
     setLayout(_mainLayout);
 
@@ -90,14 +104,14 @@ card::color GameWidget::invertMatchColor(QString colorString)
 void GameWidget::getHint()
 {
     setConfiguration();
-    QString hint = QString::number(_model.evaluate());
+    QString hint = _decesationMatching[_model.evaluate()];
     emit hintAdded(hint);
 
 }
 
 void GameWidget::setConfiguration()
 {
-    _model.set_your_cards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
+    _model.setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
     std::vector<card> cards;
     for(unsigned int i = 0; i < _communityCards.size(); i++)
     {
@@ -106,7 +120,10 @@ void GameWidget::setConfiguration()
             cards.push_back(resolveCard(_communityCards[i]->getCardBoxes()));
         }
     }
-    _model.set_community_cards(cards);
+    _model.setCommunityCards(cards);
+    _model.setNOfPlayers(_nOfPlayersSetter->getAmount());
+    _model.setTotalPot(_potSetter->getAmount());
+    _model.setYourBet(_yourBetSetter->getAmount());
 
 }
 
@@ -120,6 +137,14 @@ void GameWidget::initColorMatchingMap()
     _colorMatchingMap[card::color::spades] = "Spades";
 
 
+}
+
+void GameWidget::initDesecationMatching()
+{
+    _decesationMatching[GamingTableConfiguration::options::fold] = "Fold";
+    _decesationMatching[GamingTableConfiguration::options::call] = "Call";
+    _decesationMatching[GamingTableConfiguration::options::check] = "Chack";
+    _decesationMatching[GamingTableConfiguration::options::raise] = "Raise";
 }
 
 card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair)
