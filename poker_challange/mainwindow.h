@@ -6,6 +6,7 @@
 #include <QAction>
 #include <texasholdemmodel.h>
 #include "gamewidget.h"
+#include "texasholdemmodel.h"
 
 class MainWindow : public QMainWindow
 {
@@ -14,18 +15,27 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+private slots:
+    void startingNewGame();
+    void modelWaitingYourHand();
 private:
 
-
-    QAction* _newGameAction; // új játék akció
-    QAction* _exitAction; // kilépés akció
-    QAction* _configureAction; // beállítások akciója
+    QAction* _startAction;
     QAction* _hintAction;
+    QAction* _threadConfigureAction;
+    QAction* _exitAction; // kilépés akció
+    QAction* _nextAction;
+
 
     QMenu* _gameMenu; // játékmenü
+    QMenu* _controlMenu;
     QMenu* _infoMenu;
 
-    GameWidget* _gameWidget; // játékmezõ vezérlője
+    GameWidget* _gameWidget;
+    TexasHoldemModel* _model;
+
+    ThreadNumberSetDialog* _threadSetter;
+
 
 
 };

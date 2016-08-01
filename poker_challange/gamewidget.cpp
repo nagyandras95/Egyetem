@@ -10,10 +10,13 @@
 #include "privatecardselector.h"
 #include "card.h"
 
-GameWidget::GameWidget(QWidget *parent) : QWidget(parent)
+GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(parent)
 {
+    _model = model;
+
     initColorMatchingMap();
     initDesecationMatching();
+    initChoiceLists();
 
     for(int i = 2; i <= 14; i++)
     {
@@ -32,9 +35,15 @@ GameWidget::GameWidget(QWidget *parent) : QWidget(parent)
         _communityCards.push_back(new CommunityCardSelector("Card dilerred: ",_valuesList,_colorsList));
     }
 
-    _potSetter = new AmountSetter("Pot:");
-    _yourBetSetter = new AmountSetter("Your Bet:");
-    _nOfPlayersSetter = new AmountSetter("Plyers:");
+    _potSetter = new AmountSetter("Pot:",0,1000);
+    _yourBetSetter = new AmountSetter("Your Bet:",0,500);
+    _nOfPlayersSetter = new AmountSetter("Plyers:",2,23);
+    _yourNumberSetter = new AmountSetter("Your number:",1,23);
+
+    _smallBlindSetter = new AmountSetter("Small blind bet:",1,500);
+    _bigBlindSetter = new AmountSetter("Big blind bet:",2,500);
+
+    _playersWidget = new PlayersControlWidget();
 
 
     _myCardsLayout = new QHBoxLayout;
@@ -53,8 +62,12 @@ GameWidget::GameWidget(QWidget *parent) : QWidget(parent)
     _extraInfoLayout->addWidget(_potSetter);
     _extraInfoLayout->addWidget(_yourBetSetter);
     _extraInfoLayout->addWidget(_nOfPlayersSetter);
+    _extraInfoLayout->addWidget(_yourNumberSetter);
+    _extraInfoLayout->addWidget(_smallBlindSetter);
+    _extraInfoLayout->addWidget(_bigBlindSetter);
 
     _mainLayout = new QVBoxLayout;
+    _mainLayout->addWidget(_playersWidget);
     _mainLayout->addLayout(_communityCardsLayout);
     _mainLayout->addLayout(_myCardsLayout);
     _mainLayout->addLayout(_extraInfoLayout);
@@ -79,12 +92,18 @@ GameWidget::~GameWidget()
     delete _firstCard;
     delete _secondCard;
 
+    _extraInfoLayout->removeWidget(_potSetter);
+    _extraInfoLayout->removeWidget(_yourBetSetter);
+    _extraInfoLayout->removeWidget(_nOfPlayersSetter);
+
+    delete _potSetter;
+    delete _yourBetSetter;
+    delete _nOfPlayersSetter;
+
     delete _communityCardsLayout;
     delete _myCardsLayout;
+    delete _extraInfoLayout;
     delete _mainLayout;
-
-
-
 
 }
 
@@ -101,17 +120,69 @@ card::color GameWidget::invertMatchColor(QString colorString)
 
 }
 
+QString GameWidget::matchDecesion(TexasHoldem::desecition d)
+{
+    return _decesationMatching[d];
+}
+
+TexasHoldem::desecition GameWidget::invertMatchDecesion(QString decesionString)
+{
+    return std::find_if(_decesationMatching.begin(), _decesationMatching.end(),
+                        [decesionString](std::pair<TexasHoldem::desecition,QString> p){return p.second == decesionString;})->first;
+}
+
 void GameWidget::getHint()
 {
     setConfiguration();
-    QString hint = _decesationMatching[_model.evaluate()];
+    QString hint = _decesationMatching[_model->evaluate()];
     emit hintAdded(hint);
 
 }
 
+void GameWidget::newGameStarted(std::vector<PlayerRoundState> state, int startingPlayer)
+{
+    _playersWidget->setNOfPlayer((int) state.size());
+    _playersWidget->setPossibleChoices(_afterBidList);
+    _playersWidget->setActivePlayer(startingPlayer);
+
+
+
+    for(unsigned int i = 0; i < state.size(); ++i)
+    {
+        _playersWidget->setPlayerTextDecesion(i,matchDecesion(state[i].lastDesecition));
+        _playersWidget->setPlayerBet(i,state[i].bet);
+        _playersWidget->setPalyerActive(i,false);
+    }
+
+
+    for(CardSelector* selector : _communityCards)
+    {
+        selector->setEnabled(false);
+    }
+
+    _potSetter->setActive(false);
+    _yourBetSetter->setActive(false);
+    _nOfPlayersSetter->setActive(false);
+    _yourNumberSetter->setActive(false);
+    _smallBlindSetter->setActive(false);
+    _bigBlindSetter->setActive(false);
+
+}
+
+void GameWidget::stepGame()
+{
+    _model->stepGame(invertMatchDecesion(_playersWidget->getActivePlayerDecesion()),
+                     _playersWidget->getActivePlayerBet());
+}
+
+void GameWidget::changeActivePlayer(int playerNumber)
+{
+    _playersWidget->changeActivePlayer(playerNumber);
+}
+
 void GameWidget::setConfiguration()
 {
-    _model.setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
+    _model->setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
     std::vector<card> cards;
     for(unsigned int i = 0; i < _communityCards.size(); i++)
     {
@@ -120,10 +191,10 @@ void GameWidget::setConfiguration()
             cards.push_back(resolveCard(_communityCards[i]->getCardBoxes()));
         }
     }
-    _model.setCommunityCards(cards);
-    _model.setNOfPlayers(_nOfPlayersSetter->getAmount());
-    _model.setTotalPot(_potSetter->getAmount());
-    _model.setYourBet(_yourBetSetter->getAmount());
+    _model->setCommunityCards(cards);
+    _model->setNOfPlayers(_nOfPlayersSetter->getAmount());
+    _model->setTotalPot(_potSetter->getAmount());
+    _model->setYourBet(_yourBetSetter->getAmount());
 
 }
 
@@ -141,10 +212,27 @@ void GameWidget::initColorMatchingMap()
 
 void GameWidget::initDesecationMatching()
 {
-    _decesationMatching[GamingTableConfiguration::options::fold] = "Fold";
-    _decesationMatching[GamingTableConfiguration::options::call] = "Call";
-    _decesationMatching[GamingTableConfiguration::options::check] = "Chack";
-    _decesationMatching[GamingTableConfiguration::options::raise] = "Raise";
+    _decesationMatching[TexasHoldem::none] = "";
+    _decesationMatching[TexasHoldem::fold] = "Fold";
+    _decesationMatching[TexasHoldem::call] = "Call";
+    _decesationMatching[TexasHoldem::check] = "Check";
+    _decesationMatching[TexasHoldem::bet] = "Bet";
+    _decesationMatching[TexasHoldem::raise] = "Raise";
+
+}
+
+void GameWidget::initChoiceLists()
+{
+    _beforeBidList.append("");
+    _beforeBidList.append("Fold");
+    _beforeBidList.append("Check");
+    _beforeBidList.append("Bet");
+
+    _afterBidList.append("");
+    _afterBidList.append("Fold");
+    _afterBidList.append("Call");
+    _afterBidList.append("Raise");
+
 }
 
 card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair)

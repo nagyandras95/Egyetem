@@ -25,8 +25,11 @@ SOURCES += main.cpp\
     privatecardselector.cpp \
     amountsetter.cpp \
     gamingtableconfiguration.cpp \
-    ihandevaluator.cpp \
-    handevaluator.cpp
+    handevaluator.cpp \
+    possibletableevaluator.cpp \
+    threadnumbersetdialog.cpp \
+    playerwidget.cpp \
+    playerscontrolwidget.cpp
 
 HEADERS  += mainwindow.h \
     card.h \
@@ -39,4 +42,10 @@ HEADERS  += mainwindow.h \
     amountsetter.h \
     gamingtableconfiguration.h \
     handevaluator.h \
-    ihandevaluator.h
+    ihandevaluator.h \
+    threadsafequeue.h \
+    possibletableevaluator.h \
+    threadnumbersetdialog.h \
+    playerwidget.h \
+    playerscontrolwidget.h \
+    holdemtypes.h

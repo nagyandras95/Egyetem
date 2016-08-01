@@ -81,6 +81,7 @@ int combination::calc_value()
     {
         critical_cards.clear();
         secondary_cards.clear();
+        ctiric_second_uinon.clear();
         for(card c : cards)
         {
             secondary_cards.push_back(c.get_number());
@@ -95,9 +96,13 @@ int combination::calc_value()
 
 
 
-    return PAIR_VALUE*(number_of_pairs*!((int)drill)*!((int)poker)) + DRILL_VALUE* drill * (!(int)poker) * ((int) number_of_pairs == 1) +
-                        FLUSH_VALUE*(number_of_pairs == 2 && drill) + POKER_VALUE* ((int)poker) + FULL_HOUSE_VALUE * ( (int) (all_same_color && !straight ) ) +
-                       STRAIGHT_VALUE * ((int) (straight) * (int) !all_same_color ) + (all_same_color && straight)*STARTIGHT_FLUSH_VALUE;
+    return PAIR_VALUE*(number_of_pairs*!((int)drill)*!((int)poker)*!((int)all_same_color)) +
+            DRILL_VALUE*drill*(!(int)poker)*((int) number_of_pairs == 1)*!((int)all_same_color) +
+            FLUSH_VALUE*( (all_same_color && !straight ) ) +
+            POKER_VALUE* ((int)poker) +
+            FULL_HOUSE_VALUE * ( (int) number_of_pairs == 2 && drill ) +
+            STRAIGHT_VALUE * ((int) (straight) * (int) !all_same_color ) +
+            STARTIGHT_FLUSH_VALUE*(all_same_color && straight);
 
 }
 
@@ -106,12 +111,14 @@ bool is_better(const std::vector<int>& cards1, const std::vector<int>& cards2)
 
     assert(cards1.size() == cards2.size());
     bool l = false;
+    bool gr = false;
     for(int i = (int)cards1.size() - 1; i >= 0  && !l; i--)
     {
-            l = (cards2[i] - cards1[i]) > 0;
+            l = cards2[i] != cards1[i];
+            gr = cards2[i] > cards1[i];
     }
 
-    return l;
+    return gr;
 }
 
 bool operator<(const combination c1, const combination c2)

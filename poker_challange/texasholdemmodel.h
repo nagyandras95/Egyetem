@@ -3,9 +3,25 @@
 
 #include <QObject>
 #include <vector>
+#include <assert.h>
 #include "ihandevaluator.h"
 #include "card.h"
 #include "gamingtableconfiguration.h"
+#include "possibletableevaluator.h"
+
+
+struct PlayerRoundState {
+
+    PlayerRoundState(bool you_ = false, TexasHoldem::desecition lastDesecition_ = TexasHoldem::none, int bet_= 0):
+        you(you_) ,lastDesecition(lastDesecition_), bet(bet_)  {}
+
+    bool you;
+    TexasHoldem::desecition lastDesecition;
+    int bet;
+    bool nextPlayer = false;
+    bool aticve = true;
+    bool hasDecide = false;
+};
 
 class TexasHoldemModel : public QObject
 {
@@ -13,7 +29,23 @@ class TexasHoldemModel : public QObject
 public:
     explicit TexasHoldemModel(QObject *parent = 0);
     TexasHoldemModel(IHandEvaluator* evalator, QObject *parent = 0);
+
+    void stepGame(TexasHoldem::desecition activePlayerDecesion, int activePlayerBet);
+
     ~TexasHoldemModel();
+
+signals:
+    void activePlayerChanged(int newNumber);
+    void newGameStarted(std::vector<PlayerRoundState> state,int);
+    void startBidding(int nextPlayer);
+    void waitingYourHand();
+    void choiceOptionsChanged(bool beforeBet);
+
+
+public slots:
+    TexasHoldem::desecition evaluate();
+
+    void startGame(int players_, int smallBlindBet_, int bigBlindBet_, int playerNumber_);
 
     void setYourCards(const card& c1,const card& c2) {_gameState.setYourHand(c1,c2);}
     void setCommunityCards(const std::vector<card> cards) {_gameState.setCommunityCards(cards);}
@@ -21,18 +53,26 @@ public:
     void setYourBet(int n) {_gameState.setYourBet(n);}
     void setTotalPot(int n) {_gameState.setPot(n);}
 
-    GamingTableConfiguration::options evaluate();
-
-signals:
-
-public slots:
-
 private:
 
-    GamingTableConfiguration::options evaluateChance(double);
+    TexasHoldem::desecition evaluateChance(double);
 
     GamingTableConfiguration _gameState;
     IHandEvaluator* _evalator;
+    PossibleTableEvaluator* _possEvalator;
+
+
+    int minimumBet;
+    int smallBlindBet;
+
+    std::vector<PlayerRoundState> _playersState;
+    int playerNumber;
+
+    TexasHoldem::round _round;
+
+    bool _beforeBet;
+    int _nextPlayerr;
+    int _tableSumMoney;
 
 
 };

@@ -25,6 +25,7 @@ public:
 signals:
 
 public slots:
+
 private slots:
     void setEnable(int);
 private:

@@ -4,22 +4,23 @@
 #include "card.h"
 #include <vector>
 #include <list>
+#include "holdemtypes.h"
+
 
 class GamingTableConfiguration
 {
 public:
-    enum options {check,call,raise,fold};
-    enum round {pre_flop, flop, turn, river};
 
     GamingTableConfiguration();
+    void init();
     const std::list<card>& getHiddenCards();
 
     std::vector<card> getCommunityCards() const {return communityCards;}
-    void setCommunityCards(const std::vector<card> cards) {communityCards = cards;}
+    void setCommunityCards(const std::vector<card> cards);
     std::list<std::vector<card> > getPossibleNextRoundComminityCards();
 
     std::pair<card,card> getYourHand() const {return std::pair<card,card>(yourCard1,yourCard2);}
-    void setYourHand(const card& c1,const card& c2) {yourCard1 = c1; yourCard2 = c2;}
+    void setYourHand(const card& c1,const card& c2);
 
     int getNOfActivePlayers() const;
     void setNOfActivePlayers(int value);
@@ -41,9 +42,6 @@ private:
 
     int pot;
     int yourBet;
-
-    round current_round;
-
 
     bool calculatedHiddenCards;
 

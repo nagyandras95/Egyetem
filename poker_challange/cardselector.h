@@ -21,8 +21,11 @@ public:
     virtual bool selectionIsActive() = 0;
 
 signals:
-
+    void cardChanged(QString,QString);
 public slots:
+
+private slots:
+    void cardParameterChanged(QString);
 
 protected:
     QLabel* _label;

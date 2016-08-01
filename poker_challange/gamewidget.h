@@ -6,26 +6,34 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <vector>
 #include <QLabel>
-#include <QLineEdit>
 #include <QStringList>
 #include <QString>
 #include <QCheckBox>
 #include <QSpinBox>
+
 #include <map>
+#include <vector>
+
 #include "card.h"
 #include "texasholdemmodel.h"
 #include "cardselector.h"
 #include "amountsetter.h"
+#include "threadnumbersetdialog.h"
+#include "playerscontrolwidget.h"
 
 
 class GameWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GameWidget(QWidget *parent = 0);
+    explicit GameWidget(TexasHoldemModel* model,QWidget *parent = 0);
     ~GameWidget();
+
+    int getnOfPlayers() {return _nOfPlayersSetter->getAmount();}
+    int getYourNumber() {return _yourNumberSetter->getAmount();}
+    int getSmallBlindBet() {return _smallBlindSetter->getAmount();}
+    int getBigBlindBet() {return _bigBlindSetter->getAmount();}
 
 
 signals:
@@ -33,33 +41,48 @@ signals:
 public slots:
     void getHint();
 
+    void newGameStarted(std::vector<PlayerRoundState> state,int startingPlayer);
+    void stepGame();
+    void changeActivePlayer(int playerNumber);
+
 private:
 
     void setConfiguration();
     void initColorMatchingMap();
     void initDesecationMatching();
+    void initChoiceLists();
 
     card resolveCard(std::pair<QComboBox*,QComboBox*>);
 
     QString matchColors(card::color);
     card::color invertMatchColor(QString colorString);
 
+    QString matchDecesion(TexasHoldem::desecition);
+    TexasHoldem::desecition invertMatchDecesion(QString);
+
     QString matchValue(int);
     int invertMatchValue(QString value);
 
-    TexasHoldemModel _model;
+    TexasHoldemModel* _model;
 
     CardSelector* _firstCard;
     CardSelector* _secondCard;
-
     std::vector<CardSelector*> _communityCards;
 
     AmountSetter* _potSetter;
     AmountSetter* _yourBetSetter;
     AmountSetter* _nOfPlayersSetter;
+    AmountSetter* _yourNumberSetter;
+
+    AmountSetter* _smallBlindSetter;
+    AmountSetter* _bigBlindSetter;
+
+    PlayersControlWidget *_playersWidget;
 
     QStringList _valuesList;
     QStringList _colorsList;
+    QStringList _beforeBidList;
+    QStringList _afterBidList;
 
     QHBoxLayout *_myCardsLayout;
     QHBoxLayout *_communityCardsLayout;
@@ -68,7 +91,7 @@ private:
 
 
     std::map<card::color,QString> _colorMatchingMap;
-    std::map<GamingTableConfiguration::options,QString> _decesationMatching;
+    std::map<TexasHoldem::desecition,QString> _decesationMatching;
 
 
 

@@ -4,6 +4,12 @@
 
 GamingTableConfiguration::GamingTableConfiguration()
 {
+    init();
+}
+
+void GamingTableConfiguration::init()
+{
+    hiddenCards.clear();
     for(int i = 2; i <= 14; i++ )
     {
         hiddenCards.push_back(card(i,card::color::clubs));
@@ -13,7 +19,6 @@ GamingTableConfiguration::GamingTableConfiguration()
     }
 
     calculatedHiddenCards = false;
-
 }
 
 const std::list<card>& GamingTableConfiguration::getHiddenCards()
@@ -33,6 +38,12 @@ const std::list<card>& GamingTableConfiguration::getHiddenCards()
     return hiddenCards;
 }
 
+void GamingTableConfiguration::setCommunityCards(const std::vector<card> cards)
+{
+    communityCards = cards;
+    calculatedHiddenCards = false;
+}
+
 std::list<std::vector<card> > GamingTableConfiguration::getPossibleNextRoundComminityCards()
 {
     assert(communityCards.size() > 0 && communityCards.size() < 5);
@@ -47,6 +58,14 @@ std::list<std::vector<card> > GamingTableConfiguration::getPossibleNextRoundComm
 
     return possiblities;
 }
+
+void GamingTableConfiguration::setYourHand(const card &c1, const card &c2)
+{
+    yourCard1 = c1;
+    yourCard2 = c2;
+    calculatedHiddenCards = false;
+}
+
 
 int GamingTableConfiguration::getNOfActivePlayers() const
 {
