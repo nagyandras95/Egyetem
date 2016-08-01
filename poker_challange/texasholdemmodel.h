@@ -31,6 +31,7 @@ public:
     TexasHoldemModel(IHandEvaluator* evalator, QObject *parent = 0);
 
     void stepGame(TexasHoldem::desecition activePlayerDecesion, int activePlayerBet);
+    void addCommunityCards(const std::list<card>& cards);
 
     ~TexasHoldemModel();
 
@@ -39,7 +40,11 @@ signals:
     void newGameStarted(std::vector<PlayerRoundState> state,int);
     void startBidding(int nextPlayer);
     void waitingYourHand();
+    void selectCommunityCards(int from,int to);
+    void nextRoundStarted(int currentPlayer);
     void choiceOptionsChanged(bool beforeBet);
+
+    void invalidState(QString message);
 
 
 public slots:
@@ -55,6 +60,8 @@ public slots:
 
 private:
 
+    int searchNextAtivePlayer();
+
     TexasHoldem::desecition evaluateChance(double);
 
     GamingTableConfiguration _gameState;
@@ -62,7 +69,7 @@ private:
     PossibleTableEvaluator* _possEvalator;
 
 
-    int minimumBet;
+    int _minimumBet;
     int smallBlindBet;
 
     std::vector<PlayerRoundState> _playersState;
@@ -71,8 +78,11 @@ private:
     TexasHoldem::round _round;
 
     bool _beforeBet;
-    int _nextPlayerr;
+    int _currentPlayer;
     int _tableSumMoney;
+    int _nOfRaises;
+    int _nOfActivePlayers;
+    int _roundStarterPlayer;
 
 
 };

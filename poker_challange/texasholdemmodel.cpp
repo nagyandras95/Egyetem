@@ -13,12 +13,99 @@ void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, in
 {
     //begin hand..
     //next round..
+    PlayerRoundState& currentPlayerState =  _playersState[(size_t)_currentPlayer];
 
-    _playersState[(size_t)_nextPlayerr].lastDesecition = activePlayerDecesion;
-    _playersState[(size_t)_nextPlayerr].bet = activePlayerBet;
-    _nextPlayerr = (_nextPlayerr + 1) % _gameState.getNOfActivePlayers();
-    emit activePlayerChanged(_nextPlayerr);
+    bool error = false;
+    QString message;
+    if(activePlayerBet < _minimumBet || activePlayerBet < currentPlayerState.bet)
+    {
+        error = true;
+        message = "Error: The bet must be at least the minimum bet amount!";
 
+    }
+
+    if(activePlayerDecesion == TexasHoldem::raise && activePlayerBet <= currentPlayerState.bet)
+    {
+        error = true;
+        message = "Error: The raised money must be more then the current money!";
+    }
+
+    if(activePlayerDecesion == TexasHoldem::none)
+    {
+        error = true;
+        message = "Error: You must make a decesion!";
+    }
+
+    if(error)
+    {
+        emit invalidState(message);
+        return;
+    }
+
+    if(activePlayerDecesion == TexasHoldem::bet)
+    {
+        _beforeBet = false;
+        emit choiceOptionsChanged(_beforeBet);
+
+    }
+
+    if(activePlayerDecesion == TexasHoldem::raise)
+    {
+        if(_nOfRaises == 0)
+        {
+            _roundStarterPlayer = _currentPlayer;
+
+        }
+        _nOfRaises++;
+    }
+    else if(activePlayerDecesion == TexasHoldem::fold)
+    {
+        _nOfActivePlayers--;
+    }
+
+    _tableSumMoney += (activePlayerBet - currentPlayerState.bet);
+    currentPlayerState.lastDesecition = activePlayerDecesion;
+    currentPlayerState.bet = activePlayerBet;
+
+    _currentPlayer = searchNextAtivePlayer();
+    if(_currentPlayer == _roundStarterPlayer)
+    {
+         _beforeBet = true;
+         int size = _gameState.getCommunityCards().size();
+         if( size == 0)
+         {
+             emit selectCommunityCards(0,2);
+
+         }
+         else if(size == 3)
+         {
+             emit selectCommunityCards(3,3);
+         }
+         else if(size == 4)
+         {
+             emit selectCommunityCards(4,4);
+         }
+
+         emit choiceOptionsChanged(_beforeBet);
+    }
+
+    emit activePlayerChanged(_currentPlayer);
+
+
+    if(_currentPlayer == playerNumber)
+    {
+        //hint..
+    }
+
+}
+
+void TexasHoldemModel::addCommunityCards(const std::list<card> &cards)
+{
+    for(card c : cards)
+    {
+        _gameState.addCommunityCard(c);
+    }
+    emit nextRoundStarted(_currentPlayer);
 }
 
 void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindBet_, int playerNumber_)
@@ -27,12 +114,13 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
 
     _tableSumMoney = 0;
     _tableSumMoney += smallBlindBet_ + bigBlindBet_;
-
+    _round = TexasHoldem::pre_flop;
+    _nOfActivePlayers = players_;
     setNOfPlayers(players_);
 
-    minimumBet = bigBlindBet_;
+    _minimumBet = bigBlindBet_;
 
-    playerNumber = playerNumber_;
+    playerNumber = playerNumber_ - 1;
 
     _beforeBet = false;
 
@@ -43,11 +131,22 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
     _playersState[1].bet = bigBlindBet_;
     _playersState[1].lastDesecition = TexasHoldem::bet;
 
-    _nextPlayerr = 1;
+    _currentPlayer = 1;
+    _roundStarterPlayer = searchNextAtivePlayer();
 
-    emit newGameStarted(_playersState,_nextPlayerr);
+    emit newGameStarted(_playersState,_currentPlayer);
     emit waitingYourHand();
     //emit choiceOptionsChanged(_beforeBet);
+}
+
+int TexasHoldemModel::searchNextAtivePlayer()
+{
+    int n = _gameState.getNOfActivePlayers();
+    int next = (_currentPlayer + 1) % n;
+    while(_playersState[next].lastDesecition == TexasHoldem::fold)
+        next = (next + 1) % n;
+
+    return next;
 }
 
 
@@ -93,7 +192,7 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
     }
     else
     {
-        double pair_value = _evalator->evaluate_pair(_gameState.getYourHand(),_gameState.getHiddenCards());
+        winChance = _evalator->evaluate_pair(_gameState.getYourHand(),_gameState.getHiddenCards());
     }
 
     double expectedMoney = winChance*_gameState.getPot();

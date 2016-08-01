@@ -17,6 +17,7 @@ public:
 
     std::vector<card> getCommunityCards() const {return communityCards;}
     void setCommunityCards(const std::vector<card> cards);
+    void addCommunityCard(const card& c) {communityCards.push_back(c);}
     std::list<std::vector<card> > getPossibleNextRoundComminityCards();
 
     std::pair<card,card> getYourHand() const {return std::pair<card,card>(yourCard1,yourCard2);}
