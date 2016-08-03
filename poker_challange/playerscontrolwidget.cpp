@@ -12,7 +12,8 @@ PlayersControlWidget::PlayersControlWidget(QWidget *parent) : QWidget(parent)
 
 void PlayersControlWidget::setNOfPlayer(int n)
 {
-    assert(n < 24);
+    assert(n < 24 && n >= 2);
+    _activePlayer = 0;
     for(int i = 0; i < (int)_players.size(); ++i)
     {
         _gridLayout->removeWidget(_players[i]);
@@ -31,7 +32,7 @@ void PlayersControlWidget::setPossibleChoices(const QStringList& list)
 {
     for(PlayerWidget* player: _players)
     {
-        player->setChoiceList(list);
+        player->changeChoiceList(list);
     }
 }
 
@@ -43,6 +44,6 @@ void PlayersControlWidget::setActivePlayer(int index)
 
 void PlayersControlWidget::changeActivePlayer(int index)
 {
-    setPalyerActive(_activePlayer,false);
+    inactivatePlayer();
     setActivePlayer(index);
 }

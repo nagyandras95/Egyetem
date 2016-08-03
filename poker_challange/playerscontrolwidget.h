@@ -16,9 +16,12 @@ public:
 
     void setNOfPlayer(int n);
     void setPlayerBet(int i, int value) {_players[i]->setBet(value);}
-    void setPalyerActive(int i, bool active) { _players[i]->setActivePlayer(active); }
+    void setPalyerActive(int i, bool active) {
+        _players[i]->setActivePlayer(active);
+    }
     void setPlayerTextDecesion(int i,QString decesion) {_players[i]->setDecesion(decesion);}
     void setPossibleChoices(const QStringList &list);
+    void inactivatePlayer() {setPalyerActive(_activePlayer,false);}
 
     void setActivePlayer(int index);
     void changeActivePlayer(int index);

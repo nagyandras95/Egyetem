@@ -133,20 +133,16 @@ TexasHoldem::desecition GameWidget::invertMatchDecesion(QString decesionString)
 
 void GameWidget::getHint()
 {
-    setConfiguration();
+    //setConfiguration();
     QString hint = _decesationMatching[_model->evaluate()];
     emit hintAdded(hint);
 
 }
 
-void GameWidget::newGameStarted(std::vector<PlayerRoundState> state, int startingPlayer)
+void GameWidget::newGameStarted(std::vector<PlayerRoundState> state)
 {
     _playersWidget->setNOfPlayer((int) state.size());
     _playersWidget->setPossibleChoices(_afterBidList);
-    _playersWidget->setActivePlayer(startingPlayer);
-
-
-
     for(unsigned int i = 0; i < state.size(); ++i)
     {
         _playersWidget->setPlayerTextDecesion(i,matchDecesion(state[i].lastDesecition));
@@ -178,6 +174,65 @@ void GameWidget::stepGame()
 void GameWidget::changeActivePlayer(int playerNumber)
 {
     _playersWidget->changeActivePlayer(playerNumber);
+}
+
+void GameWidget::switchCoiceOption(bool beforeBet)
+{
+    if(beforeBet)
+    {
+        _playersWidget->setPossibleChoices(_beforeBidList);
+    }
+    else
+    {
+        _playersWidget->setPossibleChoices(_afterBidList);
+    }
+}
+
+void GameWidget::givePairs()
+{
+    _model->setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
+    _firstCard->setEnabled(false);
+    _secondCard->setEnabled(false);
+    _model->startRound();
+
+}
+
+void GameWidget::enableCommunityCardSelection(int from, int to)
+{
+    _playersWidget->inactivatePlayer();
+    for(int i = from; i <= to; ++i)
+    {
+        _communityCards[i]->setEnabled(true);
+    }
+}
+
+void GameWidget::addActiveCommunityCards()
+{
+
+    std::list<card> cards;
+    for(CardSelector* selector : _communityCards)
+    {
+        if(selector->isEnabled())
+            cards.push_back(resolveCard(selector->getCardBoxes()));
+
+        selector->setEnabled(false);
+
+    }
+    _model->addCommunityCards(cards);
+    _model->startRound();
+
+}
+
+void GameWidget::changeNofPlayers(int n) {
+    _nOfPlayersSetter->setAmount(n);
+}
+
+void GameWidget::changePot(int n) {
+    _potSetter->setAmount(n);
+}
+
+void GameWidget::changeYourBet(int n) {
+    _yourBetSetter->setAmount(n);
 }
 
 void GameWidget::setConfiguration()

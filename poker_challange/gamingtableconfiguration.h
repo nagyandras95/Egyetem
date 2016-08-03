@@ -17,7 +17,7 @@ public:
 
     std::vector<card> getCommunityCards() const {return communityCards;}
     void setCommunityCards(const std::vector<card> cards);
-    void addCommunityCard(const card& c) {communityCards.push_back(c);}
+    void addCommunityCard(const card& c) {communityCards.push_back(c);calculatedHiddenCards = false;}
     std::list<std::vector<card> > getPossibleNextRoundComminityCards();
 
     std::pair<card,card> getYourHand() const {return std::pair<card,card>(yourCard1,yourCard2);}
@@ -25,12 +25,15 @@ public:
 
     int getNOfActivePlayers() const;
     void setNOfActivePlayers(int value);
+    void decrementNOfActivePlayers() {--nOfActivePlayers;}
 
     int getPot() const;
     void setPot(int value);
+    void addPot(int value) {pot += value;}
 
     int getYourBet() const;
     void setYourBet(int value);
+    void addYourBet(int value) {yourBet+= value;}
 
 private:
     card yourCard1;

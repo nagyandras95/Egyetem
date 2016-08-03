@@ -17,7 +17,8 @@ void GamingTableConfiguration::init()
         hiddenCards.push_back(card(i,card::color::hearts));
         hiddenCards.push_back(card(i,card::color::spades));
     }
-
+    yourBet = 0;
+    pot = 0;
     calculatedHiddenCards = false;
 }
 

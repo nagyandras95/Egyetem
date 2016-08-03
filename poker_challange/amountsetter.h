@@ -13,6 +13,7 @@ public:
     explicit AmountSetter(QString labelMessage, int min, int max, QWidget *parent = 0);
 
     int getAmount() const {return _setterSpinBox->value();}
+    void setAmount(int value) {_setterSpinBox->setValue(value);}
     void setActive(bool value = true) {_setterSpinBox->setEnabled(value);}
 
 signals:

@@ -18,6 +18,7 @@ public:
 private slots:
     void startingNewGame();
     void modelWaitingYourHand();
+    void modelWitingCommunityCards();
 private:
 
     QAction* _startAction;
@@ -25,6 +26,7 @@ private:
     QAction* _threadConfigureAction;
     QAction* _exitAction; // kilépés akció
     QAction* _nextAction;
+    QAction* _startRoundAction;
 
 
     QMenu* _gameMenu; // játékmenü

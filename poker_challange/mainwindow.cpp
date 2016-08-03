@@ -32,14 +32,20 @@ MainWindow::MainWindow(QWidget *parent) :
     _nextAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_N));
     _nextAction->setStatusTip(trUtf8("Next player."));
 
+    _startRoundAction = new QAction(trUtf8("Start round"),this);
+    _startRoundAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_R));
+    _startRoundAction->setStatusTip(trUtf8("Starting the next round"));
+
     _gameMenu = menuBar()->addMenu(trUtf8("&Game"));
-    _gameMenu->addAction(_startAction);
+
     _gameMenu->addAction(_hintAction);
     _gameMenu->addAction(_threadConfigureAction);
     _gameMenu->addSeparator();
     _gameMenu->addAction(_exitAction);
 
     _controlMenu = menuBar()->addMenu(trUtf8("Control"));
+    _controlMenu->addAction(_startAction);
+    _controlMenu->addAction(_startRoundAction);
     _controlMenu->addAction(_nextAction);
 
     _infoMenu = menuBar()->addMenu(trUtf8("&Info"));
@@ -51,17 +57,29 @@ MainWindow::MainWindow(QWidget *parent) :
     setCentralWidget(_gameWidget);
 
     connect(_hintAction,SIGNAL(triggered()),_gameWidget,SLOT(getHint()));
-    connect(_model,SIGNAL(newGameStarted(std::vector<PlayerRoundState>,int)),
-            _gameWidget,SLOT(newGameStarted(std::vector<PlayerRoundState>,int)));
-    connect(_model,SIGNAL(activePlayerChanged(int)),_gameWidget,SLOT(changeActivePlayer(int)));
     connect(_nextAction,SIGNAL(triggered()),_gameWidget,SLOT(stepGame()));
-    connect(_startAction,SIGNAL(triggered()),this, SLOT(startingNewGame()));
     connect(_threadConfigureAction,SIGNAL(triggered()),_threadSetter,SLOT(show()));
-    connect(_model,SIGNAL(waitingYourHand()),this,SLOT(modelWaitingYourHand()));
+    connect(_startAction,SIGNAL(triggered()),this, SLOT(startingNewGame()));
+    connect(_exitAction,SIGNAL(triggered()),this,SLOT(close()));
+
+    connect(_model,SIGNAL(newGameStarted(std::vector<PlayerRoundState>)),
+            _gameWidget,SLOT(newGameStarted(std::vector<PlayerRoundState>)));
+    connect(_model,SIGNAL(selectCommunityCards(int,int)),_gameWidget,SLOT(enableCommunityCardSelection(int,int)));
+    connect(_model,SIGNAL(activePlayerChanged(int)),_gameWidget,SLOT(changeActivePlayer(int)));
+    connect(_model,SIGNAL(choiceOptionsChanged(bool)),_gameWidget,SLOT(switchCoiceOption(bool)));
+    connect(_model,SIGNAL(nOfActivePlayerChanged(int)),_gameWidget,SLOT(changeNofPlayers(int)));
+    connect(_model,SIGNAL(potChanged(int)),_gameWidget,SLOT(changePot(int)));
+    connect(_model,SIGNAL(yourBetChanged(int)),_gameWidget,SLOT(changeYourBet(int)));
+    connect(_model,SIGNAL(nextPlayerHint()),_gameWidget,SLOT(getHint()));
+
     connect(_gameWidget, SIGNAL(hintAdded(QString)), this->statusBar(), SLOT(showMessage(QString)));
 
 
+    connect(_model,SIGNAL(waitingYourHand()),this,SLOT(modelWaitingYourHand()));
+    connect(_model,SIGNAL(waitingCommunityCards()),this,SLOT(modelWitingCommunityCards()));
+    connect(_model,SIGNAL(invalidState(QString)),this->statusBar(),SLOT(showMessage(QString)));
 
+    _startRoundAction->setEnabled(false);
 
 }
 
@@ -78,6 +96,17 @@ void MainWindow::startingNewGame()
 
 void MainWindow::modelWaitingYourHand()
 {
-    this->statusBar()->showMessage("Plase, give your hand and click to Next!");
+    this->statusBar()->showMessage("Plase, give your hand and click to Start round!");
+    _startAction->setEnabled(false);
+
+    _startRoundAction->setEnabled(true);
+    connect(_startRoundAction,SIGNAL(triggered()),_gameWidget,SLOT(givePairs()));
+}
+
+void MainWindow::modelWitingCommunityCards()
+{
+    this->statusBar()->showMessage("Plase, give the community cards and click to Start round!");
+    disconnect(_startRoundAction,SIGNAL(triggered()),_gameWidget,SLOT(givePairs()));
+    connect(_startRoundAction,SIGNAL(triggered()), _gameWidget, SLOT(addActiveCommunityCards()));
 }
 

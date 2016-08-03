@@ -18,6 +18,7 @@ public:
 
     void setActivePlayer(bool active) {_bet->setEnabled(active), _desecition->setEnabled(active);}
     void setChoiceList(const QStringList& list) {_desecition->addItems(list);}
+    void changeChoiceList(const QStringList& list) {_desecition->clear(); setChoiceList(list);}
     void setDecesion(QString decesion) {_desecition->setEditText(decesion);}
 
     void changeLicitOptions() {}
