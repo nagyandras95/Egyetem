@@ -17,7 +17,7 @@ public:
     virtual ~HandEvaluator(){}
 
     virtual double evaluate_hand(const std::list<card>&,const std::vector<card>&,const std::pair<card,card>,const int);
-    virtual double evaluate_pair(const std::pair<card,card>, const std::list<card>&);
+    virtual double evaluate_pair(const std::pair<card,card>, const std::list<card>&, const int);
 
 
 

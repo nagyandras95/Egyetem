@@ -56,6 +56,7 @@ public slots:
 private:
 
     void setConfiguration();
+    void initValueAndColorList();
     void initColorMatchingMap();
     void initDesecationMatching();
     void initChoiceLists();

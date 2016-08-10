@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <QDebug>
 
 #include "handevaluator.h"
 #include "gamingtableconfiguration.h"
@@ -25,9 +26,10 @@ double HandEvaluator::evaluate_hand(const std::list<card>& unknown_cards,const s
     return c;
 }
 
-double HandEvaluator::evaluate_pair(const std::pair<card, card> p,const std::list<card>& unknown_cards)
+double HandEvaluator::evaluate_pair(const std::pair<card, card> p,const std::list<card>& unknown_cards, const int players)
 {
     int my_pair_rank = rank_pair(p);
+    qDebug() << "My rank:" << my_pair_rank;
     int ahead = 0, behind = 0;
     int count = 0;
     for(std::pair<card,card> p : get_all_pair(unknown_cards))
@@ -36,9 +38,14 @@ double HandEvaluator::evaluate_pair(const std::pair<card, card> p,const std::lis
         if(my_pair_rank < opp_rank) ahead++;
         else if(my_pair_rank > opp_rank) behind++;
 
+        qDebug() << "Opp cards" << p.first.get_number() << " " << p.first.get_color() << " " <<
+                    p.second.get_number() << " " << p.second.get_color() << "\n" << "Rank:" << opp_rank;
+
         count++;
     }
-    return (double) ((double) behind)/((double) count);
+    qDebug() << ahead;
+    long double c = probability_distribution(count,ahead,players);
+    return c;
 
 }
 
@@ -54,7 +61,7 @@ combination HandEvaluator::rank_hand(const std::pair<card,card> p, const std::ve
         std::list<card> cards;
         std::pair<std::vector<int>,int> p = get_reprezentation(i,all_card.size());
         std::vector<int> rep = p.first;
-        if(p.second <= 5 && p.second > 1)
+        if(p.second == 5)
         {
 
             for(int i = 0; i < (int)rep.size(); i++)

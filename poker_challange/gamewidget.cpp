@@ -17,16 +17,7 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
     initColorMatchingMap();
     initDesecationMatching();
     initChoiceLists();
-
-    for(int i = 2; i <= 14; i++)
-    {
-        _valuesList.push_back(QString(std::to_string(i).c_str()));
-    }
-
-    _colorsList.push_back(matchColors(card::color::hearts));
-    _colorsList.push_back(matchColors(card::color::diamonds));
-    _colorsList.push_back(matchColors(card::color::clubs));
-    _colorsList.push_back(matchColors(card::color::spades));
+    initValueAndColorList();
 
     _firstCard = new PrivateCardSelector("First card:",_valuesList,_colorsList);
     _secondCard = new PrivateCardSelector("Second card:",_valuesList,_colorsList);
@@ -39,7 +30,6 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
     _yourBetSetter = new AmountSetter("Your Bet:",0,500);
     _nOfPlayersSetter = new AmountSetter("Plyers:",2,23);
     _yourNumberSetter = new AmountSetter("Your number:",1,23);
-
     _smallBlindSetter = new AmountSetter("Small blind bet:",1,500);
     _bigBlindSetter = new AmountSetter("Big blind bet:",2,500);
 
@@ -49,8 +39,6 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
     _myCardsLayout = new QHBoxLayout;
     _communityCardsLayout = new QHBoxLayout;
     _extraInfoLayout = new QHBoxLayout;
-
-
 
     _myCardsLayout->addWidget(_firstCard);
     _myCardsLayout->addWidget(_secondCard);
@@ -253,6 +241,19 @@ void GameWidget::setConfiguration()
 
 }
 
+void GameWidget::initValueAndColorList()
+{
+    for(int i = 2; i <= 14; i++)
+    {
+        _valuesList.push_back(QString(std::to_string(i).c_str()));
+    }
+
+    _colorsList.push_back(matchColors(card::color::hearts));
+    _colorsList.push_back(matchColors(card::color::diamonds));
+    _colorsList.push_back(matchColors(card::color::clubs));
+    _colorsList.push_back(matchColors(card::color::spades));
+}
+
 void GameWidget::initColorMatchingMap()
 {
 
@@ -278,15 +279,15 @@ void GameWidget::initDesecationMatching()
 
 void GameWidget::initChoiceLists()
 {
-    _beforeBidList.append("");
-    _beforeBidList.append("Fold");
-    _beforeBidList.append("Check");
-    _beforeBidList.append("Bet");
+    _beforeBidList.append(_decesationMatching[TexasHoldem::none]);
+    _beforeBidList.append(_decesationMatching[TexasHoldem::fold]);
+    _beforeBidList.append(_decesationMatching[TexasHoldem::check]);
+    _beforeBidList.append(_decesationMatching[TexasHoldem::bet]);
 
-    _afterBidList.append("");
-    _afterBidList.append("Fold");
-    _afterBidList.append("Call");
-    _afterBidList.append("Raise");
+    _afterBidList.append(_decesationMatching[TexasHoldem::none]);
+    _afterBidList.append(_decesationMatching[TexasHoldem::fold]);
+    _afterBidList.append(_decesationMatching[TexasHoldem::call]);
+    _afterBidList.append(_decesationMatching[TexasHoldem::raise]);
 
 }
 
