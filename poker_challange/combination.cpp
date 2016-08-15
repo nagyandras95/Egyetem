@@ -14,15 +14,15 @@ int combination::POKER_VALUE = combination::FULL_HOUSE_VALUE*2;
 int combination::STARTIGHT_FLUSH_VALUE = combination::POKER_VALUE*2;
 
 
-combination::combination(std::list<card> cards_) : cards(cards_)
+combination::combination(std::vector<card> cards_) : _cards(cards_)
 {
-    cards.sort();
-    value = calc_value();
+    std::sort(_cards.begin(),_cards.end());
+    _value = calcValue();
 }
 
-int combination::calc_value()
+int combination::calcValue()
 {
-    int comb_size = (int) cards.size();
+    int comb_size = (int) _cards.size();
     int number_of_pairs = 0;
     bool drill = false;
     bool poker = false;
@@ -30,50 +30,41 @@ int combination::calc_value()
     bool all_same_color = comb_size == 5;
     bool same;
     int count_same_values = 1;
-    std::list<card>::iterator it = cards.begin();
-    it++;
-    for(;it != cards.end(); it++)
+    for(int i = 1;i < comb_size; ++i)
     {
-        same = std::prev(it)->get_number() == (it)->get_number();
+        same = _cards[i-1].get_number() == _cards[i].get_number();
         int prev_count = count_same_values;
-
-
-        all_same_color = all_same_color && std::prev(it)->get_color() == it->get_color();
-
+        all_same_color = all_same_color && _cards[i-1].get_color() == _cards[i].get_color();
         same ? count_same_values++ : count_same_values = 1;
-
-        assert(count_same_values >= 1 &&  count_same_values <= 4);
+        assert(count_same_values >= 1 && count_same_values <= 4);
 
         if(prev_count == 2 && count_same_values == 1)
-            critical_cards.push_back(std::prev(it)->get_number());
+            critical_cards.push_back(_cards[i-1].get_number());
         else if(count_same_values == 3)
-            critical_cards.push_back(std::prev(it)->get_number() + combination::MAX_VALUE);
+            critical_cards.push_back(_cards[i-1].get_number() + combination::MAX_VALUE);
         else if(count_same_values == 1 && prev_count == 1)
         {
-            secondary_cards.push_back(std::prev(it)->get_number());
-            ctiric_second_uinon.push_back(std::prev(it)->get_number());
+            secondary_cards.push_back(_cards[i-1].get_number());
+            ctiric_second_uinon.push_back(_cards[i-1].get_number());
         }
 
-        if(std::next(it) == cards.end())
+        if(i == comb_size - 1)
         {
             if(count_same_values == 1)
             {
-                secondary_cards.push_back(it->get_number());
-                ctiric_second_uinon.push_back(it->get_number());
+                secondary_cards.push_back(_cards[i].get_number());
+                ctiric_second_uinon.push_back(_cards[i].get_number());
             }
 
             else if(count_same_values == 2)
-              critical_cards.push_back(it->get_number());
+                 critical_cards.push_back(_cards[i].get_number());
 
         }
-
-
-
 
         number_of_pairs = count_same_values == 2 ? number_of_pairs + 1 : number_of_pairs;
         drill = drill || count_same_values == 3;
         poker = poker || count_same_values == 4;
-        straight = straight && ( (it->get_number() - std::prev(it)->get_number()) == 1);
+        straight = straight && ( (_cards[i].get_number() - _cards[i-1].get_number()) == 1);
 
     }
 
@@ -82,7 +73,7 @@ int combination::calc_value()
         critical_cards.clear();
         secondary_cards.clear();
         ctiric_second_uinon.clear();
-        for(card c : cards)
+        for(card c : _cards)
         {
             secondary_cards.push_back(c.get_number());
             ctiric_second_uinon.push_back(c.get_number());
@@ -123,16 +114,16 @@ bool is_better(const std::vector<int>& cards1, const std::vector<int>& cards2)
 
 bool operator<(const combination c1, const combination c2)
 {
-    int val1 = c1.get_value();
-    int val2 = c2.get_value();
+    int val1 = c1.getValue();
+    int val2 = c2.getValue();
     if(val1 != val2)
     {
         return val1 < val2;
     }
     else
     {
-        if(c1.get_nof_cards() != c2.get_nof_cards()) return c1.get_nof_cards() < c2.get_nof_cards();
-        return is_better(c1.get_decisive_cards(),c2.get_decisive_cards());
+        if(c1.getNofCards() != c2.getNofCards()) return c1.getNofCards() < c2.getNofCards();
+        return is_better(c1.getDecisiveCards(),c2.getDecisiveCards());
 
 
     }

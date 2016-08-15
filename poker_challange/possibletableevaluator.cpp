@@ -59,7 +59,7 @@ void PossibleTableEvaluator::task()
         ownCommunityCards[size] = c;
         ownUnknownCards.remove(c);
 
-        _evalautedValueQueue.enque(_evaluator->evaluate_hand(ownUnknownCards,ownCommunityCards,_pair,_players));
+        _evalautedValueQueue.enque(_evaluator->evaluateHand(ownUnknownCards,ownCommunityCards,_pair,_players));
 
 
          ownUnknownCards.push_back(c);

@@ -12,15 +12,12 @@
 
 struct PlayerRoundState {
 
-    PlayerRoundState(bool you_ = false, TexasHoldem::desecition lastDesecition_ = TexasHoldem::none, int bet_= 0):
-        you(you_) ,lastDesecition(lastDesecition_), bet(bet_)  {}
+    PlayerRoundState( TexasHoldem::desecition lastDesecition_ = TexasHoldem::none, int bet_= 0):
+     lastDesecition(lastDesecition_), bet(bet_)  {}
 
-    bool you;
     TexasHoldem::desecition lastDesecition;
+    int nOfRaises;
     int bet;
-    bool nextPlayer = false;
-    bool aticve = true;
-    bool hasDecide = false;
 };
 
 class TexasHoldemModel : public QObject

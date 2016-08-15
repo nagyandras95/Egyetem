@@ -12,13 +12,13 @@ std::pair<bool,bool> is_better(std::vector<int>&,std::vector<int>&);
 class combination
 {
 public:
-    combination(std::list<card> comb);
+    combination(std::vector<card>);
 
-    int calc_value();
-    int get_value() const {return value;}
-    int get_nof_cards() const {return (int) cards.size();}
+    int calcValue();
+    int getValue() const {return _value;}
+    int getNofCards() const {return (int) _cards.size();}
 
-    const std::vector<int>& get_decisive_cards() const {return ctiric_second_uinon;}
+    const std::vector<int>& getDecisiveCards() const {return ctiric_second_uinon;}
 
 
     static int MAX_VALUE;
@@ -31,8 +31,8 @@ public:
     static int STARTIGHT_FLUSH_VALUE;
 
 private:
-   std::list<card> cards;
-   int value;
+   std::vector<card> _cards;
+   int _value;
 
    std::vector<int> critical_cards;
    std::vector<int> secondary_cards;

@@ -13,8 +13,7 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
 {
     assert(players_ >= 2 && players_ < 24);
 
-    _tableSumMoney = 0;
-    _tableSumMoney += smallBlindBet_ + bigBlindBet_;
+    _tableSumMoney = smallBlindBet_ + bigBlindBet_;
     _round = TexasHoldem::pre_flop;
     _nOfActivePlayers = players_;
     nOfStartedPlayer = players_;
@@ -27,7 +26,6 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
     _beforeBet = false;
 
     _playersState.resize(players_);
-    _playersState[(size_t) (playerNumber - 1)].you = true;
     _playersState[0].bet = smallBlindBet_;
     _playersState[0].lastDesecition = TexasHoldem::bet;
     _playersState[1].bet = bigBlindBet_;
@@ -196,7 +194,7 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
     double winChance;
     if(size > 0)
     {
-        double currentHandValue = _evalator->evaluate_hand(_gameState.getHiddenCards(),_gameState.getCommunityCards(),
+        double currentHandValue = _evalator->evaluateHand(_gameState.getHiddenCards(),_gameState.getCommunityCards(),
                                    _gameState.getYourHand(),_gameState.getNOfActivePlayers());
         if(size < 5)
         {
@@ -224,7 +222,7 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
     }
     else
     {
-        winChance = _evalator->evaluate_pair(_gameState.getYourHand(),_gameState.getHiddenCards(),_gameState.getNOfActivePlayers());
+        winChance = _evalator->evaluatePair(_gameState.getYourHand(),_gameState.getHiddenCards(),_gameState.getNOfActivePlayers());
     }
 
     qDebug() << winChance;

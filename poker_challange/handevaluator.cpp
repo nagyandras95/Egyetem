@@ -6,35 +6,35 @@
 
 HandEvaluator::HandEvaluator() {}
 
-double HandEvaluator::evaluate_hand(const std::list<card>& unknown_cards,const std::vector<card>& community_cards,
+double HandEvaluator::evaluateHand(const std::list<card>& unknown_cards,const std::vector<card>& community_cards,
                                     const std::pair<card,card> your_cards, const int players)
 {
-    combination my_hand_comb = rank_hand(your_cards,community_cards);
+    combination my_hand_comb = rankHand(your_cards,community_cards);
     int ahead = 0;
     int n = (int) unknown_cards.size();
     int count = (n * (n - 1)) / 2 ;
-    for(std::pair<card,card> p : get_all_pair(unknown_cards))
+    for(std::pair<card,card> p : getAllPair(unknown_cards))
     {
-        combination opp_comb = rank_hand(p,community_cards);
+        combination opp_comb = rankHand(p,community_cards);
         if(my_hand_comb < opp_comb)
         {
             ahead++;
         }
     }
 
-    long double c =  probability_distribution(count,ahead,players);
+    long double c =  probabilityDistribution(count,ahead,players);
     return c;
 }
 
-double HandEvaluator::evaluate_pair(const std::pair<card, card> p,const std::list<card>& unknown_cards, const int players)
+double HandEvaluator::evaluatePair(const std::pair<card, card> p,const std::list<card>& unknown_cards, const int players)
 {
-    int my_pair_rank = rank_pair(p);
+    int my_pair_rank = rankPair(p);
     qDebug() << "My rank:" << my_pair_rank;
     int ahead = 0, behind = 0;
     int count = 0;
-    for(std::pair<card,card> p : get_all_pair(unknown_cards))
+    for(std::pair<card,card> p : getAllPair(unknown_cards))
     {
-        int opp_rank = rank_pair(p);
+        int opp_rank = rankPair(p);
         if(my_pair_rank < opp_rank) ahead++;
         else if(my_pair_rank > opp_rank) behind++;
 
@@ -44,12 +44,12 @@ double HandEvaluator::evaluate_pair(const std::pair<card, card> p,const std::lis
         count++;
     }
     qDebug() << ahead;
-    long double c = probability_distribution(count,ahead,players);
+    long double c = probabilityDistribution(count,ahead,players);
     return c;
 
 }
 
-combination HandEvaluator::rank_hand(const std::pair<card,card> p, const std::vector<card>& community_cards)
+combination HandEvaluator::rankHand(const std::pair<card,card> p, const std::vector<card>& community_cards)
 {
 
     std::vector<combination> combinations;
@@ -58,8 +58,8 @@ combination HandEvaluator::rank_hand(const std::pair<card,card> p, const std::ve
     all_card.push_back(p.second);
     for(int i = 0; i < std::pow(2,all_card.size()); i++)
     {
-        std::list<card> cards;
-        std::pair<std::vector<int>,int> p = get_reprezentation(i,all_card.size());
+        std::vector<card> cards;
+        std::pair<std::vector<int>,int> p = getReprezentation(i,all_card.size());
         std::vector<int> rep = p.first;
         if(p.second == 5)
         {
@@ -81,7 +81,7 @@ combination HandEvaluator::rank_hand(const std::pair<card,card> p, const std::ve
 
 }
 
-int HandEvaluator::rank_pair(std::pair<card, card> p)
+int HandEvaluator::rankPair(std::pair<card, card> p)
 {
     bool n_same = false, c_same = false, poss_staright = false;
     n_same = p.first.get_number() == p.second.get_number();
@@ -92,7 +92,7 @@ int HandEvaluator::rank_pair(std::pair<card, card> p)
     return n_same*def + c_same*def*2 +  poss_staright*def*4 + std::max(p.first,p.second).get_number();
 }
 
-std::pair<std::vector<int>,int> HandEvaluator::get_reprezentation(int i, int size)
+std::pair<std::vector<int>,int> HandEvaluator::getReprezentation(int i, int size)
 {
     std::vector<int> rep(size);
     int c = 0;
@@ -113,7 +113,7 @@ std::pair<std::vector<int>,int> HandEvaluator::get_reprezentation(int i, int siz
     return std::pair<std::vector<int>, int>(rep,count_one);
 }
 
-std::list<std::pair<card, card> > HandEvaluator::get_all_pair(const std::list<card> &cards)
+std::list<std::pair<card, card> > HandEvaluator::getAllPair(const std::list<card> &cards)
 {
     std::list<std::pair<card,card> > all_pair;
 
@@ -130,7 +130,7 @@ std::list<std::pair<card, card> > HandEvaluator::get_all_pair(const std::list<ca
     return all_pair;
 }
 
-long double HandEvaluator::probability_distribution(int N, int M, int n)
+long double HandEvaluator::probabilityDistribution(int N, int M, int n)
 {
    int i = std::min(N-n,N-M), j = N;
    long double val = 1;
