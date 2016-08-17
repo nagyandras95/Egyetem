@@ -21,15 +21,6 @@ public:
     const std::vector<int>& getDecisiveCards() const {return ctiric_second_uinon;}
 
 
-    static int MAX_VALUE;
-    static int PAIR_VALUE;
-    static int DRILL_VALUE;
-    static int STRAIGHT_VALUE;
-    static int FLUSH_VALUE;
-    static int FULL_HOUSE_VALUE;
-    static int POKER_VALUE;
-    static int STARTIGHT_FLUSH_VALUE;
-
 private:
    std::vector<card> _cards;
    int _value;

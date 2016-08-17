@@ -1,0 +1,14 @@
+#include "holdemtypes.h"
+
+namespace TexasHoldem
+{
+    int MAX_VALUE = 14;
+    int PAIR_VALUE = MAX_VALUE*2;
+    int TWO_PAIR_VALUE = PAIR_VALUE*2;
+    int DRILL_VALUE = TWO_PAIR_VALUE*4;
+    int STRAIGHT_VALUE = DRILL_VALUE*2;
+    int FLUSH_VALUE = STRAIGHT_VALUE*2;
+    int FULL_HOUSE_VALUE = FLUSH_VALUE*2;
+    int POKER_VALUE = FULL_HOUSE_VALUE*2;
+    int STARTIGHT_FLUSH_VALUE = POKER_VALUE*2;
+}

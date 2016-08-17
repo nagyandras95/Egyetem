@@ -13,7 +13,7 @@
 struct PlayerRoundState {
 
     PlayerRoundState( TexasHoldem::desecition lastDesecition_ = TexasHoldem::none, int bet_= 0):
-     lastDesecition(lastDesecition_), bet(bet_)  {}
+     lastDesecition(lastDesecition_), bet(bet_), nOfRaises(0)  {}
 
     TexasHoldem::desecition lastDesecition;
     int nOfRaises;
@@ -25,7 +25,7 @@ class TexasHoldemModel : public QObject
     Q_OBJECT
 public:
     explicit TexasHoldemModel(QObject *parent = 0);
-    TexasHoldemModel(IHandEvaluator* evalator, QObject *parent = 0);
+    explicit TexasHoldemModel(IHandEvaluator* evalator, QObject *parent = 0);
 
     void stepGame(TexasHoldem::desecition activePlayerDecesion, int activePlayerBet);
     void startRound();

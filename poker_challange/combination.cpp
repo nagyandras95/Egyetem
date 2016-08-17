@@ -2,16 +2,8 @@
 #include <vector>
 #include <assert.h>
 #include <algorithm>
+#include "holdemtypes.h"
 #include <QDebug>
-
-int combination::MAX_VALUE = 14;
-int combination::PAIR_VALUE = combination::MAX_VALUE*2;
-int combination::DRILL_VALUE = combination::PAIR_VALUE*4;
-int combination::STRAIGHT_VALUE = combination::DRILL_VALUE*2;
-int combination::FLUSH_VALUE = combination::STRAIGHT_VALUE*2;
-int combination::FULL_HOUSE_VALUE = combination::FLUSH_VALUE*2;
-int combination::POKER_VALUE = combination::FULL_HOUSE_VALUE*2;
-int combination::STARTIGHT_FLUSH_VALUE = combination::POKER_VALUE*2;
 
 
 combination::combination(std::vector<card> cards_) : _cards(cards_)
@@ -36,19 +28,18 @@ int combination::calcValue()
         int prev_count = count_same_values;
         all_same_color = all_same_color && _cards[i-1].get_color() == _cards[i].get_color();
         same ? count_same_values++ : count_same_values = 1;
-        assert(count_same_values >= 1 && count_same_values <= 4);
 
         if(prev_count == 2 && count_same_values == 1)
             critical_cards.push_back(_cards[i-1].get_number());
         else if(count_same_values == 3)
-            critical_cards.push_back(_cards[i-1].get_number() + combination::MAX_VALUE);
+            critical_cards.push_back(_cards[i-1].get_number() + TexasHoldem::MAX_VALUE);
         else if(count_same_values == 1 && prev_count == 1)
         {
             secondary_cards.push_back(_cards[i-1].get_number());
             ctiric_second_uinon.push_back(_cards[i-1].get_number());
         }
 
-        if(i == comb_size - 1)
+        if(i == (comb_size - 1))
         {
             if(count_same_values == 1)
             {
@@ -70,30 +61,44 @@ int combination::calcValue()
 
     if(all_same_color || straight)
     {
-        critical_cards.clear();
-        secondary_cards.clear();
         ctiric_second_uinon.clear();
         for(card c : _cards)
         {
-            secondary_cards.push_back(c.get_number());
             ctiric_second_uinon.push_back(c.get_number());
         }
 
 
     }
+    else
+    {
+        for(int val : critical_cards)
+            ctiric_second_uinon.push_back(val);
+    }
 
-    for(int val : critical_cards)
-        ctiric_second_uinon.push_back(val);
 
 
 
-    return PAIR_VALUE*(number_of_pairs*!((int)drill)*!((int)poker)*!((int)all_same_color)) +
-            DRILL_VALUE*drill*(!(int)poker)*((int) number_of_pairs == 1)*!((int)all_same_color) +
-            FLUSH_VALUE*( (all_same_color && !straight ) ) +
-            POKER_VALUE* ((int)poker) +
-            FULL_HOUSE_VALUE * ( (int) number_of_pairs == 2 && drill ) +
-            STRAIGHT_VALUE * ((int) (straight) * (int) !all_same_color ) +
-            STARTIGHT_FLUSH_VALUE*(all_same_color && straight);
+    if(number_of_pairs != 0 && !drill && !poker && !all_same_color)
+    {
+        if(number_of_pairs == 1)
+            return TexasHoldem::PAIR_VALUE;
+        else
+            return TexasHoldem::TWO_PAIR_VALUE;
+    }
+    else if(drill && !poker && !all_same_color && number_of_pairs == 1)
+        return TexasHoldem::DRILL_VALUE;
+    else if(all_same_color && !straight)
+        return TexasHoldem::FLUSH_VALUE;
+    else if(poker)
+        return TexasHoldem::POKER_VALUE;
+    else if(number_of_pairs == 2 && drill)
+        return TexasHoldem::FULL_HOUSE_VALUE;
+    else if(straight && !all_same_color)
+        return TexasHoldem::STRAIGHT_VALUE;
+    else if(all_same_color && straight)
+        return TexasHoldem::STARTIGHT_FLUSH_VALUE;
+    else
+        return 0;
 
 }
 

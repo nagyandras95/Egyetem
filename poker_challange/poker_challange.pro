@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     possibletableevaluator.cpp \
     threadnumbersetdialog.cpp \
     playerwidget.cpp \
-    playerscontrolwidget.cpp
+    playerscontrolwidget.cpp \
+    holdemtypes.cpp
 
 HEADERS  += mainwindow.h \
     card.h \

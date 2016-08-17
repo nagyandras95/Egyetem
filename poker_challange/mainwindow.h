@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QMenu>
 #include <QAction>
-#include <texasholdemmodel.h>
 #include "gamewidget.h"
 #include "texasholdemmodel.h"
 
