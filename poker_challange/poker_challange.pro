@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     threadnumbersetdialog.cpp \
     playerwidget.cpp \
     playerscontrolwidget.cpp \
-    holdemtypes.cpp
+    holdemtypes.cpp \
+    pair.cpp
 
 HEADERS  += mainwindow.h \
     card.h \
@@ -49,4 +50,6 @@ HEADERS  += mainwindow.h \
     threadnumbersetdialog.h \
     playerwidget.h \
     playerscontrolwidget.h \
-    holdemtypes.h
+    holdemtypes.h \
+    pair.h \
+    player.h

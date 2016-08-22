@@ -62,8 +62,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(_startAction,SIGNAL(triggered()),this, SLOT(startingNewGame()));
     connect(_exitAction,SIGNAL(triggered()),this,SLOT(close()));
 
-    connect(_model,SIGNAL(newGameStarted(std::vector<PlayerRoundState>)),
-            _gameWidget,SLOT(newGameStarted(std::vector<PlayerRoundState>)));
+    connect(_model,SIGNAL(newGameStarted(std::vector<Player>)),
+            _gameWidget,SLOT(newGameStarted(std::vector<Player>)));
     connect(_model,SIGNAL(selectCommunityCards(int,int)),_gameWidget,SLOT(enableCommunityCardSelection(int,int)));
     connect(_model,SIGNAL(activePlayerChanged(int)),_gameWidget,SLOT(changeActivePlayer(int)));
     connect(_model,SIGNAL(choiceOptionsChanged(bool)),_gameWidget,SLOT(switchCoiceOption(bool)));

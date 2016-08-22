@@ -41,7 +41,7 @@ signals:
 public slots:
     void getHint();
 
-    void newGameStarted(std::vector<PlayerRoundState> state);
+    void newGameStarted(std::vector<Player> state);
     void stepGame();
     void changeActivePlayer(int playerNumber);
     void switchCoiceOption(bool beforeBet);

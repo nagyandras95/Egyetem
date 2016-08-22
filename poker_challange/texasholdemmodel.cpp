@@ -9,6 +9,12 @@ TexasHoldemModel::TexasHoldemModel(QObject *parent) : QObject(parent)
     _possEvalator = new PossibleTableEvaluator();
 }
 
+TexasHoldemModel::~TexasHoldemModel()
+{
+    delete _evalator;
+    delete _possEvalator;
+}
+
 void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindBet_, int playerNumber_)
 {
     assert(players_ >= 2 && players_ < 24);
@@ -49,7 +55,7 @@ void TexasHoldemModel::startRound()
 
 void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, int activePlayerBet)
 {
-    PlayerRoundState& currentPlayerState =  _playersState[(size_t)_currentPlayer];
+    Player& currentPlayerState =  _playersState[(size_t)_currentPlayer];
 
     std::pair<bool,QString> errorState = validateState(activePlayerDecesion,activePlayerBet,currentPlayerState);
     if(errorState.first)
@@ -181,11 +187,7 @@ int TexasHoldemModel::serachFirstActivePlayer()
 }
 
 
-TexasHoldemModel::~TexasHoldemModel()
-{
-    delete _evalator;
-    delete _possEvalator;
-}
+
 
 TexasHoldem::desecition TexasHoldemModel::evaluate()
 {
@@ -222,34 +224,81 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
     }
     else
     {
-        winChance = _evalator->evaluatePair(_gameState.getYourHand(),_gameState.getHiddenCards(),_gameState.getNOfActivePlayers());
+        winChance = _evalator->evaluatePair(_gameState.getYourHand(),
+                                            _gameState.getHiddenCards(),_gameState.getNOfActivePlayers());
+        /*
+         * In the pre-flop we does not have any investment
+         * so the logic is very simple: only realy strong hand should be played.
+        */
+        if(winChance < 0.9)
+        {
+            return TexasHoldem::fold;
+        }
+        else if(winChance > 0.98)
+        {
+            return TexasHoldem::raise;
+        }
+        else if(winChance > 0.95)
+        {
+            if(_nOfRaises == 0)
+                return TexasHoldem::raise;
+            else
+                return TexasHoldem::call;
+        }
+        else
+        {
+            if(_nOfRaises == 0)
+                return TexasHoldem::call;
+            else
+                return TexasHoldem::fold;
+        }
+
     }
 
-    qDebug() << winChance;
 
-    double expectedMoney = winChance*(_gameState.getPot() + _tableSumMoney + _minimumBet);
-    qDebug() << expectedMoney;
+    double expectedMoney = winChance*(_gameState.getPot() +  _tableSumMoney +
+                             (_minimumBet - _playersState[playerNumber - 1]));
 
-    if(expectedMoney < (_gameState.getYourBet() + _minimumBet))
-        return TexasHoldem::fold;
-    else if( expectedMoney < ( (_gameState.getYourBet() + _minimumBet)*3))
-        return TexasHoldem::call;
-    else
-        return TexasHoldem::raise;
+    if(!_beforeBet)
+    {
+        /*
+         * If the expected money less then the already invested and should be
+         * invested money in tis situtaion
+         * it does not worth to call it.
+        */
+        if(expectedMoney < (_gameState.getYourBet() + (_minimumBet - _playersState[playerNumber - 1])))
+        {
+            return TexasHoldem::fold;
+        }
+        else
+        {
+            /*
+             * We should consider what the optimal decesion is: call or raise.
+             * Our gone to maximase our profit, for that we should consider our and opponents chances..
+            */
 
+        }
 
+    }
 
 }
 
-TexasHoldem::desecition TexasHoldemModel::evaluateChance(double c)
+
+void TexasHoldemModel::analyizePlayer(Player player)
 {
-    if(c < 0.1)
-        return TexasHoldem::fold;
-    else if(c < 0.5)
-        return TexasHoldem::call;
-    else
-        return TexasHoldem::raise;
+    int callBet = _minimumBet;
+    int raisedBet = _minimumBet + flopRaise;
+
+    //first case
+
+    //that's mean the player needs at last as many chance as invest rate
+    double investRate = (double) (player.getTotalBet() + (callBet - player.bet)) /
+                        (double) (totalPot() + (callBet - player.bet));
+
+
+
 }
+
 void TexasHoldemModel::nextRound()
 {
     switch(_round)
@@ -266,7 +315,7 @@ void TexasHoldemModel::nextRound()
 }
 
 std::pair<bool,QString> TexasHoldemModel::validateState(TexasHoldem::desecition activePlayerDecesion,
-int activePlayerBet, const PlayerRoundState& activePlayerState)
+int activePlayerBet, const Player& activePlayerState)
 {
     std::pair<bool,QString> errorState(false,"");
     if((activePlayerBet < _minimumBet || activePlayerBet < activePlayerState.bet) && activePlayerDecesion == TexasHoldem::call)
@@ -291,3 +340,23 @@ int activePlayerBet, const PlayerRoundState& activePlayerState)
     return errorState;
 
 }
+
+/*int TexasHoldemModel::claclulateOptimalAmount()
+{
+
+    int optimal = 2*_minimumBet;
+    while(current < _allMoney)
+    {
+        int current = 2*_minimumBet;
+
+        int plusPot = totalPot() + current;
+        for(PlayerRoundState player : getNextPlayers())
+        {
+            int playerPossTotalBet = player.getTotalBet() + current;
+
+        }
+    }
+
+
+    return optimal;
+}*/

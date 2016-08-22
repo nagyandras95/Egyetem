@@ -3,16 +3,17 @@
 
 #include "handevaluator.h"
 #include "gamingtableconfiguration.h"
+#include "pair.h"
 
 HandEvaluator::HandEvaluator() {}
 
 double HandEvaluator::evaluateHand(const std::list<card>& unknown_cards,const std::vector<card>& community_cards,
-                                    const std::pair<card,card> your_cards, const int players)
+                                   const std::pair<card,card> your_cards, const int players)
 {
     combination my_hand_comb = rankHand(your_cards,community_cards);
     int ahead = 0;
     int n = (int) unknown_cards.size();
-    int count = (n * (n - 1)) / 2 ;
+    int count = (n * (n - 1)) / 2;
     for(std::pair<card,card> p : getAllPair(unknown_cards))
     {
         combination opp_comb = rankHand(p,community_cards);
@@ -28,23 +29,16 @@ double HandEvaluator::evaluateHand(const std::list<card>& unknown_cards,const st
 
 double HandEvaluator::evaluatePair(const std::pair<card, card> p,const std::list<card>& unknown_cards, const int players)
 {
-    int my_pair_rank = rankPair(p);
-    qDebug() << "My rank:" << my_pair_rank;
-    int ahead = 0, behind = 0;
-    int count = 0;
+    pair myPair = pair(p.first,p.second);
+    int behind = 0;
+    int n = (int) unknown_cards.size();
+    int count = (n * (n - 1)) / 2;
     for(std::pair<card,card> p : getAllPair(unknown_cards))
     {
-        int opp_rank = rankPair(p);
-        if(my_pair_rank < opp_rank) ahead++;
-        else if(my_pair_rank > opp_rank) behind++;
-
-        qDebug() << "Opp cards" << p.first.get_number() << " " << p.first.get_color() << " " <<
-                    p.second.get_number() << " " << p.second.get_color() << "\n" << "Rank:" << opp_rank;
-
-        count++;
+        pair oppPair = pair(p.first,p.second);
+        if(oppPair <= myPair) behind++;
     }
-    qDebug() << ahead;
-    long double c = probabilityDistribution(count,ahead,players);
+    double c = behind/count;
     return c;
 
 }
@@ -79,17 +73,6 @@ combination HandEvaluator::rankHand(const std::pair<card,card> p, const std::vec
     assert(combinations.size() > 0);
     return *(std::max_element(combinations.begin(),combinations.end()));
 
-}
-
-int HandEvaluator::rankPair(std::pair<card, card> p)
-{
-    bool n_same = false, c_same = false, poss_staright = false;
-    n_same = p.first.get_number() == p.second.get_number();
-    c_same = p.first.get_color() == p.second.get_color();
-    poss_staright = std::abs(p.first.get_number() - p.second.get_number()) <= 4 && !n_same;
-
-    int def = 4*14;
-    return n_same*def + c_same*def*2 +  poss_staright*def*4 + std::max(p.first,p.second).get_number();
 }
 
 std::pair<std::vector<int>,int> HandEvaluator::getReprezentation(int i, int size)
@@ -132,14 +115,14 @@ std::list<std::pair<card, card> > HandEvaluator::getAllPair(const std::list<card
 
 long double HandEvaluator::probabilityDistribution(int N, int M, int n)
 {
-   int i = std::min(N-n,N-M), j = N;
-   long double val = 1;
-   while( (i >= N - M - (n - 1)) && (j >= std::max(N-M+1,N-n+1)) )
-   {
-       val *= (long double)i / (long double)j;
-       i--;
-       j--;
-   }
+    int i = std::min(N-n,N-M), j = N;
+    long double val = 1;
+    while( (i >= N - M - (n - 1)) && (j >= std::max(N-M+1,N-n+1)) )
+    {
+        val *= (long double)i / (long double)j;
+        i--;
+        j--;
+    }
 
-   return val;
+    return val;
 }

@@ -3,7 +3,7 @@
 
 namespace TexasHoldem
 {
-    enum desecition {none, fold, check, call, bet, raise};
+    enum desecition {none, fold, check, call, bet, raise, all_in};
     enum round {pre_flop, flop, turn, river};
 
     extern int MAX_VALUE;
@@ -15,6 +15,10 @@ namespace TexasHoldem
     extern int FULL_HOUSE_VALUE;
     extern int POKER_VALUE;
     extern int STARTIGHT_FLUSH_VALUE;
+
+    extern int POSS_STARIGHT_HAND;
+    extern int SAME_COLOR_HAND;
+    extern int PAIR_HAND;
 
 }
 

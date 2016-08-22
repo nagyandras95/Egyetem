@@ -127,7 +127,7 @@ void GameWidget::getHint()
 
 }
 
-void GameWidget::newGameStarted(std::vector<PlayerRoundState> state)
+void GameWidget::newGameStarted(std::vector<Player> state)
 {
     _playersWidget->setNOfPlayer((int) state.size());
     _playersWidget->setPossibleChoices(_afterBidList);

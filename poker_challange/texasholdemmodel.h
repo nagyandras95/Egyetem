@@ -8,17 +8,7 @@
 #include "card.h"
 #include "gamingtableconfiguration.h"
 #include "possibletableevaluator.h"
-
-
-struct PlayerRoundState {
-
-    PlayerRoundState( TexasHoldem::desecition lastDesecition_ = TexasHoldem::none, int bet_= 0):
-     lastDesecition(lastDesecition_), bet(bet_), nOfRaises(0)  {}
-
-    TexasHoldem::desecition lastDesecition;
-    int nOfRaises;
-    int bet;
-};
+#include "player.h"
 
 class TexasHoldemModel : public QObject
 {
@@ -35,7 +25,7 @@ public:
 
 signals:
     void activePlayerChanged(int newNumber);
-    void newGameStarted(std::vector<PlayerRoundState> state);
+    void newGameStarted(std::vector<Player> state);
     void endGame();
     void startBidding(int nextPlayer);
     void waitingYourHand();
@@ -70,7 +60,10 @@ private:
     int serachFirstActivePlayer();
     void nextRound();
     std::pair<bool, QString> validateState(TexasHoldem::desecition activePlayerDecesion,
-                                           int activePlayerBet, const PlayerRoundState &activePlayerState);
+                                           int activePlayerBet, const Player &activePlayerState);
+    int claclulateOptimalAmount();
+    int totalPot() {return _gameState.getPot() + _tableSumMoney;}
+
 
     TexasHoldem::desecition evaluateChance(double);
 
@@ -82,7 +75,10 @@ private:
     int _minimumBet;
     int smallBlindBet;
 
-    std::vector<PlayerRoundState> _playersState;
+    int flopRaise;
+    int afterFlopRaise;
+
+    std::vector<Player> _playersState;
     int nOfStartedPlayer;
     int playerNumber;
 
@@ -94,6 +90,7 @@ private:
     int _nOfRaises;
     int _nOfActivePlayers;
     int _roundStarterPlayer;
+    int _allMoney;
 
 
 

@@ -2,7 +2,6 @@
 #define HAND_EVALUATOR_H
 
 #include <list>
-#include <set>
 #include <vector>
 #include <math.h>
 #include "ihandevaluator.h"
@@ -22,7 +21,6 @@ public:
 private:
 
     combination rankHand(const std::pair<card,card>,const std::vector<card>&);
-    int rankPair(std::pair<card,card>);
 
     std::pair<std::vector<int>,int> getReprezentation(int,int);
 
