@@ -82,6 +82,8 @@ private:
     int nOfStartedPlayer;
     int playerNumber;
 
+
+
     TexasHoldem::round _round;
 
     bool _beforeBet;

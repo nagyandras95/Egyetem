@@ -277,6 +277,22 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
              * Our gone to maximase our profit, for that we should consider our and opponents chances..
             */
 
+            int afterRisePot;
+            int afterRaiseInvest;
+            if(_round == TexasHoldem::flop)
+            {
+                afterRisePot = _gameState.getPot() +  _tableSumMoney +
+                        ( (_minimumBet + flopRaise - _playersState[playerNumber - 1]);
+                afterRaiseInvest = _gameState.getYourBet() + (_minimumBet + flopRaise - _playersState[playerNumber - 1]);
+            }
+            expectedMoney = winChance*(afterRisePot);
+            if(expectedMoney < (_gameState.getYourBet() + afterRaiseInvest))
+            {
+                return TexasHoldem::call;
+            }
+
+
+
         }
 
     }
@@ -284,16 +300,22 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
 }
 
 
-void TexasHoldemModel::analyizePlayer(Player player)
+bool TexasHoldemModel::analyizePlayer(Player player,int toCallAmount)
 {
-    int callBet = _minimumBet;
-    int raisedBet = _minimumBet + flopRaise;
 
     //first case
 
     //that's mean the player needs at last as many chance as invest rate
-    double investRate = (double) (player.getTotalBet() + (callBet - player.bet)) /
-                        (double) (totalPot() + (callBet - player.bet));
+    double investRate = (double) (player.getTotalBet() + (toCallAmount - player.bet)) /
+                        (double) (totalPot() + (toCallAmount - player.bet));
+
+    double chance = (1 - winChance) + 0.1*
+            (player.raisePower - _playersState[playerNumber-1].raisePower);
+
+    if(chance > investRate)
+        return true;
+    else
+        return false;
 
 
 
