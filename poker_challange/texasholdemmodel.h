@@ -63,6 +63,7 @@ private:
                                            int activePlayerBet, const Player &activePlayerState);
     int claclulateOptimalAmount();
     int totalPot() {return _gameState.getPot() + _tableSumMoney;}
+    bool analyizePlayer(Player player,int toCallAmount);
 
 
     TexasHoldem::desecition evaluateChance(double);
@@ -93,6 +94,8 @@ private:
     int _nOfActivePlayers;
     int _roundStarterPlayer;
     int _allMoney;
+
+    double winChance;
 
 
 

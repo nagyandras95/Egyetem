@@ -193,7 +193,6 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
 {
 
     size_t size = _gameState.getCommunityCards().size();
-    double winChance;
     if(size > 0)
     {
         double currentHandValue = _evalator->evaluateHand(_gameState.getHiddenCards(),_gameState.getCommunityCards(),
@@ -232,7 +231,10 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
         */
         if(winChance < 0.9)
         {
-            return TexasHoldem::fold;
+            if(playerNumber == 2 && _nOfRaises > 0 && winChance > 0.8 || playerNumber == 2 && _nOfRaises == 0)
+                return TexasHoldem::call;
+            else
+                return TexasHoldem::fold;
         }
         else if(winChance > 0.98)
         {
@@ -257,7 +259,7 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
 
 
     double expectedMoney = winChance*(_gameState.getPot() +  _tableSumMoney +
-                             (_minimumBet - _playersState[playerNumber - 1]));
+                             (_minimumBet - _playersState[playerNumber - 1].bet));
 
     if(!_beforeBet)
     {
@@ -266,7 +268,7 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
          * invested money in tis situtaion
          * it does not worth to call it.
         */
-        if(expectedMoney < (_gameState.getYourBet() + (_minimumBet - _playersState[playerNumber - 1])))
+        if(expectedMoney < (_gameState.getYourBet() + (_minimumBet - _playersState[playerNumber - 1].bet)))
         {
             return TexasHoldem::fold;
         }
@@ -279,19 +281,63 @@ TexasHoldem::desecition TexasHoldemModel::evaluate()
 
             int afterRisePot;
             int afterRaiseInvest;
+            int raiseAmount = _round == TexasHoldem::flop ? flopRaise : afterFlopRaise;
             if(_round == TexasHoldem::flop)
             {
                 afterRisePot = _gameState.getPot() +  _tableSumMoney +
-                        ( (_minimumBet + flopRaise - _playersState[playerNumber - 1]);
-                afterRaiseInvest = _gameState.getYourBet() + (_minimumBet + flopRaise - _playersState[playerNumber - 1]);
+                         (_minimumBet + raiseAmount - _playersState[playerNumber - 1].bet);
+                afterRaiseInvest = _gameState.getYourBet() + (_minimumBet + raiseAmount - _playersState[playerNumber - 1].bet);
             }
+
             expectedMoney = winChance*(afterRisePot);
             if(expectedMoney < (_gameState.getYourBet() + afterRaiseInvest))
             {
                 return TexasHoldem::call;
             }
+            else
+            {
+                int raiseAmount = _round == TexasHoldem::flop ? flopRaise : afterFlopRaise;
+
+                int sumRaisePlusMoney = 0;
+                int sumNoRaisePlusMoney = 0;
+                for(Player player: _playersState)
+                {
+                    if(analyizePlayer(player,_minimumBet))
+                    {
+                        sumNoRaisePlusMoney += _minimumBet;
+                    }
+                    _playersState[playerNumber-1].raisePower++;
+                    if(analyizePlayer(player,_minimumBet + raiseAmount))
+                    {
+                        sumRaisePlusMoney += _minimumBet + raiseAmount;
+                    }
+                    _playersState[playerNumber-1].raisePower--;
+
+                    if(sumNoRaisePlusMoney > sumRaisePlusMoney)
+                    {
+                        return TexasHoldem::call;
+                    }
+                    else
+                    {
+                        return TexasHoldem::raise;
+                    }
+
+                }
+            }
 
 
+
+        }
+
+    }
+    else
+    {
+        if(winChance*(totalPot()) < _gameState.getYourBet())
+        {
+            return TexasHoldem::check;
+        }
+        else
+        {
 
         }
 
@@ -362,23 +408,3 @@ int activePlayerBet, const Player& activePlayerState)
     return errorState;
 
 }
-
-/*int TexasHoldemModel::claclulateOptimalAmount()
-{
-
-    int optimal = 2*_minimumBet;
-    while(current < _allMoney)
-    {
-        int current = 2*_minimumBet;
-
-        int plusPot = totalPot() + current;
-        for(PlayerRoundState player : getNextPlayers())
-        {
-            int playerPossTotalBet = player.getTotalBet() + current;
-
-        }
-    }
-
-
-    return optimal;
-}*/
