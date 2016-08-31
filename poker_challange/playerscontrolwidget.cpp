@@ -1,7 +1,7 @@
 #include "playerscontrolwidget.h"
 #include <assert.h>
 
-int PlayersControlWidget::SUBDIVISION = 8;
+int PlayersControlWidget::SUBDIVISION = 5;
 
 PlayersControlWidget::PlayersControlWidget(QWidget *parent) : QWidget(parent)
 {
@@ -12,7 +12,17 @@ PlayersControlWidget::PlayersControlWidget(QWidget *parent) : QWidget(parent)
 
 void PlayersControlWidget::setNOfPlayer(int n)
 {
-    assert(n < 24 && n >= 2);
+    assert(n < 11 && n >= 2);
+    clearPlayers();
+    for(int i = 0; i < n; ++i)
+    {
+        _players.push_back(new PlayerWidget);
+        _gridLayout->addWidget(_players[i],i/SUBDIVISION,i%SUBDIVISION);
+    }
+}
+
+void PlayersControlWidget::clearPlayers()
+{
     _activePlayer = 0;
     for(int i = 0; i < (int)_players.size(); ++i)
     {
@@ -20,12 +30,6 @@ void PlayersControlWidget::setNOfPlayer(int n)
         delete _players[i];
     }
     _players.clear();
-
-    for(int i = 0; i < n; ++i)
-    {
-        _players.push_back(new PlayerWidget);
-        _gridLayout->addWidget(_players[i],i/SUBDIVISION,i%SUBDIVISION);
-    }
 }
 
 void PlayersControlWidget::setPossibleChoices(const QStringList& list)

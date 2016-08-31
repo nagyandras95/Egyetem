@@ -53,11 +53,14 @@ public slots:
     void changePot(int n);
     void changeYourBet(int n);
 
+    void initSelections();
+
 private:
 
     void setConfiguration();
     void initValueAndColorList();
     void initColorMatchingMap();
+    void initValueMatchingMap();
     void initDesecationMatching();
     void initChoiceLists();
 
@@ -66,11 +69,11 @@ private:
     QString matchColors(card::color);
     card::color invertMatchColor(QString colorString);
 
+    QString matchValue(int);
+    int invertMatchValue(QString valueString);
+
     QString matchDecesion(TexasHoldem::desecition);
     TexasHoldem::desecition invertMatchDecesion(QString);
-
-    QString matchValue(int);
-    int invertMatchValue(QString value);
 
     TexasHoldemModel* _model;
 
@@ -100,6 +103,7 @@ private:
 
 
     std::map<card::color,QString> _colorMatchingMap;
+    std::map<int,QString> _valueMatching;
     std::map<TexasHoldem::desecition,QString> _decesationMatching;
 
 

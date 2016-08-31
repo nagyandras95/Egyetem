@@ -71,15 +71,18 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(_model,SIGNAL(potChanged(int)),_gameWidget,SLOT(changePot(int)));
     connect(_model,SIGNAL(yourBetChanged(int)),_gameWidget,SLOT(changeYourBet(int)));
     connect(_model,SIGNAL(nextPlayerHint()),_gameWidget,SLOT(getHint()));
+    connect(_model,SIGNAL(endGame()),_gameWidget,SLOT(initSelections()));
 
     connect(_gameWidget, SIGNAL(hintAdded(QString)), this->statusBar(), SLOT(showMessage(QString)));
-
-
-    connect(_model,SIGNAL(waitingYourHand()),this,SLOT(modelWaitingYourHand()));
     connect(_model,SIGNAL(waitingCommunityCards()),this,SLOT(modelWitingCommunityCards()));
     connect(_model,SIGNAL(invalidState(QString)),this->statusBar(),SLOT(showMessage(QString)));
+    connect(_model,SIGNAL(roundStarted()),this,SLOT(modelStartingRound()));
+    connect(_model,SIGNAL(endGame()),this,SLOT(initActions()));
 
-    _startRoundAction->setEnabled(false);
+    connect(_threadSetter,SIGNAL(accepted()),this,SLOT(setWorkerThreadNumber()));
+    connect(_threadSetter,SIGNAL(rejected()),_threadSetter,SLOT(close()));
+
+    initActions();
 
 }
 
@@ -88,19 +91,20 @@ MainWindow::~MainWindow()
     //delete ui;
 }
 
+void MainWindow::initActions()
+{
+    _startAction->setEnabled(true);
+    _startRoundAction->setEnabled(false);
+    _nextAction->setEnabled(false);
+}
+
 void MainWindow::startingNewGame()
 {
     _model->startGame(_gameWidget->getnOfPlayers(),_gameWidget->getSmallBlindBet(),
                       _gameWidget->getBigBlindBet(), _gameWidget->getYourNumber());
-}
-
-void MainWindow::modelWaitingYourHand()
-{
-    this->statusBar()->showMessage("Plase, give your hand and click to Start round!");
     _startAction->setEnabled(false);
-
     _startRoundAction->setEnabled(true);
-    connect(_startRoundAction,SIGNAL(triggered()),_gameWidget,SLOT(givePairs()));
+    _gameWidget->givePairs();
 }
 
 void MainWindow::modelWitingCommunityCards()
@@ -108,5 +112,18 @@ void MainWindow::modelWitingCommunityCards()
     this->statusBar()->showMessage("Plase, give the community cards and click to Start round!");
     disconnect(_startRoundAction,SIGNAL(triggered()),_gameWidget,SLOT(givePairs()));
     connect(_startRoundAction,SIGNAL(triggered()), _gameWidget, SLOT(addActiveCommunityCards()));
+    _startRoundAction->setEnabled(true);
+    _nextAction->setEnabled(false);
+}
+
+void MainWindow::modelStartingRound()
+{
+    _nextAction->setEnabled(true);
+    _startRoundAction->setEnabled(false);
+}
+
+void MainWindow::setWorkerThreadNumber()
+{
+    _model->setWorkerThreadNumber(_threadSetter->getNOfThreads());
 }
 

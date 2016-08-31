@@ -16,6 +16,7 @@ public:
 private:
 
     void calcValue();
+    int score(card);
 
     card card1;
     card card2;

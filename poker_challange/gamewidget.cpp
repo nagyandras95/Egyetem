@@ -15,6 +15,7 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
     _model = model;
 
     initColorMatchingMap();
+    initValueMatchingMap();
     initDesecationMatching();
     initChoiceLists();
     initValueAndColorList();
@@ -28,7 +29,7 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
 
     _potSetter = new AmountSetter("Pot:",0,1000);
     _yourBetSetter = new AmountSetter("Your Bet:",0,500);
-    _nOfPlayersSetter = new AmountSetter("Plyers:",2,23);
+    _nOfPlayersSetter = new AmountSetter("Plyers:",2,10);
     _yourNumberSetter = new AmountSetter("Your number:",1,23);
     _smallBlindSetter = new AmountSetter("Small blind bet:",1,500);
     _bigBlindSetter = new AmountSetter("Big blind bet:",2,500);
@@ -61,6 +62,10 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
     _mainLayout->addLayout(_extraInfoLayout);
 
     setLayout(_mainLayout);
+
+    _potSetter->setActive(false);
+    _yourBetSetter->setActive(false);
+    initSelections();
 
 
 
@@ -117,6 +122,17 @@ TexasHoldem::desecition GameWidget::invertMatchDecesion(QString decesionString)
 {
     return std::find_if(_decesationMatching.begin(), _decesationMatching.end(),
                         [decesionString](std::pair<TexasHoldem::desecition,QString> p){return p.second == decesionString;})->first;
+}
+
+QString GameWidget::matchValue(int value)
+{
+    return _valueMatching[value];
+}
+
+int GameWidget::invertMatchValue(QString valueString)
+{
+    return std::find_if(_valueMatching.begin(), _valueMatching.end(),
+                        [valueString](std::pair<int,QString> p){return p.second == valueString;})->first;
 }
 
 void GameWidget::getHint()
@@ -223,6 +239,22 @@ void GameWidget::changeYourBet(int n) {
     _yourBetSetter->setAmount(n);
 }
 
+void GameWidget::initSelections()
+{
+    _playersWidget->clearPlayers();
+    for(CardSelector* selector : _communityCards)
+    {
+        selector->setEnabled(false);
+    }
+
+    _firstCard->setEnabled(true);
+    _secondCard->setEnabled(true);
+    _nOfPlayersSetter->setActive(true);
+    _yourNumberSetter->setActive(true);
+    _smallBlindSetter->setActive(true);
+    _bigBlindSetter->setActive(true);
+}
+
 void GameWidget::setConfiguration()
 {
     _model->setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
@@ -245,7 +277,7 @@ void GameWidget::initValueAndColorList()
 {
     for(int i = 2; i <= 14; i++)
     {
-        _valuesList.push_back(QString(std::to_string(i).c_str()));
+        _valuesList.push_back(matchValue(i));
     }
 
     _colorsList.push_back(matchColors(card::color::hearts));
@@ -263,6 +295,20 @@ void GameWidget::initColorMatchingMap()
     _colorMatchingMap[card::color::hearts] = "Hearts";
     _colorMatchingMap[card::color::spades] = "Spades";
 
+
+}
+
+void GameWidget::initValueMatchingMap()
+{
+    for(int i = 2; i <= 10; ++i)
+    {
+        _valueMatching[i] = QString(std::to_string(i).c_str());
+    }
+
+    _valueMatching[11] = "B";
+    _valueMatching[12] = "D";
+    _valueMatching[13] = "K";
+    _valueMatching[14] = "A";
 
 }
 
@@ -294,7 +340,7 @@ void GameWidget::initChoiceLists()
 card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair)
 {
 
-   return card( pair.first->currentText().toInt() ,
+   return card( invertMatchValue(pair.first->currentText()) ,
                 invertMatchColor(pair.second->currentText()));
 }
 

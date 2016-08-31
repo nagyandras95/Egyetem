@@ -20,6 +20,7 @@ public:
     void stepGame(TexasHoldem::desecition activePlayerDecesion, int activePlayerBet);
     void startRound();
     void addCommunityCards(const std::list<card>& cards);
+    void setWorkerThreadNumber(int n) {_possEvalator->setNofWorkerThread(n);}
 
     ~TexasHoldemModel();
 
@@ -28,8 +29,8 @@ signals:
     void newGameStarted(std::vector<Player> state);
     void endGame();
     void startBidding(int nextPlayer);
-    void waitingYourHand();
     void waitingCommunityCards();
+    void roundStarted();
     void selectCommunityCards(int from,int to);
     void nextRoundStarted(int currentPlayer);
     void choiceOptionsChanged(bool beforeBet);
@@ -64,6 +65,14 @@ private:
     int claclulateOptimalAmount();
     int totalPot() {return _gameState.getPot() + _tableSumMoney;}
     bool analyizePlayer(Player player,int toCallAmount);
+
+    TexasHoldem::desecition preFlopStaregy();
+    TexasHoldem::desecition beforeBetStartegy();
+    TexasHoldem::desecition afterBetStaregy();
+    double calculateOutChance();
+    void flopWinChance();
+    void turnWinChance();
+    void riverWinChance();
 
 
     TexasHoldem::desecition evaluateChance(double);

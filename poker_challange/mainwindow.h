@@ -15,9 +15,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 private slots:
+    void initActions();
     void startingNewGame();
-    void modelWaitingYourHand();
     void modelWitingCommunityCards();
+    void modelStartingRound();
+    void setWorkerThreadNumber();
+
 private:
 
     QAction* _startAction;

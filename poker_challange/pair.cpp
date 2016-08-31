@@ -5,16 +5,44 @@ pair::pair(card card1_, card card2_) : card1(card1_), card2(card2_)
     calcValue();
 }
 
+
+//ChenFormula
 void pair::calcValue()
 {
-    bool n_same = false, c_same = false, poss_staright = false;
-    n_same = card1.get_number() == card2.get_number();
-    c_same = card1.get_color() == card2.get_color();
-    poss_staright = std::abs(card1.get_number() - card2.get_number()) <= 4 && !n_same;
+    value = std::max(score(card1),score(card2));
 
-    value = poss_staright*TexasHoldem::POSS_STARIGHT_HAND +
-            c_same*TexasHoldem::SAME_COLOR_HAND +
-            n_same*TexasHoldem::PAIR_HAND +
-            std::max(card1,card2).get_number() +
-            std::min(card1,card2).get_number();
+    int diff = std::abs(card1.get_number() - card2.get_number());
+    switch(diff)
+    {
+    case 0 : value = std::max(5,value*2); break;
+    case 1 : value++;
+    case 2 : value--;
+    case 3 : value = value - 2;
+    case 4: value = value - 4;
+    default: value = value - 5;
+    }
+
+    if(card1.get_color() == card2.get_color())
+    {
+        value += 2;
+    }
+
+    value = value - diff;
+}
+
+int pair::score(card c)
+{
+    switch (c.get_number()) {
+    case 14:
+        return 10;
+        break;
+    case 13:
+        return 8;
+    case 12:
+        return 7;
+    case 11:
+        return 6;
+    default:
+        return c.get_number() / 2;
+    }
 }

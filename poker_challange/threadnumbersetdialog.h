@@ -25,7 +25,7 @@ private:
     QPushButton *_okButton;
     QPushButton *_rejectButton;
 
-
+    QHBoxLayout* _buttonLayout;
     QVBoxLayout* _mainLayout;
 
 };

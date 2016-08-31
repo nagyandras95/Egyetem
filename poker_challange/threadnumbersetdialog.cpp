@@ -10,8 +10,11 @@ ThreadNumberSetDialog::ThreadNumberSetDialog(QWidget *parent) : QDialog(parent)
     _rejectButton = new QPushButton("Reject");
 
     _mainLayout = new QVBoxLayout;
+    _buttonLayout = new QHBoxLayout;
     _mainLayout->addWidget(_threadSetter);
-    _mainLayout->addWidget(_okButton);
+    _buttonLayout->addWidget(_okButton);
+    _buttonLayout->addWidget(_rejectButton);
+    _mainLayout->addLayout(_buttonLayout);
 
     connect(_okButton,SIGNAL(clicked()),this,SLOT(accept()));
     connect(_rejectButton,SIGNAL(clicked()),this,SLOT(reject()));

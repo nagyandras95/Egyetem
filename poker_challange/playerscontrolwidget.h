@@ -15,6 +15,7 @@ public:
     explicit PlayersControlWidget(QWidget *parent = 0);
 
     void setNOfPlayer(int n);
+    void clearPlayers();
     void setPlayerBet(int i, int value) {_players[i]->setBet(value);}
     void setPalyerActive(int i, bool active) {
         _players[i]->setActivePlayer(active);

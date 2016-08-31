@@ -38,7 +38,7 @@ double HandEvaluator::evaluatePair(const std::pair<card, card> p,const std::list
         pair oppPair = pair(p.first,p.second);
         if(oppPair <= myPair) behind++;
     }
-    double c = behind/count;
+    double c = (double)behind/(double)count;
     return c;
 
 }

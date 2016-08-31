@@ -23,6 +23,7 @@ public:
     void setNOfPlayers(const int p) {_players = p;}
     void setUnknownCards(const std::list<card>& unknownCards) {_unknownCards = unknownCards;}
     void setCommunityCards(const std::vector<card>& communityCards) {_communityCards = communityCards;}
+    void setNofWorkerThread(int n) {_nOfThrads = n;}
 
 private:
 
@@ -46,7 +47,7 @@ private:
 
     std::atomic_bool _terminated;
 
-    int _nOfThrads = 6;
+    int _nOfThrads = 1;
     std::vector<std::thread*> _workers;
 
     std::condition_variable _cond;
