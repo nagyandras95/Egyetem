@@ -9,16 +9,16 @@ GamingTableConfiguration::GamingTableConfiguration()
 
 void GamingTableConfiguration::init()
 {
-    hiddenCards.clear();
+    _hiddenCards.clear();
     for(int i = 2; i <= 14; i++ )
     {
-        hiddenCards.push_back(card(i,card::color::clubs));
-        hiddenCards.push_back(card(i,card::color::diamonds));
-        hiddenCards.push_back(card(i,card::color::hearts));
-        hiddenCards.push_back(card(i,card::color::spades));
+        _hiddenCards.push_back(card(i,card::color::clubs));
+        _hiddenCards.push_back(card(i,card::color::diamonds));
+        _hiddenCards.push_back(card(i,card::color::hearts));
+        _hiddenCards.push_back(card(i,card::color::spades));
     }
-    yourBet = 0;
-    pot = 0;
+    _yourBet = 0;
+    _pot = 0;
     calculatedHiddenCards = false;
 }
 
@@ -26,33 +26,33 @@ const std::list<card>& GamingTableConfiguration::getHiddenCards()
 {
     if(!calculatedHiddenCards)
     {
-        hiddenCards.remove(yourCard1);
-        hiddenCards.remove(yourCard2);
-        for(card c : communityCards)
+        _hiddenCards.remove(_yourCard1);
+        _hiddenCards.remove(_yourCard2);
+        for(card c : _communityCards)
         {
-            hiddenCards.remove(c);
+            _hiddenCards.remove(c);
         }
         calculatedHiddenCards = true;
     }
 
 
-    return hiddenCards;
+    return _hiddenCards;
 }
 
 void GamingTableConfiguration::setCommunityCards(const std::vector<card> cards)
 {
-    communityCards = cards;
+    _communityCards = cards;
     calculatedHiddenCards = false;
 }
 
 std::list<std::vector<card> > GamingTableConfiguration::getPossibleNextRoundComminityCards()
 {
-    assert(communityCards.size() > 0 && communityCards.size() < 5);
+    assert(_communityCards.size() > 0 && _communityCards.size() < 5);
     std::list<std::vector<card> > possiblities;
     std::vector<card> comm_cards;
     for(card c : getHiddenCards())
     {
-        comm_cards = communityCards;
+        comm_cards = _communityCards;
         comm_cards.push_back(c);
         possiblities.push_back(comm_cards);
     }
@@ -62,38 +62,38 @@ std::list<std::vector<card> > GamingTableConfiguration::getPossibleNextRoundComm
 
 void GamingTableConfiguration::setYourHand(const card &c1, const card &c2)
 {
-    yourCard1 = c1;
-    yourCard2 = c2;
+    _yourCard1 = c1;
+    _yourCard2 = c2;
     calculatedHiddenCards = false;
 }
 
 
 int GamingTableConfiguration::getNOfActivePlayers() const
 {
-    return nOfActivePlayers;
+    return _nOfActivePlayers;
 }
 
 void GamingTableConfiguration::setNOfActivePlayers(int value)
 {
-    nOfActivePlayers = value;
+    _nOfActivePlayers = value;
 }
 
 int GamingTableConfiguration::getYourBet() const
 {
-    return yourBet;
+    return _yourBet;
 }
 
 void GamingTableConfiguration::setYourBet(int value)
 {
-    yourBet = value;
+    _yourBet = value;
 }
 
 int GamingTableConfiguration::getPot() const
 {
-    return pot;
+    return _pot;
 }
 
 void GamingTableConfiguration::setPot(int value)
 {
-    pot = value;
+    _pot = value;
 }

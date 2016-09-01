@@ -8,8 +8,10 @@
 #include <algorithm>
 #include "communitycardselector.h"
 #include "privatecardselector.h"
-#include "card.h"
+#include "model/card.h"
 
+namespace TexasHoldemView
+{
 GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(parent)
 {
     _model = model;
@@ -340,8 +342,11 @@ void GameWidget::initChoiceLists()
 card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair)
 {
 
-   return card( invertMatchValue(pair.first->currentText()) ,
-                invertMatchColor(pair.second->currentText()));
+    return card( invertMatchValue(pair.first->currentText()) ,
+                 invertMatchColor(pair.second->currentText()));
 }
+}
+
+
 
 

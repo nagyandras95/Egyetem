@@ -1,5 +1,7 @@
 #include "playerwidget.h"
 
+namespace TexasHoldemView
+{
 PlayerWidget::PlayerWidget(QWidget *parent) : QWidget(parent),
     _bet(new QSpinBox), _desecition(new QComboBox), _mainLayout(new QHBoxLayout)
 {
@@ -8,3 +10,6 @@ PlayerWidget::PlayerWidget(QWidget *parent) : QWidget(parent),
 
     setLayout(_mainLayout);
 }
+}
+
+

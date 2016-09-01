@@ -5,8 +5,10 @@
 #include <QMenu>
 #include <QAction>
 #include "gamewidget.h"
-#include "texasholdemmodel.h"
+#include "model/texasholdemmodel.h"
 
+namespace TexasHoldemView
+{
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -24,7 +26,6 @@ private slots:
 private:
 
     QAction* _startAction;
-    QAction* _hintAction;
     QAction* _threadConfigureAction;
     QAction* _exitAction; // kilépés akció
     QAction* _nextAction;
@@ -35,13 +36,16 @@ private:
     QMenu* _controlMenu;
     QMenu* _infoMenu;
 
-    GameWidget* _gameWidget;
+    TexasHoldemView::GameWidget* _gameWidget;
     TexasHoldemModel* _model;
 
-    ThreadNumberSetDialog* _threadSetter;
+    TexasHoldemView::ThreadNumberSetDialog* _threadSetter;
 
 
 
 };
+
+}
+
 
 #endif // MAINWINDOW_H

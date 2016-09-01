@@ -15,14 +15,14 @@
 #include <map>
 #include <vector>
 
-#include "card.h"
-#include "texasholdemmodel.h"
+#include "model/card.h"
+#include "model/texasholdemmodel.h"
 #include "cardselector.h"
 #include "amountsetter.h"
 #include "threadnumbersetdialog.h"
 #include "playerscontrolwidget.h"
 
-
+namespace TexasHoldemView {
 class GameWidget : public QWidget
 {
     Q_OBJECT
@@ -110,5 +110,8 @@ private:
 
 
 };
+}
+
+
 
 #endif // GEMEWIDGET_H

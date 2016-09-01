@@ -7,6 +7,8 @@
 #include <QVBoxLayout>
 #include "amountsetter.h"
 
+namespace TexasHoldemView
+{
 class ThreadNumberSetDialog : public QDialog
 {
     Q_OBJECT
@@ -29,5 +31,8 @@ private:
     QVBoxLayout* _mainLayout;
 
 };
+}
+
+
 
 #endif // THREADNUMBERSETDIALOG_H

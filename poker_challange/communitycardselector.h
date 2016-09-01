@@ -12,6 +12,8 @@
 
 #include "cardselector.h"
 
+namespace TexasHoldemView {
+
 class CommunityCardSelector : public CardSelector
 {
     Q_OBJECT
@@ -35,5 +37,9 @@ private:
     QHBoxLayout *_communityCardLayout;
     QHBoxLayout *_communityCardInfoLayout;
 };
+
+}
+
+
 
 #endif // COMMUNITYCARDSELECTOR_H

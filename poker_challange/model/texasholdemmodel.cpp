@@ -17,21 +17,20 @@ TexasHoldemModel::~TexasHoldemModel()
 
 void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindBet_, int playerNumber_)
 {
-    assert(players_ >= 2 && players_ < 24);
+    assert(players_ >= 2 && players_ < 11);
 
-    _tableSumMoney = smallBlindBet_ + bigBlindBet_;
     _gameState.init();
+    _gameState.initTableSumMoney();
+    _gameState.addTableMoney(smallBlindBet_ + bigBlindBet_);
     _round = TexasHoldem::pre_flop;
     _nOfActivePlayers = players_;
-    nOfStartedPlayer = players_;
-    setNOfPlayers(players_);
 
     _minimumBet = bigBlindBet_;
 
-    flopRaise = smallBlindBet_;
+    flopRaise = ;
     afterFlopRaise = bigBlindBet_;
 
-    playerNumber = playerNumber_ - 1;
+    _playerPosition = playerNumber_ - 1;
 
     _beforeBet = false;
 
@@ -41,9 +40,9 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
     _playersState[1].bet = bigBlindBet_;
     _playersState[1].lastDesecition = TexasHoldem::bet;
 
-    if(playerNumber == 0)
+    if(_playerPosition == 0)
         _gameState.addYourBet(smallBlindBet_);
-    else if(playerNumber == 1)
+    else if(_playerPosition == 1)
         _gameState.addYourBet(bigBlindBet_);
 
     emit newGameStarted(_playersState);
@@ -52,20 +51,20 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
 
 void TexasHoldemModel::startRound()
 {
-    _nOfRaises = 0;
+    _gameState.initRaises();
     _roundStarterPlayer = serachFirstActivePlayer();
     _currentPlayer = serachFirstActivePlayer();
 
     if(_round != TexasHoldem::pre_flop)
     {
-        _tableSumMoney = 0;
+        _gameState.initTableSumMoney();
         for(Player& player: _playersState)
         {
             player.bet = 0;        }
     }
     emit roundStarted();
     emit activePlayerChanged(_roundStarterPlayer);
-    if(_roundStarterPlayer == playerNumber)
+    if(_roundStarterPlayer == _playerPosition)
         emit nextPlayerHint();
 }
 
@@ -82,12 +81,12 @@ void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, in
 
     if(activePlayerDecesion == TexasHoldem::raise)
     {
-        if(_nOfRaises == 0)
+        if(_gameState.getRaises() == 0)
         {
             _roundStarterPlayer = _currentPlayer;
 
         }
-        _nOfRaises++;
+        _gameState.incrementRaises();
         _minimumBet = activePlayerBet;
     }
     else if(activePlayerDecesion == TexasHoldem::bet)
@@ -102,7 +101,7 @@ void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, in
         _nOfActivePlayers--;
         _gameState.decrementNOfActivePlayers();
         emit nOfActivePlayerChanged(_gameState.getNOfActivePlayers());
-        if(_currentPlayer == playerNumber)
+        if(_currentPlayer == _playerPosition)
         {
             emit endGame();
             return;
@@ -112,7 +111,7 @@ void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, in
 
     if(activePlayerDecesion != TexasHoldem::fold || activePlayerDecesion != TexasHoldem::check)
         _tableSumMoney += (activePlayerBet - currentPlayerState.bet);
-    if(_currentPlayer == playerNumber)
+    if(_currentPlayer == _playerPosition)
     {
         _gameState.addYourBet(activePlayerBet - currentPlayerState.bet);
         emit yourBetChanged(_gameState.getYourBet());
@@ -167,7 +166,7 @@ void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, in
 
 
 
-    if(_currentPlayer == playerNumber)
+    if(_currentPlayer == _playerPosition)
     {
         emit nextPlayerHint();
     }
@@ -189,7 +188,7 @@ void TexasHoldemModel::addCommunityCards(const std::list<card> &cards)
 
 int TexasHoldemModel::searchNextAtivePlayer()
 {
-    int n = nOfStartedPlayer;
+    int n = _gameState.getNOfActivePlayers();
     int next = (_currentPlayer + 1) % n;
     while(_playersState[next].lastDesecition == TexasHoldem::fold)
         next = (next + 1) % n;
@@ -201,7 +200,7 @@ int TexasHoldemModel::searchNextAtivePlayer()
 
 int TexasHoldemModel::serachFirstActivePlayer()
 {
-    int n = nOfStartedPlayer;
+    int n = _gameState.getNOfActivePlayers();
     int first = _round == TexasHoldem::pre_flop ? (2 % n) : 0;
     while(_playersState[first].lastDesecition == TexasHoldem::fold)
         first = (first + 1) % n;
@@ -255,10 +254,10 @@ bool TexasHoldemModel::analyizePlayer(Player player,int toCallAmount)
 
     //that's mean the player needs at last as many chance as invest rate
     double investRate = (double) (player.getTotalBet() + (toCallAmount - player.bet)) /
-            (double) (totalPot() + (toCallAmount - player.bet));
+            (double) (_gameState.getTotalPot() + (toCallAmount - player.bet));
 
     double chance = (1 - winChance) + 0.1*
-            (player.raisePower - _playersState[playerNumber].raisePower);
+            (player.raisePower - _playersState[_playerPosition].raisePower);
 
     if(chance > investRate)
         return true;
@@ -279,7 +278,7 @@ TexasHoldem::desecition TexasHoldemModel::preFlopStaregy()
     */
     if(winChance < 0.9)
     {
-        if((playerNumber == 1 && _nOfRaises > 0 && winChance > 0.8) || (playerNumber == 1 && _nOfRaises == 0))
+        if((_playerPosition == 1 && _nOfRaises > 0 && winChance > 0.8) || (_playerPosition == 1 && _nOfRaises == 0))
             return TexasHoldem::call;
         else
             return TexasHoldem::fold;
@@ -306,7 +305,7 @@ TexasHoldem::desecition TexasHoldemModel::preFlopStaregy()
 
 TexasHoldem::desecition TexasHoldemModel::beforeBetStartegy()
 {
-    if(winChance*(totalPot()) < _gameState.getYourBet())
+    if(winChance*(_gameState.getTotalPot()) < _gameState.getYourBet())
     {
         return TexasHoldem::check;
     }
@@ -318,13 +317,14 @@ TexasHoldem::desecition TexasHoldemModel::beforeBetStartegy()
 
 TexasHoldem::desecition TexasHoldemModel::afterBetStaregy()
 {
-    double expectedMoney = winChance*(totalPot() + (_minimumBet - _playersState[playerNumber].bet));
+    double expectedMoney = winChance*(_gameState.getTotalPot() +
+                                      (_minimumBet - _playersState[_playerPosition].bet));
     /*
      * If the expected money less then the already invested and should be
      * invested money in tis situtaion
      * it does not worth to call it.
     */
-    if(expectedMoney < (_gameState.getYourBet() + (_minimumBet - _playersState[playerNumber].bet)))
+    if(expectedMoney < (_gameState.getYourBet() + (_minimumBet - _playersState[_playerPosition].bet)))
     {
         return TexasHoldem::fold;
     }
@@ -341,8 +341,8 @@ TexasHoldem::desecition TexasHoldemModel::afterBetStaregy()
         if(_round == TexasHoldem::flop)
         {
             afterRisePot = _gameState.getPot() +  _tableSumMoney +
-                    (_minimumBet + raiseAmount - _playersState[playerNumber].bet);
-            afterRaiseInvest = _gameState.getYourBet() + (_minimumBet + raiseAmount - _playersState[playerNumber].bet);
+                    (_minimumBet + raiseAmount - _playersState[_playerPosition].bet);
+            afterRaiseInvest = _gameState.getYourBet() + (_minimumBet + raiseAmount - _playersState[_playerPosition].bet);
         }
 
         expectedMoney = winChance*(afterRisePot);
@@ -362,12 +362,12 @@ TexasHoldem::desecition TexasHoldemModel::afterBetStaregy()
                 {
                     sumNoRaisePlusMoney += _minimumBet;
                 }
-                _playersState[playerNumber-1].raisePower++;
+                _playersState[_playerPosition].raisePower++;
                 if(analyizePlayer(player,_minimumBet + raiseAmount))
                 {
                     sumRaisePlusMoney += _minimumBet + raiseAmount;
                 }
-                _playersState[playerNumber-1].raisePower--;
+                _playersState[_playerPosition].raisePower--;
 
                 if(sumNoRaisePlusMoney > sumRaisePlusMoney)
                 {

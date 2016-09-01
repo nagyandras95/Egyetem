@@ -63,7 +63,6 @@ private:
     std::pair<bool, QString> validateState(TexasHoldem::desecition activePlayerDecesion,
                                            int activePlayerBet, const Player &activePlayerState);
     int claclulateOptimalAmount();
-    int totalPot() {return _gameState.getPot() + _tableSumMoney;}
     bool analyizePlayer(Player player,int toCallAmount);
 
     TexasHoldem::desecition preFlopStaregy();
@@ -83,16 +82,12 @@ private:
 
 
     int _minimumBet;
-    int smallBlindBet;
 
     int flopRaise;
     int afterFlopRaise;
 
     std::vector<Player> _playersState;
-    int nOfStartedPlayer;
-    int playerNumber;
-
-
+    int _playerPosition;
 
     TexasHoldem::round _round;
 

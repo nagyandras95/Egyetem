@@ -1,5 +1,7 @@
 #include "amountsetter.h"
 
+namespace TexasHoldemView
+{
 AmountSetter::AmountSetter(QString labelMessage, int min, int max, QWidget *parent) : QWidget(parent),
     _label(new QLabel(labelMessage)), _setterSpinBox(new QSpinBox), _setterLayout(new QHBoxLayout)
 {
@@ -19,3 +21,6 @@ void AmountSetter::valueChanged(int value)
 {
     emit amountChanged(value);
 }
+}
+
+

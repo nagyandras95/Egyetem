@@ -4,6 +4,8 @@
 #include "cardselector.h"
 #include <QHBoxLayout>
 
+namespace TexasHoldemView
+{
 class PrivateCardSelector : public CardSelector
 {
     Q_OBJECT
@@ -17,5 +19,7 @@ public:
 private:
     QHBoxLayout *_mainLayout;
 };
+}
+
 
 #endif // PRIVATECARDSELECTOR_H

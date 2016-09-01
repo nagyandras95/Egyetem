@@ -1,6 +1,8 @@
 #include "playerscontrolwidget.h"
 #include <assert.h>
 
+namespace TexasHoldemView
+{
 int PlayersControlWidget::SUBDIVISION = 5;
 
 PlayersControlWidget::PlayersControlWidget(QWidget *parent) : QWidget(parent)
@@ -51,3 +53,6 @@ void PlayersControlWidget::changeActivePlayer(int index)
     inactivatePlayer();
     setActivePlayer(index);
 }
+}
+
+

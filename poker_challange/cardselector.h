@@ -9,6 +9,8 @@
 #include <QHBoxLayout>
 #include <QStringList>
 
+namespace TexasHoldemView {
+
 class CardSelector : public QWidget
 {
     Q_OBJECT
@@ -34,5 +36,9 @@ protected:
 
 
 };
+
+}
+
+
 
 #endif // CARDSELECTOR_H

@@ -1,5 +1,7 @@
 #include "communitycardselector.h"
 
+namespace TexasHoldemView
+{
 CommunityCardSelector::CommunityCardSelector(QString labelMessage, const QStringList &valueList_, const QStringList &colorList_, QWidget *parent) :
     CardSelector(labelMessage,valueList_,colorList_,parent), _enableChack(new QCheckBox),
     _mainLayout(new QVBoxLayout), _communityCardLayout(new QHBoxLayout), _communityCardInfoLayout(new QHBoxLayout)
@@ -44,3 +46,6 @@ void CommunityCardSelector::setEnable(int status)
     emit cardChanged(_boxes.first->currentText(),_boxes.second->currentText());
 
 }
+}
+
+

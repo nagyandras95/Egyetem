@@ -1,5 +1,7 @@
 #include "cardselector.h"
 
+namespace TexasHoldemView
+{
 CardSelector::CardSelector(QString labelMessage, const QStringList &valueList_, const QStringList &colorList_,
                            QWidget *parent) : QWidget(parent), _label(new QLabel(labelMessage)), _boxes(new QComboBox,new QComboBox)
 {
@@ -22,3 +24,6 @@ void CardSelector::cardParameterChanged(QString)
     if(_boxes.first->isEnabled() && _boxes.second->isEnabled())
         emit cardChanged(_boxes.first->currentText(), _boxes.second->currentText());
 }
+}
+
+

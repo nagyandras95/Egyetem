@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QSpinBox>
 #include <QHBoxLayout>
+namespace TexasHoldemView {
 
 class AmountSetter : public QWidget
 {
@@ -29,5 +30,8 @@ private:
 
     QHBoxLayout *_setterLayout;
 };
+
+}
+
 
 #endif // AMOUNTSETTER_H

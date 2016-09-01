@@ -6,6 +6,7 @@
 #include <QComboBox>
 #include <QHBoxLayout>
 
+namespace TexasHoldemView {
 class PlayerWidget : public QWidget
 {
     Q_OBJECT
@@ -40,5 +41,8 @@ private:
 
 
 };
+}
+
+
 
 #endif // PLAYERWIDGET_H

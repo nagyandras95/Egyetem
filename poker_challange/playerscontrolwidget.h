@@ -8,6 +8,7 @@
 
 #include "playerwidget.h"
 
+namespace TexasHoldemView {
 class PlayersControlWidget : public QWidget
 {
     Q_OBJECT
@@ -41,5 +42,8 @@ private:
 
     static int SUBDIVISION;
 };
+}
+
+
 
 #endif // PLAYERSCONTROLWIDGET_H

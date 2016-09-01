@@ -1,5 +1,7 @@
 #include "privatecardselector.h"
 
+namespace TexasHoldemView
+{
 PrivateCardSelector::PrivateCardSelector(QString labelMessage, const QStringList &valueList_, const QStringList &colorList_, QWidget *parent)
     : CardSelector(labelMessage,valueList_,colorList_,parent), _mainLayout(new QHBoxLayout)
 {
@@ -18,3 +20,6 @@ PrivateCardSelector::~PrivateCardSelector()
     _mainLayout->removeWidget(_boxes.second);
     delete _mainLayout;
 }
+}
+
+

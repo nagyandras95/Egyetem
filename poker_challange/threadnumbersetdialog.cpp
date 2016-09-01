@@ -1,5 +1,7 @@
 #include "threadnumbersetdialog.h"
 
+namespace TexasHoldemView
+{
 ThreadNumberSetDialog::ThreadNumberSetDialog(QWidget *parent) : QDialog(parent)
 {
     setWindowTitle(trUtf8("Thread setter dialog"));
@@ -7,7 +9,7 @@ ThreadNumberSetDialog::ThreadNumberSetDialog(QWidget *parent) : QDialog(parent)
     _threadSetter = new AmountSetter("Set number of threads: ",1,10);
 
     _okButton = new QPushButton("Accept");
-    _rejectButton = new QPushButton("Reject");
+    _rejectButton = new QPushButton("Cancel");
 
     _mainLayout = new QVBoxLayout;
     _buttonLayout = new QHBoxLayout;
@@ -22,3 +24,6 @@ ThreadNumberSetDialog::ThreadNumberSetDialog(QWidget *parent) : QDialog(parent)
     setLayout(_mainLayout);
 
 }
+}
+
+

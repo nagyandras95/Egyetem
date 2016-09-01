@@ -1,10 +1,13 @@
 #include "mainwindow.h"
-#include "combination.h"
-#include "card.h"
+#include "model/combination.h"
+#include "model/card.h"
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QStatusBar>
+
+namespace TexasHoldemView
+{
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
@@ -15,10 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     _startAction = new QAction(trUtf8("Start"),this);
     _startAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_S));
     _startAction->setStatusTip(trUtf8("Start game simulating"));
-
-    _hintAction = new QAction(trUtf8("Hint"),this);
-    _hintAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_H));
-    _hintAction->setStatusTip(trUtf8("Adding the next hint"));
 
     _threadConfigureAction = new QAction(trUtf8("Threads"),this);
     _threadConfigureAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_T));
@@ -36,14 +35,13 @@ MainWindow::MainWindow(QWidget *parent) :
     _startRoundAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_R));
     _startRoundAction->setStatusTip(trUtf8("Starting the next round"));
 
-    _gameMenu = menuBar()->addMenu(trUtf8("&Game"));
+    _gameMenu = menuBar()->addMenu(trUtf8("&File"));
 
-    _gameMenu->addAction(_hintAction);
     _gameMenu->addAction(_threadConfigureAction);
     _gameMenu->addSeparator();
     _gameMenu->addAction(_exitAction);
 
-    _controlMenu = menuBar()->addMenu(trUtf8("Control"));
+    _controlMenu = menuBar()->addMenu(trUtf8("&Control"));
     _controlMenu->addAction(_startAction);
     _controlMenu->addAction(_startRoundAction);
     _controlMenu->addAction(_nextAction);
@@ -56,7 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
     _threadSetter = new ThreadNumberSetDialog(this);
     setCentralWidget(_gameWidget);
 
-    connect(_hintAction,SIGNAL(triggered()),_gameWidget,SLOT(getHint()));
     connect(_nextAction,SIGNAL(triggered()),_gameWidget,SLOT(stepGame()));
     connect(_threadConfigureAction,SIGNAL(triggered()),_threadSetter,SLOT(show()));
     connect(_startAction,SIGNAL(triggered()),this, SLOT(startingNewGame()));
@@ -88,7 +85,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    //delete ui;
+    delete _model;
 }
 
 void MainWindow::initActions()
@@ -126,4 +123,7 @@ void MainWindow::setWorkerThreadNumber()
 {
     _model->setWorkerThreadNumber(_threadSetter->getNOfThreads());
 }
+}
+
+
 

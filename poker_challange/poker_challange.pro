@@ -15,41 +15,41 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    card.cpp \
-    combination.cpp \
-    texasholdemmodel.cpp \
+    mainwindow.cpp \
     gamewidget.cpp \
     communitycardselector.cpp \
     cardselector.cpp \
     privatecardselector.cpp \
     amountsetter.cpp \
-    gamingtableconfiguration.cpp \
-    handevaluator.cpp \
-    possibletableevaluator.cpp \
     threadnumbersetdialog.cpp \
     playerwidget.cpp \
     playerscontrolwidget.cpp \
-    holdemtypes.cpp \
-    pair.cpp
+    model/card.cpp \
+    model/combination.cpp \
+    model/gamingtableconfiguration.cpp \
+    model/handevaluator.cpp \
+    model/holdemtypes.cpp \
+    model/possibletableevaluator.cpp \
+    model/texasholdemmodel.cpp \
+    model/pair.cpp
 
 HEADERS  += mainwindow.h \
-    card.h \
-    combination.h \
-    texasholdemmodel.h \
     gamewidget.h \
     communitycardselector.h \
     cardselector.h \
     privatecardselector.h \
     amountsetter.h \
-    gamingtableconfiguration.h \
-    handevaluator.h \
-    ihandevaluator.h \
-    threadsafequeue.h \
-    possibletableevaluator.h \
     threadnumbersetdialog.h \
     playerwidget.h \
     playerscontrolwidget.h \
-    holdemtypes.h \
-    pair.h \
-    player.h
+    model/card.h \
+    model/combination.h \
+    model/gamingtableconfiguration.h \
+    model/handevaluator.h \
+    model/holdemtypes.h \
+    model/ihandevaluator.h \
+    model/player.h \
+    model/possibletableevaluator.h \
+    model/texasholdemmodel.h \
+    model/threadsafequeue.h \
+    model/pair.h
