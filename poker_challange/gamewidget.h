@@ -39,8 +39,6 @@ public:
 signals:
     void hintAdded(QString hint);
 public slots:
-    void getHint();
-
     void newGameStarted(std::vector<Player> state);
     void stepGame();
     void changeActivePlayer(int playerNumber);

@@ -22,8 +22,11 @@ private slots:
     void modelWitingCommunityCards();
     void modelStartingRound();
     void setWorkerThreadNumber();
+    void showHint(TexasHoldem::desecition decesion) {return _decesationMatching[decesion]; }
 
 private:
+
+    void initDecesionMatching();
 
     QAction* _startAction;
     QAction* _threadConfigureAction;
@@ -40,6 +43,8 @@ private:
     TexasHoldemModel* _model;
 
     TexasHoldemView::ThreadNumberSetDialog* _threadSetter;
+
+    std::map<TexasHoldem::desecition,QString> _decesationMatching;
 
 
 

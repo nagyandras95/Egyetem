@@ -12,6 +12,8 @@ namespace TexasHoldemView
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
+
+    initDecesionMatching();
     //setMinimumSize(400,400);
     setWindowTitle(trUtf8("Texas Hold'em Poker Assist"));
 
@@ -67,7 +69,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(_model,SIGNAL(nOfActivePlayerChanged(int)),_gameWidget,SLOT(changeNofPlayers(int)));
     connect(_model,SIGNAL(potChanged(int)),_gameWidget,SLOT(changePot(int)));
     connect(_model,SIGNAL(yourBetChanged(int)),_gameWidget,SLOT(changeYourBet(int)));
-    connect(_model,SIGNAL(nextPlayerHint()),_gameWidget,SLOT(getHint()));
     connect(_model,SIGNAL(endGame()),_gameWidget,SLOT(initSelections()));
 
     connect(_gameWidget, SIGNAL(hintAdded(QString)), this->statusBar(), SLOT(showMessage(QString)));
@@ -75,6 +76,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(_model,SIGNAL(invalidState(QString)),this->statusBar(),SLOT(showMessage(QString)));
     connect(_model,SIGNAL(roundStarted()),this,SLOT(modelStartingRound()));
     connect(_model,SIGNAL(endGame()),this,SLOT(initActions()));
+    connect(_model,SIGNAL(nextPlayerHint(TexasHoldem::desecition)),this,SLOT(showHint(TexasHoldem::desecition)));
 
     connect(_threadSetter,SIGNAL(accepted()),this,SLOT(setWorkerThreadNumber()));
     connect(_threadSetter,SIGNAL(rejected()),_threadSetter,SLOT(close()));
@@ -123,6 +125,15 @@ void MainWindow::setWorkerThreadNumber()
 {
     _model->setWorkerThreadNumber(_threadSetter->getNOfThreads());
 }
+
+void MainWindow::initDecesionMatching()
+{
+    _decesationMatching[TexasHoldem::bet] = "Bet";
+    _decesationMatching[TexasHoldem::call] = "Call";
+    _decesationMatching[TexasHoldem::raise] = "Raise";
+    _decesationMatching[TexasHoldem::check] = "Check";
+}
+
 }
 
 

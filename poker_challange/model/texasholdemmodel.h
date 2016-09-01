@@ -39,7 +39,7 @@ signals:
     void nOfActivePlayerChanged(int players);
     void yourBetChanged(int yourBet);
 
-    void nextPlayerHint();
+    void nextPlayerHint(TexasHoldem::desecition);
 
     void invalidState(QString message);
 

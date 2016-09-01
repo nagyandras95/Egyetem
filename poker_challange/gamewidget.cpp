@@ -137,14 +137,6 @@ int GameWidget::invertMatchValue(QString valueString)
                         [valueString](std::pair<int,QString> p){return p.second == valueString;})->first;
 }
 
-void GameWidget::getHint()
-{
-    //setConfiguration();
-    QString hint = _decesationMatching[_model->evaluate()];
-    emit hintAdded(hint);
-
-}
-
 void GameWidget::newGameStarted(std::vector<Player> state)
 {
     _playersWidget->setNOfPlayer((int) state.size());
