@@ -27,10 +27,14 @@ public:
     void setNOfActivePlayers(int value);
     void decrementNOfActivePlayers() {--_nOfActivePlayers;}
 
+    void initNofStartedPlayer(int n) {_nOfStarerPlayer = n;}
+    int getNofStarterPlayer() const {return _nOfStarerPlayer;}
+
     int getPot() const;
     int getTotalPot() const {return _pot + _tableSumMoney;}
     void setPot(int value);
     void addPot(int value) {_pot += value;}
+    void addTableToPot() {_pot += _tableSumMoney;}
 
     int getYourBet() const;
     void setYourBet(int value);
@@ -41,6 +45,11 @@ public:
     void initRaises() {_nOfRaises = 0;}
     void setNofRaises(int value) {_nOfRaises = value;}
     void incrementRaises() {_nOfRaises++;}
+
+    int getCalls() const {return _nOfCalls;}
+    void initCalls() {_nOfCalls = 0;}
+    void setNofCalls(int value) {_nOfCalls = value;}
+    void incrementCalls() {_nOfCalls++;}
 
     void initTableSumMoney() {_tableSumMoney = 0;}
     void addTableMoney(int value) {_tableSumMoney += value;}
@@ -53,10 +62,14 @@ private:
     std::vector<card> _communityCards;
 
     int _nOfActivePlayers;
+    int _nOfStarerPlayer;
     int _pot;
     int _yourBet;
     int _tableSumMoney;
     int _nOfRaises;
+    int _nOfCalls;
+
+    TexasHoldem::round _round;
 
     bool calculatedHiddenCards;
 

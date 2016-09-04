@@ -21,6 +21,10 @@
 #include "amountsetter.h"
 #include "threadnumbersetdialog.h"
 #include "playerscontrolwidget.h"
+#include "modelviewmatching.h"
+#include "cardcolormatcher.h"
+#include "cardvaluematcher.h"
+#include "decesionmatcher.h"
 
 namespace TexasHoldemView {
 class GameWidget : public QWidget
@@ -54,24 +58,10 @@ public slots:
     void initSelections();
 
 private:
-
-    void setConfiguration();
     void initValueAndColorList();
-    void initColorMatchingMap();
-    void initValueMatchingMap();
-    void initDesecationMatching();
     void initChoiceLists();
 
     card resolveCard(std::pair<QComboBox*,QComboBox*>);
-
-    QString matchColors(card::color);
-    card::color invertMatchColor(QString colorString);
-
-    QString matchValue(int);
-    int invertMatchValue(QString valueString);
-
-    QString matchDecesion(TexasHoldem::desecition);
-    TexasHoldem::desecition invertMatchDecesion(QString);
 
     TexasHoldemModel* _model;
 
@@ -89,20 +79,20 @@ private:
 
     PlayersControlWidget *_playersWidget;
 
-    QStringList _valuesList;
-    QStringList _colorsList;
-    QStringList _beforeBidList;
-    QStringList _afterBidList;
-
     QHBoxLayout *_myCardsLayout;
     QHBoxLayout *_communityCardsLayout;
     QHBoxLayout *_extraInfoLayout;
     QVBoxLayout *_mainLayout;
 
+    QStringList _valuesList;
+    QStringList _colorsList;
+    QStringList _beforeBidList;
+    QStringList _afterBidList;
 
-    std::map<card::color,QString> _colorMatchingMap;
-    std::map<int,QString> _valueMatching;
-    std::map<TexasHoldem::desecition,QString> _decesationMatching;
+
+    ModelViewMatching<TexasHoldem::desecition,DecesionMatcher>* _decesionMatcher;
+    ModelViewMatching<TexasHoldem::CardValueType,CardValueMatcher>* _cardValueMatcher;
+    ModelViewMatching<card::color,CardColorMatcher>* _cardColorMatcher;
 
 
 

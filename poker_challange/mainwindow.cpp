@@ -12,8 +12,7 @@ namespace TexasHoldemView
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
-
-    initDecesionMatching();
+    _decesionMatcher = new DecesionMatcher();
     //setMinimumSize(400,400);
     setWindowTitle(trUtf8("Texas Hold'em Poker Assist"));
 
@@ -71,7 +70,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(_model,SIGNAL(yourBetChanged(int)),_gameWidget,SLOT(changeYourBet(int)));
     connect(_model,SIGNAL(endGame()),_gameWidget,SLOT(initSelections()));
 
-    connect(_gameWidget, SIGNAL(hintAdded(QString)), this->statusBar(), SLOT(showMessage(QString)));
     connect(_model,SIGNAL(waitingCommunityCards()),this,SLOT(modelWitingCommunityCards()));
     connect(_model,SIGNAL(invalidState(QString)),this->statusBar(),SLOT(showMessage(QString)));
     connect(_model,SIGNAL(roundStarted()),this,SLOT(modelStartingRound()));
@@ -88,6 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete _model;
+    delete _decesionMatcher;
 }
 
 void MainWindow::initActions()
@@ -126,13 +125,9 @@ void MainWindow::setWorkerThreadNumber()
     _model->setWorkerThreadNumber(_threadSetter->getNOfThreads());
 }
 
-void MainWindow::initDecesionMatching()
+void MainWindow::showHint(TexasHoldem::desecition decesion)
 {
-    _decesationMatching[TexasHoldem::bet] = "Bet";
-    _decesationMatching[TexasHoldem::call] = "Call";
-    _decesationMatching[TexasHoldem::raise] = "Raise";
-    _decesationMatching[TexasHoldem::check] = "Check";
-}
+    this->statusBar()->showMessage(_decesionMatcher->match(decesion));}
 
 }
 

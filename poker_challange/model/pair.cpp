@@ -15,11 +15,11 @@ void pair::calcValue()
     switch(diff)
     {
     case 0 : value = std::max(5,value*2); break;
-    case 1 : value++;
-    case 2 : value--;
-    case 3 : value = value - 2;
-    case 4: value = value - 4;
-    default: value = value - 5;
+    case 1 : value++; break;
+    case 2 : value--; break;
+    case 3 : value = value - 2; break;
+    case 4: value = value - 4; break;
+    default: value = value - 5; break;
     }
 
     if(card1.get_color() == card2.get_color())

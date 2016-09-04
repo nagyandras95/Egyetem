@@ -6,6 +6,8 @@
 #include <QAction>
 #include "gamewidget.h"
 #include "model/texasholdemmodel.h"
+#include "modelviewmatching.h"
+#include "decesionmatcher.h"
 
 namespace TexasHoldemView
 {
@@ -22,7 +24,7 @@ private slots:
     void modelWitingCommunityCards();
     void modelStartingRound();
     void setWorkerThreadNumber();
-    void showHint(TexasHoldem::desecition decesion) {return _decesationMatching[decesion]; }
+    void showHint(TexasHoldem::desecition decesion);
 
 private:
 
@@ -44,8 +46,7 @@ private:
 
     TexasHoldemView::ThreadNumberSetDialog* _threadSetter;
 
-    std::map<TexasHoldem::desecition,QString> _decesationMatching;
-
+    ModelViewMatching<TexasHoldem::desecition,DecesionMatcher>* _decesionMatcher;
 
 
 };

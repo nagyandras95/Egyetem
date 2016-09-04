@@ -51,7 +51,6 @@ public:
 
     bool empty() const
     {
-        //std::lock_guard<std::mutex> lock(_mu);
         return _queue.empty();
     }
 

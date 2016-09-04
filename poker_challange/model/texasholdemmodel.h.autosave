@@ -76,18 +76,7 @@ private:
 
     std::pair<bool, QString> validateState(TexasHoldem::desecition,int activePlayerBet,const Player&);
     int claclulateOptimalAmount();
-    int positionDiffRelatedToStarter(int pos)
-    {
-        int count = 0;
-        int starter = pos;
-        while(starter != _roundStarterPlayer)
-        {
-            count++;
-            starter = searchNextAtivePlayer(starter);
-        }
-
-        return count;
-    }
+    int positionDiffRelatedToStarter(int pos);
 
     TexasHoldem::desecition preFlopStaregy();
     TexasHoldem::desecition beforeBetStartegy();

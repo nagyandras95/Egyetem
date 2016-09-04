@@ -6,6 +6,8 @@ namespace TexasHoldem
     enum desecition {none, fold, check, call, bet, raise, all_in};
     enum round {pre_flop, flop, turn, river};
 
+    typedef int CardValueType;
+
     extern int MAX_VALUE;
     extern int PAIR_VALUE;
     extern int TWO_PAIR_VALUE;

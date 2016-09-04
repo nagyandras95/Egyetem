@@ -31,7 +31,10 @@ SOURCES += main.cpp\
     model/holdemtypes.cpp \
     model/possibletableevaluator.cpp \
     model/texasholdemmodel.cpp \
-    model/pair.cpp
+    model/pair.cpp \
+    decesionmatcher.cpp \
+    cardvaluematcher.cpp \
+    cardcolormatcher.cpp
 
 HEADERS  += mainwindow.h \
     gamewidget.h \
@@ -52,4 +55,8 @@ HEADERS  += mainwindow.h \
     model/possibletableevaluator.h \
     model/texasholdemmodel.h \
     model/threadsafequeue.h \
-    model/pair.h
+    model/pair.h \
+    modelviewmatching.h \
+    decesionmatcher.h \
+    cardvaluematcher.h \
+    cardcolormatcher.h

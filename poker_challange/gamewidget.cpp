@@ -16,9 +16,9 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
 {
     _model = model;
 
-    initColorMatchingMap();
-    initValueMatchingMap();
-    initDesecationMatching();
+    _decesionMatcher = new DecesionMatcher();
+    _cardValueMatcher = new CardValueMatcher();
+    _cardColorMatcher = new CardColorMatcher();
     initChoiceLists();
     initValueAndColorList();
 
@@ -75,11 +75,14 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
 
 GameWidget::~GameWidget()
 {
+    delete _decesionMatcher;
+    delete _cardValueMatcher;
+    delete _cardColorMatcher;
+
     for(unsigned int i = 0; i < _communityCards.size(); i++)
     {
         _communityCardsLayout->removeWidget(_communityCards[i]);
         delete _communityCards[i];
-
     }
 
     _myCardsLayout->removeWidget(_firstCard);
@@ -102,40 +105,6 @@ GameWidget::~GameWidget()
 
 }
 
-QString GameWidget::matchColors(card::color c)
-{
-    return _colorMatchingMap[c];
-}
-
-card::color GameWidget::invertMatchColor(QString colorString)
-{
-
-    return std::find_if(_colorMatchingMap.begin(), _colorMatchingMap.end(),
-                        [colorString](std::pair<card::color,QString> p){return p.second == colorString;})->first;
-
-}
-
-QString GameWidget::matchDecesion(TexasHoldem::desecition d)
-{
-    return _decesationMatching[d];
-}
-
-TexasHoldem::desecition GameWidget::invertMatchDecesion(QString decesionString)
-{
-    return std::find_if(_decesationMatching.begin(), _decesationMatching.end(),
-                        [decesionString](std::pair<TexasHoldem::desecition,QString> p){return p.second == decesionString;})->first;
-}
-
-QString GameWidget::matchValue(int value)
-{
-    return _valueMatching[value];
-}
-
-int GameWidget::invertMatchValue(QString valueString)
-{
-    return std::find_if(_valueMatching.begin(), _valueMatching.end(),
-                        [valueString](std::pair<int,QString> p){return p.second == valueString;})->first;
-}
 
 void GameWidget::newGameStarted(std::vector<Player> state)
 {
@@ -143,7 +112,7 @@ void GameWidget::newGameStarted(std::vector<Player> state)
     _playersWidget->setPossibleChoices(_afterBidList);
     for(unsigned int i = 0; i < state.size(); ++i)
     {
-        _playersWidget->setPlayerTextDecesion(i,matchDecesion(state[i].lastDesecition));
+        _playersWidget->setPlayerTextDecesion(i,_decesionMatcher->match(state[i].lastDesecition));
         _playersWidget->setPlayerBet(i,state[i].bet);
         _playersWidget->setPalyerActive(i,false);
     }
@@ -165,7 +134,7 @@ void GameWidget::newGameStarted(std::vector<Player> state)
 
 void GameWidget::stepGame()
 {
-    _model->stepGame(invertMatchDecesion(_playersWidget->getActivePlayerDecesion()),
+    _model->stepGame(_decesionMatcher->invertMatch(_playersWidget->getActivePlayerDecesion()),
                      _playersWidget->getActivePlayerBet());
 }
 
@@ -249,93 +218,38 @@ void GameWidget::initSelections()
     _bigBlindSetter->setActive(true);
 }
 
-void GameWidget::setConfiguration()
-{
-    _model->setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
-    std::vector<card> cards;
-    for(unsigned int i = 0; i < _communityCards.size(); i++)
-    {
-        if(_communityCards[i]->selectionIsActive())
-        {
-            cards.push_back(resolveCard(_communityCards[i]->getCardBoxes()));
-        }
-    }
-    _model->setCommunityCards(cards);
-    _model->setNOfPlayers(_nOfPlayersSetter->getAmount());
-    _model->setTotalPot(_potSetter->getAmount());
-    _model->setYourBet(_yourBetSetter->getAmount());
-
-}
-
 void GameWidget::initValueAndColorList()
 {
     for(int i = 2; i <= 14; i++)
     {
-        _valuesList.push_back(matchValue(i));
+        _valuesList.push_back(_cardValueMatcher->match(i));
     }
 
-    _colorsList.push_back(matchColors(card::color::hearts));
-    _colorsList.push_back(matchColors(card::color::diamonds));
-    _colorsList.push_back(matchColors(card::color::clubs));
-    _colorsList.push_back(matchColors(card::color::spades));
-}
-
-void GameWidget::initColorMatchingMap()
-{
-
-
-    _colorMatchingMap[card::color::clubs] = "Clubs";
-    _colorMatchingMap[card::color::diamonds] = "Diamonds";
-    _colorMatchingMap[card::color::hearts] = "Hearts";
-    _colorMatchingMap[card::color::spades] = "Spades";
-
-
-}
-
-void GameWidget::initValueMatchingMap()
-{
-    for(int i = 2; i <= 10; ++i)
-    {
-        _valueMatching[i] = QString(std::to_string(i).c_str());
-    }
-
-    _valueMatching[11] = "B";
-    _valueMatching[12] = "D";
-    _valueMatching[13] = "K";
-    _valueMatching[14] = "A";
-
-}
-
-void GameWidget::initDesecationMatching()
-{
-    _decesationMatching[TexasHoldem::none] = "";
-    _decesationMatching[TexasHoldem::fold] = "Fold";
-    _decesationMatching[TexasHoldem::call] = "Call";
-    _decesationMatching[TexasHoldem::check] = "Check";
-    _decesationMatching[TexasHoldem::bet] = "Bet";
-    _decesationMatching[TexasHoldem::raise] = "Raise";
-
+    _colorsList.push_back(_cardColorMatcher->match(card::color::hearts));
+    _colorsList.push_back(_cardColorMatcher->match(card::color::diamonds));
+    _colorsList.push_back(_cardColorMatcher->match(card::color::clubs));
+    _colorsList.push_back(_cardColorMatcher->match(card::color::spades));
 }
 
 void GameWidget::initChoiceLists()
 {
-    _beforeBidList.append(_decesationMatching[TexasHoldem::none]);
-    _beforeBidList.append(_decesationMatching[TexasHoldem::fold]);
-    _beforeBidList.append(_decesationMatching[TexasHoldem::check]);
-    _beforeBidList.append(_decesationMatching[TexasHoldem::bet]);
+    _beforeBidList.append(_decesionMatcher->match(TexasHoldem::none));
+    _beforeBidList.append(_decesionMatcher->match(TexasHoldem::bet));
+    _beforeBidList.append(_decesionMatcher->match(TexasHoldem::check));
+    _beforeBidList.append(_decesionMatcher->match(TexasHoldem::fold));
 
-    _afterBidList.append(_decesationMatching[TexasHoldem::none]);
-    _afterBidList.append(_decesationMatching[TexasHoldem::fold]);
-    _afterBidList.append(_decesationMatching[TexasHoldem::call]);
-    _afterBidList.append(_decesationMatching[TexasHoldem::raise]);
+    _afterBidList.append(_decesionMatcher->match(TexasHoldem::none));
+    _afterBidList.append(_decesionMatcher->match(TexasHoldem::fold));
+    _afterBidList.append(_decesionMatcher->match(TexasHoldem::call));
+    _afterBidList.append(_decesionMatcher->match(TexasHoldem::raise));
 
 }
 
 card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair)
 {
 
-    return card( invertMatchValue(pair.first->currentText()) ,
-                 invertMatchColor(pair.second->currentText()));
+    return card(_cardValueMatcher->invertMatch(pair.first->currentText()) ,
+                _cardColorMatcher->invertMatch(pair.second->currentText()));
 }
 }
 
