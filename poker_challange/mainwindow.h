@@ -5,7 +5,7 @@
 #include <QMenu>
 #include <QAction>
 #include "gamewidget.h"
-#include "model/texasholdemmodel.h"
+#include "model/itexasholdemmodel.h"
 #include "modelviewmatching.h"
 #include "decesionmatcher.h"
 
@@ -25,6 +25,7 @@ private slots:
     void modelStartingRound();
     void setWorkerThreadNumber();
     void showHint(TexasHoldem::desecition decesion);
+    void newGameStarted();
 
 private:
 
@@ -32,7 +33,7 @@ private:
 
     QAction* _startAction;
     QAction* _threadConfigureAction;
-    QAction* _exitAction; // kilépés akció
+    QAction* _exitAction;
     QAction* _nextAction;
     QAction* _startRoundAction;
 
@@ -42,7 +43,7 @@ private:
     QMenu* _infoMenu;
 
     TexasHoldemView::GameWidget* _gameWidget;
-    TexasHoldemModel* _model;
+    Model::ITexasHoldemModel* _model;
 
     TexasHoldemView::ThreadNumberSetDialog* _threadSetter;
 

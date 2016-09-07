@@ -14,7 +14,7 @@ class PlayersControlWidget : public QWidget
     Q_OBJECT
 public:
     explicit PlayersControlWidget(QWidget *parent = 0);
-
+    ~PlayersControlWidget();
     void setNOfPlayer(int n);
     void clearPlayers();
     void setPlayerBet(int i, int value) {_players[i]->setBet(value);}
@@ -31,9 +31,6 @@ public:
     QString getActivePlayerDecesion() {return _players[_activePlayer]->getDesecition();}
     int getActivePlayerBet() {return _players[_activePlayer]->getBet();}
 
-signals:
-
-public slots:
 private:
     QGridLayout *_gridLayout;
     std::vector<PlayerWidget*> _players;

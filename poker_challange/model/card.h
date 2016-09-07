@@ -1,40 +1,38 @@
 #ifndef CARD_H
 #define CARD_H
 
-
-
-
-class card
+#include "holdemtypes.h"
+namespace Model
+{
+class Card
 {
 public:
-    enum color {clubs, diamonds, hearts, spades};
 
-
-    card();   
-    card(int,card::color);
-    card(const card&);
-    card& operator=(const card&);
-    int get_number() const;
-    card::color get_color() const;
-
-
+    Card();
+    Card(int,TexasHoldem::color);
+    Card(const Card&);
+    Card& operator=(const Card&);
+    int getCardNumber() const;
+    TexasHoldem::color getColor() const;
 
 
 private:
 
-    void copy(const card&);
+    void copy(const Card&);
 
     int _number;
-    card::color _color;
+    TexasHoldem::color _color;
 
 };
 
-inline bool operator<(const card c1, const card c2) {return c1.get_number() < c2.get_number();}
-inline bool operator>(const card c1, const card c2){return c2 < c1;}
-inline bool operator==(const card c1, const card c2){return !(c1 < c2) && !(c1 > c2) && c1.get_color() == c2.get_color();}
-inline bool operator!=(const card c1, const card c2) {return !(c1 == c2);}
-inline bool operator<=(const card c1, const card c2){return !(c1 > c2);}
-inline bool operator>=(const card c1, const card c2){return !(c1 < c2);}
 
+inline bool operator<(const Model::Card c1, const Model::Card c2) {return c1.getCardNumber() < c2.getCardNumber();}
+inline bool operator>(const Model::Card c1, const Model::Card c2){return c2 < c1;}
+inline bool operator==(const Model::Card c1, const Model::Card c2){return !(c1 < c2) && !(c1 > c2) && c1.getColor() == c2.getColor();}
+inline bool operator!=(const Model::Card c1, const Model::Card c2) {return !(c1 == c2);}
+inline bool operator<=(const Model::Card c1, const Model::Card c2){return !(c1 > c2);}
+inline bool operator>=(const Model::Card c1, const Model::Card c2){return !(c1 < c2);}
+
+}
 
 #endif // CARD_H

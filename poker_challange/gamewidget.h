@@ -16,7 +16,7 @@
 #include <vector>
 
 #include "model/card.h"
-#include "model/texasholdemmodel.h"
+#include "model/itexasholdemmodel.h"
 #include "cardselector.h"
 #include "amountsetter.h"
 #include "threadnumbersetdialog.h"
@@ -31,14 +31,14 @@ class GameWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GameWidget(TexasHoldemModel* model,QWidget *parent = 0);
+    explicit GameWidget(Model::ITexasHoldemModel* model,QWidget *parent = 0);
     ~GameWidget();
 
-    int getnOfPlayers() {return _nOfPlayersSetter->getAmount();}
-    int getYourNumber() {return _yourNumberSetter->getAmount();}
-    int getSmallBlindBet() {return _smallBlindSetter->getAmount();}
-    int getBigBlindBet() {return _bigBlindSetter->getAmount();}
-
+    int getnOfPlayers() const {return _nOfPlayersSetter->getAmount();}
+    int getYourNumber() const {return _yourNumberSetter->getAmount();}
+    int getSmallBlindBet() const {return _smallBlindSetter->getAmount();}
+    int getBigBlindBet() const {return _bigBlindSetter->getAmount();}
+    std::pair<Model::Card,Model::Card> getYourHand() const;
 
 signals:
     void hintAdded(QString hint);
@@ -47,8 +47,8 @@ public slots:
     void stepGame();
     void changeActivePlayer(int playerNumber);
     void switchCoiceOption(bool beforeBet);
-    void givePairs();
     void enableCommunityCardSelection(int,int);
+    void disableAllCommunityCardSelection();
     void addActiveCommunityCards();
 
     void changeNofPlayers(int n);
@@ -61,9 +61,9 @@ private:
     void initValueAndColorList();
     void initChoiceLists();
 
-    card resolveCard(std::pair<QComboBox*,QComboBox*>);
+    Model::Card resolveCard(std::pair<QComboBox*,QComboBox*>) const;
 
-    TexasHoldemModel* _model;
+    Model::ITexasHoldemModel* _model;
 
     CardSelector* _firstCard;
     CardSelector* _secondCard;
@@ -92,7 +92,7 @@ private:
 
     ModelViewMatching<TexasHoldem::desecition,DecesionMatcher>* _decesionMatcher;
     ModelViewMatching<TexasHoldem::CardValueType,CardValueMatcher>* _cardValueMatcher;
-    ModelViewMatching<card::color,CardColorMatcher>* _cardColorMatcher;
+    ModelViewMatching<TexasHoldem::color,CardColorMatcher>* _cardColorMatcher;
 
 
 

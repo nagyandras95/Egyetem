@@ -3,106 +3,111 @@
 #include <assert.h>
 #include <algorithm>
 #include "holdemtypes.h"
-#include <QDebug>
 
 
-combination::combination(std::vector<card> cards_) : _cards(cards_)
+namespace Model
+{
+
+Combination::Combination(std::vector<Card> cards_) : _cards(cards_)
 {
     std::sort(_cards.begin(),_cards.end());
     _value = calcValue();
 }
 
-int combination::calcValue()
+int Combination::calcValue()
 {
-    int comb_size = (int) _cards.size();
-    int number_of_pairs = 0;
+    int combSize = (int) _cards.size();
+    int numberOfPairs = 0;
     bool drill = false;
     bool poker = false;
-    bool straight = comb_size == 5;
-    bool all_same_color = comb_size == 5;
+    bool straight = true;
+    bool allSameColor = true;
     bool same;
-    int count_same_values = 1;
-    for(int i = 1;i < comb_size; ++i)
+    int countSameValues = 1;
+    for(int i = 1;i < combSize; ++i)
     {
-        same = _cards[i-1].get_number() == _cards[i].get_number();
-        int prev_count = count_same_values;
-        all_same_color = all_same_color && _cards[i-1].get_color() == _cards[i].get_color();
-        same ? count_same_values++ : count_same_values = 1;
+        //TODO refactoring and A-2.. as special case
+        same = _cards[i-1].getCardNumber() == _cards[i].getCardNumber();
+        int prevCount = countSameValues;
+        allSameColor = allSameColor && _cards[i-1].getColor() == _cards[i].getColor();
+        same ? countSameValues++ : countSameValues = 1;
 
-        if(prev_count == 2 && count_same_values == 1)
-            critical_cards.push_back(_cards[i-1].get_number());
-        else if(count_same_values == 3)
-            critical_cards.push_back(_cards[i-1].get_number() + TexasHoldem::MAX_VALUE);
-        else if(count_same_values == 1 && prev_count == 1)
+        if(prevCount == 2 && countSameValues == 1)
+            criticalCards.push_back(_cards[i-1].getCardNumber());
+        else if(countSameValues == 3)
+            criticalCards.push_back(_cards[i-1].getCardNumber() + TexasHoldem::MAX_VALUE);
+        else if(countSameValues == 1 && prevCount == 1)
         {
-            secondary_cards.push_back(_cards[i-1].get_number());
-            ctiric_second_uinon.push_back(_cards[i-1].get_number());
+            secondaryCards.push_back(_cards[i-1].getCardNumber());
+            criticalSecondaryUnion.push_back(_cards[i-1].getCardNumber());
         }
 
-        if(i == (comb_size - 1))
+        if(i == (combSize - 1))
         {
-            if(count_same_values == 1)
+            if(countSameValues == 1)
             {
-                secondary_cards.push_back(_cards[i].get_number());
-                ctiric_second_uinon.push_back(_cards[i].get_number());
+                secondaryCards.push_back(_cards[i].getCardNumber());
+                criticalSecondaryUnion.push_back(_cards[i].getCardNumber());
             }
 
-            else if(count_same_values == 2)
-                 critical_cards.push_back(_cards[i].get_number());
+            else if(countSameValues == 2)
+                criticalCards.push_back(_cards[i].getCardNumber());
 
         }
 
-        number_of_pairs = count_same_values == 2 ? number_of_pairs + 1 : number_of_pairs;
-        drill = drill || count_same_values == 3;
-        poker = poker || count_same_values == 4;
-        straight = straight && ( (_cards[i].get_number() - _cards[i-1].get_number()) == 1);
+        numberOfPairs = countSameValues == 2 ? numberOfPairs + 1 : numberOfPairs;
+        drill = drill || countSameValues == 3;
+        poker = poker || countSameValues == 4;
+        straight = straight && ( (_cards[i].getCardNumber() - _cards[i-1].getCardNumber()) == 1);
 
     }
 
-    if(all_same_color || straight)
+    if(allSameColor || straight)
     {
-        ctiric_second_uinon.clear();
-        for(card c : _cards)
+        criticalSecondaryUnion.clear();
+        for(Card c : _cards)
         {
-            ctiric_second_uinon.push_back(c.get_number());
+            criticalSecondaryUnion.push_back(c.getCardNumber());
         }
 
 
     }
     else
     {
-        for(int val : critical_cards)
-            ctiric_second_uinon.push_back(val);
+        for(int val : criticalCards)
+            criticalSecondaryUnion.push_back(val);
     }
 
 
-
-
-    if(number_of_pairs != 0 && !drill && !poker && !all_same_color)
+    if(numberOfPairs != 0 && !drill && !poker && !allSameColor)
     {
-        if(number_of_pairs == 1)
+        if(numberOfPairs == 1)
             return TexasHoldem::PAIR_VALUE;
         else
             return TexasHoldem::TWO_PAIR_VALUE;
     }
-    else if(drill && !poker && !all_same_color && number_of_pairs == 1)
+    else if(drill && !poker && !allSameColor && numberOfPairs == 1)
         return TexasHoldem::DRILL_VALUE;
-    else if(all_same_color && !straight)
+    else if(allSameColor && !straight)
         return TexasHoldem::FLUSH_VALUE;
     else if(poker)
         return TexasHoldem::POKER_VALUE;
-    else if(number_of_pairs == 2 && drill)
+    else if(numberOfPairs == 2 && drill)
         return TexasHoldem::FULL_HOUSE_VALUE;
-    else if(straight && !all_same_color)
+    else if(straight && !allSameColor)
         return TexasHoldem::STRAIGHT_VALUE;
-    else if(all_same_color && straight)
+    else if(allSameColor && straight)
         return TexasHoldem::STARTIGHT_FLUSH_VALUE;
     else
+    {
         return 0;
+    }
 
 }
 
-bool is_better(const std::vector<int>& cards1, const std::vector<int>& cards2)
+
+
+bool sameCombinationIsBetter(const std::vector<int>& cards1, const std::vector<int>& cards2)
 {
 
     assert(cards1.size() == cards2.size());
@@ -110,14 +115,14 @@ bool is_better(const std::vector<int>& cards1, const std::vector<int>& cards2)
     bool gr = false;
     for(int i = (int)cards1.size() - 1; i >= 0  && !l; i--)
     {
-            l = cards2[i] != cards1[i];
-            gr = cards2[i] > cards1[i];
+        l = cards2[i] != cards1[i];
+        gr = cards2[i] > cards1[i];
     }
 
     return gr;
 }
 
-bool operator<(const combination c1, const combination c2)
+bool operator<(const Model::Combination c1, const Model::Combination c2)
 {
     int val1 = c1.getValue();
     int val2 = c2.getValue();
@@ -128,8 +133,9 @@ bool operator<(const combination c1, const combination c2)
     else
     {
         if(c1.getNofCards() != c2.getNofCards()) return c1.getNofCards() < c2.getNofCards();
-        return is_better(c1.getDecisiveCards(),c2.getDecisiveCards());
+        return sameCombinationIsBetter(c1.getDecisiveCards(),c2.getDecisiveCards());
 
 
     }
+}
 }

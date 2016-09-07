@@ -6,14 +6,18 @@
 #include <condition_variable>
 #include <atomic>
 
+namespace Thread
+{
+
 template<typename T>
 class ThreadSafeQueue
 {
 public:
-    ThreadSafeQueue()
-    {
-        startQueue();
-    }
+
+    ThreadSafeQueue(const ThreadSafeQueue&) = delete;
+    ThreadSafeQueue& operator=(const ThreadSafeQueue&) = delete;
+    ThreadSafeQueue(){  startQueue(); }
+
     void enque(const T& e)
     {
 
@@ -55,12 +59,18 @@ public:
     }
 
 
+
 private:
+
+
+
     std::queue<T> _queue;
     std::mutex _mu;
 
     std::condition_variable _cond;
     std::atomic_bool _stop;
 };
+
+}
 
 #endif // THREADSAFEQUEUE_H

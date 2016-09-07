@@ -43,8 +43,6 @@ void CommunityCardSelector::setEnable(int status)
     _boxes.first->setEnabled(status == Qt::Checked);
     _boxes.second->setEnabled(status == Qt::Checked);
 
-    emit cardChanged(_boxes.first->currentText(),_boxes.second->currentText());
-
 }
 }
 

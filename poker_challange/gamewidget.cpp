@@ -12,7 +12,7 @@
 
 namespace TexasHoldemView
 {
-GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(parent)
+GameWidget::GameWidget(Model::ITexasHoldemModel *model, QWidget *parent) : QWidget(parent)
 {
     _model = model;
 
@@ -37,7 +37,6 @@ GameWidget::GameWidget(TexasHoldemModel *model, QWidget *parent) : QWidget(paren
     _bigBlindSetter = new AmountSetter("Big blind bet:",2,500);
 
     _playersWidget = new PlayersControlWidget();
-
 
     _myCardsLayout = new QHBoxLayout;
     _communityCardsLayout = new QHBoxLayout;
@@ -105,6 +104,13 @@ GameWidget::~GameWidget()
 
 }
 
+std::pair<Model::Card, Model::Card> GameWidget::getYourHand() const
+{
+    return std::pair<Model::Card,Model::Card>
+            (resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
+}
+
+
 
 void GameWidget::newGameStarted(std::vector<Player> state)
 {
@@ -129,6 +135,8 @@ void GameWidget::newGameStarted(std::vector<Player> state)
     _yourNumberSetter->setActive(false);
     _smallBlindSetter->setActive(false);
     _bigBlindSetter->setActive(false);
+    _firstCard->setEnabled(false);
+    _secondCard->setEnabled(false);
 
 }
 
@@ -155,34 +163,34 @@ void GameWidget::switchCoiceOption(bool beforeBet)
     }
 }
 
-void GameWidget::givePairs()
-{
-    _model->setYourCards(resolveCard(_firstCard->getCardBoxes()),resolveCard(_secondCard->getCardBoxes()));
-    _firstCard->setEnabled(false);
-    _secondCard->setEnabled(false);
-    _model->startRound();
-
-}
-
 void GameWidget::enableCommunityCardSelection(int from, int to)
 {
     _playersWidget->inactivatePlayer();
     for(int i = from; i <= to; ++i)
     {
         _communityCards[i]->setEnabled(true);
+
+    }
+}
+
+void GameWidget::disableAllCommunityCardSelection()
+{
+    for(CardSelector* selector : _communityCards)
+    {
+        selector->setEnabled(false);
     }
 }
 
 void GameWidget::addActiveCommunityCards()
 {
 
-    std::list<card> cards;
+    std::list<Model::Card> cards;
     for(CardSelector* selector : _communityCards)
     {
         if(selector->isEnabled())
+        {
             cards.push_back(resolveCard(selector->getCardBoxes()));
-
-        selector->setEnabled(false);
+        }
 
     }
     _model->addCommunityCards(cards);
@@ -205,10 +213,7 @@ void GameWidget::changeYourBet(int n) {
 void GameWidget::initSelections()
 {
     _playersWidget->clearPlayers();
-    for(CardSelector* selector : _communityCards)
-    {
-        selector->setEnabled(false);
-    }
+    disableAllCommunityCardSelection();
 
     _firstCard->setEnabled(true);
     _secondCard->setEnabled(true);
@@ -225,10 +230,10 @@ void GameWidget::initValueAndColorList()
         _valuesList.push_back(_cardValueMatcher->match(i));
     }
 
-    _colorsList.push_back(_cardColorMatcher->match(card::color::hearts));
-    _colorsList.push_back(_cardColorMatcher->match(card::color::diamonds));
-    _colorsList.push_back(_cardColorMatcher->match(card::color::clubs));
-    _colorsList.push_back(_cardColorMatcher->match(card::color::spades));
+    _colorsList.push_back(_cardColorMatcher->match(TexasHoldem::color::hearts));
+    _colorsList.push_back(_cardColorMatcher->match(TexasHoldem::color::diamonds));
+    _colorsList.push_back(_cardColorMatcher->match(TexasHoldem::color::clubs));
+    _colorsList.push_back(_cardColorMatcher->match(TexasHoldem::color::spades));
 }
 
 void GameWidget::initChoiceLists()
@@ -245,11 +250,11 @@ void GameWidget::initChoiceLists()
 
 }
 
-card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair)
+Model::Card GameWidget::resolveCard(std::pair<QComboBox*,QComboBox*> pair) const
 {
 
-    return card(_cardValueMatcher->invertMatch(pair.first->currentText()) ,
-                _cardColorMatcher->invertMatch(pair.second->currentText()));
+    return Model::Card(_cardValueMatcher->invertMatch(pair.first->currentText()) ,
+                       _cardColorMatcher->invertMatch(pair.second->currentText()));
 }
 }
 

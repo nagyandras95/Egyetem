@@ -12,6 +12,11 @@ PlayersControlWidget::PlayersControlWidget(QWidget *parent) : QWidget(parent)
     setLayout(_gridLayout);
 }
 
+PlayersControlWidget::~PlayersControlWidget()
+{
+    delete _gridLayout;
+}
+
 void PlayersControlWidget::setNOfPlayer(int n)
 {
     assert(n < 11 && n >= 2);

@@ -5,6 +5,7 @@ namespace TexasHoldem
 {
     enum desecition {none, fold, check, call, bet, raise, all_in};
     enum round {pre_flop, flop, turn, river};
+    enum color {clubs, diamonds, hearts, spades};
 
     typedef int CardValueType;
 

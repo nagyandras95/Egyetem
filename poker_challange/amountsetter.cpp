@@ -13,8 +13,16 @@ AmountSetter::AmountSetter(QString labelMessage, int min, int max, QWidget *pare
 
     connect(_setterSpinBox,SIGNAL(valueChanged(int)),this, SLOT(valueChanged(int)));
 
+    setLayout(_setterLayout);
+}
 
-            setLayout(_setterLayout);
+AmountSetter::~AmountSetter()
+{
+    _setterLayout->removeWidget(_label);
+    _setterLayout->removeWidget(_setterSpinBox);
+    delete _label;
+    delete _setterSpinBox;
+    delete _setterLayout;
 }
 
 void AmountSetter::valueChanged(int value)

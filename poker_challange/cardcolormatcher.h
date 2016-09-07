@@ -4,7 +4,7 @@
 #include "modelviewmatching.h"
 #include "model/card.h"
 
-class CardColorMatcher : public ModelViewMatching<card::color,CardColorMatcher>
+class CardColorMatcher : public ModelViewMatching<TexasHoldem::color,CardColorMatcher>
 {
 public:
     CardColorMatcher();

@@ -10,6 +10,19 @@ PlayerWidget::PlayerWidget(QWidget *parent) : QWidget(parent),
 
     setLayout(_mainLayout);
 }
+
+PlayerWidget::~PlayerWidget()
+{
+    _mainLayout->removeWidget(_desecition);
+    _mainLayout->removeWidget(_bet);
+    delete _desecition;
+    delete _bet;
+}
+
+void PlayerWidget::setActivePlayer(bool active) {
+    _bet->setEnabled(active);
+    _desecition->setEnabled(active);
+}
 }
 
 

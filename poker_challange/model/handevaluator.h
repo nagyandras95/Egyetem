@@ -8,6 +8,10 @@
 #include "card.h"
 #include "combination.h"
 #include "gamingtableconfiguration.h"
+#include "pair.h"
+
+namespace Model
+{
 
 class HandEvaluator : public IHandEvaluator
 {
@@ -15,23 +19,21 @@ public:
     HandEvaluator();
     virtual ~HandEvaluator(){}
 
-    virtual double evaluateHand(const std::list<card>&,const std::vector<card>&,const std::pair<card,card>,const int);
-    virtual double evaluatePair(const std::pair<card,card>, const std::list<card>&, const int);
+    virtual double evaluateHand(const std::list<Card>&unknownCards, const std::vector<Card>&communityCards, const Pair yourCards, const int);
+    virtual double evaluatePair(const Pair, const std::list<Card>&);
 
 private:
 
-    combination rankHand(const std::pair<card,card>,const std::vector<card>&);
+    Combination rankHand(const std::pair<Card,Card>,const std::vector<Card>&);
 
     std::pair<std::vector<int>,int> getReprezentation(int,int);
-
-    std::list<std::pair<card,card> > getAllPair(const std::list<card>&);
-
+    std::list<std::pair<Card,Card> > getAllPair(const std::list<Card>&);
     long double probabilityDistribution(int,int,int);
 
-    std::list<card> unknwonCards;
-    std::list<std::pair<card,card> > allPair;
+    std::list<Card> unknwonCards;
+    std::list<std::pair<Card,Card> > allPair;
 
 
 };
-
+}
 #endif // HAND_EVALUATOR_H

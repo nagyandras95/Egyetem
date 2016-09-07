@@ -1,9 +1,11 @@
 #include "card.h"
 
-card::card(){}
-card::card(int number_,card::color color_) : _number(number_),_color(color_) {}
-card::card(const card& c) {copy(c);}
-card& card::operator=(const card &c){
+namespace Model
+{
+Card::Card(){}
+Card::Card(int number_,TexasHoldem::color color_) : _number(number_),_color(color_) {}
+Card::Card(const Card& c) {copy(c);}
+Card& Card::operator=(const Card &c){
     if(this != &c)
     {
         copy(c);
@@ -12,12 +14,15 @@ card& card::operator=(const card &c){
     return *this;
 }
 
-int card::get_number() const {return _number;}
+int Card::getCardNumber() const {return _number;}
 
-card::color card::get_color() const {return _color;}
+TexasHoldem::color Card::getColor() const {return _color;}
 
-void card::copy(const card& c)
+void Card::copy(const Card& c)
 {
-    _number = c.get_number();
-    _color = c.get_color();
+    _number = c.getCardNumber();
+    _color = c.getColor();
 }
+}
+
+

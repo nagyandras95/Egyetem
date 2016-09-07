@@ -4,20 +4,24 @@
 #include "handevaluator.h"
 #include "gamingtableconfiguration.h"
 #include "pair.h"
+#include "card.h"
+
+namespace Model
+{
 
 HandEvaluator::HandEvaluator() {}
 
-double HandEvaluator::evaluateHand(const std::list<card>& unknown_cards,const std::vector<card>& community_cards,
-                                   const std::pair<card,card> your_cards, const int players)
+double HandEvaluator::evaluateHand(const std::list<Card>& unknownCards, const std::vector<Card>& communityCards,
+                                   const Pair yourCards, const int players)
 {
-    combination my_hand_comb = rankHand(your_cards,community_cards);
+    Combination myHandComb = rankHand(std::pair<Card,Card>(yourCards.getFirstCard(),yourCards.getSecondCard()),communityCards);
     int ahead = 0;
-    int n = (int) unknown_cards.size();
+    int n = (int) unknownCards.size();
     int count = (n * (n - 1)) / 2;
-    for(std::pair<card,card> p : getAllPair(unknown_cards))
+    for(std::pair<Card,Card> p : getAllPair(unknownCards))
     {
-        combination opp_comb = rankHand(p,community_cards);
-        if(my_hand_comb < opp_comb)
+        Combination oppComb = rankHand(p,communityCards);
+        if(myHandComb < oppComb)
         {
             ahead++;
         }
@@ -27,15 +31,15 @@ double HandEvaluator::evaluateHand(const std::list<card>& unknown_cards,const st
     return c;
 }
 
-double HandEvaluator::evaluatePair(const std::pair<card, card> p,const std::list<card>& unknown_cards, const int players)
+double HandEvaluator::evaluatePair(const Pair p, const std::list<Card>& unknownCards)
 {
-    pair myPair = pair(p.first,p.second);
+    Pair myPair = p;
     int behind = 0;
-    int n = (int) unknown_cards.size();
+    int n = (int) unknownCards.size();
     int count = (n * (n - 1)) / 2;
-    for(std::pair<card,card> p : getAllPair(unknown_cards))
+    for(std::pair<Card,Card> p : getAllPair(unknownCards))
     {
-        pair oppPair = pair(p.first,p.second);
+        Pair oppPair = Pair(p.first,p.second);
         if(oppPair <= myPair) behind++;
     }
     double c = (double)behind/(double)count;
@@ -43,17 +47,17 @@ double HandEvaluator::evaluatePair(const std::pair<card, card> p,const std::list
 
 }
 
-combination HandEvaluator::rankHand(const std::pair<card,card> p, const std::vector<card>& community_cards)
+Combination HandEvaluator::rankHand(const std::pair<Card,Card> p, const std::vector<Card>& community_cards)
 {
 
-    std::vector<combination> combinations;
-    std::vector<card> all_card(community_cards.begin(),community_cards.end());
-    all_card.push_back(p.first);
-    all_card.push_back(p.second);
-    for(int i = 0; i < std::pow(2,all_card.size()); i++)
+    std::vector<Combination> combinations;
+    std::vector<Card> allCard(community_cards.begin(),community_cards.end());
+    allCard.push_back(p.first);
+    allCard.push_back(p.second);
+    for(int i = 0; i < std::pow(2,allCard.size()); i++)
     {
-        std::vector<card> cards;
-        std::pair<std::vector<int>,int> p = getReprezentation(i,all_card.size());
+        std::vector<Card> cards;
+        std::pair<std::vector<int>,int> p = getReprezentation(i,allCard.size());
         std::vector<int> rep = p.first;
         if(p.second == 5)
         {
@@ -62,57 +66,64 @@ combination HandEvaluator::rankHand(const std::pair<card,card> p, const std::vec
             {
                 if(rep[i] == 1)
                 {
-                    cards.push_back(all_card[i]);
+                    cards.push_back(allCard[i]);
                 }
             }
 
 
         }
-        combinations.push_back(combination(cards));
+        combinations.push_back(Combination(cards));
     }
     assert(combinations.size() > 0);
     return *(std::max_element(combinations.begin(),combinations.end()));
 
 }
 
+/*
+ * This function creates a reprezentaion of subset of 5 from hand combination by
+ * marking the contained positionts by 1.
+ */
 std::pair<std::vector<int>,int> HandEvaluator::getReprezentation(int i, int size)
 {
     std::vector<int> rep(size);
     int c = 0;
-    int count_one = 0;
-    while(i != 0)
+    int countOne = 0;
+    while(i != 0 && countOne < 5)
     {
         rep[c] = (i%2);
         if(rep[c] == 1)
-            ++count_one;
-        if(count_one > 5)
-            break;
+            ++countOne;
 
         i = (i - (i%2))/2;
         c++;
 
     }
 
-    return std::pair<std::vector<int>, int>(rep,count_one);
+    return std::pair<std::vector<int>, int>(rep,countOne);
 }
 
-std::list<std::pair<card, card> > HandEvaluator::getAllPair(const std::list<card> &cards)
+std::list<std::pair<Card, Card> > HandEvaluator::getAllPair(const std::list<Card> &cards)
 {
-    std::list<std::pair<card,card> > all_pair;
+    std::list<std::pair<Card,Card> > allPair;
 
-    for(std::list<card>::const_iterator it1 = cards.begin(); it1 != std::prev(cards.end()); it1++)
+    for(std::list<Card>::const_iterator it1 = cards.begin(); it1 != std::prev(cards.end()); it1++)
     {
 
-        for(std::list<card>::const_iterator it2 = std::next(it1); it2 != cards.end(); it2++)
+        for(std::list<Card>::const_iterator it2 = std::next(it1); it2 != cards.end(); it2++)
         {
-            all_pair.push_back(std::pair<card,card>(*it1,*it2));
+            allPair.push_back(std::pair<Card,Card>(*it1,*it2));
         }
 
     }
 
-    return all_pair;
+    return allPair;
 }
 
+
+/*
+ * A special case of probability distribution (k=0).
+ * It's avoid calculating of factorial.
+ */
 long double HandEvaluator::probabilityDistribution(int N, int M, int n)
 {
     int i = std::min(N-n,N-M), j = N;
@@ -125,4 +136,6 @@ long double HandEvaluator::probabilityDistribution(int N, int M, int n)
     }
 
     return val;
+}
+
 }

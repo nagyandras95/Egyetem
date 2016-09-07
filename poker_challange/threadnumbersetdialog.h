@@ -14,6 +14,7 @@ class ThreadNumberSetDialog : public QDialog
     Q_OBJECT
 public:
     explicit ThreadNumberSetDialog(QWidget *parent = 0);
+    ~ThreadNumberSetDialog();
 
 signals:
 

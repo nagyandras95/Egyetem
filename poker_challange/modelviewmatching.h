@@ -4,6 +4,10 @@
 #include <QString>
 #include <algorithm>
 
+/*
+ * Base class for String-Value matching.
+ */
+
 template<typename ValueType, typename SpecalType>
 class ModelViewMatching
 {
@@ -21,6 +25,7 @@ public:
                             [valueString](std::pair<ValueType,QString> p){return p.second == valueString;})->first;
     }
 
+    //template interface..
     void init()
     {
         static_cast<SpecalType*>(this)->implementInit();

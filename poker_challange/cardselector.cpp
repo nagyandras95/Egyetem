@@ -7,9 +7,6 @@ CardSelector::CardSelector(QString labelMessage, const QStringList &valueList_, 
 {
     _boxes.first->addItems(valueList_);
     _boxes.second->addItems(colorList_);
-
-    connect(_boxes.first,SIGNAL(currentTextChanged(QString)),this,SLOT(cardParameterChanged(QString)));
-    connect(_boxes.second,SIGNAL(currentTextChanged(QString)),this,SLOT(cardParameterChanged(QString)));
 }
 
 CardSelector::~CardSelector()
@@ -19,11 +16,6 @@ CardSelector::~CardSelector()
     delete _label;
 }
 
-void CardSelector::cardParameterChanged(QString)
-{
-    if(_boxes.first->isEnabled() && _boxes.second->isEnabled())
-        emit cardChanged(_boxes.first->currentText(), _boxes.second->currentText());
-}
 }
 
 

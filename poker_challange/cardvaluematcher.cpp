@@ -9,8 +9,8 @@ void CardValueMatcher::implementInit()
         _matchingMap[i] = QString(std::to_string(i).c_str());
     }
 
-    _matchingMap[11] = "B";
-    _matchingMap[12] = "D";
+    _matchingMap[11] = "J";
+    _matchingMap[12] = "Q";
     _matchingMap[13] = "K";
     _matchingMap[14] = "A";
 

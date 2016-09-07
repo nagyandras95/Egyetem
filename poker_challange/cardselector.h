@@ -22,13 +22,6 @@ public:
     std::pair<QComboBox*,QComboBox*> getCardBoxes() {return _boxes;}
     virtual bool selectionIsActive() = 0;
 
-signals:
-    void cardChanged(QString,QString);
-public slots:
-
-private slots:
-    void cardParameterChanged(QString);
-
 protected:
     QLabel* _label;
     std::pair<QComboBox*,QComboBox*> _boxes;

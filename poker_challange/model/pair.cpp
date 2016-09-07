@@ -1,17 +1,21 @@
 #include "pair.h"
 
-pair::pair(card card1_, card card2_) : card1(card1_), card2(card2_)
+namespace Model
+{
+Pair::Pair(Card card1_, Card card2_) : card1(card1_), card2(card2_)
 {
     calcValue();
 }
 
-
-//ChenFormula
-void pair::calcValue()
+/*
+ * Calculate streight of pair by ChenFormula.
+ * It determinates an integer for a Pair.
+ */
+void Pair::calcValue()
 {
     value = std::max(score(card1),score(card2));
 
-    int diff = std::abs(card1.get_number() - card2.get_number());
+    int diff = std::abs(card1.getCardNumber() - card2.getCardNumber());
     switch(diff)
     {
     case 0 : value = std::max(5,value*2); break;
@@ -22,7 +26,7 @@ void pair::calcValue()
     default: value = value - 5; break;
     }
 
-    if(card1.get_color() == card2.get_color())
+    if(card1.getColor() == card2.getColor())
     {
         value += 2;
     }
@@ -30,9 +34,9 @@ void pair::calcValue()
     value = value - diff;
 }
 
-int pair::score(card c)
+int Pair::score(Card c)
 {
-    switch (c.get_number()) {
+    switch (c.getCardNumber()) {
     case 14:
         return 10;
         break;
@@ -43,6 +47,9 @@ int pair::score(card c)
     case 11:
         return 6;
     default:
-        return c.get_number() / 2;
+        return c.getCardNumber() / 2;
     }
 }
+}
+
+

@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "model/texasholdemmodel.h"
 #include "model/combination.h"
 #include "model/card.h"
 #include <QMenu>
@@ -49,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     _infoMenu = menuBar()->addMenu(trUtf8("&Info"));
 
-    _model = new TexasHoldemModel(this);
+    _model = new Model::TexasHoldemModel(this);
 
     _gameWidget = new GameWidget(_model,this);
     _threadSetter = new ThreadNumberSetDialog(this);
@@ -62,19 +63,21 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(_model,SIGNAL(newGameStarted(std::vector<Player>)),
             _gameWidget,SLOT(newGameStarted(std::vector<Player>)));
+    connect(_model,SIGNAL(endGame()),_gameWidget,SLOT(initSelections()));
     connect(_model,SIGNAL(selectCommunityCards(int,int)),_gameWidget,SLOT(enableCommunityCardSelection(int,int)));
     connect(_model,SIGNAL(activePlayerChanged(int)),_gameWidget,SLOT(changeActivePlayer(int)));
     connect(_model,SIGNAL(choiceOptionsChanged(bool)),_gameWidget,SLOT(switchCoiceOption(bool)));
     connect(_model,SIGNAL(nOfActivePlayerChanged(int)),_gameWidget,SLOT(changeNofPlayers(int)));
     connect(_model,SIGNAL(potChanged(int)),_gameWidget,SLOT(changePot(int)));
     connect(_model,SIGNAL(yourBetChanged(int)),_gameWidget,SLOT(changeYourBet(int)));
-    connect(_model,SIGNAL(endGame()),_gameWidget,SLOT(initSelections()));
+    connect(_model,SIGNAL(roundStarted()),_gameWidget,SLOT(disableAllCommunityCardSelection()));
 
     connect(_model,SIGNAL(waitingCommunityCards()),this,SLOT(modelWitingCommunityCards()));
     connect(_model,SIGNAL(invalidState(QString)),this->statusBar(),SLOT(showMessage(QString)));
     connect(_model,SIGNAL(roundStarted()),this,SLOT(modelStartingRound()));
     connect(_model,SIGNAL(endGame()),this,SLOT(initActions()));
     connect(_model,SIGNAL(nextPlayerHint(TexasHoldem::desecition)),this,SLOT(showHint(TexasHoldem::desecition)));
+    connect(_model,SIGNAL(newGameStarted(std::vector<Player>)),this,SLOT(newGameStarted()));
 
     connect(_threadSetter,SIGNAL(accepted()),this,SLOT(setWorkerThreadNumber()));
     connect(_threadSetter,SIGNAL(rejected()),_threadSetter,SLOT(close()));
@@ -98,18 +101,15 @@ void MainWindow::initActions()
 
 void MainWindow::startingNewGame()
 {
+
     _model->startGame(_gameWidget->getnOfPlayers(),_gameWidget->getSmallBlindBet(),
-                      _gameWidget->getBigBlindBet(), _gameWidget->getYourNumber());
-    _startAction->setEnabled(false);
-    _startRoundAction->setEnabled(true);
-    _gameWidget->givePairs();
+                      _gameWidget->getBigBlindBet(), _gameWidget->getYourNumber(),_gameWidget->getYourHand());
 }
 
 void MainWindow::modelWitingCommunityCards()
 {
     this->statusBar()->showMessage("Plase, give the community cards and click to Start round!");
-    disconnect(_startRoundAction,SIGNAL(triggered()),_gameWidget,SLOT(givePairs()));
-    connect(_startRoundAction,SIGNAL(triggered()), _gameWidget, SLOT(addActiveCommunityCards()));
+    connect(_startRoundAction,SIGNAL(triggered()),_gameWidget, SLOT(addActiveCommunityCards()));
     _startRoundAction->setEnabled(true);
     _nextAction->setEnabled(false);
 }
@@ -128,6 +128,12 @@ void MainWindow::setWorkerThreadNumber()
 void MainWindow::showHint(TexasHoldem::desecition decesion)
 {
     this->statusBar()->showMessage(_decesionMatcher->match(decesion));}
+
+void MainWindow::newGameStarted()
+{
+    _startAction->setEnabled(false);
+    _startRoundAction->setEnabled(true);
+}
 
 }
 

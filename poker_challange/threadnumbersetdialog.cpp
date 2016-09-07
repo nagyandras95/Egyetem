@@ -24,6 +24,20 @@ ThreadNumberSetDialog::ThreadNumberSetDialog(QWidget *parent) : QDialog(parent)
     setLayout(_mainLayout);
 
 }
+
+ThreadNumberSetDialog::~ThreadNumberSetDialog()
+{
+    _buttonLayout->removeWidget(_okButton);
+    _buttonLayout->removeWidget(_rejectButton);
+    _mainLayout->removeWidget(_threadSetter);
+    delete _okButton;
+    delete _rejectButton;
+    delete _threadSetter;
+    delete _buttonLayout;
+    delete _mainLayout;
+
+
+}
 }
 
 
