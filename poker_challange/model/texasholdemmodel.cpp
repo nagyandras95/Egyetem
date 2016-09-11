@@ -115,17 +115,16 @@ void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, in
     }
 
 
-    if(activePlayerDecesion != TexasHoldem::fold || activePlayerDecesion != TexasHoldem::check)
+    if(activePlayerDecesion != TexasHoldem::fold && activePlayerDecesion != TexasHoldem::check)
     {
         _gameState.addTableMoney((activePlayerBet - currentPlayerState.bet));
         _gameState.incrementCalls();
-        currentPlayerState.allBet = activePlayerBet - currentPlayerState.bet;
-    }
-
-    if(_gameState.currentPlayerIsThePlayer())
-    {
-        _gameState.addYourBet(activePlayerBet - currentPlayerState.bet);
-        emit yourBetChanged(_gameState.getYourBet());
+        currentPlayerState.allBet += activePlayerBet - currentPlayerState.bet;
+        if(_gameState.currentPlayerIsThePlayer())
+        {
+            _gameState.addYourBet(activePlayerBet - currentPlayerState.bet);
+            emit yourBetChanged(_gameState.getYourBet());
+        }
     }
 
     currentPlayerState.lastDesecition = activePlayerDecesion;

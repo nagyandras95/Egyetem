@@ -45,7 +45,7 @@ TexasHoldem::desecition Strageist::preFlopStaregy()
                              * In the pre-flop we does not have any investment
                              * so the logic is very simple: only realy strong hand should be played.
                             */
-    if(_winChance < 0.9)
+    if(_winChance < 0.85)
     {
         if((_gameState.playerIsBigBlind() && _gameState.getRaises() > 0 && _winChance > 0.8) ||
                 (_gameState.playerIsBigBlind() && _gameState.getRaises() == 0))
@@ -131,6 +131,10 @@ TexasHoldem::desecition Strageist::afterBetStaregy()
         {
             return TexasHoldem::call;
         }
+        /*
+         * When there was no raise we should be agressive when
+         * we have good hand.
+         */
         else if(_gameState.getRaises() == 0)
         {
             return TexasHoldem::raise;
@@ -225,11 +229,11 @@ std::list<PossibaleState> Strageist::getStateChildren(PossibaleState state)
 
         int callPot = state.pot + callInvest;
         int raisePot = state.pot + raiseInvest;
-        double callChance = 1 - ((double) (_gameState.getPositionedPlayer(state.playerPosition).allBet + callInvest) / callPot) -
-                ((double) 0.02*_gameState.getCalls() + 0.1*_gameState.getRaises());
+        double callChance = std::max(1-_winChance,1 - ((double) (_gameState.getPositionedPlayer(state.playerPosition).allBet + callInvest) / callPot) -
+                ((double) 0.02*_gameState.getCalls() + 0.1*_gameState.getRaises()));
         double foldChance = 1 - callChance;
-        double raiseChance = (1 - ((double) (_gameState.getPositionedPlayer(state.playerPosition).allBet + raiseInvest) / raisePot) -
-                ((double) 0.04*_gameState.getCalls() + 0.2* (_gameState.getRaises()))) * ( ((double)_gameState.positionDiffRelatedToStarter(state.playerPosition) - 1) / _gameState.getNOfActivePlayers());
+        double raiseChance = std::min(1-_winChance,(1 - ((double) (_gameState.getPositionedPlayer(state.playerPosition).allBet + raiseInvest) / raisePot) -
+                ((double) 0.04*_gameState.getCalls() + 0.2* (_gameState.getRaises()))) * ( ((double)_gameState.positionDiffRelatedToStarter(state.playerPosition) - 1) / _gameState.getNOfActivePlayers()));
         if(state.playerPosition == _gameState.getPlayerPosition())
         {
             callChance = 1;

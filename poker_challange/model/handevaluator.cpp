@@ -69,10 +69,9 @@ Combination HandEvaluator::rankHand(const std::pair<Card,Card> p, const std::vec
                     cards.push_back(allCard[i]);
                 }
             }
-
+            combinations.push_back(Combination(cards));
 
         }
-        combinations.push_back(Combination(cards));
     }
     assert(combinations.size() > 0);
     return *(std::max_element(combinations.begin(),combinations.end()));

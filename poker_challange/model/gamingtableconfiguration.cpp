@@ -14,6 +14,7 @@ GamingTableConfiguration::GamingTableConfiguration()
 void GamingTableConfiguration::init()
 {
     _hiddenCards.clear();
+    _communityCards.clear();
     for(int i = 2; i <= 14; i++ )
     {
         _hiddenCards.push_back(Card(i,TexasHoldem::color::clubs));

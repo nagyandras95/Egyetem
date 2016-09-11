@@ -28,7 +28,7 @@ private:
 
 inline bool operator<(const Model::Card c1, const Model::Card c2) {return c1.getCardNumber() < c2.getCardNumber();}
 inline bool operator>(const Model::Card c1, const Model::Card c2){return c2 < c1;}
-inline bool operator==(const Model::Card c1, const Model::Card c2){return !(c1 < c2) && !(c1 > c2) && c1.getColor() == c2.getColor();}
+inline bool operator==(const Model::Card c1, const Model::Card c2){return c1.getCardNumber() == c2.getCardNumber() && c1.getColor() == c2.getColor();}
 inline bool operator!=(const Model::Card c1, const Model::Card c2) {return !(c1 == c2);}
 inline bool operator<=(const Model::Card c1, const Model::Card c2){return !(c1 > c2);}
 inline bool operator>=(const Model::Card c1, const Model::Card c2){return !(c1 < c2);}
