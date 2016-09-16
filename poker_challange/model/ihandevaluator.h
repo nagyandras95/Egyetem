@@ -25,7 +25,7 @@ public:
     /*
      *  This function is suitable to evaluate a streingth of starting pair according to other possible paires.
      */
-    virtual double evaluatePair(const Pair, const std::list<Card>&) = 0;
+    virtual double evaluatePair(const Pair, const std::list<Card>&, const int) = 0;
 
 };
 }

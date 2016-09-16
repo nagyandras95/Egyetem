@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(_model,SIGNAL(invalidState(QString)),this->statusBar(),SLOT(showMessage(QString)));
     connect(_model,SIGNAL(roundStarted()),this,SLOT(modelStartingRound()));
     connect(_model,SIGNAL(endGame()),this,SLOT(initActions()));
-    connect(_model,SIGNAL(nextPlayerHint(TexasHoldem::desecition)),this,SLOT(showHint(TexasHoldem::desecition)));
+    connect(_model,SIGNAL(nextPlayerHint(std::pair<TexasHoldem::desecition,int>)),this,SLOT(showHint(std::pair<TexasHoldem::desecition,int>)));
     connect(_model,SIGNAL(newGameStarted(std::vector<Player>)),this,SLOT(newGameStarted()));
 
     connect(_threadSetter,SIGNAL(accepted()),this,SLOT(setWorkerThreadNumber()));
@@ -125,9 +125,9 @@ void MainWindow::setWorkerThreadNumber()
     _model->setWorkerThreadNumber(_threadSetter->getNOfThreads());
 }
 
-void MainWindow::showHint(TexasHoldem::desecition decesion)
+void MainWindow::showHint(std::pair<TexasHoldem::desecition, int> decesion)
 {
-    this->statusBar()->showMessage(_decesionMatcher->match(decesion));}
+    this->statusBar()->showMessage(_decesionMatcher->match(decesion.first).append(" - ").append(QString(std::to_string(decesion.second).c_str())));}
 
 void MainWindow::newGameStarted()
 {

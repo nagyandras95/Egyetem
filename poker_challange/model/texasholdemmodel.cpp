@@ -77,7 +77,7 @@ void TexasHoldemModel::startRound()
 void TexasHoldemModel::stepGame(TexasHoldem::desecition activePlayerDecesion, int activePlayerBet)
 {
     Player& currentPlayerState =  _gameState.getCurrentPlayerState();
-    std::pair<bool,QString> errorState = validateStepState(activePlayerDecesion,activePlayerBet,currentPlayerState);
+    std::pair<bool,QString> errorState = validateStepState(activePlayerDecesion,activePlayerBet);
     if(errorState.first)
     {
         emit invalidState(errorState.second);
@@ -200,20 +200,27 @@ void TexasHoldemModel::addCommunityCards(const std::list<Card> &cards)
 
 }
 
-std::pair<bool,QString> TexasHoldemModel::validateStepState(TexasHoldem::desecition activePlayerDecesion,                                                        int activePlayerBet, const Player& activePlayerState)
+std::pair<bool,QString> TexasHoldemModel::validateStepState(TexasHoldem::desecition activePlayerDecesion,int activePlayerBet)
 {
     std::pair<bool,QString> errorState(false,"");
-    if((activePlayerBet < _gameState.getMinimumBet() || activePlayerBet < activePlayerState.bet) && activePlayerDecesion == TexasHoldem::call)
+    if(activePlayerBet != _gameState.getMinimumBet()  && activePlayerDecesion == TexasHoldem::call)
     {
         errorState.first  = true;
-        errorState.second = "Error: The bet must be at least the minimum bet amount!";
+        errorState.second = "Error: The bet must be the minimum bet amount!";
 
     }
 
-    if(activePlayerDecesion == TexasHoldem::raise && activePlayerBet <= activePlayerState.bet)
+    if(activePlayerDecesion == TexasHoldem::raise &&
+    activePlayerBet != (_gameState.getMinimumBet() + _gameState.getRaiseAmount()))
     {
         errorState.first = true;
-        errorState.second = "Error: The raised money must be more then the current money!";
+        errorState.second = "Error: Wrong raised amount!";
+    }
+
+    if(activePlayerDecesion == TexasHoldem::bet && activePlayerBet != _gameState.getRaiseAmount())
+    {
+        errorState.first = true;
+        errorState.second = "Error: The bet must be the raise amount!";
     }
 
     if(activePlayerDecesion == TexasHoldem::none)

@@ -24,7 +24,7 @@ private slots:
     void modelWitingCommunityCards();
     void modelStartingRound();
     void setWorkerThreadNumber();
-    void showHint(TexasHoldem::desecition decesion);
+    void showHint(std::pair<TexasHoldem::desecition,int>);
     void newGameStarted();
 
 private:

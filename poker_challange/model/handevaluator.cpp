@@ -31,18 +31,18 @@ double HandEvaluator::evaluateHand(const std::list<Card>& unknownCards, const st
     return c;
 }
 
-double HandEvaluator::evaluatePair(const Pair p, const std::list<Card>& unknownCards)
+double HandEvaluator::evaluatePair(const Pair p, const std::list<Card>& unknownCards, const int players)
 {
     Pair myPair = p;
-    int behind = 0;
+    int ahead = 0;
     int n = (int) unknownCards.size();
     int count = (n * (n - 1)) / 2;
     for(std::pair<Card,Card> p : getAllPair(unknownCards))
     {
         Pair oppPair = Pair(p.first,p.second);
-        if(oppPair <= myPair) behind++;
+        if(myPair <= oppPair) ahead++;
     }
-    double c = (double)behind/(double)count;
+    double c = probabilityDistribution(count,ahead,players);
     return c;
 
 }

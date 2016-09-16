@@ -16,20 +16,29 @@ class Combination
 public:
     Combination(std::vector<Card>);
 
-    int calcValue();
     int getValue() const {return _value;}
     int getNofCards() const {return (int) _cards.size();}
 
-    const std::vector<int>& getDecisiveCards() const {return criticalSecondaryUnion;}
+    const std::vector<int>& getDecisiveCards() const {return _criticalSecondaryUnion;}
 
 
 private:
+    int calcValue();
+    void calcSepcialAsceLowestStarightValue();
+
    std::vector<Card> _cards;
    int _value;
 
-   std::vector<int> criticalCards;
-   std::vector<int> secondaryCards;
-   std::vector<int> criticalSecondaryUnion;
+   std::vector<int> _criticalCards;
+   std::vector<int> _secondaryCards;
+   std::vector<int> _criticalSecondaryUnion;
+
+   bool allSameColor;
+
+   //handle the lowest staight
+   bool containsAice;
+   int diffSameCount;
+
 
 
 };

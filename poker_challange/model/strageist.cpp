@@ -5,9 +5,9 @@ namespace Model
 {
 
 Strageist::Strageist(const GamingTableConfiguration &state_) : _gameState(state_),
-    _evalator(new HandEvaluator), _possEvalator(new PossibleTableEvaluator(state_)) {}
+    _evalator(new HandEvaluator), _possEvalator(new PossibleTableEvaluator(state_)), _winChanceCalulated(false) {}
 
-TexasHoldem::desecition Strageist::evaluate()
+std::pair<TexasHoldem::desecition, int> Strageist::evaluate()
 {
     if(_gameState.getRound() == TexasHoldem::pre_flop)
     {
@@ -38,66 +38,74 @@ TexasHoldem::desecition Strageist::evaluate()
     }
 }
 
-TexasHoldem::desecition Strageist::preFlopStaregy()
+std::pair<TexasHoldem::desecition, int> Strageist::preFlopStaregy()
 {
-    _winChance = _evalator->evaluatePair(_gameState.getYourHand(),_gameState.getHiddenCards());
+    _winChance = _evalator->evaluatePair(_gameState.getYourHand(),_gameState.getHiddenCards(),_gameState.getNOfActivePlayers());
     /*
-                             * In the pre-flop we does not have any investment
-                             * so the logic is very simple: only realy strong hand should be played.
-                            */
+     * In the pre-flop we does not have any investment (expect if we are one of blinds)
+     * so the logic is very simple: only realy strong hand should be played.
+    */
     if(_winChance < 0.85)
     {
+        //special calse for blinds..
         if((_gameState.playerIsBigBlind() && _gameState.getRaises() > 0 && _winChance > 0.8) ||
-                (_gameState.playerIsBigBlind() && _gameState.getRaises() == 0))
+        (_gameState.playerIsBigBlind() && _gameState.getRaises() == 0) ||
+        (_gameState.playerIsSmallBlind() && _gameState.getRaises() == 0 && _winChance > 0.8))
         {
-            return TexasHoldem::call;
+            return call();
         }
         else
         {
-            return TexasHoldem::fold;
+            return fold();
         }
     }
-    else if(_winChance > 0.98)
+    /*
+     *  With strong hand we should be agressive..
+     */
+    else if(_winChance > 0.95 && _gameState.positionDiffRelatedToStarter(_gameState.getCurrentPlayer()) > 1)
     {
-        return TexasHoldem::raise;
+        return raise();
     }
-    else if(_winChance > 0.95)
+    else if(_winChance > 0.9)
     {
         if(_gameState.getRaises() == 0)
         {
-            return TexasHoldem::raise;
+            return raise();
         }
         else
         {
-            return TexasHoldem::call;
+            return call();
         }
     }
     else
     {
         if(_gameState.getRaises() == 0)
         {
-            return TexasHoldem::call;
+            return call();
         }
         else
         {
-            return TexasHoldem::fold;
+            return fold();
         }
     }
 }
 
-TexasHoldem::desecition Strageist::beforeBetStartegy()
+std::pair<TexasHoldem::desecition, int> Strageist::beforeBetStartegy()
 {
+    /*
+     * If we hace good chances we should take ths starting action.
+     */
     if(_winChance*(_gameState.getTotalPot()) < _gameState.getYourBet())
     {
-        return TexasHoldem::check;
+        return check();
     }
     else
     {
-        return TexasHoldem::bet;
+        return bet();
     }
 }
 
-TexasHoldem::desecition Strageist::afterBetStaregy()
+std::pair<TexasHoldem::desecition, int> Strageist::afterBetStaregy()
 {
     double expectedMoney = _winChance*(_gameState.getTotalPot() + (_gameState.getMinimumBet() - _gameState.getThePlayerState().bet));
     /*
@@ -107,7 +115,7 @@ TexasHoldem::desecition Strageist::afterBetStaregy()
     */
     if(expectedMoney < (_gameState.getYourBet() + (_gameState.getMinimumBet() - _gameState.getThePlayerState().bet)))
     {
-        return TexasHoldem::fold;
+        return fold();
     }
     else
     {
@@ -129,7 +137,7 @@ TexasHoldem::desecition Strageist::afterBetStaregy()
         expectedMoney = _winChance*(afterRisePot);
         if(expectedMoney < afterRaiseInvest)
         {
-            return TexasHoldem::call;
+            return call();
         }
         /*
          * When there was no raise we should be agressive when
@@ -137,17 +145,21 @@ TexasHoldem::desecition Strageist::afterBetStaregy()
          */
         else if(_gameState.getRaises() == 0)
         {
-            return TexasHoldem::raise;
+            return raise();
         }
         else
         {
+            /*
+             * Else the program analyizes the possible states when we raise
+             * or call and it choices the better option.
+            */
             return analyzeBestOption();
         }
 
     }
 }
 
-TexasHoldem::desecition Strageist::analyzeBestOption()
+std::pair<TexasHoldem::desecition,int> Strageist::analyzeBestOption()
 {
     PossibaleState myState(_gameState.getTotalPot(),_gameState.getMinimumBet(),_gameState.getPlayerPosition(),
                            _gameState.getRaises(),_gameState.getCalls(),1);
@@ -159,11 +171,11 @@ TexasHoldem::desecition Strageist::analyzeBestOption()
     double raiseExpectedMoney = analyzeBranch(raiseState);
     if(callExpectedMoney < raiseExpectedMoney && (raiseExpectedMoney - callExpectedMoney) > getAdditionInvest(_gameState.getPlayerPosition(),_gameState.getMinimumBet(),TexasHoldem::raise))
     {
-        return TexasHoldem::raise;
+        return raise();
     }
     else
     {
-        return TexasHoldem::call;
+        return call();
     }
 
 
@@ -178,13 +190,17 @@ double Strageist::calculateOutChance()
 void Strageist::calculateFlopWinChance()
 {
     double chance = calculateOutChance();
+    /*
+     * At this point we have calculated with one more possible card but
+     * there is one more too so we can esteem our real win chance with this solution.
+     * We calculate the chance of not-winning in the next rounds by (1-chance)*(1-chance).
+    */
     _winChance = 1 - (1-chance)*(1-chance);
 }
 
 void Strageist::calculateTurnWinChance()
 {
     _winChance = calculateOutChance();
-
 }
 
 void Strageist::calculateRiverWinChance()
@@ -229,11 +245,15 @@ std::list<PossibaleState> Strageist::getStateChildren(PossibaleState state)
 
         int callPot = state.pot + callInvest;
         int raisePot = state.pot + raiseInvest;
+        /*
+         * Estimate the chance of opponent decesion according to number of raises, calls
+         * our win chance, they position..
+         */
         double callChance = std::max(1-_winChance,1 - ((double) (_gameState.getPositionedPlayer(state.playerPosition).allBet + callInvest) / callPot) -
                 ((double) 0.02*_gameState.getCalls() + 0.1*_gameState.getRaises()));
         double foldChance = 1 - callChance;
         double raiseChance = std::min(1-_winChance,(1 - ((double) (_gameState.getPositionedPlayer(state.playerPosition).allBet + raiseInvest) / raisePot) -
-                ((double) 0.04*_gameState.getCalls() + 0.2* (_gameState.getRaises()))) * ( ((double)_gameState.positionDiffRelatedToStarter(state.playerPosition) - 1) / _gameState.getNOfActivePlayers()));
+                ((double) 0.04*_gameState.getCalls() + 0.2* (_gameState.getRaises()))) * ( ((double) _gameState.positionDiffRelatedToStarter(state.playerPosition) - 1) / _gameState.getNOfActivePlayers()));
         if(state.playerPosition == _gameState.getPlayerPosition())
         {
             callChance = 1;

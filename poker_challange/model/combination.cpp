@@ -10,8 +10,17 @@ namespace Model
 
 Combination::Combination(std::vector<Card> cards_) : _cards(cards_)
 {
+    assert(_cards.size() == 5);
     std::sort(_cards.begin(),_cards.end());
     _value = calcValue();
+
+    containsAice = false;
+    diffSameCount = 0;
+
+    if(containsAice && diffSameCount == 3)
+    {
+        calcSepcialAsceLowestStarightValue();
+    }
 }
 
 int Combination::calcValue()
@@ -21,37 +30,42 @@ int Combination::calcValue()
     bool drill = false;
     bool poker = false;
     bool straight = true;
-    bool allSameColor = true;
+    allSameColor = true;
     bool same;
     int countSameValues = 1;
     for(int i = 1;i < combSize; ++i)
     {
-        //TODO refactoring and A-2.. as special case
+
+        if(_cards[i].getCardNumber() == 14 && !containsAice)
+        {
+            containsAice = true;
+        }
+        //TODO refactoring
         same = _cards[i-1].getCardNumber() == _cards[i].getCardNumber();
         int prevCount = countSameValues;
         allSameColor = allSameColor && _cards[i-1].getColor() == _cards[i].getColor();
         same ? countSameValues++ : countSameValues = 1;
 
         if(prevCount == 2 && countSameValues == 1)
-            criticalCards.push_back(_cards[i-1].getCardNumber());
+            _criticalCards.push_back(_cards[i-1].getCardNumber());
         else if(countSameValues == 3)
-            criticalCards.push_back(_cards[i-1].getCardNumber() + TexasHoldem::MAX_VALUE);
+            _criticalCards.push_back(_cards[i-1].getCardNumber() + TexasHoldem::MAX_VALUE);
         else if(countSameValues == 1 && prevCount == 1)
         {
-            secondaryCards.push_back(_cards[i-1].getCardNumber());
-            criticalSecondaryUnion.push_back(_cards[i-1].getCardNumber());
+            _secondaryCards.push_back(_cards[i-1].getCardNumber());
+            _criticalSecondaryUnion.push_back(_cards[i-1].getCardNumber());
         }
 
         if(i == (combSize - 1))
         {
             if(countSameValues == 1)
             {
-                secondaryCards.push_back(_cards[i].getCardNumber());
-                criticalSecondaryUnion.push_back(_cards[i].getCardNumber());
+                _secondaryCards.push_back(_cards[i].getCardNumber());
+                _criticalSecondaryUnion.push_back(_cards[i].getCardNumber());
             }
 
             else if(countSameValues == 2)
-                criticalCards.push_back(_cards[i].getCardNumber());
+                _criticalCards.push_back(_cards[i].getCardNumber());
 
         }
 
@@ -59,23 +73,27 @@ int Combination::calcValue()
         drill = drill || countSameValues == 3;
         poker = poker || countSameValues == 4;
         straight = straight && ( (_cards[i].getCardNumber() - _cards[i-1].getCardNumber()) == 1);
+        if((_cards[i].getCardNumber() - _cards[i-1].getCardNumber()) == 1)
+        {
+            diffSameCount++;
+        }
 
     }
 
     if(allSameColor || straight)
     {
-        criticalSecondaryUnion.clear();
+        _criticalSecondaryUnion.clear();
         for(Card c : _cards)
         {
-            criticalSecondaryUnion.push_back(c.getCardNumber());
+            _criticalSecondaryUnion.push_back(c.getCardNumber());
         }
 
 
     }
     else
     {
-        for(int val : criticalCards)
-            criticalSecondaryUnion.push_back(val);
+        for(int val : _criticalCards)
+            _criticalSecondaryUnion.push_back(val);
     }
 
 
@@ -103,6 +121,21 @@ int Combination::calcValue()
         return 0;
     }
 
+}
+
+void Combination::calcSepcialAsceLowestStarightValue()
+{
+
+    _criticalSecondaryUnion.clear();
+    if(allSameColor)
+    {
+        _value = TexasHoldem::STARTIGHT_FLUSH_VALUE;
+    }
+
+    for(int i = 1; i <= 5; ++i)
+    {
+        _criticalSecondaryUnion.push_back(i);
+    }
 }
 
 

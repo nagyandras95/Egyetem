@@ -38,7 +38,7 @@ signals:
     void potChanged(int pot);
     void nOfActivePlayerChanged(int players);
     void yourBetChanged(int yourBet);
-    void nextPlayerHint(TexasHoldem::desecition);
+    void nextPlayerHint(std::pair<TexasHoldem::desecition,int>);
     void invalidState(QString message);
 
 };

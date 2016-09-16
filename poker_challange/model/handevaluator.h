@@ -20,7 +20,7 @@ public:
     virtual ~HandEvaluator(){}
 
     virtual double evaluateHand(const std::list<Card>&unknownCards, const std::vector<Card>&communityCards, const Pair yourCards, const int);
-    virtual double evaluatePair(const Pair, const std::list<Card>&);
+    virtual double evaluatePair(const Pair, const std::list<Card>&, const int);
 
 private:
 

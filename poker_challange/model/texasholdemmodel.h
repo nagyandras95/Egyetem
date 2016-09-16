@@ -33,7 +33,7 @@ public:
 private:
 
 
-    std::pair<bool, QString> validateStepState(TexasHoldem::desecition,int activePlayerBet,const Player&);
+    std::pair<bool, QString> validateStepState(TexasHoldem::desecition, int activePlayerBet);
     std::pair<bool, QString> validateStartingState(int players_, int smallBlindBet_, int bigBlindBet_, int playerNumber_,std::pair<Model::Card,Model::Card> hand_);
     bool stateNotContainsCards(const std::list<Card>&);
 
