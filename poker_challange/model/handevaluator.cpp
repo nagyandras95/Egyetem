@@ -40,7 +40,7 @@ double HandEvaluator::evaluatePair(const Pair p, const std::list<Card>& unknownC
     for(std::pair<Card,Card> p : getAllPair(unknownCards))
     {
         Pair oppPair = Pair(p.first,p.second);
-        if(myPair <= oppPair) ahead++;
+        if(myPair < oppPair) ahead++;
     }
     double c = probabilityDistribution(count,ahead,players);
     return c;

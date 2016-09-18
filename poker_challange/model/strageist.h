@@ -40,6 +40,7 @@ private:
     std::pair<TexasHoldem::desecition,int> analyzeBestOption();
     std::list<PossibaleState> getStateChildren(PossibaleState state);
     double analyzeBranch(const PossibaleState& root);
+    int posRelatedToBlind();
 
     const GamingTableConfiguration& _gameState;
 

@@ -23,12 +23,13 @@ void GamingTableConfiguration::init()
         _hiddenCards.push_back(Card(i,TexasHoldem::color::spades));
     }
 
-    std::for_each(_playersState.begin(),_playersState.end(),[](Player& player) { player.allBet = 0;});
+    std::for_each(_playersState.begin(),_playersState.end(),[](Player& player) { player.init();});
     _beforeBet = false;
     _yourBet = 0;
+    _pot = 0;
     _nOfRaises = 0;
     _nOfCalls = 0;
-    _pot = 0;
+
 }
 
 void GamingTableConfiguration::nextRound()

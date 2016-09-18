@@ -8,6 +8,15 @@ struct Player {
     Player( TexasHoldem::desecition lastDesecition_ = TexasHoldem::none, int bet_= 0):
      lastDesecition(lastDesecition_),nOfRaises(0),bet(bet_),allBet(0),raisePower(0),callRaisePower(0)  {}
 
+
+    void init()
+    {
+        lastDesecition = TexasHoldem::none;
+        bet = 0;
+        nOfRaises = 0;
+        allBet = 0;
+    }
+
     void addCurrentBetToAllBet() {allBet+=bet;}
     int getTotalBet() {return allBet + bet;}
 

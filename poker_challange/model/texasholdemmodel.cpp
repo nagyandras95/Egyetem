@@ -30,7 +30,6 @@ void TexasHoldemModel::startGame(int players_, int smallBlindBet_, int bigBlindB
     _gameState.firstRound();
     _gameState.setMinimumBet(bigBlindBet_);
     _gameState.setPlayerPosition(playerNumber_ - 1);
-    _gameState.setMinimumBet(bigBlindBet_);
     _gameState.setBigBlind(bigBlindBet_);
     _gameState.resizePlayerState(players_);
 
@@ -202,11 +201,11 @@ void TexasHoldemModel::addCommunityCards(const std::list<Card> &cards)
 
 std::pair<bool,QString> TexasHoldemModel::validateStepState(TexasHoldem::desecition activePlayerDecesion,int activePlayerBet)
 {
-    std::pair<bool,QString> errorState(false,"");
+    std::pair<bool,QString> errorState(false,"Error: ");
     if(activePlayerBet != _gameState.getMinimumBet()  && activePlayerDecesion == TexasHoldem::call)
     {
         errorState.first  = true;
-        errorState.second = "Error: The bet must be the minimum bet amount!";
+        errorState.second.append("The bet must be the minimum bet amount!").append("\n");
 
     }
 
@@ -214,19 +213,19 @@ std::pair<bool,QString> TexasHoldemModel::validateStepState(TexasHoldem::desecit
     activePlayerBet != (_gameState.getMinimumBet() + _gameState.getRaiseAmount()))
     {
         errorState.first = true;
-        errorState.second = "Error: Wrong raised amount!";
+        errorState.second.append("Wrong raised amount!\n");
     }
 
     if(activePlayerDecesion == TexasHoldem::bet && activePlayerBet != _gameState.getRaiseAmount())
     {
         errorState.first = true;
-        errorState.second = "Error: The bet must be the raise amount!";
+        errorState.second.append("The bet must be the raise amount!\n");
     }
 
     if(activePlayerDecesion == TexasHoldem::none)
     {
         errorState.first  = true;
-        errorState.second = "Error: You must make a decesion!";
+        errorState.second.append("You must make a decesion!");
     }
 
     return errorState;
@@ -235,21 +234,21 @@ std::pair<bool,QString> TexasHoldemModel::validateStepState(TexasHoldem::desecit
 
 std::pair<bool, QString> TexasHoldemModel::validateStartingState(int players_, int smallBlindBet_, int bigBlindBet_, int playerNumber_, std::pair<Card, Card> hand_)
 {
-    std::pair<bool,QString> errorState(false,"");
+    std::pair<bool,QString> errorState(false,"Error: ");
     if(playerNumber_ > players_)
     {
         errorState.first = true;
-        errorState.second = "Error: Position of player must be less then number of players.!\n";
+        errorState.second.append("Position of player must be less then number of players!\n");
     }
     if(smallBlindBet_*2 != bigBlindBet_)
     {
         errorState.first = true;
-        errorState.second += "The big blind's' bet must be two times more then small blind's!\n";
+        errorState.second.append("The big blind's' bet must be two times more then small blind's!\n");
     }
     if(hand_.first == hand_.second)
     {
         errorState.first = true;
-        errorState.second += "The starting cards must be different!\n";
+        errorState.second.append("The starting cards must be different!\n");
     }
 
     return errorState;

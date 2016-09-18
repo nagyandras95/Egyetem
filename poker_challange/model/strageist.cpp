@@ -40,17 +40,19 @@ std::pair<TexasHoldem::desecition, int> Strageist::evaluate()
 
 std::pair<TexasHoldem::desecition, int> Strageist::preFlopStaregy()
 {
-    _winChance = _evalator->evaluatePair(_gameState.getYourHand(),_gameState.getHiddenCards(),_gameState.getNOfActivePlayers());
+    _winChance = _evalator->evaluatePair(_gameState.getYourHand(),
+    _gameState.getHiddenCards(),_gameState.getNOfActivePlayers()) -
+            0.01*posRelatedToBlind();
     /*
      * In the pre-flop we does not have any investment (expect if we are one of blinds)
      * so the logic is very simple: only realy strong hand should be played.
     */
-    if(_winChance < 0.85)
+    if(_winChance < 0.55)
     {
         //special calse for blinds..
-        if((_gameState.playerIsBigBlind() && _gameState.getRaises() > 0 && _winChance > 0.8) ||
+        if((_gameState.playerIsBigBlind() && _gameState.getRaises() > 0 && _winChance > 0.5) ||
         (_gameState.playerIsBigBlind() && _gameState.getRaises() == 0) ||
-        (_gameState.playerIsSmallBlind() && _gameState.getRaises() == 0 && _winChance > 0.8))
+        (_gameState.playerIsSmallBlind() && _gameState.getRaises() == 0 && _winChance > 0.5))
         {
             return call();
         }
@@ -62,11 +64,11 @@ std::pair<TexasHoldem::desecition, int> Strageist::preFlopStaregy()
     /*
      *  With strong hand we should be agressive..
      */
-    else if(_winChance > 0.95 && _gameState.positionDiffRelatedToStarter(_gameState.getCurrentPlayer()) > 1)
+    else if(_winChance > 0.85 && _gameState.positionDiffRelatedToStarter(_gameState.getCurrentPlayer()) > 1)
     {
         return raise();
     }
-    else if(_winChance > 0.9)
+    else if(_winChance > 0.65)
     {
         if(_gameState.getRaises() == 0)
         {
@@ -77,7 +79,7 @@ std::pair<TexasHoldem::desecition, int> Strageist::preFlopStaregy()
             return call();
         }
     }
-    else
+    else // _winChance >= 0.5 && _winChance <= 0.7
     {
         if(_gameState.getRaises() == 0)
         {
@@ -231,6 +233,18 @@ double Strageist::analyzeBranch(const PossibaleState &root)
         }
     }
     return expectedMoney / countLeaf;
+}
+
+int Strageist::posRelatedToBlind()
+{
+    if(_gameState.getCurrentPlayer() == 1 || _gameState.getCurrentPlayer() == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return (_gameState.getNofStarterPlayer() - 1) - _gameState.getCurrentPlayer() + 2;
+    }
 }
 
 std::list<PossibaleState> Strageist::getStateChildren(PossibaleState state)
