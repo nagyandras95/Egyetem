@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0C8AFEB1-98AD-D825-04FA-4156A902D7A8" name="V_rendelés_sor">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>E7BEAA7C-2CFD-1BA9-9850-49F045839D03</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Termék_tkod" id="B7D209AA-2173-CB64-1702-369C29A7EF5C">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>9B631987-FF0C-EC64-6C21-F37CAC7B19F5</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FC5CEF90-9CA9-6935-5C0E-4BE3EF4A1B5E" referredColumn="B2593588-A13E-13B2-BC0B-5865C1115B3D"/>
+</associations>
+</Column>
+<Column name="VR_VRszam" id="115CBF96-718C-D468-3865-48758CBE3D5E">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>71C4676E-D68A-1E00-B3AB-4E27E6CB9B3E</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="29AEF638-FBD1-C91B-EFBA-E969ED7C4C2C" referredColumn="78052772-D787-7E4B-D060-A60CDEE750E8"/>
+</associations>
+</Column>
+<Column name="mennyiseg" id="12713E5E-A7C9-372E-69EF-C41EE8188262">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>433A90EA-935F-2968-35DF-6B81736B2466</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="62281546-664A-8C06-D2C0-DFCE230BB898" name="V_rendelés_sor_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>8E706E88-1D13-C3AA-8F99-E2F0497D39F9</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7D209AA-2173-CB64-1702-369C29A7EF5C"/>
+<colUsage columnID="115CBF96-718C-D468-3865-48758CBE3D5E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5B0293C8-6E16-8D24-1A74-7860C4E6D350" name="V_rendelés_sor_VR_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>6E68F229-6E3D-413B-913A-1DE8B209D8F6</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="115CBF96-718C-D468-3865-48758CBE3D5E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="47EEA467-11FF-9A8F-4C13-A6C4F582F2EE" name="V_rendelés_sor_Termék_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>96599B8A-1576-9CE1-F9A8-A4CB6D1890E5</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7D209AA-2173-CB64-1702-369C29A7EF5C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5BC6CB07-B0D8-5E50-FEB1-3AFB73B4218E" name="Termék">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>E5DDF436-CF9B-4C64-639E-1CCFBA620440</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tkod" id="B2593588-A13E-13B2-BC0B-5865C1115B3D">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>EA399D6F-B545-D43F-A41B-22D2BBD96626</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tnev" id="48DEB4B7-1B23-5C3E-4D69-A04E7AD1E253">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>27A2143F-A4A1-3C27-AFBA-0B78DB1544A3</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="21D073CD-B1C8-A552-7B7B-222997C334E4" name="Termék_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 17:01:53 UTC</createdTime>
+<generatorID>FE5E8A99-EBEC-B0EE-2B96-5F4FD155BB53</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2593588-A13E-13B2-BC0B-5865C1115B3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

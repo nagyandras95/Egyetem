@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E7BEAA7C-2CFD-1BA9-9850-49F045839D03" name="V rendelés sor">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 16:50:24 UTC</createdTime>
+<ownerDesignName>asd</ownerDesignName>
+<engineerTo>
+<item key="4CA7C422-2CA5-858C-D317-67CAB3BC450F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="tkod" id="9B631987-FF0C-EC64-6C21-F37CAC7B19F5">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 16:56:59 UTC</createdTime>
+<generatorID>96599B8A-1576-9CE1-F9A8-A4CB6D1890E5</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<engineerTo>
+<item key="4CA7C422-2CA5-858C-D317-67CAB3BC450F" value="true"/>
+</engineerTo>
+<referedAttribute>EA399D6F-B545-D43F-A41B-22D2BBD96626</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VRszam" id="71C4676E-D68A-1E00-B3AB-4E27E6CB9B3E">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 16:57:52 UTC</createdTime>
+<generatorID>6E68F229-6E3D-413B-913A-1DE8B209D8F6</generatorID>
+<ownerDesignName>asd</ownerDesignName>
+<engineerTo>
+<item key="4CA7C422-2CA5-858C-D317-67CAB3BC450F" value="true"/>
+</engineerTo>
+<referedAttribute>91E4A78C-4316-A7B8-E8EA-0D738AB8E7CB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mennyiseg" id="433A90EA-935F-2968-35DF-6B81736B2466">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 16:58:39 UTC</createdTime>
+<ownerDesignName>asd</ownerDesignName>
+<engineerTo>
+<item key="4CA7C422-2CA5-858C-D317-67CAB3BC450F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8E706E88-1D13-C3AA-8F99-E2F0497D39F9" name="Key_1">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-11 16:59:15 UTC</createdTime>
+<ownerDesignName>asd</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="4CA7C422-2CA5-858C-D317-67CAB3BC450F" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>96599B8A-1576-9CE1-F9A8-A4CB6D1890E5,6E68F229-6E3D-413B-913A-1DE8B209D8F6</newElementsIDs>
+<usedAttributes>
+<attributeRef>9B631987-FF0C-EC64-6C21-F37CAC7B19F5</attributeRef>
+<attributeRef>71C4676E-D68A-1E00-B3AB-4E27E6CB9B3E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
