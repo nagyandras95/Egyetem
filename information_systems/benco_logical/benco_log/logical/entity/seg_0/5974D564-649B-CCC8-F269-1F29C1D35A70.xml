@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5974D564-649B-CCC8-F269-1F29C1D35A70" name="Szállítói rendelés">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:26:35 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SzrAzon" id="59823FEF-ED82-D111-0101-3CB2D6916675">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:19:32 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NagykerAzon" id="1BBE0891-8DAB-2206-70C0-F9AF8B0418EC">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:22:16 UTC</createdTime>
+<generatorID>30C37854-CEDC-B101-6A70-78DAE886F537</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<referedAttribute>FD4473B9-C57F-6C8F-DBB6-F746A6E18F00</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FBC7A37A-979D-517C-8C02-591312F30637" name="Szállítói rendelés PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:19:42 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>59823FEF-ED82-D111-0101-3CB2D6916675</attributeRef>
+<attributeRef>1977FF67-2D49-95A3-3A9C-7209EFA39B89</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

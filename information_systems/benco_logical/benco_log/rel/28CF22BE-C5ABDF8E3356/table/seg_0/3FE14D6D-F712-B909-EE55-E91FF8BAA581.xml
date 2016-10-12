@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3FE14D6D-F712-B909-EE55-E91FF8BAA581" name="Szállítói_rendelés">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>5974D564-649B-CCC8-F269-1F29C1D35A70</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SzrAzon" id="29CA57BC-43E0-5998-8CAD-CA8ECC7B1F85">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>59823FEF-ED82-D111-0101-3CB2D6916675</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nagykereskedő_NagykerAzon" id="9A4FE5FE-520C-844D-B40A-E941F8FCD6FE">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>1BBE0891-8DAB-2206-70C0-F9AF8B0418EC</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6E79C769-67F3-A4E1-CFE7-8E197F243E91" referredColumn="93599E22-DA5A-A54B-5699-55A580538FC7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D0BB323-AAE6-C770-12C5-8BF639BEB063" name="Szállítói_rendelés_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>FBC7A37A-979D-517C-8C02-591312F30637</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29CA57BC-43E0-5998-8CAD-CA8ECC7B1F85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9FBF8778-8C8B-2744-5CA8-552D3E84DB9E" name="Szállítói_rendelés_Nagykereskedő_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>30C37854-CEDC-B101-6A70-78DAE886F537</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A4FE5FE-520C-844D-B40A-E941F8FCD6FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

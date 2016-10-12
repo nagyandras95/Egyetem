@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="58A5B592-7C8B-4D58-744B-213F39CCF60C" name="Termékjegyzék">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:26:19 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TSzam" id="32C4AB6A-E305-EABB-BF06-D54C2B5EBC79">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:11 UTC</createdTime>
+<generatorID>21ED4E1C-60DE-2733-6896-547EF0867A4C</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<referedAttribute>8D2C5065-B4B6-7B81-5FD6-CEEB8C843AD3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NagykerAzon" id="C2474BBD-4E6F-FB5F-2D54-2DE5DF1D5D64">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:25 UTC</createdTime>
+<generatorID>9771521D-FA96-95A6-3B40-9E1701D1F072</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<referedAttribute>FD4473B9-C57F-6C8F-DBB6-F746A6E18F00</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

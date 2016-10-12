@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="benco_log" id="CFBCF4B0-0361-45AE-4EF6-745402A273C1" version="3.5">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:23:00 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>CFBCF4B0-0361-45AE-4EF6-745402A273C1</designId>
+</OSDM_Design>

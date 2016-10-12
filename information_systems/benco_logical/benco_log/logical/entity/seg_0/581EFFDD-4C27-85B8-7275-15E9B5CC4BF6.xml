@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="581EFFDD-4C27-85B8-7275-15E9B5CC4BF6" name="Vásárlói rendelés sor">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:27:07 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SorAzon" id="B5E8E461-E066-E531-B0CB-3F5808755FB7">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:49:12 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Mennyiség" id="13E39EE9-DC91-7F62-6F5A-2FDEB545668F">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:36:15 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TSzam" id="E17A19EB-DF36-26AA-E7C5-E5BB01D94747">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:49:44 UTC</createdTime>
+<generatorID>B58FB9F8-DA1A-F6A5-7F99-C6195AA945DD</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<referedAttribute>8D2C5065-B4B6-7B81-5FD6-CEEB8C843AD3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Vrszam" id="BA585165-43AE-3D49-E483-0E8498FE32BE">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:51:19 UTC</createdTime>
+<generatorID>C2E71D5F-D224-986A-7760-798988A9F33D</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<referedAttribute>33E10A13-6852-3C66-F0AB-CC7BEF4D332F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D81810F4-3287-26BF-5092-6532DAD07288" name="Vásárlói rendelés sor PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:49:25 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B5E8E461-E066-E531-B0CB-3F5808755FB7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

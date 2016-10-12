@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D823655B-29C6-FD23-1940-61777C81A56C" name="Vásárlói_rendelés">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>3DBF0280-76ED-A902-53C7-E679F97A2BF7</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Vrszam" id="B024FAE9-7A3C-07D0-C64F-870EDD416CD6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>33E10A13-6852-3C66-F0AB-CC7BEF4D332F</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VrDatum" id="CB79BE14-A751-79AA-DB6B-9F7C0FACBE3C">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>CB2C84B3-7AB1-9374-5DB0-BDB82A5AE6E3</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Vevő_Vszam" id="A6AEC72E-69A8-A3A5-5C8B-7863BB252C3F">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>448F18DB-33E1-2F0E-CB9F-7763D2747659</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="62548E0E-E83D-D5DC-C3BC-E52A17F88350" referredColumn="1F115904-C27C-AC78-7AF1-F90261220EDF"/>
+</associations>
+</Column>
+<Column name="Érvényes" id="330FBB3C-288C-890F-AF73-9FD570CAB477">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>718A3DA1-D3CF-E55B-AFF7-76B7566DD451</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ADADF378-D221-DF5E-2F3C-2561FE3E7A21" name="Vásárlói_rendelés_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>B1EA13F6-4DF5-C1D0-C239-D9E782E985E5</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B024FAE9-7A3C-07D0-C64F-870EDD416CD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="01341F22-F7F7-D9B3-789C-BFF54176A2C7" name="Vásárlói_rendelés_Vevő_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>13D7C495-69D2-9159-C5D5-F3904879A8A9</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A6AEC72E-69A8-A3A5-5C8B-7863BB252C3F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

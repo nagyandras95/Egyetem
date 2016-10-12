@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1FC721E4-BEC0-6078-E74B-038DF6C92B56" name="Nagykereskedő">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 14:46:30 UTC</createdTime>
+<generatorID>5BA47F06-B74E-1793-D7FF-36C4F8609514</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NagykerAzon" id="93599E22-DA5A-A54B-5699-55A580538FC7">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>FD4473B9-C57F-6C8F-DBB6-F746A6E18F00</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NagykerNév" id="3F546083-D741-764D-C78E-DEBDD160B5C0">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>9E301EBE-05C4-AC07-0FFE-937D12371CFC</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cim" id="5835E4D9-C320-619A-63A8-E5875873B9FB">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>40B6114E-F3E7-2722-FFF2-22674BAE6122</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="21B2BB99-9ACD-7E26-6721-D3564C33BE90" name="Nagykereskedő_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:24:50 UTC</createdTime>
+<generatorID>E38788D1-AE84-EEC2-2D58-FD89E1674898</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="93599E22-DA5A-A54B-5699-55A580538FC7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
