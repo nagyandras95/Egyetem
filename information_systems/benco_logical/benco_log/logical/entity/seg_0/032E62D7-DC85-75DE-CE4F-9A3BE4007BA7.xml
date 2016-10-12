@@ -70,6 +70,36 @@
 <dataTypeScale>1</dataTypeScale>
 <ownDataTypeParameters>,2,1</ownDataTypeParameters>
 </Attribute>
+<Attribute name="VevoCím" id="D7C09006-7DE3-3376-8E15-C894E437A97C">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:33:24 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Kód" id="F919B9CC-230C-DD6A-E183-D69A1B89DE6B">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-12 15:36:18 UTC</createdTime>
+<generatorID>9017FF2C-91DA-C31F-293D-DFAA2A04CD6A</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="28CF22BE-3B99-E096-3179-C5ABDF8E3356" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>47E5F554-60A0-C581-1A4F-E2611AB13BB2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="3264FD9F-86DB-4C0D-B891-5977175ED71C" name="Vevő PK">
