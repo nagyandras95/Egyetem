@@ -25,18 +25,31 @@ instance == CodeTree where
   (==) _ _ = False
 
 getFrequencies :: String -> [Frequency]
-getFrequencies str = frequency (fromString str) )
+getFrequencies str = frequency (fromString str) []
 	where
+		frequency :: [Char] [Char] -> [Frequency]
 		frequency [] _ = []
-		frequency [x:xs] chars = 
-			| x nem eleme chars =  [(x,1 + length (filter (\c -> c == x) xs) : frequency xs x:chars)]
+		frequency [x:xs] chars
+			| not (isMember x chars) =  [ (x, 1 + length (filter (\c -> c == x) xs ) ) : frequency xs [x:chars] ]
 			| otherwise = frequency xs chars
 
 frequencyToFrequencies :: [Frequency] -> [Frequencies]
 frequencyToFrequencies frs = map ( \(c,n) -> ([(c,n)],n) ) frs
 
+toOneFrequencies :: [Frequencies] -> [Frequencies]
+toOneFrequencies [f] = [f]
+toOneFrequencies [ (x,n):(y,l):xs ] = toOneFrequencies [(y ++ x, n + l) : xs]
+
 buildTree :: [Frequencies] -> CodeTree
-buildTree frs = Leaf 'a'
+buildTree frs = build (getOne (toOneFrequencies (sortFrequencies frs)))
+	where
+		build :: Frequencies -> CodeTree
+		build ( [ (c,_) ] , _ ) = Leaf c
+		build ( [ (c,n) : xs ] , s) = Node s (Leaf c) (build ( xs , s - n))
+		getOne:: [a] -> a
+		getOne [x] = x
+
+
 
 frequencyIsBetter :: Frequencies Frequencies -> Bool
 frequencyIsBetter f1 f2 = (snd f1 < snd f2)
@@ -45,18 +58,46 @@ sortFrequencies :: [Frequencies] -> [Frequencies]
 sortFrequencies frs = sortBy frequencyIsBetter frs
 
 lookupCode :: CodeTree Char -> Code
-lookupCode _ _ = []
+lookupCode tree c = reverse  (fst (look tree c []))
+	where
+		look :: CodeTree Char Code -> (Code,Bool)
+		look (Leaf c) ch co
+			| ch == c = (co,True)
+			| otherwise = (co,False)
+		look (Node _ (ct1) (ct2) ) ch co 
+			| snd leftTree = (fst leftTree,True)
+			| snd rightTree = (fst rightTree,True)
+				where
+					leftTree = look ct1 ch [Zero:co]
+					rightTree = look ct2 ch [One:co]
+					
+
+lookup :: CodeTree Code -> (Char,Code)
+lookup (Leaf c) co = (c,co)
+lookup (Node _ lt rt) [Zero:cs] = lookup lt cs
+lookup (Node _ lt rt) [One:cs] = lookup rt cs
 
 lookupPrefix :: CodeTree Code -> Char
-lookupPrefix _ _ = 'a'
+lookupPrefix t c  = fst (lookup t c)
+
 
 encode :: String -> (CodeTree, Code)
-encode str = (Leaf 'a', [])
+encode str = (tree,co)
+	where
+		tree = (buildTree o frequencyToFrequencies o getFrequencies) str	
+		co = flatten ( map (\c -> lookupCode tree c) (fromString str) )			
 
 decode :: (CodeTree, Code) -> String
-decode (tree, c) = ""
+decode (tree, c) = toString (reverse (accdecode tree c []))
+	where 
+		accdecode :: CodeTree Code [Char] -> [Char]
+		accdecode tree [] s = s
+		accdecode tree c s = accdecode tree resCode [ resChar : s]
+		where 
+			(resChar,resCode) = lookup tree c
 
-Start = (and (flatten allTests), allTests)
+Start = decode (encode "alma")
+/*(and (flatten allTests), allTests)
   where
     allTests =
       [ test_getFrequencies
@@ -67,7 +108,7 @@ Start = (and (flatten allTests), allTests)
       , test_lookupPrefix
       , test_encode
       , test_decode
-      ]
+      ]*/
 
 test_getFrequencies =
   [ isEmpty (getFrequencies "")
