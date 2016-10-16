@@ -13,6 +13,11 @@ import StdEnv, StdLib
 
 ::Code :== [Bit]
 
+:: CodeTreePair :== (CodeTree, Int)
+
+
+weigth :: CodeTreePair -> Int
+weigth (_,w) = w 
 
 instance == Bit where
   (==) Zero Zero = True
@@ -36,37 +41,58 @@ getFrequencies str = frequency (fromString str) []
 frequencyToFrequencies :: [Frequency] -> [Frequencies]
 frequencyToFrequencies frs = map ( \(c,n) -> ([(c,n)],n) ) frs
 
-toOneFrequencies :: [Frequencies] -> [Frequencies]
-toOneFrequencies [f] = [f]
-toOneFrequencies [ (x,n):(y,l):xs ] = toOneFrequencies [(y ++ x, n + l) : xs]
-
-buildTree :: [Frequencies] -> CodeTree
-buildTree frs = build (getOne (toOneFrequencies (sortFrequencies frs)))
-	where
-		build :: Frequencies -> CodeTree
-		build ( [ (c,_) ] , _ ) = Leaf c
-		build ( [ (c,n) : xs ] , s) = Node s (Leaf c) (build ( xs , s - n))
-		getOne:: [a] -> a
-		getOne [x] = x
-
-
-
 frequencyIsBetter :: Frequencies Frequencies -> Bool
 frequencyIsBetter f1 f2 = (snd f1 < snd f2)
 
+frequencyIsWorts :: Frequencies Frequencies -> Bool 
+frequencyIsWorts f1 f2 = (snd f1 > snd f2)
+
+insertFreq :: Frequencies [Frequencies] -> [Frequencies]
+insertFreq e [] = [e] 
+insertFreq e [x:xs] 
+	| frequencyIsBetter x e = [e,x:xs] 
+	| otherwise = [ x : insertFreq e xs]
+	
+insertCodeTreePair :: CodeTreePair [CodeTreePair] -> [CodeTreePair]
+insertCodeTreePair e [] = [e] 
+insertCodeTreePair e [x:xs] 
+	| codeTreeIsBetterIsBetter e x = [e,x:xs] 
+	| otherwise = [ x : insertCodeTreePair e xs]
+		where
+			codeTreeIsBetterIsBetter x y = weigth x < weigth y 
+
+toOneFrequencies :: [Frequencies] -> [Frequencies]
+toOneFrequencies [f] = [f]
+toOneFrequencies [ (x,n):(y,l):xs ] =  toOneFrequencies ( insertFreq (y ++ x, n + l) xs )
+
+toLeaf :: Frequencies -> CodeTreePair
+toLeaf ( [ (c,n) ] , _ ) = (Leaf c,n)
+
+buildTree :: [Frequencies] -> CodeTree
+buildTree frs = fst (build (map toLeaf (sortBy frequencyIsBetter frs)))
+	where
+		build [t] = t
+		build [a:b:xs] = build (insertCodeTreePair (merge a b) xs)
+			where
+				merge (t1,s1) (t2, s2) = (Node (s1 + s2) t1 t2, s1 + s2)
+			
 sortFrequencies :: [Frequencies] -> [Frequencies]
 sortFrequencies frs = sortBy frequencyIsBetter frs
 
 lookupCode :: CodeTree Char -> Code
-lookupCode tree c = reverse  (fst (look tree c []))
+lookupCode tree c = reverse  (fst (look tree c [Zero]))
 	where
 		look :: CodeTree Char Code -> (Code,Bool)
+		look (Leaf c) ch [Zero]
+			| ch == c = ([Zero],True)
+			| otherwise = ([Zero],False)
 		look (Leaf c) ch co
-			| ch == c = (co,True)
+			| ch == c = (init co,True)
 			| otherwise = (co,False)
-		look (Node _ (ct1) (ct2) ) ch co 
+		look (Node _ ct1 ct2 ) ch co 
 			| snd leftTree = (fst leftTree,True)
 			| snd rightTree = (fst rightTree,True)
+			| otherwise = (co,False)
 				where
 					leftTree = look ct1 ch [Zero:co]
 					rightTree = look ct2 ch [One:co]
@@ -76,6 +102,7 @@ lookup :: CodeTree Code -> (Char,Code)
 lookup (Leaf c) co = (c,co)
 lookup (Node _ lt rt) [Zero:cs] = lookup lt cs
 lookup (Node _ lt rt) [One:cs] = lookup rt cs
+lookup (Node _ lt rt) [] = ('a',[])
 
 lookupPrefix :: CodeTree Code -> Char
 lookupPrefix t c  = fst (lookup t c)
@@ -96,8 +123,7 @@ decode (tree, c) = toString (reverse (accdecode tree c []))
 		where 
 			(resChar,resCode) = lookup tree c
 
-Start = decode (encode "alma")
-/*(and (flatten allTests), allTests)
+Start = buildTree (frequencyToFrequencies (getFrequencies "abrakadabra")) /*(and (flatten allTests), allTests)
   where
     allTests =
       [ test_getFrequencies
@@ -123,7 +149,7 @@ test_frequencyToFrequencies =
   ]
 
 test_sortFrequencies = 
-  [ sort (map snd (sortFrequencies [([('r',2)],2),([('d',1)],1),([('k',1)],1),([('b',2)],2),([('a',5)],5)])) == [1,1,2,2,5]
+  [ map snd (sortFrequencies [([('r',2)],2),([('d',1)],1),([('k',1)],1),([('b',2)],2),([('a',5)],5)]) == [1,1,2,2,5]
   ]
 
 test_buildTree = 
@@ -151,7 +177,7 @@ test_lookupPrefix =
   , lookupPrefix abrakadabra (lookupCode (Leaf 'a') 'a')  == 'a'
   ]
   where
-    abrakadabra = Node 11 (Leaf 'a') (Node 6 (Node 4 (Leaf 'r') (Leaf 'b')) (Node 2 (Leaf 'k') (Leaf 'd')))
+    abrakadabra = Node 11 (Leaf 'a') ( Node 6 (Node 4 (Leaf 'r') (Leaf 'b') ) (Node 2 (Leaf 'k') (Leaf 'd')) )
 
 test_encode =
   [ (length o snd) (encode "abrakadabra") == 23
@@ -165,3 +191,4 @@ test_decode =
   ]
   where
     abrakadabra = Node 11 (Leaf 'a') (Node 6 (Node 4 (Leaf 'r') (Leaf 'b')) (Node 2 (Leaf 'k') (Leaf 'd')))
+

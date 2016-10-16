@@ -5,11 +5,11 @@ MainModule
 	DclOpen:	False
 	Icl
 		WindowPosition
-			X:	207
-			Y:	11
-			SizeX:	1253
-			SizeY:	653
-	IclOpen:	True
+			X:	201
+			Y:	120
+			SizeX:	1663
+			SizeY:	916
+	IclOpen:	False
 OtherModules
 	Module
 		Name:	StdArrayExtensions
@@ -119,6 +119,12 @@ OtherModules
 	Module
 		Name:	StdTuple
 		Dir:	{Application}\Libraries\StdEnv
+		Dcl
+			WindowPosition
+				X:	285
+				Y:	47
+				SizeX:	800
+				SizeY:	640
 		DclOpen:	False
 		IclOpen:	False
 	Module
