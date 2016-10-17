@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="580AFE80-7ECD-1238-7F27-1699F04004D4" name="Szallitoi_rendeles_sor">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>2A709E04-32C2-5651-A11E-D754065D0142</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SzrSorAzon" id="D65AAB38-386F-C0C6-6CC7-B4BD21FFA176">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>BD22D4D2-8C5B-EFA3-0A36-204CF2A2897E</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Termek_TSzam" id="FA289705-5CA9-EDA0-E5AE-337B083E7BC3">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>8644ED4E-EA6E-6F36-0CCF-25FC2B98AE54</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="84C29D04-EDD7-4731-2E76-369BB78B9B8A" referredColumn="EC116C73-F333-5AFA-ED0C-B188BC258C0D"/>
+</associations>
+</Column>
+<Column name="Szallitoi_rendeles_SzrAzon" id="B57A52F2-F891-558E-18E1-B31B4B7C3CF4">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>1EB8F437-528B-2A57-4744-C514314BDCD3</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="78753F43-0300-5F83-E9E7-091BAF686D72" referredColumn="ECC0253A-3804-A9EB-3D97-3874E13FF152"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06B341F9-0D79-00B0-531C-DFC4236B32F4" name="Szallitoi_rendeles_sor_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>E9093581-BB2F-F74E-2A21-2B7A4C756B4B</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D65AAB38-386F-C0C6-6CC7-B4BD21FFA176"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA3F96D4-0280-57BE-E8F0-0FDE5813BD94" name="Szallitoi_rendeles_sor_Termek_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>125AB23E-B99D-23D6-38F0-34D057531670</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA289705-5CA9-EDA0-E5AE-337B083E7BC3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A55AE4C0-9359-D9D1-7524-A891181CAAA3" name="Szallitoi_rendeles_sor_Szallitoi_rendeles_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>680D6494-794E-DC94-52C1-C27D5FCD55C0</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B57A52F2-F891-558E-18E1-B31B4B7C3CF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="34084745-A8C1-7FDE-99B2-59D6BA808EB1" name="Termekjegyzek">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>B68E6696-F4BC-1330-0087-CB8BA140651A</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Termek_TSzam" id="E8A08092-C907-E554-0A5A-E2B9A1A4A648">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>46508A29-4FFC-082F-20DA-2A235EC4BC87</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7979A4FA-1446-F91B-8C76-DA9832B4B185" referredColumn="EC116C73-F333-5AFA-ED0C-B188BC258C0D"/>
+</associations>
+</Column>
+<Column name="Nagykereskedo_NagykerAzon" id="60AD232D-C2E0-263E-B06F-104F870AD205">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>FA5C4DC4-9591-A9EF-A100-FD5CCF170B07</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C89187F-181D-4ADA-66D8-E14E264D8229" referredColumn="7BD5CDB6-B68A-948B-5310-C52C0ED323FF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CDDCDF7B-6372-8181-BA36-A8D377F6399E" name="Termekjegyzek_Nagykereskedo_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>DDE7FD9B-A33A-14B9-57EA-80A1D18F97A8</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60AD232D-C2E0-263E-B06F-104F870AD205"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A8505F48-56C0-C6F2-30A6-56723F52D81F" name="Termekjegyzek_Termek_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>E2D2A12A-15A6-9F12-E6CB-A9E643D84992</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8A08092-C907-E554-0A5A-E2B9A1A4A648"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

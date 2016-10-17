@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A8095C76-6D98-BBD8-63AF-C37697E110E3" name="Leltar">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>C30A8DFA-7CCA-028E-F5AF-2BD78586CB7C</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LeltarAzon" id="99C2B534-9659-13A5-467A-83F2132D85A9">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>348E7D47-B54C-45CE-80FD-CCD9053D51A2</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TemekOsztaly_TemekOsztaly_ID" id="1D6B973C-F4A0-620C-75EB-DBFDB43AEFAE">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="452E5E6F-2542-4DA0-D5DC-A0143C591B8E" referredColumn="34F7DC5B-AC24-E6BF-03C4-DB8782D3AAC2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D4C65FA3-EFF2-25E0-FD5F-56214CE9F358" name="Leltar_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>FCB8585A-9C20-6C7A-F5CB-FE2271D15168</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99C2B534-9659-13A5-467A-83F2132D85A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7BB51F83-1E2B-B6DF-A68F-4DF9F939CA1E" name="Leltar_TemekOsztaly_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>F0412415-9D21-436F-FC74-96844687521D</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D6B973C-F4A0-620C-75EB-DBFDB43AEFAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

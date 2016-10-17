@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="vasarol" directorySegmentName="seg_0" id="547BD02E-AA09-C7A4-7177-6D8446193BBA">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 18:27:43 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>D50B4F75-AAAD-8613-96CC-F88330598B24</importedID>
+<engineerTo>
+<item key="B0C28D4C-2027-7B13-16BD-EF3C20352C2F" value="true"/>
+</engineerTo>
+<sourcePk>3F10E5D4-EEB5-ECAA-FBA6-356A1044A9BF</sourcePk>
+<targetPk>4C34D533-46E0-D3B5-1995-11A87A6C2D57</targetPk>
+<identifying>false</identifying>
+<nameOnSource>forrása</nameOnSource>
+<nameOnTarget>érkezett tőle</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A8A18783-AFBE-84FB-A0D2-5BDB7E6C98B9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F93BD990-4BFD-BEF7-C3B6-F2D312DFA322</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
