@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A367CDEF-3A7E-967F-4DE9-BDFDEBCD9526" name="Szallitoi_rendeles_sor">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>9483F133-449E-6C83-C3A6-2FC3E04CDB26</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SzrSorAzon" id="3B62E981-203D-D14F-39A1-D9B45ED97E00">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>8B2FA49D-F9C5-A76E-FDC3-9004382EC451</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Termék_TSzam" id="A3917BA0-F02D-7B14-3C07-EF66752509D8">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>BB5F47D5-8329-F1C8-AB15-6AB96FAE9B4C</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9B5ED66D-B3C9-A061-418A-4847C15E1449" referredColumn="D0ECBCB8-E6B8-6491-F597-04FC0E9D66F2"/>
+</associations>
+</Column>
+<Column name="Szállítói_rendelés_SzrAzon" id="B7C97C79-ACFA-005E-5508-79ABFB1091B6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>343E7495-2FA8-3162-D995-B7883DC1D857</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6D94DD48-EC65-2DD3-4B83-C5136893FF80" referredColumn="C7CC75B4-F5AB-F3AA-63D9-910CFF81B550"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6909FD75-85AA-713D-988C-52C0EED512E8" name="Szallitoi_rendeles_sor_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>4425C7C8-414E-A825-423B-7FF51A6A7097</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B62E981-203D-D14F-39A1-D9B45ED97E00"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="99815B38-33DC-5E1E-5CC3-FB194191ADEE" name="Szallitoi_rendeles_sor_Termék_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>56193C4B-56B3-E590-3F83-FB2E1E7E2C94</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A3917BA0-F02D-7B14-3C07-EF66752509D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70592432-4BCD-C654-4708-D680DB5AE00E" name="Szallitoi_rendeles_sor_Szállítói_rendelés_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 14:07:09 UTC</createdTime>
+<generatorID>888B432C-5115-5001-2E35-1F95EEE0C400</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7C97C79-ACFA-005E-5508-79ABFB1091B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9483F133-449E-6C83-C3A6-2FC3E04CDB26" name="Szallitoi_rendeles_sor">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:42:25 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SzrSorAzon" id="8B2FA49D-F9C5-A76E-FDC3-9004382EC451">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:44:43 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TSzam" id="BB5F47D5-8329-F1C8-AB15-6AB96FAE9B4C">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:43:31 UTC</createdTime>
+<generatorID>56193C4B-56B3-E590-3F83-FB2E1E7E2C94</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<referedAttribute>A361C4EC-C33E-252F-957E-1CAE94DEBC77</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SzrAzon" id="343E7495-2FA8-3162-D995-B7883DC1D857">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:44:14 UTC</createdTime>
+<generatorID>888B432C-5115-5001-2E35-1F95EEE0C400</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<referedAttribute>2DE068D9-1ECF-A87E-18E9-B2F1C377AD92</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4425C7C8-414E-A825-423B-7FF51A6A7097" name="Szallitoi_rendeles_sor PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:45:09 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8B2FA49D-F9C5-A76E-FDC3-9004382EC451</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

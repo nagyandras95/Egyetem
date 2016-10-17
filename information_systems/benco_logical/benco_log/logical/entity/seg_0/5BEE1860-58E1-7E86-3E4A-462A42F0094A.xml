@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5BEE1860-58E1-7E86-3E4A-462A42F0094A" name="Termék">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>E95C2227-94EE-41FE-4161-C856BE966EB9</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TSzam" id="A361C4EC-C33E-252F-957E-1CAE94DEBC77">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>8D2C5065-B4B6-7B81-5FD6-CEEB8C843AD3</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TNev" id="974D78FF-F52E-AE8F-0FD2-6858EEBF0E71">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>7E5F66B0-E7D5-1687-E061-46D92CF750A8</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TListaAr" id="85BFF057-A860-2714-4D46-B5D666E14344">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>9255C09D-9147-F57C-34E3-E16772F06D3C</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TEgység" id="B77A4974-3EDD-E60A-2BE1-54C2F2925CA8">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:49:05 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TMegjegyzes" id="1F202BB6-47AC-5EB3-93D1-01212DE1EB6A">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:51:18 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="828B9E0D-7847-0FD6-D35D-0BBD83D6AD21" name="Termék PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>B4BD0376-07EE-B9BC-DD10-8491DA06F641</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A361C4EC-C33E-252F-957E-1CAE94DEBC77</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

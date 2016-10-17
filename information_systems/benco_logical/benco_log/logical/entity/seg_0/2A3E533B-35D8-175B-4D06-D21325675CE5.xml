@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2A3E533B-35D8-175B-4D06-D21325675CE5" name="Szállítói rendelés">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>5974D564-649B-CCC8-F269-1F29C1D35A70</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SzrAzon" id="2DE068D9-1ECF-A87E-18E9-B2F1C377AD92">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>59823FEF-ED82-D111-0101-3CB2D6916675</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NagykerAzon" id="4D054337-701C-1AB0-8646-F115BAB84B5B">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<generatorID>3C4E1323-B6DA-2AF2-F8A1-015FB35AA3D2</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>1BBE0891-8DAB-2206-70C0-F9AF8B0418EC</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<referedAttribute>4D999D03-4A32-057A-F722-F01954E87D9B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="280C131A-032E-A5A1-ADB6-0408553DDF69" name="Szállítói rendelés PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-17 13:34:23 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>FBC7A37A-979D-517C-8C02-591312F30637</importedID>
+<engineerTo>
+<item key="0AC80A2D-D567-1DC0-B3BE-50DE6A3528EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2DE068D9-1ECF-A87E-18E9-B2F1C377AD92</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

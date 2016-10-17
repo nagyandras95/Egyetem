@@ -1,8 +1,13 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="benco_log" id="CFBCF4B0-0361-45AE-4EF6-745402A273C1" version="3.5">
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="benco_log" id="C9D52B4A-5299-5EB1-3EE2-2DA470DFD5BF" version="3.5">
 <createdBy>mozsik</createdBy>
-<createdTime>2016-10-12 14:23:00 UTC</createdTime>
+<createdTime>2016-10-17 13:33:27 UTC</createdTime>
 <ownerDesignName>benco_log</ownerDesignName>
 <capitalNames>false</capitalNames>
-<designId>CFBCF4B0-0361-45AE-4EF6-745402A273C1</designId>
+<designId>C9D52B4A-5299-5EB1-3EE2-2DA470DFD5BF</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="CFBCF4B0-0361-45AE-4EF6-745402A273C1">
+<designStoragePath>C:\Users\mozsik\Desktop\Egyetem\information_systems\benco_logical\benco_log</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
 </OSDM_Design>
