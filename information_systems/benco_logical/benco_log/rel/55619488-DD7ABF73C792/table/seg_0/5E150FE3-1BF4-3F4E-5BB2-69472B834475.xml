@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5E150FE3-1BF4-3F4E-5BB2-69472B834475" name="TermekAr">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>C988532A-A7AD-5C10-C753-73DC532C7863</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>12FACAE3-7017-DF9D-D0D7-682B1E5A252A</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Ar" id="80245AE2-653F-4B70-2135-6639E9CE277D">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>EB6354F9-0383-B6EB-1F4D-BBFA5FEC7439</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>170371F3-C7E0-9F69-F529-402CD72D7606</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Termek_TSzam" id="15CD9F02-7525-4FE7-C341-C431DA5056FB">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>2BFDD004-22BA-4020-FEA9-B29E1700D1C5</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>FAEC8A7F-B548-A63B-DA46-428D886C5524</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="05D349D5-463E-F7A7-C690-C5F6B7B89110" referredColumn="160F8718-65E9-6814-CB9A-A326020770B2"/>
+</associations>
+</Column>
+<Column name="Kedvezmenykod_Kod" id="574766C8-E656-64E0-73B8-4E1F8D724EB1">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>CEFFC585-B15E-9377-BED2-2A0ABCD10765</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>B8F47395-C4F7-65AF-4930-40ABD5FD33BF</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="07513503-45F9-4228-DA5E-FC3F82A35CC6" referredColumn="E58B7987-B65F-DDDA-19D0-2A9369DAE05D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="07F851C0-F296-AF39-FA46-4EAE8562E011" name="TermekAr__IDX">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>B0CE4131-943D-BF8B-384C-63CF7F580FE8</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="574766C8-E656-64E0-73B8-4E1F8D724EB1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E0B9D9E-8574-4ADA-E8CC-CB77703B5550" name="TermekAr_Kedvezmenykod_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>13569685-6D79-6040-03A7-2A031FDAB6FC</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="574766C8-E656-64E0-73B8-4E1F8D724EB1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9ADCB4B6-EDED-467D-AB55-DF5E83BAEC95" name="TermekAr_Termek_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>F3E5C55E-6B8E-C254-E0EC-E446122B2C34</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15CD9F02-7525-4FE7-C341-C431DA5056FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

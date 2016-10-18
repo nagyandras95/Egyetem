@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="95F21479-240E-0BA3-AC35-D063CCD71D1A" name="Szallitoi_rendeles">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>9010B057-52EB-E106-31D5-9FF74FE54C2A</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>4971E6B0-6D44-22F2-CF55-412A07839871</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SzrAzon" id="1EB1AD89-77E7-7F55-B2B8-CF41ACCEF0A6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>56B70595-6C14-B28D-637E-55ACF9E9DD41</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>ECC0253A-3804-A9EB-3D97-3874E13FF152</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nagykereskedo_NagykerAzon" id="88962040-2663-46AF-B57D-DE29C647AAF2">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>8D5F7151-7D9D-0543-82DE-404D98BA6064</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>A725C46A-2D9F-E115-3EB5-32060AB9C4C1</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CA6B9322-4A44-A66C-ED49-8A7E2DE43DF0" referredColumn="9EF76564-B1A0-B019-86F1-F48E893096C9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="077A7D0C-F389-7E71-0333-9FB86D45FD6A" name="Szallitoi_rendeles_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>14ADD03D-3EB8-C1DA-FE16-C73F55591EC5</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>1DA1EE99-5744-2C70-7D21-70C9F353F4EC</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EB1AD89-77E7-7F55-B2B8-CF41ACCEF0A6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FEC2B997-2B4C-3CDB-07DF-806F15CB4B10" name="Szallitoi_rendeles_Nagykereskedo_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>9CC801F9-5315-CE2D-9EA8-E6885B6292CC</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88962040-2663-46AF-B57D-DE29C647AAF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

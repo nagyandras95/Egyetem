@@ -1,0 +1,195 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E740DAC4-E4E3-5130-9695-1B92217A7313" name="Vevo">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>A8A18783-AFBE-84FB-A0D2-5BDB7E6C98B9</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Vszam" id="34BD3740-9E67-6440-E1A8-2706618299AC">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>107511D7-A017-0C1C-B7F2-90473FAF2B27</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nev" id="A58DCEFA-35BA-7B56-A215-54C318AD0D34">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>4D817FD4-FBE8-5527-907C-7A2DAC179FCE</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ErtKorSzam" id="B67F4BCD-604E-C280-D93A-8F69F6D39406">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>C615EC52-6A01-81BC-B99A-400A55232FCA</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Egyenleg" id="B80E82E8-783D-03D4-B5ED-D91E806A7497">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>7827854A-C9F5-5107-FCE2-B6CDC3B45876</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,2,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VevoCím" id="301B1F92-3CAE-CA22-6652-014032E5E5D8">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>2D575A5E-DB12-E8F1-5F87-9CCE7F532FDB</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Kod" id="B0762779-0055-22F8-C525-70B948E5EC20">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>CEDAE6B4-FFFD-0B3A-77A2-674C05F0D0BC</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>7C3CF771-EE6F-B71D-C440-CB1620A53880</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>626550A2-5390-FBAD-534F-7FC03006D79D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Irszam" id="0060E48E-7DDA-5A26-0A93-776CDF5B231F">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>47A47F1C-784A-A766-1B10-DC3C950CF101</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefonszám" id="686DFA3F-976D-1528-1F25-B119ECABF055">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>200E54C4-199E-96E2-A061-F6BC5C892507</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Hitelkeret" id="D8B22032-0388-A61D-345A-031D2CA0E1B6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>587DCB40-88F5-D0BC-238E-84C1627664AA</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SzallitasiUtasitas" id="764EDE63-55FC-594A-7A0E-E2FD2BC73032">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>59DC9B03-BEE2-EF84-81FB-AEA0CBEAE0E2</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="83D8F749-3776-9F60-24A9-99F8F8D388DD" name="Vevo_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>3F10E5D4-EEB5-ECAA-FBA6-356A1044A9BF</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>34BD3740-9E67-6440-E1A8-2706618299AC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

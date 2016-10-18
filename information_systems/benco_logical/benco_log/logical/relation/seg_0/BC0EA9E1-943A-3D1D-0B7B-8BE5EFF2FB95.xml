@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_20" directorySegmentName="seg_0" id="BC0EA9E1-943A-3D1D-0B7B-8BE5EFF2FB95">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>F0412415-9D21-436F-FC74-96844687521D</importedID>
+<engineerTo>
+<item key="7B50201A-469C-EC51-1BEE-0DB7584086E1" value="true"/>
+<item key="55619488-BB1E-05BE-60C1-DD7ABF73C792" value="true"/>
+</engineerTo>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D20491D4-E710-B8D7-5F7E-59CBF9E5C0F9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C5670A18-6163-4BD4-FFF7-DF1101DC9AFF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

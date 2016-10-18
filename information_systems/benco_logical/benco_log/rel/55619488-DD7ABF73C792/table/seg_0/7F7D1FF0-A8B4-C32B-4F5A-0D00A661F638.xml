@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F7D1FF0-A8B4-C32B-4F5A-0D00A661F638" name="Vasarloi_rendeles_sor">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>9A41E006-D63E-531B-D073-2AA61959F600</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>FADFAE7F-93DB-9305-6C6D-97EAC1C99EBF</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SorAzon" id="1FE7E964-BA90-3496-CDE3-2D98E1471E27">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>EC6234E5-B345-F989-01E7-AE4DAA3A4E2E</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>C7D06602-551E-8EEA-5ED8-26B81BA06F20</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mennyiség" id="5FAE550A-10B9-5422-252C-243F0D99A772">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>8417F6B1-C2DE-69E0-E980-627866C67A15</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>E758640B-296D-2DD2-5956-36C626C16506</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Termek_TSzam" id="ABC97418-790F-5E04-59FA-C004CFB52487">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>75B6A864-A4B2-ED0B-EBD3-AF174C785EC8</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>ED393FB3-9C43-FE91-C3A5-58F1290955DD</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="46FD2591-9423-BA6E-005A-B34B017C6BCB" referredColumn="160F8718-65E9-6814-CB9A-A326020770B2"/>
+</associations>
+</Column>
+<Column name="Vasarloi_rendeles_Vrszam" id="31CC6F33-C59A-7029-F7DA-7E7176D4CA89">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>1859DD7F-74DB-CB2D-4F57-A3316B775457</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>5094E8A6-19B7-8722-EB09-B42C995EA56C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A59D8EFE-C79D-107F-FF3A-35A34F673EE8" referredColumn="6652E63E-CB4B-1C97-7B28-DA3448C95F8D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED0858AC-0529-0962-524B-2F51E48D1680" name="Vasarloi_rendeles_sor_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>BC5D0CF7-0CA8-5C79-2BAD-2542F5FE01B7</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>14AA8859-0F6A-32A8-1A1E-FF6835504C01</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FE7E964-BA90-3496-CDE3-2D98E1471E27"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8CEDF6F-B72E-7BE6-5C5C-40A7AD684A94" name="Vasarloi_rendeles_sor_Termek_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>1AAC41F5-FB25-B6C3-DABC-5443EDCE174A</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ABC97418-790F-5E04-59FA-C004CFB52487"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="66D298CB-7E89-1DA5-6C4C-5FA84C0A1DB9" name="Vasarloi_rendeles_sor_Vasarloi_rendeles_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>E237B2EE-8DF2-E953-BCE9-1CC2785132E1</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="31CC6F33-C59A-7029-F7DA-7E7176D4CA89"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

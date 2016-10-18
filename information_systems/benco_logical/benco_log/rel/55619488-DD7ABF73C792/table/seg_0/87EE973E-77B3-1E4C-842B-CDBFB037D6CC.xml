@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="87EE973E-77B3-1E4C-842B-CDBFB037D6CC" name="Vasarloi_rendeles">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>2CE3AD03-3274-1354-0144-BC49675D1993</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>F7A42118-1E72-DC68-5B59-911DA00CB4F0</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Vrszam" id="6652E63E-CB4B-1C97-7B28-DA3448C95F8D">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>12B29C4C-966B-AAA3-CAAD-C34E2EF3E236</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>5AFC15EF-0779-AE6F-74D3-AABDB4DEC9B8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VrDatum" id="212D4F1F-0EB7-036C-6386-F8ADBF1E5F84">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>6DEDCFC6-B723-C411-E9E8-2F4C02060990</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>2BDE53D9-4C41-CB6D-9AC5-E1F4DC6473FD</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Vevo_Vszam" id="C5B8FBD4-55F8-4124-7098-EE230909DB87">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>9818C20E-003F-A326-EDD7-2E7B67CA1302</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>F79758C4-1697-ACCA-6043-B3B65A3D9C26</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F26B1851-B00B-D3AE-7A43-783F1BD0464F" referredColumn="E3363870-A0B7-F7C4-72C5-A00BE1F87F68"/>
+</associations>
+</Column>
+<Column name="Érvényes" id="F58721E3-B9B9-E623-8121-9C839803131C">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>4F8D04CC-29A4-8C7B-E5E0-84383EF2B0E3</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>EA9FD2ED-7D30-5D7B-2ABD-6EEF5748EA04</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6145D50-7456-69F5-B11E-FA6354400EE9" name="Vasarloi_rendeles_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>BA487D95-A4E3-881B-E295-3D8ED92FB14A</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>27E5F59A-ADAE-85A6-DFA2-482F6B6B3AAE</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6652E63E-CB4B-1C97-7B28-DA3448C95F8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F8961BB-78EC-7C8A-B5FA-3EA4B57713E1" name="Vasarloi_rendeles_Vevo_FK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>547BD02E-AA09-C7A4-7177-6D8446193BBA</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C5B8FBD4-55F8-4124-7098-EE230909DB87"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

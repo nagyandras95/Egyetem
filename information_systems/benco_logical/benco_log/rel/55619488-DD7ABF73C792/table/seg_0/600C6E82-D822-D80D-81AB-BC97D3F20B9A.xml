@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="600C6E82-D822-D80D-81AB-BC97D3F20B9A" name="TemekOsztaly">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>D20491D4-E710-B8D7-5F7E-59CBF9E5C0F9</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>D5C0EECC-EE88-DFCD-B816-803547DEFB9C</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OsztalyAzon" id="4BBE1F38-6E69-CCD8-E6AC-B8A3BB4A7CAE">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<generatorID>A2D89813-AF1A-617A-4F84-616FE984E2B2</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>85298B95-C6C1-C48F-14C8-2244DDB94E33</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TemekOsztaly_ID" id="D9B6E070-8BA3-A292-B000-65FCE1C258A4">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>34F7DC5B-AC24-E6BF-03C4-DB8782D3AAC2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="05642A86-75C0-0A8E-370E-0EE9D9748881" name="TemekOsztaly_PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:47 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>C3880A41-75A3-7387-EA6B-E2C2C7EF7D3B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9B6E070-8BA3-A292-B000-65FCE1C258A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

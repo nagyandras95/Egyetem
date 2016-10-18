@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="9EBC781D-D51E-EF4E-D672-03A15FC79DFB" mainViewID="2E98A1EE-3A69-0D88-F226-634166879A7B">
-<createdBy>mozsi</createdBy>
-<createdTime>2016-10-17 18:26:40 UTC</createdTime>
+<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="4AAB06AD-F475-13F3-56FD-41740D2F51EC" mainViewID="F0A205FB-4BEB-D413-0DC5-33C155AF4EE6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-10-18 16:38:22 UTC</createdTime>
 <ownerDesignName>benco_log</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 <collectionOfRefsPrefix>array_ref_</collectionOfRefsPrefix>
