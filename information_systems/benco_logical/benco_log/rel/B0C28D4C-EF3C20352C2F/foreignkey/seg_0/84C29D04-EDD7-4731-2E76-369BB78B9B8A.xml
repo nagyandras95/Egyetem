@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="84C29D04-EDD7-4731-2E76-369BB78B9B8A" containerWithKeyObject="580AFE80-7ECD-1238-7F27-1699F04004D4" localFKIndex="FA3F96D4-0280-57BE-E8F0-0FDE5813BD94" name="Szallitoi_rendeles_sor_Termek_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 19:08:06 UTC</createdTime>
+<generatorID>125AB23E-B99D-23D6-38F0-34D057531670</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>729B38B3-2D40-4BCF-BF0D-55AD4515AD02</referredTableID>
+<keyObject>94D57F4E-2054-4C62-D029-E6C530E64CE3</keyObject>
+<referredKeyID>94D57F4E-2054-4C62-D029-E6C530E64CE3</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

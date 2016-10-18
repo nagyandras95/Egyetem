@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B68E6696-F4BC-1330-0087-CB8BA140651A" name="Termekjegyzek">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 18:27:43 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>FCD16016-5AA3-E3DD-68DC-AC7AAFAC0EFB</importedID>
+<engineerTo>
+<item key="B0C28D4C-2027-7B13-16BD-EF3C20352C2F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TSzam" id="46508A29-4FFC-082F-20DA-2A235EC4BC87">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 18:27:43 UTC</createdTime>
+<generatorID>E2D2A12A-15A6-9F12-E6CB-A9E643D84992</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>B8DF6CEC-46B8-EB82-6833-DCBF38E5530D</importedID>
+<engineerTo>
+<item key="B0C28D4C-2027-7B13-16BD-EF3C20352C2F" value="true"/>
+</engineerTo>
+<referedAttribute>B253690F-255A-118A-D94A-8008259EC20E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NagykerAzon" id="FA5C4DC4-9591-A9EF-A100-FD5CCF170B07">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 18:27:43 UTC</createdTime>
+<generatorID>DDE7FD9B-A33A-14B9-57EA-80A1D18F97A8</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>7CDC225D-689F-9A54-6DDA-883B892E47D0</importedID>
+<engineerTo>
+<item key="B0C28D4C-2027-7B13-16BD-EF3C20352C2F" value="true"/>
+</engineerTo>
+<referedAttribute>843E0000-13E1-0F22-E561-266FBF2EB00F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

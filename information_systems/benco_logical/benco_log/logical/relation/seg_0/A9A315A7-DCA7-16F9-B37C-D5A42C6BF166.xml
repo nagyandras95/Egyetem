@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Vevo_KKod_FK" directorySegmentName="seg_0" id="A9A315A7-DCA7-16F9-B37C-D5A42C6BF166">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-17 18:27:43 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>19D43F21-6C94-7248-62D2-85450022E0E9</importedID>
+<engineerTo>
+<item key="B0C28D4C-2027-7B13-16BD-EF3C20352C2F" value="true"/>
+</engineerTo>
+<sourcePk>64CBDAD4-51A5-EFAE-521D-FF67C2347BE9</sourcePk>
+<targetPk>3F10E5D4-EEB5-ECAA-FBA6-356A1044A9BF</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F4A74271-4F88-18B9-93C7-E97BA82A4DA0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A8A18783-AFBE-84FB-A0D2-5BDB7E6C98B9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
