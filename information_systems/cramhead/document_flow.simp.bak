@@ -17,7 +17,7 @@
       </counter>
       <counter>
         <item-type type-id="dfd-external" type="DfdExternal" />
-        <value>7</value>
+        <value>8</value>
       </counter>
       <counter>
         <item-type type-id="dfd-gate" type="DfdGate" />
@@ -25,10 +25,6 @@
       </counter>
     </entity-names>
     <entity-ids>
-      <counter>
-        <item-type type-id="" type="AbstractElementGroup" />
-        <value>232</value>
-      </counter>
       <counter>
         <item-type type-id="dfd-data-store" type="DfdDataStore" />
         <value>7</value>
@@ -39,7 +35,7 @@
       </counter>
       <counter>
         <item-type type-id="dfd-external" type="DfdExternal" />
-        <value>8</value>
+        <value>9</value>
       </counter>
       <counter>
         <item-type type-id="dfd-gate" type="DfdGate" />
@@ -47,7 +43,11 @@
       </counter>
       <counter>
         <item-type type-id="dfd-data-flow" type="DfdDataFlow" />
-        <value>18</value>
+        <value>37</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="AbstractElementGroup" />
+        <value>99</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -237,9 +237,9 @@
             <relation from="di596478190326984606" from-iid="ced13563450f4154b5365bfe4988d491" to="di763963511241231630" to-iid="9a1398a9f28c403b951ae009f07a648c" />
           </item>
           <item id="di421824423662251083" iid="df4a98f9f7d94f499e8d12de169aa7f3" creation-date="10/19/2016 16:44:38" order-index="15" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="713" y1="242" x2="734" y2="407" start-border-pos="0.438679245283019" end-border-pos="0.175824175824176" name-position="43,5">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="712" y1="243" x2="734" y2="407" start-border-pos="0.438679245283019" end-border-pos="0.175824175824176" name-position="43,5">
               <points>
-                <point x="713" y="242" />
+                <point x="712" y="243" />
                 <point x="734" y="407" />
               </points>
             </layout>
@@ -349,24 +349,24 @@
           </authors>
           <description />
           <creation-date>10/19/2016 17:10:10</creation-date>
-          <change-date>10/19/2016 17:36:20</change-date>
+          <change-date>10/25/2016 19:02:26</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
         <abstract-items>
-          <item id="di762372445949650728" cid="Gépírónő" type="dfd-process" name="Process12" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:32:52">
+          <item id="di762372445949650728" cid="Gépírónő" type="dfd-process" name="Tanfolyam összesítések előállítása" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:32:52">
             <style class="default" />
           </item>
-          <item id="di423325372731266658" cid="Tanfolyam ügyintéző" type="dfd-process" name="Process11" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:31:02">
+          <item id="di423325372731266658" cid="Tanfolyam ügyintéző" type="dfd-process" name="Foglalások kezelése" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:31:02">
             <style class="default" />
           </item>
           <item id="di613900195375551679" cid="M" type="dfd-data-store" name="Brossúra" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:31:14">
             <style class="default" />
           </item>
-          <item id="di367217511957894048" cid="Tanfolyam felelős" type="dfd-process" name="Process13" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:33:22">
+          <item id="di367217511957894048" cid="Tanfolyam felelős" type="dfd-process" name="Tanfolyamok előkészítése" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:33:22">
             <style class="default" />
           </item>
-          <item id="di142742763827333373" cid="Oktató" type="dfd-process" name="Process14" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:33:44">
+          <item id="di785926766363224146" cid="DFE008" type="dfd-external" name="Előadó" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:30:42">
             <style class="default" />
           </item>
           <item id="di766367623678480567" cid="DFE005" type="dfd-external" name="Könyvelés" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:34:13">
@@ -390,43 +390,199 @@
           <item id="di924065924957267593" cid="M" type="dfd-data-store" name="Foglalási ív" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:36:20">
             <style class="default" />
           </item>
+          <item id="di495159602596187781" cid="DFF019" type="dfd-data-flow" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:08:08" from="di423325372731266658" to="di613900195375551679">
+            <style class="default" />
+          </item>
+          <item id="di283209761557596324" cid="DFF025" type="dfd-data-flow" name="résztvevők listája" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:22:05" from="di762372445949650728" to="di139406060202547774">
+            <style class="default" />
+          </item>
+          <item id="di709543090277817065" cid="DFF032" type="dfd-data-flow" name="Foglalás felvitele" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:29:15" from="di423325372731266658" to="di291666647378791899">
+            <style class="default" />
+          </item>
+          <item id="di972364469214357119" cid="DFF023" type="dfd-data-flow" name="Szabad hely ellenőrzése" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:11:40" from="di837536678200241548" to="di423325372731266658">
+            <style class="default" />
+          </item>
+          <item id="di165942955436819533" cid="DFF026" type="dfd-data-flow" name="résztvevők listája másolat" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:22:42" from="di762372445949650728" to="di589814340249594222">
+            <style class="default" />
+          </item>
+          <item id="di531732409290124509" cid="DFF027" type="dfd-data-flow" name="ideiglenes foglalások listája másolat" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:23:03" from="di762372445949650728" to="di766367623678480567">
+            <style class="default" />
+          </item>
+          <item id="di240693507334040825" cid="DFF028" type="dfd-data-flow" name="számla másolat" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:23:46" from="di762372445949650728" to="di766367623678480567">
+            <style class="default" />
+          </item>
+          <item id="di245298407930278794" cid="DFF029" type="dfd-data-flow" name="részvételi útmutató" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:24:09" from="di762372445949650728" to="di139406060202547774">
+            <style class="default" />
+          </item>
+          <item id="di324479520121477366" cid="DFF030" type="dfd-data-flow" name="számla (2)" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:24:36" from="di762372445949650728" to="di143384987519165577">
+            <style class="default" />
+          </item>
+          <item id="di460982487921298932" cid="DFF031" type="dfd-data-flow" name="Foglalási űrlap" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:25:45" from="di143384987519165577" to="di423325372731266658">
+            <style class="default" />
+          </item>
+          <item id="di589097669522303329" cid="DFF033" type="dfd-data-flow" name="Értékelési lapok" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:31:25" from="di785926766363224146" to="di762372445949650728">
+            <style class="default" />
+          </item>
+          <item id="di846029806765426595" cid="DFF034" type="dfd-data-flow" name="Résztvevők listája" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 18:31:41" from="di762372445949650728" to="di785926766363224146">
+            <style class="default" />
+          </item>
+          <item id="di340380115929716298" cid="DFF036" type="dfd-data-flow" name="tanfolyam információk" style-class="" visibility="package" change-tracking-state="added" creation-date="10/25/2016 19:02:26" from="di367217511957894048" to="di423325372731266658">
+            <style class="default" />
+          </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
           <item id="di423325372731266658" iid="0b22bea709304cc09cf740d429d6ff89" creation-date="10/19/2016 17:31:02" order-index="1" type="entity">
-            <layout ax="452" ay="256" awidth="145" aheight="103" x="452" y="256" width="145" height="103" />
+            <layout ax="51" ay="236" awidth="145" aheight="103" x="51" y="236" width="145" height="103" />
           </item>
           <item id="di613900195375551679" iid="0424734cf92946f89b9745bffceb8f24" creation-date="10/19/2016 17:31:14" order-index="2" type="entity">
-            <layout ax="207.5" ay="244" awidth="112" aheight="24" x="207.5" y="244" width="112" height="24" />
+            <layout ax="67.5" ay="138" awidth="112" aheight="24" x="67.5" y="138" width="112" height="24" />
           </item>
           <item id="di762372445949650728" iid="7e26e6f921ed44419306a5306e69c3d0" creation-date="10/19/2016 17:32:52" order-index="3" type="entity">
-            <layout ax="357" ay="229" awidth="112" aheight="77" x="357" y="229" width="112" height="77" />
+            <layout ax="688" ay="270" awidth="127" aheight="77" x="688" y="270" width="127" height="77" />
           </item>
           <item id="di367217511957894048" iid="04efb411841e418390e257b0def9be7c" creation-date="10/19/2016 17:33:22" order-index="4" type="entity">
-            <layout ax="41" ay="217.5" awidth="112" aheight="77" x="41" y="217.5" width="112" height="77" />
-          </item>
-          <item id="di142742763827333373" iid="5dca56d524d64e46803411e673d3fad3" creation-date="10/19/2016 17:33:44" order-index="5" type="entity">
-            <layout ax="393" ay="150" awidth="127" aheight="39" x="393" y="150" width="127" height="39" />
+            <layout ax="51" ay="478.5" awidth="145" aheight="77" x="51" y="478.5" width="145" height="77" />
           </item>
           <item id="di766367623678480567" iid="f823275f4c304f609c2e452d2f1c0243" creation-date="10/19/2016 17:34:13" order-index="6" type="entity">
             <layout ax="302" ay="69" awidth="112" aheight="50" x="302" y="69" width="112" height="50" />
           </item>
           <item id="di589814340249594222" iid="a5d30e535d424668a617e4eebb69a4da" creation-date="10/19/2016 17:34:13" order-index="6" type="entity">
-            <layout ax="531" ay="45" awidth="112" aheight="50" x="531" y="45" width="112" height="50" />
+            <layout ax="760" ay="45" awidth="112" aheight="50" x="760" y="45" width="112" height="50" />
           </item>
           <item id="di139406060202547774" iid="9a4bc029f5d14c58910c90b1b43ea667" creation-date="10/19/2016 17:34:29" order-index="7" type="entity">
-            <layout ax="655" ay="426" awidth="88" aheight="77" x="655" y="426" width="88" height="77" />
+            <layout ax="966" ay="262" awidth="88" aheight="77" x="966" y="262" width="88" height="77" />
           </item>
           <item id="di143384987519165577" iid="f28d15c9275d46a080d95c50f0063ba0" creation-date="10/19/2016 17:34:33" order-index="8" type="entity">
-            <layout ax="27" ay="40.5" awidth="88" aheight="59" x="27" y="40.5" width="88" height="59" />
+            <layout ax="541" ay="487.5" awidth="88" aheight="59" x="541" y="487.5" width="88" height="59" />
           </item>
           <item id="di837536678200241548" iid="13e3ba1627c14112ae38d212f25b2ff7" creation-date="10/19/2016 17:34:54" order-index="9" type="entity">
-            <layout ax="202" ay="295.5" awidth="123" aheight="24" x="202" y="295.5" width="123" height="24" />
+            <layout ax="296.5" ay="250" awidth="123" aheight="24" x="296.5" y="250" width="123" height="24" />
           </item>
           <item id="di291666647378791899" iid="85ec7c993c004c739c914c03b370c8b1" creation-date="10/19/2016 17:35:54" order-index="10" type="entity">
-            <layout ax="191" ay="359" awidth="145" aheight="39" x="191" y="359" width="145" height="39" />
+            <layout ax="382" ay="343.5" awidth="145" aheight="39" x="382" y="343.5" width="145" height="39" />
           </item>
           <item id="di924065924957267593" iid="65e7f199f9214d4687fbffa864253cff" creation-date="10/19/2016 17:36:20" order-index="11" type="entity">
-            <layout ax="191" ay="172" awidth="145" aheight="27" x="191" y="172" width="145" height="27" />
+            <layout ax="382" ay="295" awidth="145" aheight="27" x="382" y="295" width="145" height="27" />
+          </item>
+          <item id="di495159602596187781" iid="a586f488a72045328b183747d8856947" creation-date="10/25/2016 18:08:08" order-index="12" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="124" y1="236" x2="124" y2="162" start-border-pos="0.125862068965517" end-border-pos="0.623883928571429" name-position="0,0">
+              <points>
+                <point x="124" y="236" />
+                <point x="124" y="162" />
+              </points>
+            </layout>
+            <relation from="di423325372731266658" from-iid="0b22bea709304cc09cf740d429d6ff89" to="di613900195375551679" to-iid="0424734cf92946f89b9745bffceb8f24" />
+          </item>
+          <item id="di972364469214357119" iid="51f73e6271de48fe8bc5d1feb8656b86" creation-date="10/25/2016 18:11:40" order-index="15" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="296" y1="262" x2="196" y2="308" start-border-pos="0.869791666666667" end-border-pos="0.424757281553398" name-position="3,-33">
+              <points>
+                <point x="296" y="262" />
+                <point x="196" y="308" />
+              </points>
+            </layout>
+            <relation from="di837536678200241548" from-iid="13e3ba1627c14112ae38d212f25b2ff7" to="di423325372731266658" to-iid="0b22bea709304cc09cf740d429d6ff89" />
+          </item>
+          <item id="di283209761557596324" iid="c77344b2fc014369b53717f361c8b529" creation-date="10/25/2016 18:22:05" order-index="16" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="815" y1="308" x2="966" y2="300" start-border-pos="0.373376623376623" end-border-pos="0.876623376623377" name-position="-2,-22">
+              <points>
+                <point x="815" y="308" />
+                <point x="966" y="300" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di139406060202547774" to-iid="9a4bc029f5d14c58910c90b1b43ea667" />
+          </item>
+          <item id="di165942955436819533" iid="b9d895fe553d423e9e3fcc4ee731ca62" creation-date="10/25/2016 18:22:42" order-index="17" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="745" y1="270" x2="791" y2="95" start-border-pos="0.112204724409449" end-border-pos="0.680803571428571" name-position="49,-3">
+              <points>
+                <point x="745" y="270" />
+                <point x="791" y="95" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di589814340249594222" to-iid="a5d30e535d424668a617e4eebb69a4da" />
+          </item>
+          <item id="di531732409290124509" iid="a9defb92de934cc2acfbd6ec4a489d4b" creation-date="10/25/2016 18:23:03" order-index="18" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="false" lock-to-fields="false" auto-path="" x1="688" y1="322" x2="394" y2="119" start-border-pos="0.831168831168831" end-border-pos="0.544231687273298" name-position="-22,40" name-width="165">
+              <points>
+                <point x="688" y="322" />
+                <point x="394" y="119" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di766367623678480567" to-iid="f823275f4c304f609c2e452d2f1c0243" />
+          </item>
+          <item id="di240693507334040825" iid="487ce576dad446178262ee60208ca52c" creation-date="10/25/2016 18:23:46" order-index="19" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="688" y1="295" x2="414" y2="94" start-border-pos="0.918831168831169" end-border-pos="0.375" name-position="38,-13">
+              <points>
+                <point x="688" y="295" />
+                <point x="414" y="94" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di766367623678480567" to-iid="f823275f4c304f609c2e452d2f1c0243" />
+          </item>
+          <item id="di245298407930278794" iid="042c53e962354419950e7ebbbeb60cd8" creation-date="10/25/2016 18:24:09" order-index="20" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="815" y1="328" x2="966" y2="322" start-border-pos="0.438311688311688" end-border-pos="0.805194805194805" name-position="2,14">
+              <points>
+                <point x="815" y="328" />
+                <point x="966" y="322" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di139406060202547774" to-iid="9a4bc029f5d14c58910c90b1b43ea667" />
+          </item>
+          <item id="di324479520121477366" iid="f9b78d8b5413466f9c9264477cf9a8bc" creation-date="10/25/2016 18:24:36" order-index="21" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="746" y1="347" x2="563" y2="488" start-border-pos="0.635826771653543" end-border-pos="0.0625" name-position="0,0">
+              <points>
+                <point x="746" y="347" />
+                <point x="563" y="488" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di143384987519165577" to-iid="f28d15c9275d46a080d95c50f0063ba0" />
+          </item>
+          <item id="di460982487921298932" iid="b56a23ebd5274939a4d8b5dab321e981" creation-date="10/25/2016 18:25:45" order-index="22" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="543" y1="488" x2="196" y2="339" start-border-pos="0.00568181818181818" end-border-pos="0.5" name-position="0,0">
+              <points>
+                <point x="543" y="488" />
+                <point x="196" y="339" />
+              </points>
+            </layout>
+            <relation from="di143384987519165577" from-iid="f28d15c9275d46a080d95c50f0063ba0" to="di423325372731266658" to-iid="0b22bea709304cc09cf740d429d6ff89" />
+          </item>
+          <item id="di709543090277817065" iid="d4f69d8698a34c3994b5e68c417074a4" creation-date="10/25/2016 18:29:15" order-index="23" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="196" y1="313" x2="382" y2="363" start-border-pos="0.436893203883495" end-border-pos="0.875" name-position="18,-18">
+              <points>
+                <point x="196" y="313" />
+                <point x="382" y="363" />
+              </points>
+            </layout>
+            <relation from="di423325372731266658" from-iid="0b22bea709304cc09cf740d429d6ff89" to="di291666647378791899" to-iid="85ec7c993c004c739c914c03b370c8b1" />
+          </item>
+          <item id="di785926766363224146" iid="8ebf9670734d463cb60dc887574c92bc" creation-date="10/25/2016 18:30:42" order-index="24" type="entity">
+            <layout ax="600" ay="54" awidth="88" aheight="32" x="600" y="54" width="88" height="32" />
+          </item>
+          <item id="di589097669522303329" iid="3a68757aca924c6db3260cd7a9008ed2" creation-date="10/25/2016 18:31:25" order-index="25" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="627" y1="86" x2="688" y2="270" start-border-pos="0.673295454545455" end-border-pos="0" name-position="-76,-53">
+              <points>
+                <point x="627" y="86" />
+                <point x="688" y="270" />
+              </points>
+            </layout>
+            <relation from="di785926766363224146" from-iid="8ebf9670734d463cb60dc887574c92bc" to="di762372445949650728" to-iid="7e26e6f921ed44419306a5306e69c3d0" />
+          </item>
+          <item id="di846029806765426595" iid="7bd7f20ec99e464484f06eb5461151a9" creation-date="10/25/2016 18:31:41" order-index="26" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="734" y1="270" x2="677" y2="86" start-border-pos="0.0905511811023622" end-border-pos="0.53125" name-position="26,-33">
+              <points>
+                <point x="734" y="270" />
+                <point x="677" y="86" />
+              </points>
+            </layout>
+            <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di785926766363224146" to-iid="8ebf9670734d463cb60dc887574c92bc" />
+          </item>
+          <item id="di340380115929716298" iid="c820d194826043d5a5877e37c2a80ed8" creation-date="10/25/2016 19:02:26" order-index="27" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="129" y1="478" x2="130" y2="339" start-border-pos="0.13448275862069" end-border-pos="0.613793103448276" name-position="35,1">
+              <points>
+                <point x="129" y="478" />
+                <point x="130" y="339" />
+              </points>
+            </layout>
+            <relation from="di367217511957894048" from-iid="04efb411841e418390e257b0def9be7c" to="di423325372731266658" to-iid="0b22bea709304cc09cf740d429d6ff89" />
           </item>
         </layer>
       </diagram>

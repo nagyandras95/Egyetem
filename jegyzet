@@ -1,6 +1,6 @@
 DFD..
 Ügyintézők
-ügyinéző -> borssúrán keresztül -> ügyfél
+ügyinéző -> brossúrán keresztül -> ügyfél
 brossúra tartalma:
 - tanfolyamtípús kódja, annak kötött ára, min max létszáma van, nem változik
 
@@ -22,7 +22,7 @@ foglalási űrlap
 számlák
 - számlaszám
 Tanfolyam felelős
-felelős -> milyen tanfolyamkat vigyen fel(dátum, kik tartják) -> ügyintéző (találkozóhelyeket ő szervezi)
+felelős -> milyen tanfolyamkat vigyen fel (dátum, kik tartják) -> ügyintéző (találkozóhelyeket ő szervezi)
 kihelyezett kurzusokról infók
 szeretne: 
 - összesítést az előadóktól a tartott kurzusokról
