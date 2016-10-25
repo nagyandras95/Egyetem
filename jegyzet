@@ -1,0 +1,84 @@
+DFD..
+Ügyintézők
+ügyinéző -> borssúrán keresztül -> ügyfél
+brossúra tartalma:
+- tanfolyamtípús kódja, annak kötött ára, min max létszáma van, nem változik
+
+oktatási ütemterv tartalma:
+- tanfolyam időpontja
+- helye
+- max, min hallagtó
+- előadók -> reláció az előadó entitással
+falitabló:
+- tanfolyami maximum
+- foglalt helyek (biztos, ideiglenes, készenléti..) - szét kell bontani
+jegyzettömb, mint kézi adattáróló.. (ügyfél neve, címe..)
+ügyfél -> megerősítő levél (küldöttek adatai) -> tanfolyami ügyintéző
+foglalási ív, mint adattároló
+mindegyik tanfolyamhoz tartozik egy tanfolyami ellenörző ív, h miket kell csinálni..
+
+Gépíró
+foglalási űrlap
+számlák
+- számlaszám
+Tanfolyam felelős
+felelős -> milyen tanfolyamkat vigyen fel(dátum, kik tartják) -> ügyintéző (találkozóhelyeket ő szervezi)
+kihelyezett kurzusokról infók
+szeretne: 
+- összesítést az előadóktól a tartott kurzusokról
+- hogy állnak a foglalások
+- tanfolyam-típús ellenőrzés
+
+Lebontott DFD
+Fogalálsok kezelése (tanfolyami ügyintéző)
+- írás (saját v. ügyfél űrlap, vagy levél) vagy telefon
+- ha írás -> megerősítés, vagy új..
+- dosszié szerint ellenőrzi ezeket
+- ha megerősítés, akkor csak a megerősítést csatol
+- ha új, akkor úgy kezelik, mint a telefonos, csak más státusszal
+- üres helyek ellenőrzése falitablón
+- ha nincs tele, akkor ok, kigazítja a falitablón az összegeket, és az ütemterven
+- ha tele van, alternatívák, akkor is fel kell jegyezni (készenléti állapot (törlődéseknél van jelentőssége))
+- foglalási űrlap -> dosszié -> küldöttek kigazítása
+- foglalási ív módoítása
+- lemondás: telefon, vagy írás -> lemondás bejegyzése a foglalási ívbe, törölt számláknak külön lista(adattároló)
+- üres hely felszabaul készenléti foglalása -> felajánlás, dátuma feljegyzés foglalási íven (űrlapon kapja meg)
+- ha ügyfél elfogadja, feljegyzés az íven, és összesíteni a foglaltásokat (ütemterv, falitabló)
+
+Tanfolyan ütemterv és változások
+- tanfolyamkódok meghatározása (típús + dátum (3) + sorszám (ha több))
+- 100 példány (titknő kiosztja)
+- ütemterv változhat a tanflyamefelelősök miatt
+- befejezettek törlik
+- törlés -> dátum fejlehyezlse: faliatbló, ütemterv, foglalási dosszié, ügyefelek értesítése (számlák)
+- megakpják a felősöktől: oktatók, helyszín (mindhárom szarra fejleszés)
+- ha szálloda -> szobafoglalásról érteítést kell küldeni nekik
+- díjváltozásról értesítést kapnak
+
+Részvételi útmutatók elkésíztése (Gépíró)
+- Kurzushoz tartozó foglalási ívek ellenőrzése (hol hiányzik a részvételi útmutató kikdülsée)
+- Ügyfél és a küldött adatai az űrlapról, helyszín adatit a törzspéldányról
+- ELkészítésének dátuma felvezetése a foglalása ívre, feladás (temporális tároló)
+Résztveők listájának elkészítése
+- Követekező kurzust veszi a falitablóról, felvezeti rá a dátumot (melyik lesz a kövi)
+- Foglaási dosszié alapján a kurzusn részveők neveit
+- Ütemtervből: Helyszín és előadók
+- Előadók, résztvetők, hotel kapja meg
+- Nyomdába küldjük először, h egybe vegyék az útutatóval
+- Nyomtatási igénylés: max létszám, helyszín, téma, sorrednjeik.
+- Bejygezés a dossziéba, h kész van.
+- Jegyzetfüzet (manunlis tároló) - indexek a tanfolyamokról -> helyes sorrednben a témák (Victoria tartja karban)
+
+Könyvelési iratok (számlák pl)
+- megerőített, de még nem számlázott foglalások kiválogatása, ügyfelek nveinek összegyűjtése
+- ideiglenes foglalások összegyűjtése, megy Victoriának, h emlékzettőt küldhessen ki
+- dossziék alapján számlák elkésíztése
+- tandíjat árjegyzéből (Victoria nyomatja), számla összeg, dátum fejegyzése a foglalási íven
+- 2 példány az ügyfélnek, egy a könyvelésnek
+- Jóvárírást a számlákkal együtt csinálja (már kiküldött számlák, de törölt foglalás)
+- ellenőrzi, h nincs-e rajta ugyanaz a foglalás mindkét listán
+Tanfolyam összesítők
+- előadóktól kapja az értékelést, összesíti a tanfolyamfelelősnek
+- összeszámolja, hányszor értékeltek egy témát valamilyennek (jó, szar, stb)
+- foglalási dossziéból jön az érékelés
+- régi foglalási ddiszék kiselejtzeése
