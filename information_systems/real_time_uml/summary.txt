@@ -1,0 +1,41 @@
+Key Strategies for Object Identification
+1. Underline the Noun Strategy
+Works directly with the written problem.
+Underline each noun or noun pharse and trat it as a potential object.
+Identification can be put into different acetgories:
+- Objects of interest
+- Classes of interets
+- Actors
+- Unitresting objects
+- Atrributes
+- Events
+
+2. Identifiy the Causal Agents
+Every effect is casued by an element. 
+This startegy looks to identifiy the cause things to happen.
+- Produce or control actions
+- Produce or analyze data
+- Provide interfaces to people or devices
+- Store information
+- Provide services to people or devices
+- Contain more fundamental objects as parts
+A causal object is an object that autonomously performs actions, coordinates the activities of component parts, 
+or generates events
+
+3. Identify Services
+The services will be provided by objects.
+Provide passive control: do what is requested
+Data storage or both.
+For example: switch is a passive control object becasue does not initiate action
+It provides services to the casual objects (turns the ligth on or off)
+Also known as servers. (provide services to clients) - does not know their clients
+
+4. Identifiy Messages and Information Flows
+For each message: sender, reciver (potenitally a processer)
+Correspond: information and control flows
+Relized by: operation calls or receptions
+The message can be an object too. Remote communcation with network packets. (remberd or processed)
+
+5. Identify Real-World Items
+
+
