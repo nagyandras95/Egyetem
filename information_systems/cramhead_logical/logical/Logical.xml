@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="4367AB0B-8529-5790-3313-DC149C191DE8" mainViewID="FA659450-C971-0EE3-2DF4-B5E68AAEDD0F">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-27 19:42:23 UTC</createdTime>
+<ownerDesignName>cramhead_logical</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>
