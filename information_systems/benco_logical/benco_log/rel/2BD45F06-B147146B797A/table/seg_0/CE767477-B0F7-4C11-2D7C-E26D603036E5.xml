@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA590697-956E-1CEA-0001-03D4895F7D27" name="Termekjegyzek">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CE767477-B0F7-4C11-2D7C-E26D603036E5" name="Termekjegyzek">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>C940878A-7897-6B68-0B0B-892481DEF060</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <abbreviation>TJ</abbreviation>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Cikk_TSzam" id="79498603-F27A-C8F9-B92E-C59E0F8BBCF6">
+<Column name="Cikk_TSzam" id="1D22182C-5E1D-B446-5ED9-32EE8237D3E8">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>2E738352-971D-12E3-5E60-C069291E6090</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -22,12 +22,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="D44B3739-B630-201E-4CAE-822692A56EE8" referredColumn="EC60443D-7791-B111-0640-8A4D25EC33D8"/>
+<colAssociation fkAssociation="66A1653B-D3BA-669A-EFBA-0D608E432C2E" referredColumn="76CE5937-BAEF-F29E-894C-8D2E2B7BC9BA"/>
 </associations>
 </Column>
-<Column name="NK_NagykerAzon" id="3ED75B22-5EAB-9258-4A9E-08301483D658">
+<Column name="NK_NagykerAzon" id="27E7E09D-FD1E-ACE6-3B92-606E6E070B0F">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>99E1757D-92DC-44EB-0829-6FC4EBBED9A5</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -37,12 +37,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="39675BBF-8FE3-37FD-72BB-4550BAE6CD75" referredColumn="6031A139-423F-D64F-73EE-0D2F5BF8C4AD"/>
+<colAssociation fkAssociation="75565305-1627-82D0-0BC4-5F4150DCF8C2" referredColumn="9FA61249-8CEB-8DA9-4485-807081D45DC7"/>
 </associations>
 </Column>
-<Column name="Ar" id="57A50B1B-1EFF-45E6-6B9C-05D8D27205A3">
+<Column name="Ar" id="E0A1DD9A-CF53-BA13-643C-E5F20522F06B">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>664C7C6D-DBB3-F5D3-CED9-F9E087BDC625</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -56,26 +56,26 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="6239B7A4-EDB4-AC35-44FD-4B7AC20B7E90" name="FK10v1">
+<ind_PK_UK id="C364A167-D7CA-AAC9-B17D-6D349DDE9D51" name="FK10v1">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>62F2BDA1-2332-6795-C12F-2847A7F66D08</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="3ED75B22-5EAB-9258-4A9E-08301483D658"/>
+<colUsage columnID="27E7E09D-FD1E-ACE6-3B92-606E6E070B0F"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="CCFA234E-0C87-83F1-FFCE-88D5397A7372" name="FK2">
+<ind_PK_UK id="7FC37F5B-7B6C-92B4-E66B-B2F5532DA6D8" name="FK2">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>F169E4E4-BB4C-EDA2-6880-66CDEE089E8B</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="79498603-F27A-C8F9-B92E-C59E0F8BBCF6"/>
+<colUsage columnID="1D22182C-5E1D-B446-5ED9-32EE8237D3E8"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

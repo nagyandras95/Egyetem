@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="20C4CF7C-2091-65E6-BA03-6CC9AA4A077F" name="Nagykereskedo">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BAB9E64B-A2DF-AD76-4E42-C5A73E225819" name="Nagykereskedo">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>E9A55A68-9AC1-D6D5-3D2E-8DAFAFA20F32</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <abbreviation>NK</abbreviation>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="NagykerAzon" id="6031A139-423F-D64F-73EE-0D2F5BF8C4AD">
+<Column name="NagykerAzon" id="9FA61249-8CEB-8DA9-4485-807081D45DC7">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>AD1BC7F1-6626-E5AB-6E47-0DFA5C8A107A</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="NagykerNév" id="0F6BD993-7EA1-8034-6585-65AC8112B458">
+<Column name="NagykerNév" id="BCA0CDA1-AB5F-4F38-DD6B-6430C9B71548">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>DA7E6121-3FF4-438F-EB65-8AF654DE7F70</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -32,9 +32,9 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Cim" id="0B87E163-626D-2915-21C6-A36F16B825A5">
+<Column name="Cim" id="6C9DEB12-519C-5E69-864B-035700F8FD4C">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>DDF831F6-6EEB-A0CB-35F4-A0B6140B5314</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -45,9 +45,9 @@
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Telefon" id="44C436F8-AAA2-2FC0-7FF7-A603D771ADC8">
+<Column name="Telefon" id="487E190D-865B-C118-8974-585C62CF0447">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>C09FEE19-21DC-542B-5979-684070CB22F5</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -60,16 +60,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="5E9B9B44-2BBA-95F4-6B98-300EF09FEF41" name="Nagykereskedo_PK">
+<ind_PK_UK id="C6B7D3E7-3AF6-DF92-74AF-5760000F9551" name="Nagykereskedo_PK">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>45609178-55AD-8A70-6401-3B3D90C9D6BC</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="6031A139-423F-D64F-73EE-0D2F5BF8C4AD"/>
+<colUsage columnID="9FA61249-8CEB-8DA9-4485-807081D45DC7"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

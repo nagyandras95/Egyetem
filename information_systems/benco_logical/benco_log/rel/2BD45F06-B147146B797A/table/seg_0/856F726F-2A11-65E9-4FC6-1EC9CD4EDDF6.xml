@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="03CDC2E8-628D-BC44-0EE0-A8762BDA6F75" name="Szallitoi_rendeles_sor">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="856F726F-2A11-65E9-4FC6-1EC9CD4EDDF6" name="Szallitoi_rendeles_sor">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>92007CE4-2F64-E2ED-D3B9-D465B3BB184F</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <abbreviation>SzRS</abbreviation>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="SzrSorAzon" id="A973EAA8-D94D-08C1-6F85-89562DDE674F">
+<Column name="SzrSorAzon" id="8EA01045-95D2-3175-E51F-5F94B207C26C">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>CD79454E-F1E1-C957-ECBB-7C665D1C67EC</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SzR_SzrAzon" id="E1D7E99A-9591-AFF0-95BB-8B1FE5968189">
+<Column name="SzR_SzrAzon" id="22B98332-D4DE-C930-273A-E71B292E7CAC">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>F1836279-7E88-5006-A179-14B8E7080718</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -32,12 +32,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="81401EB0-B035-2415-95BF-E747D58E4F7B" referredColumn="CC0D58BD-EB3F-24EA-7499-AD059982C8F5"/>
+<colAssociation fkAssociation="04658277-8801-0BED-1A8E-12C4444FFC76" referredColumn="975F8D7F-F587-9167-0873-41AE4CA9692D"/>
 </associations>
 </Column>
-<Column name="Mennyiseg" id="00C3596C-C90E-FEBA-4720-92AF4635A642">
+<Column name="Mennyiseg" id="E4D39161-F4AC-44EC-2C58-AE1410EF01C7">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>CE3512BC-304A-278F-9502-63A37C655E66</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -49,27 +49,27 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="C47967AD-CB4A-2D10-D71F-729F5D236CB6" name="Szallitoi_rendeles_sor_PK">
+<ind_PK_UK id="EB651501-0B90-FA2C-ABC0-68FFC31522A8" name="Szallitoi_rendeles_sor_PK">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>524E6264-3000-D148-3925-49720124E92C</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="A973EAA8-D94D-08C1-6F85-89562DDE674F"/>
+<colUsage columnID="8EA01045-95D2-3175-E51F-5F94B207C26C"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="675AA2B9-61E0-5698-D057-67E08DD2D0A1" name="FK9">
+<ind_PK_UK id="3ECA6502-03B8-352D-4B9C-EC3D1B985F4B" name="FK9">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>6A60FD0A-4E61-53F3-45FB-C022DC2DFD1B</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="E1D7E99A-9591-AFF0-95BB-8B1FE5968189"/>
+<colUsage columnID="22B98332-D4DE-C930-273A-E71B292E7CAC"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

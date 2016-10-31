@@ -4,12 +4,12 @@
 <createdTime>2016-10-31 14:26:57 UTC</createdTime>
 <ownerDesignName>benco_log</ownerDesignName>
 <engineerTo>
-<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+<item key="2BD45F06-0A79-B5F5-7842-B147146B797A" value="true"/>
 </engineerTo>
 <sourcePk>524E6264-3000-D148-3925-49720124E92C</sourcePk>
 <identifying>false</identifying>
 <optionalSource>false</optionalSource>
-<optionalTarget>false</optionalTarget>
+<optionalTarget>true</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
 <sourceEntity>92007CE4-2F64-E2ED-D3B9-D465B3BB184F</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>

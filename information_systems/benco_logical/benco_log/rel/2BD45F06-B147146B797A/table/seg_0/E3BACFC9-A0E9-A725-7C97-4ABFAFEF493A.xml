@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5666EAF8-D24F-4FEF-753B-F25DED6452EE" name="Termek">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E3BACFC9-A0E9-A725-7C97-4ABFAFEF493A" name="Termek">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>E901B681-DFB4-E866-6494-F28F129244B5</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <abbreviation>Cikk</abbreviation>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="TSzam" id="EC60443D-7791-B111-0640-8A4D25EC33D8">
+<Column name="TSzam" id="76CE5937-BAEF-F29E-894C-8D2E2B7BC9BA">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>57880644-0121-0A38-BB6F-D305B8F217D3</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -21,9 +21,9 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TNev" id="DC731AAF-F4D7-AEC3-FEC6-5EBE684E86AA">
+<Column name="TNev" id="5C67D346-5116-0E71-8564-D299E1AF86DE">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>EECA2CB3-9E9E-1EAF-C3FB-CA0162CA7C0C</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -34,9 +34,9 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TListaAr" id="C808BDF9-2403-187F-D6E6-81DFE5A83204">
+<Column name="TListaAr" id="E4088C7E-83CE-C934-70C4-F5BB48929948">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>76E75B52-E11B-8D15-09D8-B77B1DC0C8FB</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -47,9 +47,9 @@
 <ownDataTypeParameters>,10,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TEgység" id="5EA08DD2-E9DA-2880-8ED5-539B53DAD8E7">
+<Column name="TEgység" id="1634825F-6C91-D802-995A-FCA548D9E725">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>6BC97ED2-C9D8-9FC0-92A4-73C1821C5500</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -60,9 +60,9 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TMegjegyzes" id="54BD967E-BFFF-0DEE-8856-9F2337738A03">
+<Column name="TMegjegyzes" id="6707A09D-3C93-B5C5-5C2F-32F1E4434918">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>EB21FB04-DBF9-27AB-F785-96E5053429CA</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -73,9 +73,9 @@
 <ownDataTypeParameters>80,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TO_Osztaly_Nev" id="B37F2F33-71E8-AF03-8DF4-F0F9B48B1BE7">
+<Column name="TO_Osztaly_Nev" id="8394CDB0-946A-3CC6-5357-B129BBD39000">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>6E339CC8-601F-F277-BCC0-ED2C9C836BE6</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -86,12 +86,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="AE0154B8-FBB6-3224-2225-302417BB2008" referredColumn="314F982C-A3E9-6EAC-8256-35C8623C7E63"/>
+<colAssociation fkAssociation="9A7B223A-9A3C-85D7-F5E3-4BF2FDF99284" referredColumn="0DC5CA29-247D-5147-0AB1-ADF872E5CC1E"/>
 </associations>
 </Column>
-<Column name="A_ar" id="4F19C00D-38C9-2810-E484-A145B3582718">
+<Column name="A_ar" id="9DFEA634-D2DB-C192-0129-98322F798FE2">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>90A37CFE-F488-68C5-CB66-E18B9EB65AE2</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -102,9 +102,9 @@
 <ownDataTypeParameters>,10,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="B_ar" id="B384E505-5B31-B61C-721C-04B9ED3EB62C">
+<Column name="B_ar" id="86190D01-4E77-5301-0B41-D0C0B0F3D57B">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>AE8756B8-5A90-B4F6-D4D7-8BF84BB0FEBA</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -115,9 +115,9 @@
 <ownDataTypeParameters>,10,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="C_ar" id="F7A4A5D8-8DB6-1A92-7F7F-0E35469FEC8B">
+<Column name="C_ar" id="0F4BBEA4-F3D2-0179-C30B-D1DE82D07315">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>74C68D63-B548-E64A-693A-5403D06D88B2</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -128,9 +128,9 @@
 <ownDataTypeParameters>,10,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="D_ar" id="F6624B7F-4C45-E4CC-EA56-76B4B86C979A">
+<Column name="D_ar" id="8C56B598-46DA-D0C5-75E1-C586ECC43B1F">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>EF4A84A1-D77B-9DFC-2B61-F874E5B858D8</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -143,27 +143,27 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="D9966E0D-C2ED-D03A-A535-E841786A32BF" name="Termek_PK">
+<ind_PK_UK id="673B2285-6D75-DE2A-9B7F-BC7449DD9C75" name="Termek_PK">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>D4D6EED8-F299-4C4D-7058-D9FD7F9C7CC8</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="EC60443D-7791-B111-0640-8A4D25EC33D8"/>
+<colUsage columnID="76CE5937-BAEF-F29E-894C-8D2E2B7BC9BA"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="9EDD8A01-0771-3291-EFF3-52B869685529" name="FK3">
+<ind_PK_UK id="D752807A-C0C4-FDF0-8F5D-ED1B54A203A1" name="FK3">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>04371C0C-9B48-7499-65A6-D3F312135A60</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="B37F2F33-71E8-AF03-8DF4-F0F9B48B1BE7"/>
+<colUsage columnID="8394CDB0-946A-3CC6-5357-B129BBD39000"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

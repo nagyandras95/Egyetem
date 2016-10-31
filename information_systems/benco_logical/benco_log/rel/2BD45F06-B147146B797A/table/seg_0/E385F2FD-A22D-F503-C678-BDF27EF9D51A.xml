@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C42D27C-86E2-10F4-AC6B-E733E38A9A20" name="TermekOsztaly">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E385F2FD-A22D-F503-C678-BDF27EF9D51A" name="TermekOsztaly">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>BCB229AA-19E9-9575-F6B5-76E1E3D61A94</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <abbreviation>TO</abbreviation>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Osztaly_Nev" id="314F982C-A3E9-6EAC-8256-35C8623C7E63">
+<Column name="Osztaly_Nev" id="0DC5CA29-247D-5147-0AB1-ADF872E5CC1E">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>BD6E362C-9C8D-A22A-009D-DEB9B0D1FB11</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -21,9 +21,9 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="LeltarKod" id="1FDB07BC-AFBB-2E85-C062-2E742FD9929E">
+<Column name="LeltarKod" id="4F9F2BF9-414D-6834-720F-46B9441552F1">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>5A6A808C-9875-54F7-6D2C-C81C25E7BC72</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -35,16 +35,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="CE5CAF6D-B31B-5A55-F072-BD68223DE48E" name="TermekOsztaly_PK">
+<ind_PK_UK id="D787DA13-727D-DE7B-F732-1AEE5F28C9E5" name="TermekOsztaly_PK">
 <createdBy>mozsi</createdBy>
-<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<createdTime>2016-10-31 16:16:27 UTC</createdTime>
 <generatorID>92B53B72-C840-359B-4882-9AC65AB920E2</generatorID>
 <ownerDesignName>benco_log</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="314F982C-A3E9-6EAC-8256-35C8623C7E63"/>
+<colUsage columnID="0DC5CA29-247D-5147-0AB1-ADF872E5CC1E"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
