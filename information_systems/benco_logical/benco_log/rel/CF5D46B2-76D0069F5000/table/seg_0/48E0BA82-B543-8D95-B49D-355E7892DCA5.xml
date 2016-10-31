@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="48E0BA82-B543-8D95-B49D-355E7892DCA5" name="Vasarloi_rendeles_sor">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>06E6CFEE-9DC7-D0C4-3E14-B307CA1263E2</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<abbreviation>VRS</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SorAzon" id="DE3140F7-8E73-2227-3F27-70BEEDE67C21">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>E652ED50-92C2-B5CE-B8B7-50FA2872B90E</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mennyiség" id="000D490C-FFEA-BC48-54CB-BEA1D42C6524">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>DCB7EE76-F3D7-FF1B-1B15-10CDC1F8284F</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cikk_TSzam" id="BFDDA470-84BB-E4CC-6AE2-5B65D55164DE">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>5770723E-794E-FBC0-6298-99BE9CBBDC9A</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BC99E8B2-A5F1-B779-86BE-3FF09C6FBC15" referredColumn="EC60443D-7791-B111-0640-8A4D25EC33D8"/>
+</associations>
+</Column>
+<Column name="VR_Vrszam" id="26D3FB66-1AC6-B909-C27A-C2ECA33C9D2E">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>22C38730-9733-8B0F-F040-5C81429B07D4</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="54B1A660-067A-FE6F-9878-592580829C59" referredColumn="62015BB0-761F-5000-4E95-F33609D37330"/>
+</associations>
+</Column>
+<Column name="SzRS_SzrSorAzon" id="27C6C40F-DA52-4211-5BF3-D3B8C58A6DAC">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>3D035DFB-1051-F48B-164C-6ABA68F7F403</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D351B98F-FEE1-968A-6676-84DFD3901EC7" referredColumn="A973EAA8-D94D-08C1-6F85-89562DDE674F"/>
+</associations>
+</Column>
+<Column name="Beerkezett" id="E30CE93A-F87F-A922-E911-009DF952545F">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>AE6D990B-C586-34CA-24DB-DFE1656AFE9D</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="78A086A6-00D1-6978-0AA9-7BB7BFCE66AD" name="Vasarloi_rendeles_sor_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>55474989-67FA-28C7-3845-1EE4DA7D1CA3</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE3140F7-8E73-2227-3F27-70BEEDE67C21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2DB373AD-D269-B863-8AB4-CE18A76C8827" name="FK10">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>334C5F09-C11D-7FCB-008D-7C2B79DA8641</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27C6C40F-DA52-4211-5BF3-D3B8C58A6DAC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEFA2FE8-9FC6-6329-E961-B18025404697" name="FK8">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>B92031CE-2878-FAFF-E402-47C986F41BCB</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BFDDA470-84BB-E4CC-6AE2-5B65D55164DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E0E81EAC-574A-BF81-F49B-213273150C98" name="VR_VRS_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>F7C9C92B-B239-8B1B-0BAB-537029EB4CAF</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="26D3FB66-1AC6-B909-C27A-C2ECA33C9D2E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

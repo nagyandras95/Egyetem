@@ -1,0 +1,181 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E901B681-DFB4-E866-6494-F28F129244B5" name="Termek">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>2C2237E2-80B2-A7A7-504A-CA400E27B15E</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>Cikk</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TSzam" id="57880644-0121-0A38-BB6F-D305B8F217D3">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>AF2F11F1-BBDE-2D8F-37BE-E6A2AC76BC63</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TNev" id="EECA2CB3-9E9E-1EAF-C3FB-CA0162CA7C0C">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>9A29CB57-A99E-DFC4-538B-58AFB06F65C4</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TListaAr" id="76E75B52-E11B-8D15-09D8-B77B1DC0C8FB">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>D88EECBA-E1BD-D7D3-696F-46B519BF338B</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TEgység" id="6BC97ED2-C9D8-9FC0-92A4-73C1821C5500">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>3DFB42A4-AAE5-1661-B9AE-C47172B98C1D</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TMegjegyzes" id="EB21FB04-DBF9-27AB-F785-96E5053429CA">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>73C39389-ACAB-33ED-CB8A-AD78342BEAA3</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Osztaly_Nev" id="6E339CC8-601F-F277-BCC0-ED2C9C836BE6">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:55:46 UTC</createdTime>
+<generatorID>04371C0C-9B48-7499-65A6-D3F312135A60</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<referedAttribute>BD6E362C-9C8D-A22A-009D-DEB9B0D1FB11</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="A_ar" id="90A37CFE-F488-68C5-CB66-E18B9EB65AE2">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 14:32:09 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="B_ar" id="AE8756B8-5A90-B4F6-D4D7-8BF84BB0FEBA">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 14:32:36 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="C_ar" id="74C68D63-B548-E64A-693A-5403D06D88B2">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 14:32:49 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="D_ar" id="EF4A84A1-D77B-9DFC-2B61-F874E5B858D8">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 14:33:00 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D4D6EED8-F299-4C4D-7058-D9FD7F9C7CC8" name="Termék PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:46:26 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<importedID>6BB53D81-2FBD-1E42-CEEA-4E660C47F61E</importedID>
+<engineerTo>
+<item key="CF5D46B2-4CD9-6D3A-483E-76D0069F5000" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>57880644-0121-0A38-BB6F-D305B8F217D3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

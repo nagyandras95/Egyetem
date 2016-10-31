@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="70AD6FE7-AED7-4F5C-6EC0-886921BCE39F" mainViewID="AE80CBD2-C070-8C9A-F262-A0CBE1992013">
-<createdBy>mozsik</createdBy>
-<createdTime>2016-10-18 16:38:22 UTC</createdTime>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="DDCF6D66-9154-EFEE-2A32-64A0581A55DE" mainViewID="7D0769A2-8678-8527-94EA-2A6B726E86E1">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-30 12:45:49 UTC</createdTime>
 <ownerDesignName>benco_log</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 </LogicalDesign>

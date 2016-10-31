@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA590697-956E-1CEA-0001-03D4895F7D27" name="Termekjegyzek">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>C940878A-7897-6B68-0B0B-892481DEF060</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<abbreviation>TJ</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cikk_TSzam" id="79498603-F27A-C8F9-B92E-C59E0F8BBCF6">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>2E738352-971D-12E3-5E60-C069291E6090</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D44B3739-B630-201E-4CAE-822692A56EE8" referredColumn="EC60443D-7791-B111-0640-8A4D25EC33D8"/>
+</associations>
+</Column>
+<Column name="NK_NagykerAzon" id="3ED75B22-5EAB-9258-4A9E-08301483D658">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>99E1757D-92DC-44EB-0829-6FC4EBBED9A5</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="39675BBF-8FE3-37FD-72BB-4550BAE6CD75" referredColumn="6031A139-423F-D64F-73EE-0D2F5BF8C4AD"/>
+</associations>
+</Column>
+<Column name="Ar" id="57A50B1B-1EFF-45E6-6B9C-05D8D27205A3">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>664C7C6D-DBB3-F5D3-CED9-F9E087BDC625</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6239B7A4-EDB4-AC35-44FD-4B7AC20B7E90" name="FK10v1">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>62F2BDA1-2332-6795-C12F-2847A7F66D08</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3ED75B22-5EAB-9258-4A9E-08301483D658"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CCFA234E-0C87-83F1-FFCE-88D5397A7372" name="FK2">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-10-31 15:09:29 UTC</createdTime>
+<generatorID>F169E4E4-BB4C-EDA2-6880-66CDEE089E8B</generatorID>
+<ownerDesignName>benco_log</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79498603-F27A-C8F9-B92E-C59E0F8BBCF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
