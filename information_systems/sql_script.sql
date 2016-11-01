@@ -40,12 +40,12 @@ insert into TERMEKJEGYZEK values (6, 2, 300);
 insert into TERMEKJEGYZEK values (6, 3, 320);
 
 -- select * from VASARLOI_RENDELES;
-insert into VASARLOI_RENDELES values (1, TO_DATE('20150123', 'yyyymmdd'), 1, 1, null, null, null);
-insert into VASARLOI_RENDELES values (2, TO_DATE('20150123', 'yyyymmdd'), 2, 1, null, null, null);
-insert into VASARLOI_RENDELES values (3, TO_DATE('20150123', 'yyyymmdd'), 3, 1, null, null, null);
-insert into VASARLOI_RENDELES values (4, TO_DATE('20150124', 'yyyymmdd'), 3, 1, null, null, null);
-insert into VASARLOI_RENDELES values (5, TO_DATE('20150124', 'yyyymmdd'), 4, 1, null, null, null);
-insert into VASARLOI_RENDELES values (6, TO_DATE('20150124', 'yyyymmdd'), 4, 1, null, null, null);
+insert into VASARLOI_RENDELES values (1, TO_DATE('20150123', 'yyyymmdd'), 1, 1, '1000-1-1', TO_DATE('20150126', 'yyyymmdd'), TO_DATE('20150127', 'yyyymmdd'));
+insert into VASARLOI_RENDELES values (2, TO_DATE('20150123', 'yyyymmdd'), 2, 1, '1000-1-2', TO_DATE('20150126', 'yyyymmdd'), TO_DATE('20150127', 'yyyymmdd'));
+insert into VASARLOI_RENDELES values (3, TO_DATE('20150123', 'yyyymmdd'), 3, 1, '1000-1-3', TO_DATE('20150126', 'yyyymmdd'), TO_DATE('20150127', 'yyyymmdd'));
+insert into VASARLOI_RENDELES values (4, TO_DATE('20150124', 'yyyymmdd'), 3, 1, '1000-1-4', TO_DATE('20150126', 'yyyymmdd'), TO_DATE('20150127', 'yyyymmdd'));
+insert into VASARLOI_RENDELES values (5, TO_DATE('20150124', 'yyyymmdd'), 4, 1, '1000-1-5', TO_DATE('20150126', 'yyyymmdd'), TO_DATE('20150127', 'yyyymmdd'));
+insert into VASARLOI_RENDELES values (6, TO_DATE('20150124', 'yyyymmdd'), 4, 1, '1000-1-6', TO_DATE('20150126', 'yyyymmdd'), TO_DATE('20150127', 'yyyymmdd'));
 
 -- select * from VASARLOI_RENDELES_SOR;
 insert into VASARLOI_RENDELES_SOR values (1, 10, 1, 1, null, null);
@@ -77,6 +77,27 @@ insert into VASARLOI_RENDELES_SOR values (21, 10, 2, 6, null, null);
 insert into VASARLOI_RENDELES_SOR values (22, 14, 5, 6, null, null);
 insert into VASARLOI_RENDELES_SOR values (23, 5, 3, 6, null, null);
 insert into VASARLOI_RENDELES_SOR values (24, 6, 4, 6, null, null);
+
+-- product 1 szallitoi rendeles sorok
+insert into SZALLITOI_RENDELES values ('1', 3, TO_DATE('20150125', 'yyyymmdd'), TO_DATE('20150126', 'yyyymmdd'), 'SZJAZON-1');
+insert into SZALLITOI_RENDELES_SOR values (1, '1', 53);
+UPDATE VASARLOI_RENDELES_SOR SET SZRS_SZRSORAZON='1', BEERKEZETT='1' WHERE CIKK_TSZAM=1;
+-- product 2 szallitoi rendeles sorok
+insert into SZALLITOI_RENDELES_SOR values (2, '1', 50);
+UPDATE VASARLOI_RENDELES_SOR SET SZRS_SZRSORAZON='2', BEERKEZETT='1' WHERE CIKK_TSZAM=2;
+-- product 3 szallitoi rendeles sorok
+insert into SZALLITOI_RENDELES values ('2', 4, TO_DATE('20150123', 'yyyymmdd'), TO_DATE('20150126', 'yyyymmdd'), 'SZJAZON-2');
+insert into SZALLITOI_RENDELES_SOR values (3, '2', 37);
+UPDATE VASARLOI_RENDELES_SOR SET SZRS_SZRSORAZON='3', BEERKEZETT='1' WHERE CIKK_TSZAM=3;
+-- product 4 szallitoi rendeles sorok
+insert into SZALLITOI_RENDELES_SOR values (4, '2', 54);
+UPDATE VASARLOI_RENDELES_SOR SET SZRS_SZRSORAZON='4', BEERKEZETT='1' WHERE CIKK_TSZAM=4;
+-- product 5 szallitoi rendeles sorok
+insert into SZALLITOI_RENDELES_SOR values (5, '2', 53);
+UPDATE VASARLOI_RENDELES_SOR SET SZRS_SZRSORAZON='5', BEERKEZETT='1' WHERE CIKK_TSZAM=5;
+-- product 6 szallitoi rendeles sorok
+insert into SZALLITOI_RENDELES_SOR values (6, '2', 19);
+UPDATE VASARLOI_RENDELES_SOR SET SZRS_SZRSORAZON='6', BEERKEZETT='1' WHERE CIKK_TSZAM=6;
 
 -- procedure1
 set serveroutput on
@@ -193,6 +214,26 @@ BEGIN
     
     DBMS_OUTPUT.put_line('Összes:   ' || TO_CHAR(osszesitett_rendeles) || '           ' || TO_CHAR(osszesitett_ar));  
 END;
+
+-- procedure4
+set serveroutput on
+create or replace procedure szallitoi_jelentes(szallitoi_rendeles_szam NUMBER) AS
+      nagyker_nev VARCHAR2(50);
+      nagyker_cim VARCHAR(50);
+      termek_ar NUMBER(10,2);
+      
+   BEGIN
+      dbms_output.put_line('Szállítói r. sz.: ' || to_char(szallitoi_rendeles_szam));
+      
+      select "NAGYKERNÉV", CIM into nagyker_nev, nagyker_cim from NAGYKERESKEDO where NAGYKERAZON = (SELECT NK_NAGYKERAZON FROM SZALLITOI_RENDELES WHERE SZRAZON = szallitoi_rendeles_szam);
+      dbms_output.put_line('Nagyker.: ' || nagyker_nev);
+      dbms_output.put_line('          ' || nagyker_cim);
+      dbms_output.put_line('');
+      dbms_output.put_line('                      ' || 'VÁSÁRLÓI');
+      dbms_output.put_line('Cikk szám    ' || 'Rendelés szám    ' || 'Vevõ szám    ' || 'Menny.');
+      
+   END;
+
 -- run this multiple times to clean the db
 drop table vevo;
 drop table VASARLOI_RENDELES;
@@ -221,10 +262,11 @@ ALTER TABLE Nagykereskedo ADD CONSTRAINT Nagykereskedo_PK PRIMARY KEY ( NagykerA
 
 CREATE TABLE Szallitoi_rendeles
   (
-    SzrAzon        INTEGER NOT NULL ,
-    NK_NagykerAzon INTEGER NOT NULL ,
-    RendelesDatum  DATE ,
-    BeerkezesDatum DATE
+    SzrAzon             VARCHAR2 (10) NOT NULL ,
+    NK_NagykerAzon      INTEGER NOT NULL ,
+    RendelesDatum       DATE ,
+    BeerkezesDatum      DATE ,
+    SzallitojegyzekSzam VARCHAR2 (15)
   ) ;
 ALTER TABLE Szallitoi_rendeles ADD CONSTRAINT Szallitoi_rendeles_PK PRIMARY KEY ( SzrAzon ) ;
 
@@ -232,7 +274,7 @@ ALTER TABLE Szallitoi_rendeles ADD CONSTRAINT Szallitoi_rendeles_PK PRIMARY KEY 
 CREATE TABLE Szallitoi_rendeles_sor
   (
     SzrSorAzon  INTEGER NOT NULL ,
-    SzR_SzrAzon INTEGER NOT NULL ,
+    SzR_SzrAzon VARCHAR2 (10) NOT NULL ,
     Mennyiseg   INTEGER
   ) ;
 ALTER TABLE Szallitoi_rendeles_sor ADD CONSTRAINT Szallitoi_rendeles_sor_PK PRIMARY KEY ( SzrSorAzon ) ;
@@ -329,5 +371,4 @@ ALTER TABLE Szallitoi_rendeles_sor ADD CONSTRAINT FK9 FOREIGN KEY ( SzR_SzrAzon 
 ALTER TABLE Vasarloi_rendeles_sor ADD CONSTRAINT VR_VRS_FK FOREIGN KEY ( VR_Vrszam ) REFERENCES Vasarloi_rendeles ( Vrszam ) ;
 
 ALTER TABLE Vasarloi_rendeles ADD CONSTRAINT vasarol FOREIGN KEY ( Vevo_Vszam ) REFERENCES Vevo ( Vszam ) ;
-
 

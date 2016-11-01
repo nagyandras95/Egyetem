@@ -72,6 +72,20 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="SzallitojegyzekSzam" id="02BE9F54-AFCB-48CB-D437-261220A1DE33">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-01 12:42:11 UTC</createdTime>
+<ownerDesignName>benco_log</ownerDesignName>
+<engineerTo>
+<item key="2BD45F06-0A79-B5F5-7842-B147146B797A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="21B880BC-A9F1-C415-78DE-E86B2EDFBDCE" name="SZR_PK">
