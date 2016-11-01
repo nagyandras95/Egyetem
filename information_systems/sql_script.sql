@@ -104,6 +104,78 @@ create or replace procedure termekertekesitesi_beszamolo(cikkszam NUMBER) AS
       CLOSE curs1;
    END;
 
+   
+--procedure2
+create or replace PROCEDURE becno_masodik_jel(ert_korzet_szam IN VARCHAR2) AS
+  ossz_rendeles INTEGER;
+  osszesitett_rendeles INTEGER := 0;
+  
+  megrendeles_erteke NUMBER;
+  osszesitett_ar NUMBER := 0;
+BEGIN
+  DBMS_OUTPUT.put_line('Ertekesesti korzet szam: ' || ert_korzet_szam);
+  DBMS_OUTPUT.put_line('Lapszam: ' || TO_CHAR(10));
+  DBMS_OUTPUT.put_line('Vevõ Sz:' || '  ' ||  'Eddigi megrendelések' || ' ' || 'Számla egyenleg' || ' ' || 'Megrendelés értéke');
+
+  FOR rec IN  
+  (SELECT Vevo.Vszam Vevo_Sz, Vevo.Egyenleg, Vevo.KedvezmenyKod
+  FROM Vevo 
+  WHERE (Vevo.ErtKorSzam = ert_korzet_szam))
+  
+  LOOP 
+    
+    DECLARE
+      a_ar NUMBER;
+      b_ar NUMBER;
+      c_ar NUMBER;
+      d_ar NUMBER;
+      ossz INTEGER;
+      
+    BEGIN
+    SELECT SUM(a), SUM(b), SUM(c), SUM(d)
+    INTO a_ar, b_ar, c_ar, d_ar
+    FROM
+        (SELECT SUM(ar_a_szerint) a, SUM(ar_b_szerint) b, SUM(ar_c_szerint) c, SUM(ar_d_szerint) d
+        FROM Vasarloi_rendeles,
+        (SELECT Vasarloi_rendeles_sor.VR_VRSZAM,
+        ( Vasarloi_rendeles_sor.Mennyiség * Termek.A_Ar) ar_a_szerint, 
+        ( Vasarloi_rendeles_sor.Mennyiség * Termek.B_Ar) ar_b_szerint,
+        ( Vasarloi_rendeles_sor.Mennyiség * Termek.C_Ar) ar_c_szerint,
+        ( Vasarloi_rendeles_sor.Mennyiség * Termek.D_Ar) ar_d_szerint
+        FROM Vasarloi_rendeles_sor, Termek
+        WHERE Vasarloi_rendeles_sor.CIKK_TSZAM = Termek.TSZAM) Sor_Ertek
+        WHERE (Sor_Ertek.VR_VRSZAM = Vasarloi_rendeles.VRSZAM) and  Vasarloi_rendeles.Vevo_Vszam = rec.Vevo_Sz
+        GROUP BY Vasarloi_rendeles.VRSZAM);
+    
+      
+      
+      SELECT COUNT(*) INTO ossz
+      FROM Vasarloi_rendeles WHERE VEVO_VSZAM = rec.Vevo_Sz;
+      osszesitett_rendeles := osszesitett_rendeles + ossz;
+      
+      
+      CASE rec.KedvezmenyKod
+          WHEN 'A' THEN megrendeles_erteke := a_ar;
+          WHEN 'B' THEN megrendeles_erteke := b_ar;
+          WHEN 'C' THEN megrendeles_erteke := c_ar;
+          WHEN 'D' THEN megrendeles_erteke := d_ar;
+      END CASE;
+      
+      IF megrendeles_erteke IS NOT NULL THEN
+      osszesitett_ar := osszesitett_ar + megrendeles_erteke;
+      ELSE
+        megrendeles_erteke := 0;
+      END IF;
+      
+      DBMS_OUTPUT.put_line(TO_CHAR(rec.Vevo_Sz) || '   ' || TO_CHAR(ossz) || '    ' || TO_CHAR(rec.Egyenleg) || '    ' || TO_CHAR(megrendeles_erteke));
+      
+
+       
+    END;   
+    END LOOP;
+    
+    DBMS_OUTPUT.put_line('Összes:   ' || TO_CHAR(osszesitett_rendeles) || '           ' || TO_CHAR(osszesitett_ar));  
+END;
 -- run this multiple times to clean the db
 drop table vevo;
 drop table VASARLOI_RENDELES;
