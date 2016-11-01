@@ -217,6 +217,65 @@ BEGIN
     DBMS_OUTPUT.put_line('Összes:   ' || TO_CHAR(osszesitett_rendeles) || '           ' || TO_CHAR(osszesitett_ar));  
 END;
 
+--procedure3
+create or replace PROCEDURE benco_haramdik_jelentes (vr_szam IN VARCHAR2) AS
+
+  CURSOR rendeles_curs IS
+  SELECT szamlaszam, szamladatum, vszam, irszam, nev, vevocim, kedvezmenykod 
+  FROM vasarloi_rendeles, vevo
+  WHERE vasarloi_rendeles.vevo_vszam = vevo.vszam and vasarloi_rendeles.vrszam = vr_szam;
+  rendes_rec rendeles_curs%ROWTYPE;
+  
+  kedvezmenyes_ar NUMBER;
+  ossz_ar NUMBER;
+  
+  szamlalo INTEGER := 0; 
+  afa NUMBER := 0.27;
+  netto_ar NUMBER := 0;
+BEGIN
+  --kiirasok
+  OPEN rendeles_curs;
+  FETCH rendeles_curs INTO rendes_rec;
+  CLOSE rendeles_curs;
+
+  DBMS_OUTPUT.put_line('Számla sz.:   ' || TO_CHAR(rendes_rec.szamlaszam) || '           ' || 'Dátum: ' || TO_CHAR(rendes_rec.szamladatum, 'DD/MON/YYYY') );
+  DBMS_OUTPUT.put_line('Vevõ sz.:    ' || TO_CHAR (rendes_rec.vszam));
+  DBMS_OUTPUT.put_line('Vevõ neve   ' || TO_CHAR (rendes_rec.nev) || '           ' || 'Vásárlói rendelés sz.: ' ||  TO_CHAR (vr_szam));
+  DBMS_OUTPUT.put_line('& Cím:    ' || TO_CHAR (rendes_rec.irszam) || ' ' || TO_CHAR (rendes_rec.vevocim));
+  
+  DBMS_OUTPUT.put_line('Tétel' || '   ' || 'Cikk sz.' || '    ' || 'Megnevezés' || '    ' || 'Egység' || '    ' || 'Lista ár' || '    ' || 'Kedv. kód' || '   ' || 'Mennyiség' || '   ' || 'Ár');
+  
+  
+  
+  FOR termek_rec IN
+  (SELECT cikk_tszam, tnev, tegység, tlistaar, a_ar, b_ar, c_ar, d_ar, mennyiség
+  FROM vasarloi_rendeles_sor, termek
+  WHERE vasarloi_rendeles_sor.vr_vrszam = vr_szam and vasarloi_rendeles_sor.cikk_tszam = termek.tszam)
+  
+  LOOP
+      
+    szamlalo := szamlalo + 1;
+      
+    CASE rendes_rec.kedvezmenykod
+        WHEN 'A' THEN kedvezmenyes_ar := termek_rec.a_ar;
+        WHEN 'B' THEN kedvezmenyes_ar := termek_rec.a_ar;
+        WHEN 'C' THEN kedvezmenyes_ar := termek_rec.a_ar;
+        WHEN 'D' THEN kedvezmenyes_ar := termek_rec.a_ar;
+        ELSE  kedvezmenyes_ar := termek_rec.tlistaar;
+    END CASE;
+    
+    ossz_ar := kedvezmenyes_ar * termek_rec.mennyiség;
+    netto_ar := netto_ar + ossz_ar;
+    DBMS_OUTPUT.put_line(TO_CHAR(szamlalo) || '       ' || TO_CHAR(termek_rec.cikk_tszam) || '          ' || TO_CHAR(termek_rec.tnev) || '          ' || termek_rec.tegység || '         ' || TO_CHAR(termek_rec.tlistaar)  || '        ' || rendes_rec.kedvezmenykod || '        ' || TO_CHAR(szamlalo)  || '        ' || TO_CHAR(ossz_ar) );
+    
+  END LOOP;
+  
+  DBMS_OUTPUT.put_line('Nettó összeg:   ' || TO_CHAR(netto_ar));
+  DBMS_OUTPUT.put_line('Áfa:   ' || TO_CHAR(afa*100));
+  DBMS_OUTPUT.put_line('Számla össz:   ' || TO_CHAR(netto_ar + afa*netto_ar));
+  
+END;
+
 -- procedure4
 set serveroutput on
 create or replace procedure szallitoi_jelentes(szallitoi_rendeles_szam VARCHAR2) AS
