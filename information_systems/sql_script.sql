@@ -82,10 +82,12 @@ insert into VASARLOI_RENDELES_SOR values (24, 6, 4, 6, null, null);
 set serveroutput on
 create or replace procedure termekertekesitesi_beszamolo(cikkszam NUMBER) AS
       cikk_megnevezes VARCHAR2(20);
+      termek_ar NUMBER(10,2);
+      kedvezmenykod CHAR(1);
       CURSOR curs1 IS 
-          SELECT vr.VRSZAM vrsz, vr.VRDATUM vrd, v.VSZAM vsz, v.NEV vn, count(vrs."MENNYISÉG") vrsm, sum(vrs."MENNYISÉG" * (select TERMEK.TLISTAAR from TERMEK where TERMEK.TSZAM = cikkszam)) s
+          SELECT vr.VRSZAM vrsz, vr.VRDATUM vrd, v.VSZAM vsz, v.NEV vn, sum(vrs."MENNYISÉG") vrsm
           FROM VASARLOI_RENDELES_SOR vrs, VASARLOI_RENDELES vr, VEVO v 
-          WHERE vrs.TERMEK_TSZAM = cikkszam and vrs.VASARLOI_RENDELES_VRSZAM = vr.VRSZAM and vr.VEVO_VSZAM = v.VSZAM
+          WHERE vrs.CIKK_TSZAM = cikkszam and vrs.VR_VRSZAM = vr.VRSZAM and vr.VEVO_VSZAM = v.VSZAM
           GROUP BY vr.VRSZAM, vr.VRDATUM, v.VSZAM, v.NEV;
       rec curs1%ROWTYPE;
    BEGIN
@@ -99,23 +101,38 @@ create or replace procedure termekertekesitesi_beszamolo(cikkszam NUMBER) AS
       LOOP
           FETCH curs1 INTO rec;
           EXIT WHEN curs1%NOTFOUND;
-          dbms_output.put_line(to_char(rec.vrsz) || '   ' || to_char(rec.vrd) || '    ' || rec.vsz || '    ' || rec.vn || '    ' || rec.vrsm || '    ' || rec.s);
+          
+          select kedvezmenykod into kedvezmenykod from VEVO v where v.VSZAM = rec.vsz; 
+          if kedvezmenykod = 'A' then
+              select t.A_AR into termek_ar from TERMEK t where t.TSZAM = cikkszam;
+          elsif kedvezmenykod = 'B' then
+              select t.B_AR into termek_ar from TERMEK t where t.TSZAM = cikkszam;
+          elsif kedvezmenykod = 'B' then
+              select t.C_AR into termek_ar from TERMEK t where t.TSZAM = cikkszam;
+          else
+              select t.D_AR into termek_ar from TERMEK t where t.TSZAM = cikkszam;
+          end if;
+          
+          -- mennyiseggel szorozva a kedvezmenyes ar
+          termek_ar := termek_ar * rec.vrsm;
+          
+          dbms_output.put_line(to_char(rec.vrsz) || '   ' || to_char(rec.vrd) || '    ' || rec.vsz || '    ' || rec.vn || '    ' || rec.vrsm || '    ' || ROUND (termek_ar, 2));
       END LOOP;
       CLOSE curs1;
    END;
 
    
 --procedure2
-create or replace PROCEDURE becno_masodik_jel(ert_korzet_szam IN VARCHAR2) AS
+create or replace PROCEDURE benco_masodik_jel(ert_korzet_szam IN VARCHAR2) AS
   ossz_rendeles INTEGER;
   osszesitett_rendeles INTEGER := 0;
   
   megrendeles_erteke NUMBER;
   osszesitett_ar NUMBER := 0;
 BEGIN
-  DBMS_OUTPUT.put_line('Ertekesesti korzet szam: ' || ert_korzet_szam);
+  DBMS_OUTPUT.put_line('Ertekesitesi korzet szam: ' || ert_korzet_szam);
   DBMS_OUTPUT.put_line('Lapszam: ' || TO_CHAR(10));
-  DBMS_OUTPUT.put_line('Vevõ Sz:' || '  ' ||  'Eddigi megrendelések' || ' ' || 'Számla egyenleg' || ' ' || 'Megrendelés értéke');
+  DBMS_OUTPUT.put_line('Vevõ Sz.' || '  ' ||  'Eddigi megrendelések' || ' ' || 'Számla egyenleg' || ' ' || 'Megrendelés értéke');
 
   FOR rec IN  
   (SELECT Vevo.Vszam Vevo_Sz, Vevo.Egyenleg, Vevo.KedvezmenyKod
