@@ -1,3 +1,5 @@
+select * from VASARLOI_RENDELES_SOR;
+
 -- add data to the db
 -- select * from VEVO;
 insert into vevo values (1, 'Vevõ1', 'Körzet1', 10000, 'Vevõcím1', '1038', '111111', 11000, 'Kulcs a lábtörlõ alatt', 'A', 1);
@@ -217,21 +219,56 @@ END;
 
 -- procedure4
 set serveroutput on
-create or replace procedure szallitoi_jelentes(szallitoi_rendeles_szam NUMBER) AS
+create or replace procedure szallitoi_jelentes(szallitoi_rendeles_szam VARCHAR2) AS
+      szallitojegy_sz VARCHAR(50);
+      rendeles_datum DATE;
       nagyker_nev VARCHAR2(50);
       nagyker_cim VARCHAR(50);
-      termek_ar NUMBER(10,2);
-      
+      TYPE T_cikkszam_tomb IS TABLE OF VARCHAR2(10) INDEX BY binary_integer;
+      cikkszam_tomb T_cikkszam_tomb;
    BEGIN
-      dbms_output.put_line('Szállítói r. sz.: ' || to_char(szallitoi_rendeles_szam));
+      select SZALLITOJEGYZEKSZAM, RENDELESDATUM into szallitojegy_sz, rendeles_datum FROM SZALLITOI_RENDELES WHERE SZRAZON = szallitoi_rendeles_szam;
+      dbms_output.put_line('Szállítójegy sz.: ' || szallitojegy_sz || '    Dátum: ' || to_char(rendeles_datum, 'mm/dd/yy'));
+      dbms_output.put_line('Szállítói r. sz.: ' || szallitoi_rendeles_szam);
       
       select "NAGYKERNÉV", CIM into nagyker_nev, nagyker_cim from NAGYKERESKEDO where NAGYKERAZON = (SELECT NK_NAGYKERAZON FROM SZALLITOI_RENDELES WHERE SZRAZON = szallitoi_rendeles_szam);
       dbms_output.put_line('Nagyker.: ' || nagyker_nev);
       dbms_output.put_line('          ' || nagyker_cim);
-      dbms_output.put_line('');
-      dbms_output.put_line('                      ' || 'VÁSÁRLÓI');
-      dbms_output.put_line('Cikk szám    ' || 'Rendelés szám    ' || 'Vevõ szám    ' || 'Menny.');
+      dbms_output.put_line(' ');
+      dbms_output.put_line('                 ' || 'Vásárlói');
+      dbms_output.put_line('Cikk sz.  ' || 'Rendelés sz.  ' || 'Vevõ sz.  ' || 'Menny.');
       
+      SELECT distinct(vrs.CIKK_TSZAM) BULK COLLECT INTO cikkszam_tomb FROM SZALLITOI_RENDELES_SOR szrs, VASARLOI_RENDELES_SOR vrs WHERE szrs.SZRSORAZON = vrs.SZRS_SZRSORAZON and szrs.SZR_SZRAZON = szallitoi_rendeles_szam order by vrs.CIKK_TSZAM;
+      FOR i IN cikkszam_tomb.FIRST..cikkszam_tomb.LAST LOOP
+          declare
+              cikkszam VARCHAR2(10) := cikkszam_tomb(i);
+              rowCount INTEGER := 0;
+              productCount INTEGER := 0;
+              CURSOR curs1 IS 
+                SELECT vrs.VR_VRSZAM, vr.VEVO_VSZAM, vrs."MENNYISÉG"
+                FROM SZALLITOI_RENDELES_SOR szrs, VASARLOI_RENDELES_SOR vrs, VASARLOI_RENDELES vr
+                WHERE szrs.SZRSORAZON = vrs.SZRS_SZRSORAZON and vrs.VR_VRSZAM = vr.VRSZAM and szrs.SZR_SZRAZON = szallitoi_rendeles_szam and vrs.CIKK_TSZAM = cikkszam;
+            rec curs1%ROWTYPE;
+          begin
+              OPEN curs1;
+              LOOP
+                  FETCH curs1 INTO rec;
+                  EXIT WHEN curs1%NOTFOUND;
+                  
+                  if rowCount = 0 then
+                      dbms_output.put_line(cikkszam || '         ' || rec.VR_VRSZAM || '             ' || rec.VEVO_VSZAM || '         ' || rec.MENNYISÉG);
+                  else
+                      dbms_output.put_line('          ' || rec.VR_VRSZAM || '             ' || rec.VEVO_VSZAM || '         ' || rec.MENNYISÉG);
+                  end if;
+                  
+                  productCount := productCount + rec.MENNYISÉG;
+                  rowCount := rowCount + 1;
+              END LOOP;
+              CLOSE curs1;
+              dbms_output.put_line('                                  ' || productCount || '  Termék összes');
+              dbms_output.put_line(' ');
+          end;
+      END LOOP;
    END;
 
 -- run this multiple times to clean the db
