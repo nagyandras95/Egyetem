@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ertekeles" directorySegmentName="seg_0" id="C7FB470C-8AB6-75D5-3D91-6BF61B604B98">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-01 14:25:01 UTC</createdTime>
+<ownerDesignName>cramhead_logical</ownerDesignName>
+<importedID>23045A46-39DA-EB89-CDAC-CEEDDD8C0C1B</importedID>
+<engineerTo>
+<item key="6750957A-6FB3-A1AE-255A-D764FFC1F6DC" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>3EE3815C-C524-FB62-8D38-1AB6C5CBC088</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>95C4B0E2-8E9F-E2E6-4917-03879EB0AF9D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

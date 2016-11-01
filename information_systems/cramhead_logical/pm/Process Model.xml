@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2F641B7C-D410-9DCB-9B10-A8C4B1783937" mainViewID="66F42BEC-76CB-CD41-B514-573F94103C9B">
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="641CCD04-1445-ED33-BA62-B5E0F71AE105">
 <createdBy>mozsi</createdBy>
 <createdTime>2016-11-01 14:24:31 UTC</createdTime>
 <ownerDesignName>cramhead_logical</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>
+</ProcessModel>

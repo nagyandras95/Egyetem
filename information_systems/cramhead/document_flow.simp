@@ -5,15 +5,15 @@
     <authors> </authors>
     <description />
   </meta>
-  <counters diagrams="2" models="1">
+  <counters diagrams="5" models="1">
     <entity-names>
       <counter>
         <item-type type-id="dfd-data-store" type="DfdDataStore" />
-        <value>16</value>
+        <value>17</value>
       </counter>
       <counter>
         <item-type type-id="dfd-process" type="DfdProcess" />
-        <value>21</value>
+        <value>32</value>
       </counter>
       <counter>
         <item-type type-id="dfd-external" type="DfdExternal" />
@@ -27,11 +27,11 @@
     <entity-ids>
       <counter>
         <item-type type-id="dfd-data-store" type="DfdDataStore" />
-        <value>17</value>
+        <value>18</value>
       </counter>
       <counter>
         <item-type type-id="dfd-process" type="DfdProcess" />
-        <value>22</value>
+        <value>33</value>
       </counter>
       <counter>
         <item-type type-id="dfd-external" type="DfdExternal" />
@@ -47,13 +47,13 @@
       </counter>
       <counter>
         <item-type type-id="" type="AbstractElementGroup" />
-        <value>112</value>
+        <value>140</value>
       </counter>
     </entity-ids>
     <diagrams>
       <counter>
         <type>SoftwareIdeasModeler.Core.Diagrams.Other.DataFlowDiagram</type>
-        <value>1</value>
+        <value>3</value>
       </counter>
     </diagrams>
     <fields />
@@ -85,7 +85,17 @@
   </types>
   <filters />
   <macros />
-  <items />
+  <items>
+    <item id="di407583346251426979" cid="Tanfolyam felelős" type="dfd-process" name="Tanfolyamok törlése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:00:19">
+      <style class="default" />
+    </item>
+    <item id="di724792861399013386" cid="Tanfolyam felelős" type="dfd-process" name="Tanfolyami ütemtervek közzétele" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:58:03">
+      <style class="default" />
+    </item>
+    <item id="di732783217756673065" cid="Tanfolyam felelős" type="dfd-process" name="Ütemterv módosítása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:00:45">
+      <style class="default" />
+    </item>
+  </items>
   <models>
     <model id="p06bdb4ac9858454b9674e0a8f426e2a7_907346725" name="Model 1" namespace="" order-index="1">
       <meta>
@@ -879,25 +889,177 @@
             <relation from="di183773661778456175" from-iid="c89c12f1673847dea7d9f0fc7604cbd6" to="di172223511257114097" to-iid="a830acbd4441409682a8f87cf89d4ed0" />
           </item>
           <item id="di355504300685288037" iid="e29d68be2109417987072dee85caa84d" creation-date="11/01/2016 19:29:44" order-index="23" type="entity">
-            <layout ax="212" ay="753" awidth="146" aheight="22" x="212" y="753" width="146" height="22" />
+            <layout ax="210" ay="778" awidth="146" aheight="22" x="210" y="778" width="146" height="22" />
           </item>
           <item id="di417517760750775060" iid="a8d03aa93f184242ac6c6387d41db646" creation-date="11/01/2016 19:29:56" order-index="24" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="319" y1="753" x2="319" y2="677" start-border-pos="0.183219178082192" end-border-pos="0.565" name-position="41,4">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="317" y1="778" x2="319" y2="677" start-border-pos="0.183219178082192" end-border-pos="0.565" name-position="41,4">
               <points>
-                <point x="319" y="753" />
+                <point x="317" y="778" />
                 <point x="319" y="677" />
               </points>
             </layout>
             <relation from="di355504300685288037" from-iid="e29d68be2109417987072dee85caa84d" to="di183773661778456175" to-iid="c89c12f1673847dea7d9f0fc7604cbd6" />
           </item>
           <item id="di109431337335038537" iid="516edae0df194c628bda41e4b0f1225a" creation-date="11/01/2016 19:30:07" order-index="25" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="239" y1="677" x2="238" y2="753" start-border-pos="0.698333333333333" end-border-pos="0.0445205479452055" name-position="-53,0">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="239" y1="677" x2="236" y2="778" start-border-pos="0.698333333333333" end-border-pos="0.0445205479452055" name-position="-49,4">
               <points>
                 <point x="239" y="677" />
-                <point x="238" y="753" />
+                <point x="236" y="778" />
               </points>
             </layout>
             <relation from="di183773661778456175" from-iid="c89c12f1673847dea7d9f0fc7604cbd6" to="di355504300685288037" to-iid="e29d68be2109417987072dee85caa84d" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="data-flow" id="p4ebe26b80c6444f6bf8523f1a630e3c9_486205763" name="DataFlowDiagram2" order-index="4" overview-order-index="2" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/01/2016 19:57:46</creation-date>
+          <change-date>11/01/2016 19:57:51</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="data-flow" id="peffafd8b922b4fcdb8b3802547a00fc8_119813041" name="DataFlowDiagram3" order-index="5" overview-order-index="3" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/01/2016 19:57:55</creation-date>
+          <change-date>11/01/2016 19:57:58</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="gane-sarson-data-flow" id="pe474abf4a72a40cdaa782194cdf63537_995363013" name="Diagram3" order-index="6" overview-order-index="4" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/01/2016 19:58:01</creation-date>
+          <change-date>11/01/2016 20:05:29</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di674623099642179262" cid="DFS017" type="dfd-data-store" name="Törzspéldány" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:05:29">
+            <style class="default" />
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di407583346251426979" iid="4a6ba90aa2cb480aa36714c4d315c5ca" creation-date="11/01/2016 20:00:19" order-index="1" type="entity">
+            <layout ax="704" ay="242" awidth="222" aheight="65" x="704" y="242" width="222" height="65" />
+          </item>
+          <item id="di724792861399013386" iid="779b76275c72405aa421845daaa080a8" creation-date="11/01/2016 19:58:03" order-index="0" type="entity">
+            <layout ax="212" ay="222" awidth="228" aheight="69" x="212" y="222" width="228" height="69" />
+          </item>
+          <item id="di732783217756673065" iid="69493ea47f224e6fa142cbfb8393e577" creation-date="11/01/2016 20:00:45" order-index="2" type="entity">
+            <layout ax="396" ay="484" awidth="222" aheight="69" x="396" y="484" width="222" height="69" />
+          </item>
+          <item id="di674623099642179262" iid="294f5d6af7b146f98db98b35453fd0c1" creation-date="11/01/2016 20:05:29" order-index="3" type="entity">
+            <layout ax="327" ay="334" awidth="198" aheight="33" x="327" y="334" width="198" height="33" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="gane-sarson-data-flow" id="p2f51f0651eea4cb3b92cfa6b4c27c72a_827806524" name="Diagram4" order-index="7" overview-order-index="5" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/01/2016 20:07:27</creation-date>
+          <change-date>11/01/2016 20:09:47</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di395483025211959039" cid="Gépírónő" type="dfd-process" name="Hiányzó kurzusok kiszűrése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:07:31">
+            <style class="default" />
+          </item>
+          <item id="di769698218888071133" cid="DFP028" type="dfd-process" name="Részvételi útmutató elkészítése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:09:08">
+            <style class="default" />
+          </item>
+          <item id="di395254481773496363" cid="DFP029" type="dfd-process" name="Résztveők neveinek megállapítása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:09:47">
+            <style class="default" />
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di395483025211959039" iid="4b34f03d06d64258acf2834852ec24c3" creation-date="11/01/2016 20:07:31" order-index="0" type="entity">
+            <layout ax="287" ay="211" awidth="216" aheight="63" x="287" y="211" width="216" height="63" />
+          </item>
+          <item id="di769698218888071133" iid="fe86673ff682406bab568b974a821a68" creation-date="11/01/2016 20:09:08" order-index="1" type="entity">
+            <layout ax="283" ay="367" awidth="233" aheight="63" x="283" y="367" width="233" height="63" />
+          </item>
+          <item id="di395254481773496363" iid="9ad0dd392c314b3d8dcbfe9bdbd614ea" creation-date="11/01/2016 20:09:47" order-index="2" type="entity">
+            <layout ax="705" ay="290" awidth="159" aheight="77" x="705" y="290" width="159" height="77" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="gane-sarson-data-flow" id="p19fa9100345646fb9965e9ce541bcdf4_257758928" name="Diagram5" order-index="8" overview-order-index="6" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/01/2016 20:10:46</creation-date>
+          <change-date>11/01/2016 20:12:42</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di749575039766519442" cid="DFP030" type="dfd-process" name="Megerősített foglalások kiválogatása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:11:04">
+            <style class="default" />
+          </item>
+          <item id="di784378232107514048" cid="DFP031" type="dfd-process" name="Számlák és jóváírási értesítések elkészítése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:11:37">
+            <style class="default" />
+          </item>
+          <item id="di656649682935020981" cid="DFP032" type="dfd-process" name="Értékelések összeítése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:12:42">
+            <style class="default" />
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di749575039766519442" iid="74673bf2b4cd4d608ce56290d1e8a802" creation-date="11/01/2016 20:11:04" order-index="0" type="entity">
+            <layout ax="201" ay="268" awidth="226" aheight="66" x="201" y="268" width="226" height="66" />
+          </item>
+          <item id="di784378232107514048" iid="a5fcb4fbb3dc42f5903ffa2b2300700a" creation-date="11/01/2016 20:11:37" order-index="1" type="entity">
+            <layout ax="486" ay="440" awidth="226" aheight="66" x="486" y="440" width="226" height="66" />
+          </item>
+          <item id="di656649682935020981" iid="9bfccd6d05e54840bbd0cfa82d678d3a" creation-date="11/01/2016 20:12:42" order-index="2" type="entity">
+            <layout ax="699" ay="278" awidth="158" aheight="66" x="699" y="278" width="158" height="66" />
           </item>
         </layer>
       </diagram>
