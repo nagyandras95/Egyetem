@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3204CB67-749F-99FC-5D3E-7D417272CA78" name="Foglalas">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-01 14:25:01 UTC</createdTime>
+<ownerDesignName>cramhead_logical</ownerDesignName>
+<importedID>2D33D1DD-B3E3-A456-93FB-BA7588571B1A</importedID>
+<engineerTo>
+<item key="6750957A-6FB3-A1AE-255A-D764FFC1F6DC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+</Entity>
