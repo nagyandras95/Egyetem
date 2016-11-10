@@ -1,0 +1,27 @@
+2016-11-08 10:02:39 USER  INFO - Player1 player start playing
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 USER  INFO - Player1 player recived pong
+2016-11-08 10:02:39 USER  INFO - Player2 player recived ping
+2016-11-08 10:02:39 EXEC  WARN - A signal arrived to model object Player@obj1 but it was not processed by the object's state machine. The signal was: signal:PongSignal

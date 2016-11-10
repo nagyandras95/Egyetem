@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_qxCEkKWXEea4ApL_jsb4PQ" name="my_ping_pong_moel">
+    <packageImport xmi:id="_qxTxYKWXEea4ApL_jsb4PQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://TXTUML_STDLIB/stdlib.uml#_DE5UMHLCEeWVx4ZuxFlarQ"/>
+    </packageImport>
+    <packageImport xmi:id="_qx5nQKWXEea4ApL_jsb4PQ">
+      <importedPackage xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_q_c7EKWXEea4ApL_jsb4PQ" name="PingSignal"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_q_c7EaWXEea4ApL_jsb4PQ" name="PingSignal" signal="_q_c7EKWXEea4ApL_jsb4PQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_q_c7EqWXEea4ApL_jsb4PQ" name="#PingSignal_factory">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_q_ewQaWXEea4ApL_jsb4PQ" name="PingSignal" specification="_q_diIKWXEea4ApL_jsb4PQ"/>
+      <ownedOperation xmi:id="_q_diIKWXEea4ApL_jsb4PQ" name="PingSignal" isStatic="true" method="_q_ewQaWXEea4ApL_jsb4PQ">
+        <ownedParameter xmi:id="_q_ewQKWXEea4ApL_jsb4PQ" name="signal" type="_q_c7EKWXEea4ApL_jsb4PQ"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_q_jBsKWXEea4ApL_jsb4PQ" name="Table">
+      <ownedAttribute xmi:id="_q_wdEKWXEea4ApL_jsb4PQ" name="player" type="_q_9RYKWXEea4ApL_jsb4PQ" aggregation="composite" association="_q_v2AKWXEea4ApL_jsb4PQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q_wdEaWXEea4ApL_jsb4PQ" value="2"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q_wdEqWXEea4ApL_jsb4PQ" value="2"/>
+      </ownedAttribute>
+      <ownedConnector xmi:id="_q_0ugKWXEea4ApL_jsb4PQ" name="PlayerConnect">
+        <end xmi:id="_q_0ugaWXEea4ApL_jsb4PQ" partWithPort="_q_wdEKWXEea4ApL_jsb4PQ" role="_rAD_FKWXEea4ApL_jsb4PQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q_1VkKWXEea4ApL_jsb4PQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q_1VkaWXEea4ApL_jsb4PQ" value="1"/>
+        </end>
+        <end xmi:id="_q_18oKWXEea4ApL_jsb4PQ" partWithPort="_q_wdEKWXEea4ApL_jsb4PQ" role="_rAD_FKWXEea4ApL_jsb4PQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q_18oaWXEea4ApL_jsb4PQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q_18oqWXEea4ApL_jsb4PQ" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_q_jowaWXEea4ApL_jsb4PQ" name="Table" specification="_q_jBsaWXEea4ApL_jsb4PQ" node="_q_kP0KWXEea4ApL_jsb4PQ _q_kP0aWXEea4ApL_jsb4PQ _q_kP0qWXEea4ApL_jsb4PQ _q_q9gKWXEea4ApL_jsb4PQ _q_q9gaWXEea4ApL_jsb4PQ">
+        <edge xmi:type="uml:ControlFlow" xmi:id="_q_q9gqWXEea4ApL_jsb4PQ" name="#init~~>null" target="_q_kP0aWXEea4ApL_jsb4PQ" source="_q_kP0KWXEea4ApL_jsb4PQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_q_q9g6WXEea4ApL_jsb4PQ" name="null~~>#body" target="_q_kP0qWXEea4ApL_jsb4PQ" source="_q_kP0aWXEea4ApL_jsb4PQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_q_q9hKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_q_q9gKWXEea4ApL_jsb4PQ" source="_q_kP0qWXEea4ApL_jsb4PQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_q_q9haWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_q_q9gaWXEea4ApL_jsb4PQ" source="_q_q9gKWXEea4ApL_jsb4PQ"/>
+        <node xmi:type="uml:InitialNode" xmi:id="_q_kP0KWXEea4ApL_jsb4PQ" name="#init" outgoing="_q_q9gqWXEea4ApL_jsb4PQ"/>
+        <node xmi:type="uml:SequenceNode" xmi:id="_q_kP0aWXEea4ApL_jsb4PQ" incoming="_q_q9gqWXEea4ApL_jsb4PQ" outgoing="_q_q9g6WXEea4ApL_jsb4PQ"/>
+        <node xmi:type="uml:SequenceNode" xmi:id="_q_kP0qWXEea4ApL_jsb4PQ" name="#body" incoming="_q_q9g6WXEea4ApL_jsb4PQ" outgoing="_q_q9hKWXEea4ApL_jsb4PQ">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_q_mFAKWXEea4ApL_jsb4PQ" name="#temp==>new_value" target="_q_mFAqWXEea4ApL_jsb4PQ" source="_q_leB6WXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_q_n6MKWXEea4ApL_jsb4PQ" name="#temp==>new_value" target="_q_n6MqWXEea4ApL_jsb4PQ" source="_q_nTN6WXEea4ApL_jsb4PQ"/>
+          <variable xmi:id="_q_kP06WXEea4ApL_jsb4PQ" name="player1" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+          <variable xmi:id="_q_mFBKWXEea4ApL_jsb4PQ" name="player2" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_ld8KWXEea4ApL_jsb4PQ" name="create Player">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_ld8aWXEea4ApL_jsb4PQ" name="instantiate Player==>new_value" target="_q_ld-aWXEea4ApL_jsb4PQ" source="_q_ld96WXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_ld8qWXEea4ApL_jsb4PQ" name="#temp==>target" target="_q_leBaWXEea4ApL_jsb4PQ" source="_q_ld-6WXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_ld86WXEea4ApL_jsb4PQ" name="&quot;Player1&quot;_result==>p0" target="_q_leA6WXEea4ApL_jsb4PQ" source="_q_ld_aWXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_ld9KWXEea4ApL_jsb4PQ" name="10_result==>p1" target="_q_leBKWXEea4ApL_jsb4PQ" source="_q_leAKWXEea4ApL_jsb4PQ"/>
+            <variable xmi:id="_q_ld9aWXEea4ApL_jsb4PQ" name="#temp" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:CreateObjectAction" xmi:id="_q_ld9qWXEea4ApL_jsb4PQ" name="instantiate Player" classifier="_q_9RYKWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_ld96WXEea4ApL_jsb4PQ" name="instantiate Player" outgoing="_q_ld8aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_q_ld-KWXEea4ApL_jsb4PQ" name="#temp=instantiate Player" variable="_q_ld9aWXEea4ApL_jsb4PQ" isReplaceAll="true">
+              <value xmi:id="_q_ld-aWXEea4ApL_jsb4PQ" name="new_value" incoming="_q_ld8aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_ld-qWXEea4ApL_jsb4PQ" name="#temp" variable="_q_ld9aWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_ld-6WXEea4ApL_jsb4PQ" name="#temp" outgoing="_q_ld8qWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_q_ld_KWXEea4ApL_jsb4PQ" name="&quot;Player1&quot;">
+              <result xmi:id="_q_ld_aWXEea4ApL_jsb4PQ" name="&quot;Player1&quot;_result" outgoing="_q_ld86WXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </result>
+              <value xmi:type="uml:LiteralString" xmi:id="_q_ld_qWXEea4ApL_jsb4PQ" name="&quot;Player1&quot;" value="Player1">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </value>
+            </executableNode>
+            <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_q_ld_6WXEea4ApL_jsb4PQ" name="10">
+              <result xmi:id="_q_leAKWXEea4ApL_jsb4PQ" name="10_result" outgoing="_q_ld9KWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </result>
+              <value xmi:type="uml:LiteralInteger" xmi:id="_q_leAaWXEea4ApL_jsb4PQ" name="10" value="10">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </value>
+            </executableNode>
+            <executableNode xmi:type="uml:CallOperationAction" xmi:id="_q_leAqWXEea4ApL_jsb4PQ" name="#temp.Player(String p0, Integer p1)" operation="_q_94cqWXEea4ApL_jsb4PQ">
+              <argument xmi:id="_q_leA6WXEea4ApL_jsb4PQ" name="p0" incoming="_q_ld86WXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </argument>
+              <argument xmi:id="_q_leBKWXEea4ApL_jsb4PQ" name="p1" incoming="_q_ld9KWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </argument>
+              <target xmi:id="_q_leBaWXEea4ApL_jsb4PQ" name="target" incoming="_q_ld8qWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_leBqWXEea4ApL_jsb4PQ" name="#temp" variable="_q_ld9aWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_leB6WXEea4ApL_jsb4PQ" name="#temp" outgoing="_q_mFAKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_q_mFAaWXEea4ApL_jsb4PQ" name="player1=create Player" variable="_q_kP06WXEea4ApL_jsb4PQ" isReplaceAll="true">
+            <value xmi:id="_q_mFAqWXEea4ApL_jsb4PQ" name="new_value" incoming="_q_mFAKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_mFA6WXEea4ApL_jsb4PQ"/>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_nTIKWXEea4ApL_jsb4PQ" name="create Player">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_nTIaWXEea4ApL_jsb4PQ" name="instantiate Player==>new_value" target="_q_nTKaWXEea4ApL_jsb4PQ" source="_q_nTJ6WXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_nTIqWXEea4ApL_jsb4PQ" name="#temp==>target" target="_q_nTNaWXEea4ApL_jsb4PQ" source="_q_nTK6WXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_nTI6WXEea4ApL_jsb4PQ" name="&quot;Player2&quot;_result==>p0" target="_q_nTM6WXEea4ApL_jsb4PQ" source="_q_nTLaWXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_nTJKWXEea4ApL_jsb4PQ" name="10_result==>p1" target="_q_nTNKWXEea4ApL_jsb4PQ" source="_q_nTMKWXEea4ApL_jsb4PQ"/>
+            <variable xmi:id="_q_nTJaWXEea4ApL_jsb4PQ" name="#temp" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:CreateObjectAction" xmi:id="_q_nTJqWXEea4ApL_jsb4PQ" name="instantiate Player" classifier="_q_9RYKWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_nTJ6WXEea4ApL_jsb4PQ" name="instantiate Player" outgoing="_q_nTIaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_q_nTKKWXEea4ApL_jsb4PQ" name="#temp=instantiate Player" variable="_q_nTJaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+              <value xmi:id="_q_nTKaWXEea4ApL_jsb4PQ" name="new_value" incoming="_q_nTIaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_nTKqWXEea4ApL_jsb4PQ" name="#temp" variable="_q_nTJaWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_nTK6WXEea4ApL_jsb4PQ" name="#temp" outgoing="_q_nTIqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_q_nTLKWXEea4ApL_jsb4PQ" name="&quot;Player2&quot;">
+              <result xmi:id="_q_nTLaWXEea4ApL_jsb4PQ" name="&quot;Player2&quot;_result" outgoing="_q_nTI6WXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </result>
+              <value xmi:type="uml:LiteralString" xmi:id="_q_nTLqWXEea4ApL_jsb4PQ" name="&quot;Player2&quot;" value="Player2">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </value>
+            </executableNode>
+            <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_q_nTL6WXEea4ApL_jsb4PQ" name="10">
+              <result xmi:id="_q_nTMKWXEea4ApL_jsb4PQ" name="10_result" outgoing="_q_nTJKWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </result>
+              <value xmi:type="uml:LiteralInteger" xmi:id="_q_nTMaWXEea4ApL_jsb4PQ" name="10" value="10">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </value>
+            </executableNode>
+            <executableNode xmi:type="uml:CallOperationAction" xmi:id="_q_nTMqWXEea4ApL_jsb4PQ" name="#temp.Player(String p0, Integer p1)" operation="_q_94cqWXEea4ApL_jsb4PQ">
+              <argument xmi:id="_q_nTM6WXEea4ApL_jsb4PQ" name="p0" incoming="_q_nTI6WXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </argument>
+              <argument xmi:id="_q_nTNKWXEea4ApL_jsb4PQ" name="p1" incoming="_q_nTJKWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+              </argument>
+              <target xmi:id="_q_nTNaWXEea4ApL_jsb4PQ" name="target" incoming="_q_nTIqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_nTNqWXEea4ApL_jsb4PQ" name="#temp" variable="_q_nTJaWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_nTN6WXEea4ApL_jsb4PQ" name="#temp" outgoing="_q_n6MKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_q_n6MaWXEea4ApL_jsb4PQ" name="player2=create Player" variable="_q_mFBKWXEea4ApL_jsb4PQ" isReplaceAll="true">
+            <value xmi:id="_q_n6MqWXEea4ApL_jsb4PQ" name="new_value" incoming="_q_n6MKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_n6M6WXEea4ApL_jsb4PQ"/>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_pIUKWXEea4ApL_jsb4PQ" name="link this to player1;">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_pIUaWXEea4ApL_jsb4PQ" name="this==>this" target="_q_pIWqWXEea4ApL_jsb4PQ" source="_q_pIU6WXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_pIUqWXEea4ApL_jsb4PQ" name="player1==>player1" target="_q_pIW6WXEea4ApL_jsb4PQ" source="_q_pIVaWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_q_pIU6WXEea4ApL_jsb4PQ" name="this" outgoing="_q_pIUaWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_pIVKWXEea4ApL_jsb4PQ" name="this" type="_q_jBsKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_pIVaWXEea4ApL_jsb4PQ" name="player1" outgoing="_q_pIUqWXEea4ApL_jsb4PQ" variable="_q_kP06WXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_pIVqWXEea4ApL_jsb4PQ" name="player1" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:CreateLinkAction" xmi:id="_q_pIV6WXEea4ApL_jsb4PQ" name="link this to player1">
+              <endData xmi:type="uml:LinkEndCreationData" xmi:id="_q_pIWKWXEea4ApL_jsb4PQ" end="_q_v2AaWXEea4ApL_jsb4PQ" value="_q_pIWqWXEea4ApL_jsb4PQ"/>
+              <endData xmi:type="uml:LinkEndCreationData" xmi:id="_q_pIWaWXEea4ApL_jsb4PQ" end="_q_wdEKWXEea4ApL_jsb4PQ" value="_q_pIW6WXEea4ApL_jsb4PQ"/>
+              <inputValue xmi:id="_q_pIWqWXEea4ApL_jsb4PQ" name="this" incoming="_q_pIUaWXEea4ApL_jsb4PQ"/>
+              <inputValue xmi:id="_q_pIW6WXEea4ApL_jsb4PQ" name="player1" incoming="_q_pIUqWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_pvYKWXEea4ApL_jsb4PQ" name="link this to player2;">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_pvYaWXEea4ApL_jsb4PQ" name="this==>this" target="_q_pvaqWXEea4ApL_jsb4PQ" source="_q_pvY6WXEea4ApL_jsb4PQ"/>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_pvYqWXEea4ApL_jsb4PQ" name="player2==>player2" target="_q_pva6WXEea4ApL_jsb4PQ" source="_q_pvZaWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_q_pvY6WXEea4ApL_jsb4PQ" name="this" outgoing="_q_pvYaWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_pvZKWXEea4ApL_jsb4PQ" name="this" type="_q_jBsKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_pvZaWXEea4ApL_jsb4PQ" name="player2" outgoing="_q_pvYqWXEea4ApL_jsb4PQ" variable="_q_mFBKWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_pvZqWXEea4ApL_jsb4PQ" name="player2" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:CreateLinkAction" xmi:id="_q_pvZ6WXEea4ApL_jsb4PQ" name="link this to player2">
+              <endData xmi:type="uml:LinkEndCreationData" xmi:id="_q_pvaKWXEea4ApL_jsb4PQ" end="_q_v2AaWXEea4ApL_jsb4PQ" value="_q_pvaqWXEea4ApL_jsb4PQ"/>
+              <endData xmi:type="uml:LinkEndCreationData" xmi:id="_q_pvaaWXEea4ApL_jsb4PQ" end="_q_wdEKWXEea4ApL_jsb4PQ" value="_q_pva6WXEea4ApL_jsb4PQ"/>
+              <inputValue xmi:id="_q_pvaqWXEea4ApL_jsb4PQ" name="this" incoming="_q_pvYaWXEea4ApL_jsb4PQ"/>
+              <inputValue xmi:id="_q_pva6WXEea4ApL_jsb4PQ" name="player2" incoming="_q_pvYqWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_qWcKWXEea4ApL_jsb4PQ" name="start player1;">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_qWcaWXEea4ApL_jsb4PQ" name="player1==>player1" target="_q_qWdaWXEea4ApL_jsb4PQ" source="_q_qWc6WXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_qWcqWXEea4ApL_jsb4PQ" name="player1" variable="_q_kP06WXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_qWc6WXEea4ApL_jsb4PQ" name="player1" outgoing="_q_qWcaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:StartObjectBehaviorAction" xmi:id="_q_qWdKWXEea4ApL_jsb4PQ" name="start player1">
+              <object xmi:id="_q_qWdaWXEea4ApL_jsb4PQ" name="player1" incoming="_q_qWcaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_q_qWdqWXEea4ApL_jsb4PQ" name="start player2;">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_q_qWd6WXEea4ApL_jsb4PQ" name="player2==>player2" target="_q_qWe6WXEea4ApL_jsb4PQ" source="_q_qWeaWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_q_qWeKWXEea4ApL_jsb4PQ" name="player2" variable="_q_mFBKWXEea4ApL_jsb4PQ">
+              <result xmi:id="_q_qWeaWXEea4ApL_jsb4PQ" name="player2" outgoing="_q_qWd6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+            <executableNode xmi:type="uml:StartObjectBehaviorAction" xmi:id="_q_qWeqWXEea4ApL_jsb4PQ" name="start player2">
+              <object xmi:id="_q_qWe6WXEea4ApL_jsb4PQ" name="player2" incoming="_q_qWd6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+            </executableNode>
+          </executableNode>
+        </node>
+        <node xmi:type="uml:SequenceNode" xmi:id="_q_q9gKWXEea4ApL_jsb4PQ" name="#finish" incoming="_q_q9hKWXEea4ApL_jsb4PQ" outgoing="_q_q9haWXEea4ApL_jsb4PQ"/>
+        <node xmi:type="uml:ActivityFinalNode" xmi:id="_q_q9gaWXEea4ApL_jsb4PQ" name="#final" incoming="_q_q9haWXEea4ApL_jsb4PQ"/>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_q_jBsaWXEea4ApL_jsb4PQ" name="Table" method="_q_jowaWXEea4ApL_jsb4PQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_q_v2AKWXEea4ApL_jsb4PQ" name="TableComposite" memberEnd="_q_v2AaWXEea4ApL_jsb4PQ _q_wdEKWXEea4ApL_jsb4PQ">
+      <ownedEnd xmi:id="_q_v2AaWXEea4ApL_jsb4PQ" name="table" type="_q_jBsKWXEea4ApL_jsb4PQ" association="_q_v2AKWXEea4ApL_jsb4PQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q_v2AqWXEea4ApL_jsb4PQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q_v2A6WXEea4ApL_jsb4PQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_q_9RYKWXEea4ApL_jsb4PQ" name="Player" classifierBehavior="_rAEmIaWXEea4ApL_jsb4PQ">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_rAD_FKWXEea4ApL_jsb4PQ" name="PingPongPort" type="_rAEmIKWXEea4ApL_jsb4PQ" isBehavior="true"/>
+      <ownedAttribute xmi:id="_q_9RYaWXEea4ApL_jsb4PQ" name="hitCount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_q_94cKWXEea4ApL_jsb4PQ" name="maxHit">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_q_94caWXEea4ApL_jsb4PQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_q__GkKWXEea4ApL_jsb4PQ" name="Player" specification="_q_94cqWXEea4ApL_jsb4PQ" node="_q__GkaWXEea4ApL_jsb4PQ _q__toKWXEea4ApL_jsb4PQ _q__toaWXEea4ApL_jsb4PQ _q__tpaWXEea4ApL_jsb4PQ _rAAUsqWXEea4ApL_jsb4PQ _rADYFKWXEea4ApL_jsb4PQ _rADYFaWXEea4ApL_jsb4PQ">
+        <edge xmi:type="uml:ControlFlow" xmi:id="_rAD_EKWXEea4ApL_jsb4PQ" name="#init~~>null" target="_q__toKWXEea4ApL_jsb4PQ" source="_q__GkaWXEea4ApL_jsb4PQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_rAD_EaWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAAUsqWXEea4ApL_jsb4PQ" source="_q__toKWXEea4ApL_jsb4PQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_rAD_EqWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rADYFKWXEea4ApL_jsb4PQ" source="_rAAUsqWXEea4ApL_jsb4PQ"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_rAD_E6WXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rADYFaWXEea4ApL_jsb4PQ" source="_rADYFKWXEea4ApL_jsb4PQ"/>
+        <variable xmi:id="_q__GkqWXEea4ApL_jsb4PQ" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </variable>
+        <variable xmi:id="_q__Gk6WXEea4ApL_jsb4PQ" name="maxHit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </variable>
+        <node xmi:type="uml:InitialNode" xmi:id="_q__GkaWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAD_EKWXEea4ApL_jsb4PQ"/>
+        <node xmi:type="uml:SequenceNode" xmi:id="_q__toKWXEea4ApL_jsb4PQ" incoming="_rAD_EKWXEea4ApL_jsb4PQ" outgoing="_rAD_EaWXEea4ApL_jsb4PQ">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_q__toqWXEea4ApL_jsb4PQ" name="name==>new_value" target="_q__tpKWXEea4ApL_jsb4PQ" source="_q__toaWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_q__tpqWXEea4ApL_jsb4PQ" name="maxHit==>new_value" target="_rAAUsaWXEea4ApL_jsb4PQ" source="_q__tpaWXEea4ApL_jsb4PQ"/>
+          <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_q__to6WXEea4ApL_jsb4PQ" name="fetch(name)" variable="_q__GkqWXEea4ApL_jsb4PQ" isReplaceAll="true">
+            <value xmi:id="_q__tpKWXEea4ApL_jsb4PQ" name="new_value" incoming="_q__toqWXEea4ApL_jsb4PQ">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </value>
+          </executableNode>
+          <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAAUsKWXEea4ApL_jsb4PQ" name="fetch(maxHit)" variable="_q__Gk6WXEea4ApL_jsb4PQ" isReplaceAll="true">
+            <value xmi:id="_rAAUsaWXEea4ApL_jsb4PQ" name="new_value" incoming="_q__tpqWXEea4ApL_jsb4PQ">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </value>
+          </executableNode>
+        </node>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="_q__toaWXEea4ApL_jsb4PQ" name="name" outgoing="_q__toqWXEea4ApL_jsb4PQ" parameter="_q_94c6WXEea4ApL_jsb4PQ">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </node>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="_q__tpaWXEea4ApL_jsb4PQ" name="maxHit" outgoing="_q__tpqWXEea4ApL_jsb4PQ" parameter="_q_-fgKWXEea4ApL_jsb4PQ">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </node>
+        <node xmi:type="uml:SequenceNode" xmi:id="_rAAUsqWXEea4ApL_jsb4PQ" name="#body" incoming="_rAD_EaWXEea4ApL_jsb4PQ" outgoing="_rAD_EqWXEea4ApL_jsb4PQ">
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAA7wKWXEea4ApL_jsb4PQ" name="this.name=name;">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAA7waWXEea4ApL_jsb4PQ" name="this.name=name">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAA7wqWXEea4ApL_jsb4PQ" name="this==>base" target="_rAA7yaWXEea4ApL_jsb4PQ" source="_rAA7x6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAA7w6WXEea4ApL_jsb4PQ" name="this==>base" target="_rAA7zqWXEea4ApL_jsb4PQ" source="_rAA7x6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAA7xKWXEea4ApL_jsb4PQ" name="name==>new_value" target="_rAA7z6WXEea4ApL_jsb4PQ" source="_rAA7zKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAA7xaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAA70aWXEea4ApL_jsb4PQ" source="_rAA7x6WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAA7xqWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAA7x6WXEea4ApL_jsb4PQ" name="this" outgoing="_rAA7wqWXEea4ApL_jsb4PQ _rAA7w6WXEea4ApL_jsb4PQ _rAA7xaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAA7yKWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAA7yaWXEea4ApL_jsb4PQ" name="base" incoming="_rAA7wqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAA7yqWXEea4ApL_jsb4PQ" name="this.name">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAA7y6WXEea4ApL_jsb4PQ" name="name" variable="_q__GkqWXEea4ApL_jsb4PQ">
+                <result xmi:id="_rAA7zKWXEea4ApL_jsb4PQ" name="name" outgoing="_rAA7xKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rAA7zaWXEea4ApL_jsb4PQ" name="this.name=name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <object xmi:id="_rAA7zqWXEea4ApL_jsb4PQ" name="base" incoming="_rAA7w6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <value xmi:id="_rAA7z6WXEea4ApL_jsb4PQ" name="new_value" incoming="_rAA7xKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </value>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAA70KWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAA70aWXEea4ApL_jsb4PQ" name="base" incoming="_rAA7xaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAA70qWXEea4ApL_jsb4PQ" name="this.name">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </result>
+              </executableNode>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_rACJ4KWXEea4ApL_jsb4PQ" name="this.maxHit=10;">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rACJ4aWXEea4ApL_jsb4PQ" name="this.maxHit=10">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rACJ4qWXEea4ApL_jsb4PQ" name="this==>base" target="_rACJ6aWXEea4ApL_jsb4PQ" source="_rACJ56WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rACJ46WXEea4ApL_jsb4PQ" name="this==>base" target="_rACJ76WXEea4ApL_jsb4PQ" source="_rACJ56WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rACJ5KWXEea4ApL_jsb4PQ" name="10_result==>new_value" target="_rACJ8KWXEea4ApL_jsb4PQ" source="_rACJ7KWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rACJ5aWXEea4ApL_jsb4PQ" name="this==>base" target="_rACJ8qWXEea4ApL_jsb4PQ" source="_rACJ56WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rACJ5qWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rACJ56WXEea4ApL_jsb4PQ" name="this" outgoing="_rACJ4qWXEea4ApL_jsb4PQ _rACJ46WXEea4ApL_jsb4PQ _rACJ5aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rACJ6KWXEea4ApL_jsb4PQ" name="this.maxHit" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rACJ6aWXEea4ApL_jsb4PQ" name="base" incoming="_rACJ4qWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rACJ6qWXEea4ApL_jsb4PQ" name="this.maxHit">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rACJ66WXEea4ApL_jsb4PQ" name="10">
+                <result xmi:id="_rACJ7KWXEea4ApL_jsb4PQ" name="10_result" outgoing="_rACJ5KWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+                <value xmi:type="uml:LiteralInteger" xmi:id="_rACJ7aWXEea4ApL_jsb4PQ" name="10" value="10">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </value>
+              </executableNode>
+              <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rACJ7qWXEea4ApL_jsb4PQ" name="this.maxHit=10" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <object xmi:id="_rACJ76WXEea4ApL_jsb4PQ" name="base" incoming="_rACJ46WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <value xmi:id="_rACJ8KWXEea4ApL_jsb4PQ" name="new_value" incoming="_rACJ5KWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </value>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rACJ8aWXEea4ApL_jsb4PQ" name="this.maxHit" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rACJ8qWXEea4ApL_jsb4PQ" name="base" incoming="_rACJ5aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rACJ86WXEea4ApL_jsb4PQ" name="this.maxHit">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+            </executableNode>
+          </executableNode>
+          <executableNode xmi:type="uml:SequenceNode" xmi:id="_rADYAKWXEea4ApL_jsb4PQ" name="this.hitCount=0;">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rADYAaWXEea4ApL_jsb4PQ" name="this.hitCount=0">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rADYAqWXEea4ApL_jsb4PQ" name="this==>base" target="_rADYCaWXEea4ApL_jsb4PQ" source="_rADYB6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rADYA6WXEea4ApL_jsb4PQ" name="this==>base" target="_rADYD6WXEea4ApL_jsb4PQ" source="_rADYB6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rADYBKWXEea4ApL_jsb4PQ" name="0_result==>new_value" target="_rADYEKWXEea4ApL_jsb4PQ" source="_rADYDKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rADYBaWXEea4ApL_jsb4PQ" name="this==>base" target="_rADYEqWXEea4ApL_jsb4PQ" source="_rADYB6WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rADYBqWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rADYB6WXEea4ApL_jsb4PQ" name="this" outgoing="_rADYAqWXEea4ApL_jsb4PQ _rADYA6WXEea4ApL_jsb4PQ _rADYBaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rADYCKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rADYCaWXEea4ApL_jsb4PQ" name="base" incoming="_rADYAqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rADYCqWXEea4ApL_jsb4PQ" name="this.hitCount">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rADYC6WXEea4ApL_jsb4PQ" name="0">
+                <result xmi:id="_rADYDKWXEea4ApL_jsb4PQ" name="0_result" outgoing="_rADYBKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+                <value xmi:type="uml:LiteralInteger" xmi:id="_rADYDaWXEea4ApL_jsb4PQ" name="0">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </value>
+              </executableNode>
+              <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rADYDqWXEea4ApL_jsb4PQ" name="this.hitCount=0" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <object xmi:id="_rADYD6WXEea4ApL_jsb4PQ" name="base" incoming="_rADYA6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <value xmi:id="_rADYEKWXEea4ApL_jsb4PQ" name="new_value" incoming="_rADYBKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </value>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rADYEaWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rADYEqWXEea4ApL_jsb4PQ" name="base" incoming="_rADYBaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rADYE6WXEea4ApL_jsb4PQ" name="this.hitCount">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+            </executableNode>
+          </executableNode>
+        </node>
+        <node xmi:type="uml:SequenceNode" xmi:id="_rADYFKWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAD_EqWXEea4ApL_jsb4PQ" outgoing="_rAD_E6WXEea4ApL_jsb4PQ"/>
+        <node xmi:type="uml:ActivityFinalNode" xmi:id="_rADYFaWXEea4ApL_jsb4PQ" name="#final" incoming="_rAD_E6WXEea4ApL_jsb4PQ"/>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_rAEmIaWXEea4ApL_jsb4PQ" name="Player">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_rAO-MaWXEea4ApL_jsb4PQ" name="guard" node="_rAPlQKWXEea4ApL_jsb4PQ _rAPlQqWXEea4ApL_jsb4PQ _rAPlQ6WXEea4ApL_jsb4PQ _rAPlRKWXEea4ApL_jsb4PQ _rAQzdqWXEea4ApL_jsb4PQ _rARac6WXEea4ApL_jsb4PQ">
+          <ownedParameter xmi:id="_rAO-MqWXEea4ApL_jsb4PQ" name="return" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rARadKWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAPlQqWXEea4ApL_jsb4PQ" source="_rAPlQKWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rARadaWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAPlRKWXEea4ApL_jsb4PQ" source="_rAPlQqWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rASBgKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAQzdqWXEea4ApL_jsb4PQ" source="_rAPlRKWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rASBgaWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rARac6WXEea4ApL_jsb4PQ" source="_rAQzdqWXEea4ApL_jsb4PQ"/>
+          <variable xmi:id="_rAPlQaWXEea4ApL_jsb4PQ" name="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </variable>
+          <node xmi:type="uml:InitialNode" xmi:id="_rAPlQKWXEea4ApL_jsb4PQ" name="#init" outgoing="_rARadKWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAPlQqWXEea4ApL_jsb4PQ" incoming="_rARadKWXEea4ApL_jsb4PQ" outgoing="_rARadaWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_rAPlQ6WXEea4ApL_jsb4PQ" name="return" incoming="_rARacqWXEea4ApL_jsb4PQ" parameter="_rAO-MqWXEea4ApL_jsb4PQ">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAPlRKWXEea4ApL_jsb4PQ" name="#body" incoming="_rARadaWXEea4ApL_jsb4PQ" outgoing="_rASBgKWXEea4ApL_jsb4PQ">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAQzYKWXEea4ApL_jsb4PQ" name="return this.hitCount&lt;=this.maxHit">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAQzYaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAQzaaWXEea4ApL_jsb4PQ" source="_rAQzZ6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAQzYqWXEea4ApL_jsb4PQ" name="this==>base" target="_rAQzbqWXEea4ApL_jsb4PQ" source="_rAQzbKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAQzY6WXEea4ApL_jsb4PQ" name="this.hitCount==>left" target="_rAQzcaWXEea4ApL_jsb4PQ" source="_rAQzaqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAQzZKWXEea4ApL_jsb4PQ" name="this.maxHit==>right" target="_rAQzcqWXEea4ApL_jsb4PQ" source="_rAQzb6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAQzZaWXEea4ApL_jsb4PQ" name="result==>new_value" target="_rAQzdaWXEea4ApL_jsb4PQ" source="_rAQzc6WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAQzZqWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAQzZ6WXEea4ApL_jsb4PQ" name="this" outgoing="_rAQzYaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAQzaKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAQzaaWXEea4ApL_jsb4PQ" name="base" incoming="_rAQzYaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAQzaqWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAQzY6WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAQza6WXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAQzbKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAQzYqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAQzbaWXEea4ApL_jsb4PQ" name="this.maxHit" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAQzbqWXEea4ApL_jsb4PQ" name="base" incoming="_rAQzYqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAQzb6WXEea4ApL_jsb4PQ" name="this.maxHit" outgoing="_rAQzZKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAQzcKWXEea4ApL_jsb4PQ" name="this.hitCount&lt;=this.maxHit">
+                <argument xmi:id="_rAQzcaWXEea4ApL_jsb4PQ" name="left" incoming="_rAQzY6WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <argument xmi:id="_rAQzcqWXEea4ApL_jsb4PQ" name="right" incoming="_rAQzZKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <result xmi:id="_rAQzc6WXEea4ApL_jsb4PQ" name="result" outgoing="_rAQzZaWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </result>
+                <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHYAgXLCEeWVx4ZuxFlarQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAQzdKWXEea4ApL_jsb4PQ" name="return=this.hitCount&lt;=this.maxHit" variable="_rAPlQaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <value xmi:id="_rAQzdaWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAQzZaWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </value>
+              </executableNode>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAQzdqWXEea4ApL_jsb4PQ" name="#finish" incoming="_rASBgKWXEea4ApL_jsb4PQ" outgoing="_rASBgaWXEea4ApL_jsb4PQ">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_rARacqWXEea4ApL_jsb4PQ" name="return==>return" target="_rAPlQ6WXEea4ApL_jsb4PQ" source="_rARacaWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rARacKWXEea4ApL_jsb4PQ" name="return" variable="_rAPlQaWXEea4ApL_jsb4PQ">
+              <result xmi:id="_rARacaWXEea4ApL_jsb4PQ" name="return" outgoing="_rARacqWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </result>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="_rARac6WXEea4ApL_jsb4PQ" name="#final" incoming="_rASBgaWXEea4ApL_jsb4PQ"/>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_rAW6BKWXEea4ApL_jsb4PQ" name="guard" node="_rAW6BqWXEea4ApL_jsb4PQ _rAXhEaWXEea4ApL_jsb4PQ _rAXhEqWXEea4ApL_jsb4PQ _rAXhE6WXEea4ApL_jsb4PQ _rAYINqWXEea4ApL_jsb4PQ _rAYIOqWXEea4ApL_jsb4PQ">
+          <ownedParameter xmi:id="_rAW6BaWXEea4ApL_jsb4PQ" name="return" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAYvMKWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAXhEaWXEea4ApL_jsb4PQ" source="_rAW6BqWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAYvMaWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAXhE6WXEea4ApL_jsb4PQ" source="_rAXhEaWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAYvMqWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAYINqWXEea4ApL_jsb4PQ" source="_rAXhE6WXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAYvM6WXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAYIOqWXEea4ApL_jsb4PQ" source="_rAYINqWXEea4ApL_jsb4PQ"/>
+          <variable xmi:id="_rAXhEKWXEea4ApL_jsb4PQ" name="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </variable>
+          <node xmi:type="uml:InitialNode" xmi:id="_rAW6BqWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAYvMKWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAXhEaWXEea4ApL_jsb4PQ" incoming="_rAYvMKWXEea4ApL_jsb4PQ" outgoing="_rAYvMaWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_rAXhEqWXEea4ApL_jsb4PQ" name="return" incoming="_rAYIOaWXEea4ApL_jsb4PQ" parameter="_rAW6BaWXEea4ApL_jsb4PQ">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAXhE6WXEea4ApL_jsb4PQ" name="#body" incoming="_rAYvMaWXEea4ApL_jsb4PQ" outgoing="_rAYvMqWXEea4ApL_jsb4PQ">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAYIIKWXEea4ApL_jsb4PQ" name="return this.hitCount>this.maxHit">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAYIIaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAYIKaWXEea4ApL_jsb4PQ" source="_rAYIJ6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAYIIqWXEea4ApL_jsb4PQ" name="this==>base" target="_rAYILqWXEea4ApL_jsb4PQ" source="_rAYILKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAYII6WXEea4ApL_jsb4PQ" name="this.hitCount==>left" target="_rAYIMaWXEea4ApL_jsb4PQ" source="_rAYIKqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAYIJKWXEea4ApL_jsb4PQ" name="this.maxHit==>right" target="_rAYIMqWXEea4ApL_jsb4PQ" source="_rAYIL6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAYIJaWXEea4ApL_jsb4PQ" name="result==>new_value" target="_rAYINaWXEea4ApL_jsb4PQ" source="_rAYIM6WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAYIJqWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAYIJ6WXEea4ApL_jsb4PQ" name="this" outgoing="_rAYIIaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAYIKKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAYIKaWXEea4ApL_jsb4PQ" name="base" incoming="_rAYIIaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAYIKqWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAYII6WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAYIK6WXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAYILKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAYIIqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAYILaWXEea4ApL_jsb4PQ" name="this.maxHit" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAYILqWXEea4ApL_jsb4PQ" name="base" incoming="_rAYIIqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAYIL6WXEea4ApL_jsb4PQ" name="this.maxHit" outgoing="_rAYIJKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAYIMKWXEea4ApL_jsb4PQ" name="this.hitCount>this.maxHit">
+                <argument xmi:id="_rAYIMaWXEea4ApL_jsb4PQ" name="left" incoming="_rAYII6WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <argument xmi:id="_rAYIMqWXEea4ApL_jsb4PQ" name="right" incoming="_rAYIJKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <result xmi:id="_rAYIM6WXEea4ApL_jsb4PQ" name="result" outgoing="_rAYIJaWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </result>
+                <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHYAfHLCEeWVx4ZuxFlarQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAYINKWXEea4ApL_jsb4PQ" name="return=this.hitCount>this.maxHit" variable="_rAXhEKWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <value xmi:id="_rAYINaWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAYIJaWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </value>
+              </executableNode>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAYINqWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAYvMqWXEea4ApL_jsb4PQ" outgoing="_rAYvM6WXEea4ApL_jsb4PQ">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_rAYIOaWXEea4ApL_jsb4PQ" name="return==>return" target="_rAXhEqWXEea4ApL_jsb4PQ" source="_rAYIOKWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAYIN6WXEea4ApL_jsb4PQ" name="return" variable="_rAXhEKWXEea4ApL_jsb4PQ">
+              <result xmi:id="_rAYIOKWXEea4ApL_jsb4PQ" name="return" outgoing="_rAYIOaWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </result>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAYIOqWXEea4ApL_jsb4PQ" name="#final" incoming="_rAYvM6WXEea4ApL_jsb4PQ"/>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_rAdnsKWXEea4ApL_jsb4PQ" name="guard" node="_rAdnsqWXEea4ApL_jsb4PQ _rAdntKWXEea4ApL_jsb4PQ _rAdntaWXEea4ApL_jsb4PQ _rAdntqWXEea4ApL_jsb4PQ _rAe15qWXEea4ApL_jsb4PQ _rAfc46WXEea4ApL_jsb4PQ">
+          <ownedParameter xmi:id="_rAdnsaWXEea4ApL_jsb4PQ" name="return" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAfc5KWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAdntKWXEea4ApL_jsb4PQ" source="_rAdnsqWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAgD8KWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAdntqWXEea4ApL_jsb4PQ" source="_rAdntKWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAgD8aWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAe15qWXEea4ApL_jsb4PQ" source="_rAdntqWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAgD8qWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAfc46WXEea4ApL_jsb4PQ" source="_rAe15qWXEea4ApL_jsb4PQ"/>
+          <variable xmi:id="_rAdns6WXEea4ApL_jsb4PQ" name="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </variable>
+          <node xmi:type="uml:InitialNode" xmi:id="_rAdnsqWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAfc5KWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAdntKWXEea4ApL_jsb4PQ" incoming="_rAfc5KWXEea4ApL_jsb4PQ" outgoing="_rAgD8KWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_rAdntaWXEea4ApL_jsb4PQ" name="return" incoming="_rAfc4qWXEea4ApL_jsb4PQ" parameter="_rAdnsaWXEea4ApL_jsb4PQ">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAdntqWXEea4ApL_jsb4PQ" name="#body" incoming="_rAgD8KWXEea4ApL_jsb4PQ" outgoing="_rAgD8aWXEea4ApL_jsb4PQ">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAe10KWXEea4ApL_jsb4PQ" name="return this.hitCount&lt;=this.maxHit">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAe10aWXEea4ApL_jsb4PQ" name="this==>base" target="_rAe12aWXEea4ApL_jsb4PQ" source="_rAe116WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAe10qWXEea4ApL_jsb4PQ" name="this==>base" target="_rAe13qWXEea4ApL_jsb4PQ" source="_rAe13KWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAe106WXEea4ApL_jsb4PQ" name="this.hitCount==>left" target="_rAe14aWXEea4ApL_jsb4PQ" source="_rAe12qWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAe11KWXEea4ApL_jsb4PQ" name="this.maxHit==>right" target="_rAe14qWXEea4ApL_jsb4PQ" source="_rAe136WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAe11aWXEea4ApL_jsb4PQ" name="result==>new_value" target="_rAe15aWXEea4ApL_jsb4PQ" source="_rAe146WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAe11qWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAe116WXEea4ApL_jsb4PQ" name="this" outgoing="_rAe10aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAe12KWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAe12aWXEea4ApL_jsb4PQ" name="base" incoming="_rAe10aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAe12qWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAe106WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAe126WXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAe13KWXEea4ApL_jsb4PQ" name="this" outgoing="_rAe10qWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAe13aWXEea4ApL_jsb4PQ" name="this.maxHit" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAe13qWXEea4ApL_jsb4PQ" name="base" incoming="_rAe10qWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAe136WXEea4ApL_jsb4PQ" name="this.maxHit" outgoing="_rAe11KWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAe14KWXEea4ApL_jsb4PQ" name="this.hitCount&lt;=this.maxHit">
+                <argument xmi:id="_rAe14aWXEea4ApL_jsb4PQ" name="left" incoming="_rAe106WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <argument xmi:id="_rAe14qWXEea4ApL_jsb4PQ" name="right" incoming="_rAe11KWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <result xmi:id="_rAe146WXEea4ApL_jsb4PQ" name="result" outgoing="_rAe11aWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </result>
+                <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHYAgXLCEeWVx4ZuxFlarQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAe15KWXEea4ApL_jsb4PQ" name="return=this.hitCount&lt;=this.maxHit" variable="_rAdns6WXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <value xmi:id="_rAe15aWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAe11aWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </value>
+              </executableNode>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAe15qWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAgD8aWXEea4ApL_jsb4PQ" outgoing="_rAgD8qWXEea4ApL_jsb4PQ">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_rAfc4qWXEea4ApL_jsb4PQ" name="return==>return" target="_rAdntaWXEea4ApL_jsb4PQ" source="_rAfc4aWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAfc4KWXEea4ApL_jsb4PQ" name="return" variable="_rAdns6WXEea4ApL_jsb4PQ">
+              <result xmi:id="_rAfc4aWXEea4ApL_jsb4PQ" name="return" outgoing="_rAfc4qWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </result>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAfc46WXEea4ApL_jsb4PQ" name="#final" incoming="_rAgD8qWXEea4ApL_jsb4PQ"/>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_rAk8cqWXEea4ApL_jsb4PQ" name="guard" node="_rAk8dKWXEea4ApL_jsb4PQ _rAk8dqWXEea4ApL_jsb4PQ _rAljgKWXEea4ApL_jsb4PQ _rAljgaWXEea4ApL_jsb4PQ _rAmKpqWXEea4ApL_jsb4PQ _rAmxo6WXEea4ApL_jsb4PQ">
+          <ownedParameter xmi:id="_rAk8c6WXEea4ApL_jsb4PQ" name="return" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAmxpKWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAk8dqWXEea4ApL_jsb4PQ" source="_rAk8dKWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAmxpaWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAljgaWXEea4ApL_jsb4PQ" source="_rAk8dqWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAnYsKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAmKpqWXEea4ApL_jsb4PQ" source="_rAljgaWXEea4ApL_jsb4PQ"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rAnYsaWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAmxo6WXEea4ApL_jsb4PQ" source="_rAmKpqWXEea4ApL_jsb4PQ"/>
+          <variable xmi:id="_rAk8daWXEea4ApL_jsb4PQ" name="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </variable>
+          <node xmi:type="uml:InitialNode" xmi:id="_rAk8dKWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAmxpKWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAk8dqWXEea4ApL_jsb4PQ" incoming="_rAmxpKWXEea4ApL_jsb4PQ" outgoing="_rAmxpaWXEea4ApL_jsb4PQ"/>
+          <node xmi:type="uml:ActivityParameterNode" xmi:id="_rAljgKWXEea4ApL_jsb4PQ" name="return" incoming="_rAmxoqWXEea4ApL_jsb4PQ" parameter="_rAk8c6WXEea4ApL_jsb4PQ">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAljgaWXEea4ApL_jsb4PQ" name="#body" incoming="_rAmxpaWXEea4ApL_jsb4PQ" outgoing="_rAnYsKWXEea4ApL_jsb4PQ">
+            <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAmKkKWXEea4ApL_jsb4PQ" name="return this.hitCount>this.maxHit">
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAmKkaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAmKmaWXEea4ApL_jsb4PQ" source="_rAmKl6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAmKkqWXEea4ApL_jsb4PQ" name="this==>base" target="_rAmKnqWXEea4ApL_jsb4PQ" source="_rAmKnKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAmKk6WXEea4ApL_jsb4PQ" name="this.hitCount==>left" target="_rAmKoaWXEea4ApL_jsb4PQ" source="_rAmKmqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAmKlKWXEea4ApL_jsb4PQ" name="this.maxHit==>right" target="_rAmKoqWXEea4ApL_jsb4PQ" source="_rAmKn6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ObjectFlow" xmi:id="_rAmKlaWXEea4ApL_jsb4PQ" name="result==>new_value" target="_rAmKpaWXEea4ApL_jsb4PQ" source="_rAmKo6WXEea4ApL_jsb4PQ"/>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAmKlqWXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAmKl6WXEea4ApL_jsb4PQ" name="this" outgoing="_rAmKkaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAmKmKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAmKmaWXEea4ApL_jsb4PQ" name="base" incoming="_rAmKkaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAmKmqWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAmKk6WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAmKm6WXEea4ApL_jsb4PQ" name="this">
+                <result xmi:id="_rAmKnKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAmKkqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAmKnaWXEea4ApL_jsb4PQ" name="this.maxHit" structuralFeature="_q_94cKWXEea4ApL_jsb4PQ">
+                <object xmi:id="_rAmKnqWXEea4ApL_jsb4PQ" name="base" incoming="_rAmKkqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                <result xmi:id="_rAmKn6WXEea4ApL_jsb4PQ" name="this.maxHit" outgoing="_rAmKlKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </result>
+              </executableNode>
+              <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAmKoKWXEea4ApL_jsb4PQ" name="this.hitCount>this.maxHit">
+                <argument xmi:id="_rAmKoaWXEea4ApL_jsb4PQ" name="left" incoming="_rAmKk6WXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <argument xmi:id="_rAmKoqWXEea4ApL_jsb4PQ" name="right" incoming="_rAmKlKWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </argument>
+                <result xmi:id="_rAmKo6WXEea4ApL_jsb4PQ" name="result" outgoing="_rAmKlaWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </result>
+                <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHYAfHLCEeWVx4ZuxFlarQ"/>
+              </executableNode>
+              <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAmKpKWXEea4ApL_jsb4PQ" name="return=this.hitCount>this.maxHit" variable="_rAk8daWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                <value xmi:id="_rAmKpaWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAmKlaWXEea4ApL_jsb4PQ">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </value>
+              </executableNode>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:SequenceNode" xmi:id="_rAmKpqWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAnYsKWXEea4ApL_jsb4PQ" outgoing="_rAnYsaWXEea4ApL_jsb4PQ">
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_rAmxoqWXEea4ApL_jsb4PQ" name="return==>return" target="_rAljgKWXEea4ApL_jsb4PQ" source="_rAmxoaWXEea4ApL_jsb4PQ"/>
+            <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAmxoKWXEea4ApL_jsb4PQ" name="return" variable="_rAk8daWXEea4ApL_jsb4PQ">
+              <result xmi:id="_rAmxoaWXEea4ApL_jsb4PQ" name="return" outgoing="_rAmxoqWXEea4ApL_jsb4PQ">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+              </result>
+            </executableNode>
+          </node>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAmxo6WXEea4ApL_jsb4PQ" name="#final" incoming="_rAnYsaWXEea4ApL_jsb4PQ"/>
+        </ownedBehavior>
+        <region xmi:id="_rAEmIqWXEea4ApL_jsb4PQ" name="Player">
+          <transition xmi:id="_rAGbUKWXEea4ApL_jsb4PQ" name="Initialize" source="_rAFNMKWXEea4ApL_jsb4PQ" target="_rAFNMaWXEea4ApL_jsb4PQ"/>
+          <transition xmi:id="_rAHCYKWXEea4ApL_jsb4PQ" name="Starting" source="_rAFNMaWXEea4ApL_jsb4PQ" target="_rAFNMqWXEea4ApL_jsb4PQ">
+            <effect xmi:type="uml:Activity" xmi:id="_rAHpcKWXEea4ApL_jsb4PQ" name="effect" node="_rAHpcaWXEea4ApL_jsb4PQ _rAHpcqWXEea4ApL_jsb4PQ _rAHpc6WXEea4ApL_jsb4PQ _rAJeoKWXEea4ApL_jsb4PQ _rAJeoaWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAJeoqWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAHpcqWXEea4ApL_jsb4PQ" source="_rAHpcaWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAJeo6WXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAHpc6WXEea4ApL_jsb4PQ" source="_rAHpcqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAJepKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAJeoKWXEea4ApL_jsb4PQ" source="_rAHpc6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAKFsKWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAJeoaWXEea4ApL_jsb4PQ" source="_rAJeoKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rAHpcaWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAJeoqWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAHpcqWXEea4ApL_jsb4PQ" incoming="_rAJeoqWXEea4ApL_jsb4PQ" outgoing="_rAJeo6WXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAHpc6WXEea4ApL_jsb4PQ" name="#body" incoming="_rAJeo6WXEea4ApL_jsb4PQ" outgoing="_rAJepKWXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAI3kKWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player start playing&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAI3kaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAI3mqWXEea4ApL_jsb4PQ" source="_rAI3mKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAI3kqWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rAI3naWXEea4ApL_jsb4PQ" source="_rAI3m6WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAI3k6WXEea4ApL_jsb4PQ" name="&quot; player start playing&quot;_result==>input" target="_rAI3o6WXEea4ApL_jsb4PQ" source="_rAI3oKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAI3lKWXEea4ApL_jsb4PQ" name="res==>left" target="_rAI3pqWXEea4ApL_jsb4PQ" source="_rAI3nqWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAI3laWXEea4ApL_jsb4PQ" name="res==>right" target="_rAI3p6WXEea4ApL_jsb4PQ" source="_rAI3pKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAI3lqWXEea4ApL_jsb4PQ" name="result==>msg" target="_rAI3qqWXEea4ApL_jsb4PQ" source="_rAI3qKWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAI3l6WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rAI3mKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAI3kaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAI3maWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rAI3mqWXEea4ApL_jsb4PQ" name="base" incoming="_rAI3kaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rAI3m6WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rAI3kqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAI3nKWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rAI3naWXEea4ApL_jsb4PQ" name="input" incoming="_rAI3kqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAI3nqWXEea4ApL_jsb4PQ" name="res" outgoing="_rAI3lKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAI3n6WXEea4ApL_jsb4PQ" name="&quot; player start playing&quot;">
+                    <result xmi:id="_rAI3oKWXEea4ApL_jsb4PQ" name="&quot; player start playing&quot;_result" outgoing="_rAI3k6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rAI3oaWXEea4ApL_jsb4PQ" name="&quot; player start playing&quot;" value=" player start playing">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAI3oqWXEea4ApL_jsb4PQ" name="&quot; player start playing&quot;.toString">
+                    <argument xmi:id="_rAI3o6WXEea4ApL_jsb4PQ" name="input" incoming="_rAI3k6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAI3pKWXEea4ApL_jsb4PQ" name="res" outgoing="_rAI3laWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAI3paWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player start playing&quot;.toString">
+                    <argument xmi:id="_rAI3pqWXEea4ApL_jsb4PQ" name="left" incoming="_rAI3lKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rAI3p6WXEea4ApL_jsb4PQ" name="right" incoming="_rAI3laWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAI3qKWXEea4ApL_jsb4PQ" name="result" outgoing="_rAI3lqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAI3qaWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player start playing&quot;))">
+                    <argument xmi:id="_rAI3qqWXEea4ApL_jsb4PQ" name="msg" incoming="_rAI3lqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAJeoKWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAJepKWXEea4ApL_jsb4PQ" outgoing="_rAKFsKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAJeoaWXEea4ApL_jsb4PQ" name="#final" incoming="_rAKFsKWXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rAHCYaWXEea4ApL_jsb4PQ" name="null_trigger" event="_rAzl8aWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <transition xmi:id="_rAKFsaWXEea4ApL_jsb4PQ" name="RecivePPing" guard="_rAOXJaWXEea4ApL_jsb4PQ" source="_rAFNMqWXEea4ApL_jsb4PQ" target="_rAFNMqWXEea4ApL_jsb4PQ">
+            <ownedRule xmi:id="_rAOXJaWXEea4ApL_jsb4PQ" name="guard_specification">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_rAO-MKWXEea4ApL_jsb4PQ" behavior="_rAO-MaWXEea4ApL_jsb4PQ"/>
+            </ownedRule>
+            <effect xmi:type="uml:Activity" xmi:id="_rAKFs6WXEea4ApL_jsb4PQ" name="effect" node="_rAKswKWXEea4ApL_jsb4PQ _rAKswaWXEea4ApL_jsb4PQ _rAKswqWXEea4ApL_jsb4PQ _rANwMKWXEea4ApL_jsb4PQ _rAOXIKWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAOXIaWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAKswaWXEea4ApL_jsb4PQ" source="_rAKswKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAOXIqWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAKswqWXEea4ApL_jsb4PQ" source="_rAKswaWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAOXI6WXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rANwMKWXEea4ApL_jsb4PQ" source="_rAKswqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAOXJKWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAOXIKWXEea4ApL_jsb4PQ" source="_rANwMKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rAKswKWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAOXIaWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAKswaWXEea4ApL_jsb4PQ" incoming="_rAOXIaWXEea4ApL_jsb4PQ" outgoing="_rAOXIqWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAKswqWXEea4ApL_jsb4PQ" name="#body" incoming="_rAOXIqWXEea4ApL_jsb4PQ" outgoing="_rAOXI6WXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAL64KWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived ping&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAL64aWXEea4ApL_jsb4PQ" name="this==>base" target="_rAL66qWXEea4ApL_jsb4PQ" source="_rAL66KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAL64qWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rAL67aWXEea4ApL_jsb4PQ" source="_rAL666WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAL646WXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;_result==>input" target="_rAL686WXEea4ApL_jsb4PQ" source="_rAL68KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAL65KWXEea4ApL_jsb4PQ" name="res==>left" target="_rAL69qWXEea4ApL_jsb4PQ" source="_rAL67qWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAL65aWXEea4ApL_jsb4PQ" name="res==>right" target="_rAL696WXEea4ApL_jsb4PQ" source="_rAL69KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAL65qWXEea4ApL_jsb4PQ" name="result==>msg" target="_rAL6-qWXEea4ApL_jsb4PQ" source="_rAL6-KWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAL656WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rAL66KWXEea4ApL_jsb4PQ" name="this" outgoing="_rAL64aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAL66aWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rAL66qWXEea4ApL_jsb4PQ" name="base" incoming="_rAL64aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rAL666WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rAL64qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAL67KWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rAL67aWXEea4ApL_jsb4PQ" name="input" incoming="_rAL64qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAL67qWXEea4ApL_jsb4PQ" name="res" outgoing="_rAL65KWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAL676WXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;">
+                    <result xmi:id="_rAL68KWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;_result" outgoing="_rAL646WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rAL68aWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;" value=" player recived ping">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAL68qWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;.toString">
+                    <argument xmi:id="_rAL686WXEea4ApL_jsb4PQ" name="input" incoming="_rAL646WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAL69KWXEea4ApL_jsb4PQ" name="res" outgoing="_rAL65aWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAL69aWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player recived ping&quot;.toString">
+                    <argument xmi:id="_rAL69qWXEea4ApL_jsb4PQ" name="left" incoming="_rAL65KWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rAL696WXEea4ApL_jsb4PQ" name="right" incoming="_rAL65aWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAL6-KWXEea4ApL_jsb4PQ" name="result" outgoing="_rAL65qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAL6-aWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived ping&quot;))">
+                    <argument xmi:id="_rAL6-qWXEea4ApL_jsb4PQ" name="msg" incoming="_rAL65qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rANwEKWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++;">
+                  <executableNode xmi:type="uml:SequenceNode" xmi:id="_rANwEaWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++">
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwEqWXEea4ApL_jsb4PQ" name="this==>base" target="_rANwHaWXEea4ApL_jsb4PQ" source="_rANwG6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwE6WXEea4ApL_jsb4PQ" name="this.hitCount==>new_value" target="_rANwIKWXEea4ApL_jsb4PQ" source="_rANwHqWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwFKWXEea4ApL_jsb4PQ" name="this==>base" target="_rANwIqWXEea4ApL_jsb4PQ" source="_rANwG6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwFaWXEea4ApL_jsb4PQ" name="this.hitCount==>arg" target="_rANwKKWXEea4ApL_jsb4PQ" source="_rANwIaWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwFqWXEea4ApL_jsb4PQ" name="1==>inc" target="_rANwKaWXEea4ApL_jsb4PQ" source="_rANwJKWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwF6WXEea4ApL_jsb4PQ" name="this==>base" target="_rANwLKWXEea4ApL_jsb4PQ" source="_rANwG6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rANwGKWXEea4ApL_jsb4PQ" name="this.hitCount++==>new_value" target="_rANwLaWXEea4ApL_jsb4PQ" source="_rANwKqWXEea4ApL_jsb4PQ"/>
+                    <variable xmi:id="_rANwGaWXEea4ApL_jsb4PQ" name="#temp">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                    </variable>
+                    <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rANwGqWXEea4ApL_jsb4PQ" name="this">
+                      <result xmi:id="_rANwG6WXEea4ApL_jsb4PQ" name="this" outgoing="_rANwEqWXEea4ApL_jsb4PQ _rANwFKWXEea4ApL_jsb4PQ _rANwF6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rANwHKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rANwHaWXEea4ApL_jsb4PQ" name="base" incoming="_rANwEqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rANwHqWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rANwE6WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rANwH6WXEea4ApL_jsb4PQ" name="#temp=this.hitCount" variable="_rANwGaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <value xmi:id="_rANwIKWXEea4ApL_jsb4PQ" name="new_value" incoming="_rANwE6WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rANwIaWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rANwFaWXEea4ApL_jsb4PQ" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rANwIqWXEea4ApL_jsb4PQ" name="base" incoming="_rANwFKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rANwI6WXEea4ApL_jsb4PQ" name="this.hitCount">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rANwJKWXEea4ApL_jsb4PQ" name="1" outgoing="_rANwFqWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rANwJaWXEea4ApL_jsb4PQ" name="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <value xmi:type="uml:LiteralInteger" xmi:id="_rANwJqWXEea4ApL_jsb4PQ" name="1" value="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rANwJ6WXEea4ApL_jsb4PQ" name="this.hitCount++">
+                      <argument xmi:id="_rANwKKWXEea4ApL_jsb4PQ" name="arg" incoming="_rANwFaWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <argument xmi:id="_rANwKaWXEea4ApL_jsb4PQ" name="inc" incoming="_rANwFqWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <result xmi:id="_rANwKqWXEea4ApL_jsb4PQ" name="this.hitCount++" outgoing="_rANwGKWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR52XLCEeWVx4ZuxFlarQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rANwK6WXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <object xmi:id="_rANwLKWXEea4ApL_jsb4PQ" name="base" incoming="_rANwF6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <value xmi:id="_rANwLaWXEea4ApL_jsb4PQ" name="new_value" incoming="_rANwGKWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rANwLqWXEea4ApL_jsb4PQ" name="#temp" variable="_rANwGaWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rANwL6WXEea4ApL_jsb4PQ" name="#temp">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rANwMKWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAOXI6WXEea4ApL_jsb4PQ" outgoing="_rAOXJKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAOXIKWXEea4ApL_jsb4PQ" name="#final" incoming="_rAOXJKWXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rAKFsqWXEea4ApL_jsb4PQ" name="PingSignal_trigger" event="_q_c7EaWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <transition xmi:id="_rASBgqWXEea4ApL_jsb4PQ" name="DenyPPing" guard="_rAW6AqWXEea4ApL_jsb4PQ" source="_rAFNMqWXEea4ApL_jsb4PQ" target="_rAF0QKWXEea4ApL_jsb4PQ">
+            <ownedRule xmi:id="_rAW6AqWXEea4ApL_jsb4PQ" name="guard_specification">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_rAW6A6WXEea4ApL_jsb4PQ" behavior="_rAW6BKWXEea4ApL_jsb4PQ"/>
+            </ownedRule>
+            <effect xmi:type="uml:Activity" xmi:id="_rASokaWXEea4ApL_jsb4PQ" name="effect" node="_rASokqWXEea4ApL_jsb4PQ _rASok6WXEea4ApL_jsb4PQ _rATPoKWXEea4ApL_jsb4PQ _rAWS8KWXEea4ApL_jsb4PQ _rAWS8aWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAWS8qWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rASok6WXEea4ApL_jsb4PQ" source="_rASokqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAWS86WXEea4ApL_jsb4PQ" name="null~~>#body" target="_rATPoKWXEea4ApL_jsb4PQ" source="_rASok6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAW6AKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAWS8KWXEea4ApL_jsb4PQ" source="_rATPoKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAW6AaWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAWS8aWXEea4ApL_jsb4PQ" source="_rAWS8KWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rASokqWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAWS8qWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rASok6WXEea4ApL_jsb4PQ" incoming="_rAWS8qWXEea4ApL_jsb4PQ" outgoing="_rAWS86WXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rATPoKWXEea4ApL_jsb4PQ" name="#body" incoming="_rAWS86WXEea4ApL_jsb4PQ" outgoing="_rAW6AKWXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAUdwKWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived ping&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAUdwaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAUdyqWXEea4ApL_jsb4PQ" source="_rAUdyKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAUdwqWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rAUdzaWXEea4ApL_jsb4PQ" source="_rAUdy6WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAUdw6WXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;_result==>input" target="_rAUd06WXEea4ApL_jsb4PQ" source="_rAUd0KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAUdxKWXEea4ApL_jsb4PQ" name="res==>left" target="_rAUd1qWXEea4ApL_jsb4PQ" source="_rAUdzqWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAUdxaWXEea4ApL_jsb4PQ" name="res==>right" target="_rAUd16WXEea4ApL_jsb4PQ" source="_rAUd1KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAUdxqWXEea4ApL_jsb4PQ" name="result==>msg" target="_rAUd2qWXEea4ApL_jsb4PQ" source="_rAUd2KWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAUdx6WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rAUdyKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAUdwaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAUdyaWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rAUdyqWXEea4ApL_jsb4PQ" name="base" incoming="_rAUdwaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rAUdy6WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rAUdwqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAUdzKWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rAUdzaWXEea4ApL_jsb4PQ" name="input" incoming="_rAUdwqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAUdzqWXEea4ApL_jsb4PQ" name="res" outgoing="_rAUdxKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAUdz6WXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;">
+                    <result xmi:id="_rAUd0KWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;_result" outgoing="_rAUdw6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rAUd0aWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;" value=" player recived ping">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAUd0qWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;.toString">
+                    <argument xmi:id="_rAUd06WXEea4ApL_jsb4PQ" name="input" incoming="_rAUdw6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAUd1KWXEea4ApL_jsb4PQ" name="res" outgoing="_rAUdxaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAUd1aWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player recived ping&quot;.toString">
+                    <argument xmi:id="_rAUd1qWXEea4ApL_jsb4PQ" name="left" incoming="_rAUdxKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rAUd16WXEea4ApL_jsb4PQ" name="right" incoming="_rAUdxaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAUd2KWXEea4ApL_jsb4PQ" name="result" outgoing="_rAUdxqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAUd2aWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived ping&quot;))">
+                    <argument xmi:id="_rAUd2qWXEea4ApL_jsb4PQ" name="msg" incoming="_rAUdxqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAVr4KWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++;">
+                  <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAVr4aWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++">
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr4qWXEea4ApL_jsb4PQ" name="this==>base" target="_rAVr7aWXEea4ApL_jsb4PQ" source="_rAVr66WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr46WXEea4ApL_jsb4PQ" name="this.hitCount==>new_value" target="_rAVr8KWXEea4ApL_jsb4PQ" source="_rAVr7qWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr5KWXEea4ApL_jsb4PQ" name="this==>base" target="_rAVr8qWXEea4ApL_jsb4PQ" source="_rAVr66WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr5aWXEea4ApL_jsb4PQ" name="this.hitCount==>arg" target="_rAVr-KWXEea4ApL_jsb4PQ" source="_rAVr8aWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr5qWXEea4ApL_jsb4PQ" name="1==>inc" target="_rAVr-aWXEea4ApL_jsb4PQ" source="_rAVr9KWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr56WXEea4ApL_jsb4PQ" name="this==>base" target="_rAVr_KWXEea4ApL_jsb4PQ" source="_rAVr66WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAVr6KWXEea4ApL_jsb4PQ" name="this.hitCount++==>new_value" target="_rAVr_aWXEea4ApL_jsb4PQ" source="_rAVr-qWXEea4ApL_jsb4PQ"/>
+                    <variable xmi:id="_rAVr6aWXEea4ApL_jsb4PQ" name="#temp">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                    </variable>
+                    <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAVr6qWXEea4ApL_jsb4PQ" name="this">
+                      <result xmi:id="_rAVr66WXEea4ApL_jsb4PQ" name="this" outgoing="_rAVr4qWXEea4ApL_jsb4PQ _rAVr5KWXEea4ApL_jsb4PQ _rAVr56WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAVr7KWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rAVr7aWXEea4ApL_jsb4PQ" name="base" incoming="_rAVr4qWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rAVr7qWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAVr46WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAVr76WXEea4ApL_jsb4PQ" name="#temp=this.hitCount" variable="_rAVr6aWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <value xmi:id="_rAVr8KWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAVr46WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAVr8aWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAVr5aWXEea4ApL_jsb4PQ" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rAVr8qWXEea4ApL_jsb4PQ" name="base" incoming="_rAVr5KWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rAVr86WXEea4ApL_jsb4PQ" name="this.hitCount">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAVr9KWXEea4ApL_jsb4PQ" name="1" outgoing="_rAVr5qWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rAVr9aWXEea4ApL_jsb4PQ" name="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <value xmi:type="uml:LiteralInteger" xmi:id="_rAVr9qWXEea4ApL_jsb4PQ" name="1" value="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAVr96WXEea4ApL_jsb4PQ" name="this.hitCount++">
+                      <argument xmi:id="_rAVr-KWXEea4ApL_jsb4PQ" name="arg" incoming="_rAVr5aWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <argument xmi:id="_rAVr-aWXEea4ApL_jsb4PQ" name="inc" incoming="_rAVr5qWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <result xmi:id="_rAVr-qWXEea4ApL_jsb4PQ" name="this.hitCount++" outgoing="_rAVr6KWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR52XLCEeWVx4ZuxFlarQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rAVr-6WXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <object xmi:id="_rAVr_KWXEea4ApL_jsb4PQ" name="base" incoming="_rAVr56WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <value xmi:id="_rAVr_aWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAVr6KWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAVr_qWXEea4ApL_jsb4PQ" name="#temp" variable="_rAVr6aWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rAVr_6WXEea4ApL_jsb4PQ" name="#temp">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAWS8KWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAW6AKWXEea4ApL_jsb4PQ" outgoing="_rAW6AaWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAWS8aWXEea4ApL_jsb4PQ" name="#final" incoming="_rAW6AaWXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rASokKWXEea4ApL_jsb4PQ" name="PingSignal_trigger" event="_q_c7EaWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <transition xmi:id="_rAYvNKWXEea4ApL_jsb4PQ" name="RecivePPong" guard="_rAdApKWXEea4ApL_jsb4PQ" source="_rAFNMqWXEea4ApL_jsb4PQ" target="_rAFNMqWXEea4ApL_jsb4PQ">
+            <ownedRule xmi:id="_rAdApKWXEea4ApL_jsb4PQ" name="guard_specification">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_rAdApaWXEea4ApL_jsb4PQ" behavior="_rAdnsKWXEea4ApL_jsb4PQ"/>
+            </ownedRule>
+            <effect xmi:type="uml:Activity" xmi:id="_rAZWQKWXEea4ApL_jsb4PQ" name="effect" node="_rAZWQaWXEea4ApL_jsb4PQ _rAZWQqWXEea4ApL_jsb4PQ _rAZWQ6WXEea4ApL_jsb4PQ _rAcZsKWXEea4ApL_jsb4PQ _rAcZsaWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAdAoKWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAZWQqWXEea4ApL_jsb4PQ" source="_rAZWQaWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAdAoaWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAZWQ6WXEea4ApL_jsb4PQ" source="_rAZWQqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAdAoqWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAcZsKWXEea4ApL_jsb4PQ" source="_rAZWQ6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAdAo6WXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAcZsaWXEea4ApL_jsb4PQ" source="_rAcZsKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rAZWQaWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAdAoKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAZWQqWXEea4ApL_jsb4PQ" incoming="_rAdAoKWXEea4ApL_jsb4PQ" outgoing="_rAdAoaWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAZWQ6WXEea4ApL_jsb4PQ" name="#body" incoming="_rAdAoaWXEea4ApL_jsb4PQ" outgoing="_rAdAoqWXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAakYKWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived pong&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAakYaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAakaqWXEea4ApL_jsb4PQ" source="_rAakaKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAakYqWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rAakbaWXEea4ApL_jsb4PQ" source="_rAaka6WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAakY6WXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;_result==>input" target="_rAakc6WXEea4ApL_jsb4PQ" source="_rAakcKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAakZKWXEea4ApL_jsb4PQ" name="res==>left" target="_rAakdqWXEea4ApL_jsb4PQ" source="_rAakbqWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAakZaWXEea4ApL_jsb4PQ" name="res==>right" target="_rAakd6WXEea4ApL_jsb4PQ" source="_rAakdKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAakZqWXEea4ApL_jsb4PQ" name="result==>msg" target="_rAakeqWXEea4ApL_jsb4PQ" source="_rAakeKWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAakZ6WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rAakaKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAakYaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAakaaWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rAakaqWXEea4ApL_jsb4PQ" name="base" incoming="_rAakYaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rAaka6WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rAakYqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAakbKWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rAakbaWXEea4ApL_jsb4PQ" name="input" incoming="_rAakYqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAakbqWXEea4ApL_jsb4PQ" name="res" outgoing="_rAakZKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAakb6WXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;">
+                    <result xmi:id="_rAakcKWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;_result" outgoing="_rAakY6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rAakcaWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;" value=" player recived pong">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAakcqWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;.toString">
+                    <argument xmi:id="_rAakc6WXEea4ApL_jsb4PQ" name="input" incoming="_rAakY6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAakdKWXEea4ApL_jsb4PQ" name="res" outgoing="_rAakZaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAakdaWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player recived pong&quot;.toString">
+                    <argument xmi:id="_rAakdqWXEea4ApL_jsb4PQ" name="left" incoming="_rAakZKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rAakd6WXEea4ApL_jsb4PQ" name="right" incoming="_rAakZaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAakeKWXEea4ApL_jsb4PQ" name="result" outgoing="_rAakZqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAakeaWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived pong&quot;))">
+                    <argument xmi:id="_rAakeqWXEea4ApL_jsb4PQ" name="msg" incoming="_rAakZqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAcZkKWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++;">
+                  <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAcZkaWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++">
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZkqWXEea4ApL_jsb4PQ" name="this==>base" target="_rAcZnaWXEea4ApL_jsb4PQ" source="_rAcZm6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZk6WXEea4ApL_jsb4PQ" name="this.hitCount==>new_value" target="_rAcZoKWXEea4ApL_jsb4PQ" source="_rAcZnqWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZlKWXEea4ApL_jsb4PQ" name="this==>base" target="_rAcZoqWXEea4ApL_jsb4PQ" source="_rAcZm6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZlaWXEea4ApL_jsb4PQ" name="this.hitCount==>arg" target="_rAcZqKWXEea4ApL_jsb4PQ" source="_rAcZoaWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZlqWXEea4ApL_jsb4PQ" name="1==>inc" target="_rAcZqaWXEea4ApL_jsb4PQ" source="_rAcZpKWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZl6WXEea4ApL_jsb4PQ" name="this==>base" target="_rAcZrKWXEea4ApL_jsb4PQ" source="_rAcZm6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAcZmKWXEea4ApL_jsb4PQ" name="this.hitCount++==>new_value" target="_rAcZraWXEea4ApL_jsb4PQ" source="_rAcZqqWXEea4ApL_jsb4PQ"/>
+                    <variable xmi:id="_rAcZmaWXEea4ApL_jsb4PQ" name="#temp">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                    </variable>
+                    <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAcZmqWXEea4ApL_jsb4PQ" name="this">
+                      <result xmi:id="_rAcZm6WXEea4ApL_jsb4PQ" name="this" outgoing="_rAcZkqWXEea4ApL_jsb4PQ _rAcZlKWXEea4ApL_jsb4PQ _rAcZl6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAcZnKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rAcZnaWXEea4ApL_jsb4PQ" name="base" incoming="_rAcZkqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rAcZnqWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAcZk6WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAcZn6WXEea4ApL_jsb4PQ" name="#temp=this.hitCount" variable="_rAcZmaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <value xmi:id="_rAcZoKWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAcZk6WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAcZoaWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAcZlaWXEea4ApL_jsb4PQ" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rAcZoqWXEea4ApL_jsb4PQ" name="base" incoming="_rAcZlKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rAcZo6WXEea4ApL_jsb4PQ" name="this.hitCount">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAcZpKWXEea4ApL_jsb4PQ" name="1" outgoing="_rAcZlqWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rAcZpaWXEea4ApL_jsb4PQ" name="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <value xmi:type="uml:LiteralInteger" xmi:id="_rAcZpqWXEea4ApL_jsb4PQ" name="1" value="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAcZp6WXEea4ApL_jsb4PQ" name="this.hitCount++">
+                      <argument xmi:id="_rAcZqKWXEea4ApL_jsb4PQ" name="arg" incoming="_rAcZlaWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <argument xmi:id="_rAcZqaWXEea4ApL_jsb4PQ" name="inc" incoming="_rAcZlqWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <result xmi:id="_rAcZqqWXEea4ApL_jsb4PQ" name="this.hitCount++" outgoing="_rAcZmKWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR52XLCEeWVx4ZuxFlarQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rAcZq6WXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <object xmi:id="_rAcZrKWXEea4ApL_jsb4PQ" name="base" incoming="_rAcZl6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <value xmi:id="_rAcZraWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAcZmKWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAcZrqWXEea4ApL_jsb4PQ" name="#temp" variable="_rAcZmaWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rAcZr6WXEea4ApL_jsb4PQ" name="#temp">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAcZsKWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAdAoqWXEea4ApL_jsb4PQ" outgoing="_rAdAo6WXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAcZsaWXEea4ApL_jsb4PQ" name="#final" incoming="_rAdAo6WXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rAYvNaWXEea4ApL_jsb4PQ" name="null_trigger" event="_rAv7kaWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <transition xmi:id="_rAgD86WXEea4ApL_jsb4PQ" name="DenyPPong" guard="_rAk8cKWXEea4ApL_jsb4PQ" source="_rAFNMqWXEea4ApL_jsb4PQ" target="_rAF0QKWXEea4ApL_jsb4PQ">
+            <ownedRule xmi:id="_rAk8cKWXEea4ApL_jsb4PQ" name="guard_specification">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_rAk8caWXEea4ApL_jsb4PQ" behavior="_rAk8cqWXEea4ApL_jsb4PQ"/>
+            </ownedRule>
+            <effect xmi:type="uml:Activity" xmi:id="_rAgrAaWXEea4ApL_jsb4PQ" name="effect" node="_rAgrAqWXEea4ApL_jsb4PQ _rAhSEKWXEea4ApL_jsb4PQ _rAhSEaWXEea4ApL_jsb4PQ _rAkVYKWXEea4ApL_jsb4PQ _rAkVYaWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAkVYqWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAhSEKWXEea4ApL_jsb4PQ" source="_rAgrAqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAkVY6WXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAhSEaWXEea4ApL_jsb4PQ" source="_rAhSEKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAkVZKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAkVYKWXEea4ApL_jsb4PQ" source="_rAhSEaWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAkVZaWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAkVYaWXEea4ApL_jsb4PQ" source="_rAkVYKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rAgrAqWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAkVYqWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAhSEKWXEea4ApL_jsb4PQ" incoming="_rAkVYqWXEea4ApL_jsb4PQ" outgoing="_rAkVY6WXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAhSEaWXEea4ApL_jsb4PQ" name="#body" incoming="_rAkVY6WXEea4ApL_jsb4PQ" outgoing="_rAkVZKWXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAigMKWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived pong&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAigMaWXEea4ApL_jsb4PQ" name="this==>base" target="_rAigOqWXEea4ApL_jsb4PQ" source="_rAigOKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAigMqWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rAigPaWXEea4ApL_jsb4PQ" source="_rAigO6WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAigM6WXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;_result==>input" target="_rAigQ6WXEea4ApL_jsb4PQ" source="_rAigQKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAigNKWXEea4ApL_jsb4PQ" name="res==>left" target="_rAigRqWXEea4ApL_jsb4PQ" source="_rAigPqWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAigNaWXEea4ApL_jsb4PQ" name="res==>right" target="_rAigR6WXEea4ApL_jsb4PQ" source="_rAigRKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rAigNqWXEea4ApL_jsb4PQ" name="result==>msg" target="_rAigSqWXEea4ApL_jsb4PQ" source="_rAigSKWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAigN6WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rAigOKWXEea4ApL_jsb4PQ" name="this" outgoing="_rAigMaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAigOaWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rAigOqWXEea4ApL_jsb4PQ" name="base" incoming="_rAigMaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rAigO6WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rAigMqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAigPKWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rAigPaWXEea4ApL_jsb4PQ" name="input" incoming="_rAigMqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAigPqWXEea4ApL_jsb4PQ" name="res" outgoing="_rAigNKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAigP6WXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;">
+                    <result xmi:id="_rAigQKWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;_result" outgoing="_rAigM6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rAigQaWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;" value=" player recived pong">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAigQqWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;.toString">
+                    <argument xmi:id="_rAigQ6WXEea4ApL_jsb4PQ" name="input" incoming="_rAigM6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAigRKWXEea4ApL_jsb4PQ" name="res" outgoing="_rAigNaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAigRaWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player recived pong&quot;.toString">
+                    <argument xmi:id="_rAigRqWXEea4ApL_jsb4PQ" name="left" incoming="_rAigNKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rAigR6WXEea4ApL_jsb4PQ" name="right" incoming="_rAigNaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rAigSKWXEea4ApL_jsb4PQ" name="result" outgoing="_rAigNqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAigSaWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived pong&quot;))">
+                    <argument xmi:id="_rAigSqWXEea4ApL_jsb4PQ" name="msg" incoming="_rAigNqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAjuUKWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++;">
+                  <executableNode xmi:type="uml:SequenceNode" xmi:id="_rAjuUaWXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++">
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuUqWXEea4ApL_jsb4PQ" name="this==>base" target="_rAjuXaWXEea4ApL_jsb4PQ" source="_rAjuW6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuU6WXEea4ApL_jsb4PQ" name="this.hitCount==>new_value" target="_rAjuYKWXEea4ApL_jsb4PQ" source="_rAjuXqWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuVKWXEea4ApL_jsb4PQ" name="this==>base" target="_rAjuYqWXEea4ApL_jsb4PQ" source="_rAjuW6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuVaWXEea4ApL_jsb4PQ" name="this.hitCount==>arg" target="_rAjuaKWXEea4ApL_jsb4PQ" source="_rAjuYaWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuVqWXEea4ApL_jsb4PQ" name="1==>inc" target="_rAjuaaWXEea4ApL_jsb4PQ" source="_rAjuZKWXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuV6WXEea4ApL_jsb4PQ" name="this==>base" target="_rAjubKWXEea4ApL_jsb4PQ" source="_rAjuW6WXEea4ApL_jsb4PQ"/>
+                    <edge xmi:type="uml:ObjectFlow" xmi:id="_rAjuWKWXEea4ApL_jsb4PQ" name="this.hitCount++==>new_value" target="_rAjubaWXEea4ApL_jsb4PQ" source="_rAjuaqWXEea4ApL_jsb4PQ"/>
+                    <variable xmi:id="_rAjuWaWXEea4ApL_jsb4PQ" name="#temp">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                    </variable>
+                    <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rAjuWqWXEea4ApL_jsb4PQ" name="this">
+                      <result xmi:id="_rAjuW6WXEea4ApL_jsb4PQ" name="this" outgoing="_rAjuUqWXEea4ApL_jsb4PQ _rAjuVKWXEea4ApL_jsb4PQ _rAjuV6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAjuXKWXEea4ApL_jsb4PQ" name="this.hitCount" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rAjuXaWXEea4ApL_jsb4PQ" name="base" incoming="_rAjuUqWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rAjuXqWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAjuU6WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddVariableValueAction" xmi:id="_rAjuX6WXEea4ApL_jsb4PQ" name="#temp=this.hitCount" variable="_rAjuWaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <value xmi:id="_rAjuYKWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAjuU6WXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rAjuYaWXEea4ApL_jsb4PQ" name="this.hitCount" outgoing="_rAjuVaWXEea4ApL_jsb4PQ" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ">
+                      <object xmi:id="_rAjuYqWXEea4ApL_jsb4PQ" name="base" incoming="_rAjuVKWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <result xmi:id="_rAjuY6WXEea4ApL_jsb4PQ" name="this.hitCount">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rAjuZKWXEea4ApL_jsb4PQ" name="1" outgoing="_rAjuVqWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rAjuZaWXEea4ApL_jsb4PQ" name="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <value xmi:type="uml:LiteralInteger" xmi:id="_rAjuZqWXEea4ApL_jsb4PQ" name="1" value="1">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rAjuZ6WXEea4ApL_jsb4PQ" name="this.hitCount++">
+                      <argument xmi:id="_rAjuaKWXEea4ApL_jsb4PQ" name="arg" incoming="_rAjuVaWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <argument xmi:id="_rAjuaaWXEea4ApL_jsb4PQ" name="inc" incoming="_rAjuVqWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </argument>
+                      <result xmi:id="_rAjuaqWXEea4ApL_jsb4PQ" name="this.hitCount++" outgoing="_rAjuWKWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                      <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR52XLCEeWVx4ZuxFlarQ"/>
+                    </executableNode>
+                    <executableNode xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_rAjua6WXEea4ApL_jsb4PQ" name="this.hitCount=this.hitCount++" structuralFeature="_q_9RYaWXEea4ApL_jsb4PQ" isReplaceAll="true">
+                      <object xmi:id="_rAjubKWXEea4ApL_jsb4PQ" name="base" incoming="_rAjuV6WXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                      <value xmi:id="_rAjubaWXEea4ApL_jsb4PQ" name="new_value" incoming="_rAjuWKWXEea4ApL_jsb4PQ">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </value>
+                    </executableNode>
+                    <executableNode xmi:type="uml:ReadVariableAction" xmi:id="_rAjubqWXEea4ApL_jsb4PQ" name="#temp" variable="_rAjuWaWXEea4ApL_jsb4PQ">
+                      <result xmi:id="_rAjub6WXEea4ApL_jsb4PQ" name="#temp">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                      </result>
+                    </executableNode>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAkVYKWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAkVZKWXEea4ApL_jsb4PQ" outgoing="_rAkVZaWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAkVYaWXEea4ApL_jsb4PQ" name="#final" incoming="_rAkVZaWXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rAgrAKWXEea4ApL_jsb4PQ" name="null_trigger" event="_rAv7kaWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <transition xmi:id="_rAnYsqWXEea4ApL_jsb4PQ" name="ReciveWPing" source="_rAFNMaWXEea4ApL_jsb4PQ" target="_rAFNMqWXEea4ApL_jsb4PQ">
+            <effect xmi:type="uml:Activity" xmi:id="_rAn_waWXEea4ApL_jsb4PQ" name="effect" node="_rAn_wqWXEea4ApL_jsb4PQ _rAn_w6WXEea4ApL_jsb4PQ _rAn_xKWXEea4ApL_jsb4PQ _rApN-6WXEea4ApL_jsb4PQ _rAp08KWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAp08aWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAn_w6WXEea4ApL_jsb4PQ" source="_rAn_wqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAp08qWXEea4ApL_jsb4PQ" name="null~~>#body" target="_rAn_xKWXEea4ApL_jsb4PQ" source="_rAn_w6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAp086WXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rApN-6WXEea4ApL_jsb4PQ" source="_rAn_xKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAp09KWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAp08KWXEea4ApL_jsb4PQ" source="_rApN-6WXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rAn_wqWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAp08aWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAn_w6WXEea4ApL_jsb4PQ" incoming="_rAp08aWXEea4ApL_jsb4PQ" outgoing="_rAp08qWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAn_xKWXEea4ApL_jsb4PQ" name="#body" incoming="_rAp08qWXEea4ApL_jsb4PQ" outgoing="_rAp086WXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rApN4KWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived ping&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rApN4aWXEea4ApL_jsb4PQ" name="this==>base" target="_rApN6qWXEea4ApL_jsb4PQ" source="_rApN6KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rApN4qWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rApN7aWXEea4ApL_jsb4PQ" source="_rApN66WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rApN46WXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;_result==>input" target="_rApN86WXEea4ApL_jsb4PQ" source="_rApN8KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rApN5KWXEea4ApL_jsb4PQ" name="res==>left" target="_rApN9qWXEea4ApL_jsb4PQ" source="_rApN7qWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rApN5aWXEea4ApL_jsb4PQ" name="res==>right" target="_rApN96WXEea4ApL_jsb4PQ" source="_rApN9KWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rApN5qWXEea4ApL_jsb4PQ" name="result==>msg" target="_rApN-qWXEea4ApL_jsb4PQ" source="_rApN-KWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rApN56WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rApN6KWXEea4ApL_jsb4PQ" name="this" outgoing="_rApN4aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rApN6aWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rApN6qWXEea4ApL_jsb4PQ" name="base" incoming="_rApN4aWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rApN66WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rApN4qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rApN7KWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rApN7aWXEea4ApL_jsb4PQ" name="input" incoming="_rApN4qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rApN7qWXEea4ApL_jsb4PQ" name="res" outgoing="_rApN5KWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rApN76WXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;">
+                    <result xmi:id="_rApN8KWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;_result" outgoing="_rApN46WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rApN8aWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;" value=" player recived ping">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rApN8qWXEea4ApL_jsb4PQ" name="&quot; player recived ping&quot;.toString">
+                    <argument xmi:id="_rApN86WXEea4ApL_jsb4PQ" name="input" incoming="_rApN46WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rApN9KWXEea4ApL_jsb4PQ" name="res" outgoing="_rApN5aWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rApN9aWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player recived ping&quot;.toString">
+                    <argument xmi:id="_rApN9qWXEea4ApL_jsb4PQ" name="left" incoming="_rApN5KWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rApN96WXEea4ApL_jsb4PQ" name="right" incoming="_rApN5aWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rApN-KWXEea4ApL_jsb4PQ" name="result" outgoing="_rApN5qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rApN-aWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived ping&quot;))">
+                    <argument xmi:id="_rApN-qWXEea4ApL_jsb4PQ" name="msg" incoming="_rApN5qWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rApN-6WXEea4ApL_jsb4PQ" name="#finish" incoming="_rAp086WXEea4ApL_jsb4PQ" outgoing="_rAp09KWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAp08KWXEea4ApL_jsb4PQ" name="#final" incoming="_rAp09KWXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rAn_wKWXEea4ApL_jsb4PQ" name="PingSignal_trigger" event="_q_c7EaWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <transition xmi:id="_rAp09aWXEea4ApL_jsb4PQ" name="ReciveWPong" source="_rAFNMaWXEea4ApL_jsb4PQ" target="_rAFNMqWXEea4ApL_jsb4PQ">
+            <effect xmi:type="uml:Activity" xmi:id="_rAqcAaWXEea4ApL_jsb4PQ" name="effect" node="_rAqcAqWXEea4ApL_jsb4PQ _rAqcA6WXEea4ApL_jsb4PQ _rArDEKWXEea4ApL_jsb4PQ _rAsRMKWXEea4ApL_jsb4PQ _rAsRMaWXEea4ApL_jsb4PQ">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAsRMqWXEea4ApL_jsb4PQ" name="#init~~>null" target="_rAqcA6WXEea4ApL_jsb4PQ" source="_rAqcAqWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAsRM6WXEea4ApL_jsb4PQ" name="null~~>#body" target="_rArDEKWXEea4ApL_jsb4PQ" source="_rAqcA6WXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAsRNKWXEea4ApL_jsb4PQ" name="#body~~>#finish" target="_rAsRMKWXEea4ApL_jsb4PQ" source="_rArDEKWXEea4ApL_jsb4PQ"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_rAs4QKWXEea4ApL_jsb4PQ" name="#finish~~>#final" target="_rAsRMaWXEea4ApL_jsb4PQ" source="_rAsRMKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_rAqcAqWXEea4ApL_jsb4PQ" name="#init" outgoing="_rAsRMqWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAqcA6WXEea4ApL_jsb4PQ" incoming="_rAsRMqWXEea4ApL_jsb4PQ" outgoing="_rAsRM6WXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rArDEKWXEea4ApL_jsb4PQ" name="#body" incoming="_rAsRM6WXEea4ApL_jsb4PQ" outgoing="_rAsRNKWXEea4ApL_jsb4PQ">
+                <executableNode xmi:type="uml:SequenceNode" xmi:id="_rArqIKWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived pong&quot;));">
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rArqIaWXEea4ApL_jsb4PQ" name="this==>base" target="_rArqKqWXEea4ApL_jsb4PQ" source="_rArqKKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rArqIqWXEea4ApL_jsb4PQ" name="this.name==>input" target="_rArqLaWXEea4ApL_jsb4PQ" source="_rArqK6WXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rArqI6WXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;_result==>input" target="_rArqM6WXEea4ApL_jsb4PQ" source="_rArqMKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rArqJKWXEea4ApL_jsb4PQ" name="res==>left" target="_rArqNqWXEea4ApL_jsb4PQ" source="_rArqLqWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rArqJaWXEea4ApL_jsb4PQ" name="res==>right" target="_rArqN6WXEea4ApL_jsb4PQ" source="_rArqNKWXEea4ApL_jsb4PQ"/>
+                  <edge xmi:type="uml:ObjectFlow" xmi:id="_rArqJqWXEea4ApL_jsb4PQ" name="result==>msg" target="_rArqOqWXEea4ApL_jsb4PQ" source="_rArqOKWXEea4ApL_jsb4PQ"/>
+                  <executableNode xmi:type="uml:ReadSelfAction" xmi:id="_rArqJ6WXEea4ApL_jsb4PQ" name="this">
+                    <result xmi:id="_rArqKKWXEea4ApL_jsb4PQ" name="this" outgoing="_rArqIaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ReadStructuralFeatureAction" xmi:id="_rArqKaWXEea4ApL_jsb4PQ" name="this.name" structuralFeature="_q_94caWXEea4ApL_jsb4PQ">
+                    <object xmi:id="_rArqKqWXEea4ApL_jsb4PQ" name="base" incoming="_rArqIaWXEea4ApL_jsb4PQ" type="_q_9RYKWXEea4ApL_jsb4PQ"/>
+                    <result xmi:id="_rArqK6WXEea4ApL_jsb4PQ" name="this.name" outgoing="_rArqIqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rArqLKWXEea4ApL_jsb4PQ" name="this.name.toString">
+                    <argument xmi:id="_rArqLaWXEea4ApL_jsb4PQ" name="input" incoming="_rArqIqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rArqLqWXEea4ApL_jsb4PQ" name="res" outgoing="_rArqJKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:ValueSpecificationAction" xmi:id="_rArqL6WXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;">
+                    <result xmi:id="_rArqMKWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;_result" outgoing="_rArqI6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <value xmi:type="uml:LiteralString" xmi:id="_rArqMaWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;" value=" player recived pong">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </value>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rArqMqWXEea4ApL_jsb4PQ" name="&quot; player recived pong&quot;.toString">
+                    <argument xmi:id="_rArqM6WXEea4ApL_jsb4PQ" name="input" incoming="_rArqI6WXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rArqNKWXEea4ApL_jsb4PQ" name="res" outgoing="_rArqJaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_i2CYECC9EeaOft3ZDJwTtA"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rArqNaWXEea4ApL_jsb4PQ" name="this.name.toString+&quot; player recived pong&quot;.toString">
+                    <argument xmi:id="_rArqNqWXEea4ApL_jsb4PQ" name="left" incoming="_rArqJKWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <argument xmi:id="_rArqN6WXEea4ApL_jsb4PQ" name="right" incoming="_rArqJaWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <result xmi:id="_rArqOKWXEea4ApL_jsb4PQ" name="result" outgoing="_rArqJqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </result>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_DHR51HLCEeWVx4ZuxFlarQ"/>
+                  </executableNode>
+                  <executableNode xmi:type="uml:CallOperationAction" xmi:id="_rArqOaWXEea4ApL_jsb4PQ" name="Action.log((Player.this.name + &quot; player recived pong&quot;))">
+                    <argument xmi:id="_rArqOqWXEea4ApL_jsb4PQ" name="msg" incoming="_rArqJqWXEea4ApL_jsb4PQ">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </argument>
+                    <operation href="pathmap://TXTUML_STDLIB/stdlib.uml#_HBO98NxtEeWMgebnm1pcCw"/>
+                  </executableNode>
+                </executableNode>
+              </node>
+              <node xmi:type="uml:SequenceNode" xmi:id="_rAsRMKWXEea4ApL_jsb4PQ" name="#finish" incoming="_rAsRNKWXEea4ApL_jsb4PQ" outgoing="_rAs4QKWXEea4ApL_jsb4PQ"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_rAsRMaWXEea4ApL_jsb4PQ" name="#final" incoming="_rAs4QKWXEea4ApL_jsb4PQ"/>
+            </effect>
+            <trigger xmi:id="_rAqcAKWXEea4ApL_jsb4PQ" name="null_trigger" event="_rAv7kaWXEea4ApL_jsb4PQ"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_rAFNMKWXEea4ApL_jsb4PQ" name="Init"/>
+          <subvertex xmi:type="uml:State" xmi:id="_rAFNMaWXEea4ApL_jsb4PQ" name="Waiting"/>
+          <subvertex xmi:type="uml:State" xmi:id="_rAFNMqWXEea4ApL_jsb4PQ" name="Playing"/>
+          <subvertex xmi:type="uml:State" xmi:id="_rAF0QKWXEea4ApL_jsb4PQ" name="Finishing"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_q_94cqWXEea4ApL_jsb4PQ" name="Player" method="_q__GkKWXEea4ApL_jsb4PQ">
+        <ownedParameter xmi:id="_q_94c6WXEea4ApL_jsb4PQ" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_q_-fgKWXEea4ApL_jsb4PQ" name="maxHit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_rAEmIKWXEea4ApL_jsb4PQ" name="provided interface for PingPongPort"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_rAv7kKWXEea4ApL_jsb4PQ" name="PongSignal"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_rAv7kaWXEea4ApL_jsb4PQ" name="PongSignal" signal="_rAv7kKWXEea4ApL_jsb4PQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rAwioKWXEea4ApL_jsb4PQ" name="#PongSignal_factory">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_rAxwwaWXEea4ApL_jsb4PQ" name="PongSignal" specification="_rAwioaWXEea4ApL_jsb4PQ"/>
+      <ownedOperation xmi:id="_rAwioaWXEea4ApL_jsb4PQ" name="PongSignal" isStatic="true" method="_rAxwwaWXEea4ApL_jsb4PQ">
+        <ownedParameter xmi:id="_rAxwwKWXEea4ApL_jsb4PQ" name="signal" type="_rAv7kKWXEea4ApL_jsb4PQ"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_rAzl8KWXEea4ApL_jsb4PQ" name="StartPlaying"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_rAzl8aWXEea4ApL_jsb4PQ" name="StartPlaying" signal="_rAzl8KWXEea4ApL_jsb4PQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rAzl8qWXEea4ApL_jsb4PQ" name="#StartPlaying_factory">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_rA0NAqWXEea4ApL_jsb4PQ" name="StartPlaying" specification="_rAzl86WXEea4ApL_jsb4PQ"/>
+      <ownedOperation xmi:id="_rAzl86WXEea4ApL_jsb4PQ" name="StartPlaying" isStatic="true" method="_rA0NAqWXEea4ApL_jsb4PQ">
+        <ownedParameter xmi:id="_rA0NAaWXEea4ApL_jsb4PQ" name="signal" type="_rAzl8KWXEea4ApL_jsb4PQ"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:id="_qx6OUKWXEea4ApL_jsb4PQ">
+      <eAnnotations xmi:id="_qx6OUaWXEea4ApL_jsb4PQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Create xmi:id="_q_eJMKWXEea4ApL_jsb4PQ" base_BehavioralFeature="_q_diIKWXEea4ApL_jsb4PQ"/>
+  <standard:Create xmi:id="_q_jowKWXEea4ApL_jsb4PQ" base_BehavioralFeature="_q_jBsaWXEea4ApL_jsb4PQ"/>
+  <standard:Create xmi:id="_q_-fgaWXEea4ApL_jsb4PQ" base_BehavioralFeature="_q_94cqWXEea4ApL_jsb4PQ"/>
+  <standard:Create xmi:id="_rAxJsKWXEea4ApL_jsb4PQ" base_BehavioralFeature="_rAwioaWXEea4ApL_jsb4PQ"/>
+  <standard:Create xmi:id="_rA0NAKWXEea4ApL_jsb4PQ" base_BehavioralFeature="_rAzl86WXEea4ApL_jsb4PQ"/>
+</xmi:XMI>

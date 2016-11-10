@@ -1,0 +1,156 @@
+package my_ping_pong.model;
+
+signal StartPlaying;
+signal PingSignal;
+signal PongSignal;
+
+/*interface PingPongInf {
+	    reception PingSignal;
+        reception PongSignal;
+}*/
+
+composition TableComposite {
+	hidden container Table table;
+	2 Player player;
+}
+
+connector PlayerConnect {
+	TableComposite.player->Player.PingPongPort player1;
+	TableComposite.player->Player.PingPongPort player2;   
+}
+
+class Player {
+	
+	private String name;
+	private int maxHit;
+	private int hitCount;
+	
+	public Player(String name, int maxHit) {
+		this.name = name;
+		this.maxHit = 10;
+		this.hitCount = 0;
+	}
+	
+	initial Init;
+	state Waiting;
+	state Playing;
+	state Finishing;
+	
+	behavior port PingPongPort {
+			//provided PingPongInf;
+	        //required PingPongInf;
+	}
+	
+    transition Initialize {	                
+		from Init;
+		to Waiting;		
+	}
+	
+	transition Starting {
+		from Waiting;
+		to Playing;
+		trigger StartPlaying;
+		effect {
+			log(name + " player start playing");
+			//send new PingSignal() to this->(PingPongPort);
+		}
+	}
+	
+	transition RecivePPing {
+		from Playing;
+		to Playing;
+		//port PingPongPort;
+		trigger PingSignal;
+		effect {
+			log (name + " player recived ping");
+			//send new PongSignal() to this->(PingPongPort);
+			hitCount++;
+		}
+		guard (hitCount <= maxHit);
+	}
+	
+	transition DenyPPing {
+		from Playing;
+		to Finishing;
+		//port PingPongPort;
+		trigger PingSignal;
+		effect {
+			log (name + " player recived ping");
+			//send new PongSignal() to this->(PingPongPort);
+			hitCount++;
+		}
+		guard (hitCount > maxHit);
+	}
+	
+	transition RecivePPong {
+		from Playing;
+		to Playing;
+		//port PingPongPort;
+		trigger PongSignal;
+		effect {
+			log (name + " player recived pong");
+			//send new PingSignal() to this->(PingPongPort);
+			hitCount++;
+		}
+		guard (hitCount <= maxHit);
+	}
+	
+	transition DenyPPong {
+		from Playing;
+		to Finishing;
+		//port PingPongPort;
+		trigger PongSignal;
+		effect {
+			log (name + " player recived pong");
+			//send new PingSignal() to this->(PingPongPort);
+			hitCount++;
+		}
+		guard (hitCount > maxHit);
+	}
+	
+		transition ReciveWPing {
+		from Waiting;
+		to Playing;
+		//port PingPongPort;
+		trigger PingSignal;
+		effect {
+			log (name + " player recived ping");
+			//send new PongSignal() to this->(PingPongPort);
+		}
+	}
+	
+		transition ReciveWPong {
+		from Waiting;
+		to Playing;
+		//port PingPongPort;
+		trigger PongSignal;
+		effect {
+			log (name + " player recived pong");
+			//send new PingSignal() to this->(PingPongPort);
+		}
+	}
+		
+	
+	            
+}
+
+class Table {
+	public Table() {
+		 Player player1 = new Player("Player1",10);
+		 Player player2 = new Player("Player2",10);
+		 link(TableComposite.table, this, TableComposite.player, player1);
+		 link(TableComposite.table, this, TableComposite.player, player2);
+		 
+		 /*connect (PlayerConnect.player1, player1->(Player.PingPongPort),
+				  PlayerConnect.player2, player2->(Player.PingPongPort));*/
+		 
+		 start(player1);
+		 start(player2);
+		 
+		 //send new StartPlaying() to player1;
+	}
+}
+
+
+
+

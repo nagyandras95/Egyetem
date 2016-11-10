@@ -2,3 +2,4 @@ bin/
 obj/
 build*/
 *.exe
+src-gen/
