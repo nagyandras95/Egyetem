@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="FDECFE7C-812A-3FE3-BC11-DC6E78481354">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:12:49 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="cramhead_logical_to_relational" id="1A2A70C5-88CF-EBD9-1EC2-6B516A17E417" version="3.5">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:12:48 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>1A2A70C5-88CF-EBD9-1EC2-6B516A17E417</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="5E88648C-172F-87D3-ED79-B00EC3C005C2">
+<designStoragePath>D:\Dropbox\ELTE MSc\1. félév\Információs rendszerek fejlesztési módszertana\Egyetem\information_systems\cramhead_logical</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="24A3EA77-421A-EA8B-63AB-1A2D37697A99">
+<designStoragePath>D:\Dropbox\ELTE MSc\1. félév\Információs rendszerek fejlesztési módszertana\Egyetem\information_systems\cramhead_logical</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="4BD8153F-49B7-272C-C788-3849F394ED24">
+<designStoragePath>C:\Users\mozsik\Desktop\Egyetem\information_systems\cramhead_logical</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

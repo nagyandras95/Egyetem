@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="59F94C48-98D6-263D-DB2D-9DCF9BEA9B1A" name="Arak">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:21:31 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="datum" id="BDBA5DB9-929D-8518-78FF-87E4CB181F0E">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:24:29 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="megjegyzes" id="FAF147E1-3FE4-3170-D491-C743B5B7C4CB">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:24:48 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ar" id="87372534-C3A5-56F3-736D-176646CA3080">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:25:13 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipusAzon" id="8973275A-805C-E3A2-BDA3-D7F9B07CB554">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:26:02 UTC</createdTime>
+<generatorID>5B416A6B-83CC-442F-FE53-158A7C07EB4F</generatorID>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<referedAttribute>C5235A15-BF92-E8D8-0B3F-040D0DAB5B66</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

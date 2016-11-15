@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1AFCCCF3-7965-60C4-6C4F-0E70E5858638" name="Ugyfel">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:15:34 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ugyfelAzon" id="2AA61971-0127-5263-8D68-F51CBD079785">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:38:36 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ugyfelNev" id="BC1766FA-B022-5678-AE3D-D4842C20440F">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:38:47 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="foglalasAzon" id="79A0C3AD-B4B5-DC48-4201-B0222B6131C6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 18:14:30 UTC</createdTime>
+<generatorID>2EA8D11C-8E63-62C1-6282-30218807064D</generatorID>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<referedAttribute>E355C5BE-F3AC-2122-E050-B80D819B303B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="16E6FFBA-F5E3-165C-B3D4-2D294D6642BD" name="Ugyfel PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:38:45 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2AA61971-0127-5263-8D68-F51CBD079785</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

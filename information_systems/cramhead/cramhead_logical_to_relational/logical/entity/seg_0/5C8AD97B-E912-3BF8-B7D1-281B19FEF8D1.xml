@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5C8AD97B-E912-3BF8-B7D1-281B19FEF8D1" name="Tanfolyam">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:15:42 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="tanfolyamAzon" id="9A14E951-4CB3-BA31-B3F4-58CCF1089CC3">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:27:35 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipusAzon" id="A6C647D2-A78C-F0D6-F1A1-905AD7EB4C85">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:27:56 UTC</createdTime>
+<generatorID>BF6DFB19-E603-C3FD-E838-B98542BCD5D9</generatorID>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<referedAttribute>C5235A15-BF92-E8D8-0B3F-040D0DAB5B66</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="oktatoAzon" id="D6C3B717-5465-09B6-FF0C-0824AADA1149">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:33:09 UTC</createdTime>
+<generatorID>62B5F91C-C231-5534-A741-8055E4BF0261</generatorID>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<referedAttribute>389325C1-5DD3-C76C-4DCF-21285D22CCC9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="felelosAzon" id="1A8E05BD-5991-F587-F5E9-C7EDBDB16AF6">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:34:16 UTC</createdTime>
+<generatorID>192EF537-B21A-C89F-CF94-7AB68E314DE3</generatorID>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<referedAttribute>A0C95F7B-FC3E-02FC-0D0D-BB67782F79F7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="szallodaAzon" id="CA5FF2A8-A84B-E92D-869E-1B689E892B18">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:51:46 UTC</createdTime>
+<generatorID>5FD599EB-B991-A97D-8080-8C68643D31F2</generatorID>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<referedAttribute>0B1D3686-6B05-9909-6AC6-7C2A2530BB27</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F0E5D361-067E-9DBD-8212-83A92C138940" name="Tanfolyam PK">
+<createdBy>mozsik</createdBy>
+<createdTime>2016-11-15 17:27:45 UTC</createdTime>
+<ownerDesignName>cramhead_logical_to_relational</ownerDesignName>
+<engineerTo>
+<item key="B6219231-FA17-B69A-350E-8DCDF5A0BCBD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9A14E951-4CB3-BA31-B3F4-58CCF1089CC3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
