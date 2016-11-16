@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="942E9957-8783-BCA4-3545-894E64B8FD2C" name="Kuldott">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>B3BCB3B5-0A19-27D4-D3A9-BBFD07959A89</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="kuldottAzon" id="707F99EE-52C8-22DB-F44B-886AAC89DA67">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>40B638C2-BE75-A37B-A6C4-69580D7DB093</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kuldottNev" id="A0149429-0B39-1B4F-F798-B0E7A0C6AD25">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>B91A4224-A49B-D9C8-99A0-D00B3E9386BD</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Foglalas_foglalasAzon" id="9090159C-5B83-1409-B07C-A4DE1797BDC1">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>13786A23-1971-AFBA-FD01-60C1E4EB58F9</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="017BE4D1-6D7D-EA69-CB8E-ED0767C02C6B" referredColumn="2E54C105-ADFE-4C64-F19D-BCD4EF207495"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="53715935-76E4-BA63-9E24-A23F49BDB21E" name="Kuldott_PK">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>C1322D6E-AE16-9AB2-6287-2BAFC34008E0</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="707F99EE-52C8-22DB-F44B-886AAC89DA67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C9F14B2-6E78-C596-A4F6-C9041D6D8F9F" name="Kuldott_Foglalas_FK">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:45 UTC</createdTime>
+<generatorID>FB42D8AE-434F-C6D1-5AF4-5D5DDE907EB7</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9090159C-5B83-1409-B07C-A4DE1797BDC1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

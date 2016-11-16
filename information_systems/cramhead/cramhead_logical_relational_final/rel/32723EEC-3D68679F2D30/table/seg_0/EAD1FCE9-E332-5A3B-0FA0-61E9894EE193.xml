@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EAD1FCE9-E332-5A3B-0FA0-61E9894EE193" name="Ugyfel">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>1E2E7DDE-9E88-8EB7-405B-F0E33E12535E</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ugyfelAzon" id="CB27F1E1-40B0-F9E2-C467-8FD91D51E712">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>196607F7-7A28-C815-B93C-639006622063</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ugyfelNev" id="35203F7F-6A2E-2A66-C833-50472C5E9E71">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>78A94DAC-F45E-A10F-2472-1318C50A1D7F</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BC75A4E0-BF2C-07EE-A456-4DB5411C7DC9" name="Ugyfel_PK">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>E6E6280E-6819-9E04-3A6D-882A329A7D83</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB27F1E1-40B0-F9E2-C467-8FD91D51E712"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

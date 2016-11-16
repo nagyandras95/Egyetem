@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="651A55A1-1B79-629B-9AA4-152697FC0438" name="Arak">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 15:30:56 UTC</createdTime>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<importedID>59F94C48-98D6-263D-DB2D-9DCF9BEA9B1A</importedID>
+<engineerTo>
+<item key="32723EEC-F63A-0672-CED9-3D68679F2D30" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="datum" id="00C030D5-7001-B1D7-EE3C-82D66A5142A3">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 15:30:56 UTC</createdTime>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<importedID>BDBA5DB9-929D-8518-78FF-87E4CB181F0E</importedID>
+<engineerTo>
+<item key="32723EEC-F63A-0672-CED9-3D68679F2D30" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="megjegyzes" id="16D8C4C6-4F0D-30D4-2E57-75598D4158B1">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 15:30:56 UTC</createdTime>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<importedID>FAF147E1-3FE4-3170-D491-C743B5B7C4CB</importedID>
+<engineerTo>
+<item key="32723EEC-F63A-0672-CED9-3D68679F2D30" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ar" id="BB1C1383-83F5-07ED-A93E-31D7870F109B">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 15:30:56 UTC</createdTime>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<importedID>87372534-C3A5-56F3-736D-176646CA3080</importedID>
+<engineerTo>
+<item key="32723EEC-F63A-0672-CED9-3D68679F2D30" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipusAzon" id="D870D72E-FF1F-5B0B-3BFA-0772BD36A5F6">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 15:30:56 UTC</createdTime>
+<generatorID>7A7CEDD1-52F7-91DF-A1B6-36D7DD7CD6E7</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<importedID>8973275A-805C-E3A2-BDA3-D7F9B07CB554</importedID>
+<engineerTo>
+<item key="32723EEC-F63A-0672-CED9-3D68679F2D30" value="true"/>
+</engineerTo>
+<referedAttribute>BC64C42E-BF0A-4B36-41F6-16BAFA2598FE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

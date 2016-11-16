@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E4F43785-E0A7-522E-40C5-9D1F6A0DFEB9" name="Oktato">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>3B0F8E34-CA73-C529-E3FA-AC387871BBF9</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="oktatoAzon" id="74C1EF0D-ACCD-B516-9786-E25A3F11F041">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>3150F280-D99C-975F-8FC5-B78F0F3B6937</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="oktatoNev" id="965E04E3-B805-F4F5-05FB-96926C1573A3">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>03512A85-1315-2720-161F-5B053F21025D</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="54AE88ED-E667-0BAE-14E6-3E3DD806B722" name="Oktato_PK">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>6CF209EA-5EC5-ED54-9961-CA5332A5B3FC</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74C1EF0D-ACCD-B516-9786-E25A3F11F041"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4ED50A88-7439-5A69-E2B5-BF28EA259879" name="Oktato__IDX">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:45 UTC</createdTime>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>840EF388-153A-B542-3E3A-7AB5B10E129C</relationGeneratorID>
+</ind_PK_UK>
+</indexes>
+</Table>

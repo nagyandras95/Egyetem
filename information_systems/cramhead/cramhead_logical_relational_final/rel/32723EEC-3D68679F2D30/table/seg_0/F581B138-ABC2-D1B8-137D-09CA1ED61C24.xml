@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F581B138-ABC2-D1B8-137D-09CA1ED61C24" name="Szalloda">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>41878836-A459-D9AF-FF6E-CED29DD8A5C3</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="szallodaAzon" id="081C1E2F-A272-D510-2C83-7E4AB49EAF77">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>DDD6DEB9-F63C-8849-B574-459C4BF567E5</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="szallodaNev" id="55FAE1B1-624C-5CFF-231E-FD61B88E362C">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>1F5E5AAC-9349-0561-BAAE-5239529DC7CA</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2D2D3C21-E8C8-7058-4C34-A359EEB30176" name="Szalloda_PK">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>996BD20C-3B9F-2C19-7E0F-D93781FD61E1</generatorID>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="081C1E2F-A272-D510-2C83-7E4AB49EAF77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F6033DE-92B9-77EC-7920-367A558F9AE7" name="Szalloda__IDX">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:45 UTC</createdTime>
+<ownerDesignName>cramhead_logical_relational_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>39CB8120-B26F-631C-7365-207D4E74E680</relationGeneratorID>
+</ind_PK_UK>
+</indexes>
+</Table>

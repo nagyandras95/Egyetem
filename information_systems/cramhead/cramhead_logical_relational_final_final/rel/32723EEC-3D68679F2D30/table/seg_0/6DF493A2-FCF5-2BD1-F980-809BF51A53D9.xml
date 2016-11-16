@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6DF493A2-FCF5-2BD1-F980-809BF51A53D9" name="Arak">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>651A55A1-1B79-629B-9AA4-152697FC0438</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="datum" id="A560A6A9-C8A3-E1CC-B90B-5906FE17424F">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>00C030D5-7001-B1D7-EE3C-82D66A5142A3</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="megjegyzes" id="CACE3898-AD36-FFB6-939C-40BC8A4373E3">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>16D8C4C6-4F0D-30D4-2E57-75598D4158B1</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ar" id="7097D329-CA96-3F94-21FC-8002338CCF7C">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>BB1C1383-83F5-07ED-A93E-31D7870F109B</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanfolyam_tipus_tipusAzon" id="B19D6593-5E94-DA32-4DB2-7269C3E1F0F7">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:44 UTC</createdTime>
+<generatorID>D870D72E-FF1F-5B0B-3BFA-0772BD36A5F6</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F9ACE47D-014E-D13C-8AA8-2D9E6AD009C5" referredColumn="766DB118-5858-4D75-8BFB-795EAB88C699"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6DACBCB9-4B87-B0BD-4E88-628CE30E497B" name="Arak_Tanfolyam_tipus_FK">
+<createdBy>nagyandras95</createdBy>
+<createdTime>2016-11-16 16:10:45 UTC</createdTime>
+<generatorID>7A7CEDD1-52F7-91DF-A1B6-36D7DD7CD6E7</generatorID>
+<ownerDesignName>cramhead_logical_relational_final_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B19D6593-5E94-DA32-4DB2-7269C3E1F0F7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
