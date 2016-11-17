@@ -1,15 +1,15 @@
 Version: 1.4
 MainModule
-	Name:	Huffman
+	Name:	Graph
 	Dir:	{Project}
 	DclOpen:	False
 	Icl
 		WindowPosition
-			X:	-8
-			Y:	-31
-			SizeX:	1519
-			SizeY:	730
-	IclOpen:	True
+			X:	248
+			Y:	-9
+			SizeX:	800
+			SizeY:	641
+	IclOpen:	False
 OtherModules
 	Module
 		Name:	StdArrayExtensions
@@ -19,6 +19,12 @@ OtherModules
 	Module
 		Name:	StdLib
 		Dir:	{Application}\Libraries\StdLib
+		Dcl
+			WindowPosition
+				X:	10
+				Y:	10
+				SizeX:	800
+				SizeY:	640
 		DclOpen:	False
 		IclOpen:	False
 	Module
@@ -39,6 +45,12 @@ OtherModules
 	Module
 		Name:	StdArray
 		Dir:	{Application}\Libraries\StdEnv
+		Dcl
+			WindowPosition
+				X:	10
+				Y:	10
+				SizeX:	800
+				SizeY:	640
 		DclOpen:	False
 		IclOpen:	False
 	Module
@@ -82,6 +94,11 @@ OtherModules
 		DclOpen:	False
 		IclOpen:	False
 	Module
+		Name:	StdGeneric
+		Dir:	{Application}\Libraries\StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
 		Name:	StdInt
 		Dir:	{Application}\Libraries\StdEnv
 		DclOpen:	False
@@ -89,6 +106,12 @@ OtherModules
 	Module
 		Name:	StdList
 		Dir:	{Application}\Libraries\StdEnv
+		Dcl
+			WindowPosition
+				X:	303
+				Y:	-10
+				SizeX:	800
+				SizeY:	640
 		DclOpen:	False
 		IclOpen:	False
 	Module
@@ -119,12 +142,6 @@ OtherModules
 	Module
 		Name:	StdTuple
 		Dir:	{Application}\Libraries\StdEnv
-		Dcl
-			WindowPosition
-				X:	285
-				Y:	47
-				SizeX:	800
-				SizeY:	640
 		DclOpen:	False
 		IclOpen:	False
 	Module
@@ -135,5 +152,10 @@ OtherModules
 	Module
 		Name:	_SystemEnum
 		Dir:	{Application}\Libraries\StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	GenEq
+		Dir:	{Application}\Libraries\Generics
 		DclOpen:	False
 		IclOpen:	False

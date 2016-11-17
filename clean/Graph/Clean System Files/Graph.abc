@@ -1,0 +1,88 @@
+.comp 920 00011101001
+.start __Graph_Start
+.depend "StdGeneric" "20160921095334"
+.depend "GenEq" "20160921095325"
+.depend "StdLibMisc" "20160921095335"
+.depend "StdArrayExtensions" "20160921095335"
+.depend "StdListExtensions" "20160921095335"
+.depend "StdMaybe" "20160921095335"
+.depend "StdLib" "20160921095335"
+.depend "_SystemEnum" "20160921095335"
+.depend "StdEnum" "20160921095334"
+.depend "StdMisc" "20160921095334"
+.depend "StdFunc" "20160921095334"
+.depend "StdCharList" "20160921095334"
+.depend "StdTuple" "20160921095335"
+.depend "StdOrdList" "20160921095334"
+.depend "StdList" "20160921095334"
+.depend "StdClass" "20160921095334"
+.depend "StdFile" "20160921095334"
+.depend "StdString" "20160921095335"
+.depend "_SystemArray" "20160921095335"
+.depend "StdArray" "20160921095334"
+.depend "StdChar" "20160921095334"
+.depend "StdReal" "20160921095335"
+.depend "StdInt" "20160921095334"
+.depend "StdOverloaded" "20160921095334"
+.depend "StdBool" "20160921095334"
+.depend "StdEnv" "20160921095334"
+.module m_Graph "Graph" "20161116213832"
+.endinfo
+.implab _cycle_in_spine
+.implab _type_error
+.implab _hnf
+.impdesc _ind
+.implab _indirection _eaind
+.impdesc e_system_dif
+.implab e_system_nif e_system_eaif
+.implab e_system_sif
+.impdesc e_system_dAP
+.implab e_system_nAP e_system_eaAP
+.implab e_system_sAP
+.impdesc _Nil
+.impdesc _Cons
+.impdesc _Conss
+.implab n_Conss ea_Conss
+.impdesc _Consts
+.implab n_Consts ea_Consts
+.impdesc _Conssts
+.implab n_Conssts ea_Conssts
+.impdesc _Tuple
+.impdesc d_S.1
+.implab n_S.1 ea_S.1
+.impdesc d_S.2
+.implab n_S.2 ea_S.2
+.impdesc d_S.3
+.implab n_S.3 ea_S.3
+.impdesc d_S.4
+.implab n_S.4 ea_S.4
+.impdesc d_S.5
+.implab n_S.5 ea_S.5
+.impdesc d_S.6
+.implab n_S.6 ea_S.6
+.implab _driver
+.desc d125 _hnf _hnf 0 0 "Infinite"
+.desc d126 _hnf _add_arg 1 0 "Weight"
+.desc0 d127 0 "White"
+.desc0 d128 1 "Gray"
+.desc0 d129 2 "Black"
+.record r87 aaaaaa 6 0 "Node;"
+.record r94 aaaaaa 6 0 "Graph;"
+.record r101 a 1 0 "gEq_s;"
+.export __Graph_Start
+.o 0 0
+__Graph_Start
+	build _ 0 n8
+.d 1 0
+	jmp _driver
+.n 0 _
+.o 1 0
+n8
+	push_node _cycle_in_spine 0
+.o 0 0
+ea8
+	pushI 0
+	fillI_b 0 0
+	pop_b 1
+.d 1 0
+	rtn

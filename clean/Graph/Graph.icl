@@ -109,28 +109,45 @@ class Graph t1 t2 | Node t2 where
   updateGraph :: (t1 t2) Vertex t2 -> (t1 t2)
 
 instance Graph [] a | Node a where
-  resetGraph  :: [a] -> [a]
-  resetGraph g = map (\node -> color White node)
+
+  resetGraph g = map (\node -> color node White ) g
   
-  graphSize   :: [a] -> Int
   graphSize g = length g
   
-  getNode     :: [a] Vertex -> a
   getNode g n = g !! n
   
-  addNode     :: [a] -> [a]
-  addNode g = g ++ (add graphSize)
+  //addNode :: [a] -> [a]
+  addNode g = g ++ [(newNode (length g))]
   
-  updateGraph :: [a] Vertex a -> [a]
+  //updateGraph :: [a] Vertex a -> [a]
   updateGraph g v node = update g v node 0
   	where
-  		update:: [a] Vertex a Int -> [a]
   		update [g:gs] v node i
-  			| i == v = [a:gs]
-  			| otherwise = [g : update v node (i+1)]
+  			| i == v = [node:gs]
+  			| otherwise = [g : update gs v node (i+1)]
+  			
 
-whiteNeighbours :: (t1 t2) Vertex -> [Vertex] | Graph t1 t2
-whiteNeighbours g v =  filter (\vert -> getColor (g !! vert) == White) (neighbours (getNode g v))
+
+/*instance Graph {} a | Node a where
+
+  resetGraph g = map (\node -> color node White ) g
+  
+  graphSize g = length g
+  
+  getNode g n = g !! n
+  
+  //addNode :: [a] -> [a]
+  addNode g = g ++ [(newNode (length g))]
+  
+  //updateGraph :: [a] Vertex a -> [a]
+  updateGraph g v node = update g v node 0
+  	where
+  		update [g:gs] v node i
+  			| i == v = [node:gs]
+  			| otherwise = [g : update gs v node (i+1)]*/
+
+whiteNeighbours :: [a] Vertex -> [Vertex] | Graph [] a
+whiteNeighbours g v =  filter (\vert -> getColor (g !! vert) === White) (neighbours (getNode g v))
 
 test_newNode =
   [ adj 2  === (White, [Infinite, Infinite, Weight 0])
@@ -144,5 +161,7 @@ test_newNode =
     edge :: Int -> EdgeList
     edge x = newNode x
   
+ToList:: (a e) ->.[e] | Array a e
+ToList array = [e \\ e <-: array]
 
-Start = test_newNode
+Start = 0 /*test_newNode*/
