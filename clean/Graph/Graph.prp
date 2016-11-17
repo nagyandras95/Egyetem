@@ -5,11 +5,11 @@ MainModule
 	DclOpen:	False
 	Icl
 		WindowPosition
-			X:	248
-			Y:	-9
-			SizeX:	800
+			X:	242
+			Y:	2
+			SizeX:	916
 			SizeY:	641
-	IclOpen:	False
+	IclOpen:	True
 OtherModules
 	Module
 		Name:	StdArrayExtensions

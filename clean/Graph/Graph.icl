@@ -1,6 +1,6 @@
 module Graph
 
-import StdEnv, StdLib, GenEq 
+import StdEnv, StdLib, GenEq, StdArray 
 
 :: Weight = Infinite | Weight Int
 
@@ -128,26 +128,49 @@ instance Graph [] a | Node a where
   			
 
 
-/*instance Graph {} a | Node a where
+instance Graph {} a | Node a where
 
-  resetGraph g = map (\node -> color node White ) g
+  resetGraph g = FromList (map (\node -> color node White ) (ToList g))
   
-  graphSize g = length g
+  graphSize g = length (ToList g)
   
-  getNode g n = g !! n
+  getNode g n = (ToList g) !! n
   
-  //addNode :: [a] -> [a]
-  addNode g = g ++ [(newNode (length g))]
+  addNode g = FromList (gl ++ [(newNode (length gl))])
+  	where gl = ToList g
   
-  //updateGraph :: [a] Vertex a -> [a]
-  updateGraph g v node = update g v node 0
+  updateGraph g v node = FromList (update (ToList g) v node 0)
   	where
   		update [g:gs] v node i
   			| i == v = [node:gs]
-  			| otherwise = [g : update gs v node (i+1)]*/
+  			| otherwise = [g : update gs v node (i+1)]
 
-whiteNeighbours :: [a] Vertex -> [Vertex] | Graph [] a
-whiteNeighbours g v =  filter (\vert -> getColor (g !! vert) === White) (neighbours (getNode g v))
+whiteNeighbours :: (a b) Vertex -> [Vertex] | Graph a b
+whiteNeighbours g v = [ x \\ x <- (neighbours (getNode g v)) |  getColor (getNode g x) === White ]
+
+
+addEdgeToGraph :: (t1 t2) Vertex Vertex Weight -> (t1 t2) | Graph t1 t2
+addEdgeToGraph g v1 v2 w = updateGraph g v1 newNode
+	where
+		forUpdate = getNode g v1
+		newNode = addNeighbour forUpdate v2 w
+
+bfs :: (a b) Int -> [Vertex] | Graph a b
+bfs g v = iterate startGraph [v] [] 
+where
+	iterate :: (a b) [Vertex] [Vertex] -> [Vertex] | Graph a b
+	iterate g [] vs = vs
+	iterate g [x:xs] l = iterate (update g x (whiteNeighbours g x)) (whiteNeighbours g x ++ xs) [x:l]
+	
+	startGraph = updateGraph defaultGraph v (color (getNode defaultGraph v) Gray)
+	where
+		defaultGraph = resetGraph g
+	
+	update g v vs = updateAllGray (updateGraph g v (color (getNode g v) Black)) vs 
+	where
+		updateAllGray :: (a b) [Vertex] -> (a b) | Graph a b	
+		updateAllGray g [] = g
+		updateAllGrey g [v:vs] = updateAllGrey (updateGraph g (color (getNode v) Gray)) vs
 
 test_newNode =
   [ adj 2  === (White, [Infinite, Infinite, Weight 0])
@@ -160,8 +183,24 @@ test_newNode =
 
     edge :: Int -> EdgeList
     edge x = newNode x
-  
-ToList:: (a e) ->.[e] | Array a e
-ToList array = [e \\ e <-: array]
 
-Start = 0 /*test_newNode*/
+test_updateGraph =
+  [ getNode (updateGraph listAdj 1 na) 1 === na
+  , getNode (updateGraph listEdge 1 ne) 1 === ne
+  , getNode (updateGraph arrayAdj 1 na) 1 === na
+  , getNode (updateGraph arrayEdge 1 ne) 1 === ne
+  ]
+  where
+    ne :: EdgeList
+    ne = (White, [])
+
+    na :: Adjacency
+    na = (Gray,[(Weight 1),(Weight 0),Infinite,(Weight 1),(Weight 2),Infinite,(Weight 1)])
+
+ToList :: {a} -> [a]
+ToList array = [x \\ x<-:array]
+
+FromList :: [a] -> {a}
+FromList list = {x \\ x<-list}
+
+Start = test_updateGraph /*test_newNode*/
