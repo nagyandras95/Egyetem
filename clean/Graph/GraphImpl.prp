@@ -1,14 +1,8 @@
 Version: 1.4
 MainModule
-	Name:	Graph
+	Name:	GraphImpl
 	Dir:	{Project}
 	DclOpen:	False
-	Icl
-		WindowPosition
-			X:	392
-			Y:	23
-			SizeX:	800
-			SizeY:	629
 	IclOpen:	True
 OtherModules
 	Module

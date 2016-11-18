@@ -1,5 +1,5 @@
 .comp 920 00011101001
-.start __Graph_Start
+.start __GraphImpl_Start
 .depend "StdGeneric" "20111221113336"
 .depend "GenEq" "20111221113324"
 .depend "StdLibMisc" "20111221113324"
@@ -26,7 +26,7 @@
 .depend "StdOverloaded" "20111221113336"
 .depend "StdBool" "20111221113336"
 .depend "StdEnv" "20111221113336"
-.module m_Graph "Graph" "20161118111130"
+.module m_GraphImpl "GraphImpl" "20161118112217"
 .endinfo
 .implab _cycle_in_spine
 .implab _type_error
@@ -256,9 +256,9 @@ n220
 	rtn
 .record r221 a 1 0 "gEq_s;"
 .record r227 a 1 0 "gJSON_s;"
-.export __Graph_Start
+.export __GraphImpl_Start
 .o 0 0
-__Graph_Start
+__GraphImpl_Start
 	build _ 0 n26
 .d 1 0
 	jmp _driver
@@ -1260,7 +1260,7 @@ case.5
 	rtn
 s82.1
 	pop_a 3
-	pushD m_Graph
+	pushD m_GraphImpl
 	pushD x_82
 .d 0 2 ii
 	jmp _match_error
@@ -1334,7 +1334,7 @@ case.6
 	rtn
 s85.1
 	pop_a 3
-	pushD m_Graph
+	pushD m_GraphImpl
 	pushD d85
 .d 0 2 ii
 	jmp _match_error
@@ -3530,7 +3530,7 @@ else.8
 s57.1
 	pop_a 3
 	pop_b 2
-	pushD m_Graph
+	pushD m_GraphImpl
 	pushD x_57
 .d 0 2 ii
 	jmp _match_error
@@ -3629,7 +3629,7 @@ else.10
 s55.1
 	pop_a 3
 	pop_b 2
-	pushD m_Graph
+	pushD m_GraphImpl
 	pushD x_55
 .d 0 2 ii
 	jmp _match_error
@@ -5976,7 +5976,7 @@ else.14
 s53.1
 	pop_a 3
 	pop_b 2
-	pushD m_Graph
+	pushD m_GraphImpl
 	pushD x_53
 .d 0 2 ii
 	jmp _match_error
