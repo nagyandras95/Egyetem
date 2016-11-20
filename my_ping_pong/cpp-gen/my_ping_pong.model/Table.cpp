@@ -5,7 +5,7 @@
 #include "runtime/standard_functions.hpp"
 #include "runtime/itimer.hpp"
 #include "runtime/timer.hpp"
-
+#include "runtime/connectiontable.hpp"
 Table::Table() {
 	initTable();
 }
@@ -26,8 +26,14 @@ void Table::initTable() {
 			typename TableComposite::player>(this, player1_us0);
 	action::link<TableComposite, typename TableComposite::table,
 			typename TableComposite::player>(this, player2_us1);
+
+	ConnectionTable::CONNECT_PORTS(player1_us0->PingPongPort->getId(),player2_us1->PingPongPort->getId());
+
+
 	player1_us0->startSM();
 	player2_us1->startSM();
+	
+	player1_us0->send(EventPtr(new StartPlaying_EC()));
 
 }
 Table::~Table() {

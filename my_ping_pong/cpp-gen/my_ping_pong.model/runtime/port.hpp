@@ -1,9 +1,8 @@
 #include "connectiontable.hpp"
 #include "statemachineI.hpp"
-
+#include <iostream>
 #ifndef PORT_HPP
 #define PORT_HPP
-
 
 template <typename RequiredInf, typename ProvidedInf>
 class Port : public IPort
@@ -16,6 +15,8 @@ class Port : public IPort
 
         void send (std::shared_ptr<RequiredInf> signal) {specialSend(signal);}
         void recive (std::shared_ptr<ProvidedInf> signal) {specialRecive(signal);}
+	int getId() const {return portId;}
+	int getType () const {return type;}
     protected:
 
         int type;
@@ -32,7 +33,8 @@ template <typename RequiredInf, typename ProvidedInf>
 class MultiThreadedPort : public Port <RequiredInf,ProvidedInf>
 {
     public:
-        MultiThreadedPort (int type_, StateMachineI * parent_) : Port<RequiredInf,ProvidedInf> (type_,parent_), 
+        MultiThreadedPort (int type_, StateMachineI * parent_) : Port<RequiredInf,ProvidedInf> (type_,parent_),
+	_stop(false), 
         sender (&MultiThreadedPort::senderTask, this),
         recevier (&MultiThreadedPort::receiverTask, this) {}
 
@@ -41,25 +43,25 @@ class MultiThreadedPort : public Port <RequiredInf,ProvidedInf>
     protected:
         virtual void specialSend (std::shared_ptr<RequiredInf> signal)
         {
-           signalsToSend.enque (signal);
+           signalsToSend.push_back (signal);
         }
 
         virtual void specialRecive (std::shared_ptr<ProvidedInf> signal)
         {
-            signalsToRecive.enque (signal);
+            signalsToRecive.push_back (signal);
         }
 
         void senderTask ()
         {
             while (!_stop) {
-                RequiredInf* signal = nullptr;
-                signalsToSend.dequeue(signal);
-                if (signal)
-                {
+                std::shared_ptr<RequiredInf> signal;
+                signalsToSend.pop_front(signal);
+                //if (signal.get() != nullptr)
+                //{
                     IPort * p = ConnectionTable::GET_CONNECTED_PORT (Port<RequiredInf,ProvidedInf>::portId);
 		    Port<ProvidedInf,RequiredInf> * sp = static_cast<Port<ProvidedInf,RequiredInf> *>(p);
                     sp->recive(signal);
-                }
+                //}
 
             }
         }
@@ -68,20 +70,22 @@ class MultiThreadedPort : public Port <RequiredInf,ProvidedInf>
         {
             while (!_stop)
             {
-                ProvidedInf* signal = nullptr;
-                signalsToRecive.dequeue(signal);
-                if (signal)
-                {
+                std::shared_ptr<ProvidedInf> signal;
+                signalsToRecive.pop_front(signal);
+                //if (signal.get() != nullptr)
+                //{
                     signal->setPortType(Port<RequiredInf,ProvidedInf>::type);
                     Port<RequiredInf,ProvidedInf>::parent->send (signal);
-                }
+
+                //}
+
 
             }
         }
 
 		std::atomic_bool _stop;
-		ThreadSafeQueue<RequiredInf> signalsToSend;
-		ThreadSafeQueue<ProvidedInf> signalsToRecive;
+		ThreadSafeQueue<std::shared_ptr<RequiredInf> > signalsToSend;
+		ThreadSafeQueue<std::shared_ptr<ProvidedInf> > signalsToRecive;
 		std::thread sender;
 		std::thread recevier;
 

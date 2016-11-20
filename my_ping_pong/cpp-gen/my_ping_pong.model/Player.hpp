@@ -5,9 +5,9 @@
 
 #include "runtime/statemachineI.hpp"
 
-//struct provided interface for PingPongPort;
 #include <string>
 #include "runtime/port.hpp"
+#include "interfaces.hpp"
 
 struct Player: public StateMachineBase, public StateMachineI {
 	static void initTransitionTable();
@@ -17,7 +17,6 @@ struct Player: public StateMachineBase, public StateMachineI {
 	virtual void processEventVirtual();
 	virtual void processInitTranstion();
 
-	//Port * PingPongPort;
 	int hitCount;
 	int maxHit;
 	std::string name;
@@ -35,9 +34,11 @@ struct Player: public StateMachineBase, public StateMachineI {
 		Init_ST, Waiting_ST, Playing_ST, Finishing_ST
 	};
 
-	enum Port {
-		PingPongPort_PE
+	enum Ports {
+		PingPongPort_PE = 2
 	};
+
+	Port<PingPongInf,PingPongInf> * PingPongPort;
 protected:
 	typedef std::function<void(Player&, EventBaseCRef)> ActionFuncType;
 	typedef std::function<bool(Player&, EventBaseCRef)> GuardFuncType;
