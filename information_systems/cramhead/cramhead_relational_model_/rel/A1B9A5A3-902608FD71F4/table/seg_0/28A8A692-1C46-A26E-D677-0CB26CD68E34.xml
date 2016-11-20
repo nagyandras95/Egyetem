@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="28A8A692-1C46-A26E-D677-0CB26CD68E34" name="Ugyfel">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>F89939BC-1D6F-C211-BF2F-7971548B1873</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>EAD1FCE9-E332-5A3B-0FA0-61E9894EE193</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ugyfelAzon" id="CB50DB4A-BCD3-F6B0-4595-5D8CDE9352F1">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>7BED3668-564C-FE07-591A-784AC2D59DB7</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>CB27F1E1-40B0-F9E2-C467-8FD91D51E712</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ugyfelNev" id="1D7F499A-05C2-78A8-6E50-9B760487DAC8">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>31384175-51F9-8957-F1C2-ADCD46CD8757</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>35203F7F-6A2E-2A66-C833-50472C5E9E71</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fokonyviSzam" id="2A136647-3A86-05C8-5709-958D2CE60888">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 23:17:05 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="50CB649A-E30C-964A-78AF-0970B6901CA4" name="Ugyfel_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>3B441199-6287-1FC6-FC6E-2AD0373E8EBC</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>BC75A4E0-BF2C-07EE-A456-4DB5411C7DC9</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB50DB4A-BCD3-F6B0-4595-5D8CDE9352F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C43E8AEE-0BF9-7443-EC18-21D544FDFC75" name="Ugyfel__UN">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 23:17:17 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2A136647-3A86-05C8-5709-958D2CE60888"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

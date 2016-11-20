@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2BA5F44E-A063-8EA1-2A80-FC08269E1363" containerWithKeyObject="C112CF9B-4294-B101-0F4D-A01DA9F49E5D" localFKIndex="DB4BA4D7-734E-2DC1-12B8-98E017EE0C10" name="TanfErt_Tanf_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>7E8A9CF6-CFF4-9F81-C1C8-585E53B047F8</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>00442CA5-CDEB-DF70-1B44-21C7DBDF0CDF</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2256CCD4-D85A-812B-E5A7-1017903CD644</referredTableID>
+<keyObject>FE2D8852-56D2-A784-8ABD-F95154442F9E</keyObject>
+<referredKeyID>FE2D8852-56D2-A784-8ABD-F95154442F9E</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

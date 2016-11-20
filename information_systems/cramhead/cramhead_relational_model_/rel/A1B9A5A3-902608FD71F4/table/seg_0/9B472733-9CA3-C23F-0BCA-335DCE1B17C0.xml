@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9B472733-9CA3-C23F-0BCA-335DCE1B17C0" name="Tanfolyam_felelos">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>28ADFD89-6739-D643-65B0-DAC55108799A</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>7C9880EB-84E7-0345-6AB9-97956DDADEA8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="felelosAzon" id="84A62D6A-4E27-3999-5995-66B1130CF112">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>BC8A316A-AAFD-20AA-5F5D-7D58A52A342A</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>25B831CC-DC05-D1DB-00C2-0C4E3333039D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="felelosNev" id="25B64944-536C-E263-FA97-0005FEA01EB1">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>B9AF0003-AC02-8914-65CD-83383B37335E</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>40CCAAD1-114D-4315-E03C-A03FDE2E12BA</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A385DE27-060A-336A-B6AE-A9AADC41DD3D" name="Tanfolyam_felelos_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>1B6225CE-136F-B19C-43FD-59F30D5954E3</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>8DAA509A-67BE-609F-D7DF-D2EE6B4E43FA</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="84A62D6A-4E27-3999-5995-66B1130CF112"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

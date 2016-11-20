@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7385BD8E-6EE1-C4A1-AD41-4E210C29E03A" name="Foglalas">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>A1DDEEAC-1CEA-2CAE-471B-ACFC50C51E22</importedID>
+<engineerTo>
+<item key="A1B9A5A3-8E10-074E-2545-902608FD71F4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="foglalasAzon" id="A65B7B87-0F38-7B7B-1355-21CD239C9366">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>3F8EB218-6266-E6E4-62ED-6958C7E93FB1</importedID>
+<engineerTo>
+<item key="A1B9A5A3-8E10-074E-2545-902608FD71F4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ideiglenes" id="E5292566-076F-C765-DEC5-8CFE7CA05C8D">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>1184E88A-A658-6EEE-9609-3458C84BA6B4</importedID>
+<engineerTo>
+<item key="A1B9A5A3-8E10-074E-2545-902608FD71F4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ugyfelAzon" id="B5661BAF-E8CC-D078-2E57-3576F864C6DC">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>AB12896E-A801-3168-16A8-C24883337C70</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>DA45457B-18B4-9FFD-0F22-27EE3CADFCE0</importedID>
+<engineerTo>
+<item key="A1B9A5A3-8E10-074E-2545-902608FD71F4" value="true"/>
+</engineerTo>
+<referedAttribute>7BED3668-564C-FE07-591A-784AC2D59DB7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tanfolyamAzon" id="6A5C4295-E8B8-0DD9-8465-4B88F54F03AD">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 23:12:32 UTC</createdTime>
+<generatorID>60224484-A7D4-B470-2182-0461DE70AF4F</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<engineerTo>
+<item key="A1B9A5A3-8E10-074E-2545-902608FD71F4" value="true"/>
+</engineerTo>
+<referedAttribute>4F52B716-8481-F418-A320-45E334D21CD6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AD40DB6E-4E3A-F089-D4DB-0ACC8EBD20DF" name="Foglalas PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>8FC0CAE7-05DB-B838-017B-7CEA1E5EE87B</importedID>
+<engineerTo>
+<item key="A1B9A5A3-8E10-074E-2545-902608FD71F4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A65B7B87-0F38-7B7B-1355-21CD239C9366</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

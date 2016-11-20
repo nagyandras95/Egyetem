@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3494AA7F-2D4F-22D0-8E2C-98EE33E1E31D" containerWithKeyObject="2256CCD4-D85A-812B-E5A7-1017903CD644" localFKIndex="87627D72-FC7E-689C-F7BF-18C217DA728E" name="Tanfolyam_Szalloda_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>39CB8120-B26F-631C-7365-207D4E74E680</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>F581B138-ABC2-D1B8-137D-09CA1ED61C24</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9587471B-226F-C758-CA44-AEB8DA831510</referredTableID>
+<keyObject>682D2ABF-F15A-5F4C-9259-77F98E35262D</keyObject>
+<referredKeyID>682D2ABF-F15A-5F4C-9259-77F98E35262D</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

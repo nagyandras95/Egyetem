@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9587471B-226F-C758-CA44-AEB8DA831510" name="Szalloda">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>8278CC16-DD4E-FDEE-3070-4B7DD8CF32AC</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>F581B138-ABC2-D1B8-137D-09CA1ED61C24</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="szallodaAzon" id="195A02EE-E770-7D26-A3D9-C4624584DCF6">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>C7DF3AB0-D735-78D1-76F0-D9B994158159</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>081C1E2F-A272-D510-2C83-7E4AB49EAF77</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="szallodaNev" id="D2F093EC-0EF7-DE53-D20E-E194BE9365A1">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>24C7D775-96F0-D173-070A-4F68652DEF24</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>55FAE1B1-624C-5CFF-231E-FD61B88E362C</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="682D2ABF-F15A-5F4C-9259-77F98E35262D" name="Szalloda_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-19 22:22:55 UTC</createdTime>
+<generatorID>6E1B3E3C-B1A9-C58F-9954-8FF3C58BF1F2</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>2D2D3C21-E8C8-7058-4C34-A359EEB30176</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="195A02EE-E770-7D26-A3D9-C4624584DCF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
