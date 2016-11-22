@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="64BE4DAC-2030-8207-DFB5-E43742F64B5A" name="Tanfolyam_ertekeles">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:50 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>EC3C61EA-44F3-01DE-EC77-0182EE2AA0D6</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ertekelesAzon" id="0EF54D67-24EE-BB06-E263-6D18B162F5B5">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>1C46ED9F-5181-4335-A100-8887DE0DACF6</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="temaLeiras" id="3A4F5035-15CC-1CCF-5671-2B281A96E2F2">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>0983FE2F-EF12-051B-681F-B490427E604E</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="atlagErtekeles" id="F8D3E204-DC83-C407-7D33-C19B24279BEA">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>8C1F029A-DDCC-58ED-5C62-79AA664391C4</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ertekelokSzama" id="1087EA03-B99D-7AD8-1C1E-93439A8A96A2">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>62E7828B-E5D9-DCDE-8E0E-954353D4BF76</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tanfolyamAzon" id="830D9744-D96F-801D-84B8-C2231565A68C">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>16092B07-B718-19DF-0BB0-3785B3DE3E27</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>33C3B78D-9717-7B1B-E85A-B218113605DE</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>1F331045-F7C8-7770-5D05-67C4DC11D29B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="27C68EB3-1E1F-8C50-76D0-7DFE00D10C60" name="Tanfolyam_ertekeles PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>94F28882-F194-B547-408E-582BFD3ABC14</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0EF54D67-24EE-BB06-E263-6D18B162F5B5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

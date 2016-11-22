@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C4C24D40-227E-EFFA-CB7C-9635CD324D81" name="Ugyfel">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>F89939BC-1D6F-C211-BF2F-7971548B1873</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ugyfelAzon" id="FE2EA7B2-4F2B-4823-BDCB-4C25DAF74C87">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>7BED3668-564C-FE07-591A-784AC2D59DB7</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ugyfelNev" id="7A8598DF-5023-88FD-7C92-25EFB8782C0D">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>31384175-51F9-8957-F1C2-ADCD46CD8757</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fokonyviSzam" id="9C4D7444-8CA1-2500-D129-2697C01F0FEC">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>65E49696-58D7-056D-F9CE-7C162273BAE3</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="41DBDC23-541A-6B2C-D04E-726A5B17C860" name="Ugyfel PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>3B441199-6287-1FC6-FC6E-2AD0373E8EBC</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FE2EA7B2-4F2B-4823-BDCB-4C25DAF74C87</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="FB14D9F4-B171-3EEE-F635-D9A794E77C7C" name="un_fokonyviSzam">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>03800E05-2BE7-CDB6-7571-9CA62006F745</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>9C4D7444-8CA1-2500-D129-2697C01F0FEC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

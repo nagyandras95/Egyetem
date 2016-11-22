@@ -1,3 +1,52 @@
+--procedure 1: tanfolyam utemterv
+create or replace PROCEDURE tanfoylam_utemterv AS
+
+  CURSOR Tanfolyam_Curs IS
+  SELECT t.kezdoDatum, t.TANFOLYAMAZON, tt.LEIRAS, tf.FELELOSNEV, sz.SZALLODANEV, o.OKTATONEV, t.MEGJ, t.MAXHELY 
+  FROM Tanfolyam t, Tanfolyam_tipus tt, Tanfolyam_felelos tf, Szalloda sz, Oktato o
+  WHERE t.TANFOLYAM_FELELOS_FELELOSAZON =  tf.FELELOSAZON
+  AND tt.TIPUSAZON = t.Tanfolyam_tipus_tipusAzon
+  AND t.OKTATO_OKTATOAZON = o.OKTATOAZON
+  AND t.SZALLODA_SZALLODAAZON = sz.SZALLODAAZON;
+  rec Tanfolyam_Curs%ROWTYPE;
+  
+  ideigl INTEGER;
+  biztos INTEGER;
+  ossz INTEGER;
+  keszenleti INTEGER;
+BEGIN
+  dbms_output.put_line('D√Åtum      ' || 'Tanf k√≥d      ' || 'Tanf le√≠r√°s      ' || 'Tanf felel≈ës      ' || 'Tanf hely     ' || 'El≈ëad√≥      ' || 
+  'Max    ' || 'Ideig.    ' || '√ñssz    ' || 'K√©szenl√©ti    ' || 'Megj.');
+  OPEN Tanfolyam_Curs;
+  LOOP
+      FETCH Tanfolyam_Curs INTO rec;
+      EXIT WHEN Tanfolyam_Curs%NOTFOUND;
+      
+      SELECT COUNT(*) idegldb INTO ideigl
+      FROM Kuldott k, Foglalas f, Tanfolyam t
+      WHERE k.Foglalas_foglalasAzon = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON
+      and f.IDEIGLENES = '1';
+      
+      SELECT COUNT(*) biztosdb INTO biztos
+      FROM Kuldott k, Foglalas f, Tanfolyam t
+      WHERE k.Foglalas_foglalasAzon = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON
+      and f.IDEIGLENES = '0' and k.KESZENLETI = '0';
+      
+      SELECT COUNT(*) keszenletidb INTO keszenleti
+      FROM Kuldott k, Foglalas f, Tanfolyam t
+      WHERE k.Foglalas_foglalasAzon = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON
+      and f.IDEIGLENES = '0' and k.KESZENLETI = '1';
+      
+      ossz := ideigl + biztos;
+      
+        dbms_output.put_line(TO_CHAR(rec.kezdoDatum) || '      ' || TO_CHAR(rec.TANFOLYAMAZON) || '      ' 
+                            || TO_CHAR(rec.LEIRAS) || '      ' || rec.FELELOSNEV ||'      ' || rec.SZALLODANEV ||'     ' || rec.OKTATONEV ||'      ' 
+                            ||  TO_CHAR(rec.MAXHELY) ||'    ' || TO_CHAR(ideigl) ||'.    ' || TO_CHAR(ossz) ||'    ' || TO_CHAR(keszenleti) || '    ' || rec.MEGJ);
+      
+  END LOOP;
+  CLOSE Tanfolyam_Curs;
+END;
+
 -- procedure 2: szamla
 create or replace procedure cramhead_szamla(ugyfelAzon INTEGER, tanfolyamAzon VARCHAR2) as
   afa NUMBER := 17.5;
@@ -20,7 +69,7 @@ begin
   select u.FOKONYVISZAM, u.UGYFELNEV into ugyfel_fokonyvi_szam, ugyfel_nev
   from ugyfel u
   where u.UGYFELAZON = ugyfelAzon;
-  dbms_output.put_line(ugyfel_nev || ' figyelmÈbe       D·tum: ' || to_char(SYSDATE, 'MON.dd'));
+  dbms_output.put_line(ugyfel_nev || ' figyelm√©be       D√°tum: ' || to_char(SYSDATE, 'MON.dd'));
   
   dbms_output.put_line('KURZUS: ' || tanfolyamAzon);
   
@@ -28,11 +77,11 @@ begin
   FROM TANFOLYAM_TIPUS ty, TANFOLYAM t, ARAK a
   WHERE t.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON and t.TANFOLYAMAZON = tanfolyamAzon and a.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON
     and a.DATUM = (select MAX(ar.DATUM) from arak ar where ar.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON and ar.DATUM < t.KEZDODATUM);
-  dbms_output.put_line('KURZUS CÕM: ' || kurzus_cim);
+  dbms_output.put_line('KURZUS C√çM: ' || kurzus_cim);
   
   dbms_output.put_line('KURZUS IDEJE: ' || TO_CHAR(kurzus_kezdet, 'MON.D') || ' - ' || TO_CHAR(kurzus_vege, 'MON.dd'));
   
-  dbms_output.put_line('TANDÕJ: ' || ROUND (tandij, 2));
+  dbms_output.put_line('TAND√çJ: ' || ROUND (tandij, 2));
   
    OPEN kuldottek;
     LOOP
@@ -43,14 +92,14 @@ begin
     END LOOP;
   CLOSE kuldottek;
   
-  dbms_output.put_line('NettÛ ˆsszeg:      ' || ROUND (netto_tandij, 2));
+  dbms_output.put_line('Nett√≥ √∂sszeg:      ' || ROUND (netto_tandij, 2));
   tandij_afa := netto_tandij * (afa/100);
-  dbms_output.put_line('¡FA ' || to_char(afa) || '%       ' || ROUND (tandij_afa, 2));
+  dbms_output.put_line('√ÅFA ' || to_char(afa) || '%       ' || ROUND (tandij_afa, 2));
   
-  dbms_output.put_line('‹gyfÈl fıkˆnyvi sz·ma: ' || ugyfel_fokonyvi_szam);
+  dbms_output.put_line('√úgyf√©l f√µk√∂nyvi sz√°ma: ' || ugyfel_fokonyvi_szam);
   
   brutto_tandij := netto_tandij + tandij_afa;
-  dbms_output.put_line('Sz·mla ˆsszeg:      ' || ROUND (brutto_tandij, 2));
+  dbms_output.put_line('Sz√°mla √∂sszeg:      ' || ROUND (brutto_tandij, 2));
 end;
 
 -- delete database script - run several times!
@@ -122,7 +171,8 @@ CREATE TABLE Tanfolyam
     kezdoDatum                    DATE ,
     befejezesDatum                DATE ,
     Megj                          VARCHAR2 (30) ,
-    Oktato_oktatoAzon             INTEGER
+    Oktato_oktatoAzon             INTEGER,
+    maxHely                       INTEGER NOT NULL
   ) ;
 ALTER TABLE Tanfolyam ADD CONSTRAINT Tanfolyam_PK PRIMARY KEY ( tanfolyamAzon ) ;
 

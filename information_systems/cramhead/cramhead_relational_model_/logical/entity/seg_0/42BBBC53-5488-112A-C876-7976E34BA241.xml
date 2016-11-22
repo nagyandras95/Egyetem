@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="42BBBC53-5488-112A-C876-7976E34BA241" name="Oktato">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>9C4E3207-E7ED-55D2-2BE2-1A8D0FC7E75B</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="oktatoAzon" id="85FF0A53-E30C-5C4D-321F-10577AC40D1E">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>5C550944-DED6-004F-99C0-E0E2DE4217B8</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="oktatoNev" id="3042FDC3-657F-0273-6028-E564DA55894A">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>EF2CA0CB-CFBD-3FCE-D235-01C047A63559</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tanfolyamAzon" id="B30C6841-4058-D756-5F3F-25FE9ED756DE">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>E067A93A-4056-A6AE-D445-0E4546801679</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>224684B6-4F5D-BBA0-EFCB-F871CBF4046E</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<referedAttribute>1F331045-F7C8-7770-5D05-67C4DC11D29B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FF335D30-0E48-3800-26BC-599D2F70E99C" name="Oktato PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>5DD2BCE6-CA68-B9D7-5180-6291A414FA33</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>85FF0A53-E30C-5C4D-321F-10577AC40D1E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

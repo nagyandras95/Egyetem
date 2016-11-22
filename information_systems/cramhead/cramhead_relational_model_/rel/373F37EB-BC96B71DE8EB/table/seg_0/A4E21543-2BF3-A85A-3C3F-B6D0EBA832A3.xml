@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A4E21543-2BF3-A85A-3C3F-B6D0EBA832A3" name="Kuldott">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>78EBCFD1-C801-67D1-B99D-FF6052CEBEA4</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>67A000AA-92D1-325C-882A-2B4D413DE6EC</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="kuldottAzon" id="43B94FCD-BA81-869D-CE50-D06146988DAF">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>CFB7EC0F-D14E-1FF8-07DC-1D96A2FBEF9A</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>1A6B4E2C-9FF0-E657-2D80-FF1C504B435F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kuldottNev" id="6723F2C9-92B6-9169-AA83-6F99828AF51E">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>4DE19D7B-5E39-7B3E-D5BD-800303860782</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>41E86DBB-E3E6-8FE6-B3DA-A0AC02E7FA8A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Foglalas_foglalasAzon" id="E524E496-FD6A-DF6B-7CCB-8A14B273F8BC">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>D833A34D-0BFE-AE3A-80CF-58728A060325</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>AD153059-F228-B0CD-898E-28689ED345B1</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C94A6464-C925-559C-D9E0-E7A7B415E9B7" referredColumn="E9A6BD23-ED3C-B878-CE83-6B74BC209264"/>
+</associations>
+</Column>
+<Column name="keszenleti" id="D3F285F1-C150-7736-6FBD-34A8EBE804D1">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>94791AF5-6C8E-D07B-DE8B-9A9F54DD92F2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="torolt" id="558E9FE7-4239-7E54-FB69-1DD169E095E4">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>2BD58337-2E21-3564-5BE8-17C844F18D74</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="579F8E66-3A04-B03B-D70C-87BFDFEEDBA0" name="Kuldott_PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>D345B9C1-1E2E-ECA6-67B1-6E9FCB2BEC77</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>5C65EDD1-80F0-E174-8F3C-1F7F5BD944A6</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="43B94FCD-BA81-869D-CE50-D06146988DAF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F65387F5-C1DA-DCF0-3B17-C23E6A93C5AB" name="Kuldott_Foglalas_FK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>FB42D8AE-434F-C6D1-5AF4-5D5DDE907EB7</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E524E496-FD6A-DF6B-7CCB-8A14B273F8BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

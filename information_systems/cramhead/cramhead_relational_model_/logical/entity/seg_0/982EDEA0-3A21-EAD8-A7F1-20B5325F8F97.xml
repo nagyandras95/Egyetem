@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="982EDEA0-3A21-EAD8-A7F1-20B5325F8F97" name="Szalloda">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>8278CC16-DD4E-FDEE-3070-4B7DD8CF32AC</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="szallodaAzon" id="B5B4EE32-7329-8267-6822-16A6CB89611A">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>C7DF3AB0-D735-78D1-76F0-D9B994158159</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="szallodaNev" id="95E89A78-3DB9-1504-B420-1F4B1F277812">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>24C7D775-96F0-D173-070A-4F68652DEF24</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tanfolyamAzon" id="EAD4BE58-6AA6-C518-B42F-EB695719ABFB">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>FD0E7164-7837-896D-C85C-0E0A28AED08D</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>EDF64326-B69B-7D0F-6DF3-EB7AC5FCE517</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<referedAttribute>1F331045-F7C8-7770-5D05-67C4DC11D29B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="32107710-8787-355D-3C1B-F1A58D9FDF1D" name="Szalloda PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>6E1B3E3C-B1A9-C58F-9954-8FF3C58BF1F2</importedID>
+<engineerTo>
+<item key="373F37EB-A9B7-B5A3-A7BD-BC96B71DE8EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B5B4EE32-7329-8267-6822-16A6CB89611A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="27DEA849-5D3F-D2F0-DBC6-39DEEA97D435">
-<createdBy>mozsi</createdBy>
-<createdTime>2016-11-19 22:15:23 UTC</createdTime>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="B946B404-7366-955A-75ED-49BC1E148425">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:50:47 UTC</createdTime>
 <ownerDesignName>cramhead_relational_model_</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 </BusinessInfoDesign>

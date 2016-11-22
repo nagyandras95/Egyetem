@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2A22B037-FA59-66CB-1226-2FA7D5FCF970" name="Tanfolyam_ertekeles">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>64BE4DAC-2030-8207-DFB5-E43742F64B5A</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>C112CF9B-4294-B101-0F4D-A01DA9F49E5D</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ertekelesAzon" id="0B29020C-178B-757D-1CBD-92D11E583B19">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>0EF54D67-24EE-BB06-E263-6D18B162F5B5</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>7CD2A786-E797-21C9-7C5A-E43419A375E9</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="temaLeiras" id="EEC7E8BA-4B0A-B30E-FC2C-E1A6D60A4FF9">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>3A4F5035-15CC-1CCF-5671-2B281A96E2F2</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>E63DADAE-D9F0-347D-9E58-0E5AC094CB59</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="atlagErtekeles" id="66B5369B-2CFD-6A7A-507E-0FC8C52DB2DB">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>F8D3E204-DC83-C407-7D33-C19B24279BEA</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>C97752B8-26FF-2311-A192-C5FFE7714CE4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ertekelokSzama" id="03866BB1-64CB-8B79-4B43-E3AD5B9DF3F3">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>1087EA03-B99D-7AD8-1C1E-93439A8A96A2</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>522A1371-64FD-CA7F-EEE3-68200CD58AB7</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanfolyam_tanfolyamAzon" id="CFEAF9C7-911A-5F71-4215-3D1DE8833C59">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>CD8E6CEC-BBDB-953A-2871-79FCC8D6DD51</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4762F891-18E9-D476-32B8-99D2798830AB" referredColumn="051D306A-843C-C4B2-2306-886F0050C225"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9F6C533C-825B-F1CD-855C-3094553CBDF7" name="Tanfolyam_ertekeles_PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<importedID>9C0E8652-9042-008F-99DD-F4B900D4A250</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B29020C-178B-757D-1CBD-92D11E583B19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EC2240E8-F001-A463-2F3A-D00A1DE6D69A" name="TanfErt_Tanf_FK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>7E8A9CF6-CFF4-9F81-C1C8-585E53B047F8</generatorID>
+<ownerDesignName>cramhead_relational_model_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFEAF9C7-911A-5F71-4215-3D1DE8833C59"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

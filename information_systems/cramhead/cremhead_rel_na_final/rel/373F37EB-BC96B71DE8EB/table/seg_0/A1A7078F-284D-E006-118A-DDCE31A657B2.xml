@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A1A7078F-284D-E006-118A-DDCE31A657B2" name="Foglalas">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>42523C75-40AF-BA6A-E8A7-8D08A02C3CEA</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>92E32516-8262-F161-09EC-10E9B32A284C</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Tanfolyam_tanfolyamAzon" id="AB937ED7-488F-C22C-CA9C-1F1A9087B6CD">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>1CCC9737-F2DF-F1D0-DFB6-704E7575EBA4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E167F450-DE69-47CE-8E8C-C9AE656DDEB8" referredColumn="051D306A-843C-C4B2-2306-886F0050C225"/>
+</associations>
+</Column>
+<Column name="foglalasAzon" id="E9A6BD23-ED3C-B878-CE83-6B74BC209264">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>51FAE614-7CF7-31D9-D387-873CFBFF32EA</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>B7DF966E-F5AB-5053-C4E2-7F4270D4C82C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ideiglenes" id="F5FB382A-6A2B-D98F-6ADB-CDD1D259F069">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>B8026D43-50AB-CBDA-B0A2-F14F9A0ED28D</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>C3028384-B9A7-5693-4600-EE957953CD18</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ugyfel_ugyfelAzon" id="691798DA-2211-5D53-7647-3E345487AA3D">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>4F35AD5C-3875-E68A-9573-12650A2581DB</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>DB8367C3-D467-7CB6-A554-FB33756C793D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2F80C833-3B78-F7B6-FC1E-CD835EC943A2" referredColumn="686983AC-F2F7-3EFC-E894-9E2774252A60"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1D0A0428-5BB1-8082-8631-2FCACB5AE9A2" name="Foglalas_PK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>0A7E9C6C-6D93-216B-0D46-EA7F9625EC54</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<importedID>B0552EF8-408E-439B-6E99-F6170F958CF9</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9A6BD23-ED3C-B878-CE83-6B74BC209264"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5E67333A-38FB-FA62-EC00-555CF8B24669" name="Foglalas_Ugyfel_FK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>8B7831E3-2284-B546-F585-900CAF021CBD</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="691798DA-2211-5D53-7647-3E345487AA3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D2CCE9A1-0D0F-336E-442A-2D8B7C755EC6" name="Foglalas_Tanfolyam_FK">
+<createdBy>nagy</createdBy>
+<createdTime>2016-11-22 13:51:51 UTC</createdTime>
+<generatorID>91F84A7A-1B87-5497-7758-15C72356EE30</generatorID>
+<ownerDesignName>cremhead_rel_na_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AB937ED7-488F-C22C-CA9C-1F1A9087B6CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
