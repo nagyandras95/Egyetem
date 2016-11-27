@@ -69,7 +69,7 @@ create or replace procedure cramhead_szamla(ugyfel_azon INTEGER, tanfolyam_azon 
 begin
   select u.FOKONYVISZAM, u.UGYFELNEV into ugyfel_fokonyvi_szam, ugyfel_nev
   from ugyfel u
-  where u.UGYFELAZON = 1;
+  where u.UGYFELAZON = ugyfel_azon;
   dbms_output.put_line(ugyfel_nev || ' figyelmébe       Dátum: ' || to_char(SYSDATE, 'MONdd'));
   
   dbms_output.put_line('KURZUS: ' || tanfolyam_azon);
