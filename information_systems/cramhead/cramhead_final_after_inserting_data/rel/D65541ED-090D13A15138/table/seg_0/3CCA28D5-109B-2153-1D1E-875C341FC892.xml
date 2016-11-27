@@ -1,0 +1,174 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3CCA28D5-109B-2153-1D1E-875C341FC892" name="Tanfolyam">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>D3E98178-0209-C951-578C-510D3D0DD62D</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>FE6FD463-99F0-202C-B502-A4D207B895DE</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tanfolyamAzon" id="9D6D1837-0D67-BEC3-7B5E-4B0B6DCEC92B">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>815E90EA-1F2F-9C50-9F01-109A05B176AA</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>051D306A-843C-C4B2-2306-886F0050C225</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanfolyam_tipus_tipusAzon" id="1285993D-710B-E47D-082D-8B9FDAF48922">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>0E27AFBF-D2BE-5116-6EAB-E51008652344</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>81E4D34E-7E81-A422-6A73-6FE2FBC7F1C0</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2D01F1F3-D0E5-B3A5-1092-F408796E188A" referredColumn="1E159650-F419-8330-29DC-4D40CA4513AB"/>
+</associations>
+</Column>
+<Column name="Szalloda_szallodaAzon" id="C4356CE8-7081-8B66-5D4C-AD907D8A7DCB">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>FCCE41DE-EE1E-1437-8589-60E83F06FE4D</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>FACE3764-C416-98A5-1864-ED8F7822473E</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BAF35C63-6D63-FABF-145E-51313D8C8770" referredColumn="86B8C588-AFD2-0B44-7A57-1ED1E8F8B40F"/>
+</associations>
+</Column>
+<Column name="kezdoDatum" id="7F6F2434-80B4-FD6A-F3D7-D03E56FCF569">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>80A637F8-904A-62ED-3496-071DC79CF63F</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>648C017A-E3F9-1BF3-8A25-E0E8F79D588E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="befejezesDatum" id="75538725-572B-02C1-39C2-6B039028FD42">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>5F768713-7304-989C-199A-5507853247A0</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Megj" id="192E3AD0-60A4-B75C-B6E3-3F7013EC26E3">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>6DF18BB4-E598-9479-B467-D4517AE96798</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>3FA56880-BFF4-960E-EEDA-BED02F58B262</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Oktato_oktatoAzon" id="B8805D72-2785-E365-A9A6-06F221D1FC1C">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>01BE2E37-E65E-9562-6756-732B9F00017C</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>A16BC5DB-CB02-1F55-ACD2-89BA4BCD96C7</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5C2C069-5028-01FE-BFE5-9C574C919C67" referredColumn="3248B433-6062-8E06-7147-5382D38772B3"/>
+</associations>
+</Column>
+<Column name="Torolt" id="4DB950B8-0643-F44B-D82E-FAA8A8A30B8D">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-27 13:43:15 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2EFC1239-287A-D997-74B9-C4C099D33F7D" name="Tanfolyam_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>F3C22041-7C98-0A81-5325-F51AAB2FDA39</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>164D8B01-7361-5DB6-289A-6143AAB72CEF</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D6D1837-0D67-BEC3-7B5E-4B0B6DCEC92B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7F9C7600-9F57-FCFE-8703-B97564F337B3" name="Tanfolyam_Oktato_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>840EF388-153A-B542-3E3A-7AB5B10E129C</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B8805D72-2785-E365-A9A6-06F221D1FC1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7C0DD6FA-E410-14F7-C0CB-D175F495C99C" name="Tanf_TanfTipus_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>4D20ABEC-DAA4-1F70-0191-89695C35CE6D</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1285993D-710B-E47D-082D-8B9FDAF48922"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="69D7F077-CA52-0EFD-E0A1-68C9E68CB397" name="Tanfolyam_Szalloda_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>39CB8120-B26F-631C-7365-207D4E74E680</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4356CE8-7081-8B66-5D4C-AD907D8A7DCB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

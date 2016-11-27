@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0EB4682F-5FCB-1FBB-D815-DA95BF32E69E" containerWithKeyObject="2FADA050-7661-3690-657A-B0B9BFF7B789" localFKIndex="11D07CFA-2F1E-F3ED-2F8B-BAF4036B68D8" name="Foglalas_Ugyfel_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>8B7831E3-2284-B546-F585-900CAF021CBD</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>A7866770-3A7E-AEE5-79D4-D8AE4E3939C6</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4269D3E2-7616-49D9-C9FF-918ED66DA0A1</referredTableID>
+<keyObject>42DA32DD-E520-9827-361B-93B58ED68F90</keyObject>
+<referredKeyID>42DA32DD-E520-9827-361B-93B58ED68F90</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

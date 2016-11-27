@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D3E98178-0209-C951-578C-510D3D0DD62D" name="Tanfolyam">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>981D0D23-7EC3-3A7D-5E14-7D1925C1FAA1</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="tanfolyamAzon" id="815E90EA-1F2F-9C50-9F01-109A05B176AA">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>1F331045-F7C8-7770-5D05-67C4DC11D29B</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipusAzon" id="0E27AFBF-D2BE-5116-6EAB-E51008652344">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>A631F7A6-FAF0-775C-D173-FF393E0786BC</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>D1D0B7CB-57E1-D9DA-B382-2140DBB994FC</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<referedAttribute>7B09BD8A-8DFD-3C4F-2C1A-2FF9806D8EFB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kezdesDatum" id="80A637F8-904A-62ED-3496-071DC79CF63F">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>CA71049C-450E-952E-BA59-1CC3EF23771A</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="befejezesDatum" id="D9694DD0-8A78-02C4-856C-1E9BCFA812CB">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>2D29862D-08EE-65AC-CB11-56CCF42FDD2D</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Megj" id="6DF18BB4-E598-9479-B467-D4517AE96798">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>D7527972-3AA0-E0B3-4647-3301A59FCE20</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="szallodaAzon" id="1179E0FA-015D-F6C9-53A9-06AA9921BB52">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 19:58:52 UTC</createdTime>
+<generatorID>3255C26C-51BC-0082-37A3-394B7752B804</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<referedAttribute>A83BBEF7-F181-FF48-8F7D-709B9B338E5D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="oktatoAzon" id="E972B6E4-0844-5533-366C-795F1E27F1DB">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-27 11:45:53 UTC</createdTime>
+<generatorID>4069E7BF-BA07-02A7-BB59-17A1BF4B291F</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<referedAttribute>460BD78C-B67C-AAD3-B4AB-D6EC70FE58C8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Torolt" id="9E959F4A-C95C-9ECC-2CD7-8ECAB7893DC4">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-27 13:43:42 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F3C22041-7C98-0A81-5325-F51AAB2FDA39" name="Tanfolyam PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>768CBE3D-D70E-B982-202A-EB8286E72677</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>815E90EA-1F2F-9C50-9F01-109A05B176AA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

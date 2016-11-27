@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7B68B87F-ADB9-B5C1-ED72-64A6E54C980D" name="Tanfolyam_ertekeles">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>9AD58B67-53E2-544F-5747-90221578D6DE</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>2A22B037-FA59-66CB-1226-2FA7D5FCF970</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ertekelesAzon" id="EDA17CE5-1EB9-B876-CC68-F2F34607F751">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>CB8618DF-42B3-0CD6-BCD3-A17CC249B7BC</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>0B29020C-178B-757D-1CBD-92D11E583B19</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="temaLeiras" id="9A446EAF-B6B0-DC08-C8E0-DFF099FB58EF">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>E9861842-49A1-8124-E0FB-B94537C51C0A</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>EEC7E8BA-4B0A-B30E-FC2C-E1A6D60A4FF9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="atlagErtekeles" id="C424C001-CC0D-3906-A783-BB4288F877AF">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>90EE2DEB-085C-D10E-8DF6-9B086ADBEE97</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>66B5369B-2CFD-6A7A-507E-0FC8C52DB2DB</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ertekelokSzama" id="D03B4558-6650-9F40-D285-56326B893006">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>DA76A7EE-F2E6-F8D5-8021-59F1F66C2307</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>03866BB1-64CB-8B79-4B43-E3AD5B9DF3F3</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanfolyam_tanfolyamAzon" id="1426117D-3B83-F205-F390-E89C4C7594EF">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>CFEAF9C7-911A-5F71-4215-3D1DE8833C59</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E3F74526-12D3-C47A-740A-231F9E64252B" referredColumn="9D6D1837-0D67-BEC3-7B5E-4B0B6DCEC92B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B2EBB27E-7792-47FE-64B6-7C8DE6E8F6D7" name="Tanfolyam_ertekeles_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>9F6C533C-825B-F1CD-855C-3094553CBDF7</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDA17CE5-1EB9-B876-CC68-F2F34607F751"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="68412049-7F3A-067C-91C2-3BD38A21A3F0" name="TanfErt_Tanf_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>7E8A9CF6-CFF4-9F81-C1C8-585E53B047F8</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1426117D-3B83-F205-F390-E89C4C7594EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

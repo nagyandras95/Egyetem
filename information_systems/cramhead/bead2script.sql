@@ -1,13 +1,13 @@
 --procedure 1: tanfolyam utemterv
-create or replace PROCEDURE tanfoylam_utemterv AS
+create or replace PROCEDURE tanfolyam_utemterv AS
 
   CURSOR Tanfolyam_Curs IS
-  SELECT t.kezdoDatum, t.TANFOLYAMAZON, tt.LEIRAS, tf.FELELOSNEV, sz.SZALLODANEV, o.OKTATONEV, t.MEGJ, t.MAXHELY 
-  FROM Tanfolyam t, Tanfolyam_tipus tt, Tanfolyam_felelos tf, Szalloda sz, Oktato o
-  WHERE t.TANFOLYAM_FELELOS_FELELOSAZON =  tf.FELELOSAZON
-  AND tt.TIPUSAZON = t.Tanfolyam_tipus_tipusAzon
-  AND t.OKTATO_OKTATOAZON = o.OKTATOAZON
-  AND t.SZALLODA_SZALLODAAZON = sz.SZALLODAAZON;
+    SELECT t.KEZDODATUM, t.TANFOLYAMAZON, tt.TANFOLYAMLEIRAS, tf.OKTATONEV FELELOSNEV, sz.SZALLODANEV, o.OKTATONEV, t.MEGJ, tt.MAXLETSZAM
+    FROM Tanfolyam t, Tanfolyam_tipus tt, Oktato tf, Szalloda sz, Oktato o
+    WHERE tt.TANFOLYAMFELELOS = tf.OKTATOAZON
+      AND tt.TIPUSAZON = t.Tanfolyam_tipus_tipusAzon
+      AND t.OKTATO_OKTATOAZON = o.OKTATOAZON
+      AND t.SZALLODA_SZALLODAAZON = sz.SZALLODAAZON;
   rec Tanfolyam_Curs%ROWTYPE;
   
   ideigl INTEGER;
@@ -15,40 +15,41 @@ create or replace PROCEDURE tanfoylam_utemterv AS
   ossz INTEGER;
   keszenleti INTEGER;
 BEGIN
-  dbms_output.put_line('D√Åtum      ' || 'Tanf k√≥d      ' || 'Tanf le√≠r√°s      ' || 'Tanf felel≈ës      ' || 'Tanf hely     ' || 'El≈ëad√≥      ' || 
-  'Max    ' || 'Ideig.    ' || '√ñssz    ' || 'K√©szenl√©ti    ' || 'Megj.');
+  dbms_output.put_line('D·tum             ' || 'Tanf kÛd     ' || 'Tanf leÌr·s                     ' || 'Tanf felelıs     ' || 'Tanf hely     ' || 'ElıadÛ         ' || 
+  'Max    ' || 'Ideig.    ' || '÷ssz    ' || 'KÈszenlÈti    ' || 'Megj.');
   OPEN Tanfolyam_Curs;
   LOOP
       FETCH Tanfolyam_Curs INTO rec;
       EXIT WHEN Tanfolyam_Curs%NOTFOUND;
       
-      SELECT COUNT(*) idegldb INTO ideigl
-      FROM Kuldott k, Foglalas f, Tanfolyam t
-      WHERE k.Foglalas_foglalasAzon = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON
-      and f.IDEIGLENES = '1';
+      SELECT COUNT(*) INTO ideigl
+      FROM Kuldott k, Foglalas f
+      WHERE f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON and k.Foglalas_foglalasAzon = f.FOGLALASAZON
+      and f.IDEIGLENES = 1;
       
-      SELECT COUNT(*) biztosdb INTO biztos
-      FROM Kuldott k, Foglalas f, Tanfolyam t
+      SELECT COUNT(*) INTO biztos
+      FROM Kuldott k, Foglalas f
       WHERE k.Foglalas_foglalasAzon = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON
-      and f.IDEIGLENES = '0' and k.KESZENLETI = '0';
+      and f.IDEIGLENES = 0 and k.KESZENLETI = 0;
       
-      SELECT COUNT(*) keszenletidb INTO keszenleti
+      SELECT COUNT(*) INTO keszenleti
       FROM Kuldott k, Foglalas f, Tanfolyam t
       WHERE k.Foglalas_foglalasAzon = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = rec.TANFOLYAMAZON
-      and f.IDEIGLENES = '0' and k.KESZENLETI = '1';
+      and t.TANFOLYAMAZON = rec.TANFOLYAMAZON
+      and k.KESZENLETI = 1;
       
       ossz := ideigl + biztos;
       
-        dbms_output.put_line(TO_CHAR(rec.kezdoDatum) || '      ' || TO_CHAR(rec.TANFOLYAMAZON) || '      ' 
-                            || TO_CHAR(rec.LEIRAS) || '      ' || rec.FELELOSNEV ||'      ' || rec.SZALLODANEV ||'     ' || rec.OKTATONEV ||'      ' 
-                            ||  TO_CHAR(rec.MAXHELY) ||'    ' || TO_CHAR(ideigl) ||'.    ' || TO_CHAR(ossz) ||'    ' || TO_CHAR(keszenleti) || '    ' || rec.MEGJ);
+      dbms_output.put_line(TO_CHAR(rec.KEZDODATUM) || '      ' || TO_CHAR(rec.TANFOLYAMAZON) || '      ' 
+                            || TO_CHAR(rec.TANFOLYAMLEIRAS) || '      ' || rec.FELELOSNEV ||'      ' || rec.SZALLODANEV ||'     ' || rec.OKTATONEV ||'      ' 
+                            ||  TO_CHAR(rec.MAXLETSZAM) ||'    ' || TO_CHAR(ideigl) ||'.    ' || TO_CHAR(ossz) ||'    ' || TO_CHAR(keszenleti) || '    ' || rec.MEGJ);
       
   END LOOP;
   CLOSE Tanfolyam_Curs;
 END;
 
 -- procedure 2: szamla
-create or replace procedure cramhead_szamla(ugyfelAzon INTEGER, tanfolyamAzon VARCHAR2) as
+create or replace procedure cramhead_szamla(ugyfel_azon INTEGER, tanfolyam_azon VARCHAR2) as
   afa NUMBER := 17.5;
   kurzus_cim VARCHAR2(80);
   kurzus_kezdet DATE;
@@ -63,27 +64,28 @@ create or replace procedure cramhead_szamla(ugyfelAzon INTEGER, tanfolyamAzon VA
     SELECT k.KULDOTTNEV knev
     FROM kuldott k, tanfolyam t, foglalas f, ugyfel u
     where k.FOGLALAS_FOGLALASAZON = f.FOGLALASAZON and f.TANFOLYAM_TANFOLYAMAZON = t.TANFOLYAMAZON and f.UGYFEL_UGYFELAZON = u.UGYFELAZON
-      and u.UGYFELAZON = ugyfelAzon and t.TANFOLYAMAZON = tanfolyamAzon;
+      and u.UGYFELAZON = ugyfel_azon and t.TANFOLYAMAZON = tanfolyam_azon;
   rec kuldottek%ROWTYPE;
 begin
   select u.FOKONYVISZAM, u.UGYFELNEV into ugyfel_fokonyvi_szam, ugyfel_nev
   from ugyfel u
-  where u.UGYFELAZON = ugyfelAzon;
-  dbms_output.put_line(ugyfel_nev || ' figyelm√©be       D√°tum: ' || to_char(SYSDATE, 'MON.dd'));
+  where u.UGYFELAZON = 1;
+  dbms_output.put_line(ugyfel_nev || ' figyelmÈbe       D·tum: ' || to_char(SYSDATE, 'MONdd'));
   
-  dbms_output.put_line('KURZUS: ' || tanfolyamAzon);
+  dbms_output.put_line('KURZUS: ' || tanfolyam_azon);
   
-  SELECT ty.LEIRAS, t.KEZDODATUM, t.BEFEJEZESDATUM, a.AR INTO kurzus_cim, kurzus_kezdet, kurzus_vege, tandij
+  SELECT ty.TANFOLYAMLEIRAS, t.KEZDODATUM, t.BEFEJEZESDATUM, a.AR INTO kurzus_cim, kurzus_kezdet, kurzus_vege, tandij
   FROM TANFOLYAM_TIPUS ty, TANFOLYAM t, ARAK a
-  WHERE t.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON and t.TANFOLYAMAZON = tanfolyamAzon and a.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON
+  WHERE t.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON and t.TANFOLYAMAZON = tanfolyam_azon and a.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON
     and a.DATUM = (select MAX(ar.DATUM) from arak ar where ar.TANFOLYAM_TIPUS_TIPUSAZON = ty.TIPUSAZON and ar.DATUM < t.KEZDODATUM);
-  dbms_output.put_line('KURZUS C√çM: ' || kurzus_cim);
+  dbms_output.put_line('KURZUS CÕM: ' || kurzus_cim);
   
-  dbms_output.put_line('KURZUS IDEJE: ' || TO_CHAR(kurzus_kezdet, 'MON.D') || ' - ' || TO_CHAR(kurzus_vege, 'MON.dd'));
+  dbms_output.put_line('KURZUS IDEJE: ' || TO_CHAR(kurzus_kezdet, 'MONDD') || ' - ' || TO_CHAR(kurzus_vege, 'MONDD'));
   
-  dbms_output.put_line('TAND√çJ: ' || ROUND (tandij, 2));
+  dbms_output.put_line('TANDÕJ: ' || ROUND (tandij, 2));
   
-   OPEN kuldottek;
+  dbms_output.put_line('K‹LD÷TTEK: ' );
+  OPEN kuldottek;
     LOOP
       FETCH kuldottek INTO rec;
       EXIT WHEN kuldottek%NOTFOUND;
@@ -92,14 +94,14 @@ begin
     END LOOP;
   CLOSE kuldottek;
   
-  dbms_output.put_line('Nett√≥ √∂sszeg:      ' || ROUND (netto_tandij, 2));
+  dbms_output.put_line('NettÛ ˆsszeg:      ' || ROUND (netto_tandij, 2));
   tandij_afa := netto_tandij * (afa/100);
-  dbms_output.put_line('√ÅFA ' || to_char(afa) || '%       ' || ROUND (tandij_afa, 2));
+  dbms_output.put_line('¡FA ' || to_char(afa) || '%       ' || ROUND (tandij_afa, 2));
   
-  dbms_output.put_line('√úgyf√©l f√µk√∂nyvi sz√°ma: ' || ugyfel_fokonyvi_szam);
+  dbms_output.put_line('‹gyfÈl fıkˆnyvi sz·ma: ' || ugyfel_fokonyvi_szam);
   
   brutto_tandij := netto_tandij + tandij_afa;
-  dbms_output.put_line('Sz√°mla √∂sszeg:      ' || ROUND (brutto_tandij, 2));
+  dbms_output.put_line('Sz·mla ˆsszeg:      ' || ROUND (brutto_tandij, 2));
 end;
 
 -- delete database script - run several times!
@@ -121,16 +123,17 @@ CREATE TABLE Arak
     datum                     DATE NOT NULL ,
     megjegyzes                VARCHAR2 (20) ,
     ar                        NUMBER (10,2) ,
-    Tanfolyam_tipus_tipusAzon INTEGER NOT NULL
+    Tanfolyam_tipus_tipusAzon VARCHAR2 (5) NOT NULL
   ) ;
 
 
 CREATE TABLE Foglalas
   (
-    Tanfolyam_tanfolyamAzon VARCHAR2 (15) NOT NULL ,
     foglalasAzon            INTEGER NOT NULL ,
-    ideiglenes              CHAR (1) NOT NULL ,
-    Ugyfel_ugyfelAzon       INTEGER NOT NULL
+    Tanfolyam_tanfolyamAzon VARCHAR2 (15) NOT NULL ,
+    Ugyfel_ugyfelAzon       INTEGER NOT NULL ,
+    foglalasDatum           DATE ,
+    ideiglenes              CHAR (1) NOT NULL
   ) ;
 ALTER TABLE Foglalas ADD CONSTRAINT Foglalas_PK PRIMARY KEY ( foglalasAzon ) ;
 
@@ -148,31 +151,33 @@ ALTER TABLE Kuldott ADD CONSTRAINT Kuldott_PK PRIMARY KEY ( kuldottAzon ) ;
 
 CREATE TABLE Oktato
   (
-    oktatoAzon INTEGER NOT NULL ,
-    oktatoNev  VARCHAR2 (40)
+    oktatoAzon  VARCHAR2 (5) NOT NULL ,
+    oktatoNev   VARCHAR2 (40) NOT NULL ,
+    tanfFelelos CHAR (1) NOT NULL
   ) ;
 ALTER TABLE Oktato ADD CONSTRAINT Oktato_PK PRIMARY KEY ( oktatoAzon ) ;
 
 
 CREATE TABLE Szalloda
   (
-    szallodaAzon INTEGER NOT NULL ,
-    szallodaNev  VARCHAR2 (50)
+    szallodaAzon VARCHAR2 (5) NOT NULL ,
+    szallodaNev  VARCHAR2 (50) ,
+    szallodaCim  VARCHAR2 (50) NOT NULL ,
+    szallodaTel  VARCHAR2 (15)
   ) ;
 ALTER TABLE Szalloda ADD CONSTRAINT Szalloda_PK PRIMARY KEY ( szallodaAzon ) ;
 
 
 CREATE TABLE Tanfolyam
   (
-    tanfolyamAzon                 VARCHAR2 (15) NOT NULL ,
-    Tanfolyam_tipus_tipusAzon     INTEGER NOT NULL ,
-    Tanfolyam_felelos_felelosAzon INTEGER NOT NULL ,
-    Szalloda_szallodaAzon         INTEGER NOT NULL ,
-    kezdoDatum                    DATE ,
-    befejezesDatum                DATE ,
-    Megj                          VARCHAR2 (30) ,
-    Oktato_oktatoAzon             INTEGER,
-    maxHely                       INTEGER NOT NULL
+    tanfolyamAzon             VARCHAR2 (15) NOT NULL ,
+    Tanfolyam_tipus_tipusAzon VARCHAR2 (5) NOT NULL ,
+    Szalloda_szallodaAzon     VARCHAR2 (5) NOT NULL ,
+    kezdoDatum                DATE ,
+    befejezesDatum            DATE ,
+    Megj                      VARCHAR2 (30) ,
+    Oktato_oktatoAzon         VARCHAR2 (5) ,
+    Torolt                    CHAR (1)
   ) ;
 ALTER TABLE Tanfolyam ADD CONSTRAINT Tanfolyam_PK PRIMARY KEY ( tanfolyamAzon ) ;
 
@@ -188,18 +193,13 @@ CREATE TABLE Tanfolyam_ertekeles
 ALTER TABLE Tanfolyam_ertekeles ADD CONSTRAINT Tanfolyam_ertekeles_PK PRIMARY KEY ( ertekelesAzon ) ;
 
 
-CREATE TABLE Tanfolyam_felelos
-  (
-    felelosAzon INTEGER NOT NULL ,
-    felelosNev  VARCHAR2 (40)
-  ) ;
-ALTER TABLE Tanfolyam_felelos ADD CONSTRAINT Tanfolyam_felelos_PK PRIMARY KEY ( felelosAzon ) ;
-
-
 CREATE TABLE Tanfolyam_tipus
   (
-    tipusAzon INTEGER NOT NULL ,
-    Leiras    VARCHAR2 (30)
+    tipusAzon        VARCHAR2 (5) NOT NULL ,
+    tanfolyamLeiras  VARCHAR2 (30) NOT NULL ,
+    minLetszam       INTEGER ,
+    maxLetszam       INTEGER ,
+    tanfolyamFelelos VARCHAR2 (5)
   ) ;
 ALTER TABLE Tanfolyam_tipus ADD CONSTRAINT Tanfolyam_tipus_PK PRIMARY KEY ( tipusAzon ) ;
 
@@ -208,7 +208,10 @@ CREATE TABLE Ugyfel
   (
     ugyfelAzon   INTEGER NOT NULL ,
     ugyfelNev    VARCHAR2 (80) NOT NULL ,
-    fokonyviSzam VARCHAR2 (15)
+    fokonyviSzam VARCHAR2 (15) ,
+    cim          VARCHAR2 (50) NOT NULL ,
+    telefon      VARCHAR2 (15) NOT NULL ,
+    kapcsTarto   VARCHAR2 (50)
   ) ;
 ALTER TABLE Ugyfel ADD CONSTRAINT Ugyfel_PK PRIMARY KEY ( ugyfelAzon ) ;
 ALTER TABLE Ugyfel ADD CONSTRAINT Ugyfel__UN UNIQUE ( fokonyviSzam ) ;
@@ -224,37 +227,163 @@ ALTER TABLE Kuldott ADD CONSTRAINT Kuldott_Foglalas_FK FOREIGN KEY ( Foglalas_fo
 
 ALTER TABLE Tanfolyam_ertekeles ADD CONSTRAINT TanfErt_Tanf_FK FOREIGN KEY ( Tanfolyam_tanfolyamAzon ) REFERENCES Tanfolyam ( tanfolyamAzon ) ;
 
-ALTER TABLE Tanfolyam ADD CONSTRAINT Tanf_TanfFel_FK FOREIGN KEY ( Tanfolyam_felelos_felelosAzon ) REFERENCES Tanfolyam_felelos ( felelosAzon ) ;
-
 ALTER TABLE Tanfolyam ADD CONSTRAINT Tanf_TanfTipus_FK FOREIGN KEY ( Tanfolyam_tipus_tipusAzon ) REFERENCES Tanfolyam_tipus ( tipusAzon ) ;
 
 ALTER TABLE Tanfolyam ADD CONSTRAINT Tanfolyam_Oktato_FK FOREIGN KEY ( Oktato_oktatoAzon ) REFERENCES Oktato ( oktatoAzon ) ;
 
 ALTER TABLE Tanfolyam ADD CONSTRAINT Tanfolyam_Szalloda_FK FOREIGN KEY ( Szalloda_szallodaAzon ) REFERENCES Szalloda ( szallodaAzon ) ;
 
+ALTER TABLE Tanfolyam_tipus ADD CONSTRAINT Tanfolyam_tipus_Oktato_FK FOREIGN KEY ( tanfolyamFelelos ) REFERENCES Oktato ( oktatoAzon ) ;
+
+
+-- adatb·zis feltˆltÈse tesztadatokkal
+insert into UGYFEL values (1,'Ugyfel1','15901','Cim1','6666666','Kapcs1');
+insert into UGYFEL values (2,'Ugyfel2','15902','Cim2','7777777','Kapcs2');
+insert into UGYFEL values (3,'Ugyfel3','15903','Cim3','8888888','Kapcs3');
+
+insert into SZALLODA values ('PH','Piros h·z','Piros u. 1.','1111111');
+insert into SZALLODA values ('FH','FehÈr h·z','Washington  u. 1.','2222222');
+insert into SZALLODA values ('ZH','Zˆld h·z','Zˆld u. 1.','3333333');
+
+insert into OKTATO values ('GJ','Gipsz Jakab','I');
+insert into OKTATO values ('NB','Nagy BÈla','N');
+insert into OKTATO values ('KJ','Kiss J·nos','N');
+insert into OKTATO values ('VD','Vad Dalma','I');
+
+insert into TANFOLYAM_TIPUS values ('CST','CÈgek stratÈgiai TervezÈse',5,10,'GJ');
+insert into TANFOLYAM_TIPUS values ('EXS','Export·ljunk a sikerÈrt',5,10,'VD');
+insert into TANFOLYAM_TIPUS values ('STS','StratÈgiai tervezÈs',5,10,'GJ');
+insert into TANFOLYAM_TIPUS values ('KZS','KˆzszereplÈs',5,10,'VD');
+
+insert into ARAK values (to_date('20150101', 'yyyymmdd'),null,30000,'CST');
+insert into ARAK values (to_date('20150101', 'yyyymmdd'),null,40000,'EXS');
+insert into ARAK values (to_date('20150101', 'yyyymmdd'),null,25000,'STS');
+insert into ARAK values (to_date('20150101', 'yyyymmdd'),null,50000,'KZS');
+
+insert into ARAK values (to_date('20150201', 'yyyymmdd'),null,35000,'CST');
+insert into ARAK values (to_date('20150201', 'yyyymmdd'),null,45000,'EXS');
+insert into ARAK values (to_date('20150201', 'yyyymmdd'),null,30000,'STS');
+
+insert into TANFOLYAM values ('CSTJAN1', 'CST', 'PH', to_date('20150115', 'yyyymmdd'), to_date('20150119', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('CSTJAN2', 'CST', 'PH', to_date('20150120', 'yyyymmdd'), to_date('20150124', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('CSTFEB1', 'CST', 'PH', to_date('20150115', 'yyyymmdd'), to_date('20150119', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('EXSJAN1', 'EXS', 'ZH', to_date('20150115', 'yyyymmdd'), to_date('20150119', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('EXSFEB1', 'EXS', 'ZH', to_date('20150215', 'yyyymmdd'), to_date('20150119', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('STSJAN1', 'STS', 'FH', to_date('20150120', 'yyyymmdd'), to_date('20150124', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('STSFEB1', 'STS', 'FH', to_date('20150220', 'yyyymmdd'), to_date('20150224', 'yyyymmdd'), null, null, 0);
+insert into TANFOLYAM values ('KZSFEB1', 'KZS', 'ZH', to_date('20150210', 'yyyymmdd'), to_date('20150214', 'yyyymmdd'), null, null, 0);
+
+update TANFOLYAM set OKTATO_OKTATOAZON = 'GJ' where TANFOLYAMAZON = 'CSTJAN1';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'NB' where TANFOLYAMAZON = 'CSTJAN2';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'KJ' where TANFOLYAMAZON = 'CSTFEB1';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'VD' where TANFOLYAMAZON = 'EXSJAN1';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'NB' where TANFOLYAMAZON = 'EXSFEB1';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'GJ' where TANFOLYAMAZON = 'STSJAN1';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'NB' where TANFOLYAMAZON = 'STSFEB1';
+update TANFOLYAM set OKTATO_OKTATOAZON = 'VD' where TANFOLYAMAZON = 'KZSFEB1';
+
+insert into foglalas values (1, 'CSTJAN1',1,to_date('20141220', 'yyyymmdd'),0);
+insert into foglalas values (2, 'CSTJAN1',2,to_date('20141221', 'yyyymmdd'),0);
+insert into foglalas values (3, 'CSTJAN1',3,to_date('20141222', 'yyyymmdd'),1);
+insert into KULDOTT values (1, 'Lakatos Jakab', 1, 0,0);
+insert into KULDOTT values (2, 'Lakatos Andrea', 1, 0,0);
+insert into KULDOTT values (3, 'Lakatos Elek', 1, 0,0);
+insert into KULDOTT values (4, 'Lakatos Tibor', 1, 0,0);
+insert into KULDOTT values (5, 'Lakatos Gergely', 1, 0,0);
+insert into KULDOTT values (6, 'Kiss Jakab', 2, 0,0);
+insert into KULDOTT values (7, 'Kiss Andrea', 2, 0,0);
+insert into KULDOTT values (8, 'Kiss Elek', 2, 0,0);
+insert into KULDOTT values (9, 'Kiss Tibor', 2, 0,0);
+insert into KULDOTT values (10, 'Kiss Gergely', 2, 0,0);
+insert into KULDOTT values (11, 'Nagy Jakab', 3, 1,0);
+insert into KULDOTT values (12, 'Nagy Andrea', 3, 1,0);
+
+insert into foglalas values (4, 'CSTJAN2',2,to_date('20141210', 'yyyymmdd'),0);
+insert into KULDOTT values (13, 'Kiss Gizi', 4, 0,0);
+insert into KULDOTT values (14, 'Kiss Alma', 4, 0,0);
+insert into KULDOTT values (15, 'Kiss Viola', 4, 0,0);
+insert into KULDOTT values (16, 'Kiss Endre', 4, 0,0);
+insert into KULDOTT values (17, 'Kiss Dalma', 4, 0,0);
+
+insert into foglalas values (5, 'CSTFEB1',3,to_date('20141215', 'yyyymmdd'),0);
+insert into KULDOTT values (18, 'Nagy Alma', 5, 0,0);
+insert into KULDOTT values (19, 'Nagy Gergely', 5, 0,0);
+insert into KULDOTT values (20, 'Nagy Tibor', 5, 0,0);
+insert into KULDOTT values (21, 'Nagy Elek', 5, 0,0);
+insert into KULDOTT values (22, 'Nagy Endre', 5, 0,0);
+
+insert into foglalas values (6, 'EXSJAN1',1,to_date('20141218', 'yyyymmdd'),0);
+insert into KULDOTT values (23, 'Lakatos Alma', 6, 0,0);
+insert into KULDOTT values (24, 'Lakatos Endre', 6, 0,0);
+insert into KULDOTT values (25, 'Lakatos Viola', 6, 0,0);
+insert into KULDOTT values (26, 'Lakatos Attila', 6, 0,0);
+insert into KULDOTT values (27, 'Lakatos Imre', 6, 0,0);
+insert into KULDOTT values (28, 'Lakatos Ambrus', 6, 0,0);
+
+insert into foglalas values (7, 'EXSFEB1',2,to_date('20141228', 'yyyymmdd'),0);
+insert into KULDOTT values (29, 'Kiss Gizi', 7, 0,0);
+insert into KULDOTT values (30, 'Kiss Endre', 7, 0,0);
+insert into KULDOTT values (31, 'Kiss Dalma', 7, 0,0);
+insert into KULDOTT values (32, 'Kiss Jakab', 7, 0,0);
+insert into KULDOTT values (33, 'Kiss Ambrus', 7, 0,0);
+
+insert into foglalas values (8, 'STSJAN1',3,to_date('20141220', 'yyyymmdd'),0);
+insert into KULDOTT values (34, 'Nagy Gergely', 8, 0,0);
+insert into KULDOTT values (35, 'Nagy Elek', 8, 0,0);
+insert into KULDOTT values (36, 'Nagy Gizi', 8, 0,0);
+insert into KULDOTT values (37, 'Nagy Tibor', 8, 0,0);
+insert into KULDOTT values (38, 'Nagy Lajos', 8, 0,0);
+insert into KULDOTT values (39, 'Nagy Imre', 8, 0,0);
+
+insert into foglalas values (9, 'STSFEB1',1,to_date('20141222', 'yyyymmdd'),0);
+insert into foglalas values (10, 'STSFEB1',2,to_date('20141221', 'yyyymmdd'),1);
+insert into KULDOTT values (40, 'Lakatos Andrea', 9, 0,0);
+insert into KULDOTT values (41, 'Lakatos Imre', 9, 0,0);
+insert into KULDOTT values (42, 'Lakatos Gergely', 9, 0,0);
+insert into KULDOTT values (43, 'Kiss Gergely', 10, 0,0);
+insert into KULDOTT values (44, 'Kiss Elek', 10, 0,0);
+insert into KULDOTT values (45, 'Kiss Andrea', 10, 0,0);
+
+insert into foglalas values (11, 'KZSFEB1',2,to_date('20141212', 'yyyymmdd'),0);
+insert into foglalas values (12, 'KZSFEB1',1,to_date('20141223', 'yyyymmdd'),0);
+insert into KULDOTT values (46, 'Kiss Andrea', 11, 0,0);
+insert into KULDOTT values (47, 'Kiss Elek', 11, 0,0);
+insert into KULDOTT values (48, 'Kiss Gergely', 11, 0,0);
+insert into KULDOTT values (49, 'Lakatos Andrea', 12, 0,0);
+insert into KULDOTT values (50, 'Lakatos Endre', 12, 0,0);
+insert into KULDOTT values (51, 'Lakatos Elek', 12, 0,0);
+
+select * from TANFOLYAM_ERTEKELES;
+insert into TANFOLYAM_ERTEKELES values (1, 'Cegismeretek', 4.25, 8, 'CSTJAN1');
+insert into TANFOLYAM_ERTEKELES values (2, 'Cegjog', 4.5, 6, 'CSTJAN1');
+insert into TANFOLYAM_ERTEKELES values (3, 'Cegismeretek', 4.8, 5, 'CSTJAN2');
+insert into TANFOLYAM_ERTEKELES values (4, 'Cegjog', 4.2, 5, 'CSTJAN2');
+insert into TANFOLYAM_ERTEKELES values (5, 'Kozszereples alapjai', 3.5, 2, 'KZSFEB1');
+
+
 -- 7. feladat
---/1 k√©t k√ºl√∂nb√∂z≈ë seassionben kell lefuttani, el≈ësz√∂r lokkolni kell az egyes t√°bl√°kat az elej√©n..
+--/1 kÈt k¸lˆnbˆzı seassionben kell lefuttani, elıszˆr lockolni kell az egyes t·bl·kat az elejÈn..
 create table dolgozo1 as select * from nikovits.dolgozo;
 create table dolgozo2 as select * from nikovits.dolgozo;
 
 LOCK TABLE dolgozo1 IN EXCLUSIVE MODE;
 set serveroutput on
 begin
-update dolgozo1 
-set FIZETES = FIZETES + 1;
-LOCK TABLE dolgozo2 IN EXCLUSIVE MODE;
-update dolgozo2
-set FIZETES = FIZETES + 1;
+  update dolgozo1 
+  set FIZETES = FIZETES + 1;
+  LOCK TABLE dolgozo2 IN EXCLUSIVE MODE;
+  update dolgozo2
+  set FIZETES = FIZETES + 1;
 end;
 
 LOCK TABLE dolgozo2 IN EXCLUSIVE MODE;
 set serveroutput on
 begin
-update dolgozo1 
-set FIZETES = FIZETES + 1;
-LOCK TABLE dolgozo1 IN EXCLUSIVE MODE;
-update dolgozo2
-set FIZETES = FIZETES + 1;
+  update dolgozo1 
+  set FIZETES = FIZETES + 1;
+  LOCK TABLE dolgozo1 IN EXCLUSIVE MODE;
+  update dolgozo2
+  set FIZETES = FIZETES + 1;
 end;
 
 --/2
@@ -294,11 +423,10 @@ begin
         END CASE;
       end;
       DBMS_OUTPUT.put_line('IGEN');
-      COMMIT;
-
-      
+      COMMIT;      
 exception
    WHEN OTHERS THEN 
       DBMS_OUTPUT.put_line('NEM');
       ROLLBACK;
 end;
+

@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="cramhead_final_after_inserting_data" id="65F88BEA-D09C-EE22-8CF6-35F924418CA5" version="3.5">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:27:45 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>65F88BEA-D09C-EE22-8CF6-35F924418CA5</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="5E88648C-172F-87D3-ED79-B00EC3C005C2">
+<designStoragePath>D:\Dropbox\ELTE MSc\1. félév\Információs rendszerek fejlesztési módszertana\Egyetem\information_systems\cramhead_logical</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="24A3EA77-421A-EA8B-63AB-1A2D37697A99">
+<designStoragePath>D:\Dropbox\ELTE MSc\1. félév\Információs rendszerek fejlesztési módszertana\Egyetem\information_systems\cramhead_logical</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="4BD8153F-49B7-272C-C788-3849F394ED24">
+<designStoragePath>C:\Users\mozsik\Desktop\Egyetem\information_systems\cramhead_logical</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="1A2A70C5-88CF-EBD9-1EC2-6B516A17E417">
+<designStoragePath>C:\Users\nagyandras95\Desktop\Egyetem\information_systems\cramhead\cramhead_logical_to_relational</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="38B3EBE4-E483-8645-C437-7A1EA8C5816E">
+<designStoragePath>D:\Dropbox\ELTE MSc\1. félév\Információs rendszerek fejlesztési módszertana\Beadando\information_systems\cramhead\cramhead_logical_relational_final_final</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="9B033A74-DBDB-8388-F445-2B11A23E7C56">
+<designStoragePath>/home/nagy/git/Egyetem/information_systems/cramhead/cramhead_relational_model_</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="C3997D49-5092-FE01-487F-9739678A9F31">
+<designStoragePath>D:\Dropbox\ELTE MSc\1. félév\Információs rendszerek fejlesztési módszertana\Beadando\information_systems\cramhead\cremhead_rel_na_final</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

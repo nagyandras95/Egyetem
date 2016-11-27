@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AF77E0FB-4B81-7172-0F94-CB81BBDE0258" name="Ugyfel">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>C4C24D40-227E-EFFA-CB7C-9635CD324D81</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ugyfelAzon" id="79E6C8ED-7170-F47B-6A5F-76F0F64C3399">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>FE2EA7B2-4F2B-4823-BDCB-4C25DAF74C87</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ugyfelNev" id="A8EF2C2E-0986-B80E-6CD4-9298CE025F05">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>7A8598DF-5023-88FD-7C92-25EFB8782C0D</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fokonyviSzam" id="55F6B5FC-715A-4E6C-0CE9-061C71992D9A">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>9C4D7444-8CA1-2500-D129-2697C01F0FEC</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cim" id="9ACF612C-7129-4807-8831-EA8DCA21DEE8">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:52:44 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefon" id="44EDDEE3-737C-C34C-46DB-7A70F5835894">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:52:53 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kapcsTarto" id="7E8FF5B8-5D03-8CAE-DE74-5DF431C23F3C">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:53:02 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C38D70A7-E92B-1869-14C2-1BB8E6CF8F64" name="Ugyfel PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>41DBDC23-541A-6B2C-D04E-726A5B17C860</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>79E6C8ED-7170-F47B-6A5F-76F0F64C3399</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="CFCB9D03-DBC6-8703-EB0F-A01F9492BA2C" name="un_fokonyviSzam">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>FB14D9F4-B171-3EEE-F635-D9A794E77C7C</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>55F6B5FC-715A-4E6C-0CE9-061C71992D9A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

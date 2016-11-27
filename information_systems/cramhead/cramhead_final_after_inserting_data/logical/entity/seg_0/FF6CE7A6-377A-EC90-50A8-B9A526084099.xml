@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FF6CE7A6-377A-EC90-50A8-B9A526084099" name="Kuldott">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>78EBCFD1-C801-67D1-B99D-FF6052CEBEA4</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="kuldottAzon" id="2121CCF4-087A-2840-0B8A-C527D10CE95F">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>CFB7EC0F-D14E-1FF8-07DC-1D96A2FBEF9A</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kuldottNev" id="C5D9A5AF-B1CD-225E-220F-0B172F51DD10">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>4DE19D7B-5E39-7B3E-D5BD-800303860782</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="foglalasAzon" id="43063CE5-E68F-1892-10E1-F958DD764E4F">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>219FD406-F38A-17C4-6303-4803BB80A469</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>D833A34D-0BFE-AE3A-80CF-58728A060325</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<referedAttribute>ED030D2D-266C-0122-6D90-D93C1848E87F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="keszenleti" id="38F72F17-F773-2DC8-D209-E9F1EE419F6D">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>D3E5876F-2F3D-B395-8B99-565529ED6F99</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="torolt" id="6144BD29-AFE9-9D55-A65D-8919901C0F5F">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>B48C7EFD-58BE-2FB1-6EB0-3AF7CD79A202</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4C51B043-0F71-7A09-5963-F519C7BF9886" name="Kuldott PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>D345B9C1-1E2E-ECA6-67B1-6E9FCB2BEC77</importedID>
+<engineerTo>
+<item key="D65541ED-3567-7732-5B10-090D13A15138" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2121CCF4-087A-2840-0B8A-C527D10CE95F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F7E4F30-AC87-ADD2-53E5-7EE78A7D014A" name="Tanfolyam_tipus">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>AEA6C2A0-C4D6-20E3-67F8-72F98AD810AB</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>F3281E6D-76D9-32A3-2C08-6CD2280414C9</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tipusAzon" id="1E159650-F419-8330-29DC-4D40CA4513AB">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>7B09BD8A-8DFD-3C4F-2C1A-2FF9806D8EFB</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>4D934727-6788-FE7E-7130-065533461567</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tanfolyamLeiras" id="57C4203D-C486-93EE-2C1C-E0916AB59024">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>A09C3871-B450-4BDB-FF41-D9BEF4140D29</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>73AF2D4E-B6E5-1C3F-7F3A-9F10858A8D5C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="minLetszam" id="66861FD9-AD4D-D4C1-56C3-75E0AF7AFFE7">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 20:38:25 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="maxLetszam" id="A3CCE2ED-D7AD-B496-EBAC-674BD2B8DA01">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 20:38:50 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tanfolyamFelelos" id="7AF210F4-5925-1D02-21C0-C1D72F354F65">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-27 11:44:35 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9956B44B-36C5-EB99-B566-2B4D97A93B1D" referredColumn="3248B433-6062-8E06-7147-5382D38772B3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="757E0BC6-A4C8-E1C1-27F7-E388D889FFBD" name="Tanfolyam_tipus_PK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-26 17:32:09 UTC</createdTime>
+<generatorID>64A4EA0C-1F78-FD0D-AB3F-9489B4797AF1</generatorID>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<importedID>B4C9E444-8E81-E613-2B00-E0CBE08AE83B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E159650-F419-8330-29DC-4D40CA4513AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D5187B7-35C4-2F93-0C1E-3FDD82D42C18" name="Tanfolyam_tipus_Oktato_FK">
+<createdBy>mozsi</createdBy>
+<createdTime>2016-11-27 11:48:54 UTC</createdTime>
+<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7AF210F4-5925-1D02-21C0-C1D72F354F65"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

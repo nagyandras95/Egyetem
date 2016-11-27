@@ -47,7 +47,7 @@
       </counter>
       <counter>
         <item-type type-id="" type="AbstractElementGroup" />
-        <value>208</value>
+        <value>87</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -86,13 +86,34 @@
   <filters />
   <macros />
   <items>
-    <item id="di407583346251426979" cid="Tanflyami ügyintéző" type="dfd-process" name="Tanfolyamok törlése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:00:19">
+    <item id="di407583346251426979" cid="Tanfolyami ügyintéző" type="dfd-process" name="Tanfolyamok törlése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:00:19">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+        <border color="#FF000000" width="1" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+            <border color="#FF00008B" width="1" dash-style="Solid" />
+            <label-connector color="#FF000000" width="1" dash-style="Solid" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+    </item>
+    <item id="di724792861399013386" cid="Tanfolyam ügyintéző" type="dfd-process" name="Tanfolyami ütemtervek közzétele" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:58:03">
       <style class="default" />
     </item>
-    <item id="di724792861399013386" cid="Tanflyami ügyintéző" type="dfd-process" name="Tanfolyami ütemtervek közzétele" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:58:03">
-      <style class="default" />
-    </item>
-    <item id="di732783217756673065" cid="Tanflyami ügyintéző" type="dfd-process" name="Ütemterv módosítása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:00:45">
+    <item id="di732783217756673065" cid="Tanfolyam ügyintéző" type="dfd-process" name="Ütemterv módosítása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:00:45">
       <style class="default" />
     </item>
   </items>
@@ -110,7 +131,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="data-flow" id="p411936854001402f8888c3a400038d65_617309160" name="data-flow-diagram" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="11,43">
+      <diagram type="data-flow" id="p411936854001402f8888c3a400038d65_617309160" name="data-flow-diagram" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="11,133">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -220,7 +241,7 @@
             <layout ax="669.5" ay="403.5" awidth="91" aheight="65" x="669.5" y="403.5" width="91" height="65" />
           </item>
           <item id="di872641037449586773" iid="d0dd0574563b469e9b5aa260a20f0e02" creation-date="10/19/2016 16:36:08" order-index="12" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="387" y1="311" x2="251" y2="239" start-border-pos="0.0433070883154869" end-border-pos="0.411764711141586" name-position="50,-19" name-width="142">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="387" y1="311" x2="251" y2="239" start-border-pos="0.0433070883154869" end-border-pos="0.411764711141586" name-position="56,-14" name-width="142">
               <points>
                 <point x="387" y="311" />
                 <point x="251" y="239" />
@@ -319,7 +340,7 @@
             <relation from="di596478190326984606" from-iid="ced13563450f4154b5365bfe4988d491" to="di598737287794790562" to-iid="4be35e5da76f4499bba27b2bff253d79" />
           </item>
           <item id="di369531949315881746" iid="11c073775c7a42f39405902fe405629a" creation-date="10/19/2016 16:54:26" order-index="23" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="234" y1="253" x2="365" y2="338" start-border-pos="0.539370078593493" end-border-pos="0.873161762952805" name-position="13,26">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="234" y1="253" x2="365" y2="338" start-border-pos="0.539370078593493" end-border-pos="0.873161762952805" name-position="9,22">
               <points>
                 <point x="234" y="253" />
                 <point x="365" y="338" />
@@ -347,7 +368,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="gane-sarson-data-flow" id="p0f589b0c3f574a56b6608abd45cde4fe_528161210" name="1. DFD diagram" order-index="2" overview-order-index="0" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-230,-63" zoom="0.7">
+      <diagram type="gane-sarson-data-flow" id="p0f589b0c3f574a56b6608abd45cde4fe_528161210" name="1. DFD diagram" order-index="2" overview-order-index="0" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-196,27" zoom="0.7">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -367,7 +388,7 @@
           <item id="di762372445949650728" cid="Gépírónő" type="dfd-process" name="Tanfolyam összesítések előállítása" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:32:52">
             <style class="default" />
           </item>
-          <item id="di423325372731266658" cid="Tanfolyam ügyintéző" type="dfd-process" name="Foglalások kezelése" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:31:02">
+          <item id="di423325372731266658" cid="Tanfolyam ügyintéző" type="dfd-process" name="Foglalások elkészítése" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:31:02">
             <style class="default" />
           </item>
           <item id="di613900195375551679" cid="M" type="dfd-data-store" name="Brossúra" style-class="" visibility="package" change-tracking-state="added" creator="P583a18ce34a346b487a6726d4d1f3cb6" creation-date="10/19/2016 17:31:14">
@@ -454,11 +475,32 @@
           <item id="di419125517297872086" cid="DFF040" type="dfd-data-flow" name="Kihelyzett tanfolyamok felvitele" style-class="" visibility="package" change-tracking-state="added" creation-date="10/26/2016 15:58:46" from="di423325372731266658" to="di896276179879839439">
             <style class="default" />
           </item>
-          <item id="di573835791756394894" cid="DFF041" type="dfd-data-flow" name="Részeletes tanfolyami információk" style-class="" visibility="package" change-tracking-state="added" creation-date="10/26/2016 15:59:37" from="di423325372731266658" to="di700721058267832212">
+          <item id="di573835791756394894" cid="DFF041" type="dfd-data-flow" name="Részletes tanfolyami információk" style-class="" visibility="package" change-tracking-state="added" creation-date="10/26/2016 15:59:37" from="di423325372731266658" to="di700721058267832212">
             <style class="default" />
           </item>
           <item id="di434202961358472492" cid="DFG005" type="dfd-gate" name="Gate5" style-class="" visibility="package" change-tracking-state="added" creation-date="10/26/2016 16:03:04">
-            <style class="default" />
+            <style style-name="Custom" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFFFFFFF" />
+              <border color="#FF000000" width="1" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
           </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
@@ -514,7 +556,7 @@
             <relation from="di837536678200241548" from-iid="13e3ba1627c14112ae38d212f25b2ff7" to="di207791072997664388" to-iid="2156d381388046038d5ad7a683d6ca38" />
           </item>
           <item id="di283209761557596324" iid="c77344b2fc014369b53717f361c8b529" creation-date="10/25/2016 18:22:05" order-index="16" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="815" y1="308" x2="1004" y2="308" start-border-pos="0.373376623376623" end-border-pos="0.876623376623377" name-position="-8,-15">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="815" y1="308" x2="1004" y2="308" start-border-pos="0.373376623376623" end-border-pos="0.876623376623377" name-position="-25,-9">
               <points>
                 <point x="815" y="308" />
                 <point x="1004" y="308" />
@@ -550,7 +592,7 @@
             <relation from="di762372445949650728" from-iid="7e26e6f921ed44419306a5306e69c3d0" to="di766367623678480567" to-iid="f823275f4c304f609c2e452d2f1c0243" />
           </item>
           <item id="di245298407930278794" iid="042c53e962354419950e7ebbbeb60cd8" creation-date="10/25/2016 18:24:09" order-index="20" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="815" y1="347" x2="1004" y2="347" start-border-pos="0.5" end-border-pos="0.75" name-position="2,-7">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="815" y1="347" x2="1004" y2="347" start-border-pos="0.5" end-border-pos="0.75" name-position="-31,-12">
               <points>
                 <point x="815" y="347" />
                 <point x="1004" y="347" />
@@ -662,7 +704,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="gane-sarson-data-flow" id="p749f31c144424185bc87d829a06995e3_562903888" name="Diagram2" order-index="3" overview-order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="0,93">
+      <diagram type="gane-sarson-data-flow" id="p749f31c144424185bc87d829a06995e3_562903888" name="Diagram2" order-index="3" overview-order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="93,50">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -712,7 +754,7 @@
           <item id="di851259804253599714" cid="Tanfolyami ügyintéző" type="dfd-process" name="Foglalás törlése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:14:39">
             <style class="default" />
           </item>
-          <item id="di172223511257114097" cid="M" type="dfd-data-store" name="Foglaláso dosszié" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:16:04">
+          <item id="di172223511257114097" cid="M" type="dfd-data-store" name="Foglalási dosszié" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:16:04">
             <style class="default" />
           </item>
           <item id="di611076188783252590" cid="DFF046" type="dfd-data-flow" name="Törlés bejegyzése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:16:18" from="di851259804253599714" to="di172223511257114097">
@@ -755,24 +797,45 @@
             <style class="default" />
           </item>
           <item id="di141714389945340437" cid="FOGLALÁSOK ELKÉSZÍTÉSE" type="dfd-process" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 19:31:13">
-            <style class="default" />
+            <style style-name="Custom" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFFFFFFF" />
+              <border color="#FF000000" width="1" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
           </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
           <item id="di141714389945340437" iid="d2f3f87838ca451982d2ba1de9dc24f0" creation-date="11/01/2016 19:31:13" order-index="26" type="entity">
-            <layout ax="126" ay="162.5" awidth="897" aheight="534" x="126" y="162.5" width="897" height="534" />
+            <layout ax="126" ay="162.5" awidth="897" aheight="544" x="126" y="162.5" width="897" height="544" />
           </item>
           <item id="di818033909172904666" iid="49ac4389b75543839412996d7904d119" creation-date="10/26/2016 17:25:46" order-index="1" type="entity">
-            <layout ax="235" ay="60.5" awidth="108" aheight="41" x="235" y="60.5" width="108" height="41" />
+            <layout ax="284" ay="64.5" awidth="108" aheight="41" x="284" y="64.5" width="108" height="41" />
           </item>
           <item id="di559153399642506877" iid="2503a272291146799330ace3453e3868" creation-date="10/26/2016 17:27:24" order-index="2" type="entity">
             <layout ax="198" ay="210" awidth="182" aheight="74" x="198" y="210" width="182" height="74" />
           </item>
           <item id="di429340090504468546" iid="be899ef4454341fd998c567d2763592c" creation-date="10/26/2016 17:28:19" order-index="3" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="289" y1="102" x2="289" y2="210" start-border-pos="0.625" end-border-pos="0.125" name-position="-46,-11">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="338" y1="106" x2="338" y2="210" start-border-pos="0.625" end-border-pos="0.192307695746422" name-position="43,-24">
               <points>
-                <point x="289" y="102" />
-                <point x="289" y="210" />
+                <point x="338" y="106" />
+                <point x="338" y="210" />
               </points>
             </layout>
             <relation from="di818033909172904666" from-iid="49ac4389b75543839412996d7904d119" to="di559153399642506877" to-iid="2503a272291146799330ace3453e3868" />
@@ -793,7 +856,7 @@
             <layout ax="482.5" ay="334.5" awidth="253" aheight="28" x="482.5" y="334.5" width="253" height="28" />
           </item>
           <item id="di102692232625943522" iid="19be96f450784c9b935cc7e13b616368" creation-date="10/26/2016 17:33:39" order-index="7" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="380" y1="247" x2="482" y2="348" start-border-pos="0.375" end-border-pos="0.877840909090909" name-position="-23,29">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="380" y1="247" x2="482" y2="348" start-border-pos="0.375" end-border-pos="0.877840909090909" name-position="-24,29">
               <points>
                 <point x="380" y="247" />
                 <point x="482" y="348" />
@@ -820,9 +883,9 @@
             <layout ax="488.5" ay="528" awidth="247" aheight="41" x="488.5" y="528" width="247" height="41" />
           </item>
           <item id="di611076188783252590" iid="06d1862cf8bd446080dabd279e5e5e89" creation-date="11/01/2016 19:16:18" order-index="13" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="826" y1="466" x2="736" y2="548" start-border-pos="0.75" end-border-pos="0.371951219512195" name-position="44,2">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="855" y1="466" x2="736" y2="548" start-border-pos="0.698476702508961" end-border-pos="0.371951219512195" name-position="36,18">
               <points>
-                <point x="826" y="466" />
+                <point x="855" y="466" />
                 <point x="736" y="548" />
               </points>
             </layout>
@@ -832,7 +895,7 @@
             <layout ax="857.75" ay="719" awidth="108" aheight="41" x="857.75" y="719" width="108" height="41" />
           </item>
           <item id="di676268264483476559" iid="c8e51e55f1c3424395a1389e3e2b555e" creation-date="11/01/2016 19:18:02" order-index="14" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="912" y1="719" x2="912" y2="466" start-border-pos="0.126157407407407" end-border-pos="0.596774193548387" name-position="0,0">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="912" y1="719" x2="912" y2="466" start-border-pos="0.126157407407407" end-border-pos="0.596774193548387" name-position="-53,37">
               <points>
                 <point x="912" y="719" />
                 <point x="912" y="466" />
@@ -871,10 +934,10 @@
             <layout ax="217" ay="476" awidth="174" aheight="28" x="217" y="476" width="174" height="28" />
           </item>
           <item id="di631433257856347242" iid="88af168db33d4fe6abcc760f0e450111" creation-date="11/01/2016 19:23:35" order-index="21" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="304" y1="504" x2="283" y2="580" start-border-pos="0.625" end-border-pos="0.125" name-position="-44,-2" name-width="83">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="304" y1="504" x2="304" y2="580" start-border-pos="0.625" end-border-pos="0.159999996423721" name-position="-44,-2" name-width="83">
               <points>
                 <point x="304" y="504" />
-                <point x="283" y="580" />
+                <point x="304" y="580" />
               </points>
             </layout>
             <relation from="di360288991683352574" from-iid="5691a4ae896f45ce8a172149be323e6c" to="di183773661778456175" to-iid="c89c12f1673847dea7d9f0fc7604cbd6" />
@@ -901,7 +964,7 @@
             <relation from="di355504300685288037" from-iid="e29d68be2109417987072dee85caa84d" to="di183773661778456175" to-iid="c89c12f1673847dea7d9f0fc7604cbd6" />
           </item>
           <item id="di109431337335038537" iid="516edae0df194c628bda41e4b0f1225a" creation-date="11/01/2016 19:30:07" order-index="25" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="239" y1="677" x2="236" y2="778" start-border-pos="0.698333333333333" end-border-pos="0.0445205479452055" name-position="-49,4">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="239" y1="677" x2="236" y2="778" start-border-pos="0.698333333333333" end-border-pos="0.0445205479452055" name-position="-47,12">
               <points>
                 <point x="239" y="677" />
                 <point x="236" y="778" />
@@ -911,7 +974,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="gane-sarson-data-flow" id="pe474abf4a72a40cdaa782194cdf63537_995363013" name="Diagram3" order-index="6" overview-order-index="4" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-57,-27" zoom="0.8">
+      <diagram type="gane-sarson-data-flow" id="pe474abf4a72a40cdaa782194cdf63537_995363013" name="Diagram3" order-index="6" overview-order-index="4" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-41,-18" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1003,8 +1066,29 @@
           <item id="di391150116672301498" cid="DFF070" type="dfd-data-flow" name="Tanfolyam progam" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:47:44" from="di732783217756673065" to="di878691141776562528">
             <style class="default" />
           </item>
-          <item id="di642295863908360480" cid="Tanflyami ügyintéző" type="dfd-process" name="Adatok egyeztetése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:48:48">
-            <style class="default" />
+          <item id="di642295863908360480" cid="Tanfolyami ügyintéző" type="dfd-process" name="Adatok egyeztetése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:48:48">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+              <border color="#FF000000" width="1" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
           </item>
           <item id="di340289377286999062" cid="DFF071" type="dfd-data-flow" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:50:30" from="di642295863908360480" to="di674623099642179262">
             <style class="default" />
@@ -1018,8 +1102,29 @@
           <item id="di416150038965624068" cid="DFF078" type="dfd-data-flow" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:52:05" from="di692677918691445244" to="di642295863908360480">
             <style class="default" />
           </item>
-          <item id="di778983968723088900" cid="Tanfolyami ütemterv és változtatások" type="dfd-process" name="Process35" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:53:01">
-            <style class="default" />
+          <item id="di778983968723088900" cid="Tanfolyami ütemterv és változtatások" type="dfd-process" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:53:01">
+            <style style-name="Custom" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFFFFFFF" />
+              <border color="#FF000000" width="1" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
           </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
@@ -1045,7 +1150,7 @@
             <layout ax="1041" ay="306.5" awidth="149" aheight="40" x="1041" y="306.5" width="149" height="40" />
           </item>
           <item id="di331798740301829388" iid="be29a21814ca42ec8eb5e0fe8aa21c85" creation-date="11/02/2016 16:26:47" order-index="5" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1041" y1="326" x2="853" y2="498" start-border-pos="0.878125" end-border-pos="0.375" name-position="57,18">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1041" y1="326" x2="853" y2="498" start-border-pos="0.878125" end-border-pos="0.375" name-position="-4,65">
               <points>
                 <point x="1041" y="326" />
                 <point x="853" y="498" />
@@ -1072,7 +1177,7 @@
             <relation from="di724792861399013386" from-iid="779b76275c72405aa421845daaa080a8" to="di674623099642179262" to-iid="294f5d6af7b146f98db98b35453fd0c1" />
           </item>
           <item id="di333322529436602631" iid="fda344bd7e664478b349c0d897e71fd3" creation-date="11/02/2016 16:32:33" order-index="9" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1041" y1="326" x2="815" y2="293" start-border-pos="0.878125" end-border-pos="0.490157480314961" name-position="-5,25">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1041" y1="326" x2="815" y2="293" start-border-pos="0.878125" end-border-pos="0.490157480314961" name-position="-3,15">
               <points>
                 <point x="1041" y="326" />
                 <point x="815" y="293" />
@@ -1138,7 +1243,7 @@
             <layout ax="631.25" ay="-10" awidth="145.5" aheight="33" x="631.25" y="-10" width="145.5" height="33" />
           </item>
           <item id="di488320897782870385" iid="c60886e62ae24311b7c894f3ca550862" creation-date="11/02/2016 16:41:21" order-index="19" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1041" y1="306" x2="815" y2="261" start-border-pos="0" end-border-pos="0.389763779527559" name-position="136,-5">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1041" y1="306" x2="815" y2="261" start-border-pos="0" end-border-pos="0.389763779527559" name-position="-6,3">
               <points>
                 <point x="1041" y="306" />
                 <point x="815" y="261" />
@@ -1174,7 +1279,7 @@
             <relation from="di732783217756673065" from-iid="69493ea47f224e6fa142cbfb8393e577" to="di462106983454297428" to-iid="ac5cc538772f4b9e8b4e234d6cf6c29a" />
           </item>
           <item id="di108923584167536263" iid="c9af0463a75b40bb8451646d18849d67" creation-date="11/02/2016 16:44:25" order-index="23" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1068" y1="306" x2="815" y2="216" start-border-pos="0.0453020134228188" end-border-pos="0.25" name-position="16,-35">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1068" y1="306" x2="815" y2="216" start-border-pos="0.0453020134228188" end-border-pos="0.25" name-position="29,-11">
               <points>
                 <point x="1068" y="306" />
                 <point x="815" y="216" />
@@ -1247,7 +1352,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="gane-sarson-data-flow" id="p2f51f0651eea4cb3b92cfa6b4c27c72a_827806524" name="Diagram4" order-index="7" overview-order-index="5" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+      <diagram type="gane-sarson-data-flow" id="p2f51f0651eea4cb3b92cfa6b4c27c72a_827806524" name="Diagram4" order-index="7" overview-order-index="5" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="57,17">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1267,16 +1372,16 @@
           <item id="di395483025211959039" cid="Gépírónő" type="dfd-process" name="Hiányzó kurzusok kiszűrése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:07:31">
             <style class="default" />
           </item>
-          <item id="di769698218888071133" cid="DFP028" type="dfd-process" name="Részvételi útmutató elkészítése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:09:08">
+          <item id="di769698218888071133" cid="Gépírónő" type="dfd-process" name="Részvételi útmutató elkészítése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:09:08">
             <style class="default" />
           </item>
-          <item id="di395254481773496363" cid="Gépírónő" type="dfd-process" name="Résztveők neveinek megállapítása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:09:47">
+          <item id="di395254481773496363" cid="Gépírónő" type="dfd-process" name="Résztvevők neveinek megállapítása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:09:47">
             <style class="default" />
           </item>
-          <item id="di608771665151464407" cid="DFS022" type="dfd-data-store" name="Foglalási dosszié" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:55:00">
+          <item id="di608771665151464407" cid="M" type="dfd-data-store" name="Foglalási dosszié" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:55:00">
             <style class="default" />
           </item>
-          <item id="di874494470534128211" cid="DFS023" type="dfd-data-store" name="Faliabló" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:55:57">
+          <item id="di874494470534128211" cid="M" type="dfd-data-store" name="Falitabló" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:55:57">
             <style class="default" />
           </item>
           <item id="di958106145819304060" cid="DFF079" type="dfd-data-flow" name="Induló kurzusok" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:56:08" from="di874494470534128211" to="di395483025211959039">
@@ -1288,19 +1393,19 @@
           <item id="di917271768820570458" cid="DFF081" type="dfd-data-flow" name="Hiányzó kurzusok" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:57:55" from="di395483025211959039" to="di769698218888071133">
             <style class="default" />
           </item>
-          <item id="di444639300274215019" cid="DFS024" type="dfd-data-store" name="Foglalási űrlap" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:58:30">
+          <item id="di444639300274215019" cid="M" type="dfd-data-store" name="Foglalási űrlap" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:58:30">
             <style class="default" />
           </item>
-          <item id="di478555475172702709" cid="DFS025" type="dfd-data-store" name="Ütemterv Törzspéldány" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:59:13">
+          <item id="di478555475172702709" cid="M" type="dfd-data-store" name="Ütemterv Törzspéldány" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:59:13">
             <style class="default" />
           </item>
-          <item id="di773192126816458740" cid="DFF082" type="dfd-data-flow" name="Küldöttek adati" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:59:28" from="di444639300274215019" to="di769698218888071133">
+          <item id="di773192126816458740" cid="DFF082" type="dfd-data-flow" name="Küldöttek adatai" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:59:28" from="di444639300274215019" to="di769698218888071133">
             <style class="default" />
           </item>
           <item id="di688137916157569830" cid="DFF083" type="dfd-data-flow" name="Helyszín, időpont" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 16:59:56" from="di478555475172702709" to="di769698218888071133">
             <style class="default" />
           </item>
-          <item id="di905939256838559304" cid="DFF085" type="dfd-data-flow" name="Útmutató elkésíztésnek dátuma" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:01:05" from="di769698218888071133" to="di608771665151464407">
+          <item id="di905939256838559304" cid="DFF085" type="dfd-data-flow" name="Útmutató elkészítésének dátuma" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:01:05" from="di769698218888071133" to="di608771665151464407">
             <style class="default" />
           </item>
           <item id="di736352927546554979" cid="DFF086" type="dfd-data-flow" name="Következő kurzus" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:02:36" from="di874494470534128211" to="di395254481773496363">
@@ -1309,7 +1414,7 @@
           <item id="di590814499756518162" cid="DFF087" type="dfd-data-flow" name="Résztvevők nevei" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:03:31" from="di608771665151464407" to="di395254481773496363">
             <style class="default" />
           </item>
-          <item id="di523014650683966855" cid="DFF089" type="dfd-data-flow" name="Elkésíztés dátuma" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:04:39" from="di395254481773496363" to="di874494470534128211">
+          <item id="di523014650683966855" cid="DFF089" type="dfd-data-flow" name="Elkészítés dátuma" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:04:39" from="di395254481773496363" to="di874494470534128211">
             <style class="default" />
           </item>
           <item id="di544939839596399152" cid="DFE015" type="dfd-external" name="Nyomda" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:06:25">
@@ -1318,7 +1423,7 @@
           <item id="di768162641167719492" cid="DFF090" type="dfd-data-flow" name="Résztvételi útmutatók" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:06:58" from="di769698218888071133" to="di544939839596399152">
             <style class="default" />
           </item>
-          <item id="di869584194170439092" cid="Résztételi útmutatók és részvevők listájának elkésíztése" type="dfd-process" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:07:20">
+          <item id="di869584194170439092" cid="Részvételi útmutatók és résztvevők listájának elkészítése" type="dfd-process" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:07:20">
             <style class="default" />
           </item>
         </abstract-items>
@@ -1360,7 +1465,7 @@
             <relation from="di608771665151464407" from-iid="5d74c5fe49924103b06aca60b47b38c0" to="di395483025211959039" to-iid="4b34f03d06d64258acf2834852ec24c3" />
           </item>
           <item id="di917271768820570458" iid="f06207b11d1d4848840073eab5df37b7" creation-date="11/02/2016 16:57:55" order-index="7" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="326" y1="274" x2="395" y2="399" start-border-pos="0.625" end-border-pos="0.125" name-position="45,-2">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="326" y1="274" x2="395" y2="399" start-border-pos="0.625" end-border-pos="0.125" name-position="32,-11">
               <points>
                 <point x="326" y="274" />
                 <point x="395" y="399" />
@@ -1375,7 +1480,7 @@
             <layout ax="614" ay="317" awidth="192" aheight="40" x="614" y="317" width="192" height="40" />
           </item>
           <item id="di773192126816458740" iid="361dac0369cf483295ba43cc036a8d4f" creation-date="11/02/2016 16:59:28" order-index="10" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="614" y1="428" x2="512" y2="429" start-border-pos="0.8875" end-border-pos="0.369047619047619" name-position="5,28">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="614" y1="428" x2="512" y2="429" start-border-pos="0.8875" end-border-pos="0.369047619047619" name-position="7,21">
               <points>
                 <point x="614" y="428" />
                 <point x="512" y="429" />
@@ -1393,7 +1498,7 @@
             <relation from="di478555475172702709" from-iid="a948af2185b948a993a4af5e25ee329a" to="di769698218888071133" to-iid="fe86673ff682406bab568b974a821a68" />
           </item>
           <item id="di905939256838559304" iid="3eefbeabd7ef443cb07547ae745c5fcd" creation-date="11/02/2016 17:01:05" order-index="12" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="434" y1="399" x2="614" y2="260" start-border-pos="0.166845493562232" end-border-pos="0.75" name-position="-8,-29" name-width="149">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="434" y1="399" x2="614" y2="260" start-border-pos="0.166845493562232" end-border-pos="0.75" name-position="2,-18" name-width="149">
               <points>
                 <point x="434" y="399" />
                 <point x="614" y="260" />
@@ -1442,7 +1547,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="gane-sarson-data-flow" id="p19fa9100345646fb9965e9ce541bcdf4_257758928" name="Diagram5" order-index="8" overview-order-index="6" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="0,20">
+      <diagram type="gane-sarson-data-flow" id="p19fa9100345646fb9965e9ce541bcdf4_257758928" name="Diagram5" order-index="8" overview-order-index="6" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="110,88">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1459,7 +1564,7 @@
           <version />
         </meta>
         <abstract-items>
-          <item id="di749575039766519442" cid="Gépírónő" type="dfd-process" name="Ideigneles és megerősített foglalások kiválogatésa" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:11:04">
+          <item id="di749575039766519442" cid="Gépírónő" type="dfd-process" name="Ideigneles és megerősített foglalások kiválogatása" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:11:04">
             <style class="default" />
           </item>
           <item id="di784378232107514048" cid="Gépírónő" type="dfd-process" name="Számlák és jóváírási értesítések elkészítése" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:11:37">
@@ -1474,7 +1579,7 @@
           <item id="di198848979812144588" cid="DFE016" type="dfd-external" name="Könyvelés" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:11:57">
             <style class="default" />
           </item>
-          <item id="di391960194399334351" cid="DFF093" type="dfd-data-flow" name="Ideigneles foglalások" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:12:53" from="di608771665151464407" to="di749575039766519442">
+          <item id="di391960194399334351" cid="DFF093" type="dfd-data-flow" name="Ideiglenes foglalások" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:12:53" from="di608771665151464407" to="di749575039766519442">
             <style class="default" />
           </item>
           <item id="di938227655161941492" cid="DFE017" type="dfd-external" name="Tanfolyami ügyintéző" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:13:41">
@@ -1486,7 +1591,7 @@
           <item id="di713197390900174670" cid="DFF095" type="dfd-data-flow" name="Ügyfelek főkönyvi számai" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:14:32" from="di198848979812144588" to="di784378232107514048">
             <style class="default" />
           </item>
-          <item id="di591080891432485197" cid="DFS026" type="dfd-data-store" name="Árjegyzék" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:15:18">
+          <item id="di591080891432485197" cid="M" type="dfd-data-store" name="Árjegyzék" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:15:18">
             <style class="default" />
           </item>
           <item id="di850358831804040476" cid="DFF096" type="dfd-data-flow" name="Tandíj" style-class="" visibility="package" change-tracking-state="added" creation-date="11/02/2016 17:15:29" from="di591080891432485197" to="di784378232107514048">
@@ -1567,13 +1672,13 @@
             <relation from="di608771665151464407" from-iid="2b60d9688fd4425e9e88aa5320a9d5b1" to="di749575039766519442" to-iid="74673bf2b4cd4d608ce56290d1e8a802" />
           </item>
           <item id="di938227655161941492" iid="7de2c2f469aa4f34ba4aada9956b18d1" creation-date="11/02/2016 17:13:41" order-index="7" type="entity">
-            <layout ax="169.5" ay="15" awidth="178" aheight="40" x="169.5" y="15" width="178" height="40" />
+            <layout ax="424.5" ay="12" awidth="178" aheight="40" x="424.5" y="12" width="178" height="40" />
           </item>
           <item id="di840229512444633548" iid="d22bc917dd9d40499cb28317bba09d68" creation-date="11/02/2016 17:13:52" order-index="8" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="258" y1="226" x2="258" y2="55" start-border-pos="0.124413145539906" end-border-pos="0.625" name-position="49,2">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="258" y1="226" x2="514" y2="52" start-border-pos="0.124413145539906" end-border-pos="0.625" name-position="-80,11">
               <points>
                 <point x="258" y="226" />
-                <point x="258" y="55" />
+                <point x="514" y="52" />
               </points>
             </layout>
             <relation from="di749575039766519442" from-iid="74673bf2b4cd4d608ce56290d1e8a802" to="di938227655161941492" to-iid="7de2c2f469aa4f34ba4aada9956b18d1" />
@@ -1603,7 +1708,7 @@
             <layout ax="606" ay="563" awidth="123" aheight="40" x="606" y="563" width="123" height="40" />
           </item>
           <item id="di774982306627199018" iid="193a51326526497f9e106646a7466507" creation-date="11/02/2016 17:17:00" order-index="13" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="607" y1="459" x2="648" y2="563" start-border-pos="0.567477876106195" end-border-pos="0.0853658536585366" name-position="45,-2">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="607" y1="459" x2="648" y2="563" start-border-pos="0.567477876106195" end-border-pos="0.0853658536585366" name-position="28,-15">
               <points>
                 <point x="607" y="459" />
                 <point x="648" y="563" />
@@ -1612,7 +1717,7 @@
             <relation from="di784378232107514048" from-iid="a5fcb4fbb3dc42f5903ffa2b2300700a" to="di798404235849546360" to-iid="e85b7193fd3e4a1e842d68fc01b3b6d4" />
           </item>
           <item id="di627985093151237104" iid="c728f69a77e64e0ebbf3f021bb089ab9" creation-date="11/02/2016 17:17:18" order-index="14" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="510" y1="459" x2="433" y2="560" start-border-pos="0.674778761061947" end-border-pos="0.213414634146341" name-position="42,5">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="510" y1="459" x2="433" y2="560" start-border-pos="0.674778761061947" end-border-pos="0.213414634146341" name-position="45,-15">
               <points>
                 <point x="510" y="459" />
                 <point x="433" y="560" />
@@ -1654,7 +1759,7 @@
             <relation from="di839440000175398851" from-iid="be1ae9c98d334d7b91038adfb70d73ea" to="di656649682935020981" to-iid="9bfccd6d05e54840bbd0cfa82d678d3a" />
           </item>
           <item id="di480808088273448623" iid="fc02469021cd40519e443b9036cbd639" creation-date="11/02/2016 17:23:42" order-index="19" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="763" y1="259" x2="668" y2="259" start-border-pos="0.875" end-border-pos="0.375" name-position="4,-17">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="763" y1="259" x2="668" y2="259" start-border-pos="0.875" end-border-pos="0.375" name-position="1,-12">
               <points>
                 <point x="763" y="259" />
                 <point x="668" y="259" />
@@ -1663,22 +1768,22 @@
             <relation from="di656649682935020981" from-iid="9bfccd6d05e54840bbd0cfa82d678d3a" to="di608771665151464407" to-iid="2b60d9688fd4425e9e88aa5320a9d5b1" />
           </item>
           <item id="di385466473965104128" iid="996cefb66850430d8aeafce24cfef392" creation-date="11/02/2016 17:24:52" order-index="21" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="891" y1="226" x2="648" y2="139" start-border-pos="0.20253164556962" end-border-pos="0.375" name-position="50,-7">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="891" y1="226" x2="648" y2="155" start-border-pos="0.20253164556962" end-border-pos="0.375" name-position="50,-7">
               <points>
                 <point x="891" y="226" />
-                <point x="648" y="139" />
+                <point x="648" y="155" />
               </points>
             </layout>
             <relation from="di656649682935020981" from-iid="9bfccd6d05e54840bbd0cfa82d678d3a" to="di842651117434559868" to-iid="1763aec1f86e4dc6a0c12c24c1936491" />
           </item>
           <item id="di842651117434559868" iid="1763aec1f86e4dc6a0c12c24c1936491" creation-date="11/02/2016 17:25:51" order-index="22" type="entity">
-            <layout ax="505.5" ay="106" awidth="143" aheight="66" x="505.5" y="106" width="143" height="66" />
+            <layout ax="504.5" ay="122" awidth="143" aheight="66" x="504.5" y="122" width="143" height="66" />
           </item>
           <item id="di105580291689205031" iid="ea9dd1928b6349b58a79920157bac538" creation-date="11/02/2016 17:27:07" order-index="23" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="577" y1="226" x2="577" y2="172" start-border-pos="0.125" end-border-pos="0.625" name-position="71,1" name-width="126">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="577" y1="226" x2="576" y2="188" start-border-pos="0.125" end-border-pos="0.625" name-position="71,1" name-width="126">
               <points>
                 <point x="577" y="226" />
-                <point x="577" y="172" />
+                <point x="576" y="188" />
               </points>
             </layout>
             <relation from="di608771665151464407" from-iid="2b60d9688fd4425e9e88aa5320a9d5b1" to="di842651117434559868" to-iid="1763aec1f86e4dc6a0c12c24c1936491" />
