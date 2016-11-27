@@ -4,7 +4,84 @@
 #ifndef PORT_HPP
 #define PORT_HPP
 
-template <typename RequiredInf, typename ProvidedInf>
+template <typename RequiredInf, typename ProvidedInf, typename OtherPortProvidedInf>
+class Port : public IPort, public RequiredInf, public ProvidedInf
+{
+public:
+    Port (int type_, StateMachineI * parent_) : type (type_), parent(parent_) {}
+	int getType () const {return type;}
+	void setConnectedPort (OtherPortProvidedInf* connectedPort_) {connectedPort = connectedPort_;}
+protected:
+
+        int type;
+        StateMachineI * parent;
+		OtherPortProvidedInf* connectedPort;
+
+
+};
+
+
+template <typename RequiredInf, typename ProvidedInf, typename OtherPortProvidedInf>
+class MultiThreadedPort : public Port <RequiredInf, ProvidedInf, OtherPortProvidedInf>
+{
+    public:
+        MultiThreadedPort (int type_, StateMachineI * parent_) : Port <RequiredInf, ProvidedInf, OtherPortProvidedInf> (type_,parent_),
+	_stop(false), 
+        sender (&MultiThreadedPort::senderTask, this),
+        recevier (&MultiThreadedPort::receiverTask, this) {}
+
+
+
+    protected:
+        virtual void specialSend (EventPtr signal)
+        {
+           signalsToSend.push_back (signal);
+        }
+
+        virtual void specialRecive (EventPtr signal)
+        {
+            signalsToRecive.push_back (signal);
+        }
+
+        void senderTask ()
+        {
+            while (!_stop) {
+                EventPtr signal;
+                signalsToSend.pop_front(signal);
+                //if (signal.get() != nullptr)
+                //{
+                    Port <RequiredInf, ProvidedInf, OtherPortProvidedInf>::connectedPort->convertAndRecive(signal);
+                //}
+
+            }
+        }
+
+        void receiverTask ()
+        {
+            while (!_stop)
+            {
+                EventPtr signal;
+                signalsToRecive.pop_front(signal);
+                //if (signal.get() != nullptr)
+                //{
+                    signal->setPortType(Port<RequiredInf,ProvidedInf,OtherPortProvidedInf>::type);
+                    Port <RequiredInf,ProvidedInf, OtherPortProvidedInf>::parent->send (signal);
+
+                //}
+
+
+            }
+        }
+
+		std::atomic_bool _stop;
+		ThreadSafeQueue<EventPtr> signalsToSend;
+		ThreadSafeQueue<EventPtr> signalsToRecive;
+		std::thread sender;
+		std::thread recevier;
+
+};
+
+/*template <typename RequiredInf, typename ProvidedInf>
 class Port : public IPort
 {
     public:
@@ -89,6 +166,6 @@ class MultiThreadedPort : public Port <RequiredInf,ProvidedInf>
 		std::thread sender;
 		std::thread recevier;
 
-};
+};*/
 
 #endif // PORT_HPP

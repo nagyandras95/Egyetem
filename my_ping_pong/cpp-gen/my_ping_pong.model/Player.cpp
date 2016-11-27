@@ -49,7 +49,7 @@ void Player::initStateMachine() {
 	setPoolId(0);
 	Runtime::createRuntime()->setupObject(this);
 	setInitialState();
-	PingPongPort = new MultiThreadedPort<PingPongInf,PingPongInf>(PingPongPort_PE,this);
+	PingPongPort = new MultiThreadedPort<PingPongRequiredInf,PingPongProvidedInf,PingPongProvidedInf>(PingPongPort_PE,this);
 }
 
 bool Player::process_event(EventBaseCRef e_) {

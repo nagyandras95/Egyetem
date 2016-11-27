@@ -27,7 +27,8 @@ void Table::initTable() {
 	action::link<TableComposite, typename TableComposite::table,
 			typename TableComposite::player>(this, player2_us1);
 
-	ConnectionTable::CONNECT_PORTS(player1_us0->PingPongPort->getId(),player2_us1->PingPongPort->getId());
+	player1_us0->PingPongPort->setConnectedPort(player2_us1->PingPongPort);
+	player2_us1->PingPongPort->setConnectedPort(player1_us0->PingPongPort);
 
 
 	player1_us0->startSM();
