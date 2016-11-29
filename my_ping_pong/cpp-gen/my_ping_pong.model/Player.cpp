@@ -10,37 +10,37 @@
 #include "runtime/timer.hpp"
 #include <iostream>
 
-std::unordered_multimap<EventState, Player::GuardAction> Player::_mM;
+std::unordered_multimap<std::EventState, Player::GuardAction> Player::_mM;
 void Player::initTransitionTable() {
-	Player::_mM.emplace(EventState(Events::InitSignal_EE, Init_ST, NoPort_PE),
+	Player::_mM.emplace(std::EventState(Events::InitSignal_EE, Init_ST, NoPort_PE),
 			GuardAction(GuardFuncType(&Player::defaultGuard),
 					ActionFuncType(&Player::Initialize)));
 	Player::_mM.emplace(
-			EventState(Events::PingSignal_EE, Playing_ST, PingPongPort_PE),
+		std::EventState(Events::PingSignal_EE, Playing_ST, PingPongPort_PE),
 			GuardAction(GuardFuncType(&Player::guard1),
 					ActionFuncType(&Player::DenyPPing)));
 	Player::_mM.emplace(
-			EventState(Events::PongSignal_EE, Playing_ST, PingPongPort_PE),
+		std::EventState(Events::PongSignal_EE, Playing_ST, PingPongPort_PE),
 			GuardAction(GuardFuncType(&Player::guard2),
 					ActionFuncType(&Player::RecivePPong)));
 	Player::_mM.emplace(
-			EventState(Events::PongSignal_EE, Playing_ST, PingPongPort_PE),
+		std::EventState(Events::PongSignal_EE, Playing_ST, PingPongPort_PE),
 			GuardAction(GuardFuncType(&Player::guard1),
 					ActionFuncType(&Player::DenyPPong)));
 	Player::_mM.emplace(
-			EventState(Events::PongSignal_EE, Waiting_ST, PingPongPort_PE),
+		std::EventState(Events::PongSignal_EE, Waiting_ST, PingPongPort_PE),
 			GuardAction(GuardFuncType(&Player::defaultGuard),
 					ActionFuncType(&Player::ReciveWPong)));
 	Player::_mM.emplace(
-			EventState(Events::StartPlaying_EE, Waiting_ST, NoPort_PE),
+		std::EventState(Events::StartPlaying_EE, Waiting_ST, NoPort_PE),
 			GuardAction(GuardFuncType(&Player::defaultGuard),
 					ActionFuncType(&Player::Starting)));
 	Player::_mM.emplace(
-			EventState(Events::PingSignal_EE, Playing_ST, PingPongPort_PE),
+		std::EventState(Events::PingSignal_EE, Playing_ST, PingPongPort_PE),
 			GuardAction(GuardFuncType(&Player::guard2),
 					ActionFuncType(&Player::RecivePPing)));
 	Player::_mM.emplace(
-			EventState(Events::PingSignal_EE, Waiting_ST, PingPongPort_PE),
+		std::EventState(Events::PingSignal_EE, Waiting_ST, PingPongPort_PE),
 			GuardAction(GuardFuncType(&Player::defaultGuard),
 					ActionFuncType(&Player::ReciveWPing)));
 }
@@ -49,13 +49,12 @@ void Player::initStateMachine() {
 	setPoolId(0);
 	Runtime::createRuntime()->setupObject(this);
 	setInitialState();
-	PingPongPort = new MultiThreadedPort<PingPongRequiredInf,PingPongProvidedInf,PingPongProvidedInf>(PingPongPort_PE,this);
+	PingPongPort = new MultiThreadedPort<PingPongInf, PingPongInf>(PingPongPort_PE,this);
 }
 
 bool Player::process_event(EventBaseCRef e_) {
 	bool handled = false;
-	//std::cout << e_.t << " " << e_.p << " " << _cS << std::endl;
-	auto range = _mM.equal_range(EventState(e_.t, _cS, e_.p));
+	auto range = _mM.equal_range(std::EventState(e_.t, _cS, e_.p));
 	if (range.first != _mM.end()) {
 		for (auto it = range.first; it != range.second; ++it) {
 			if ((it->second).first(*this, e_)) //Guard call
@@ -71,7 +70,7 @@ bool Player::process_event(EventBaseCRef e_) {
 }
 void Player::processEventVirtual() {
 	IEvent* base = getNextMessage().get();
-	EventBase* realEvent = dynamic_cast<EventBase*>(base);
+	EventBase* realEvent = static_cast<EventBase*>(base);
 	process_event(*realEvent);
 	deleteNextMessage();
 }

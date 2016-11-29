@@ -1,34 +1,44 @@
 #include "connectiontable.hpp"
-#include "statemachineI.hpp"
+#include "istatemachine.hpp"
 #include <iostream>
 #ifndef PORT_HPP
 #define PORT_HPP
 
-template <typename RequiredInf, typename ProvidedInf, typename OtherPortProvidedInf>
-class Port : public IPort, public RequiredInf, public ProvidedInf
+template <typename RequiredInf, typename ProvidedInf>
+class Port : public IPort, public RequiredInf
 {
 public:
-    Port (int type_, StateMachineI * parent_) : type (type_), parent(parent_) {}
+    Port (int type_, IStateMachine * parent_) : type (type_), parent(parent_) {}
+	virtual ~Port() {}
 	int getType () const {return type;}
-	void setConnectedPort (OtherPortProvidedInf* connectedPort_) {connectedPort = connectedPort_;}
+	void setConnectedPort (ProvidedInf* connectedPort_) {connectedPort = connectedPort_;}
 protected:
 
         int type;
-        StateMachineI * parent;
-		OtherPortProvidedInf* connectedPort;
+        IStateMachine * parent;
+		ProvidedInf* connectedPort;
 
 
 };
 
 
-template <typename RequiredInf, typename ProvidedInf, typename OtherPortProvidedInf>
-class MultiThreadedPort : public Port <RequiredInf, ProvidedInf, OtherPortProvidedInf>
+template <typename RequiredInf, typename ProvidedInf>
+class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
 {
     public:
-        MultiThreadedPort (int type_, StateMachineI * parent_) : Port <RequiredInf, ProvidedInf, OtherPortProvidedInf> (type_,parent_),
-	_stop(false), 
+        MultiThreadedPort (int type_, IStateMachine * parent_) : Port <RequiredInf, ProvidedInf> (type_,parent_),
+		_stop(false), 
         sender (&MultiThreadedPort::senderTask, this),
-        recevier (&MultiThreadedPort::receiverTask, this) {}
+        recevier (&MultiThreadedPort::receiverTask, this)
+		{
+			signalsToSend.startQueue();
+			signalsToRecive.startQueue();
+		}
+		
+		~MultiThreadedPort() {
+			signalsToSend.stopQueue();
+			signalsToRecive.stopQueue();
+		}
 
 
 
@@ -48,10 +58,9 @@ class MultiThreadedPort : public Port <RequiredInf, ProvidedInf, OtherPortProvid
             while (!_stop) {
                 EventPtr signal;
                 signalsToSend.pop_front(signal);
-                //if (signal.get() != nullptr)
-                //{
-                    Port <RequiredInf, ProvidedInf, OtherPortProvidedInf>::connectedPort->convertAndRecive(signal);
-                //}
+				if (!_stop) {
+					Port <RequiredInf, ProvidedInf>::connectedPort->recive(signal);
+				}
 
             }
         }
@@ -62,12 +71,13 @@ class MultiThreadedPort : public Port <RequiredInf, ProvidedInf, OtherPortProvid
             {
                 EventPtr signal;
                 signalsToRecive.pop_front(signal);
-                //if (signal.get() != nullptr)
-                //{
-                    signal->setPortType(Port<RequiredInf,ProvidedInf,OtherPortProvidedInf>::type);
-                    Port <RequiredInf,ProvidedInf, OtherPortProvidedInf>::parent->send (signal);
+				if (!_stop)
+				{
+					EventBase* realEvent = static_cast<EventBase*>(signal.get());
+					realEvent->p = Port <RequiredInf, ProvidedInf>::type;
+					Port <RequiredInf,ProvidedInf>::parent->send (signal);
+				}
 
-                //}
 
 
             }

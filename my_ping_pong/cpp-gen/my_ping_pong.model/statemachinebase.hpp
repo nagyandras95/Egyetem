@@ -10,18 +10,27 @@
 #include <memory>
 
 #include "runtime/ievent.hpp"
+namespace std
+{
+	struct EventState {
+		EventState(int e_, int s_, int p_) : event(e_), state(s_), port(p_) {}
 
-struct EventState : public std::pair<int, int> {
-  EventState(int e_, int s_, int p_) : event (e_), state (s_), port (p_) {}
+		bool operator == (const EventState& a) {
+			return event == a.event && this->state == a.state && this->port == a.port;
+		}
 
-  bool operator == (const EventState& a){
-    return event == a.event && this->state == a.state && this->port == a.port;
-  }
-  
-	int event;
-	int state;
-	int port;
-};
+		int event;
+		int state;
+		int port;
+	};
+
+
+	inline bool operator == (const EventState& a, const EventState& b) {
+		return b.event == a.event && b.state == a.state && b.port == a.port;
+
+	}
+}
+
 
 namespace std
 {
@@ -30,8 +39,9 @@ namespace std
 	{
 	  std::size_t operator ()(const EventState& es_) const
 	  {
-	    hash<int> intHash;
-	    size_t hashValue = (intHash(es_.event) ^ intHash(es_.state) ^ intHash(es_.port) );
+	    //hash<int> intHash;
+	    //size_t hashValue = (intHash(es_.event) ^ intHash(es_.state) ^ intHash(es_.port) );
+		size_t hashValue = es_.event * es_.state * es_.port;
 	    return hashValue;
 	  }
 	};

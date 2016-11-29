@@ -3,13 +3,13 @@
 
 #include "statemachinebase.hpp"
 
-#include "runtime/statemachineI.hpp"
+#include "runtime/istatemachine.hpp"
 
 #include <string>
 #include "runtime/port.hpp"
 #include "interfaces.hpp"
 
-struct Player: public StateMachineBase, public StateMachineI {
+struct Player: public StateMachineBase, public IStateMachine {
 	static void initTransitionTable();
 	bool process_event(EventBaseCRef);
 	void setInitialState();
@@ -31,19 +31,19 @@ struct Player: public StateMachineBase, public StateMachineI {
 	void unlink(typename EndPointName::EdgeType*) {
 	}
 	enum States {
-		Init_ST, Waiting_ST, Playing_ST, Finishing_ST
+		Init_ST = 2, Waiting_ST = 3, Playing_ST = 5, Finishing_ST = 7
 	};
 
 	enum Ports {
-		PingPongPort_PE = 2
+		PingPongPort_PE = 11
 	};
 
-	Port<PingPongRequiredInf,PingPongProvidedInf,PingPongProvidedInf> * PingPongPort;
+	Port<PingPongInf,PingPongInf> * PingPongPort;
 protected:
 	typedef std::function<void(Player&, EventBaseCRef)> ActionFuncType;
 	typedef std::function<bool(Player&, EventBaseCRef)> GuardFuncType;
 	typedef std::pair<GuardFuncType, ActionFuncType> GuardAction;
-	static std::unordered_multimap<EventState, Player::GuardAction> _mM;
+	static std::unordered_multimap<std::EventState, Player::GuardAction> _mM;
 
 private:
 	void initStateMachine();

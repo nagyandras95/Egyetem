@@ -5,7 +5,7 @@
 #include "interfaces.hpp"
 
 enum Events {
-	InitSignal_EE = 1, PingSignal_EE = 2, PongSignal_EE = 3, StartPlaying_EE = 4
+	InitSignal_EE = 13, PingSignal_EE = 17, PongSignal_EE = 19, StartPlaying_EE = 23
 };
 struct PingSignal_EC: public EventBase {
 	PingSignal_EC() :
