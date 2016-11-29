@@ -60,6 +60,8 @@ create or replace procedure cramhead_szamla(ugyfel_azon INTEGER, tanfolyam_azon 
   tandij_afa NUMBER(10,2);
   ugyfel_fokonyvi_szam VARCHAR2(15);
   ugyfel_nev VARCHAR2(50);
+  ugyfel_kapcsolattarto VARCHAR2(80);
+  ugyfel_szamlaszam VARCHAR2(80);
   CURSOR kuldottek IS 
     SELECT k.KULDOTTNEV knev
     FROM kuldott k, tanfolyam t, foglalas f, ugyfel u
@@ -67,10 +69,13 @@ create or replace procedure cramhead_szamla(ugyfel_azon INTEGER, tanfolyam_azon 
       and u.UGYFELAZON = ugyfel_azon and t.TANFOLYAMAZON = tanfolyam_azon;
   rec kuldottek%ROWTYPE;
 begin
-  select u.FOKONYVISZAM, u.UGYFELNEV into ugyfel_fokonyvi_szam, ugyfel_nev
+  dbms_output.put_line('CRAMHEAD COLLEGE');
+  
+  select u.FOKONYVISZAM, u.UGYFELNEV, u.KAPCSTARTO, u.SZAMLASZAM into ugyfel_fokonyvi_szam, ugyfel_nev, ugyfel_kapcsolattarto, ugyfel_szamlaszam
   from ugyfel u
-  where u.UGYFELAZON = ugyfel_azon;
-  dbms_output.put_line(ugyfel_nev || ' figyelmébe       Dátum: ' || to_char(SYSDATE, 'MONdd'));
+  where u.UGYFELAZON = 1;
+  dbms_output.put_line(ugyfel_nev || '        Számlaszám: ' || ugyfel_szamlaszam);
+  dbms_output.put_line(ugyfel_kapcsolattarto || ' figyelmébe       Dátum: ' || to_char(SYSDATE, 'MONdd'));
   
   dbms_output.put_line('KURZUS: ' || tanfolyam_azon);
   
@@ -211,7 +216,8 @@ CREATE TABLE Ugyfel
     fokonyviSzam VARCHAR2 (15) ,
     cim          VARCHAR2 (50) NOT NULL ,
     telefon      VARCHAR2 (15) NOT NULL ,
-    kapcsTarto   VARCHAR2 (50)
+    kapcsTarto   VARCHAR2 (50) ,
+    szamlaSzam   VARCHAR2 (30) NOT NULL
   ) ;
 ALTER TABLE Ugyfel ADD CONSTRAINT Ugyfel_PK PRIMARY KEY ( ugyfelAzon ) ;
 ALTER TABLE Ugyfel ADD CONSTRAINT Ugyfel__UN UNIQUE ( fokonyviSzam ) ;
@@ -237,9 +243,9 @@ ALTER TABLE Tanfolyam_tipus ADD CONSTRAINT Tanfolyam_tipus_Oktato_FK FOREIGN KEY
 
 
 -- adatbázis feltöltése tesztadatokkal
-insert into UGYFEL values (1,'Ugyfel1','15901','Cim1','6666666','Kapcs1');
-insert into UGYFEL values (2,'Ugyfel2','15902','Cim2','7777777','Kapcs2');
-insert into UGYFEL values (3,'Ugyfel3','15903','Cim3','8888888','Kapcs3');
+insert into UGYFEL values (1,'Ugyfel1','15901','Cim1','6666666','Kapcs1', '0015');
+insert into UGYFEL values (2,'Ugyfel2','15902','Cim2','7777777','Kapcs2', '0016');
+insert into UGYFEL values (3,'Ugyfel3','15903','Cim3','8888888','Kapcs3', '0017');
 
 insert into SZALLODA values ('PH','Piros ház','Piros u. 1.','1111111');
 insert into SZALLODA values ('FH','Fehér ház','Washington  u. 1.','2222222');
@@ -353,7 +359,6 @@ insert into KULDOTT values (49, 'Lakatos Andrea', 12, 0,0);
 insert into KULDOTT values (50, 'Lakatos Endre', 12, 0,0);
 insert into KULDOTT values (51, 'Lakatos Elek', 12, 0,0);
 
-select * from TANFOLYAM_ERTEKELES;
 insert into TANFOLYAM_ERTEKELES values (1, 'Cegismeretek', 4.25, 8, 'CSTJAN1');
 insert into TANFOLYAM_ERTEKELES values (2, 'Cegjog', 4.5, 6, 'CSTJAN1');
 insert into TANFOLYAM_ERTEKELES values (3, 'Cegismeretek', 4.8, 5, 'CSTJAN2');
