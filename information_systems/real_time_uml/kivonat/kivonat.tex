@@ -3,7 +3,13 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{Real-Time UML Embadded Systems Summary (page: 127-141)}
+
 \begin{document}
+
+\maketitle
 
 \section{Problem 5.3 Apply Real-World Items and Physical Devices Strategies}
 These two strategies are related in the sense that they seek to identify objects and
@@ -42,9 +48,15 @@ For creating service performed somewhere inside the system, you should ask yours
 \end{itemize}
 
 
-You should add objects, services, and relations to detail this scenario. You might start at the beginning of the scenario, or somewhere in the middle—perhaps at a very important part of the use case or some part that you feel you can handle well. As you add objects to the scenario, you should add relevant classes to a class diagram, filling in the operation calls and event receptions to handle the message, attributes.
+You should add objects, services, and relations to detail this scenario. You might start at the beginning of the scenario, or somewhere in the middle—perhaps at a very important part of the use case or some part that you feel you can handle well. As you add objects to the scenario, you should add relevant classes to a class diagram, filling in the operation calls and event receptions to handle the message, attributes. \\
 
-At first impression, the Detect Vehicle use case does not seem to be an ideal case study for this strategy. The “scenario” consists of a single message “vehicleDetect” from the vehicle to the system but use-case scenario should never be a single message so it should be modeled too. The configuration of the detectors should be part of the scenarios.The lanes can be configured separately or all at once. There is a special “sentinel value” for the laneID that configures or enables all the detectors at once. if the laneID or the sensitivity provided is out of range the invalid
+The first picture and second illustrate how this elaboration takes place. The first shows the high-level interaction. The lifeline in the middle is the use case, but it can just as easily be the “System” or another high-level object. The point is that
+this element internally contains parts (typed by classes) that interact to provide the high-level behavior shown. \\\\
+
+\includegraphics[scale=0.5]{high_level_seq.png} \\\\
+\includegraphics[scale=0.5]{elaborated_seq.png} \\\\\
+
+At first impression, the Detect Vehicle use case does not seem to be an ideal case study for this strategy. The “scenario” consists of a single message “vehicleDetect” from the vehicle to the system but use-case scenario should never be a single message so it should be modeled too. The configuration of the detectors should be part of the scenarios.The lanes can be configured separately or all at once. There is a special “sentinel value” for the laneID that configures or enables all the detectors at once. if the laneId or the sensitivity provided is out of range the invalid
 command is discarded and the previous settings are returned to the operator.\\
 Consideration operator violates the constraints could be another scenario. 
 \\\\
@@ -52,8 +64,6 @@ The radar detector is the only active emitter.
 \\\\
 As far as the human interface goes, the external UI has already been planned out and provided in the requirements specification.
 \\\\
-Let's take the scenarios of the Acquire Image
-use case for the CUAV. \\
 
 
 \section{Problem 5.6 Merge Models from the Various Strategies}
