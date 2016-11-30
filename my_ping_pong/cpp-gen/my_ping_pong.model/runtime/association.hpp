@@ -2,7 +2,6 @@
 #define ASSOCIATION_H
 
 #include <list>
-
 namespace action 
 {
 	template<typename T, typename FirstRole, typename SecondRole>

@@ -91,6 +91,13 @@ class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
 
 };
 
+template<typename Inf1, typename Inf2>
+void connect(Port<Inf1, Inf2> * p1, Port <Inf2, Inf1> * p2)
+{
+	p1->setConnectedPort (p2);
+	p2->setConnectedPort (p1);
+}
+
 /*template <typename RequiredInf, typename ProvidedInf>
 class Port : public IPort
 {
