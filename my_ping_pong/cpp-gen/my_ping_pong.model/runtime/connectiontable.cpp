@@ -3,21 +3,21 @@
 
 std::atomic_int ConnectionTable::PORT_ID(0);
 std::map<int,int> ConnectionTable::CON_TABLE;
-std::map<int,IPort*> ConnectionTable::PORT_TABLE;
+std::map<int,IIPort*> ConnectionTable::PORT_TABLE;
 std::mutex ConnectionTable::MU;
 
 
-int ConnectionTable::REG_AND_GET_NEXT_ID(IPort* port)
+int ConnectionTable::REG_AND_GET_NEXT_ID(IIPort* port)
 {
 int id = PORT_ID;
 ++PORT_ID;
 std::lock_guard<std::mutex> lock(MU);
-PORT_TABLE.insert(std::pair<int,IPort*>(id,port));
+PORT_TABLE.insert(std::pair<int,IIPort*>(id,port));
 return id;
 }
 
 
-IPort * ConnectionTable::GET_CONNECTED_PORT (int portId)
+IIPort * ConnectionTable::GET_CONNECTED_PORT (int portId)
 {
 int id;
 if (CON_TABLE.count(portId) > 0)

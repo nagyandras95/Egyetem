@@ -4,29 +4,87 @@
 #ifndef PORT_HPP
 #define PORT_HPP
 
+struct IConnection 
+{		
+	virtual void fowardSendedMessageToConnectedPort (EventPtr signal) = 0;
+
+};
+
 template <typename RequiredInf, typename ProvidedInf>
-class Port : public IPort, public RequiredInf
+class IPort : public RequiredInf
 {
 public:
-    Port (int type_, IStateMachine * parent_) : type (type_), parent(parent_) {}
-	virtual ~Port() {}
-	int getType () const {return type;}
-	void setConnectedPort (ProvidedInf* connectedPort_) {connectedPort = connectedPort_;}
-protected:
+	void setAssemblyConnectedPort (IPort<ProvidedInf,RequiredInf> * connectedPort_) {
+		connectedPort = new AssemblyConnection<ProvidedInf,RequiredInf>(connectedPort_);
+	}
+	void setDelgationConnectedPort (IPort<RequiredInf,ProvidedInf> * connectedPort_) {
+		connectedPort = new DelegationConnection<ProvidedInf,RequiredInf>(connectedPort_);
+	}
 
-        int type;
-        IStateMachine * parent;
-		ProvidedInf* connectedPort;
+protected:
+	IConnection * connectedPort;
+};
+
+template <typename RequiredInf, typename ProvidedInf>
+class Port : public IPort<RequiredInf, ProvidedInf>
+{
+public:
+	virtual ~Port() {}
+	void fowardSignal(EventPtr s) { sepcialSend(s); }
+	void setInnerConnection(IPort<RequiredInf, ProvidedInf> * innerPort) { connectionToInnerPort = innerPort; }
+protected:
+	
+	IPort<RequiredInf, ProvidedInf> * connectionToInnerPort;
 
 
 };
 
+template <typename RequiredInf, typename ProvidedInf>
+class BehvaiorPort : public IPort<RequiredInf, ProvidedInf>
+{
+public:
+	BehvaiorPort(int type_, IStateMachine * owner_) : type(type_), owner(owner_) {}
+	virtual ~BehvaiorPort() {}
+	int getType() const { return type; }
+protected:
+
+	int type;
+	IStateMachine * owner;
+};
+
 
 template <typename RequiredInf, typename ProvidedInf>
-class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
+struct AssemblyConnection : public IConnection
+{
+	AssemblyConnection (IPort<RequiredInf, ProvidedInf> * port_) : port(port_) {}
+	virtual void fowardSendedMessageToConnectedPort (EventPtr signal)
+	{
+		port->recive(signal);
+	}
+	
+private:
+	IPort<RequiredInf,ProvidedInf> * port;
+};
+
+template <typename RequiredInf, typename ProvidedInf>
+struct DelegationConnection : public IConnection
+{
+	DelegationConnection (Port<RequiredInf, ProvidedInf> * port_) : port(port_) {}
+
+	virtual void fowardSendedMessageToConnectedPort (EventPtr signal)
+	{
+		port->fowardSignal(signal);
+	}
+	
+private:
+	Port<RequiredInf , ProvidedInf> * port;
+};
+
+template <typename RequiredInf, typename ProvidedInf>
+class MultiThreadedPort : public BehvaiorPort <RequiredInf, ProvidedInf>
 {
     public:
-        MultiThreadedPort (int type_, IStateMachine * parent_) : Port <RequiredInf, ProvidedInf> (type_,parent_),
+		MultiThreadedPort (int type_, IStateMachine * parent_) : BehvaiorPort <RequiredInf, ProvidedInf> (type_,parent_),
 		_stop(false), 
         sender (&MultiThreadedPort::senderTask, this),
         recevier (&MultiThreadedPort::receiverTask, this)
@@ -59,7 +117,7 @@ class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
                 EventPtr signal;
                 signalsToSend.pop_front(signal);
 				if (!_stop) {
-					Port <RequiredInf, ProvidedInf>::connectedPort->recive(signal);
+					BehvaiorPort <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
 				}
 
             }
@@ -74,8 +132,8 @@ class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
 				if (!_stop)
 				{
 					EventBase* realEvent = static_cast<EventBase*>(signal.get());
-					realEvent->p = Port <RequiredInf, ProvidedInf>::type;
-					Port <RequiredInf,ProvidedInf>::parent->send (signal);
+					realEvent->p = BehvaiorPort <RequiredInf, ProvidedInf>::type;
+					BehvaiorPort <RequiredInf,ProvidedInf>::owner->send (signal);
 				}
 
 
@@ -92,10 +150,17 @@ class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
 };
 
 template<typename Inf1, typename Inf2>
-void connect(Port<Inf1, Inf2> * p1, Port <Inf2, Inf1> * p2)
+void connect(IPort<Inf1, Inf2> * p1, IPort <Inf2, Inf1> * p2)
 {
-	p1->setConnectedPort (p2);
-	p2->setConnectedPort (p1);
+	p1->setAssemblyConnectedPort(p2);
+	p2->setAssemblyConnectedPort(p1);
+}
+
+template<typename Inf1, typename Inf2>
+void connect(IPort<Inf1, Inf2> * p1, Port <Inf1, Inf2> * p2)
+{
+	p1->setDelgationConnectedPort(p2);
+	p2->setInnerConnection(p1);
 }
 
 /*template <typename RequiredInf, typename ProvidedInf>

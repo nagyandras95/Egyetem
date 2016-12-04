@@ -38,7 +38,7 @@ struct Player: public StateMachineBase, public IStateMachine {
 		PingPongPort_PE = 11
 	};
 
-	Port<PingPongInf,PingPongInf> * PingPongPort;
+	BehvaiorPort<PingPongInf,PingPongInf> * PingPongPort;
 protected:
 	typedef std::function<void(Player&, EventBaseCRef)> ActionFuncType;
 	typedef std::function<bool(Player&, EventBaseCRef)> GuardFuncType;
