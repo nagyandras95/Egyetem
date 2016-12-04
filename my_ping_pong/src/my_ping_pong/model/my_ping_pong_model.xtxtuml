@@ -1,44 +1,42 @@
 package my_ping_pong.model;
 
+import my_ping_pong.model.Judge.StarterPort;
+
 signal StartPlaying;
 signal PingSignal;
 signal PongSignal;
 
-/*interface PingPongInf {
+interface PingPongInf {
 	    reception PingSignal;
         reception PongSignal;
-}*/
-
-composition TableComposite {
-	hidden container Table table;
-	2 Player player;
 }
 
-connector PlayerConnect {
-	TableComposite.player->Player.PingPongPort player1;
-	TableComposite.player->Player.PingPongPort player2;   
+interface StartInf {
+	reception StartPlaying;
 }
+
 
 class Player {
 	
 	private String name;
-	private int maxHit;
-	private int hitCount;
-	
-	public Player(String name, int maxHit) {
+	int accept;
+	public Player(String name) {
 		this.name = name;
-		this.maxHit = 10;
-		this.hitCount = 0;
+		accept = 0;
 	}
 	
 	initial Init;
 	state Waiting;
 	state Playing;
-	state Finishing;
+	state EndGame;
 	
 	behavior port PingPongPort {
-			//provided PingPongInf;
-	        //required PingPongInf;
+			provided PingPongInf;
+	        required PingPongInf;
+	}
+	
+	behavior port StarterPort {
+		provided StartInf;
 	}
 	
     transition Initialize {	                
@@ -46,111 +44,179 @@ class Player {
 		to Waiting;		
 	}
 	
-	transition Starting {
+		transition Starting {
 		from Waiting;
 		to Playing;
 		trigger StartPlaying;
+		port StarterPort;
 		effect {
 			log(name + " player start playing");
-			//send new PingSignal() to this->(PingPongPort);
+			send new PingSignal() to this->(PingPongPort);
 		}
 	}
 	
 	transition RecivePPing {
 		from Playing;
 		to Playing;
-		//port PingPongPort;
+		port PingPongPort;
 		trigger PingSignal;
 		effect {
 			log (name + " player recived ping");
-			//send new PongSignal() to this->(PingPongPort);
-			hitCount++;
+			send new PongSignal() to this->(PingPongPort);
+			accept++;
 		}
-		guard (hitCount <= maxHit);
+		guard(accept < 10)
 	}
 	
 	transition DenyPPing {
 		from Playing;
-		to Finishing;
-		//port PingPongPort;
-		trigger PingSignal;
+		to EndGame;
+		port PingPongPort;
+		trigger PongSignal;
 		effect {
-			log (name + " player recived ping");
-			//send new PongSignal() to this->(PingPongPort);
-			hitCount++;
+			log (name + " ended game");
+			send new PongSignal() to this->(PingPongPort);
+
 		}
-		guard (hitCount > maxHit);
+		guard(accept >= 10)
 	}
 	
-	transition RecivePPong {
+		transition RecivePPong {
 		from Playing;
 		to Playing;
-		//port PingPongPort;
+		port PingPongPort;
 		trigger PongSignal;
 		effect {
 			log (name + " player recived pong");
-			//send new PingSignal() to this->(PingPongPort);
-			hitCount++;
+			send new PingSignal() to this->(PingPongPort);
+			accept++;
 		}
-		guard (hitCount <= maxHit);
+		guard(accept < 10)
 	}
 	
-	transition DenyPPong {
+		transition DenyPPong {
 		from Playing;
-		to Finishing;
-		//port PingPongPort;
+		to EndGame;
+		port PingPongPort;
 		trigger PongSignal;
 		effect {
-			log (name + " player recived pong");
-			//send new PingSignal() to this->(PingPongPort);
-			hitCount++;
+			log (name + " ended game");
+			send new PingSignal() to this->(PingPongPort);
+			accept++;
 		}
-		guard (hitCount > maxHit);
+		guard(accept >= 10)
 	}
 	
 		transition ReciveWPing {
 		from Waiting;
 		to Playing;
-		//port PingPongPort;
+		port PingPongPort;
 		trigger PingSignal;
 		effect {
 			log (name + " player recived ping");
-			//send new PongSignal() to this->(PingPongPort);
+			send new PongSignal() to this->(PingPongPort);
 		}
 	}
 	
 		transition ReciveWPong {
 		from Waiting;
 		to Playing;
-		//port PingPongPort;
+		port PingPongPort;
 		trigger PongSignal;
 		effect {
 			log (name + " player recived pong");
-			//send new PingSignal() to this->(PingPongPort);
+			send new PingSignal() to this->(PingPongPort);
 		}
 	}
 		
-	
-	            
+		            
 }
 
 class Table {
+	port StarterPort {
+		provided StartInf;
+	}
+	
 	public Table() {
-		 Player player1 = new Player("Player1",10);
-		 Player player2 = new Player("Player2",10);
+		 Player player1 = new Player("Player1");
+		 Player player2 = new Player("Player2");
 		 link(TableComposite.table, this, TableComposite.player, player1);
 		 link(TableComposite.table, this, TableComposite.player, player2);
 		 
-		 /*connect (PlayerConnect.player1, player1->(Player.PingPongPort),
-				  PlayerConnect.player2, player2->(Player.PingPongPort));*/
+		 connect (PlayerConnect.player1, player1->(Player.PingPongPort),
+				  PlayerConnect.player2, player2->(Player.PingPongPort));
+				  
+		 connect ( this->(Table.StarterPort), TablePlayerConnect.player,
+				   player1->(Player.StarterPort));
 		 
 		 start(player1);
 		 start(player2);
-		 
-		 //send new StartPlaying() to player1;
 	}
+}
+
+class Judge {
+	behavior port StarterPort {
+		required StartInf;
+	}
+	
+	initial Init;
+	state Working;
+	
+	transition Initialize {
+		from Init;
+		to Working;
+		effect {
+			send new StartPlaying() to this->(StarterPort);
+		}
+	}
+}
+
+class PingPongMatch {
+	public PingPongMatch() {
+		Judge judge = new Judge ();
+		Table table = new Table ();
+		 link(MatchTableComposite.match, this, MatchTableComposite.table, table);
+		 link(MatchTableComposite.match, this, MatchJudgeComposite.judge, judge);
+				  
+		connect (JudgeTableConnect.table, table->(Table.StarterPort),
+				  JudgeTableConnect.judge, judge->(Judge.StarterPort));
+				  
+		start(table);
+		start(judge);
+	}
+}
+
+composition TableComposite {
+	hidden container Table table;
+	2 Player player;
+}
+
+composition MatchTableComposite {
+	hidden container PingPongMatch match;
+	1 Table table;
+}
+
+composition MatchJudgeComposite {
+	hidden container PingPongMatch match;
+	1 Judge judge;
+}
+
+connector PlayerConnect {
+	TableComposite.player->Player.PingPongPort player1;
+	TableComposite.player->Player.PingPongPort player2;   
+}
+
+connector JudgeTableConnect {
+	MatchTableComposite.table->Table.StarterPort table;
+	MatchJudgeComposite.judge->Judge.StarterPort judge;   
+}
+
+
+delegation TablePlayerConnect {
+	TableComposite.table->Table.StarterPort table;
+	TableComposite.player->Player.StarterPort player;
 }
 
 
 
-
+	
