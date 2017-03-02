@@ -1,7 +1,7 @@
 #include <iostream>
 #include "deployment.hpp"
 #include "init_maps.hpp"
-#include "Table.hpp"
+#include "PingPongMatch.hpp"
 //#include "Class1.hpp"
 //#include "Class2.hpp"
 
@@ -12,7 +12,7 @@ int main()
   StateMachine::initTransitionTables();
   rt->startRT();
 
-  Table table;
+  PingPongMatch match;
   std::cout << "The files are successfully compiled!\nYou can now modify the main.cpp" << std::endl;
   std::cin.get();
   return 0;

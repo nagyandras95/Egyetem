@@ -1,13 +1,11 @@
 package my_ping_pong.model;
 
-import my_ping_pong.model.Judge.StarterPort;
-
 signal StartPlaying;
 signal PingSignal;
 signal PongSignal;
 
 interface PingPongInf {
-	    reception PingSignal;
+	reception PingSignal;
         reception PongSignal;
 }
 
@@ -31,7 +29,7 @@ class Player {
 	state EndGame;
 	
 	behavior port PingPongPort {
-			provided PingPongInf;
+		provided PingPongInf;
 	        required PingPongInf;
 	}
 	
@@ -48,21 +46,21 @@ class Player {
 		from Waiting;
 		to Playing;
 		trigger StartPlaying;
-		port StarterPort;
+		//port StarterPort;
 		effect {
 			log(name + " player start playing");
-			send new PingSignal() to this->(PingPongPort);
+			//send new PingSignal() to this->(PingPongPort);
 		}
 	}
 	
 	transition RecivePPing {
 		from Playing;
 		to Playing;
-		port PingPongPort;
+		//port PingPongPort;
 		trigger PingSignal;
 		effect {
 			log (name + " player recived ping");
-			send new PongSignal() to this->(PingPongPort);
+			//send new PongSignal() to this->(PingPongPort);
 			accept++;
 		}
 		guard(accept < 10)
@@ -71,11 +69,11 @@ class Player {
 	transition DenyPPing {
 		from Playing;
 		to EndGame;
-		port PingPongPort;
+		//port PingPongPort;
 		trigger PongSignal;
 		effect {
 			log (name + " ended game");
-			send new PongSignal() to this->(PingPongPort);
+			//send new PongSignal() to this->(PingPongPort);
 
 		}
 		guard(accept >= 10)
@@ -84,11 +82,11 @@ class Player {
 		transition RecivePPong {
 		from Playing;
 		to Playing;
-		port PingPongPort;
+		//port PingPongPort;
 		trigger PongSignal;
 		effect {
 			log (name + " player recived pong");
-			send new PingSignal() to this->(PingPongPort);
+			//send new PingSignal() to this->(PingPongPort);
 			accept++;
 		}
 		guard(accept < 10)
@@ -97,11 +95,11 @@ class Player {
 		transition DenyPPong {
 		from Playing;
 		to EndGame;
-		port PingPongPort;
+		//port PingPongPort;
 		trigger PongSignal;
 		effect {
 			log (name + " ended game");
-			send new PingSignal() to this->(PingPongPort);
+			//send new PingSignal() to this->(PingPongPort);
 			accept++;
 		}
 		guard(accept >= 10)
@@ -110,22 +108,22 @@ class Player {
 		transition ReciveWPing {
 		from Waiting;
 		to Playing;
-		port PingPongPort;
+		//port PingPongPort;
 		trigger PingSignal;
 		effect {
 			log (name + " player recived ping");
-			send new PongSignal() to this->(PingPongPort);
+			//send new PongSignal() to this->(PingPongPort);
 		}
 	}
 	
 		transition ReciveWPong {
 		from Waiting;
 		to Playing;
-		port PingPongPort;
+		//port PingPongPort;
 		trigger PongSignal;
 		effect {
 			log (name + " player recived pong");
-			send new PingSignal() to this->(PingPongPort);
+			//send new PingSignal() to this->(PingPongPort);
 		}
 	}
 		
@@ -133,9 +131,9 @@ class Player {
 }
 
 class Table {
-	port StarterPort {
+	/*port StarterPort {
 		provided StartInf;
-	}
+	}*/
 	
 	public Table() {
 		 Player player1 = new Player("Player1");
@@ -143,11 +141,11 @@ class Table {
 		 link(TableComposite.table, this, TableComposite.player, player1);
 		 link(TableComposite.table, this, TableComposite.player, player2);
 		 
-		 connect (PlayerConnect.player1, player1->(Player.PingPongPort),
-				  PlayerConnect.player2, player2->(Player.PingPongPort));
+		 /*connect (PlayerConnect.player1, player1->(Player.PingPongPort),
+				  PlayerConnect.player2, player2->(Player.PingPongPort));*/
 				  
-		 connect ( this->(Table.StarterPort), TablePlayerConnect.player,
-				   player1->(Player.StarterPort));
+		 /*connect ( this->(Table.StarterPort), TablePlayerConnect.player,
+				   player1->(Player.StarterPort));*/
 		 
 		 start(player1);
 		 start(player2);
@@ -155,9 +153,9 @@ class Table {
 }
 
 class Judge {
-	behavior port StarterPort {
+	/*behavior port StarterPort {
 		required StartInf;
-	}
+	}*/
 	
 	initial Init;
 	state Working;
@@ -166,7 +164,7 @@ class Judge {
 		from Init;
 		to Working;
 		effect {
-			send new StartPlaying() to this->(StarterPort);
+			//send new StartPlaying() to this->(StarterPort);
 		}
 	}
 }
@@ -178,8 +176,8 @@ class PingPongMatch {
 		 link(MatchTableComposite.match, this, MatchTableComposite.table, table);
 		 link(MatchTableComposite.match, this, MatchJudgeComposite.judge, judge);
 				  
-		connect (JudgeTableConnect.table, table->(Table.StarterPort),
-				  JudgeTableConnect.judge, judge->(Judge.StarterPort));
+		/*connect (JudgeTableConnect.table, table->(Table.StarterPort),
+				  JudgeTableConnect.judge, judge->(Judge.StarterPort));*/
 				  
 		start(table);
 		start(judge);
@@ -201,7 +199,7 @@ composition MatchJudgeComposite {
 	1 Judge judge;
 }
 
-connector PlayerConnect {
+/*connector PlayerConnect {
 	TableComposite.player->Player.PingPongPort player1;
 	TableComposite.player->Player.PingPongPort player2;   
 }
@@ -215,7 +213,7 @@ connector JudgeTableConnect {
 delegation TablePlayerConnect {
 	TableComposite.table->Table.StarterPort table;
 	TableComposite.player->Player.StarterPort player;
-}
+}*/
 
 
 

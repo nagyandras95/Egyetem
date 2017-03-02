@@ -3,15 +3,11 @@
 
 struct Player;
 #include "runtime/association.hpp"
-#include "runtime/port.hpp"
-#include "interfaces.hpp"
 
 struct Table {
 	Table();
 	void initTable();
 	~Table();
-
-	Port<EmptyInf,StartInf> * StarterPort;
 
 	AssociationEnd<Player> TableComposite_player = AssociationEnd < Player
 			> (2, 2);

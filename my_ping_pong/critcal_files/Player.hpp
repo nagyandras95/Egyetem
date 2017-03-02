@@ -31,20 +31,19 @@ struct Player: public StateMachineBase, public IStateMachine {
 	void unlink(typename EndPointName::EdgeType*) {
 	}
 	enum States {
-		Init_ST = 2, Waiting_ST = 2, Playing_ST = 3, Finishing_ST = 4
+		Init_ST = 2, Waiting_ST = 3, Playing_ST = 5, Finishing_ST = 7
 	};
 
 	enum Ports {
-		PingPongPort_PE = 2, StarterPort_PE = 3
+		PingPongPort_PE = 11
 	};
 
 	BehvaiorPort<PingPongInf,PingPongInf> * PingPongPort;
-	BehvaiorPort<EmptyInf,StartInf> * StarterPort;
 protected:
 	typedef std::function<void(Player&, EventBaseCRef)> ActionFuncType;
 	typedef std::function<bool(Player&, EventBaseCRef)> GuardFuncType;
 	typedef std::pair<GuardFuncType, ActionFuncType> GuardAction;
-	static std::unordered_multimap<EventState, Player::GuardAction> _mM;
+	static std::unordered_multimap<std::EventState, Player::GuardAction> _mM;
 
 private:
 	void initStateMachine();

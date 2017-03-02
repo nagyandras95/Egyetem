@@ -7,7 +7,6 @@
 #include "runtime/timer.hpp"
 #include "runtime/connectiontable.hpp"
 Table::Table() {
-	StarterPort = new MultiThreadedPort<EmptyInf,StartInf>();
 	initTable();
 }
 void Table::initTable() {
@@ -29,12 +28,11 @@ void Table::initTable() {
 			typename TableComposite::player>(this, player2_us1);
 			
 	connect (player1_us0->PingPongPort, player2_us1->PingPongPort);
-	connect (player1_us0->StarterPort, this->StarterPort);
 
 	player1_us0->startSM();
 	player2_us1->startSM();
 	
-	//player1_us0->send(EventPtr(new StartPlaying_EC()));
+	player1_us0->send(EventPtr(new StartPlaying_EC()));
 
 }
 Table::~Table() {

@@ -2,10 +2,8 @@
 #define __EVENT_HPP__
 
 #include "runtime/ievent.hpp"
-#include "interfaces.hpp"
-
 enum Events {
-	InitSignal_EE = 13, PingSignal_EE = 17, PongSignal_EE = 19, StartPlaying_EE = 23
+	InitSignal_EE, PingSignal_EE, PongSignal_EE, StartPlaying_EE
 };
 struct PingSignal_EC: public EventBase {
 	PingSignal_EC() :

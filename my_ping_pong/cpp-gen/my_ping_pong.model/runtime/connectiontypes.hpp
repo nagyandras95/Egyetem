@@ -1,0 +1,5 @@
+#ifndef CONNECTIONTYPES_HPP
+#define CONNECTIONTYPES_HPP
+
+
+#endif
