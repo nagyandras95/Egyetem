@@ -1,0 +1,15 @@
+x := 4;
+while x do
+  b := tt;
+  if x then
+    b := 5;
+    skip;
+    x := y;
+    a := 5
+  else
+    skip;
+    b := ff;
+    skip;
+    a := ff
+  fi
+od

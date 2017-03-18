@@ -1,0 +1,7 @@
+if x then
+  z := y;
+  a := tt
+else
+  skip
+fi;
+a := 5

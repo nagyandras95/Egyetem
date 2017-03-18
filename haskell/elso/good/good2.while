@@ -1,0 +1,13 @@
+x := 1;
+b := tt;
+identifier1 := 1;
+while b do
+  if ff then
+    x := x + identifier1 + 1
+  else
+    x := x+2;
+    while b do
+      identifier1 := x + 5
+    od
+  fi
+od

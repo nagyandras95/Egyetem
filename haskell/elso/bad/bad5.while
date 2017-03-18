@@ -1,0 +1,11 @@
+x := 5;
+x := tt;
+y := x;
+while y do
+  skip
+od;
+if tt ^ ff then
+  x := z + 1
+else
+  skip
+fi

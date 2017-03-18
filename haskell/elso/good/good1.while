@@ -1,0 +1,10 @@
+x := 5;
+while tt do
+  x := x + 1
+od;
+b := tt;
+if b then
+  x := 4
+else
+  x := 5
+fi

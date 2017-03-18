@@ -1,0 +1,6 @@
+x:=1;
+if x then
+  x := 1
+else
+  skip
+fi
