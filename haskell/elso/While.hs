@@ -64,20 +64,25 @@ whitespace :: Parser String
 whitespace = many (matches isSpace)
 
 boolean :: Parser Bool
-boolean = ((pure (\x -> True)) :: Parser (String -> Bool)) <*>  token "tt") where
+boolean = (pure conv) <*>  ((token "tt") <|> (token "ff")) where
+ conv :: String -> Bool
+ conv "tt" = True
+ conv "ff" = False
 	
 
 integer :: Parser Integer
-integer = undefined
+integer = ((pure read) :: Parser (String -> Integer)) <*>  (some (matches isDigit))
 
 identifier :: Parser String
-identifier = undefined
+identifier = (:) <$> (matches isAlpha) <*> many (matches isAlphaNum)
 
 operator :: Parser Char
-operator = undefined
+operator = toChar <$> (token "+" <|> token "^") where
+	toChar:: String -> Char
+	toChar [c] = c
 
 expr :: Parser Expr
-expr = undefined
+expr = (BLit <$> boolean) <|> (ALit <$> integer) <|> (Variable <$> identifier) <|> ( expr `chainl1` ( ( \op e1 e2 -> InfixOp op e1 e2) <$> (operator) ) )    
 
 stm :: Parser Stm
 stm = undefined
