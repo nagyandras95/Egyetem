@@ -145,10 +145,60 @@ accept = checkStm DM.empty
         right = checkExpr declVars b
 
 accept2 :: Stm -> ([String], Bool)
-accept2 x = undefined
+accept2 x = runWriter (acceptWithWriter DM.empty x)
   where
     acceptWithWriter :: Variables -> Stm -> Writer [String] Bool
-    acceptWithWriter = undefined
+    acceptWithWriter _ Skip = return True
+	acceptWithWriter vars (Assignment var ex)  = do
+	 expre_check <- checkExprWithWriter vars ex
+	 if (getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e)
+		then _
+		else tell["Incompatible types in assignment."]		
+	 return (expre_check && (getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e))	 
+	acceptWithWriter vars (If c a b) = do
+	 cond <- checkExprWithWriter vars c
+	 left <- acceptWithWriter vars a
+	 right <- acceptWithWriter vars a
+	 if (getType vars c == WBoolean)
+		then _
+		else tell["Incompatible type in condition."]
+	 return (cond && left && right && (getType vars c == WBoolean))
+	acceptWithWriter vars (While c a) = do 
+	 cond  <- checkExprWithWriter vars c
+	 body <- acceptWithWriter vars a
+	 if (getType vars c == WBoolean)
+		then _
+		else tell["Incompatible type in condition."]
+	 return (cond && body && getType vars c == WBoolean)
+	acceptWithWriter vars (Seq a b) = do
+     s1 <- acceptWithWriter vars a
+     s2 <- acceptWithWriter (vars `DM.union` (collect vars a)) b
+	 return s1 && s2
+		 
+  where
+	checkExprWithWriter :: Variables -> Expr -> Writer [String] Bool	
+	checkExprWithWriter declVars (ALit _) = do 
+	 return True	 
+	checkExprWithWriter declVars (BLit _) = do
+	 return True	 
+    checkExprWithWriter declVars v@(Variable x) = do
+	 if getType declVars v == NA
+		then tell[x ++ " is not initialized."]
+		else _
+	 return getType declVars v != NA	  
+    checkExprWithWriter declVars (InfixOp op a b) = do
+	 left <- checkExprWithWriter declVars a
+	 right <- checkExprWithWriter declVars b 
+          case (op, getType declVars a, getType declVars b) of
+            ('+',WInteger, WInteger) -> _
+            ('^',WBoolean, WBoolean) -> _
+            ('+',_,_)                -> tell ["Incompatible types in addition."]
+            ('^',_,_)                -> tell ["Incompatible types in conjunction."]
+	 return left && right && ok (op, getType declVars a, getType declVars b)
+		where
+		ok ('+',WInteger, WInteger) = True
+		ok ('^',WBoolean, WBoolean) = True
+		ok _ = False
 
 accept3 :: Stm -> ([String], Bool)
 accept3 x = undefined
