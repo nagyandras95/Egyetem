@@ -82,10 +82,16 @@ operator = toChar <$> (token "+" <|> token "^") where
 	toChar [c] = c
 
 expr :: Parser Expr
-expr = (BLit <$> boolean) <|> (ALit <$> integer) <|> (Variable <$> identifier) <|> ( expr `chainl1` ( ( \op e1 e2 -> InfixOp op e1 e2) <$> (operator) ) )    
+expr = (whitespace *> expr2 <* whitespace) `chainl1` ( ( \op e1 e2 -> InfixOp op e1 e2) <$> (operator) ) where
+	expr2 = (BLit <$> boolean) <|> (ALit <$> integer) <|> (Variable <$> identifier)
 
 stm :: Parser Stm
-stm = undefined
+stm = (whitespace *> allPars <* whitespace) `chainl1` ( ( \_ s1 s2 -> Seq s1 s2) <$> (token ";") )
+skipPars = Skip <$ ( whitespace *> token "skip" <* whitespace )
+asignPars = Assignment <$ identifier <*> (whitespace *> token ":=" <* whitespace) <*> expr
+ifPars = If <$ (whitespace *>  token "if" <* whitespace) <*> expr <*> stm <*> stm
+whilePars = While <$ (whitespace *> token "while" <* whitespace) <*> expr <*> stm
+allPars = skipPars <|> asignPars <|> whilePars
 
 accept :: Stm -> ([String], Bool)
 accept = checkStm DM.empty

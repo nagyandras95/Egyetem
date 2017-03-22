@@ -82,10 +82,10 @@ private:
 };
 
 template <typename RequiredInf, typename ProvidedInf>
-class BehvaiorPort : public IPort<RequiredInf, ProvidedInf>
+class BehaviorPort : public IPort<RequiredInf, ProvidedInf>
 {
 public:
-	BehvaiorPort(int type_, IStateMachine * owner_) : type(type_), owner(owner_) {}
+	BehaviorPort(int type_, IStateMachine * owner_) : type(type_), owner(owner_) {}
 	virtual ~BehvaiorPort() {}
 	int getType() const { return type; }
 protected:
