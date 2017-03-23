@@ -88,10 +88,10 @@ expr = (whitespace *> expr2 <* whitespace) `chainl1` ( ( \op e1 e2 -> InfixOp op
 stm :: Parser Stm
 stm = (whitespace *> allPars <* whitespace) `chainl1` ( ( \_ s1 s2 -> Seq s1 s2) <$> (token ";") )
 skipPars = Skip <$ ( whitespace *> token "skip" <* whitespace )
-asignPars = Assignment <$ identifier <*> (whitespace *> token ":=" <* whitespace) <*> expr
-ifPars = If <$ (whitespace *>  token "if" <* whitespace) <*> expr <*> stm <*> stm
-whilePars = While <$ (whitespace *> token "while" <* whitespace) <*> expr <*> stm
-allPars = skipPars <|> asignPars <|> whilePars
+asignPars = Assignment <$> (whitespace *> identifier <* whitespace) <* (whitespace *> token ":=" <* whitespace) <*> (whitespace *> expr <* whitespace)  
+ifPars = If <$ (whitespace *> token "if" <* whitespace) <*> (whitespace *> expr <* whitespace) <* (whitespace *> token "then" <* whitespace) <*> (whitespace *> stm <* whitespace <* token "else" <* whitespace ) <*> (whitespace *> stm <* whitespace) <* (whitespace *> token "fi" <* whitespace)
+whilePars = While <$ (whitespace *> token "while" <* whitespace) <*> (whitespace *> expr <* whitespace) <* (whitespace *> token "do" <* whitespace) <*> (whitespace *> stm <* whitespace) <* (whitespace *> token "od" <* whitespace) 
+allPars = skipPars <|> asignPars <|> whilePars <|> ifPars
 
 accept :: Stm -> ([String], Bool)
 accept = checkStm DM.empty
@@ -150,67 +150,123 @@ accept = checkStm DM.empty
         left  = checkExpr declVars a
         right = checkExpr declVars b
 
-accept2 :: Stm -> ([String], Bool)
-accept2 x = runWriter (acceptWithWriter DM.empty x)
+
+
+checkExprWithWriter :: Variables -> Expr -> Writer [String] Bool	
+checkExprWithWriter declVars (ALit _) = return True	 
+checkExprWithWriter declVars (BLit _) = return True
+checkExprWithWriter declVars v@(Variable x) = do
+ let cond = getType declVars v /= NA 
+ unless cond (tell[x ++ " is not initialized."])  
+ return (cond)
+checkExprWithWriter declVars (InfixOp op a b) = do
+ left <- checkExprWithWriter declVars a
+ right <- checkExprWithWriter declVars b 
+ case (op, getType declVars a, getType declVars b) of
+  ('+',WInteger, WInteger) -> return ()
+  ('^',WBoolean, WBoolean) -> return ()
+  ('+',_,_)                -> tell ["Incompatible types in addition."]
+  ('^',_,_)                -> tell ["Incompatible types in conjunction."]
+ return (left && right && ok (op, getType declVars a, getType declVars b))
   where
-    acceptWithWriter :: Variables -> Stm -> Writer [String] Bool
-    acceptWithWriter _ Skip = return True
-	acceptWithWriter vars (Assignment var ex)  = do
-	 expre_check <- checkExprWithWriter vars ex
-	 if (getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e)
-		then _
-		else tell["Incompatible types in assignment."]		
-	 return (expre_check && (getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e))	 
-	acceptWithWriter vars (If c a b) = do
-	 cond <- checkExprWithWriter vars c
-	 left <- acceptWithWriter vars a
-	 right <- acceptWithWriter vars a
-	 if (getType vars c == WBoolean)
-		then _
-		else tell["Incompatible type in condition."]
-	 return (cond && left && right && (getType vars c == WBoolean))
-	acceptWithWriter vars (While c a) = do 
-	 cond  <- checkExprWithWriter vars c
-	 body <- acceptWithWriter vars a
-	 if (getType vars c == WBoolean)
-		then _
-		else tell["Incompatible type in condition."]
-	 return (cond && body && getType vars c == WBoolean)
-	acceptWithWriter vars (Seq a b) = do
-     s1 <- acceptWithWriter vars a
-     s2 <- acceptWithWriter (vars `DM.union` (collect vars a)) b
-	 return s1 && s2
-		 
+   ok ('+',WInteger, WInteger) = True
+   ok ('^',WBoolean, WBoolean) = True
+   ok _ = False
+
+
+accept2 :: Stm -> ([String] , Bool)
+accept2 x = rev (runWriter (acceptWithWriter DM.empty x))
+ where
+  rev :: (a,b) -> (b,a)
+  rev (x,y) = (y,x)
+
+  acceptWithWriter :: Variables -> Stm -> Writer [String] Bool
+  acceptWithWriter _ Skip = return True
+  acceptWithWriter vars (Assignment v e) = do
+   expre_check <- checkExprWithWriter vars e
+   let cond	= (getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e)
+   unless cond (tell["Incompatible types in assignment."])	
+   return (expre_check && cond)
+  acceptWithWriter vars (If c a b) = do
+   cond <- checkExprWithWriter vars c
+   let condType = getType vars c == WBoolean
+   unless condType (tell["Incompatible type in condition."])
+   left <- acceptWithWriter vars a
+   right <- acceptWithWriter vars b
+   return (cond && condType && left && right)
+  acceptWithWriter vars (While c a) = do
+   cond  <- checkExprWithWriter vars c
+   let condType = (getType vars c == WBoolean)
+   unless condType (tell["Incompatible type in condition."])
+   body <- acceptWithWriter vars a 
+   return (cond && condType && body )
+  acceptWithWriter vars (Seq a b) = do
+   s1 <- acceptWithWriter vars a
+   s2 <- acceptWithWriter (vars `DM.union` (collect vars a)) b
+   return (s1 && s2)
+ 
+
+checkExprWithWriterState :: (MonadState Variables m, MonadWriter [String] m) => Expr -> m Bool
+checkExprWithWriterState (ALit _) = return True	 
+checkExprWithWriterState (BLit _) = return True
+checkExprWithWriterState v@(Variable x) = do
+ declVars <- get
+ if getType declVars v == NA
+  then tell[x ++ " is not initialized."]
+  else return ()
+ return ((getType declVars v) /= NA)
+checkExprWithWriterState (InfixOp op a b) = do
+ left <- checkExprWithWriterState a
+ right <- checkExprWithWriterState b
+ declVars <- get
+ case (op, getType declVars a, getType declVars b) of
+  ('+',WInteger, WInteger) -> return ()
+  ('^',WBoolean, WBoolean) -> return ()
+  ('+',_,_)                -> tell ["Incompatible types in addition."]
+  ('^',_,_)                -> tell ["Incompatible types in conjunction."]
+ return (left && right && ok (op, getType declVars a, getType declVars b))
   where
-	checkExprWithWriter :: Variables -> Expr -> Writer [String] Bool	
-	checkExprWithWriter declVars (ALit _) = do 
-	 return True	 
-	checkExprWithWriter declVars (BLit _) = do
-	 return True	 
-    checkExprWithWriter declVars v@(Variable x) = do
-	 if getType declVars v == NA
-		then tell[x ++ " is not initialized."]
-		else _
-	 return getType declVars v != NA	  
-    checkExprWithWriter declVars (InfixOp op a b) = do
-	 left <- checkExprWithWriter declVars a
-	 right <- checkExprWithWriter declVars b 
-          case (op, getType declVars a, getType declVars b) of
-            ('+',WInteger, WInteger) -> _
-            ('^',WBoolean, WBoolean) -> _
-            ('+',_,_)                -> tell ["Incompatible types in addition."]
-            ('^',_,_)                -> tell ["Incompatible types in conjunction."]
-	 return left && right && ok (op, getType declVars a, getType declVars b)
-		where
-		ok ('+',WInteger, WInteger) = True
-		ok ('^',WBoolean, WBoolean) = True
-		ok _ = False
+   ok ('+',WInteger, WInteger) = True
+   ok ('^',WBoolean, WBoolean) = True
+   ok _ = False
 
 accept3 :: Stm -> ([String], Bool)
 accept3 x = undefined
   where
-    acceptWithWriterState :: (MonadState Variables m, MonadWriter [String] m) => Stm -> m Bool
-    acceptWithWriterState = undefined
+   acceptWithWriterState :: (MonadState Variables m, MonadWriter [String] m) => Stm -> m Bool
+   acceptWithWriterState Skip = return True
+   acceptWithWriterState (Assignment v e) = do
+    expr_check <- checkExprWithWriterState e
+    vars <- get
+    if (getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e)
+     then return () 
+     else tell["Incompatible types in assignment."]		
+    return ((expr_check && getType vars (Variable v) == NA || getType vars (Variable v) == getType vars e))
+   acceptWithWriterState (If c a b) = do
+    vars <- get
+    cond <- checkExprWithWriterState c
+    if (getType vars c == WBoolean)
+	 then return ()
+	 else tell["Incompatible type in condition."]
+    left <- acceptWithWriterState a
+    right <- acceptWithWriterState b
+    return (cond && left && right && (getType vars c == WBoolean))
+   acceptWithWriterState (While c a) = do 
+    cond <- checkExprWithWriterState c
+    body <- acceptWithWriterState a
+    vars <- get
+    if (getType vars c == WBoolean)
+	 then return ()
+	 else tell["Incompatible type in condition."]
+    return (cond && body && getType vars c == WBoolean)
+   acceptWithWriterState (Seq a b) = do
+    s1 <- acceptWithWriterState a
+    vars <- get
+    put ((vars `DM.union` (collect vars a)))
+    s2 <- acceptWithWriterState b
+    return (s1 && s2)
+
+
 
 --
 -- Tesztek
