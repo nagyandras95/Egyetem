@@ -7,7 +7,7 @@
 #include "runtime/timer.hpp"
 #include "runtime/connectiontable.hpp"
 Table::Table() {
-	StarterPort = new MultiThreadedPort<EmptyInf,StartInf>();
+	StarterPort = new PortImpl<EmptyInf,StartInf>();
 	initTable();
 }
 void Table::initTable() {

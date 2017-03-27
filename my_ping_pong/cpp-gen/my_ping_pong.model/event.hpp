@@ -11,9 +11,10 @@ struct PingSignal_EC: public EventBase {
 	}
 };
 
-struct PongSignal_EC: public EventBase {
-	PongSignal_EC() :
-			EventBase(PongSignal_EE) {
+struct PongSignal_EC: public PingSignal_EC {
+	PongSignal_EC() 
+			 {
+		t = PongSignal_EE;
 	}
 };
 

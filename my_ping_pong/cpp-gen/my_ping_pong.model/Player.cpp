@@ -49,8 +49,8 @@ void Player::initStateMachine() {
 	setPoolId(0);
 	Runtime::createRuntime()->setupObject(this);
 	setInitialState();
-	PingPongPort = new MultiThreadedBehaviorPort<PingPongInf,PingPongInf>(PingPongPort_PE,this);
-	StarterPort = new MultiThreadedBehaviorPort<EmptyInf,StartInf>(StarterPort_PE,this);
+	PingPongPort = new BehavionPortImpl<PingPongInf,PingPongInf>(PingPongPort_PE,this);
+	StarterPort = new BehavionPortImpl<EmptyInf,StartInf>(StarterPort_PE,this);
 }
 
 bool Player::process_event(EventBaseCRef e_) {
@@ -143,7 +143,7 @@ void Player::RecivePPing(EventBaseCRef) {
 	std::string temp1 = conversion::to_string(" player recived ping");
 	std::string temp2 = (temp0 + temp1);
 	action::log(temp2);
-	PingPongPort->send(std::shared_ptr<PongSignal_EC>(new PongSignal_EC()));
+	PingPongPort->send(std::shared_ptr<PingSignal_EC>(new PongSignal_EC()));
 	int temp3 = (this->hitCount + 1);
 	this->hitCount = temp3;
 	setState (Playing_ST);
@@ -158,7 +158,7 @@ void Player::DenyPPing(EventBaseCRef) {
 	std::string temp1 = conversion::to_string(" player recived ping");
 	std::string temp2 = (temp0 + temp1);
 	action::log(temp2);
-	PingPongPort->send(std::shared_ptr<PongSignal_EC>(new PongSignal_EC()));
+	PingPongPort->send(std::shared_ptr<PingSignal_EC>(new PongSignal_EC()));
 	int temp3 = (this->hitCount + 1);
 	this->hitCount = temp3;
 	setState (Finishing_ST);
@@ -202,7 +202,7 @@ void Player::ReciveWPing(EventBaseCRef) {
 	std::string temp0 = conversion::to_string(this->name);
 	std::string temp1 = conversion::to_string(" player recived ping");
 	std::string temp2 = (temp0 + temp1);
-	PingPongPort->send(std::shared_ptr<PongSignal_EC>(new PongSignal_EC()));
+	PingPongPort->send(std::shared_ptr<PingSignal_EC>(new PongSignal_EC()));
 	action::log(temp2);
 	setState (Playing_ST);
 

@@ -73,7 +73,7 @@ void Judge::exit() {
 }
 
 Judge::Judge() {
-	StarterPort = new MultiThreadedBehaviorPort<StartInf,EmptyInf>(StarterPort_PE,this);
+	StarterPort = new BehavionPortImpl<StartInf,EmptyInf>(StarterPort_PE,this);
 	initJudge();
 }
 void Judge::initJudge() {

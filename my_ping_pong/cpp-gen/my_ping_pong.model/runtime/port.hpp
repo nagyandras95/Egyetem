@@ -5,33 +5,54 @@
 #ifndef PORT_HPP
 #define PORT_HPP
 
-class EmptyInf {
-protected:
-	virtual void specialSend (EventPtr) {};
-};
 
-class MessageReciver
-{
-public:
-	void recive (EventPtr signal) {specialRecive(signal);}
-
-protected:
-	virtual void specialRecive (EventPtr signal) = 0;
-};
-struct IConnection 
-{		
-	virtual void fowardSendedMessageToConnectedPort (EventPtr signal) = 0;
-
-};
-
+template <typename RequiredInf, typename ProvidedInf>
+class IPort;
 
 template <typename RequiredInf, typename ProvidedInf>
 class Port;
 
 template <typename RequiredInf, typename ProvidedInf>
-class IPort : public RequiredInf, public MessageReciver
+class PortImpl;
+
+template <typename RequiredInf, typename ProvidedInf>
+struct DelegationConnection;
+
+template <typename RequiredInf, typename ProvidedInf>
+struct AssemblyConnection;
+
+class EmptyInf  {
+protected:
+	template <typename RequiredInf, typename ProvidedInf>
+	friend struct DelegationConnection;
+
+	virtual void specialSend (EventPtr s) = 0;
+};
+
+class MessageReciver
 {
 public:
+
+	void recive (EventPtr signal) {specialRecive(signal);}
+
+protected:
+	virtual void specialRecive (EventPtr signal) = 0;
+};
+
+struct IConnection;
+
+
+
+template <typename RequiredInf, typename ProvidedInf>
+class IPort : public RequiredInf, private MessageReciver
+{
+public:
+	template <typename RequiredInf, typename ProvidedInf>
+	friend class PortImpl;
+
+	template <typename RequiredInf, typename ProvidedInf>
+	friend struct AssemblyConnection;
+
 	void setAssemblyConnectedPort (IPort<ProvidedInf,RequiredInf> * connectedPort_);
 	void setDelgationConnectedPort (Port<RequiredInf,ProvidedInf> * connectedPort_);
 
@@ -45,12 +66,30 @@ class Port : public IPort<RequiredInf, ProvidedInf>
 public:
 	Port () : connectionToInnerPort(nullptr) {}
 	virtual ~Port() {}
-	void fowardSignal(EventPtr s) { IPort<RequiredInf, ProvidedInf>::specialSend(s); }
 	void setInnerConnection(IPort<RequiredInf, ProvidedInf> * innerPort) { connectionToInnerPort = innerPort; }
 protected:
 	
 	IPort<RequiredInf, ProvidedInf> * connectionToInnerPort;
 
+
+};
+
+template <typename RequiredInf, typename ProvidedInf>
+class BehaviorPort : public IPort<RequiredInf, ProvidedInf>
+{
+public:
+	BehaviorPort(int type_, IStateMachine * owner_) : type(type_), owner(owner_) {}
+	virtual ~BehaviorPort() {}
+	int getType() const { return type; }
+protected:
+
+	int type;
+	IStateMachine * owner;
+};
+
+struct IConnection
+{
+	virtual void fowardSendedMessageToConnectedPort(EventPtr signal) = 0;
 
 };
 
@@ -70,28 +109,16 @@ private:
 template <typename RequiredInf, typename ProvidedInf>
 struct DelegationConnection : public IConnection
 {
+
 	DelegationConnection (Port<RequiredInf, ProvidedInf> * port_) : port(port_) {}
 
 	virtual void fowardSendedMessageToConnectedPort (EventPtr signal)
 	{
-		port->fowardSignal(signal);
+		port->specialSend(signal);
 	}
 	
 private:
 	Port<RequiredInf , ProvidedInf> * port;
-};
-
-template <typename RequiredInf, typename ProvidedInf>
-class BehaviorPort : public IPort<RequiredInf, ProvidedInf>
-{
-public:
-	BehaviorPort(int type_, IStateMachine * owner_) : type(type_), owner(owner_) {}
-	virtual ~BehvaiorPort() {}
-	int getType() const { return type; }
-protected:
-
-	int type;
-	IStateMachine * owner;
 };
 
 template<typename Inf1, typename Inf2>
@@ -110,137 +137,48 @@ void connect(IPort<Inf1, Inf2> * p1, Port <Inf1, Inf2> * p2)
 
 
 template <typename RequiredInf, typename ProvidedInf>
-class MultiThreadedBehaviorPort : public BehvaiorPort <RequiredInf, ProvidedInf>
+class BehavionPortImpl : public BehaviorPort <RequiredInf, ProvidedInf>
 {
     public:
-		MultiThreadedBehaviorPort (int type_, IStateMachine * parent_) : BehvaiorPort <RequiredInf, ProvidedInf> (type_,parent_),
-		_stop(false), 
-        sender (&MultiThreadedBehaviorPort::senderTask, this),
-        recevier (&MultiThreadedBehaviorPort::receiverTask, this)
-		{
-			signalsToSend.startQueue();
-			signalsToRecive.startQueue();
-		}
-		
-		~MultiThreadedBehaviorPort() {
-			signalsToSend.stopQueue();
-			signalsToRecive.stopQueue();
-		}
-
-
-
+		BehavionPortImpl (int type_, IStateMachine * parent_) : BehaviorPort <RequiredInf, ProvidedInf> (type_,parent_) {}
+		virtual ~BehavionPortImpl() {}
     protected:
         virtual void specialSend (EventPtr signal)
         {
-           signalsToSend.push_back (signal);
+			BehaviorPort <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
         }
 
         virtual void specialRecive (EventPtr signal)
         {
-            signalsToRecive.push_back (signal);
+			EventBase* realEvent = static_cast<EventBase*>(signal.get());
+			realEvent->p = BehaviorPort <RequiredInf, ProvidedInf>::type;
+			BehaviorPort <RequiredInf, ProvidedInf>::owner->send(signal);
         }
 
-        void senderTask ()
-        {
-            while (!_stop) {
-                EventPtr signal;
-                signalsToSend.pop_front(signal);
-				if (!_stop) {
-					BehvaiorPort <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
-				}
-
-            }
-        }
-
-        void receiverTask ()
-        {
-            while (!_stop)
-            {
-                EventPtr signal;
-                signalsToRecive.pop_front(signal);
-				if (!_stop)
-				{
-					EventBase* realEvent = static_cast<EventBase*>(signal.get());
-					realEvent->p = BehvaiorPort <RequiredInf, ProvidedInf>::type;
-					BehvaiorPort <RequiredInf,ProvidedInf>::owner->send (signal);
-				}
-
-
-
-            }
-        }
-
-		std::atomic_bool _stop;
-		ThreadSafeQueue<EventPtr> signalsToSend;
-		ThreadSafeQueue<EventPtr> signalsToRecive;
-		std::thread sender;
-		std::thread recevier;
 
 };
 
 template <typename RequiredInf, typename ProvidedInf>
-class MultiThreadedPort : public Port <RequiredInf, ProvidedInf>
+class PortImpl : public Port <RequiredInf, ProvidedInf>
 {
-    public:
-		MultiThreadedPort () : _stop(false), 
-        sender (&MultiThreadedPort::senderTask, this),
-        recevier (&MultiThreadedPort::receiverTask, this)
+public:
+	PortImpl() : Port <RequiredInf, ProvidedInf>() {}
+	virtual ~PortImpl() {}
+
+
+protected:
+	virtual void specialSend(EventPtr signal)
+	{
+		Port <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
+	}
+
+	virtual void specialRecive(EventPtr signal)
+	{
+		if (Port <RequiredInf, ProvidedInf>::connectionToInnerPort != nullptr)
 		{
-			signalsToSend.startQueue();
-			signalsToRecive.startQueue();
+			Port <RequiredInf, ProvidedInf>::connectionToInnerPort->recive(signal);
 		}
-		
-		~MultiThreadedPort() {
-			signalsToSend.stopQueue();
-			signalsToRecive.stopQueue();
-		}
-
-
-
-    protected:
-        virtual void specialSend (EventPtr signal)
-        {
-           signalsToSend.push_back (signal);
-        }
-
-        virtual void specialRecive (EventPtr signal)
-        {
-            signalsToRecive.push_back (signal);
-        }
-
-        void senderTask ()
-        {
-            while (!_stop) {
-                EventPtr signal;
-                signalsToSend.pop_front(signal);
-				if (!_stop) {
-					Port <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
-				}
-
-            }
-        }
-
-        void receiverTask ()
-        {
-            while (!_stop)
-            {
-            	EventPtr signal;
-            	signalsToRecive.pop_front(signal);
-		if (!_stop && Port <RequiredInf, ProvidedInf>::connectionToInnerPort != nullptr)
-		{
-			Port <RequiredInf, ProvidedInf>::connectionToInnerPort->recive (signal);
-		}
-
-
-
-            }
-        }
-
-		std::atomic_bool _stop;
-		ThreadSafeQueue<EventPtr> signalsToSend;
-		ThreadSafeQueue<EventPtr> signalsToRecive;
-		std::thread sender;
-		std::thread recevier;
+	}
 
 };
 

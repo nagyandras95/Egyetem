@@ -32,7 +32,7 @@ struct Judge: public StateMachineBase, public IStateMachine {
 		StarterPort_PE = 2
 	};
 
-	BehvaiorPort<StartInf,EmptyInf> * StarterPort;
+	BehaviorPort<StartInf,EmptyInf> * StarterPort;
 
 protected:
 	typedef std::function<void(Judge&, EventBaseCRef)> ActionFuncType;
