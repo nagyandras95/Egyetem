@@ -21,30 +21,13 @@ struct DelegationConnection;
 template <typename RequiredInf, typename ProvidedInf>
 struct AssemblyConnection;
 
-class EmptyInf  {
-protected:
-	template <typename RequiredInf, typename ProvidedInf>
-	friend struct DelegationConnection;
-
-	virtual void specialSend (EventPtr s) = 0;
-};
-
-class MessageReciver
-{
-public:
-
-	void recive (EventPtr signal) {specialRecive(signal);}
-
-protected:
-	virtual void specialRecive (EventPtr signal) = 0;
-};
 
 struct IConnection;
 
 
 
 template <typename RequiredInf, typename ProvidedInf>
-class IPort : public RequiredInf, private MessageReciver
+class IPort : public RequiredInf::RequiredInfType , public ProvidedInf::ProvidedInfType
 {
 public:
 	template <typename RequiredInf, typename ProvidedInf>
@@ -99,7 +82,7 @@ struct AssemblyConnection : public IConnection
 	AssemblyConnection (IPort<RequiredInf, ProvidedInf> * port_) : port(port_) {}
 	virtual void fowardSendedMessageToConnectedPort (EventPtr signal)
 	{
-		port->recive(signal);
+		port->reciveAny(signal);
 	}
 	
 private:
@@ -114,7 +97,7 @@ struct DelegationConnection : public IConnection
 
 	virtual void fowardSendedMessageToConnectedPort (EventPtr signal)
 	{
-		port->specialSend(signal);
+		port->sendAny(signal);
 	}
 	
 private:
@@ -143,12 +126,12 @@ class BehavionPortImpl : public BehaviorPort <RequiredInf, ProvidedInf>
 		BehavionPortImpl (int type_, IStateMachine * parent_) : BehaviorPort <RequiredInf, ProvidedInf> (type_,parent_) {}
 		virtual ~BehavionPortImpl() {}
     protected:
-        virtual void specialSend (EventPtr signal)
+        virtual void sendAny (EventPtr signal)
         {
 			BehaviorPort <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
         }
 
-        virtual void specialRecive (EventPtr signal)
+        virtual void reciveAny (EventPtr signal)
         {
 			EventBase* realEvent = static_cast<EventBase*>(signal.get());
 			realEvent->p = BehaviorPort <RequiredInf, ProvidedInf>::type;
@@ -167,16 +150,16 @@ public:
 
 
 protected:
-	virtual void specialSend(EventPtr signal)
+	virtual void sendAny(EventPtr signal)
 	{
 		Port <RequiredInf, ProvidedInf>::connectedPort->fowardSendedMessageToConnectedPort(signal);
 	}
 
-	virtual void specialRecive(EventPtr signal)
+	virtual void reciveAny(EventPtr signal)
 	{
 		if (Port <RequiredInf, ProvidedInf>::connectionToInnerPort != nullptr)
 		{
-			Port <RequiredInf, ProvidedInf>::connectionToInnerPort->recive(signal);
+			Port <RequiredInf, ProvidedInf>::connectionToInnerPort->reciveAny(signal);
 		}
 	}
 

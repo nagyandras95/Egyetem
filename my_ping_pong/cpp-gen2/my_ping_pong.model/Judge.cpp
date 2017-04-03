@@ -61,7 +61,7 @@ void Judge::Initialize(EventBaseCRef) {
 #ifndef NDEBUG
 	std::cout << "Judge::Initialize" << std::endl;
 #endif
-	//StarterPort->send(std::shared_ptr<StartPlaying_EC>(new StartPlaying_EC()));
+	StarterPort->send(std::shared_ptr<StartPlaying_EC>(new StartPlaying_EC()));
 	setState (Working_ST);
 
 }

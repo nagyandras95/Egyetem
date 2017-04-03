@@ -38,8 +38,8 @@ struct Player: public StateMachineBase, public IStateMachine {
 		PingPongPort_PE = 2, StarterPort_PE = 3
 	};
 
-	BehaviorPort<PingPongInf, PingPongInf> * PingPongPort;
-	BehaviorPort<EmptyInf, StartInf> * StarterPort;
+	BehaviorPort<PingPongInf,PingPongInf> * PingPongPort;
+	BehaviorPort<EmptyInf,StartInf> * StarterPort;
 protected:
 	typedef std::function<void(Player&, EventBaseCRef)> ActionFuncType;
 	typedef std::function<bool(Player&, EventBaseCRef)> GuardFuncType;

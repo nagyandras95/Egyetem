@@ -1,9 +1,8 @@
 #include <iostream>
 #include "deployment.hpp"
 #include "init_maps.hpp"
-#include "PingPongMatch.hpp"
-//#include "Class1.hpp"
-//#include "Class2.hpp"
+#include "Table.hpp"
+#include "event.hpp"
 
 int main()
 {
@@ -12,7 +11,8 @@ int main()
   StateMachine::initTransitionTables();
   rt->startRT();
 
-  PingPongMatch match;
+  Table table;
+  table.StarterPort->recive(std::shared_ptr<StartPlaying_EC>(new StartPlaying_EC()));
   std::cout << "The files are successfully compiled!\nYou can now modify the main.cpp" << std::endl;
   std::cin.get();
   return 0;
