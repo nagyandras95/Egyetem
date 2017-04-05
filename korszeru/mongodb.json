@@ -1,0 +1,25 @@
+db.tweets.count()
+db.tweets.find({"lang":"en"}).count()
+db.tweets.find({$or:[{"lang":"en"}, {"lang":"hu"}]}).count()
+db.tweets.findOne({"lang":"hu"})
+
+
+db.tweets.aggregate({$limit:2})
+db.tweets.aggregate({$limit:2})
+db.tweets.aggregate([{$match:{"lang":"hu"}},{$limit:2}])
+
+//HF
+
+//1
+db.tweets.aggregate([{$group:{ _id:null, maxFriends: { $max: "$user.friends_count"}, minFriends: {$min: "$user.friends_count"} }}])
+
+//2
+db.tweets.aggregate([ {$group:{ _id:"$lang" , count: { $sum: 1 }  }}, {$sort : {'count' : -1 } } ])
+
+//3
+ db.tweets.aggregate([ {$group:{ _id:"$user" , n_of_comment: { $sum: 1 }  }} ,  {$match : { n_of_comment : {$gt: 1} } } ])
+
+
+//4
+db.tweets.aggregate( [  { $unwind : "$entities.hashtags" }, {$group:{ _id:"$entities.hashtags" , count: { $sum: 1 }  }}, {$sort : {'count' : -1 } }, {$limit:10} ] )
+

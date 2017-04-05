@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="C21E2AD4-E297-3CBB-D400-C9FA47C0AEEF">
-<createdBy>mozsi</createdBy>
-<createdTime>2016-11-26 17:27:45 UTC</createdTime>
-<ownerDesignName>cramhead_final_after_inserting_data</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>

@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="4E6BC8E9-0130-CEEA-2B2B-A1963521570E">
-<createdBy>mozsi</createdBy>
-<createdTime>2016-11-01 14:24:31 UTC</createdTime>
-<ownerDesignName>cramhead_logical</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</BusinessInfoDesign>
