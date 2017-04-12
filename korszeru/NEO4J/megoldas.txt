@@ -1,0 +1,28 @@
+
+MATCH (u1:User)-[:KNOWS]->(u2:User), (u2)-[:KNOWS]->(u3:User), (u3)-[:KNOWS]->(u2)
+WHERE u1.twid = 'jeffgortatowsky'
+RETURN u2,u3
+
+match (u:User)
+return count(u)
+436
+
+MATCH (:User)-[k:KNOWS]->(:User)
+RETURN  count(k)
+699
+
+start n=node(*)
+WITH n,length(n-->()) as outdegree
+return n, outdegree
+
+Category(2)
+Tag(151)
+Tweet(1024)
+Url(407)
+User(436)
+
+start n=node(*)
+WITH n,size(n<--()) as indegree
+return n, indegree
+
+
