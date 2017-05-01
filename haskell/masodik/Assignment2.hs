@@ -156,11 +156,56 @@ mergeSort xs     = merge (mergeSort ys1) (mergeSort ys2)
 
 -- Konkurens változat.
 mergeSortC :: Ord a => [a] -> IO [a]
-mergeSortC = undefined
+mergeSortC []     = return []
+mergeSortC xs@[_] = return xs
+mergeSortC xs     = do
+ mvar1 <- newEmptyMVar
+ mvar2 <- newEmptyMVar
+ forkIO $ mergeSortC ys1 >>= putMVar mvar1
+ forkIO $ mergeSortC ys2 >>= putMVar mvar2
+ l1 <- takeMVar mvar1
+ l2 <- takeMVar mvar2
+ return (merge l1 l2) 
+  where
+    (ys1, ys2) = split xs
 
+    -- A paraméterül kapott lista felbontása két részlistára.
+    split []       = ([], [])
+    split [x]      = ([x], [])
+    split (x:y:xs) = (x:xs1, y:xs2)
+      where (xs1, xs2) = split xs
+
+    -- Két lista rendezett összefésülése.
+    merge [] ys = ys
+    merge xs [] = xs
+    merge as@(x:xs) bs@(y:ys)
+      | x < y     = x : merge xs bs
+      | otherwise = y : merge as ys
+
+
+
+ -- Két lista rendezett összefésülése.
+merge [] ys = ys
+merge xs [] = xs
+merge as@(x:xs) bs@(y:ys)
+  | x < y     = x : merge xs bs
+  | otherwise = y : merge as ys
+  
 -- Párhuzamos változat.
 mergeSortP :: (NFData a, Ord a) => [a] -> [a]
-mergeSortP = undefined
+mergeSortP xs = runEval $ do 
+  sleft <- rpar $ mergeSortP left
+  sright <- rseq $ mergeSortP right
+  return (merge sleft sright) 
+    where
+     (left,right) = split xs
+       where
+        -- A paraméterül kapott lista felbontása két részlistára.
+        split []       = ([], [])
+        split [x]      = ([x], [])
+        split (x:y:xs) = (x:xs1, y:xs2)
+          where (xs1, xs2) = split xs
+         
 
 -- Prímek keresése, szekvenciális változat.
 primes :: Integer -> [Integer]
@@ -169,13 +214,66 @@ primes n = f [2..n]
     f []     = []
     f (p:xs) = p : f [ x | x <- xs, x `mod` p /= 0 ]
 
+splitEvery _ [] = []
+splitEvery n list = first : (splitEvery n rest)
+  where
+    (first,rest) = splitAt n list
+   
+  
 -- Konkurens változat.
 primesC :: Integer -> IO [Integer]
-primesC = undefined
+primesC n = f [2..n]
+  where
+    f []     = return []
+    f (p:xs) = do 
+     cList <- siftConcurent
+     evalated <- f cList
+     return (p : evalated)
+      where 
+       siftConcurent = do 
+         if (length xs) <= 100 
+           then return [ x | x <- xs, x `mod` p /= 0 ]
+           else concurrentProcess xs p
+            where
+             concurrentProcess :: [Integer] -> Integer -> IO [Integer]
+             concurrentProcess [] _ = return []
+             concurrentProcess l@(x:xs) p = do
+              vars <-  mapM (\piace -> atomically $ newTVar piace) splitedList
+              forM_ (vars) $ \(v) ->
+                 forkIO $ atomically $ (processList v p)
+              filtred <- forM (vars) $ \(v) -> atomically (readTVar v)
+              return (concat filtred)
+               where
+                splitedList = splitEvery 100 l
+                
+                processList ::  TVar [Integer] -> Integer -> STM ()
+                processList var p = do
+                  peace <- readTVar var
+                  writeTVar var ([ x | x <- peace, x `mod` p /= 0 ])
+
 
 -- Párhuzamos változat.
 primesP :: Integer -> [Integer]
-primesP = undefined
+primesP n = f [2..n]
+  where
+    f []     = []
+    f (p:xs) = p : f (paralellProcess xs p)
+     where
+      paralellProcess :: [Integer] -> Integer -> [Integer]
+      paralellProcess [] _ = []
+      paralellProcess l@(x:xs) p = runPar $ do
+       chs <-  mapM (\piace -> new) splitedList
+       forM_ (chs) $ \(ch) ->
+          fork $ (processListP ch p)
+       filtred <- forM (chs) $ (\ch -> get ch)
+       return (concat filtred)
+        where
+         splitedList = splitEvery 100 l
+   
+         processListP ::  IVar [Integer] -> Integer -> Par ()
+         processListP ch p = do
+           peace <- get ch
+           put ch ([ x | x <- peace, x `mod` p /= 0 ])
 
 --
 -- Tesztek
