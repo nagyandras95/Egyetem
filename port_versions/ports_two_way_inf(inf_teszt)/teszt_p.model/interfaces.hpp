@@ -4,7 +4,7 @@
 #include "event.hpp"
 #include <iostream>
 template <typename SendInf, typename ReciveInf>
-class IntgratedInf
+class IntegratedInf
 {
 public:
 	using RequiredInfType = SendInf;
@@ -24,7 +24,9 @@ class EmptyProvInf {
 protected:
 	virtual void reciveAny(ES::EventRef s) = 0;
 };
-using EmptyInf = IntgratedInf<EmptyReqInf, EmptyProvInf>;
+
+using EmptyInf = IntegratedInf<EmptyReqInf, EmptyProvInf>;
+
 
 class Inf1ReqInf
 {
@@ -45,7 +47,7 @@ protected:
 	virtual void reciveAny(ES::EventRef s) = 0;
 };
 
-using Inf1 = IntgratedInf<Inf1ReqInf, Inf1ProvInf>;
+using Inf1 = IntegratedInf<Inf1ReqInf, Inf1ProvInf>;
 
 
 class Inf2ReqInf
@@ -67,6 +69,6 @@ protected:
 };
 
 
-using Inf2 = IntgratedInf<Inf2ReqInf, Inf2ProvInf>;
+using Inf2 = IntegratedInf<Inf2ReqInf, Inf2ProvInf>;
 
 #endif

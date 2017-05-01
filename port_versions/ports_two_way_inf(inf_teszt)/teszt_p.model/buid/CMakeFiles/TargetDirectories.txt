@@ -1,0 +1,4 @@
+/home/nagy/git/Egyetem/port_versions/ports_two_way_inf(inf_teszt)/teszt_p.model/buid/CMakeFiles/rebuild_cache.dir
+/home/nagy/git/Egyetem/port_versions/ports_two_way_inf(inf_teszt)/teszt_p.model/buid/CMakeFiles/edit_cache.dir
+/home/nagy/git/Egyetem/port_versions/ports_two_way_inf(inf_teszt)/teszt_p.model/buid/CMakeFiles/main.dir
+/home/nagy/git/Egyetem/port_versions/ports_two_way_inf(inf_teszt)/teszt_p.model/buid/CMakeFiles/libsmrt.dir

@@ -30,10 +30,10 @@ template <typename RequiredInf, typename ProvidedInf>
 class IPort : public RequiredInf::RequiredInfType , public ProvidedInf::ProvidedInfType
 {
 public:
-	template <typename RequiredInf, typename ProvidedInf>
+	template <typename RequiredInf1, typename ProvidedInf1>
 	friend class PortImpl;
 
-	template <typename RequiredInf, typename ProvidedInf>
+	template <typename RequiredInf1, typename ProvidedInf1>
 	friend struct AssemblyConnection;
 
 	void setAssemblyConnectedPort (IPort<ProvidedInf,RequiredInf> * connectedPort_);
@@ -133,7 +133,7 @@ class BehavionPortImpl : public BehaviorPort <RequiredInf, ProvidedInf>
 
         virtual void reciveAny (ES::EventRef signal)
         {
-			EventBase* realEvent = static_cast<EventBase*>(signal.get());
+			Model::EventBase* realEvent = static_cast<Model::EventBase*>(signal.get());
 			realEvent->p = BehaviorPort <RequiredInf, ProvidedInf>::type;
 			BehaviorPort <RequiredInf, ProvidedInf>::owner->send(signal);
         }
