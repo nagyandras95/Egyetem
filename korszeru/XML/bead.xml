@@ -13,15 +13,11 @@ XSLT
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
-  <html>
-  <body>
       <xsl:for-each select="bookstore/book">
          <xsl:if test= "year &gt; 2003 and @category='CHILDREN'">
-            <p><xsl:value-of select="price" /></p>
+            <xsl:value-of select="price" />
          </xsl:if>
       </xsl:for-each>
-  </body>
-  </html>
 </xsl:template>
 </xsl:stylesheet>
 
@@ -38,8 +34,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <book>
     <xsl:value-of select="position()" />. 
     <xsl:value-of select="title" /> - authors: 
-      <xsl:for-each select="author">
-        <book><xsl:value-of select="." /></book> 
+      <xsl:for-each select="author"> 
+        <xsl:value-of select="." />.
       </xsl:for-each>
      price: $<xsl:value-of select="price" />
     </book>
@@ -60,7 +56,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:for-each select="bookstore/book">
         <xsl:sort select="year"/>
         <li> <xsl:for-each select="author">
-              <book><xsl:value-of select="." /></book> 
+              <book><xsl:value-of select="." />,</book> 
             </xsl:for-each> :
             <xsl:value-of select="title" />
             (<xsl:value-of select="year" />), 
