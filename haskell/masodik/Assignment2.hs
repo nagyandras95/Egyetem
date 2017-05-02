@@ -158,28 +158,49 @@ mergeSort xs     = merge (mergeSort ys1) (mergeSort ys2)
       | x < y     = x : merge xs bs
       | otherwise = y : merge as ys
 
+
 -- Konkurens változat.
+seqMergeSort [] = []
+seqMergeSort xs@[_] = xs
+seqMergeSort ys = merge (seqMergeSort sys1) (seqMergeSort sys2)
+  where
+   (sys1,sys2) = split ys
+   split []       = ([], [])
+   split [x]      = ([x], [])
+   split (x:y:xs) = (x:xs1, y:xs2)
+     where (xs1, xs2) = split xs
+
+   merge [] ys = ys
+   merge xs [] = xs
+   merge as@(x:xs) bs@(y:ys)
+    | x < y     = x : merge xs bs
+    | otherwise = y : merge as ys
+
 mergeSortC :: Ord a => [a] -> IO [a]
-mergeSortC []     = return []
-mergeSortC xs@[_] = return xs
-mergeSortC xs     = do
+mergeSortC l = mergeSortCLim l 0 (length l)
+
+mergeSortCLim [] _ _    = return []
+mergeSortCLim xs@[_] _ _ = return xs
+mergeSortCLim xs 1 _ = return (seqMergeSort xs)
+mergeSortCLim xs _ n
+ | n < 500 = return xs
+ | otherwise = return (seqMergeSort xs)
+mergeSortCLim xs n e   = do
  mvar1 <- newEmptyMVar
  mvar2 <- newEmptyMVar
- forkIO $ mergeSortC ys1 >>= putMVar mvar1
- forkIO $ mergeSortC ys2 >>= putMVar mvar2
+ forkIO $ mergeSortCLim ys1 (n + 1) (div e 2) >>= putMVar mvar1
+ forkIO $ mergeSortCLim ys2 (n + 1) (div e 2)  >>= putMVar mvar2
  l1 <- takeMVar mvar1
  l2 <- takeMVar mvar2
  return (merge l1 l2) 
   where
     (ys1, ys2) = split xs
 
-    -- A paraméterül kapott lista felbontása két részlistára.
     split []       = ([], [])
     split [x]      = ([x], [])
     split (x:y:xs) = (x:xs1, y:xs2)
       where (xs1, xs2) = split xs
 
-    -- Két lista rendezett összefésülése.
     merge [] ys = ys
     merge xs [] = xs
     merge as@(x:xs) bs@(y:ys)
@@ -188,12 +209,7 @@ mergeSortC xs     = do
 
 
 
- -- Két lista rendezett összefésülése.
-merge [] ys = ys
-merge xs [] = xs
-merge as@(x:xs) bs@(y:ys)
-  | x < y     = x : merge xs bs
-  | otherwise = y : merge as ys
+
   
 -- Párhuzamos változat.
 mergeSortP :: (NFData a, Ord a) => [a] -> [a]
@@ -211,6 +227,12 @@ mergeSortP xs = runEval $ do
         split [x]      = ([x], [])
         split (x:y:xs) = (x:xs1, y:xs2)
           where (xs1, xs2) = split xs
+
+     merge [] ys = ys
+     merge xs [] = xs
+     merge as@(x:xs) bs@(y:ys)
+      | x < y     = x : merge xs bs
+      | otherwise = y : merge as ys
          
 
 -- Prímek keresése, szekvenciális változat.
@@ -218,7 +240,7 @@ primes :: Integer -> [Integer]
 primes n = f [2..n]
   where
     f []     = []
-    f (p:xs) = p : f [ x | x <- xs, x `mod` p /= 0 ]
+    f (p:xs) = p : f [ x | x <- xs, x `mod` p /= 0]
 
 splitEvery _ [] = []
 splitEvery n list = first : (splitEvery n rest)
@@ -231,9 +253,40 @@ newTChanPair ::  [Integer] -> IO (TChan [Integer],[Integer])
 newTChanPair piace = do
  ch <- newTChanIO
  return (ch,piace)
- 
+
 primesC :: Integer -> IO [Integer]
-primesC n = f [2..n]
+primesC n
+ | n <= 1 = return []
+ | otherwise = do
+   left <- (f (splitEvery 500 [3,5..n]))
+   return (2:(concat left)) 
+  where
+    f []     = return []
+    f ([]:xs) = f xs
+    f ((p:ps):xs) = do 
+     cList <- concurrentProcess (ps:xs) p
+     evalated <- f cList
+     return ([p] : evalated)
+      where 
+       concurrentProcess :: [[Integer]] -> Integer -> IO [[Integer]]
+       concurrentProcess [] _ = return []
+       concurrentProcess l@(x:xs) p = do
+        vars <-  mapM (\piace -> newTChanPair piace) l
+        forM_ (vars) $ \(v) ->
+           forkIO $ atomically $ (processList (fst v) (snd v) p)
+        filtred <- forM (vars) $ \(v) -> atomically (readTChan (fst v))
+        return (filtred)
+         where        
+          processList ::  TChan [Integer] -> [Integer] -> Integer -> STM ()
+          processList var peace p = do
+            writeTChan var ([ x | x <- peace, x `mod` p /= 0])
+ 
+primesC' :: Integer -> IO [Integer]
+primesC' n
+ | n <= 1 = return []
+ | otherwise = do
+   left <- f [3,5..n]
+   return (2:left) 
   where
     f []     = return []
     f (p:xs) = do 
@@ -254,15 +307,42 @@ primesC n = f [2..n]
           
           processList ::  TChan [Integer] -> [Integer] -> Integer -> STM ()
           processList var peace p = do
-            writeTChan var ([ x | x <- peace, x `mod` p /= 0 ])
+            writeTChan var ([ x | x <- peace, x `mod` p /= 0])
 
 newIVarPair ::  [Integer] -> Par (IVar [Integer],[Integer])
 newIVarPair piace = do
  v <- new
  return (v,piace) 
 -- Párhuzamos változat.
+
 primesP :: Integer -> [Integer]
-primesP n = f [2..n]
+primesP n
+ | n > 1 = (2 : concat (f (splitEvery 200 [3,5..n] )))
+ | otherwise = []
+  where
+    f []     = []
+    f ([]:xs) = f xs
+    f ((p:ps):xs) = [p] : f (paralellProcess (ps:xs) p)
+     where
+      paralellProcess :: [[Integer]] -> Integer -> [[Integer]]
+      paralellProcess [] _ = []
+      paralellProcess l@(x:xs) p = runPar $ do
+       chs <-  mapM (\piace -> newIVarPair piace) l
+       forM_ (chs) $ \(chP) ->
+          fork $ (processListP (fst chP) (snd chP) p)
+       filtred <- forM (chs) $ (\chP -> get (fst chP))
+       return (filtred)
+        where
+   
+         processListP ::  IVar [Integer] -> [Integer] -> Integer -> Par ()
+         processListP ch piace p = do
+           put ch ([ x | x <- piace, x `mod` p /= 0])
+
+
+primesP' :: Integer -> [Integer]
+primesP' n
+ | n > 1 = (2 : f [3,5..n])
+ | otherwise = []
   where
     f []     = []
     f (p:xs) = p : f (paralellProcess xs p)
@@ -276,11 +356,11 @@ primesP n = f [2..n]
        filtred <- forM (chs) $ (\chP -> get (fst chP))
        return (concat filtred)
         where
-         splitedList = splitEvery 1000 l
+         splitedList = splitEvery 200 l
    
          processListP ::  IVar [Integer] -> [Integer] -> Integer -> Par ()
          processListP ch piace p = do
-           put ch ([ x | x <- piace, x `mod` p /= 0 ])
+           put ch ([ x | x <- piace, x `mod` p /= 0])
 
 --
 -- Tesztek
@@ -311,15 +391,15 @@ compete s (f1, f2, f3) ts = do
       print t1
       putStr " - concurrent: "
       r2@(xs2,t2) <- measure $ do
-        force <$> f2 t
+        x <- f2 t
+        evaluate $ force x
       print t2
       putStr " - parallel: "
       r3@(xs3,t3) <- measure $ do
         evaluate $ force $ f3 t
       print t3
       when (not $ identical [xs1,xs2,xs3]) $
-        putStrLn ("Warning: The results are not the same." ++ " First length: " ++ show (length xs1)
-       ++ " Second length: " ++ show (length xs2) ++ " Third length: " ++ show (length xs3))
+        putStrLn "Warning: The results are not the same."
       return (r1, r2, r3)
     let (is,es) = unzip [ (identical [v1,v2,v3], t2 < t1 && t3 < t1)
                         | ((v1,t1),(v2,t2),(v3,t3)) <- rs
