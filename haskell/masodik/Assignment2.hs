@@ -160,39 +160,41 @@ mergeSort xs     = merge (mergeSort ys1) (mergeSort ys2)
 
 
 -- Konkurens változat.
-seqMergeSort [] = []
-seqMergeSort xs@[_] = xs
-seqMergeSort ys = merge (seqMergeSort sys1) (seqMergeSort sys2)
-  where
-   (sys1,sys2) = split ys
-   split []       = ([], [])
-   split [x]      = ([x], [])
-   split (x:y:xs) = (x:xs1, y:xs2)
-     where (xs1, xs2) = split xs
 
-   merge [] ys = ys
-   merge xs [] = xs
-   merge as@(x:xs) bs@(y:ys)
-    | x < y     = x : merge xs bs
-    | otherwise = y : merge as ys
+fsthalf :: [a] -> [a]
+fsthalf xs = take (length xs `div` 2) xs
+
+sndhalf :: [a] -> [a]
+sndhalf xs = drop (length xs `div` 2) xs
+
+merge :: Ord a => [a] -> [a] -> [a]
+merge xs [] = xs
+merge [] ys = ys
+merge (x:xs) (y:ys) 
+ | (x <= y)  = x:(merge xs (y:ys)) 
+ | otherwise = y:(merge (x:xs) ys)
+ 
+
+seqMergeSort [] =  return []
+seqMergeSort xs@[_] = return xs
+seqMergeSort xs = do 
+ l1 <- seqMergeSort (fsthalf xs)
+ l2 <- seqMergeSort (sndhalf xs)
+ return (merge l1 l2)
+
+newMVarPair ::  [a] -> IO (MVar [a],[a])
+newMVarPair piace = do
+ v <- newEmptyMVar
+ return (v,piace)
 
 mergeSortC :: Ord a => [a] -> IO [a]
-mergeSortC l = mergeSortCLim l 0 (length l)
-
-mergeSortCLim [] _ _    = return []
-mergeSortCLim xs@[_] _ _ = return xs
-mergeSortCLim xs 1 _ = return (seqMergeSort xs)
-mergeSortCLim xs _ n
- | n < 500 = return xs
- | otherwise = return (seqMergeSort xs)
-mergeSortCLim xs n e   = do
- mvar1 <- newEmptyMVar
- mvar2 <- newEmptyMVar
- forkIO $ mergeSortCLim ys1 (n + 1) (div e 2) >>= putMVar mvar1
- forkIO $ mergeSortCLim ys2 (n + 1) (div e 2)  >>= putMVar mvar2
- l1 <- takeMVar mvar1
- l2 <- takeMVar mvar2
- return (merge l1 l2) 
+mergeSortC [] = return []
+mergeSortC xs@[_] = return xs
+mergeSortC xs  = do
+ mvars <-  mapM (\piace -> newMVarPair piace) (splitEvery 3500 xs)
+ forM_ (mvars) $ \(v) -> forkIO $ seqMergeSort (snd v)  >>= putMVar (fst v)
+ sortedLists  <- forM (mvars) $ \v -> takeMVar (fst v)
+ return (foldr merge [] sortedLists)
   where
     (ys1, ys2) = split xs
 
@@ -206,10 +208,6 @@ mergeSortCLim xs n e   = do
     merge as@(x:xs) bs@(y:ys)
       | x < y     = x : merge xs bs
       | otherwise = y : merge as ys
-
-
-
-
   
 -- Párhuzamos változat.
 mergeSortP :: (NFData a, Ord a) => [a] -> [a]
@@ -246,7 +244,8 @@ splitEvery _ [] = []
 splitEvery n list = first : (splitEvery n rest)
   where
     (first,rest) = splitAt n list
-   
+
+isPrime x = null $ filter (\y ->  x `mod` y == 0) $ takeWhile (\y ->  y*y <= x) [2..]  
   
 -- Konkurens változat.
 newTChanPair ::  [Integer] -> IO (TChan [Integer],[Integer])
@@ -261,53 +260,21 @@ primesC n
    left <- (f (splitEvery 500 [3,5..n]))
    return (2:(concat left)) 
   where
-    f []     = return []
-    f ([]:xs) = f xs
-    f ((p:ps):xs) = do 
-     cList <- concurrentProcess (ps:xs) p
-     evalated <- f cList
-     return ([p] : evalated)
+    f xs = do 
+     cList <- concurrentProcess (xs)
+     return (cList)
       where 
-       concurrentProcess :: [[Integer]] -> Integer -> IO [[Integer]]
-       concurrentProcess [] _ = return []
-       concurrentProcess l@(x:xs) p = do
-        vars <-  mapM (\piace -> newTChanPair piace) l
+       concurrentProcess :: [[Integer]] -> IO [[Integer]]
+       concurrentProcess lists = do
+        vars <-  mapM (\piace -> newTChanPair piace) lists
         forM_ (vars) $ \(v) ->
-           forkIO $ atomically $ (processList (fst v) (snd v) p)
+           forkIO $ atomically $ (processList (fst v) (snd v))
         filtred <- forM (vars) $ \(v) -> atomically (readTChan (fst v))
         return (filtred)
          where        
-          processList ::  TChan [Integer] -> [Integer] -> Integer -> STM ()
-          processList var peace p = do
-            writeTChan var ([ x | x <- peace, x `mod` p /= 0])
- 
-primesC' :: Integer -> IO [Integer]
-primesC' n
- | n <= 1 = return []
- | otherwise = do
-   left <- f [3,5..n]
-   return (2:left) 
-  where
-    f []     = return []
-    f (p:xs) = do 
-     cList <- concurrentProcess xs p
-     evalated <- f cList
-     return (p : evalated)
-      where 
-       concurrentProcess :: [Integer] -> Integer -> IO [Integer]
-       concurrentProcess [] _ = return []
-       concurrentProcess l@(x:xs) p = do
-        vars <-  mapM (\piace -> newTChanPair piace) splitedList
-        forM_ (vars) $ \(v) ->
-           forkIO $ atomically $ (processList (fst v) (snd v) p)
-        filtred <- forM (vars) $ \(v) -> atomically (readTChan (fst v))
-        return (concat filtred)
-         where
-          splitedList = splitEvery 500 l
-          
-          processList ::  TChan [Integer] -> [Integer] -> Integer -> STM ()
-          processList var peace p = do
-            writeTChan var ([ x | x <- peace, x `mod` p /= 0])
+          processList ::  TChan [Integer] -> [Integer] -> STM ()
+          processList var peace = do
+            writeTChan var ([ x | x <- peace, isPrime x])
 
 newIVarPair ::  [Integer] -> Par (IVar [Integer],[Integer])
 newIVarPair piace = do
@@ -317,50 +284,22 @@ newIVarPair piace = do
 
 primesP :: Integer -> [Integer]
 primesP n
- | n > 1 = (2 : concat (f (splitEvery 200 [3,5..n] )))
+ | n > 1 = (2 : concat (paralellProcess (splitEvery 500 [3,5..n])))
  | otherwise = []
-  where
-    f []     = []
-    f ([]:xs) = f xs
-    f ((p:ps):xs) = [p] : f (paralellProcess (ps:xs) p)
-     where
-      paralellProcess :: [[Integer]] -> Integer -> [[Integer]]
-      paralellProcess [] _ = []
-      paralellProcess l@(x:xs) p = runPar $ do
+    where
+      paralellProcess :: [[Integer]] -> [[Integer]]
+      paralellProcess [] = []
+      paralellProcess l@(x:xs) = runPar $ do
        chs <-  mapM (\piace -> newIVarPair piace) l
        forM_ (chs) $ \(chP) ->
-          fork $ (processListP (fst chP) (snd chP) p)
+          fork $ (processListP (fst chP) (snd chP))
        filtred <- forM (chs) $ (\chP -> get (fst chP))
        return (filtred)
         where
    
-         processListP ::  IVar [Integer] -> [Integer] -> Integer -> Par ()
-         processListP ch piace p = do
-           put ch ([ x | x <- piace, x `mod` p /= 0])
-
-
-primesP' :: Integer -> [Integer]
-primesP' n
- | n > 1 = (2 : f [3,5..n])
- | otherwise = []
-  where
-    f []     = []
-    f (p:xs) = p : f (paralellProcess xs p)
-     where
-      paralellProcess :: [Integer] -> Integer -> [Integer]
-      paralellProcess [] _ = []
-      paralellProcess l@(x:xs) p = runPar $ do
-       chs <-  mapM (\piace -> newIVarPair piace) splitedList
-       forM_ (chs) $ \(chP) ->
-          fork $ (processListP (fst chP) (snd chP) p)
-       filtred <- forM (chs) $ (\chP -> get (fst chP))
-       return (concat filtred)
-        where
-         splitedList = splitEvery 200 l
-   
-         processListP ::  IVar [Integer] -> [Integer] -> Integer -> Par ()
-         processListP ch piace p = do
-           put ch ([ x | x <- piace, x `mod` p /= 0])
+         processListP ::  IVar [Integer] -> [Integer] -> Par ()
+         processListP ch piace = do
+           put ch ([ x | x <- piace, isPrime x])
 
 --
 -- Tesztek
