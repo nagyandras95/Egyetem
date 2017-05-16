@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -25,9 +25,9 @@ public class TestProcessor {
 	private String fileName;
 	private Integer max;
 	private Integer initValue;
-	List<Number> log;
+	List<Integer> log;
 
-	public TestProcessor(String fileName, Integer max, Integer initValue, List<Number> log) {
+	public TestProcessor(String fileName, Integer max, Integer initValue, List<Integer> log) {
 		this.fileName = fileName;
 		this.max = max;
 		this.initValue = initValue;
@@ -50,7 +50,7 @@ public class TestProcessor {
 			theDir.mkdir();
 		}
 		theDir.setReadable(true);
-		List<Number> result = Collections.emptyList();
+		List<Number> result = new ArrayList<>();
 		FileProcessor<Integer,ArithOperator> fileProcessor = new FileProcessor<Integer,ArithOperator>(max,result);
 		fileProcessor.processDir(initValue, TEST_DIR, ArithOperator.DEF);
 		

@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import fileprocessor.parser.Parseable;
 
@@ -53,7 +54,7 @@ public class FileProcessor<T extends Comparable<T>, Parser extends Parseable<T>>
 		keepProcessing.set(true);
 		Thread thread = new Thread(this);
 		threads.add(thread);
-		thread.run();
+		thread.start();
 	}
 
 	@Override
@@ -64,21 +65,19 @@ public class FileProcessor<T extends Comparable<T>, Parser extends Parseable<T>>
 			try {
 				WatchKey key;
 				key = ws.poll(20, TimeUnit.MILLISECONDS);
-				Thread.sleep(10);
-				prevValue = initValue;
-				List<String> lines = Files.lines(path).collect(Collectors.toList());
-				for (String line :  lines) {
-					Function<T,T> function = parseLine(line);
-					T result = function.apply(prevValue);
-					if (result.compareTo(max) > 0) {
-						max = prevValue;
-						log.add(max);
-						System.out.println(max);
-					}
-					prevValue = result;
+				
+				if (key == null) {
+					continue;
 				}
-				//Files.lines(path).map(s -> parseLine(s)).reduce(x -> x, (f, g) -> composeFunctions(f, g));
-
+				
+				Thread.sleep(10);
+				for (WatchEvent<?> evt : key.pollEvents()) {
+					
+					Stream<String> lines = Files.lines(path.resolve((Path)evt.context()));
+					prevValue = initValue;
+					lines.map(s -> parseLine(s)).reduce(x -> x, (f, g) -> composeFunctions(f, g));
+					lines.close();
+				}
 				key.reset();
 
 			
@@ -93,7 +92,7 @@ public class FileProcessor<T extends Comparable<T>, Parser extends Parseable<T>>
 
 		keepProcessing.set(false);
 		for (Thread thread : threads) {
-			thread.wait();			
+			thread.join();			
 		}
 	}
 
@@ -109,16 +108,15 @@ public class FileProcessor<T extends Comparable<T>, Parser extends Parseable<T>>
 	}
 
 	private Function<T, T> composeFunctions(Function<T, T> f, Function<T, T> g) {
-		Function<T, T> composite = f.compose(g);
-		T result = composite.apply(prevValue);
+		T result = g.apply(prevValue);
 		if (result.compareTo(max) > 0) {
-			max = prevValue;
+			max = result;
 			log.add(max);
 			System.out.println(max);
 		}
 
 		prevValue = result;
 
-		return composite;
+		return g;
 	}
 }
