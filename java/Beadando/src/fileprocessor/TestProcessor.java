@@ -25,9 +25,9 @@ public class TestProcessor {
 	private String fileName;
 	private Integer max;
 	private Integer initValue;
-	List<Integer> log;
+	List<Number> log;
 
-	public TestProcessor(String fileName, Integer max, Integer initValue, List<Integer> log) {
+	public TestProcessor(String fileName, Integer max, Integer initValue, List<Number> log) {
 		this.fileName = fileName;
 		this.max = max;
 		this.initValue = initValue;

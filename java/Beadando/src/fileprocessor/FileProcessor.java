@@ -15,7 +15,6 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import fileprocessor.parser.Parseable;
@@ -82,7 +81,7 @@ public class FileProcessor<T extends Comparable<T>, Parser extends Parseable<T>>
 
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		}
 
