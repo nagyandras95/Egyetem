@@ -47,8 +47,12 @@ protected:
 	virtual void reciveAny(ES::EventRef s) = 0;
 };
 
-using Inf1 = IntegratedInf<Inf1ReqInf, Inf1ProvInf>;
+#define INTEGRATED_DEF(InfName, InfReq, InfProv) using InfName = IntegratedInf<InfReq, InfProv>
 
+
+
+//using Inf1 = IntegratedInf<Inf1ReqInf, Inf1ProvInf>;
+INTEGRATED_DEF(Inf1, Inf1ReqInf, Inf1ProvInf);
 
 class Inf2ReqInf
 {
@@ -68,7 +72,5 @@ protected:
 	virtual void reciveAny(ES::EventRef s) = 0;
 };
 
-
-using Inf2 = IntegratedInf<Inf2ReqInf, Inf2ProvInf>;
-
+INTEGRATED_DEF(Inf2, Inf2ReqInf, Inf2ProvInf);
 #endif

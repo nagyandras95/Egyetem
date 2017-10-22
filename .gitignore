@@ -3,3 +3,4 @@ obj/
 build*/
 *.exe
 src-gen/
+cpp-gen/

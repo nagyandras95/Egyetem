@@ -11,7 +11,7 @@ A::A() {
 	initA();
 }
 void A::initA() {
-
+	A_Port = new PortImpl<Inf1, Inf2>();
 }
 A::~A() {
 }
