@@ -1,0 +1,28 @@
+Sender-Receiver Modell
+A modellben van két osztály, a Sender és a Receiver osztály. 
+A modell lényege az lesz, hogy a Sender üzenetet küld a Receivernek, mely feldolgozza azt valamilyen módón.
+
+A két osztály között húzunk egy asszociációt, ez lesz a SenderToReceiver melyet az 'association' kulcsszóval vezetünk be. 
+Az asszociáció belsejében a két végpont található. Esetünkben azt mondjuk meg, hogy egy Sender és egy Receiver között akarunk húzni asszociációt,
+sender és receiver szerepnevekkel. Egy Sender objektumhoz több receiver tartozhat. 
+A hidden kulcsszó azt mondja meg, hogy a Sender irányába nem navigálható az asszociáció, így a fogadó nem láthatja a küldõt.
+
+A modellben egy esemény található, melyet Signalnak neveztünk el, és van neki egy egész szám típusú, 'value' nevü adattgja. 
+Ha megadunk egy adattagot egy eseményhez, az automatikusan required adataggá válik, ami azt jelenti, hogy az esemény létrehozásakor adni kell neki egy kezdõértéket a konstrzktorban.
+
+Sender osztály: Nagyon hasonlít egy egyszerû Java osztályhoz, néhány speciális elem kivételével. Nincsen állapotgépe, mindössze egy darab 'emit' nevû metódusa,
+mely vár egy egész szám típusú paramétert, melyet majd továbbít a hozzákapcsolt fogadókhoz. Az elsõ mûvelet egy asszociáció navigáció, miszerünt
+az aktuális Sender objektumhoz kapcsolt fogadókat kérdezzük le a SenderToReceiver asszociáción keresztül. 
+Majd végig iterálunk a legkérdezett fogadókon, és elküldjük minden fogadóan a paraméterként kapott egész számot a 'Signal' eseménybe csomagolva.
+
+Receiver osztály: Ez már egy állapotgéppel rendelkezõ osztály. 
+Van két adatagja, a limit azt mondja meg, mekkora összeget képes fogadni, az accpeted meg az aktálisan fogadott összeget. 
+A limit nem fix adattag, hanem fogadóként változhat, így átadjuk a konstruktorában.
+A fogadónak három állapota van, egy inicializáló állapot, egy fogadóképes, és egy elutasító állapot.
+Az elsõ, 'Initialize' átmenet megmondja, honnan induljon az állapotgép, esetünkben a fogadóképes állapotból indítunk. Ennek hatására a fogadott összeget nullázuk.
+A második 'Accept' átmenet egy belsõ állapotátmenet a fogadóképes állapotra nézve, mely akkod fut le, ha egy 'Signal' eseményt fogadunk fogadóképes állapotban úgy, 
+hogy a fogadott összeg és a 'Signal'-ban lévõ érték összege nem haladja meg a limitet. Ekkor megnöveljük a fogadott összeget a 'Signal'
+-ban lévõ értékkel. A 'trigger' kulcszóval tudjuk az átmenet hatásában lekérdezni az aktuális eseményt.
+A harmadik, 'Reject' átmenet az elõzõvel szemben akkor hívódik meg, ha az elõzõ feltétel nem igaz, tehát, ha a fogadott összeg és a Signal-ban lévõ érték összege meghaladná a limitet.
+Mivel az elutasító állapotból nincsen átmenet, így ez egy végállapotnak tekinhetõ a fogadó részérõl, nem fog reagálni több szingál küldésére.
+

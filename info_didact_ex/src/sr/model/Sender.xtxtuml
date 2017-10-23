@@ -1,0 +1,13 @@
+package sr.model;
+
+import hu.elte.txtuml.api.model.Collection;
+
+class Sender {
+	
+	public void emit(int valueToSend) {
+		Collection<Receiver> receivers =  this->(SenderToReceiver.receiver);
+		for(Receiver receiver : receivers) {
+			send new Signal(valueToSend) to receiver;
+		}
+	}
+}

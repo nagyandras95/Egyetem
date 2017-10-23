@@ -1,0 +1,40 @@
+package sr.model;
+
+class Receiver {
+	
+	private int limit;
+	private int accepcted;
+	public Receiver(int limit) {
+		this.limit = limit;
+	}
+	
+	initial Init;
+	state Accepting;
+	state Rejecting;
+	
+	transition Initialize {
+		from Init;
+		to Accepting;
+		effect {
+			accepcted = 0;
+		}
+	}
+	
+	transition Accept {
+		from Accepting;
+		to Accepting;
+		trigger Signal;
+		effect {
+			limit += trigger.value;
+		}
+		guard (accepcted + trigger.value <= limit)
+	}
+	
+	transition Reject {
+		from Accepting;
+		to Rejecting;
+		trigger Signal;
+		guard (accepcted + trigger.value > limit)
+	}
+	
+}
