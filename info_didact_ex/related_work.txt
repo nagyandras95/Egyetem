@@ -1,30 +1,31 @@
 fUML - ALF
-A Foundateional UML (fUML) egy Object Managment Group végrehajtajó UML szabvány, 
-melyhez az ALF (Action Language for Foundational UML) szöveges akciónyelvi szinaxist definál.
+A Foundateional UML (fUML) egy Object Managment Group (OMG) által specifikált végrehajtajó UML szabvány, 
+melyhnek szöveges akciónyelvi szinaxistát az ALF (Action Language for Foundational UML) definálja.
 Az ALF az UML szabány egy részhalmazán alapszik, így egyes UML nyelvi elemeekhez, pl. az állapotgépekhez nem definál szinaxist.
 
 EMF - Moka
 Az Eclipse Modelling Framework rövídésbõl ered. 
-A modellezéshez használt elemek (osztályok, asszociáció, eseményt, stb) 
-Java osztályok segítségével vanank reprezentálva az UML2-es szabvány szerint, ezt nevezzük metamodellnek.
-Egy konkrét modellt XML formában lehet perzisztálni, egy ilyen fa struktúrájú fájl írja le magát a modellt.
-A XML séma leírható kézzel, de garfikus editorral is összerakható egy modell, melybõl generálható az XML fájl. 
+A modellezéshez használt elemek Java osztályok segítségével vanank reprezentálva az UML2-es szabvány szerint, ezt nevezzük metamodellnek.
+Egy konkrét modellt XMI formában lehet perzisztálni, egy ilyen fa struktúrájú fájl írja le magát a modellt.
+A XML séma leírható kézzel, de garfikus editorral is összerakható egy modell, melybõl generálható az XML fájl.
 A Moka egy EMF modellt animálni és végrehajtani képes eszközkészlet.
 XML fájlokat nehézkes írni, nehezen tanulható, a grafikus editor használata esetén már nem beszélhetünk szöveges szinaxisról.
 
 Umple
-Egy szöveges modellezõ eszközcsalád, melynek szintaxisa hasonlít a XtxtUML-hez.
+Egy szöveges modellezõ eszközcsalád, melynek filozófiája és szintaxisa hasonlít a mi nyelvünkhöz.
 Az elenvezése a 'Simple' és az 'Ample' szóösszetételbõl ered. 
 Azzal hírdeti magát, hogy az egyszerû nyelvezete miatt könnyen tanulható, 
-mivel az XtxtUML-hez hasonlóan a programozási nyelvekbõl megszokott szinaxissal operál.
+mivel a mi nyelvünkhöz hasonlóan a C típusú programozási nyelvekbõl megszokott szinaxissal operál.
 A leírt modell tetszõlegesen intergálható Java-ra, PHP-ra, C++-ra vagy Ruby projectekhez, valamint diagramm generálható a modellbõl.
-A mi nyelvünkkel szemben, a diagramm elrendezésbe nem tudunk beleszólni, valamint az Umple próbálja UML absztakciós szinttel segíteni az egyes programozási nyelven írt projecteket, 
+A mi nyelvünkkel szemben, a diagramm elrendezéshez nem specifikál saját nyelvet, valamint az Umple próbálja UML absztakciós szinttel segíteni az egyes programozási nyelven írt projecteket, 
 de nem hajtható végre vagy debuggolható közvetlen a modell, így a szöveges modell helyessége csak modell fordítás és projecktbe való integrálás után derül ki. 
 
-Plant Text
-Szöveges modellezõ eszköz, mely arra lett kitalálva, hogy különbözõ típusú diagrammokat generálhassunk a szöveges modell alapján.
-Az Umple-vel ellentétben, a szintaxis a hagyományosabb UML jelöléseket veszi alapul.
-A szöveges modell nem végrehajtható, és nem is fordítható.
-Amiben viszont megegyeznek, hogy nem szólhatunk bele az elrendezésbe, a diagramm teljesen autmatikusan generálódik.
+Plant UML 
+A PlantText(https://www.planttext.com/) modellezõ eszközhöz definált szöveges szinaxis. 
+Az eszköz célja, hogy UML diagrammokat generálhassunk a szöveges modell alapján.
+A PlantUML az - Umple-vel és a mi nyelvünkkel ellentétben- hagyományosabb UML jelöléseket veszi alapul, ennek ellenére intitívan tanulható, és
+a C típusú nyelvekben járatlan programozók számára is kézre állhat. Kezdõ modellezõk számára azonban szokatlan lehet a PlantUML szintaxisa.
+Dokumentációs, illetve illusztrációs célekból készült modell esetén kíváló eszköz, 
+azonban szöveges modell nem végrehajtható, a diagramok automatikus elrendezés szerint generálódnak, nem fordítható, így nem integrálható programozási projectekhez a modell.
 
- 
+TextUML
