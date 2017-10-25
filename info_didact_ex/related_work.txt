@@ -1,21 +1,18 @@
 fUML - ALF
 A Foundateional UML (fUML) egy Object Managment Group (OMG) által specifikált végrehajtajó UML szabvány, 
 melyhnek szöveges akciónyelvi szinaxistát az ALF (Action Language for Foundational UML) definálja.
-Az ALF az UML szabány egy részhalmazán alapszik, így egyes UML nyelvi elemeekhez, pl. az állapotgépekhez nem definál szinaxist.
+Az ALF az UML szabány egy részhalmazán alapszik, így egyes UML nyelvi elemekhez, pl. az állapotgépekhez nem definál szinaxist.
 
 EMF - Moka
 Az Eclipse Modelling Framework rövídésbõl ered. 
 A modellezéshez használt elemek Java osztályok segítségével vanank reprezentálva az UML2-es szabvány szerint, ezt nevezzük metamodellnek.
 Egy konkrét modellt XMI formában lehet perzisztálni, egy ilyen fa struktúrájú fájl írja le magát a modellt.
 A XML séma leírható kézzel, de garfikus editorral is összerakható egy modell, melybõl generálható az XML fájl.
-A Moka egy EMF modellt animálni és végrehajtani képes eszközkészlet.
 XML fájlokat nehézkes írni, nehezen tanulható, a grafikus editor használata esetén már nem beszélhetünk szöveges szinaxisról.
 
 Umple
 Egy szöveges modellezõ eszközcsalád, melynek filozófiája és szintaxisa hasonlít a mi nyelvünkhöz.
-Az elenvezése a 'Simple' és az 'Ample' szóösszetételbõl ered. 
-Azzal hírdeti magát, hogy az egyszerû nyelvezete miatt könnyen tanulható, 
-mivel a mi nyelvünkhöz hasonlóan a C típusú programozási nyelvekbõl megszokott szinaxissal operál.
+Azzal hírdeti magát, hogy az egyszerû nyelvezete miatt könnyen tanulható, mivel a mi nyelvünkhöz hasonlóan a C típusú programozási nyelvekbõl megszokott szinaxissal operál.
 A leírt modell tetszõlegesen intergálható Java-ra, PHP-ra, C++-ra vagy Ruby projectekhez, valamint diagramm generálható a modellbõl.
 A mi nyelvünkkel szemben, a diagramm elrendezéshez nem specifikál saját nyelvet, valamint az Umple próbálja UML absztakciós szinttel segíteni az egyes programozási nyelven írt projecteket, 
 de nem hajtható végre vagy debuggolható közvetlen a modell, így a szöveges modell helyessége csak modell fordítás és projecktbe való integrálás után derül ki. 
