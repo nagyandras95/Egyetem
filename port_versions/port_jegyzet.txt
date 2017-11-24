@@ -1,0 +1,67 @@
+Az UML-ben a port egy logikai egység adattagja, amely egy interakciós pontot reprezentál. 
+Ez lehet egy primitív tipusú attribútum is, mint egy egész szám, de egy természetesebb eset az, 
+amikor valamilyen interfészen keresztül nyújt szolgáltatásokat a logikai egység, valamint a külvilág számára.
+TxtUML-ben üzeneteket küldésére, fogadására használjuk, így kizárólag interfész portokat valósítunk meg.
+Az interfészekre egy szingál halmazként tekinthetünk, amely azt adja meg, hogy az adiott interfész segítségével milyen üzenetek fogadására vagyunk képesek.
+A portoknak meg kell adni egy szolgáltatott (provided) interfészt, amely leírja, 
+hogy a tartalmazó struktúra milyen szingálokat fogadhat a külvilágtól, valamint egy elvárt (required) interfészt, 
+amely azt adja meg, hogy a porton keresztül milyen üzeneteket szolgáltathatunk a külvilág számára.
+
+A port egy speciális este a behaviour port, amely össze van kötve az objektum állapotgépével.
+Kétféle connectiön létezik, az assemby connectiön, valamint a delegation connectiön.
+Assemby connectiön: Assemby connectiön esetén az összekötött portok szolgáltatott és elvárt interfészeik egymás inverzei kell, 
+hogy legyenek, mivel ebben az esetben kölcsönös kommunikáció valósul meg, szolgáltatásokat nyújtanak egymás számára.
+Azonos szinten lévő komponensek között állhat csak fent.
+Delegazion connectön: Ez esetben az interfészekneknek azonosnak kell lenniük, 
+mivel a kapcsolat segítségével egy portra érkezett üzenetet a szóban fogro port delegája a hozzá kapcsolt port felé.
+Szülő és gyerek között állhat csak fent. 
+
+
+Ötletek:
+
+Interfész megvalósítás: 
+
+1. Nincs interfész, a a forrásnyelv validációja kiszűri a portok helyetelen használatát.
+
+Template segítségével adjuk meg a használt intefészeket. (Hasonlóan, mint Java esetén)
+
+2. Generlájunk egy üres osztályt az interfészekből, majd a szingálok ebből származnak le receptiön szerint. 
+Ekkor, ha a portnak beadjuk template parameterbe, 
+akkor a send interfész típusú leszármazottakat vár, 
+így fordítási időben biztosítjuk, hogy ne adhassunk át olyan szingált, ami nem része a receptiönnek.
+
+Előnyök:
+- A legegyszerűbb megoldás az interfészek megvalósítására. 
+- Csak egy darab send függvény fog kellni.
+
+Hátrány
+- Túl specifikus, ellent mond az interfész általános fogalmának. 
+Az interfésznek a lényege, hogy fogadni tud szingálokat oda-vissza, azonban itt csak portokra korlátozzuk a dolgot.
+
+3. Száemazzunk le az interfészből. Továbbra is szeretnénk írni egy sablon port osztályt, így a sablon parametert használjunk leszármazásra.
+Ekkor lesz az interfésznek annyi darab send függvénye, 
+ahány receptiönt definiáltunk neki, valamint egy virtulis függvénye, egy általános send függvény, 
+amit felül lehet definiálni az ünenet küldés módjától függően. Ő fogadhat bármilyen üzenetet, a provided rész nincs ellneőrizve, 
+de csak port tud neki üzenetet küldeni. (Az ellenőrzésért a connectálás felel majd)
+
+Connectiön szerepe:
+Nem mindegy, hogy a port milyen kapcsolatban áll a vele összekötött porttal, assemby vagy delegatiön cnnectön esetén. 
+Amikor egy port belülről kap egy üzenetet, 
+akkor egy delegeation connectiön esetén a vele kapcsolatban álló portnak delegálja az üzenetet, így a megf
+
+
+Conncetion
+Port -> Két dologgal áll kapcsolatban: Van egy általános connectiönje, ami lehet assemby, vagy delegation. 
+(sendél van jelentőssége, kérdés, h milyen kapcsolata van, assemby vagy delegation..)
+Valamint nem az állapotgéppel áll kapcsolatban, hanem egy másik porttal, amikor kap egy szingált, 
+akkor lényegében neki delegálja tovább a szingált, recive-t kell hívni, kívűlrőől jött az üzenet
+Miért kell a connectiön?
+Send - Belső üzenetküldés, kifele továbbítjuk
+Recive- Külső üzenetküldés, befele továbbítjuk..
+Amikor küldünk egy portra belülről egy üzentetet (send..), 
+a connectön típúsa határozza meg, hogy a connected port-on milyen művletet kell hívnnunk.
+Assemby eseltén kívűlről megkap egy üzenetet, delegation esetén azonban a delegáció miatt úgy vesszük, mintha a connected port is kívűlről kapta volna az üzentet, így sendet kell hívni.
+
+Itt két irány volt lehetséges: virtualizáció vagy delegation fleg.. 
+(a kettő ekvivalens, delegatiön esetén a send tovább hív a connected send-be, assemby esetén fogadja a szingált.
+if vagy virtuaál táblászás, a kettő lényegében ugyanaz, a virtualizáció szebb megoldás, az if hatékonyabb)

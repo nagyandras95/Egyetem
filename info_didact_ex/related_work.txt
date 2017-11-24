@@ -1,14 +1,19 @@
 fUML - ALF
 A Foundateional UML (fUML) egy Object Managment Group (OMG) által specifikált végrehajtajó UML szabvány, 
 melyhnek szöveges akciónyelvi szinaxistát az ALF (Action Language for Foundational UML) definálja.
-Az ALF az UML szabány egy részhalmazán alapszik, így egyes UML nyelvi elemekhez, pl. az állapotgépekhez nem definál szinaxist.
+Az ALF szinatxis tervezési alapelvei között szerepel a "Java-szerû" szinaxis. A mi nyelvünkkel ellentétben az ALF biztosít névtér rendszert.
+A mi nyelvünk filozófiája az volt, hogy a Javahoz hasonlóan csak explicit típusozást engedünk meg, az ALF ezzel szemben implicit típusozást is megenged. 
+Mivel ALF az UML szabány egy részhalmazán alapszik, így az akciónylvi elemekhez és a struktúrális elemekhez (osztály, asszocicáiók)  széleskörû támogatást nyújt, 
+de az állapotgépekhez vagy a kompozícókhoz nem definál szinaxist.
 
-EMF - Moka
-Az Eclipse Modelling Framework rövídésbõl ered. 
-A modellezéshez használt elemek Java osztályok segítségével vanank reprezentálva az UML2-es szabvány szerint, ezt nevezzük metamodellnek.
-Egy konkrét modellt XMI formában lehet perzisztálni, egy ilyen fa struktúrájú fájl írja le magát a modellt.
-A XML séma leírható kézzel, de garfikus editorral is összerakható egy modell, melybõl generálható az XML fájl.
-XML fájlokat nehézkes írni, nehezen tanulható, a grafikus editor használata esetén már nem beszélhetünk szöveges szinaxisról.
+EMF
+Az EMF (Eclipse Modelling Framework) egy széles körben elterjetd és használt modellezõ keretrendszer, melyben
+a modellezéshez használt elemek Java osztályok segítségével vanank reprezentálva az UML2-es szabvány szerint, amit metamodellnek nevezünk.
+Egy konkrét modellt XMI formában lehet perzisztálni, mely egy fa strukúrájú szöveges reprezentáció.
+A XML séma leírható kézzel, de ennek nyelvezete bonyolult, sok technikai részletet tartalmaz, nehezen tanulható, 
+így az EMF filozófiája szerint ezt célszerû generálni valamilyen garfikus editor segítségével.
+A Moka egy olyan EMF-en alapuló eszköz, melynek segítségével végrehajhtajuk és vizualizálhatjuk modellünket.
+Összességében az EMF esetén nem beszélhetünk szöveges modellezésrõl.
 
 Umple
 Egy szöveges modellezõ eszközcsalád, melynek filozófiája és szintaxisa hasonlít a mi nyelvünkhöz.
