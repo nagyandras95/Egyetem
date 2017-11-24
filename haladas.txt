@@ -1,0 +1,31 @@
+Első hét: Project újraszervezés, fejlesztési irány meghatározása, lehetséges feledatok kitalálása közösen az új tagok számára.
+
+Második hét: Új csapattagok bevezetése, ismertetni velük a labor témáját, segíteni a munkájukat.
+
+Hamradik hét: Kutatók éjszakáján való részvétel, ahol sok érdeklődővel ismertettük a projectünk témáját
+
+Megszervezni a lehetséges alcsapatokat, bevezetni az exporter témakörébe a beosztott hallgatómat. 
+Kiosztani neki a tervezett feladatot. 
+
+Megtvezni, hogyan lehetne automata integrációs tesztet írni a modell complierhez, 
+ami a lefordított modellnek a helyességét nem csak az alapján nézi, hogy fordul-e a kód, hanem futás közben is megvizsgálja.
+Nehezebb feladat, hogy a nem determinisztikus modelleket hogyan vizsgáljuk futás közben.
+Egy általános lehetőség, ha lefuttatjuk a modellt, és peremfeltételeket vizsgálunk egy speciális main fájlal. 
+Soronkénti egyezést semmiképpen sem vizsgálunk, helyette vesszük azokat at átmeneteket, 
+melyeknek biztosan be kell következniük a futás során, ezek logjait egy halmazba gyűjtjük, és halmaz egyenlőséget vizsgálunk.
+
+
+ModelClass: Annak megtervezése, hogy az eszközünkben lévő ősosztályt hogyan lehetne átvinni UML fogalmakra.
+Opció: Bevezetni explicit a ModelClass-t az exporterbe, és nem figyelmen kívűl hagyni az abból való leszármazást.
+Probléma: Asszocicációk terén merül fel, diagrammon nem látszódik midnen asszocicáió, vagy nagyon hálós lesz a közös ős miatt.
+Exporterben nem lehet dinamikusan kezelni az ősoztályt, mivel a sztandard könyvárba beégetett osztály.
+
+Externalok: 
+Bekerült a főágba a külső metódustürzsek támogatása a modellfordító részéréől is.
+Új probémák merültek fel, melyek tervezést igényelnek. Megtverzni, 
+hogyan őrüzzük meg a külső törzseket a kód újragenerálása után.
+Egy általánosabb probéma ezzel kapcsolatban: 
+Modellen kívűli hivatkozásokat is fel kell oldanunk, melyben egy másik projectre hivatkozunk. 
+
+Ötödik hét: 
+
