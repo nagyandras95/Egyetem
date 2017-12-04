@@ -1,4 +1,4 @@
-Első hét: Project újraszervezés, fejlesztési irány meghatározása, lehetséges feledatok kitalálása közösen az új tagok számára.
+﻿Első hét: Project újraszervezés, fejlesztési irány meghatározása, lehetséges feledatok kitalálása közösen az új tagok számára.
 
 Második hét: Új csapattagok bevezetése, ismertetni velük a labor témáját, segíteni a munkájukat.
 
@@ -28,4 +28,11 @@ Egy általánosabb probéma ezzel kapcsolatban:
 Modellen kívűli hivatkozásokat is fel kell oldanunk, melyben egy másik projectre hivatkozunk. 
 
 Ötödik hét: 
+Vegyes szintaxszissal írt modellek exportálási lehetőségének megvizsglásása.
 
+Hatodik hét:
+Nyílt napon való részvétel, egy játék keretében ismertetni a leendő hallgatókkal a projektunk céljait, tudományos tevékenységét. 
+Általánosan mesélni nekik az ELTE labor lehetőségeiről. 
+
+Hetedik hét
+Komponensek felevenítése..
