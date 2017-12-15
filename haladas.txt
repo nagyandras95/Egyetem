@@ -18,11 +18,13 @@ Opció: Bevezetni explicit a ModelClass-t az exporterbe, és nem figyelmen kív�
 Probléma: Asszocicációk terén merül fel, diagrammon nem látszódik midnen asszocicáió, vagy nagyon hálós lesz a közös ős miatt.
 Exporterben nem lehet dinamikusan kezelni az ősoztályt, mivel a sztandard könyvárba beégetett osztály.
 
-Ötödik hét (nemdeterminisztikus modellek helyes tesztelénsék a megtevrzeése)
+Ötödik hét (nemdeterminisztikus modellek helyes tesztelénsék a megtervezése)
 Megtervezni, hogy a nem determinisztikus modelleket hogyan vizsgáljuk futás közben.
 Egy általános lehetőség, ha lefuttatjuk a modellt, és peremfeltételeket vizsgálunk egy speciális main fájlal. 
 Soronkénti egyezést semmiképpen sem vizsgálunk, helyette vesszük azokat at átmeneteket, 
 melyeknek biztosan be kell következniük a futás során, ezek logjait egy halmazba gyűjtjük, és halmaz egyenlőséget vizsgálunk.
+
+(Publikált szöveges modellezőnyelvek megvizsgálása egy cikkötlet kapcsán)
 
 Hatodik hét (Egy korábban általam felügyelt szakdolgozó munkájának a reviewzása-  external elemek támogatása)
 Externalok: 
@@ -35,7 +37,7 @@ Hetedik hét: (vegyes szintaxisú modellek exportálásánáak megvizsgálása)
 Vegyes szintaxszissal írt modellek exportálási lehetőségének megvizsglásása.
 
 
-Nyolcadik hét (Komponensek exportálási, párhuzamosítási lehetőségének vizsgálata, kiselőadás tartása)
+Nyolcadik hét (Komponensek exportálási, kiselőadás tartása, párhuzamosítási lehetőségének vizsgálata (ezzel foglalkozó TDK átnézése, korrábi cikkölet felevenítése))
 Komponensek felevenítése. Kieslőadás tartása a komponensekről, a felmerült problémákról. 
 Egy régi cikk ötlet felelenveítése, amely a komponensek folyamatokra bontásával foglalkozik, 
 de kudarba fulldat részben egy UML szabványbeli megkötés miatt, új problémák miatt. 
@@ -44,5 +46,4 @@ Ezeknek a problémáknak a felelvenítése.
 Kilencedik hét: (Nyílt nap előkszítése)
 Nyílt napon való részvétel, egy játék keretében ismertetni a leendő hallgatókkal a projektunk céljait, tudományos tevékenységét.
 
-
-Tizedik hét: Komponensek esetén connect művelet exportálásának megtverezése
+Tizedik hét: Connect művelet exportálásának megtverezése
