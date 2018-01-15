@@ -1,15 +1,15 @@
-package my_ping_pong;
+package pingpong;
 
 import hu.elte.txtuml.api.model.Action;
 import hu.elte.txtuml.api.model.execution.ModelExecutor;
-import my_ping_pong.model.Table;
+import pingpong.model.PingPongMatch;
 
 
 public class Tester {
-
+	static PingPongMatch match;
 	static void init() {
-		Table table = new Table ();
-		Action.start(table);
+		match = new PingPongMatch ();
+		Action.start(match);
 	}
 
 	public static void main(String[] args) {

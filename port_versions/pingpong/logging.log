@@ -1,0 +1,191 @@
+2018-01-12 11:13:04 EXEC TRACE - Model executor started.
+2018-01-12 11:13:05 EXEC TRACE - Player@obj1 leaves initial:Init
+2018-01-12 11:13:05 EXEC TRACE - Player@obj1 uses transition:Initialize
+2018-01-12 11:13:05 EXEC TRACE - Player@obj1 enters state:Waiting
+2018-01-12 11:13:05 EXEC TRACE - Player@obj2 leaves initial:Init
+2018-01-12 11:13:05 EXEC TRACE - Player@obj2 uses transition:Initialize
+2018-01-12 11:13:05 EXEC TRACE - Player@obj2 enters state:Waiting
+2018-01-12 11:13:05 EXEC TRACE - Model executor terminated.
+2018-01-12 11:17:42 EXEC TRACE - Model executor started.
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves initial:Init
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:Initialize
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Waiting
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves initial:Init
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:Initialize
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Waiting
+2018-01-12 11:17:42 EXEC TRACE - Judge@obj1 leaves initial:Init
+2018-01-12 11:17:42 EXEC TRACE - Judge@obj1 uses transition:Initialize
+2018-01-12 11:17:42 EXEC TRACE - Judge@obj1 enters state:Working
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:StartPlaying
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Waiting
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:Starting
+2018-01-12 11:17:42 USER  INFO - Player1 player start playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Waiting
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:ReciveWPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:RecivePPong
+2018-01-12 11:17:42 USER  INFO - Player1 player recived pong
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PingSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:RecivePPing
+2018-01-12 11:17:42 USER  INFO - Player2 player recived ping
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 uses transition:DenyPPing
+2018-01-12 11:17:42 USER  INFO - Player1 ended game
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 enters state:EndGame
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 leaves state:Playing
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 uses transition:DenyPPing
+2018-01-12 11:17:42 USER  INFO - Player2 ended game
+2018-01-12 11:17:42 EXEC TRACE - Player@obj4 enters state:EndGame
+2018-01-12 11:17:42 EXEC TRACE - Player@obj3 processes signal:PongSignal
+2018-01-12 11:17:42 EXEC  WARN - A signal arrived to model object Player@obj3 but it was not processed by the object's state machine. The signal was: signal:PongSignal
+2018-01-12 11:17:42 EXEC TRACE - Model executor terminated.
+2018-01-12 11:18:00 USER  INFO - Player1 player start playing
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 player recived pong
+2018-01-12 11:18:00 USER  INFO - Player2 player recived ping
+2018-01-12 11:18:00 USER  INFO - Player1 ended game
+2018-01-12 11:18:00 USER  INFO - Player2 ended game
+2018-01-12 11:18:00 EXEC  WARN - A signal arrived to model object Player@obj3 but it was not processed by the object's state machine. The signal was: signal:PongSignal
+2018-01-12 11:20:37 USER  INFO - Player1 player start playing
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 player recived pong
+2018-01-12 11:20:37 USER  INFO - Player2 player recived ping
+2018-01-12 11:20:37 USER  INFO - Player1 ended game
+2018-01-12 11:20:37 USER  INFO - Player2 ended game
+2018-01-12 11:20:37 EXEC  WARN - A signal arrived to model object Player@obj3 but it was not processed by the object's state machine. The signal was: signal:PongSignal

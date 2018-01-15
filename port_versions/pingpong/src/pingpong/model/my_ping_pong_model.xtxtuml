@@ -1,4 +1,4 @@
-package my_ping_pong.model;
+package pingpong.model;
 
 signal StartPlaying;
 signal PingSignal;
@@ -174,7 +174,7 @@ class PingPongMatch {
 		Judge judge = new Judge ();
 		Table table = new Table ();
 		 link(MatchTableComposite.match, this, MatchTableComposite.table, table);
-		 link(MatchTableComposite.match, this, MatchJudgeComposite.judge, judge);
+		 link(MatchJudgeComposite.match, this, MatchJudgeComposite.judge, judge);
 				  
 		connect (JudgeTableConnect.table, table->(Table.StarterPort),
 				  JudgeTableConnect.judge, judge->(Judge.StarterPort));
