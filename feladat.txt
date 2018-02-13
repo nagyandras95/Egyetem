@@ -1,0 +1,20 @@
+Export: két komponens
+Java (JDT) -> UML
+Itt az alapvető nehézségeket az okozza, hogyan képezzük le az egyes elemeket UML2-re.
+Nagyrésze Xbasben írt, így java meleltt abban is lehet fejlődni kicsit. 
+UML -> C++
+Ez egy kicsivel érdekesebb, a cél, hogy az UML elemeket leképezzük c++ nyelvre úgy, 
+hogy igyekezzünk megőrizni a kód átláthatóságát, de legyünk minél hatékonyabbak, 
+illetve emeljük ki a common dolgokat előre megírt fájlokba, mely újrafelhasználhaó, nem függ a generált kódtol.
+Továbbá itt már lehetőségünk van  platfromhoz, illetve modellhet igazítani a generált kódot. 
+
+- Függő taszkok
+- Externál emelek "rendes támogatása" (igyekezeni minél jobban függettleníteni a generált kódot az utólagos hozzáírt kódoktól, 
+hogy ne kelljen rendszeresen újra írni kézzel valamit generálás után). Nagyobb taszk, meg van nagyrészt terveze, 
+hogy mit kéne csinálni, de még mindig nem tökéletes.
+- Örköklődés támogatása
+- Új gyűjtemények támogatása
+- Komponensekkel is lenne még mit foglalkozni..  
+- Az előző félévben születtek kicsit okosabb intergációs tesztek a generált kód tesztelése (futás időt is ellenőriz), 
+de ezen is lehete tovább dolgozni, értelmes unit teszteket írni akár..
+- UI-t lehetne kicsit felhasználóbarát módon csiszolni (Saját main fájl megadása pl, build environment kiválasztása, stb..) 
