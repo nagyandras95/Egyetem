@@ -39,6 +39,20 @@ void TicTacToeWidget::generateTable()
             connect(_gameTableButtons[i][j], SIGNAL(clicked()), this, SLOT(buttonClicked()));
         }
     }
+	
+	/*QPalette* palette1 = new QPalette();
+	palette1->setColor(QPalette::Button,Qt::red);
+	
+	QPalette* palette2 = new QPalette();
+	palette2->setColor(QPalette::Button,Qt::green);
+	
+	QPalette* palette3 = new QPalette();
+	palette3->setColor(QPalette::Button,Qt::transparent);
+	
+	
+	button1->setPalette(*palette1);
+	button2->setPalette(*palette2);
+	button3->setPalette(*palette3);	*/
 }
 
 
