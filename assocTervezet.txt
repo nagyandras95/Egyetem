@@ -1,0 +1,17 @@
+AssociationEnd<Machine> usedMachines = Usage.get(usedMachine,this)
+{
+	roleTable[usedMachine][this]
+}
+
+
+Assocation<User,Machine> Usage(userOfMachine, usedMachine)
+{
+	roleTable[userOfMachine] = std::map<Machine,std::list<User>>
+	roleTable[usedM] = std::map<User,std::list<Machine>>
+}
+
+Usage.link<userOfMachine,usedMachine>(user1, machine1)
+{
+	roleTable[userOfMachine][machine1].add(user1)
+	roleTable[usedM][user1].add(machine1)
+} 
