@@ -186,7 +186,7 @@ class PingPongMatch {
 
 composition TableComposite {
 	hidden container Table table;
-	2 Player player;
+	* Player player;
 }
 
 composition MatchTableComposite {
