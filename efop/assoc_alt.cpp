@@ -91,27 +91,74 @@ enum class A2 {
 	Selector
 };
 
-struct ARoleStruct {
-	struct a1 {
-		typedef A RoleType;
-	};
-	struct a2 {
-		typedef A RoleType;
-	};
-
+struct a1 {
+	typedef A RoleType;
 };
+struct a2 {
+	typedef A RoleType;
+};
+
+
+// uj megoldasok..
+struct a1Descriptor;
+struct a2Descriptor;
+
+struct a1Descriptor : public AssocRole<a1Descriptor,a2Descriptor>{
+	typedef A RoleType;
+	a1Descriptor* a1;
+	// collection type..
+};
+
+struct a2Descriptor : public AssocRole<a1Descriptor,a2Descriptor>{
+	typedef A RoleType;
+	a2Descriptor* a2;
+	// collection type..
+};
+
+template<int ID, class R>
+struct Role {
+	typedef R RoleType;
+};
+
+struct a1 {
+	typedef A RoleType;
+	//collection type..
+};
+
+struct a2 {
+	typedef A RoleType;
+	//collection type..
+};
+// helyett
+using a1 = Role<1,A>; // + collection typot meg at kell gondolni..
+using a2 = Role<2,A>;
+
+
 
 int main()
 {
 	AssociationNN<A, A1, A, A2> aAssoc;
 	//vs
-	AssociationNNAlt<ARoleStruct::a1, ARoleStruct::a2 > altAssoc;
+	AssociationNNAlt<a1, a2 > altAssoc;
+	
+	Association<a1Descriptor, a2Descriptor> descAssoc;
+	//vs
+	Association<a1, a2> roleAssoc;
 
 	A a1;
 	a1.id = 1;
 	A a2;
 	a2.id = 2;
-
+	
+	// uj megoldasok..
+	Action::link(a1, descAssoc.a1, a2, descAssoc.a2);
+	a1.assoc(descAssoc.a1);
+	a2.assoc(descAssoc.a2);
+	//vs
+	Action::link(a1, roleAssoc(a1()), a2, roleAssoc(a2));
+	a1.assoc(roleAssoc(a1));
+	a2.assoc(roleAssoc(a2));
+	
 
 	aAssoc.link (&a1, A1::Selector, &a2, A2::Selector);
 	altAssoc.link<ARoleStruct::a1, ARoleStruct::a2> (&a1, &a2);
