@@ -77,6 +77,61 @@ private:
 };
 
 
+template<typename T, int low, int up, typename Container = std::list<T*>>
+class Property {
+public:
+	void add(T* o) {
+		objects.push_back(object);
+	}
+
+	T* selectAny() {
+		return objects.back();
+	}
+
+	typename Container::size_type count() {
+		return objects.size();
+	}
+
+
+
+private:
+	Container objects;
+};
+
+
+template<typename T, int low>
+class Property<T, low, 1> {
+public:
+	void add(T* o) {
+		object = o;
+	}
+
+	T* selectAny() {
+		return object;
+	}
+
+	int count() {
+		return object == nullptr ? 0 : 1;
+	}
+
+private:
+	T * object = nullptr;
+};
+
+class ModelObject {
+public:
+	/*template<typename Role, typename AssocType>
+	const auto& assoc(const AssocType& association) {
+		return association.get<Role>(static_cast<typename Role::RoleType*>(this));
+	}*/
+
+	/*template<typename Role>
+	const auto& assoc(Role* role) {
+		return role->association->get(static_cast<typename Role::RoleType*>(this), role);
+	}*/
+
+};
+
 class A {
 public:
 	int id;
