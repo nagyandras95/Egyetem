@@ -8,7 +8,7 @@
 
 
 template<class FirstClassType, class FirstClassRole, class SecondClassType, class SecondClassRole>
-class AssociationNN {
+class Association {
 public:
 	void link (FirstClassType* first, FirstClassRole, SecondClassType* second, SecondClassRole) {
 		LeftRoleTable[first].push_back (second);
@@ -36,7 +36,7 @@ private:
 
 
 template<class FirstClassRoleType, class SecondClassRoleType>
-class AssociationNNAlt {
+class AssociationAlt {
 public:
 	template<typename FirstType, typename SecondType>
 	void link (typename FirstType::RoleType* first, typename SecondType::RoleType* second) {
@@ -170,21 +170,12 @@ struct a2Descriptor : public AssocRole<a1Descriptor,a2Descriptor>{
 	// collection type..
 };
 
+//vs
+// helyett lehetne templatebe csomagolni
 template<int ID, class R>
 struct Role {
-	typedef R RoleType;
+        typedef R RoleType;
 };
-
-struct a1 {
-	typedef A RoleType;
-	//collection type..
-};
-
-struct a2 {
-	typedef A RoleType;
-	//collection type..
-};
-// helyett
 using a1 = Role<1,A>; // + collection typot meg at kell gondolni..
 using a2 = Role<2,A>;
 
@@ -192,9 +183,9 @@ using a2 = Role<2,A>;
 
 int main()
 {
-	AssociationNN<A, A1, A, A2> aAssoc;
+        Association<A, A1, A, A2> aAssoc;
 	//vs
-	AssociationNNAlt<a1, a2 > altAssoc;
+        AssociationAlt<a1, a2 > altAssoc;
 	
 	Association<a1Descriptor, a2Descriptor> descAssoc;
 	//vs
@@ -210,9 +201,9 @@ int main()
 	a1.assoc(descAssoc.a1);
 	a2.assoc(descAssoc.a2);
 	//vs
-	Action::link(a1, roleAssoc(a1()), a2, roleAssoc(a2));
-	a1.assoc(roleAssoc(a1));
-	a2.assoc(roleAssoc(a2));
+        Action::link(a1, roleAssoc(a1()), a2, roleAssoc(a2()));
+        a1.assoc(roleAssoc(a1()));
+        a2.assoc(roleAssoc(a2()));
 	
 
 	aAssoc.link (&a1, A1::Selector, &a2, A2::Selector);
