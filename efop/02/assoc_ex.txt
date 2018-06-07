@@ -1,0 +1,43 @@
+
+Action::link(AB.a, instanceofA, AB.b, instanceofB);
+
+Instance:
+Association<ABDescriptor::aEnd, ABDescriptor::bEnd> AB;
+
+Descriptor:
+struct ABDescriptor {
+	struct aEnd;
+	struct bEnd;
+	struct aEnd: public AssocEnd<aEnd, bEnd, A,
+			0, -1> {
+		aEnd* a = this;
+	};
+	struct bEnd: public AssocEnd<aEnd, bEnd, B, 1, 1> {
+		bEnd* b = this;
+	};
+};
+
+ABDescriptor::a2End::CollectionType /* MultipliedElement<B,1,1> */
+ a2endCollection = instanceofA->assoc(AB.a2);
+
+B* instanceofB = a2endCollection.one();
+
+//Port example API
+Inf1 reception signals: E1
+Inf2 reception signals: E2
+// create an association between Inf1,Inf2 name P1toP2
+class A {
+	BehaviorPort<Inf1,Inf2> p1;
+
+}
+class B {
+	BehaviorPort<Inf2, Inf1> p2;
+
+}
+
+Action::assemblyConnect(P1toP2.p1, p1, P1toP2.p2, p2);
+instanceofA.p1.send(E1Instance);
+instanceofA.p1.receive(E2Instance);
+
+instanceofB.p2.send(E2Insance);
+instanceofB.p2.receive(E1Insance);
