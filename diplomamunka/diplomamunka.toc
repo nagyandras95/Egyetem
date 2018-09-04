@@ -1,0 +1,24 @@
+\select@language {magyar} \contentsline {chapter}{\numberline {1}Bevezet\IeC {\'e}s}{2}{chapter.1}
+\select@language {magyar} \contentsline {section}{\numberline {1.1}UML Komponens fogalmak}{3}{section.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {1.1.1}Enkapszul\IeC {\'a}lt elem}{3}{subsection.1.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {1.1.2}UML Interf\IeC {\'e}sz}{3}{subsection.1.1.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {1.1.3}UML Port}{3}{subsection.1.1.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {1.1.4}UML Connector}{4}{subsection.1.1.4}
+\select@language {magyar} \contentsline {chapter}{\numberline {2}\IeC {\'A}ttekint\IeC {\'e}s}{5}{chapter.2}
+\select@language {magyar} \contentsline {section}{\numberline {2.1}A probl\IeC {\'e}ma r\IeC {\"o}vid meghat\IeC {\'a}roz\IeC {\'a}sa}{5}{section.2.1}
+\select@language {magyar} \contentsline {section}{\numberline {2.2}Keretrendszerek \IeC {\'a}ttekint\IeC {\'e}se}{5}{section.2.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.1}fUML - ALF}{5}{subsection.2.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.2}Umple}{6}{subsection.2.2.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.3}StartUML}{6}{subsection.2.2.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.4}BrigePoint UML}{7}{subsection.2.2.4}
+\select@language {magyar} \contentsline {section}{\numberline {2.3}\IeC {\"O}sszefoglal\IeC {\'a}s}{8}{section.2.3}
+\select@language {magyar} \contentsline {chapter}{\numberline {3}Reprezent\IeC {\'a}ci\IeC {\'o}s lehet\IeC {\H o}s\IeC {\'e}gek}{9}{chapter.3}
+\select@language {magyar} \contentsline {section}{\numberline {3.1}A megfelel\IeC {\H o} reprezent\IeC {\'a}ci\IeC {\'o}k megtal\IeC {\'a}l\IeC {\'a}sa}{9}{section.3.1}
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Portok reprezent\IeC {\'a}l\IeC {\'a}sa}{9}{section.3.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}UML-ben}{9}{subsection.3.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}C++-ban}{10}{subsection.3.2.2}
+\select@language {magyar} \contentsline {section}{\numberline {3.3}Interf\IeC {\'e}szek reprezent\IeC {\'a}l\IeC {\'a}sa interf\IeC {\'e}sz portok eset\IeC {\'e}n}{10}{section.3.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3.1}Reprezent\IeC {\'a}ci\IeC {\'o} UML-ben}{10}{subsection.3.3.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3.2}Reprezent\IeC {\'a}ci\IeC {\'o} C++-ban}{10}{subsection.3.3.2}
+\select@language {magyar} \contentsline {subsubsection}{Nincs interf\IeC {\'e}sz}{10}{section*.2}
+\select@language {magyar} \contentsline {subsubsection}{Van interf\IeC {\'e}sz}{11}{section*.3}

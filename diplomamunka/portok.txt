@@ -1,0 +1,210 @@
+Portok tervezet:
+
+Szedjük össze a lehetséges terveket:
+Interfész megvalósítás:
+
+1. Nincs interfész,
+ a forrásnyelv validációja kiszűri az inkomantibilis portok használatát.
+Előnyök:
+- Generálás szempontjából ez a legtriviáliabb megoldás, nem kell egyátalán interfészekkel foglalkozni
+- Hatékony, sallangmentes
+Hátrányok:
+- Külső komponensek bekötése esetén nem tudunk felvenni interfészeket, könnyen hibázhatunk
+- Tetszőleges üzenetet küldhetünk egy adott portra akár kívülről is 
+
+2. Van interfész, template segítségével adjuk meg a használt intefészeket. 
+(A portnak: Port<Provided,Required>..) 
+(Hasonlóan, mint Java esetén, API szinten ez tűnik a legszebb megoldásnak, mivel az interész feltipusozza az adott portot)
+
+Ezen belül ötletek:
+2.1
+Generlájunk egy üres osztályt az interfészekből, majd a szingálok ebből származnak le receptiön szerint.
+(UML: PingPongInterfce reception: Ping, Pong) 
+C++:
+class PingPongInterfce {};
+class Ping (event) : PingPongInterfce, 
+Ping : PingPongInterfce 
+send(PingPongInterfce ..)
+Ekkor a port send művelete elvárt interfész típusú leszármazottakat vár,
+így fordítási időben biztosítjuk, hogy ne adhassunk át olyan szingált, 
+ami nem része a receptiönek.
+A receive művelet pedig provided interfész típusú leszármazottakat vár.
+
+Előnyök:
+- Egyszerű megoldás az interfészek megvalósítására.
+- Csak egy darab send függvény fog kellni, 
+ami fordítási időben biztosítja a tipushelyességet, a kód a lehető legkisebb lesz.
+
+Hátrány
+- Túl specifikus, portokra korlátozott,
+ ellent mond az interfész általános fogalmának.
+
+Az interfésznek a lényege, hogy fogadni tud szingálokat oda-vissza, azonban itt csak portokra korlátozzuk ezt (pl. modelclassokra már nem tudjuk ráhúzni).
+2.2
+A port származzon le az interfészből.
+class PingPongInterfce {
+void send(Ping e);
+void send(Pong e);
+}
+class Port<Provided,Required> : public Required {}
+
+Továbbra is szeretnénk írni egy sablon port osztályt, 
+így a sablon parametert használjunk leszármazásra.
+Ekkor lesz az interfésznek annyi darab send függvénye,
+ahány receptiönt definiáltunk neki, valamint egy virtulis függvénye, 
+egy általános send függvény,
+amit felül lehet definiálni az ünenet küldés módjától függően. A másik oldalon, mikor továbbítjuk az üzenetet
+a kapcsolatban álló portnak, akkor már egy általános signált látunk, így a send azt már nem ellenőrzi, hogy nincs-e típususkonzisztenia. 
+Azonban a portok összekötése nem enged meg inkonzisztens portnokat összekapcsolni.
+
+Előnyök:
+- Általánosabb megoldás, az interfész valóban interfészként viselkedik, 
+melyből leszrámazva bárki üzenetfogadási-küldési featurekhez jut.
+- Továbbra is egy send fügvvényt kell karban tartani
+Hártányok:
+- A generált kód mérete megnő, 
+template metaprogramozással azonban lehet csökkenteni a generált kód méretét
+
+Ez utóbbi tűnik a legtisztább megoldásnak.
+
+Provided/Required interfész megvalósítása UML-ben
+Probléma: A szabvány szerint egy connector csak olyan portok között
+húzódhat, melynek a provided-reqired interfészei kompatibilsek egymással.
+A port egy kommunkációs csomópontot reprezentál, a tipusa tetsőleges lehet.
+A modellosztály számára a port szolgáltatásokat nyújt, méghozzá a szolgálatott interfész által.
+Így a tipusa megfelel a szolgáltatott interfész tipsuának.
+A modellosztály azonban kifele áramoltathat a porton keresztül információkat, a required interfész által.
+Így húzzunk be egy Using reláció a port és az elvárt interfész között, mivel az objektum a portot használja üzenetáramoltatásra.
+A probléma, hogy a using relációk összevesznek, ha két portnak ugyanaz a szolgálatott interfésze, így
+érdemes minden portnak egy saját interfészt generálni, amely leszármazottja a provided interfésznek.
+
+p1:ProvidedInf <-> RequiredInf
+
+Connect megvalósítása:
+txtUML-ben egy-egy kapcsolatokat írunk le portokkal, így a megoldásokat is
+arra korlátozhatjuk.
+Első nehézség: Szabványos reprezentációja a connectoroknak, 
+illetve a connect műveletnek. 
+A connectorok kötik össze a kommunikációs csomópontokat, a portokat.
+Lehetővé teszik köztük való üzenetáramlást. 
+Megkülöböztetünk assembly és delegation connectorokat.
+Az assembly connectorok kölcsönös oda-vissza kommunikációt valósítanak meg, a delegation connectorok üzenetovábbítása szolgálnak.
+
+Problémák UML-ben: Nincs connect action.
+Lehetőségek: 
+1. A port egy stuktúrális elem az UML-ben (Property), így
+a connect esetén a propertyket értékül adhatjuk egymásnak, ezzel reprezentálva az összekötést. 
+(Az AddStrcutrualFeatureAction nem csak replace-re szolgál UML-ben)
+Előny: Szabványos UML-t generálunk.
+Hátrány: De nem a connect művelet egy szabványos reprezentációját,
+valamint a connectorokat is figyelmen kívül hagyjuk.
+2. A komponensek struktúrájából következtetünk a connect műveletekre.
+(Nem mindig egyértelmű)
+3. Nem marad más lehetőség, mint az asszociációk mentén összekötni két portot(CreateLinkAction)
+Probléma: Asszociációk helyett conncetorok vannak, de mivel a szabány szerint
+a connector többféle kapcsolatot reprezentálhat, így asszocició menti kapcsolatot is.
+Lehetőségünk van feltipusozni egy asszociációval, a crelate link action esetén
+pedig a connector tipusát vesszük alapul.
+Kérdés: Mi legyen ez az asszociáció?
+Kézenfekvő válasz: Mivel mi interfész portokat kapcsolunk össze, így
+húzzunk be egy asszociációt az interfészek között.
+Így szabványos UML-t generálunk, valamint a connectorokat sem hagyjuk figyelmen kívül.
+
+Connect C++-ban:
+Mikor üzenetet küldünk egy portra, továbbítani kell azt a vele kapcsolatban álló port felé.
+Ehhez valamilyen referenciát kell szereznünk az adott portra.
+Erre kétféle lehetőségünk van:
+1. Egy globális adatszerkezetben(pl. egy mapben) tároljuk
+a kapcsolatokat, amely megmondja, hogy egy adott portra ki kapcsolódik.
+Előnyök:
+- Nem a port kódját piszkitjuk plusz referenciákkal.
+Hátrányok:
+- Párhuzamosításnál egy globális adatszerkeztet kell piszkálni.
+2. Közvetlen referenciát tárolunk a kapcsolt portra.
+Előnyök:
+- Mivel egy-egy kapcsolatunk van, ezért előre definiálható ez a referencia,
+nem fog a port kódja bővülni később.
+- Közvetlen elérés, nem kell adatszerkezet piszkálni, ami így hatékonyabb.
+
+Figyelmbe kell vennünk, hogy assembly vagy delegation összekapcsolásról beszélünk.
+Amikor kapunk egy üzentet, akkor továbítani kell az adott portra.
+Nem mindegy, hogy ezt az üzentet a kapcsolt port egy belülről jött vagy
+kívülről kapott üzenetként értelmezi.
+Delegation esetén a port send műveletének úgy kell viselkednie, mintha a
+kapcsolt port send műveletét hívtuk volna meg.
+Assembly esetén azonban fogadnia(receive) kell a küldött üzenetet a portnak.
+Így mindenképpen figyelmbe kell vennünk, hogy az adott referencia milyen kapcsolattal került oda.
+Két lehetőség:
+- virtualizáció (tisztább implementáció, assembly és delegation végpont bevezetése)
+- delegation fleg (hatékonyabb)
+
+A fogadás(receive) művelet viselkedése attól függ, hogy behavior vagy nem behavior portról van szó.
+Behavior esetén az objektum állapotgépéhez futnak be az üzenetek.
+A másik esetben pedig a szülő komponenens portja befele delegálja az üzenetet a gyerek komponens portjára.
+Ennek megvalósítására szintén 
+a virtualizáció illetve a behavior fleg áll rendelkezésre
+A leszármazás itt egy jobb választás,
+mivel más-más referenciát kell birtokolni, vagy a kapcsolat véget lehetne kiterjeszteni egy
+statemachine endpointtal, mely szintén virutalizációt igényel.
+Fontos, hogy a megvalósítás maradjon tiszta, de ne tároljunk fölösleges adatot.
+
+Probléma: A virtualizácót template specializációval el lehetne kerülni, azonban az bonyolítja a megvalósítást,
+ugyanakkor növelné a hatékonyságot, és a megvalósítást sem kéne flegekkel szemetelni.
+Kérdés, hogy tudjuk-e fordítási időben a végpontjaink tipusát?
+
+Connectorok reprezentálása C++-ban.
+1. Lehetőség:
+Teljesen figyelmen kívűl hagyjuk a connectorokat leíró strukturákat.
+Mivel a connect utasítások a generált kódból adódnak, a referencia
+birtoklást pedig már korábban kitrágyaltuk, így a forráskódban validálva vannak az egyes connectek.
+Előnyök:
+- Nem ígényel plusz generált kódot.
+Hátrányok:
+- C++ szinten nincsen validáció a connectekre strukturális szinten.
+-Az interfészek komatibilitásánál arra jutottunk, hogy C++ szinten is validáljunk.
+- Így érdemes a connectre is validálni.
+2. Vezessünk be egy connector osztályt, amely leírja a connector struktráját.
+Connect esetén erre az osztályra hivatkozzunk.
+3. A connectorokhoz generált asszociációkat használjuk arra, hogy validáljuk a connect műveletet.
+Előnyök:
+- Tisztább reprezentációt kapunk C++-ban.
+Hátrányok:
+- Kicsit overhead megoldás, igazából nincs szerepe a connectoroknak a validáción kívül.
+Előnyök:
+- Illeszkedik a meglévő megoldásokhoz, az asszociációk példányát/struktúráját elengedhetetlen generálni objektumok összekapcsolása esetén.
+- Ugyanakkor a validáció is megtörténik, nem kapcsolhatunk össze olyan portokat, ami nem felel meg az asszociáció tipusnak.
+
+
+Portokra való üzenetküldés/üzenet fogadás
+UML:
+Szabványos reprezentáció (Mi a korrekt reprezentációja a send-nek egy portra)
+1. SendOnPort használata a send objectnél.
+- Probléma: Ki a target, az adott objektum, amin a port van?
+2. A sendAction két paraméterből áll, egy target meg egy üzenetből.
+A target valamilyen inputpin, vagyis valamilyen akciónak az eredménye.
+Mivel a port egy strctural feature, így a referenciáját könnyen megszerzhetjük a structural a 
+egy read structural feature actionnal.
+Előny:
+- Könnyű reprezentálni, illeszkedik a modellfordító elvébe, aki feltételezi, hogy
+egy send actionnak van egy tartgetje, ahova az üzentet kell küldeni.
+- Nem kell plusz logikát beiktatni a C++ exporterbe.
+Hátrány:
+- Szabványos-e ez a megközelítés? A tipushelyesség garantált.
+
+C++
+A send mávelet interpretálása, megvalósítása
+Hogyan értelmezzünk egy send műveletet?
+A send egy külvilág felől érkező üzenetküldésnek felel meg.
+Meg kell különböztetnünk a külvilág felől érkezett üzenteteket a 
+connectorokon keresztül érkezett üzenetekkel.
+Két lehetőség:
+- Paraméterezett send függvények
+- Válasszuk szét az üzenetküldést a fogadástól.
+Utóbbi egy tisztább megoldás, a felhasználó számára is jobban érhető.
+(A send azt jelenti, hogy üzentet teszünk az adott portra, míg a recive azt jelenti, hogy egy kívülről jött üzentet fogadunk)
+Az üzenet továbbítás a kapcsolatokon keresztül történik, ahogy azt a connectorok esetén már láthattuk.
+A receive megoldja azt a problémát is, hogy a szülő hogyan kommunikál a gyerekével.
+(Mivel szülő és gyerek között csak delegáció állhat fent)
+
+
+
