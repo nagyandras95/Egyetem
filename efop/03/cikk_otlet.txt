@@ -1,0 +1,14 @@
+Nagyobb téma a portokkal kapcsolatos: 
+Kommunikáció szemantikája, p
+ortok összekapcsolása UML-ben. 
+Különbözõ reprenzentációs lehetõségek C++-ban, 
+melyik a legjobb, (legtömörebb, leghatékonyabb, tiszta API), 
+végrehajtási szemanitka? 
+Vizsgáltam az egyes Toolokat, hiányosak komponensek terén, nincs export vagy uml szabványra export, 
+máshogy exportálják.
+
+Didaktika: 
+Komponens alapú programozáson nagyon semmitmondó, 
+amikor komponensekrõl, 
+portokról, szolgáltatott és elvárt interfészekrõl van szó, 
+ez segít megérteni a dolgot.
