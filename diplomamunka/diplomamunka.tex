@@ -62,8 +62,8 @@ Előnyei:
 Hátrányai:
 \begin{itemize}
 \item Nem generál egy szabványos UML modellt a kódgenerálás előtt, közvetlen a szövegre építkezik.
-\item A portokat egyszerű adattagként képzi le a feltipúsozás alapján, nem lehet megadni szolgáltatott és elvárt intefészeket.
-\item Nincs lehetőség tesre szabni az üzenetküldés implementációját a porton keresztül, nincs konfigurációs leírás
+\item A portokat egyszerű adattagként képzi le a feltípusozás alapján, nem lehet megadni szolgáltatott és elvárt interfészeket.
+\item Nincs lehetőség testre szabni az üzenetküldés implementációját a porton keresztül, nincs konfigurációs leírás
 \end{itemize}
 
 \subsection{StartUML}
@@ -111,11 +111,33 @@ A portokat minden esetben adattagként reprezentáljuk, ezt mi sem tudjuk másk�
 
 A mi esetünkben az előbbi megoldás tűnt kézenfekvőnek, mivel az könnyen adaptálható a meglévő generálási szabályok közé, valamint a forrásnyelv is ezt a konvenciót követi. 
 
-\section{Interfészek reprezentálása interfész portok esetén}
-\subsection{Reprezentáció UML-ben}
+\section{Portokra való üzenetküldés/fogadás reprezentálása}
+\subsection{UML-ben}
+\subsubsection{Üzenet küldés}
+A  \textit{SendObjectAction} két paraméterből áll, egy célobjektumból és egy üzenetből.
+A célobjektum valamilyen \textit{InputPin}, vagyis valamilyen akciónak az eredménye.
+Mivel a port egy strukturális elem, így a referenciáját egy \textit{ReadStructuralFeatureAction}-nal megszerezhetjük. 
+\begin{itemize}
+\item Könnyű reprezentálni, illeszkedik a modellfordító elvébe, aki feltételezi, hogy
+egy \textit{send} akciónak van egy cél objektuma, ahova az üzentet kell küldeni.
+\item Nem kell extra logikát beiktatni a C++ fordítóba az üzenetküldés terén.
+\end{itemize}
+
+\subsubsection{Üzenet fogadás}
+Ha egy objektumnak a portján keresztül szeretnénk üzenetet küldeni a külvilág felől, akkor a \textit{SendObjectAction}-nak a az \textit{OnPort} műveletét használhatjuk. 
+
+\subsection{C++-ban}
+\subsubsection{Üzenet küldés}
+Ez esetben már a \textit{send} művelet végrehajtási szemantikája érdemes számunkra. A \textit{send} művelet azt jelenti, hogy a Portra teszünk egy üzenetet, melyet továbbítunk egy másik komponens felé konnektoron keresztül. Ennek szájharmonikájával a \ref{connect} fejezetben majd foglalkozunk részletesen.
+
+\subsubsection{Üzenet fogadás}
+Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket. Előbbi megoldás tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf})
+
+\section{Interfészek reprezentálása interfész portok esetén} \label{inf}
+\subsection{UML-ben}
 Az interfészeket UML-ben értelemszerűen reprezentáljuk, annyiban különböznek csak az osztályoktól, hogy megadhatunk neki. fogadási műveleteket, un. receptionöket.
 
-\subsection{Reprezentáció C++-ban}
+\subsection{C++-ban}
 C++-ban számos lehetőségünk van kifejezni egy UML interfészt.
 \subsubsection{Nincs interfész}
 Egy lehetséges megoldás az is, ha nem vesszük figyelembe a szolgáltatott és elvárt interfészeket akkor, mikor egy adott portot manipulálunk, üzenetet küldünk rá. A forrásnyelv validációja hivatott kiszűrni az ilyen nem helyes üzenetküldéseket, hivatkozásokat. \\
@@ -143,7 +165,9 @@ Port<ProvededInf, RequiredInf> p;
 %\end{lstlisting}
 
 Ezek után technikailag többféle lehetőségünk van megvalósítani a validációt: \\
-Generáljunk egy üres osztályt az interfészekből, majd a szignálok származzanak le aszerint, hogy melyik interfész receptionjében vannak benne: \\
+\begin{enumerate}
+
+\item Generáljunk egy üres osztályt az interfészekből, majd a szignálok származzanak le aszerint, hogy melyik interfész receptionjében vannak benne: \\
 PL: UML interfész neve: PingPongInterfce, a receptionjai pedig a következő szignálokat fogadják: Ping, Pong \\
 Ekkor a generált kód:
 %\begin{lstlisting}
@@ -163,11 +187,101 @@ Előnyök:
 \item Egyszerű megvalósítás, kevés extra kód generálásra van szükség hozzá, az interfészek lényegében csak üres, jelző osztályok
 \item Egyetlen send függvénnyel meg lehet oldani a validációt, így a kód a lehető legkisebb lesz, nem lesz techinkai redudancia
 \end{itemize}
-Hátrányok
+Hátrányok:
 \begin{itemize}
 \item Nem általánosított megoldás. Az interfészt bármilyen szereplő használhat, és le is származhat belőle, azonban ezzel erősen portokra korlátozzuk a megoldást, mivel a küldő és fogadó műveletek a portok kódjába vannak beleégetve.
 \end{itemize}
+\item Ezt a gondolatmenetet folytatva vizsgáljuk meg azt az általános lehetőséget, hogy a Port megvalósítja az interfészt. A szintaxis nem változik, továbbra is sablon paraméterként szeretnénk megadni a port osztályunkat. Mivel most a szignáloknak nincsen interfész őse, így minden egyes receptiön művelethez kelleni fog egy-egy függvény. Mivel az üzenetküldés végrehajtási szemantikája nem változik, így vezessünk be egy általános \textit{sendAny} védett metódust, mely bármilyen szignált képes fogadni, azonban a publikus interfészen nem látható. Ezt a leszármazott osztályban felül tudjuk definiálni az üzenetküldés szemantikájától függően. Amikor a \textit{sendAny} továbbítja az adott portnak a megfelelő szignált, a túloldalon lévő port már csak egy általános eseményt lát, nem tudjuk ellenőrizni a típuskonzisztenciát. Azonban két port összekapcsolásakor tudunk gondoskodni róla, hogy ne köthessünk össze inkonzisztens interfészű portokat. \\
+Előnyök:
+\begin{itemize}
+\item Általános megoldás, az interfészt ténylegesen megvalósítjuk, így ez akár modell osztályokra is kiterjeszthető
+\item Funkcionálisan nem különülnek el a \textit{send} függvények egymástól, így a karbantartási idő nem nő
+\end{itemize}
+Hátrányok:
+\begin{itemize}
+\item A generált kód mérete azonban jelentősen megnő, mivel több \textit{send} függvény generálásra van szükségünk, melyek csak a típusban különböznek.
+\end{itemize}
+\item Mint a fentiekből látjuk, az utóbbi megoldásnak egy hátránya van, hogy növeljük az interfész kódját az első megoldáshoz képest. Amíg csak generáljuk az interfészt, addig ez elhanyagolható tényező, azonban, ha kézzel kell hozzáadni a programunkhoz, hogy kiterjesszük a modellel való kommunikációt, már probléma lehet. Megfigyelhetjük, hogy minden interfész implementációja csak abban fog különbözni, hogy különböző szignálokat tudnak fogadni. A C++ template metaprogramozási lehetőségeit kihasználva próbáljuk meg az interfész kódját egészen odáig szűkíteni, hogy csak fel kelljen sorolni egy típuslistába, hogy milyen szignálokat tud küldeni illetve fogadni. \\
+Cél szintaxis: using PingPongInf = GeneralInterface<Ping,Pong> \\
+Ez azt jelentené, hogy a PingPongInf egy olyan interfész lenne, amelynek két reeptiönje van, a Ping és a Pong.\\
+Vizsgáljuk meg a szolgáltatott részt, az elvárt ezzel analóg. Vezessünk be egy olyan template \textit{send} függvényt, melynek a template paramétere az elküldendő szignál típusa. Ezt látjuk a publikus interfészen, eszerint bármilyen szignállal meg tudjuk hívni az adott függvényt. Azonban a függvény delegálja a hívást egy olyan védett template függvénynek, mely bármilyen szignált képes fogadni,és rendelkezik egy logikai sablon paraméterrel: ebben adhatjuk meg, hogy a delegált szignál része-e az interfésznek vagy sem. 
+Template specializáció segítségével kétféle implementációt adunk ennek a függvénynek: Az igaz ág, mely végrehajtja a szignál küldést, a hamis ág pedig szemantikai fordítási hibára fut, ezzel ellenőrizve fordítási időben, hogy ne adhassunk át olyan szignált, mely nem része az interfésznek. \\
+A kérdés már csak az maradt, hogyan döntjük el egy adott szignálról, hogy része-e az interfésznek. Az egyik lehetőség bevezetni egy sablon osztályt, melynek egy adattagja megmondja, hogy reception szignálról beszélünk-e. Ezt alapértelmezetten hamisra állítani, és specializálni igaz értékekkel a sablon osztályt a megfelelő szignálokkal. Ezzel azonban még nem értük el a kívánt egyszerű szintaxist, de a \textit{send} függvényt legalább nem duplikáltuk fölöslegesen. A \textit{TYPELIST} konstrukciót használva viszont eljutunk a cél szintaxisig, ugyanis felsorolhatjuk a megfelelő szignál típusokat egy listába, és elég arra vizsgálnunk, hogy az adott szignál típus része-e a listának.
+\end{enumerate}
 
+A legutolsó megoldás tekinthető a legelőnyösebbnek, tartalmazza a második előnyeit, azonban a hátrányát sikerült kiküszöbölni.
 
+\subsection{Szolgáltatott és elvárt interfészek megkülönböztetése}
+UML: Az UML szabvány szerint egy \textit{konnektor} csak olyan portok között
+húzódhat, melynek a szolgáltatott és elvárt interfészei kompatibilisek egymással.
+A port egy kommunikációs csomópontot reprezentál, a típusa azonban adattag révén tetszőleges lehet.
+A modellosztály számára a port szolgáltatásokat nyújt a szolgáltatott interfész által, Így a típusa megfelel a szolgáltatott interfésznek.
+A modellosztály azonban kifele áramoltathat a porton keresztül információkat, az elvárt interfész által.
+Húzzunk be egy \textit{Using} reláció a port és az elvárt interfész között, mivel a modellosztály a portot használja üzenetáramoltatásra.
+A probléma, hogy a \textit{Using} relációk nem kölcsönösen egyértelműek, ha két portnak ugyanaz a szolgáltatott interfésze, így
+érdemes minden portnak egy saját interfészt generálni, amely leszármazottja a szolgáltatott interfésznek. Így minden port típusa egyedi lesz, és a relációk is egyértelműek lesznek a modellben.
+\\
+C++: Mivel a portra tudunk üzentet küldeni, de fogadni is tudunk róla, így az interfészeknek két részük lesz, az egyik a fogadó, a másik a küldő műveleteket definiálja. Attól függően, hogy az adott interfészt szolgáltatott vagy elvárt interfésznek definiáltuk, a megfelelő részből fog leszármazni az adott port. A másik lehetőség az lenne, ha nem bontjuk két részre az interfészt, helyette a receptiön függvényeknek egy plusz paramétere lenne, hogy kívülről vagy belülről küldünk-e üzentet. Azonban a portok esetén problémába ütköznénk, mert a validáció nem tudna különbséget tenni aközött, hogy egy portnak szolgáltatott vagy elvárt interfésze-e, melyet implementál.
+Interfész kiterjesztetett szintaxisa, konkrét példa portok esetén:
+class PingPongInterfce 
+{
+class RequiredPart
+{
+void send(Ping e);
+void send(Pong e);
+}
+class ProvidedPart
+{
+void receive(Ping);
+void receive(Pong);
+}
+}
+class Port<Provided,Required> : public Required::RequiredPart, Provided::ProvidedPart {} \\
+PingPongPort<PingPongInterfce,PingPongInterfce> p;
 
+\section{Konnektorok, összekapcsolás művelet reprezentálása} \label{connect}
+Az interfészeket és portokat már tudjuk exportálni UML-ben, illetve megfelelő C++ reprezentációt is találtunk. A konnektorokat ezek segítségével már ki tudjuk fejezni. \\
+Mivel \textit{txtUML}-ben 1-1 kapcsolatokat tudunk csak leírni, így a mi megoldásainkat is erre korlátozzuk. Először megvizsgáljuk, mi lehet a szabványos reprezentáció UML-ben, majd kitérünk a különböző megoldásokra C++-ban. \\
+Mielőtt még tovább megyünk, definiáljuk, pontosan mik ezek a konnektorok az UML szerint. A konnektorok alapvetően portokat kötnek össze, de többet fejez ki egy egyszerű asszociációnál. A konnektor egyfajta absztrakciót fejez ki két port között, leírja, milyen két port kapcsolódik össze, delegációval vagy assembly kapcsolattal vannak-e összekötve, illetve a kommunikáció prototípusát is képes leírni. A delegáció szülő-gyerek portok között jöhet lére, ilyenkor egy portra való üzenetküldést delegálunk a túloldalón lévő portra, mely tovább áramoltatja a belső komponens felé, vagy a másik irány esetén a külvilág felé, a komponensen kívülre. Assembly összekapcsolás esetén két egyenrangú enkapszuláció portja között jön létre kapcsolat, kölcsönös, oda-vissza kommunikációval. Fontos, hogy szülő-gyerek enkapszulációk között nem lehet Assembly kapcsolat, illetve egyenrangú szereplők között Delegáció.
+\subsubsection{Konnektor reprezentáció UML-ben}
+A szabvány szerinti reprezentáció viszonylag értelemszerű, egy \textit{Connector} UML elemet kell létre hozni, a végeknek megadni a portokat, beállítani, hogy Assembly vagy Delegált összekapcsolás van-e közöttük. A \textit{Connector} elemnek van egy Asszociáció típusa, mivel a szabvány szerint a \textit{Connector} egy Asszociáció egy konkrét realizációja. Hogy mi legyen ez a típus, azzal később foglalkozunk.
+
+\subsubsection{Összekapcsolás művelet reprezentációja UML-ben}
+A \textit{connect} akció kifejezése UML-ben már kevésbé egyértelmű, mivel \textit{connect} akció nem létezik UML-ben. Több lehetőséget is megvizsgáltunk, mire eljutottunk a helyes reprezentációhoz.
+\begin{enumerate}
+\item Mivel a Portok adattagok az UML-ben (Property-k) így két portot kölcsönösen értékül adhatunk egymásnak. Ez egy lehetőség lehet kifejezni az összekapcsolást, szabványos modell keletkezik, de mégsem ez a helyes szabványa Portok összekapcsolásának. A probléma ugyanis az lesz, hogy bármilyen két portot összekapcsolhatok így, konkrét konnektor realizáció nélkül.
+\item Mivel a \textit{Connector} egy asszociáció példány, így már egy konkrét, létrejött kapcsolatról beszélhetünk. Ebből adódóan a komponensek struktúrájából következtethetünk az összekapcsolt portokra. Azonban ez megszorításokkal járna, ha például egy szülőnek két azonos típusú gyereke van, de csak az egyikkel szeretne delegáció révén kommunikálni, nem köthetem hozzá mindkét gyerek porthoz a szülő portját.
+\item Nem maradt más lehetőség, mint a dinamikus összekapcsolás, és szintaktikailag sincs már más lehetőségem, mint a \textit{CreateLinkAction} használata. Ehhez két dologra van szükségem: Végpontokra, valamint arra az asszociációra, melyet használni szeretnék az összekapcsoláshoz. Mint korábban láttuk, a Konnektorok fel vannak típusozva egy Asszociációval. Értelemszerű lenne ezt fölhasználni az összekapcsoláshoz, a kérdés csak az, mi legyen ez az Asszociáció. Az Asszociáció típusok között húzható, a Port önmagában nem típus, azonban adattag révén rendelkeznek típussal, a szolgáltatott interfészük típusával. Nem maradt más ésszerű lehetőségünk, mint ezek között az interfészek között létrehozni egy Asszociációt, melyet a Konnektor realizál a Portok összekapcsolásával. Így a \textit{CreateLinkAction}-be be tudjuk tenni Asszociációként a Konnektor típusát, ami mentén összekapcsolunk. Ezzel egy szabványos UML-t generálunk, és a Konnektorokat sem hagyjuk figyelmen kívül két port összekapcsolásánál.
+\end{enumerate}
+
+\subsection{Összekapcsolt portok reprezentációja C++-ban}
+A szabvány szemantikája szerint, amikor egy üzenet küldünk a \textit{send} művelettel egy adott portra, annak továbbítania kell ezt a vele kapcsolatban álló port felé. Ehhez mindenképpen valami referenciát kell tárolni a kapcsolat Portra. Ezt alapvetően kétféle képen érhetük el:\\
+\begin{enumerate}
+\item Egy globális adatszerkezetben, példásul egy asszociatív tömbben megmondjuk, melyik porthoz ki kapcsolódik. Ennek előnye, hogy nem a Port kódja semleges marad, nem kell belekódolni a kapcsolatokhoz.
+Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet kell manipulálni, így sok szinkronizációt igényel a dolog, minek következtében csökken a hatékonyság
+\item A másik lehetőségünk, hogy a port kódjában közvetlen referenciát tárolunk a kapcsolt portra. Mivel az nem lesz érdekes az üzenetküldés szemantikájában, hogy pontosan melyik Konnektoron keresztül kapcsolódnak az adott portok egymáshoz (annak típusa azonban számítani fog), és csak 1-1 kapcsolatok valósítunk meg, így a Port kódját nem kell a modell alapján generálnunk, nem fog bővülni, és hatékonyabb megoldást érhetünk el szekvenciális környezetben is, mint a globális adatszerkezettel. 
+\end{enumerate}
+
+Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez még nem elég önmagában. Figyelembe kell vennünk azt is, hogy milyen típusú Konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha Assembly kapcsolatról. Delegáció esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. Assembly kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens a műveletünk. (\textit{receive} művelet). Így tudunk kell, hogy a referenciánk milyen kapcsolatban áll a portunkkal. Két lehetőségünk van ennek kifejezésére, a választás nem egyértelmű:
+\begin{enumerate}
+\item Virtualizáció használata, \textit{Port} referencia helyett \textit{Connection} referencia, melynek absztrakt művelet eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony.
+\item Delegáció jelző használata: Marad a Port referencia, maga a Port dönti el, melyik művelet hívására van szükség a jelző alapján. Ez a megoldás kevésbé letisztult, de hatékonyabb. 
+\end{enumerate}
+
+Vizsgáljuk meg az üzenet fogadás szemantikáját is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt Portrol (Behavior Port) beszélünk-e vagy nem. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek klasszifikáció portjára. Ennek megvalósítására szintén a fent említett két lehetőségünk van, a virtualizáció, illetve a behavior jelző. Egy \textit{Behavior Port} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell szereznünk az állapotgépet birtokló objektumra, ellenkező esetben pedig a gyerek komponens portjára. Ez különböző adattagokat igényel, az adat redundancia miatt leszármazás egy kézen fekvő választás. Unio típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
+\\
+
+Hasonlóan az interfészekhez, a kapcsolatok esetén is a kevert megoldás lenne a leghatékonyabb. Ha dolgozhatnánk leszármazással, ugyanakkor nem kéne virtualizációt használni. Erre egy kézenfekvő megoldás az lenne, ha a leszármazáskor megadnánk az interfésznek, ki a leszármazottja. \\
+class DelegateConnection : public Connection<DelegateConnection> \\
+Majd definiálnánk a speciális implementációkat, az interfész implementáció pedig statikus konverzióval a specializált \textit{Connection} osztályra konvertálná önmagát, és meghívná a megfelelő műveletet. Ehhez fordítási időben tudnom kell, hogy egy adott porthoz milyen típusú kapcsolaton keresztül fog létrejönni a referencia. \\ 
+A portokat akkor kapcsoljuk össze, mikor létre hozzuk a rendszer struktúráját. Minden port 1-1 kapcsolattal kapcsolódik egymáshoz. Ami azt jelenti, hogy egy állapotgéppel összekapcsolt port esetén egy referenciák lesz egy másik portra, melyet valamilyen ismert kapcsolaton keresztül kötünk majd hozzá. Általános port esetén pedig két referenciánk lesz, az egyik biztosan egy delegáció, a másik pedig ugyanazon az érvek mentén ismert, amit az előbb tárgyaltunk. Ebből következtetve úgy tűnik, hogy ha a pontos összekapcsolások nem is ismertek, a potenciális összekapcsolások típusai igen, így fordítási időben el tudjuk dönteni egy adott kapcsolatról, milyen típusú.
+
+\subsection{Konnektorok reprezentálása C++-ban}
+A konnektorok reprezentálása is több lehetőségünk van, ezeket fogjuk most megvizsgálni
+\begin{enumerate}
+\item Itt is felmerül a lehetőség, hogy teljesen figyelmen kívül hagyjuk a konnektorokat. Ezt akkor tehetjük meg egyértelműen, ha a referencia birtoklását választjuk a fentiekben az összekapcsolt portok reprezentálásánál. Ennek előnye szintén az egyerűség lesz, a generált kód mérete kisebb lesz. Hátránya pedig a validáció teljes hiánya. Az interfészeknél arra jutottunk, hogy szükséges a validáció, így ez nem a legjobb megoldás
+\item A másik lehetősünk bevezetni egy \textit{Connector} osztályt, és összekapcsolásánál erre az osztályra hivatkozunk. Ebben a struktúrában leírhatnánk a portokat, melyek potenciálisan kapcsolódnak egymáshoz, és ezt használhatjuk validációra. Ennek előnye egy tiszta reprezentáció lesz, hátránya viszont az, hogy egy redundáns megoldást kapunk, a konnektoroknak semmi szerepük nincsen a validáción kívül.
+\item A Konnektorokhoz generált asszociáció típust használjuk fel a validációra. Ennek előnye, hogy az asszociációkat egyébként is eltengethetetlen generálunk a modellben, így nem igényel további kódgenerálást. Azonban a típusvalidációról gondoskodik, nem enged összekapcsolni olyan két portot, melyhez nem tartozik megfelelő típusú asszociáció. Hátránya, hogy nem elég konkrét, nem kell megfelelni a konkrét portoknak a struktúrán belül, elég, ha az interfészeik megfelelnek.
+\item TODO: Ha azt a megoldást vesszük alapul, hogy az egyes végpontokba bele tudjuk kódolni a Konnektor típusát, akkor akár konkrétabbak is lehetünk, és a megfelelő Konnektort és szerepeket is bele tudjuk kódolni.
+\end{enumerate}
 \end{document}
