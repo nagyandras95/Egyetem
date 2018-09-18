@@ -1,0 +1,23 @@
+﻿Export: két komponens
+Java (JDT) -> UML
+Itt az alapvető nehézségeket az okozza, hogyan képezzük le az egyes elemeket UML2-re.
+Nagyrésze Xbasben írt, így java meleltt abban is lehet fejlődni kicsit. 
+UML -> C++
+Ez egy kicsivel érdekesebb, a cél, hogy az UML elemeket leképezzük c++ nyelvre úgy, 
+hogy igyekezzünk megőrizni a kód átláthatóságát, de legyünk minél hatékonyabbak, 
+illetve emeljük ki a common dolgokat előre megírt fájlokba, mely újrafelhasználhaó, nem függ a generált kódtol.
+Továbbá itt már lehetőségünk van  platfromhoz, illetve modellhet igazítani a generált kódot. 
+
+Függő taszkok
+- Minnél jobban kiírtani a nyers pointereket a kódból, ezzel megvalósítva egyfajta szemétgyűjtést c++ oldalról is. 
+Nem kéne engedni a felhazsnálónak, hogy stacken hozhasson létre objektumokat, ezzel is radukálni a hibalehetőségeket.
+Nagyobb taszk, lehetnek fent akadások, de viszonylag jól definiált.
+- A konfigurációt átírni: Egyrészt itt magát a konfig leírást is át kéne dolgozni, annak értelmezését, és a C++ runtime-ban is át kéne írni a kódot, hogy
+megfeleljünk neki. Ez is egy nagyobb task, de elég jó specifikációm van rá.
+- Externál emelek "rendes támogatása" (igyekezeni minél jobban függettleníteni a generált kódot az utólagos hozzáírt kódoktól, 
+hogy ne kelljen rendszeresen újra írni kézzel valamit generálás után). Nagyobb taszk, meg van nagyrészt terveze, 
+hogy mit kéne csinálni, de még mindig nem tökéletes. Korábban valaki megcsinálta, tavaly valaki elkedzte okosítani, 
+de bizonytalan vagyok, hogy jó-e az új specifikációja egyátalán.Talán ez a legkevésbé jól definált taszt.
+- Többszörös leszármazás támogatása (meg van tervezve nagyrészt, le kéne kódolni főleg, tesztelni, stb..)
+- Teszteket írni bármikor lehet, az intergációs teszteken is lehet dolgozni tovább kicsit, h ne legyen olyan lassú a lefutása, unit teszteket is lehet írni.
+- Hiányzó elemek exportja: enum, choice esetén else, a gyűjtemény műveleteket átnézni, stb (első körben össze lehetne gyűjteni, pontosan mik hiányoznak még..)
