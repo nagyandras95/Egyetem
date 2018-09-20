@@ -319,9 +319,24 @@ A fordításhoz az alábbiakra van szükségünk
 \subsection{Generálás és futtatás}
 Kódot generálni legegyszerűbben Eclipse-ből tudunk egy txtUML modell megírása és egy kihelyezési konfiguráció alapján. A \textit{runtime} mappában az előre megírt fájlokat másoljuk, mely tartalmazza többek között a Portok osztályát is, az összekacsoló műveleteket, és azok szemantikáját. A konkrét port példányokat, konnektorokat, interfészeket pedig a \textit{runtime} mappán kívül generáljuk a modell alapján. \\
 
-A generált kódot fordítani a \textit{cmake}, valamint a választott build környzet parancsával tudunk. A \textit{cmake} parancs elhagyható, ha az exporter dialóguson kiválasztjuk a megfelelő környezetet. Fordítás után pedig már futtathatjuk a \textit{main} futtatható állományunkat. 
+A generált kódot fordítani a \textit{cmake}, valamint a választott build környzet parancsával tudunk. A \textit{cmake} parancs elhagyható, ha az exporter dialóguson kiválasztjuk a megfelelő környezetet. Fordítás után pedig már futtathatjuk a \textit{main} futtatható állományunkat.
 
 \section{Fejlesztői dokumentáció}
+A program a \textit{txtUML} keretrendszer C++ fordító és exporter komponensét fejleszti tovább, ennél fogja Java nyelven készült. A Java modellt JDT segítségével járjuk be, és az EMF keretrendszert használjuk a szabványos modell létrehozásához. \\
 
+\subsection{Szerkezeti felépítés}
+A program négy jól elkülöníthető részből áll, mindhárom részt ki kellett egészíteni a Portok, Interfészek, Konnektorok exportáláshoz
+
+\begin{enumerate}
+\item A Java modellt UML modellre leképző algoritmusok.
+\item Az UML modellt feldolgozó algoritmusok. Itt hozzá kellett adni a  \textbf{PortExporter.java} és az \textbf{InterfaceExporter.java} osztályokat, melyek ezek struktúrájának az exportálásáért felelnek. A \textit{send} és a \textit{connect} műveletek exportálása végett hozzá kellett nyúlni az \textbf{ActivityExporter.java} osztályhoz
+\item C++ kódgenerálási sablonok
+\item Előre megírt C++ fájlok
+\end{enumerate}
+
+Ezek a modulok jól eltönkretehetőek és cserélhetőek. 
+
+
+\subsection{Tesztelés}
 
 \end{document}
