@@ -328,15 +328,32 @@ A program a \textit{txtUML} keretrendszer C++ fordító és exporter komponensé
 A program négy jól elkülöníthető részből áll, mindhárom részt ki kellett egészíteni a Portok, Interfészek, Konnektorok exportáláshoz
 
 \begin{enumerate}
-\item A Java modellt UML modellre leképző algoritmusok.
-\item Az UML modellt feldolgozó algoritmusok. Itt hozzá kellett adni a  \textbf{PortExporter.java} és az \textbf{InterfaceExporter.java} osztályokat, melyek ezek struktúrájának az exportálásáért felelnek. A \textit{send} és a \textit{connect} műveletek exportálása végett hozzá kellett nyúlni az \textbf{ActivityExporter.java} osztályhoz
-\item C++ kódgenerálási sablonok
-\item Előre megírt C++ fájlok
+\item A Java modellt UML modellre leképző algoritmusok. Ezek nem tiszta Java-ban, hanem a Xtend keretrendszerben készültek. A strukturális elemekhez fel kellett venni a \textbf{PortExporter.xtend}, \textbf{InterfaceExporter.xtend}, \textbf{ConnectorExorter.xtend} és a \textbf{ConnectorEndExporter.xtend} fájlokat. Az akcióelemekhez pedig felvettük a port referenciát kiolvasó \textbf{PortReferenceExporter.xtend} fájt, az üzenetküldéshez a \textbf{SendToPortActionExporter.xtend}, az összekapcsolásokhoz a \textbf{AssemblyConnect.xtend} valamint a \textbf{DelegateConnect.xtend} fájlokat.
+\item Az UML modellt feldolgozó algoritmusok. Itt hozzá kellett adni a  \textbf{PortExporter.java} és az \textbf{InterfaceExporter.java} osztályokat, melyek ezek struktúrájának az exportálásáért felelnek. A \textit{send} és a \textit{connect} műveletek exportálása végett hozzá kellett nyúlni az \textbf{ActivityExporter.java} osztályhoz, mely az akciókódok exportálásáért felelős.
+\item C++ kódgenerálási sablonok: Itt bevezettük a \textbf{InterfaceTemplates.java} és \textbf{PortTemplates.java} fájlokat a strukturális elemek sablonjához. Az \textbf{AssociationTemplates.java} az összekapcsoláshoz szükséges sablonokról gondoskodik.
+\item Előre megírt C++ fájlok: Itt lényegében a \textbf{PortUtils.hpp} fájl tartalmaz minden portokhoz szükséges előre megírt elemet: A portok típusát, a kapcsolatokat, az összekapcsolásokat. Az \textbf{IEvent.hpp}-be is bele kellett nyúlni az eseményfeldolgozás megváltozása miatt. Valamint az \textbf{InterfaceUtils.hpp} tartalmazza az interfészek sablonját és az üres interfészt, a \textbf{AssociationUtils.hpp} pedig az összekapcsoláshoz szükséges asszociációk sablonját.
 \end{enumerate}
 
 Ezek a modulok jól eltönkretehetőek és cserélhetőek. 
 
 
 \subsection{Tesztelés}
+A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejezetben.
 
+\begin{enumerate}
+\item Regresszió tesztelése: Portok nélküli modell létrehozása, melyben azt várjuk, hogy az eredmény maradjon az, ami eddig volt.
+\item Egyosztályos modell létrehozása egy darab porttal
+\begin{enumerate}
+\item Üres interfészekkel, \textit{send} művelet kipróbálása, mely hibás lesz
+\item Nem-üres interfésszel, \textit{send} művelet kipróbálása olyan szignállal, melyet tartalmaz az interfész. Nincs fordítási hiba, de nincs hatása sem. Majd egy olyannal, mely nem része az interfésznek.
+\item Nem-üres interfésszel, állapotgéppel összekapcsolt portot hozunk létre. Az osztály egy átmenete tartalmazza az adott portot. \textit{receive} művelet kipróbálása.
+\end{enumerate}
+\item Kétosztályos modell létrehozása, egy szülő osztály, melynek van egy belső osztálya. Mindkettőnek van egy-egy portja.
+\begin{enumerate}
+\item Kompatibilis interfészekkel hozzuk létre őket, delegációval összekapcsoljuk őket, majd \textit{send} művelet kipróbálása a belső komponensen. Ezután a \textit{receive} művelet a külső komponensen.
+\item Assembly kapcsolattal összekapcsoljuk őket, mely fordítási hibát jelez.
+\item Inkompatibilis interfészekkel hozzuk létre őket, majd delegációval megpróbáljuk összekapcsolni, mely szintén fordítási hibát jelez.
+\end{enumerate}
+\item Komplexszebb model létrehozása
+\end{enumerate}
 \end{document}
