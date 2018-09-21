@@ -11,10 +11,12 @@
 \usepackage[delims]{lgreek}
 \usepackage{couriers}
 \usepackage{amssymb}
-%\usepackage{listings}
 
 \usepackage[top=25mm, bottom=25mm, left=35mm, right=25mm]{geometry}
+
 \usepackage{setspace}
+%\usepackage{listings}
+
 
 \sloppy
 \linespread{1.5}
@@ -24,7 +26,7 @@
 \tableofcontents
 
 \chapter{Bevezetés}
-A szoftverfejlesztési folyamatban egyre nagyobb hangsúlyt kap a tervezés, a rendszer strukturálása a felelősségi körök szeparálásnak elve, az újrafelhasználhatóság, valamint a rendszer szereplőinek izoláltsága szerint. A végrehajtható UML ezen a ponton játszik nagy szerepet, melynek segítségével magas szinten leírhatjuk a rendszer struktúráját, felvehetjük az egyes szereplőket úgy, hogy már a rendszertervünk is tesztelhetővé, a kódgenerálás révén pedig közvetlen felhasználhatóvá válik. \\ A szereplők izolálása érdekében kommunikációs csomópontokra, portokra és azokat összekapcsoló absztrakt kommunikációs protokollokra, konnektorokra van szükségünk, melynek révén az adott szereplőnek nem szükséges ismernie a kommunikációban részt vevő felet. Valós idejű rendszerek tervezésnél fontos szerepet játszanak a portok és konnektorok (\url{ftp://ftp.omg.org/pub/umlrtf/UML_rt_ext_F56dist.pdf})\\ 
+A szoftverfejlesztési folyamatban egyre nagyobb hangsúlyt kap a tervezés, a rendszer strukturálása a felelősségi körök szeparálásnak elve, az újrafelhasználhatóság, valamint a rendszer szereplőinek izoláltsága szerint. Az UML \cite{uml_omg}, ezen belül is a végrehjatjható UML ezen a ponton játszik nagy szerepet, melynek segítségével magas szinten leírhatjuk a rendszer struktúráját, felvehetjük az egyes szereplőket úgy, hogy már a rendszertervünk is tesztelhetővé, a kódgenerálás révén pedig közvetlen felhasználhatóvá válik. \\ A szereplők izolálása érdekében kommunikációs csomópontokra, portokra és azokat összekapcsoló absztrakt kommunikációs protokollokra, konnektorokra van szükségünk, melynek révén az adott szereplőnek nem szükséges ismernie a kommunikációban részt vevő felet. Valós idejű rendszerek tervezésnél fontos szerepet játszanak a portok és konnektorok \cite{uml_real}\\ 
 A portok és konnektorok fordíthatóságához meg kell ismerni azok pontos UML szemantikáját,a szabvány szerinti reprezentációját, valamint kell találni egy olyan C++ reprezentációt, melynek API-ja letisztult, érhető a felhasználó számára, ugyanakkor az egyes műveletek leghatékonyabb megvalósítására törekszik. A következőkben ezeket a megvalósításokat fogjuk elemezni, egymással összehasonlítani, valamint kiérünk a szabványos UML leképezésre, annak problémáira is. 
 
 \section{UML Komponens fogalmak}
@@ -43,31 +45,31 @@ Egy asszociációt realizál két port között. Leírja, hogy milyen portokat k
 \section{A probléma rövid meghatározása}
 A diplomamunka célja teljes körű támogatást nyújtani az interfész portokkal történő kommunikációra a txtUML keretrendszeren belül. A portokat és azok műveleteit az eszköz által helyesen és teljesen leírhatónak tekintjük, ennek problémájával nem foglalkozunk. A probléma megtalálni ennek a helyes UML reprezentációját, mellyel a kódgenerálás tovább tud dolgozni, valamint a megfelelő C++ kód reprezentációt, mely megfelelő hatékonyságú és tisztaságú.
 
-\section{Keretrendszerek áttekintése}
+\section{Szabványok és keretrendszerek áttekintése}
 \subsection{fUML - ALF}
-A Foundateional UML (fUML) egy Object Managment Group (OMG) által specifikált végrehajtató UML szabvány, 
-melynek szöveges akciónyelvi szinaxistát az ALF (Action Language for Foundational UML) definiálja.
-Mivel ALF az UML szabvány egy részhalmazán alapszik, így az akciónylvi elemekhez és a strukturális elemekhez (osztály, asszociációk)  széleskörű támogatást nyújt, 
-de az állapotgépekhez vagy a kompozíciókhoz nem definiál szintaxist.
+A Foundational UML (fUML) \cite{fmul} egy Object Managment Group (OMG) által specifikált végrehajtató UML szabvány, 
+melynek szöveges akciónyelvi szintaxisát az ALF (Action Language for Foundational UML) \cite{alf} definiálja.
+Mivel ALF az UML szabvány egy részhalmazán alapszik, így az akciónyelvi elemekhez és a strukturális elemekhez (osztály, asszociációk)  széleskörű támogatást nyújt, de az állapotgépekhez vagy a kompozíciókhoz nem definiál szintaxist.
 
 \subsection{Umple}
-Az Umple (link) szöveges alapú modellezőeszköz támogatja a komponens struktúrák leírását. Itt a portok egyszerű adattgonként jelennek meg, melyekhez úgynenevezett aktivátor metódusokat rendelhetünk, melynek hatása az attribútum változásakor érvényesül. A megváltozott érték pedig végig csorog a kapcsolatban álló portokon, melyre szintén egy aktivátor segítségével reagálhatunk. A connectorok pedig egyszerűen portok egymáshoz kötésével jellenek meg (binding) interfész kompatibilitási problémák nélkül. Ezzel szemben a txtUML-ben interfész portokat adhatunk meg elvárt és szolgáltatott interfésszel, egyszerű atribbútumokat nem, aktivátorok helyett pedig az állapotgép átmenteti vannak kiegészítve a portok dimenziójával. Az Umple nem foglalkozik a szabványos UML2-es repzrezentációval, a C++ kódot közvetlen a modell szövege alapján állítja elő. \\
+Az Umple \cite{umple} szöveges alapú modellezőeszköz támogatja a komponens struktúrák leírását. Itt a portok egyszerű adattagonként jelennek meg, melyekhez úgynevezett aktívator metódusokat rendelhetünk, melynek hatása az attribútum változásakor érvényesül. A megváltozott érték pedig végig csorog a kapcsolatban álló portokon, melyre szintén egy aktivátorok segítségével reagálhatunk. A konnektorok pedig egyszerűen portok egymáshoz kötésével jelennek meg (binding) konnektor struktúrák és interfész kompatibilitási problémák nélkül. Ezzel szemben a \textit{txtUML}-ben interfész portokat adhatunk meg elvárt és szolgáltatott interfésszel, egyszerű attribútumokat nem, aktivátorok helyett pedig az állapotgép átmenteti vannak kiegészítve a portok dimenziójával. Az Umple nem foglalkozik a szabványos UML2-es reprezentációval, a C++ kódot közvetlen a modell szövege alapján állítja elő. Valamint saját akciónyelvvel sem rendelkezik, hanem azt a célnyelvben adhatjuk meg. \\
 
 Előnyei:
 \begin{itemize}
-\item Online eszközénk is elérhető, nem szükséges hozzá semmit telepíteni.
+\item Online eszközként is elérhető, nem szükséges hozzá semmit telepíteni.
 \item Letisztult, jól definiált szöveges szintaxisa van, beleértve a portokat is.
-\item Tartalmaz kódgenerálást, mely kitrejed a portok akciónyelvére.
+\item Tartalmaz kódgenerálást
 \end{itemize}
 Hátrányai:
 \begin{itemize}
 \item Nem generál egy szabványos UML modellt a kódgenerálás előtt, közvetlen a szövegre építkezik.
 \item A portokat egyszerű adattagként képzi le a feltípusozás alapján, nem lehet megadni szolgáltatott és elvárt interfészeket.
+\item Nincs saját akciónyelve
 \item Nincs lehetőség testre szabni az üzenetküldés implementációját a porton keresztül, nincs konfigurációs leírás
 \end{itemize}
 
 \subsection{StartUML}
-Támogatja a kompozit diagramok létrehozását, így a portok, konnektorok és interfészekét is. Vizuális modellezőeszköz, a létrehozott diagramokból C++ kódot tudunk exportálni. A Portok vázát exportálja, ahogy az interfészeket is, de primitív szinten, a portok féltípusozása után egy adattagként generálja hozzá az osztályhoz. A konnektorokat már nem exportálja, ahogy a portokhoz kapcsolódó műveleteket sem. \\
+A StartUML  Támogatja a kompozit diagramok létrehozását, így a portok, konnektorok és interfészekét is. Vizuális modellezőeszköz, a létrehozott diagramokból C++ kódot tudunk exportálni. A Portok vázát exportálja, ahogy az interfészeket is, de primitív szinten, a portok féltípusozása után egy adattagként generálja hozzá az osztályhoz. A konnektorokat már nem exportálja, ahogy a portokhoz kapcsolódó műveleteket sem. \\
 Előnyei:
 \begin{itemize}
 \item Az UML szabványos elemeivel dolgozik
@@ -81,10 +83,10 @@ Hátrányai:
 \end{itemize}
 
 \subsection{BrigePoint UML}
-A StartUML-hez hasonlóan az UML szabványos elemeiből építhetünk fel vizuálisan egy szabványos UML diagramot. Azonban nem tudunk osztályok között portokkal kommunikálni, csak a komponensek között, így ez a megoldás nem elég általános. Portot, illetve konnektort önmagában nem tudunk felvenni, az interfészek segítségével tudunk egy kapcsolatot húzni két komponens között, mely leképződik egy porttá és konnektorrá. Hasonlóan a StartUML-hez, az akciókat aktivitás node-ok révén kézzel kell összerakni, így nehéz szabványos port műveleteket létrehozni. Összességében a BridgePointról is elmondható, hogy kezdetlegesen támogatja a portokkal történő kommunikációt, de kiforratlan, hiányos, a kódgenerálás ellenére nehéz érdemben azok reprezentációjáról beszélni. 
+A StartUML-hez hasonlóan az UML szabványos elemeiből építhetünk fel vizuálisan egy szabványos UML diagramot. Azonban nem tudunk osztályok között portokkal kommunikálni, csak a komponensek között, így ez a megoldás nem elég általános. Portot, illetve konnektort önmagában nem tudunk felvenni, az interfészek segítségével tudunk egy kapcsolatot húzni két komponens között, mely leképződik egy porttá és konnektorrá. Hasonlóan a StartUML-hez, az akciókat aktivitás node-ok révén kézzel kell összerakni, így nehéz szabványos port műveleteket létrehozni. Összességében a BridgePoint-ról \cite{bridge} is elmondható, hogy kezdetlegesen támogatja a portokkal történő kommunikációt, de kiforratlan, hiányos, a kódgenerálás ellenére nehéz érdemben azok reprezentációjáról beszélni. 
 
 \section{Összefoglalás}
-Összességében az figyelhető meg az egyes exportálási módok között, hogy a portokat mindig valamilyen primitív feltípusozott adattagként exportáljuk. A másik lehetőségünk, melyet mi is követni fogunk, az interfész portokat összetett típusként exportálni, melyben benne van a szolgáltatott és elvárt interfészt. Portok összekapcsolásának, a portokon történő kommunikáció végrehajtási szemantikájával pedig nem mindegyik keretrendszer foglalkozik, még ha részben támogatja is a portok exportálását. Mindebből az figyelhető meg, hogy egy viszonylag új területről beszélünk, melyben egy teljesen körű támogatás és elemzés referencia értékű lehet későbbi megoldások, fejlesztések számára. A diplomamunka kielemez több különböző, teljes körű támogatást a portok és interfészek C++ nyelvre történő exportáláshoz, mely magában foglalja a szabványos UML modell létrehozását egy jól definiált leírónyelv alapján.
+Összességében az figyelhető meg az egyes exportálási módok között, hogy a portokat mindig valamilyen primitív feltípusozott adattagként exportáljuk. A másik lehetőségünk, melyet mi is követni fogunk, az interfész portokat összetett típusként exportálni, melyben benne van a szolgáltatott és elvárt interfészt. Portok összekapcsolásának, a portokon történő kommunikáció végrehajtási szemantikájával pedig nem mindegyik keretrendszer foglalkozik, még ha részben támogatja is a portok exportálását. Ennek oka a szabvány nehezen érthetőségében és hiányosságában keresendő. Mindebből az figyelhető meg, hogy egy viszonylag új területről beszélünk, melyben egy teljesen körű támogatás és elemzés referencia értékű lehet későbbi megoldások, fejlesztések számára. A diplomamunka kielemez több különböző, teljes körű támogatást a portok és interfészek C++ nyelvre történő exportáláshoz, mely magában foglalja a szabványos UML modell létrehozását egy jól definiált leírónyelv alapján.
 
 \chapter{Reprezentációs lehetőségek}
 \section{A megfelelő reprezentációk megtalálása}
@@ -92,15 +94,15 @@ Az eddig leírtakból kiderült, hogy a szabványos reprezentáció megtalálás
 
 A továbbiakban a következő elemek reprezentációjával foglalkozunk:
 \begin{itemize}
-\item Interészek
+\item Interfészek
 \item Portok és üzenet küldés/fogadás művelet
-\item Connectorok és connect művelet
+\item Konnektorok és connect művelet
 \end{itemize}
 
 \section{Portok reprezentálása}
 
 \subsection{UML-ben}
-A portok reprezentálása értelemszerű, egy speciális Property-t kell felvenni az osztályon belül. Amit fontos megemlíteni, hogy a szolgáltatott interfész segítségével fogjuk feltipúsozni. 
+A portok reprezentálása értelemszerű, egy speciális Property-t kell felvenni az osztályon belül. Amit fontos megemlíteni, hogy a szolgáltatott interfész segítségével fogjuk feltípusozni. 
 
 \subsection{C++-ban}
 A portokat minden esetben adattagként reprezentáljuk, ezt mi sem tudjuk másképp megtenni. Többféle képen használhatók kommunikációra, de minden esetben egyfajta ravaszként működik a rajtuk történő állapotváltozás. A port adattag értéke reprezentálja az üzentet. Ennek megfelelően általánosságban kétféle megoldás létezik a portokon történő kommunikációra:
@@ -159,28 +161,18 @@ Ezen belül meg kell vizsgálni az interfész port szintaxisát, valamint a mög
 Ahogy azt korábban írtuk, a port típusa az UML-ben a szolgáltatott interfész, ezért kézenfekvő megoldás lenne felvenni egy olyan adattagot, melynek ez az interfész a típusa. Ennek azonban több hátránya is van, sokkal nehezebben tudjuk kifejezni, milyen elvárt interfésze van a portnak, valamint nem tudjuk kifejezni a port típuson belül az üzenetküldés végrehajtási szemantikáját, valamilyen külső implementációra kényszerülünk. Ezáltal bonyolultjuk a megvalósítást, veszítünk az absztrakcióból, de a hatékonyságot nem növeljük. \\
 Így a másik lehetőségünk bevezetni a Port típust, melynek sablon paramétere a szolgáltatott és elvárt interfész. Ezáltal a következőképpen vehetünk fel egy portot egy osztályba: \\
 
-%\begin{lstlisting}
-// ProvededInf, RequiredInf Definitios..
-Port<ProvededInf, RequiredInf> p;
-%\end{lstlisting}
+
+%\lstinputlisting[language=C++]{port_decl.h}
 
 Ezek után technikailag többféle lehetőségünk van megvalósítani a validációt: \\
 \begin{enumerate}
 
 \item Generáljunk egy üres osztályt az interfészekből, majd a szignálok származzanak le aszerint, hogy melyik interfész fogadó műveletei között vannak benne: \\
 PL: UML interfész neve: PingPongInterfce, a receptionjai pedig a következő szignálokat fogadják: Ping, Pong \\
-Ekkor a generált kód:
-%\begin{lstlisting}
-class PingPongInterfce {};
-class Ping  : public PingPongInterfce ..
-class Pong  : public PingPongInterfce ..
-%\end{lstlisting}
-
 Majd a portnak legyen egy \textit{send} művelete, ami az elvárt interfész alá sorolt szignálokat várja, vagyis olyan szignálokat, melyek implementálják a megfelelő interfészt.
-%\begin{lstlisting}
-send(PingPongInterfce ..)
-%\end{lstlisting}
 Mindezzel fordítási időben biztosítjuk, hogy ne adhassunk át olyan szignált, melyet nem soroltunk az elvárt interfész szignáljai közé. Hasonlóan, a \textit{receive} művelet olyan szignálokat vár, melyek leszármazottjai a szolgáltatott interfésznek. \\
+
+\includegraphics[scale=0.7]{inf_ver1.png} \\
 
 Előnyök:
 \begin{itemize}
@@ -192,6 +184,7 @@ Hátrányok:
 \item Nem általánosított megoldás. Az interfészt bármilyen szereplő használhat, és le is származhat belőle, azonban ezzel erősen portokra korlátozzuk a megoldást, mivel a küldő és fogadó műveletek a portok kódjába vannak beleégetve.
 \end{itemize}
 \item Ezt a gondolatmenetet folytatva vizsgáljuk meg azt az általános lehetőséget, hogy a Port megvalósítja az interfészt. A szintaxis nem változik, továbbra is sablon paraméterként szeretnénk megadni az interfészeket a portban. Mivel most a szignáloknak nincsen interfész őse, így minden egyes receptiön művelethez kelleni fog egy-egy függvény. Mivel az üzenetküldés végrehajtási szemantikája nem változik, így vezessünk be egy általános \textit{sendAny} védett metódust, mely bármilyen szignált képes fogadni, azonban a publikus interfészen nem látható. Ezt a leszármazott osztályban felül tudjuk definiálni az üzenetküldés szemantikájától függően. Amikor a \textit{sendAny} továbbítja az adott portnak a megfelelő szignált, a túloldalon lévő port már csak egy általános eseményt lát, nem tudjuk ellenőrizni a típuskonzisztenciát. Azonban két port összekapcsolásakor tudunk gondoskodni róla, hogy ne köthessünk össze inkonzisztens interfészű portokat. \\
+\includegraphics[scale=0.7]{inf_ver2.png} \\
 Előnyök:
 \begin{itemize}
 \item Általános megoldás, az interfészt ténylegesen megvalósítjuk, így ez akár modell osztályokra is kiterjeszthető
@@ -206,7 +199,7 @@ Cél szintaxis: using PingPongInf = GeneralInterface<Ping,Pong> \\
 Ez azt jelentené, hogy a PingPongInf egy olyan interfész lenne, amelynek két fogadó művelete van, a Ping és a Pong.\\
 Vizsgáljuk meg a szolgáltatott részt, az elvárt ezzel analóg. Vezessünk be egy olyan sablon \textit{send} függvényt, melynek a sablon paramétere az elküldendő szignál típusa. Ezt látjuk a publikus interfészen, eszerint bármilyen szignállal meg tudjuk hívni az adott függvényt. Azonban a függvény delegálja a hívást egy olyan védett sablon függvénynek, mely bármilyen szignált képes fogadni,és rendelkezik egy logikai sablon paraméterrel: ebben adhatjuk meg, hogy a delegált szignál része-e az interfésznek vagy sem. 
 Template specializáció segítségével kétféle implementációt adunk ennek a függvénynek: Az igaz ág, mely végrehajtja a szignál küldést, a hamis ág pedig szemantikai fordítási hibára fut, ezzel ellenőrizve fordítási időben, hogy ne adhassunk át olyan szignált, mely nem része az interfésznek. \\
-A kérdés már csak az maradt, hogyan döntjük el egy adott szignálról, hogy része-e az interfésznek. Az egyik lehetőség bevezetni egy sablon osztályt, melynek egy adattagja megmondja, hogy reception szignálról beszélünk-e. Ezt alapértelmezetten hamisra állítani, és specializálni igaz értékekkel a sablon osztályt a megfelelő szignálokkal. Ezzel azonban még nem értük el a kívánt egyszerű szintaxist, de a \textit{send} függvényt legalább nem duplikáltuk fölöslegesen. A \textit{TYPELIST} konstrukciót használva viszont eljutunk a cél szintaxisig, ugyanis felsorolhatjuk a megfelelő szignál típusokat egy listába, és elég arra vizsgálnunk, hogy az adott szignál típus része-e a listának.
+A kérdés már csak az maradt, hogyan döntjük el egy adott szignálról, hogy része-e az interfésznek. Az egyik lehetőség bevezetni egy sablon osztályt, melynek egy adattagja megmondja, hogy reception szignálról beszélünk-e. Ezt alapértelmezetten hamisra állítani, és specializálni igaz értékekkel a sablon osztályt a megfelelő szignálokkal. Ezzel azonban még nem értük el a kívánt egyszerű szintaxist, de a \textit{send} függvényt legalább nem duplikáltuk fölöslegesen. A \textit{TYPELIST} \cite{typelist} konstrukciót használva viszont eljutunk a cél szintaxisig, ugyanis felsorolhatjuk a megfelelő szignál típusokat egy listába, és elég arra vizsgálnunk, hogy az adott szignál típus része-e a listának.
 \end{enumerate}
 
 A legutolsó megoldás tekinthető a legelőnyösebbnek, tartalmazza a második előnyeit, azonban a hátrányát sikerült kiküszöbölni.
@@ -223,22 +216,9 @@ A probléma, hogy a \textit{Using} relációk nem kölcsönösen egyértelműek,
 érdemes minden portnak egy saját interfészt generálni, amely leszármazottja a szolgáltatott interfésznek. Így minden port típusa egyedi lesz, és a relációk is egyértelműek lesznek a modellben.
 \subsubsection{C++-ban}
 Mivel a portra tudunk üzentet küldeni, de fogadni is tudunk róla, így az interfészeknek két részük lesz, az egyik a fogadó, a másik a küldő műveleteket definiálja. Attól függően, hogy az adott interfészt szolgáltatott vagy elvárt interfésznek definiáltuk, a megfelelő részből fog leszármazni az adott port. A másik lehetőség az lenne, ha nem bontjuk két részre az interfészt, helyette a receptiön függvényeknek egy plusz paramétere lenne, hogy kívülről vagy belülről küldünk-e üzentet. (Ahogy azt a \ref{message} bekezdésben felvezettük ) Azonban a portok esetén problémába ütköznénk, mert a validáció nem tudna különbséget tenni aközött, hogy egy portnak szolgáltatott vagy elvárt interfésze-e, melyet implementál. \\
-Interfész kiterjesztetett szintaxisa, konkrét példa portok esetén:
-class PingPongInterfce 
-{
-class RequiredPart
-{
-void send(Ping e);
-void send(Pong e);
-}
-class ProvidedPart
-{
-void receive(Ping);
-void receive(Pong);
-}
-}
-class Port<Provided,Required> : public Required::RequiredPart, Provided::ProvidedPart {} \\
-PingPongPort<PingPongInterfce,PingPongInterfce> p;
+
+\subsubsection{Interfész kiterjesztetett szintaxisa, konkrét példa portok esetén}
+\includegraphics[scale=0.7]{seperate_inf.png} \\
 
 \section{Konnektorok, összekapcsolás művelet reprezentálása} \label{connect}
 Az interfészeket (\ref{inf}) és portokat már tudjuk exportálni UML-ben, illetve megfelelő C++ reprezentációt is találtunk. A konnektorokat ezek segítségével már ki tudjuk fejezni. \\
@@ -336,7 +316,6 @@ A program négy jól elkülöníthető részből áll, mindhárom részt ki kell
 
 Ezek a modulok jól eltönkretehetőek és cserélhetőek. 
 
-
 \subsection{Tesztelés}
 A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejezetben.
 
@@ -354,6 +333,59 @@ A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejez
 \item Assembly kapcsolattal összekapcsoljuk őket, mely fordítási hibát jelez.
 \item Inkompatibilis interfészekkel hozzuk létre őket, majd delegációval megpróbáljuk összekapcsolni, mely szintén fordítási hibát jelez.
 \end{enumerate}
-\item Komplexszebb model létrehozása
+\item Komplex modell létrehozása, mely demonstrációs célokra is megfelelő: Egy ping-pong játék struktúra létrehozása, mely tartalmaz egy táblát, valamint egy bírót. Ezek tartalmaznak egy-egy portot, melyek Assembly kapcsolattal vannak összekötve. A tábla tartalmaz két játékost, melyek két portot tartalmaznak, egy ping-pong portot, valamint egy olyan portot, melyről a játék kezdése üzenetet várják. A ping-pong portok egymással vannak összekötve, ezen keresztül passzolgatnak egy szignált oda-vissza a játékosok egymás közt, az első játékos pedig delegációval hozzá van kötve a táblához. A játék indulásakor a bíró lead egy játék kezdése szignált a táblának, melyet tovább delegálunk a kezdő játékosnak, és ő elindítja az első szerválást.
 \end{enumerate}
+
+A generált kódok megfelelőek, a modellek pedig az elvárt működésnek megfelelően működnek.
+
+\begin{thebibliography}{4}
+
+
+\bibitem{uml_omg}
+	OMG, Superstructure
+	\emph{Unified Modeling Language (OMG UML)}
+
+\bibitem{uml_real}
+	Bran Selic, ObjecTime Limited
+	Jim Rumbaugh, Rational Software Corporation
+	\emph{Using UML for Modeling Complex Real-Time Systems}
+	\url{ftp://ftp.omg.org/pub/umlrtf/UML_rt_ext_F56dist.pdf}
+	
+
+\bibitem{txtUML}
+  Gábor Ferenc Kovács, Ádám Ancsin, Gergely Dévai,
+  \emph{Textual, executable, translatable UML},
+  14th International Workshop on OCL and Textual Modeling, 
+  2014. 
+
+\bibitem{alf}
+	Object Management Group. 	
+	\emph{Action Language for Foundational UML (ALF), standard, version 1.0.1.}
+	\url{http://www.omg.org/spec/ALF/} 2013
+\bibitem{fmul}
+	Object Management Group. 
+	\emph{Semantics of a Foundational Subset for Executable UML Models (fUML), standard, version 1.1}
+	\url{http://www.omg.org/spec/FUML/1.1/} 2013
+	
+\bibitem{umple}
+	Andrew Forward, Omar Badreddin, and Timothy C Lethbridge
+	\emph{Umple: Towards combining model driven with prototype driven system development}
+	In Rapid System Prototyping (RSP), 2010 21st IEEE International Symposium on, pages 1–7. IEEE, 2010.
+
+\bibitem{bridge}
+	OneFact.	
+	\emph{BridgePoint xtUML tool.} 
+	\url{http://onefact.net}
+	
+\bibitem{startuml}
+	StartUML Tool
+	\url{http://staruml.io/}
+	
+\bibitem{typelist}
+	TypeLists and a TypeList Toolbox via Variadic Templates
+	\url{https://www.codeproject.com/Articles/1077852/TypeLists-and-a-TypeList-Toolbox-via-Variadic-Temp}
+
+	
+\end{thebibliography}
+
 \end{document}

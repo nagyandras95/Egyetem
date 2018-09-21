@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>180</y>
+      <w>470</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>PingPongInterface</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>280</y>
+      <w>200</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>RequiredPart
+--
++ send(PingEvent e);
++ send(PongEvent e);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>280</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ProvidedPart
+--
++ receive(PingEvent e);
++ receive(PongEvent e);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>560</y>
+      <w>440</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Port
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>370</y>
+      <w>30</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>370</y>
+      <w>30</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>520</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Provided = PingPongInterface
+Required = PingPongInterface</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
