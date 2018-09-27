@@ -39,9 +39,9 @@
 \select@language {magyar} \contentsline {subsubsection}{Konnektor reprezent\IeC {\'a}ci\IeC {\'o} UML-ben}{21}{section.3.5}
 \select@language {magyar} \contentsline {subsubsection}{\IeC {\"O}sszekapcsol\IeC {\'a}s m\IeC {\H u}velet reprezent\IeC {\'a}ci\IeC {\'o}ja UML-ben}{21}{section.3.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {3.5.1}\IeC {\"O}sszekapcsolt portok reprezent\IeC {\'a}ci\IeC {\'o}ja C++-ban}{22}{subsection.3.5.1}
-\select@language {magyar} \contentsline {subsubsection}{K\IeC {\"u}l\IeC {\"o}nb\IeC {\"o}z\IeC {\H o} port t\IeC {\'\i }pusok megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa szeml\IeC {\'e}ltetve}{24}{Item.10}
+\select@language {magyar} \contentsline {subsubsection}{K\IeC {\"u}l\IeC {\"o}nb\IeC {\"o}z\IeC {\H o} port t\IeC {\'\i }pusok megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa szeml\IeC {\'e}ltetve}{25}{Item.10}
 \select@language {magyar} \contentsline {subsection}{\numberline {3.5.2}Konnektorok reprezent\IeC {\'a}l\IeC {\'a}sa C++-ban}{26}{subsection.3.5.2}
-\select@language {magyar} \contentsline {section}{\numberline {3.6}Kommunik\IeC {\'a}ci\IeC {\'o} megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa C++-ban}{26}{section.3.6}
+\select@language {magyar} \contentsline {section}{\numberline {3.6}Kommunik\IeC {\'a}ci\IeC {\'o} megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa C++-ban}{27}{section.3.6}
 \select@language {magyar} \contentsline {chapter}{\numberline {4}Program dokument\IeC {\'a}ci\IeC {\'o}}{29}{chapter.4}
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Felhaszn\IeC {\'a}l\IeC {\'o}i dokument\IeC {\'a}ci\IeC {\'o}}{29}{section.4.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Sz\IeC {\"u}ks\IeC {\'e}ges eszk\IeC {\"o}z\IeC {\"o}k}{29}{subsection.4.1.1}

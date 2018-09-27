@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  27 SEP 2018 14:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  27 SEP 2018 15:29
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1396,118 +1396,131 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
-[20 <./seperate_inf.png (PNG copy)>] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
+[20 <./seperate_inf.png (PNG copy)>]
+<preconnect_problem.png, id=309, 542.025pt x 220.825pt>
+File: preconnect_problem.png Graphic file (type png)
+<use preconnect_problem.png>
+Package pdftex.def Info: preconnect_problem.png  used on input line 262.
+(pdftex.def)             Requested size: 433.62057pt x 176.66022pt.
+
+Overfull \hbox (36.20392pt too wide) in paragraph at lines 261--263
+[] 
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
 
-[22]
+[22 <./preconnect_problem.png (PNG copy)>]
 <connection.png, id=321, 471.7625pt x 271.0125pt>
 File: connection.png Graphic file (type png)
 <use connection.png>
-Package pdftex.def Info: connection.png  used on input line 276.
+Package pdftex.def Info: connection.png  used on input line 277.
 (pdftex.def)             Requested size: 330.23149pt x 189.70744pt.
 
-Underfull \hbox (badness 1824) in paragraph at lines 275--277
+Underfull \hbox (badness 1824) in paragraph at lines 276--278
 []\OT1/cmr/m/n/12 Virtualizacio hasznalata, \OT1/cmr/m/it/12 Port \OT1/cmr/m
 /n/12 re-fe-ren-cia he-lyett \OT1/cmr/m/it/12 Con-nec-ti-on \OT1/cmr/m/n/12 re-
 fe-ren-cia,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--277
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--277
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--277
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
 
  []
 
-[23 <./connection.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 281--283
+Underfull \hbox (badness 1960) in paragraph at lines 282--284
 []\OT1/cmr/m/n/12 Vizsgaljuk meg az uze-net fo-gadas sze-man-tikajat is. A
  fo-gadas m}uvelet
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--283
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
 
  []
 
-<behav_generalport_diag.png, id=328, 501.875pt x 311.1625pt>
+<behav_generalport_diag.png, id=329, 501.875pt x 311.1625pt>
 File: behav_generalport_diag.png Graphic file (type png)
 <use behav_generalport_diag.png>
-Package pdftex.def Info: behav_generalport_diag.png  used on input line 287.
+Package pdftex.def Info: behav_generalport_diag.png  used on input line 288.
 (pdftex.def)             Requested size: 351.31009pt x 217.81226pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--288
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--288
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
 
  []
 
-[24 <./behav_generalport_diag.png (PNG copy)>]
+[24 <./connection.png (PNG copy)>]
 <simple_port_diag.png, id=335, 331.2375pt x 130.4875pt>
 File: simple_port_diag.png Graphic file (type png)
 <use simple_port_diag.png>
-Package pdftex.def Info: simple_port_diag.png  used on input line 290.
+Package pdftex.def Info: simple_port_diag.png  used on input line 291.
 (pdftex.def)             Requested size: 231.86465pt x 91.3406pt.
 <unio_port_diag.png, id=336, 331.2375pt x 110.4125pt>
 File: unio_port_diag.png Graphic file (type png)
 <use unio_port_diag.png>
-Package pdftex.def Info: unio_port_diag.png  used on input line 293.
+Package pdftex.def Info: unio_port_diag.png  used on input line 294.
 (pdftex.def)             Requested size: 231.86465pt x 77.28821pt.
- [25 <./simple_port_diag.png (PNG copy)> <./unio_port_diag.png (PNG copy)>]
-Underfull \hbox (badness 1515) in paragraph at lines 311--313
+ [25 <./behav_generalport_diag.png (PNG copy)> <./simple_port_diag.png (PNG cop
+y)> <./unio_port_diag.png (PNG copy)>]
+[26]
+Underfull \hbox (badness 1515) in paragraph at lines 312--314
 \OT1/cmr/m/n/12 Eddig esemeny-allapot tablank volt, mely meg-ad-ta, me-lyik
  atmenetnek kell
  []
 
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
 
  []
 
-
-Underfull \hbox (badness 1077) in paragraph at lines 326--327
+[27]
+Underfull \hbox (badness 1077) in paragraph at lines 327--328
 [][]\OT1/cmr/m/n/12 Altalanosabb meg-oldas, ha a port he-lyett meg-ad-hatnan
 k egy mask-ban
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 326--327
+Underfull \hbox (badness 1348) in paragraph at lines 327--328
 \OT1/cmr/m/n/12 sonloan az ed-di-gi-ek-hez, allapot-esemeny par alapjan ke
 -resunk, melyb}ol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 
  []
 
-[27] [28]
+[28]
 4. fejezet.
 
-Underfull \hbox (badness 7981) in paragraph at lines 341--342
+Underfull \hbox (badness 7981) in paragraph at lines 342--343
 \OT1/cmr/m/n/12 A dol-go-zat-ban nem csak ele-meztuk a le-hetseges meg-oldas
 okat, ha-nem
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 344
+LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 345
 .
 ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\courier-scaled\ot1pcrs.fd"
 File: ot1pcrs.fd 2004/07/09 font definitions for OT1/pcrs.
@@ -1515,43 +1528,43 @@ File: ot1pcrs.fd 2004/07/09 font definitions for OT1/pcrs.
 [29
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
 [30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 448--450
+Underfull \hbox (badness 10000) in paragraph at lines 449--451
 []\OT1/cmr/m/n/12 TypeLists and a Type-List To-ol-box via Va-ri-a-dic Temp-la-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--450
+Underfull \hbox (badness 10000) in paragraph at lines 449--451
 \OT1/cmr/m/n/12 tes [][]$\OT1/pcrs/m/n/12 https : / / www . codeproject . com /
  Articles / 1077852 /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 454.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
 [33
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 454.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
  (diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 454.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 454.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 455.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 455.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
 (rerunfilecheck)             Checksum: A05CF81F5C811728C2631B6D6728FA13;6506.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 454.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
  ) 
 Here is how much of TeX's memory you used:
- 12914 strings out of 493305
- 186879 string characters out of 3129803
+ 12919 strings out of 493305
+ 187008 string characters out of 3129803
  266479 words of memory out of 3000000
- 16203 multiletter control sequences out of 15000+200000
+ 16207 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,7n,35p,1461b,550s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1562,9 +1575,9 @@ lic/amsfonts/cm/cmr12.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Imola/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Imola/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (33 pages, 284620 bytes).
+Output written on diplomamunka.pdf (33 pages, 288685 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
+ 458 PDF objects out of 1000 (max. 8388607)
  115 named destinations out of 1000 (max. 500000)
- 372 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 words of extra memory for PDF output out of 10000 (max. 10000000)
 
