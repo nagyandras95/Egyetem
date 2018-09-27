@@ -79,7 +79,7 @@ Hátrányai:
 \begin{itemize}
 \item Az eszköz mellett meg kell ismerni precízen az UML szabványos elemeit is, hogy fel tudjuk tölteni az elemek tulajdonságait
 \item A kódgenerálás csak a vázra terjed ki, mely tartalmazza a portoka, de az azokkal való műveleteket már nem.
-\item Nehézkes, vizuális használat, az elemeket szabadon létrehozhatjuk, és könnyen invalid modellt generálhatunk, míg a txtUML exporja a szabványos modellt exportálás révén hozza létre, így kisebb lehetőségünk van hibázni.
+\item Nehézkes, vizuális használat, az elemeket szabadon létrehozhatjuk, és könnyen nem szabványos modellt generálhatunk, míg a txtUML exportja a szabványos modellt exportálás révén hozza létre, így kisebb lehetőségünk van hibázni.
 \end{itemize}
 
 \subsection{BrigePoint UML}
@@ -125,15 +125,21 @@ egy \textit{send} akciónak van egy cél objektuma, ahova az üzentet kell küld
 \item Nem kell extra logikát beiktatni a C++ fordítóba az üzenetküldés terén.
 \end{itemize}
 
+\includegraphics[scale=0.8]{send_uml.png}
+
 \subsubsection{Üzenet fogadás}
 Ha egy objektumnak a portján keresztül szeretnénk üzenetet küldeni a külvilág felől, akkor a \textit{SendObjectAction}-nak a az \textit{OnPort} műveletét használhatjuk. 
 
+\includegraphics[scale=0.6]{receive_uml.png}
+
 \subsection{C++-ban}
 \subsubsection{Üzenet küldés}
-Ez esetben már a \textit{send} művelet végrehajtási szemantikája érdemes számunkra. A \textit{send} művelet azt jelenti, hogy a Portra teszünk egy üzenetet, melyet továbbítunk egy másik komponens felé konnektoron keresztül. Ennek szájharmonikájával a \ref{connect} fejezetben majd foglalkozunk részletesen.
+Ez esetben már a \textit{send} művelet végrehajtási szemantikája érdemes számunkra. A \textit{send} művelet azt jelenti, hogy a Portra teszünk egy üzenetet, melyet továbbítunk egy másik komponens felé konnektoron keresztül. Ennek szemantikájával a \ref{connect} fejezetben majd foglalkozunk részletesen.
 
 \subsubsection{Üzenet fogadás}
-Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket. Előbbi megoldás tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf})
+Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket. Előbbi megoldás tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf}) \\
+
+\includegraphics[scale=0.8]{send_rec.png}
 
 \section{Interfészek reprezentálása interfész portok esetén} \label{inf}
 \subsection{UML-ben}
