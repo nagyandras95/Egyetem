@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>220</y>
+      <w>410</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>/PingPongInterface/
+--
+IsReception&lt;EventType&gt; -&gt; False
+IsReception&lt;Ping&gt; -&gt; True
+IsReception&lt;Pong&gt; -&gt; False
+
+--
++ send &lt;ET&gt; (ET event) { selectSend&lt;IsReception&lt;ET(event) }
+
+--
+/#sendAny (GeneralEvent)/
+
+--
+-selectSed &lt;bool&gt; (GeneralEvent event) {hiba..}
+-selectSed &lt;True&gt; (GeneralEvent event) { sendAny(event) }
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
