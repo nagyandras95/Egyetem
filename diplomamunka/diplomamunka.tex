@@ -12,10 +12,19 @@
 \usepackage{couriers}
 \usepackage{amssymb}
 
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{multicol}
+
 \usepackage[top=25mm, bottom=25mm, left=35mm, right=25mm]{geometry}
 
 \usepackage{setspace}
 %\usepackage{listings}
+
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}
 
 
 \sloppy
@@ -263,12 +272,26 @@ Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet 
 
 Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez még nem elég önmagában. Figyelembe kell vennünk azt is, hogy milyen típusú Konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha Assembly kapcsolatról. Delegáció esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. Assembly kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens a műveletünk. (\textit{receive} művelet). Így tudunk kell, hogy a referenciánk milyen kapcsolatban áll a portunkkal. Két lehetőségünk van ennek kifejezésére, a választás nem egyértelmű:
 \begin{enumerate}
-\item Virtualizáció használata, \textit{Port} referencia helyett \textit{Connection} referencia, melynek absztrakt művelet eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony.
-\item Delegáció jelző használata: Marad a Port referencia, maga a Port dönti el, melyik művelet hívására van szükség a jelző alapján. Ez a megoldás kevésbé letisztult, de hatékonyabb. 
+\item Virtualizáció használata, \textit{Port} referencia helyett \textit{Connection} referencia, melynek absztrakt művelet eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony. \\\\
+\includegraphics[scale=0.7]{connection.png} \\ \\
+\item Delegáció jelző használata: Marad a Port referencia, maga a Port dönti el, melyik művelet hívására van szükség a jelző alapján. Ez a megoldás kevésbé letisztult, de hatékonyabb. \\
+
 \end{enumerate}
 
-Vizsgáljuk meg az üzenet fogadás szemantikáját is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt Portrol (Behavior Port) beszélünk-e vagy nem. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek klasszifikáció portjára. Ennek megvalósítására szintén a fent említett két lehetőségünk van, a virtualizáció, illetve a behavior jelző. Egy \textit{Behavior Port} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell szereznünk az állapotgépet birtokló objektumra, ellenkező esetben pedig a gyerek komponens portjára. Ez különböző adattagokat igényel, az adat redundancia miatt leszármazás egy kézen fekvő választás. Unio típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
+Vizsgáljuk meg az üzenet fogadás szemantikáját is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt Portrol (Behavior Port) beszélünk-e vagy nem. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek klasszifikáció portjára. Ennek megvalósítására szintén a fent említett két lehetőségünk van, a virtualizáció, illetve a behavior jelző. Egy \textit{Behavior Port} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell szereznünk az állapotgépet birtokló objektumra, egyéb esetben pedig a gyerek komponens portjára. Ez különböző adattagokat igényel, az adat redundancia miatt leszármazás egy kézen fekvő választás. Unio típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
 \\
+
+\subsubsection{Különböző port típusok megvalósítása szemléltetve}
+\begin{enumerate}
+\item Leszármazással: \\\\
+\includegraphics[scale=0.7]{behav_generalport_diag.png} \\
+
+\item Behavior jelzéssel: \\
+\includegraphics[scale=0.7]{simple_port_diag.png}
+
+\item Unio típussal: \\
+\includegraphics[scale=0.7]{unio_port_diag.png}
+\end{enumerate}
 
 Hasonlóan az interfészekhez, a kapcsolatok esetén is a kevert megoldás lenne a leghatékonyabb. Ha dolgozhatnánk leszármazással, ugyanakkor nem kéne virtualizációt használni. Erre egy kézenfekvő megoldás az lenne, ha a leszármazáskor megadnánk az interfésznek, ki a leszármazottja. \\
 class DelegateConnection : public Connection<DelegateConnection> \\
@@ -288,8 +311,30 @@ A konnektorok reprezentálása is több lehetőségünk van, ezeket fogjuk most 
 Végül még érdemes néhány szót ejteni a kommunikációs szemantikáról. Ennek nagy részét már tisztáztuk. Megvizsgáltuk a portra való üzenetküldés szemantikát az enkapszuláción belülről. Ekkor az üzentet kifele áramoltatjuk, egy másik port fogja megkapni. Ebben a fejezetben csak az lesz az érdekes, hogy az üzenetáram végén, amikor eljut az üzenet egy állapotgéphez, hogyan fogjuk kezelni. Így csak az állapotgéppel összekapcsolt portok fogadó (\textit{receive}) műveletei lesznek érdekesek számunkra. A port tartalmaz egy referenciát az állapotgépre, így tudja neki továbbítani az üzenetet. Azonban a nyers továbbítás kevés lenne, mivel egy objektum állapotgépe egy adott porton történő állapotváltozásra kell reagáljon. Így az üzenet feldolgozásakor tisztában kell lennünk azzal, melyik porttól kaptuk meg az adott üzenetet. Az UML szabványban egy adott átmenetnél felsorolhatjuk az adott portokat, melyről az adott üzenetet várjuk. \textit{txtUML}-ben csak egy portot adhatunk meg, vagy jelezhetjük, hogy az adott üzenet bárhonnan érkezhet, porton kívülről is, vagy bármely portról. Ennek megfelelően megfelelően mindenképpen a meglévő állapot-átmenet táblát érdemes kibővíteni egy új dimenzióval: Megadni, hogy az átmenetben szereplő üzenet potenciálisan mely portokról jöhet, hogy az állapotgép reagáljon rá. \\
 Eddig esemény-állapot táblánk volt, mely megadta, melyik átmenetnek kell végrehajtódnia. Ezt kibővíthetjük az alábbi módokon:
 \begin{enumerate}
-\item Egy darab port típus, és állapot-esemény-port hármasokat fog tartalmazni az átmenet táblánk. Mielőtt egy port továbbítja az állapotgépnek az üzenetet, beállítja az eseményen a port infót, így tudni fogjuk, honnan érkezett. Ez az esetünkben jól fog működni, mivel csak egyféle portról jöhet az üzenet. Azonban, ha azt adjuk meg, hogy bármelyik portról érkezhet az üzenet, már gondba leszünk, mivel ilyenkor nincs megadva port dimenzió a táblában, az üzenetben viszont igen. Ezt speciálisan le tudjuk kezelni az üzenetfeldolgozás során, azonban nem elég általános megoldás.
-\item Általánosabb megoldás, ha a port helyett megadhatnánk egy maskban azokat a portokat, melyek üzeneteit megfigyeli az adott átmenet. Mivel egy üzenet továbbra is csak egy helyről érkezhet, így elég lenne csak azt vizsgálunk, hogy az állapot-esemény alapján megkeresett átmenet portjai között szerepel-e a az a port, melyről az üzenet érkezett. Fontos, hogy itt a Port dimenzió a táblázat másik végén jelenik meg. A táblából, hasonlóan az eddigiekhez, állapot-esemény pár alapján keresünk, melyből megkapjuk az átmenet függvénymutatót, az őrfeltételt, valamint a megfigyelt portokat. Ekkor azt az átmenetet hajtjuk végre, melynek portjai között szerepel az üzenet portja vagy a \textit{NoPort} speciális típus. \textit{AnyPort} esetén az összes lehetséges Portot belerakjuk az átmenetbe, valamint a \textit{NoPort} típust is.
+\item Egy darab port típus, és állapot-esemény-port hármasokat fog tartalmazni az átmenet táblánk. Mielőtt egy port továbbítja az állapotgépnek az üzenetet, beállítja az eseményen a port infót, így tudni fogjuk, honnan érkezett. Ez az esetünkben jól fog működni, mivel csak egyféle portról jöhet az üzenet. Azonban, ha azt adjuk meg, hogy bármelyik portról érkezhet az üzenet, már gondba leszünk, mivel ilyenkor nincs megadva port dimenzió a táblában, az üzenetben viszont igen. Ezt speciálisan le tudjuk kezelni az üzenetfeldolgozás során, azonban nem elég általános megoldás. \\
+
+\begin{center}
+\begin{tabular}{@{}ccc|c@{}} \toprule
+\multicolumn{4}{c}{Átmenet tábla} \\\midrule
+Esemény & Állapot 	& Port 	& Átmenet-Őrfeltétel\\\midrule
+Event1 	& State1 	& Port1 & Ttransition1-Guard1 \\
+... 	& ... 		& ... 	& ... \\
+EventN 	& StateN 	& PortN & TtransitionN-GuardN
+\end{tabular}
+\small
+\end{center}
+\item Általánosabb megoldás, ha a port helyett megadhatnánk egy maskban azokat a portokat, melyek üzeneteit megfigyeli az adott átmenet. Mivel egy üzenet továbbra is csak egy helyről érkezhet, így elég lenne csak azt vizsgálunk, hogy az állapot-esemény alapján megkeresett átmenet portjai között szerepel-e a az a port, melyről az üzenet érkezett. Fontos, hogy itt a Port dimenzió a táblázat másik végén jelenik meg. A táblából, hasonlóan az eddigiekhez, állapot-esemény pár alapján keresünk, melyből megkapjuk az átmenet függvénymutatót, az őrfeltételt, valamint a megfigyelt portokat. Ekkor azt az átmenetet hajtjuk végre, melynek portjai között szerepel az üzenet portja vagy a \textit{NoPort} speciális típus. \textit{AnyPort} esetén az összes lehetséges Portot belerakjuk az átmenetbe, valamint a \textit{NoPort} típust is. \\
+
+\begin{center}
+\begin{tabular}{@{}cc|c@{}} \toprule
+\multicolumn{3}{c}{Átmenet tábla} \\\midrule
+Esemény & Állapot 	&  Átmenet-Őrfeltétel-Portok\\\midrule
+Event1 	& State1 	&  Ttransition1-Guard1-Ports1 \\
+... 	& ... 	 	& ... \\
+EventN 	& StateN 	& Ttransition1-Guard1-PortsN
+\end{tabular}
+\small
+\end{center}
 \end{enumerate}
 
 \chapter{Program dokumentáció}

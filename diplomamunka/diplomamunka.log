@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  27 SEP 2018 10:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  27 SEP 2018 14:45
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -930,22 +930,111 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
+)) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\titlesec\titlesec.sty"
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box26
+\beforetitleunit=\skip44
+\aftertitleunit=\skip45
+\ttl@plus=\dimen110
+\ttl@minus=\dimen111
+\ttl@toksa=\toks18
+\titlewidth=\dimen112
+\titlewidthlast=\dimen113
+\titlewidthfirst=\dimen114
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen115
+\lightrulewidth=\dimen116
+\cmidrulewidth=\dimen117
+\belowrulesep=\dimen118
+\belowbottomsep=\dimen119
+\aboverulesep=\dimen120
+\abovetopsep=\dimen121
+\cmidrulesep=\dimen122
+\cmidrulekern=\dimen123
+\defaultaddspace=\dimen124
+\@cmidla=\count105
+\@cmidlb=\count106
+\@aboverulesep=\dimen125
+\@belowrulesep=\dimen126
+\@thisruleclass=\count107
+\@lastruleclass=\count108
+\@thisrulewidth=\dimen127
+)
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+"
+Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+\c@tracingmulticols=\count109
+\mult@box=\box27
+\multicol@leftmargin=\dimen128
+\c@unbalance=\count110
+\c@collectmore=\count111
+\doublecol@number=\count112
+\multicoltolerance=\count113
+\multicolpretolerance=\count114
+\full@width=\dimen129
+\page@free=\dimen130
+\premulticols=\dimen131
+\postmulticols=\dimen132
+\multicolsep=\skip46
+\multicolbaselineskip=\skip47
+\partial@page=\box28
+\last@line=\box29
+\maxbalancingoverflow=\dimen133
+\mult@rightbox=\box30
+\mult@grightbox=\box31
+\mult@gfirstbox=\box32
+\mult@firstbox=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\c@columnbadness=\count115
+\c@finalcolumnbadness=\count116
+\last@try=\dimen134
+\multicolovershoot=\dimen135
+\multicolundershoot=\dimen136
+\mult@nat@firstbox=\box51
+\colbreak@box=\box52
+\mc@col@check@num=\count117
+)
 ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
 sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count105
-\Gm@cntv=\count106
-\c@Gm@tempcnt=\count107
-\Gm@bindingoffset=\dimen110
-\Gm@wd@mp=\dimen111
-\Gm@odd@mp=\dimen112
-\Gm@even@mp=\dimen113
-\Gm@layoutwidth=\dimen114
-\Gm@layoutheight=\dimen115
-\Gm@layouthoffset=\dimen116
-\Gm@layoutvoffset=\dimen117
-\Gm@dimlist=\toks18
+\Gm@cnth=\count118
+\Gm@cntv=\count119
+\c@Gm@tempcnt=\count120
+\Gm@bindingoffset=\dimen137
+\Gm@wd@mp=\dimen138
+\Gm@odd@mp=\dimen139
+\Gm@even@mp=\dimen140
+\Gm@layoutwidth=\dimen141
+\Gm@layoutheight=\dimen142
+\Gm@layouthoffset=\dimen143
+\Gm@layoutvoffset=\dimen144
+\Gm@dimlist=\toks19
 
 ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
 cfg")) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\setspace\setspace.sty"
@@ -953,37 +1042,37 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 ) (diplomamunka.aux)
 \openout1 = `diplomamunka.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 33.
 
 ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\cbfonts-fd\lgrcmr.fd"
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LG/cmr/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for LG+cmr on input line 24.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for LG/cmr/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for LG+cmr on input line 33.
 
 ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\lgreek\lgcmr.fd"
 File: LGcmr.fd 1995/04/22 v2.3f Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 24.
-\AtBeginShipoutBox=\box26
+LaTeX Font Info:    ... okay on input line 33.
+\AtBeginShipoutBox=\box53
 
 ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color.sty
 "
@@ -995,7 +1084,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 24.
+Package hyperref Info: Link coloring ON on input line 33.
 
 ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.s
 ty"
@@ -1005,11 +1094,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 estring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count108
+\c@section@level=\count121
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
  (diplomamunka.out) (diplomamunka.out)
 \@outlinefile=\write3
 \openout3 = `diplomamunka.out'.
@@ -1021,17 +1110,17 @@ LaTeX Warning: Please use \usepackage{t1enc} with
 
 ("C:\Program Files\MiKTeX 2.9\packages\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen118
-\scratchbox=\box27
-\nofMPsegments=\count110
-\nofMParguments=\count111
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen119
-\MPnumerator=\count113
-\makeMPintoPDFobject=\count114
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count122
+\scratchdimen=\dimen145
+\scratchbox=\box54
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen146
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
+\everyMPtoPDFconversion=\toks21
 )
 ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-
 base.sty"
@@ -1109,7 +1198,7 @@ pdfTeX warning: pdflatex: pop empty color page stack 0
  [2]
 1. fejezet.
 
-Underfull \hbox (badness 1490) in paragraph at lines 29--31
+Underfull \hbox (badness 1490) in paragraph at lines 38--40
 \OT1/cmr/m/n/12 kat ossze-kap-csolo abszt-rakt kom-mu-nikacios pro-to-kol-l
 ok-ra, kon-nek-to-rok-ra van
  []
@@ -1119,7 +1208,7 @@ ok-ra, kon-nek-to-rok-ra van
 ] [4] [5]
 2. fejezet.
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
@@ -1128,272 +1217,354 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--56
 ] [7] [8] [9]
 3. fejezet.
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-<uml_port_class.png, id=242, 1214.5375pt x 170.6375pt>
+<uml_port_class.png, id=243, 1214.5375pt x 170.6375pt>
 File: uml_port_class.png Graphic file (type png)
 <use uml_port_class.png>
-Package pdftex.def Info: uml_port_class.png  used on input line 109.
+Package pdftex.def Info: uml_port_class.png  used on input line 118.
 (pdftex.def)             Requested size: 850.17047pt x 119.44542pt.
 
-Overfull \hbox (423.37912pt too wide) in paragraph at lines 109--110
+Overfull \hbox (423.37912pt too wide) in paragraph at lines 118--119
 [] 
  []
 
 [10
 
 ]
-<uml_port_comp.png, id=247, 351.3125pt x 150.5625pt>
+<uml_port_comp.png, id=248, 351.3125pt x 150.5625pt>
 File: uml_port_comp.png Graphic file (type png)
 <use uml_port_comp.png>
-Package pdftex.def Info: uml_port_comp.png  used on input line 112.
+Package pdftex.def Info: uml_port_comp.png  used on input line 121.
 (pdftex.def)             Requested size: 245.91707pt x 105.39302pt.
-<port_actfun.png, id=248, 672.5125pt x 140.525pt>
+<port_actfun.png, id=249, 672.5125pt x 140.525pt>
 File: port_actfun.png Graphic file (type png)
 <use port_actfun.png>
-Package pdftex.def Info: port_actfun.png  used on input line 118.
+Package pdftex.def Info: port_actfun.png  used on input line 127.
 (pdftex.def)             Requested size: 403.5106pt x 84.31564pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
+Underfull \hbox (badness 10000) in paragraph at lines 126--128
 []\OT1/cmr/m/n/12 Hasonloan az esemenyek fel-dol-gozasahoz, ugy a por-to-k
 on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
+Underfull \hbox (badness 10000) in paragraph at lines 126--128
 \OT1/cmr/m/n/12 torten}u uze-netaramlast is atmeneti fuggvenyekkel dol-
 goz-zuk fel.
  []
 
 
-Overfull \hbox (6.09395pt too wide) in paragraph at lines 117--119
+Overfull \hbox (6.09395pt too wide) in paragraph at lines 126--128
 [] 
  []
 
-<port_sendm.png, id=249, 672.5125pt x 150.5625pt>
+<port_sendm.png, id=250, 672.5125pt x 150.5625pt>
 File: port_sendm.png Graphic file (type png)
 <use port_sendm.png>
-Package pdftex.def Info: port_sendm.png  used on input line 120.
+Package pdftex.def Info: port_sendm.png  used on input line 129.
 (pdftex.def)             Requested size: 403.5106pt x 90.33818pt.
 
-Underfull \hbox (badness 3930) in paragraph at lines 119--121
+Underfull \hbox (badness 3930) in paragraph at lines 128--130
 []\OT1/cmr/m/n/12 Kulon ak-tivator fuggvenyeket valostunk meg az oszta
 lyon belul az
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
 \OT1/cmr/m/n/12 egyes por-tok-ra, me-lyek a por-tok allapotvaltozasok ak-tiv
 alodnak.
  []
 
 
-Overfull \hbox (6.09395pt too wide) in paragraph at lines 119--121
+Overfull \hbox (6.09395pt too wide) in paragraph at lines 128--130
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
 
  []
 
 [11 <./uml_port_class.png (PNG copy)> <./uml_port_comp.png (PNG copy)> <./port_
 actfun.png (PNG copy)>]
-Underfull \hbox (badness 1824) in paragraph at lines 125--125
-[]\OT1/cmr/bx/n/17.28 Portokra valo uze-netkuldes/fogadas rep-re-
+Underfull \hbox (badness 1824) in paragraph at lines 134--134
+|[]\OT1/cmr/bx/n/17.28 Portokra valo uze-netkuldes/fogadas rep-re-
  []
 
-<send_uml.png, id=256, 401.5pt x 160.6pt>
+<send_uml.png, id=255, 401.5pt x 160.6pt>
 File: send_uml.png Graphic file (type png)
 <use send_uml.png>
-Package pdftex.def Info: send_uml.png  used on input line 137.
+Package pdftex.def Info: send_uml.png  used on input line 146.
 (pdftex.def)             Requested size: 321.20042pt x 128.48016pt.
 [12 <./port_sendm.png (PNG copy)> <./send_uml.png (PNG copy)>]
-<receive_uml.png, id=262, 521.95pt x 260.975pt>
+<receive_uml.png, id=260, 521.95pt x 260.975pt>
 File: receive_uml.png Graphic file (type png)
 <use receive_uml.png>
-Package pdftex.def Info: receive_uml.png  used on input line 142.
+Package pdftex.def Info: receive_uml.png  used on input line 151.
 (pdftex.def)             Requested size: 313.17241pt x 156.5862pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
-<send_rec.png, id=265, 451.6875pt x 170.6375pt>
+<send_rec.png, id=263, 451.6875pt x 170.6375pt>
 File: send_rec.png Graphic file (type png)
 <use send_rec.png>
-Package pdftex.def Info: send_rec.png  used on input line 151.
+Package pdftex.def Info: send_rec.png  used on input line 160.
 (pdftex.def)             Requested size: 361.35048pt x 136.51016pt.
 [13 <./receive_uml.png (PNG copy)>]
-Underfull \hbox (badness 2005) in paragraph at lines 153--153
-[]\OT1/cmr/bx/n/17.28 Interfeszek rep-re-zentalasa in-terfesz por-tok
+Underfull \hbox (badness 2005) in paragraph at lines 162--162
+|[]\OT1/cmr/bx/n/17.28 Interfeszek rep-re-zentalasa in-terfesz por-tok
  []
 
 [14 <./send_rec.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 175--178
+Underfull \hbox (badness 10000) in paragraph at lines 184--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
 
-Underfull \hbox (badness 6157) in paragraph at lines 185--189
+Underfull \hbox (badness 6157) in paragraph at lines 194--198
 []\OT1/cmr/m/n/12 Generaljunk egy ures osztalyt az in-terfeszekb}ol, majd a
  szignalok
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--189
+Underfull \hbox (badness 10000) in paragraph at lines 194--198
 
  []
 
 [15]
-<inf_ver1.png, id=285, 582.175pt x 180.675pt>
+<inf_ver1.png, id=278, 582.175pt x 180.675pt>
 File: inf_ver1.png Graphic file (type png)
 <use inf_ver1.png>
-Package pdftex.def Info: inf_ver1.png  used on input line 190.
+Package pdftex.def Info: inf_ver1.png  used on input line 199.
 (pdftex.def)             Requested size: 407.51973pt x 126.47162pt.
 
-Overfull \hbox (10.10307pt too wide) in paragraph at lines 190--191
+Overfull \hbox (10.10307pt too wide) in paragraph at lines 199--200
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
 []\OT1/cmr/m/n/12 Nem altalanostott meg-oldas. Az in-terfeszt barmilyen 
 sze-repl}o
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 199--200
+Underfull \hbox (badness 1281) in paragraph at lines 208--209
 \OT1/cmr/m/n/12 hasznalhat, es le is szarmazhat bel}ole, azon-ban ez-zel er}
 osen por-
  []
 
-<inf_ver2.png, id=286, 421.575pt x 301.125pt>
+<inf_ver2.png, id=279, 421.575pt x 301.125pt>
 File: inf_ver2.png Graphic file (type png)
 <use inf_ver2.png>
-Package pdftex.def Info: inf_ver2.png  used on input line 202.
+Package pdftex.def Info: inf_ver2.png  used on input line 211.
 (pdftex.def)             Requested size: 295.10048pt x 210.78606pt.
 [16 <./inf_ver1.png (PNG copy)>]
-<better_inf.png, id=292, 451.6875pt x 260.975pt>
+<better_inf.png, id=285, 451.6875pt x 260.975pt>
 File: better_inf.png Graphic file (type png)
 <use better_inf.png>
-Package pdftex.def Info: better_inf.png  used on input line 219.
+Package pdftex.def Info: better_inf.png  used on input line 228.
 (pdftex.def)             Requested size: 361.35048pt x 208.78027pt.
  [17 <./inf_ver2.png (PNG copy)>] [18 <./better_inf.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
 [19]
-<seperate_inf.png, id=312, 572.1375pt x 552.0625pt>
+<seperate_inf.png, id=303, 572.1375pt x 552.0625pt>
 File: seperate_inf.png Graphic file (type png)
 <use seperate_inf.png>
-Package pdftex.def Info: seperate_inf.png  used on input line 239.
+Package pdftex.def Info: seperate_inf.png  used on input line 248.
 (pdftex.def)             Requested size: 400.49352pt x 386.4411pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
 [20 <./seperate_inf.png (PNG copy)>] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
 
 [22]
-Underfull \hbox (badness 1960) in paragraph at lines 270--272
+<connection.png, id=321, 471.7625pt x 271.0125pt>
+File: connection.png Graphic file (type png)
+<use connection.png>
+Package pdftex.def Info: connection.png  used on input line 276.
+(pdftex.def)             Requested size: 330.23149pt x 189.70744pt.
+
+Underfull \hbox (badness 1824) in paragraph at lines 275--277
+[]\OT1/cmr/m/n/12 Virtualizacio hasznalata, \OT1/cmr/m/it/12 Port \OT1/cmr/m
+/n/12 re-fe-ren-cia he-lyett \OT1/cmr/m/it/12 Con-nec-ti-on \OT1/cmr/m/n/12 re-
+fe-ren-cia,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--277
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--277
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--277
+
+ []
+
+[23 <./connection.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 281--283
 []\OT1/cmr/m/n/12 Vizsgaljuk meg az uze-net fo-gadas sze-man-tikajat is. A
  fo-gadas m}uvelet
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 281--283
 
  []
 
-[23] [24]
-Underfull \hbox (badness 1515) in paragraph at lines 288--290
+<behav_generalport_diag.png, id=328, 501.875pt x 311.1625pt>
+File: behav_generalport_diag.png Graphic file (type png)
+<use behav_generalport_diag.png>
+Package pdftex.def Info: behav_generalport_diag.png  used on input line 287.
+(pdftex.def)             Requested size: 351.31009pt x 217.81226pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
+
+ []
+
+[24 <./behav_generalport_diag.png (PNG copy)>]
+<simple_port_diag.png, id=335, 331.2375pt x 130.4875pt>
+File: simple_port_diag.png Graphic file (type png)
+<use simple_port_diag.png>
+Package pdftex.def Info: simple_port_diag.png  used on input line 290.
+(pdftex.def)             Requested size: 231.86465pt x 91.3406pt.
+<unio_port_diag.png, id=336, 331.2375pt x 110.4125pt>
+File: unio_port_diag.png Graphic file (type png)
+<use unio_port_diag.png>
+Package pdftex.def Info: unio_port_diag.png  used on input line 293.
+(pdftex.def)             Requested size: 231.86465pt x 77.28821pt.
+ [25 <./simple_port_diag.png (PNG copy)> <./unio_port_diag.png (PNG copy)>]
+Underfull \hbox (badness 1515) in paragraph at lines 311--313
 \OT1/cmr/m/n/12 Eddig esemeny-allapot tablank volt, mely meg-ad-ta, me-lyik
  atmenetnek kell
  []
 
-[25] [26]
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+ []
+
+
+Underfull \hbox (badness 1077) in paragraph at lines 326--327
+[][]\OT1/cmr/m/n/12 Altalanosabb meg-oldas, ha a port he-lyett meg-ad-hatnan
+k egy mask-ban
+ []
+
+
+Underfull \hbox (badness 1348) in paragraph at lines 326--327
+\OT1/cmr/m/n/12 sonloan az ed-di-gi-ek-hez, allapot-esemeny par alapjan ke
+-resunk, melyb}ol
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
+
+ []
+
+[27] [28]
 4. fejezet.
 
-Underfull \hbox (badness 7981) in paragraph at lines 296--297
+Underfull \hbox (badness 7981) in paragraph at lines 341--342
 \OT1/cmr/m/n/12 A dol-go-zat-ban nem csak ele-meztuk a le-hetseges meg-oldas
 okat, ha-nem
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 299
+LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 344
 .
 ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\courier-scaled\ot1pcrs.fd"
 File: ot1pcrs.fd 2004/07/09 font definitions for OT1/pcrs.
 )
-[27
+[29
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 318--319
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
 
  []
 
-[28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 403--405
+[30] [31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 448--450
 []\OT1/cmr/m/n/12 TypeLists and a Type-List To-ol-box via Va-ri-a-dic Temp-la-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--405
+Underfull \hbox (badness 10000) in paragraph at lines 448--450
 \OT1/cmr/m/n/12 tes [][]$\OT1/pcrs/m/n/12 https : / / www . codeproject . com /
  Articles / 1077852 /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 409.
-[31
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 454.
+[33
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 409.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 454.
  (diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 409.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 409.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 454.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 454.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
 (rerunfilecheck)             Checksum: A05CF81F5C811728C2631B6D6728FA13;6506.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 409.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 454.
  ) 
 Here is how much of TeX's memory you used:
- 12462 strings out of 493305
- 180449 string characters out of 3129803
- 256368 words of memory out of 3000000
- 15759 multiletter control sequences out of 15000+200000
- 11271 words of font info for 42 fonts, out of 3000000 for 9000
+ 12914 strings out of 493305
+ 186879 string characters out of 3129803
+ 266479 words of memory out of 3000000
+ 16203 multiletter control sequences out of 15000+200000
+ 11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,35p,1461b,550s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,7n,35p,1461b,550s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmr12.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Imola/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (31 pages, 253235 bytes).
+ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Imola/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Imola/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on diplomamunka.pdf (33 pages, 284620 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
- 352 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 457 PDF objects out of 1000 (max. 8388607)
+ 115 named destinations out of 1000 (max. 500000)
+ 372 words of extra memory for PDF output out of 10000 (max. 10000000)
 
