@@ -1,10 +1,10 @@
-Új elemek:
+﻿Új elemek:
 nullptr -> kifejezőbb, a NULL egy #define, nem egy nyelvi szintű támogatás
-final -> nem kell azt a sok szart
+final -> nem kell azt a sok cuccost leírni a hallgatóknak
 header és cpp szeperarálása
 #pragma once nem standard, de számos fordító támogatja.. kérdés, hogy mutassunk-e ilyet?
-override -> segít jobban megérteni, mi történik, új elem..
-bejött a stringstream enumerator, tök jó..
+override -> segít jobban megérteni, hogy itt egy felüldefiniálásról van szó, új elem..
+bejött a stringstream enumerator is, a hosszabb sorok olvasásához tök hasznos
 template specializáció a char esetén, skip, eddig typeid volt, nem volt egy szép konvenció..
 summation jobban hasonlít a progtételkhez -> meg kell írni egy func és egy add függvényt, régen csak add volt, ami mindenről gonsokodott
-ez is template specializálva van..
+ez is template specializálva van az olyan esetekre, amikor nagyon speciális az add függvényünk, pl cout esetén
