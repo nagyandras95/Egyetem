@@ -356,6 +356,11 @@ EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 \end{center}
 \end{enumerate}
 
+\section{Portok felhasználása FMU modellek generáláshoz}
+Egy FMU (Functional Mockup Unit) alatt egy olyan funkcionális egységet értünk, mely az FMI szabvány segítségével tud kommunikálni a külvilággal. Olyan folytonos modellekkel való kommunikációra használjuk őket, melyek adott időközönként mintát vesznek a külvilágból (pl. megmérik a levegő hőmérsékletét), majd ezeket az input adatokat elküldik egy FMU-nak, mely eszerint változtatja meg a belső állapotát. Az FMU logikája tehát lehet egy diszkrét modell, mely leírható állapotgépekkel és átmenetekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \\
+Ezt az alábbi módon valósíthatjuk meg: Létre hozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához, melynek el tudja küldeni az input adatokat feldolgozása, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{Environmentet}.   \\
+Az asszociáció mellett azonban van egy tisztább lehetőségünk is, ha portokkal dolgozunk. Egy FMU-t felfoghatunk egy olyan struktúrális rendszernek, melynek két 
+
 \chapter{Program dokumentáció}
 A dolgozatban nem csak elemeztük a lehetséges megoldásokat, hanem kiválasztottunk egy lehetséges megoldást, melyet leprogramozva demonstrálni tudjuk a dolgozat eredményeit. A továbbiakban ennek a demonstrációs programnak a rövid felhasználói és fejlesztői dokumentációja következik.
 
