@@ -296,7 +296,7 @@ Vizsgáljuk meg az üzenet fogadás szemantikáját is. A fogadás művelet vég
 \end{enumerate}
 
 Hasonlóan az interfészekhez, a kapcsolatok esetén is a kevert megoldás lenne a leghatékonyabb. Ha dolgozhatnánk leszármazással, ugyanakkor nem kéne virtualizációt használni. Erre egy kézenfekvő megoldás az lenne, ha a leszármazáskor megadnánk az interfésznek, ki a leszármazottja. \\
-\textit{class DelegateConnection : public Connection}$<$\textit{DelegateConnection}$>$ \\
+%\textit{class DelegateConnection : public Connection}<\textit{DelegateConnection}> \\
 Majd definiálnánk a speciális implementációkat, az interfész implementáció pedig statikus konverzióval a specializált \textit{Connection} osztályra konvertálná önmagát, és meghívná a megfelelő műveletet. Ehhez fordítási időben tudnom kell, hogy egy adott porthoz milyen típusú kapcsolaton keresztül fog létrejönni a referencia. \\ 
 A portokat akkor kapcsoljuk össze, mikor létre hozzuk a rendszer struktúráját. Minden port 1-1 kapcsolattal kapcsolódik egymáshoz. Ami azt jelenti, hogy egy állapotgéppel összekapcsolt port esetén egy referenciák lesz egy másik portra, melyet valamilyen ismert kapcsolaton keresztül kötünk majd hozzá. Általános port esetén pedig két referenciánk lesz, az egyik biztosan egy delegáció, a másik pedig ugyanazon az érvek mentén ismert, amit az előbb tárgyaltunk. Ebből következtetve úgy tűnik, hogy ha a pontos összekapcsolások nem is ismertek, a potenciális összekapcsolások típusai igen, így fordítási időben el tudjuk dönteni egy adott kapcsolatról, milyen típusú. Az is lehetséges, hogy egy félkész, vagy hibás modell exportálása esetén egyáltalán nem adunk meg Konnektort két port között. Ilyenkor exportálási hibát nem szeretnénk adni, mivel lehetséges, hogy a felhasználót tudatosan érdekel egy ilyen modellnek a C++ kódja, helyette inkább bevezetünk egy \textit{NoConnection} típusú leszármazást, melynek műveleteinek szemantikája megegyezik az üres utasítással. Akár sablon specializációval is dolgozhatunk, mely azért is lesz előnyös, mert megspórolhatjuk a benne eltárolt port referenciát.
 
@@ -357,9 +357,34 @@ EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 \end{enumerate}
 
 \section{Portok felhasználása FMU modellek generáláshoz}
-Egy FMU (Functional Mockup Unit) alatt egy olyan funkcionális egységet értünk, mely az FMI szabvány segítségével tud kommunikálni a külvilággal. Olyan folytonos modellekkel való kommunikációra használjuk őket, melyek adott időközönként mintát vesznek a külvilágból (pl. megmérik a levegő hőmérsékletét), majd ezeket az input adatokat elküldik egy FMU-nak, mely eszerint változtatja meg a belső állapotát. Az FMU logikája tehát lehet egy diszkrét modell, mely leírható állapotgépekkel és átmenetekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \\
-Ezt az alábbi módon valósíthatjuk meg: Létre hozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához, melynek el tudja küldeni az input adatokat feldolgozása, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{Environmentet}.   \\
-Az asszociáció mellett azonban van egy tisztább lehetőségünk is, ha portokkal dolgozunk. Egy FMU-t felfoghatunk egy olyan struktúrális rendszernek, melynek két 
+Egy FMU (Functional Mockup Unit) alatt egy olyan funkcionális egységet értünk, mely az FMI (Functional Mockup Interface) szabvány segítségével tud kommunikálni a külvilággal. Olyan folytonos modellekkel való kommunikációra használjuk őket, melyek adott időközönként mintát vesznek a külvilágból (pl. megmérik a levegő hőmérsékletét), majd ezeket az input adatokat elküldik egy FMU-nak, mely eszerint változtatja meg a belső állapotát. Az FMU logikája tehát lehet egy diszkrét modell, mely leírható állapotgépekkel és átmenetekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \\
+Ezt az alábbi módon valósíthatjuk meg: Létre hozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozása, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{Environmentet}.   \\
+Az asszociáció mellett azonban van egy tisztább lehetőségünk is, ha portokkal dolgozunk. Egy FMU-t felfoghatunk egy olyan strukturális rendszernek, melynek két eleme van:
+\begin{enumerate}
+\item Az \textit{FMUEnvironment}, mely megvalósítja az FMI-t. (Init FMU, DoStep, stb..)
+\item Az FMU működését leíró \textit{txtUML} modell.
+\end{enumerate}
+Ezek után a környezet és a modell egy Assembly kapcsolat segítségével lesznek össze kötve. Így a környezetnek nem kell ismernie egy speciális kontroll osztályt, mellyel asszociációban van, de még a modell-re sem kell referenciát birtokolnia, csak a saját portját kell ismernie. A modell osztály pedig az input üzenetet tetszőleges gyerekének delegálhatja, az előzőekben említett kontroll osztálynak is. Az összekapcsolásokat pedig a legfelső osztály végzi el, mely összefogja az egész rendszert. Elég ennek az egy szereplőnek ismernie a modellt és a környezetet.  \\
+
+\subsubsection{Szemléltetve az egyes megoldásokat}
+
+Egyszerű estet, amikor nincsenek portok: \\
+\includegraphics[scale=0.6]{fmu_simple.png} \\
+
+Portos eset: \\
+\includegraphics[scale=0.6]{fmu_with_ports.png} \\
+
+Előnyök: \\
+\begin{itemize}
+\item A modellt függetleníteni tudjuk a környezettől.
+\item Ha nem szeretnék FMU generálást, akár arra is jobba lehetőségünk van, hogy figyelmen kívül hagyjuk a modellen kívüli szereplőket, mivel annak semmi külső függősége nem lesz így.
+\item Tisztább struktúra, külső kódból is könnyen felépíteni ezt a függőséget, mert a modell egy portjára kell rákötni a külvilágot.
+\end{itemize}
+Hátrányok:
+\begin{itemize}
+\item Nehezebb leírni ezt a strukturális felépítést \textit{txtUML}-ben.
+\end{itemize}
+Azonban a hátrányt kiküszöbölhető azzal, hogy ha a felhasználó beállítja, hogy ha szeretne FMU-t generálni a modellből, akkor minden szükséges strukturális kódot legenerálhatunk automatikusan, mivel a modell teljesen függetlenedett az \textit{FMUEnvironment}-től, így azt \textit{txtUML} modellben fel sem kell tüntetni, csak konfigurációnál kell megadnunk, mely portjára várjuk az üzeneteket.
 
 \chapter{Program dokumentáció}
 A dolgozatban nem csak elemeztük a lehetséges megoldásokat, hanem kiválasztottunk egy lehetséges megoldást, melyet leprogramozva demonstrálni tudjuk a dolgozat eredményeit. A továbbiakban ennek a demonstrációs programnak a rövid felhasználói és fejlesztői dokumentációja következik.
