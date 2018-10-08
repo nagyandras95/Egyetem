@@ -356,8 +356,10 @@ EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 \end{center}
 \end{enumerate}
 
-\section{Portok felhasználása FMU modellek generáláshoz}
-Egy FMU (Functional Mockup Unit) alatt egy olyan funkcionális egységet értünk, mely az FMI (Functional Mockup Interface) szabvány segítségével tud kommunikálni a külvilággal. Olyan folytonos modellekkel való kommunikációra használjuk őket, melyek adott időközönként mintát vesznek a külvilágból (pl. megmérik a levegő hőmérsékletét), majd ezeket az input adatokat elküldik egy FMU-nak, mely eszerint változtatja meg a belső állapotát. Az FMU logikája tehát lehet egy diszkrét modell, mely leírható állapotgépekkel és átmenetekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \\
+\chapter{Portok felhasználása a modellezésben}
+
+\section{FMU modellek generálása}
+Egy FMU (Functional Mockup Unit) alatt egy olyan funkcionális egységet értünk, mely az FMI (Functional Mockup Interface) \cite{fmi_standard} szabvány segítségével tud kommunikálni a külvilággal. Olyan folytonos modellekkel való kommunikációra használjuk őket, melyek adott időközönként mintát vesznek a külvilágból (pl. megmérik a levegő hőmérsékletét), majd ezeket az input adatokat elküldik egy FMU-nak, mely eszerint változtatja meg a belső állapotát. Az FMU logikája tehát lehet egy diszkrét modell, mely leírható állapotgépekkel és átmenetekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \cite{fmu_export} \\
 Ezt az alábbi módon valósíthatjuk meg: Létre hozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozása, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{Environmentet}.   \\
 Az asszociáció mellett azonban van egy tisztább lehetőségünk is, ha portokkal dolgozunk. Egy FMU-t felfoghatunk egy olyan strukturális rendszernek, melynek két eleme van:
 \begin{enumerate}
@@ -380,11 +382,30 @@ Előnyök: \\
 \item Ha nem szeretnék FMU generálást, akár arra is jobba lehetőségünk van, hogy figyelmen kívül hagyjuk a modellen kívüli szereplőket, mivel annak semmi külső függősége nem lesz így.
 \item Tisztább struktúra, külső kódból is könnyen felépíteni ezt a függőséget, mert a modell egy portjára kell rákötni a külvilágot.
 \end{itemize}
-Hátrányok:
+Hátrányok: \\
 \begin{itemize}
 \item Nehezebb leírni ezt a strukturális felépítést \textit{txtUML}-ben.
 \end{itemize}
 Azonban a hátrányt kiküszöbölhető azzal, hogy ha a felhasználó beállítja, hogy ha szeretne FMU-t generálni a modellből, akkor minden szükséges strukturális kódot legenerálhatunk automatikusan, mivel a modell teljesen függetlenedett az \textit{FMUEnvironment}-től, így azt \textit{txtUML} modellben fel sem kell tüntetni, csak konfigurációnál kell megadnunk, mely portjára várjuk az üzeneteket.
+
+\section{Külső komponensek bekötése a modellbe}
+Általánosságban elmondható, hogy ha szeretnénk egy külső komponenst bekötni a modellünkbe anélkül, hogy a generált kódhoz kézzel hozzá kéne nyúlnunk, akkor a portok nagy szerepet játszanak. Elég csak felvenni egy csatlakozási pontot a modellben, meghatározni, hogy milyen interfészen keresztül kommunikálhatunk a külvilággal, és kívülről hozzácsatlakozni az adott porthoz. Így, a generált kód teljesen függetlenedik a kézzel írt kódtól, újragenerálás után csak arra kell figyelnünk, hogy a külső kommunikációs port neve ne változzon, az interfésze ne szűküljön. \\
+
+\subsection{Szemléltetve}
+\includegraphics[scale=0.6]{external_with_ports.png} \\
+
+
+\section{Párhuzamosítási lehetőségek kiterjesztése}
+Anélkül, hogy precízen megvizsgálnánk, pontosan hogyan tudunk párhuzamosítani portok segítségével általánosan elmondható, ami már az eddigiekből is kiderült: a portok sokkal könnyebben tudnak függetleníteni két különböző logikai egységet. Portok segítségével úgy tud egymással két osztály kommunikálni, hogy nem tárolnak egymásra referenciát, melynek köszönhetően nem tudnak szinkron hívást kezdeményezni egymás metódusaira, nem tudják elérni egymásnak még a publikus adattagjaikat sem, egyedül aszinkron üzenetküldéssel tudnak kommunikálni egymással. Ennek következtében egy metódus végrehajtásnál egy osztály csak a saját adattagjait olvashatja vagy írhatja felül, vagy a metódus törzsében létrehozott változókat. Így nem lehet interferencia egy adattag elérésekor, ha a metódus végrehajtása közben nem ágazunk el, és hozunk létre újabb szálakat. Ehhez persze arra is szükségünk van, hogy egy szignál ne tartalmazzon referencia értékéket, csak lemásolt, vagy primitív objektumokat. Továbbá statikus függvényhívásokra és változóelérésekre sem szabad lehetőséget adni az egyes osztályoknak, vagy ezen eléréseket szinkronizálni kell. \\
+
+Ezen primitív szabályokat betartva elmondható, hogy két azonos szinten lévő, Assembly kapcsolattal kommunikáló osztály porton keresztül kommunikálva nem fog interferenciába keveredni egymással. Szülő-gyerek kapcsolat esetén azonban nem ilyen szerencsés a helyzet, mivel a szülő kompozícióban áll a gyerekével, így referenciát tárol rá a szabvány szerint. Így ezen osztályok párhuzamosítása egy nehezebb feladat, mely túlmutat a diplomamunka témakörén.
+
+\section{Testre szabható protokoll}
+Egy portra való üzenetküldés megvalósítását tetszőlegesen kicserélhetjük, a \textit{send} művelet megvalósítása akár egy, a modell mellé írt konfigurációtól is függhet. Ha két osztályt szeretnénk különböző szálakra helyezni, akkor valamilyen szálbiztos megvalósítást kell alkalmaznunk. Ha az egész modellünk egy szálon fut, akár valamilyen szinkron hívást is megvalósíthatunk a háttérben. Két osztály akár különböző processzoron is futhat, ez esetben a portoknak valamilyen interprocessz kommunikációt kell implementálnia. Ezen lehetőségek részletes kielemzése szintén túlmutat a diplomamunka témakörén. 
+
+\section{Az UML szabvány egyszerűbb szemléltetése}
+Amikor komponensekről, szereplők izolációjáról, elvárt és szolgáltatott interfészekről, konnektorokról beszélünk az UML kapcsán, akár egy egyetemi tanóra keretében, akkor a \textit{txtUML} portjai, annak szemantikájának demonstrálása egy modellen, és C++ megvalósítások elemzése hasznos anyag lehet, hogy a hallgatókhoz közelebb kerüljenek ezek a fogalmak, ne pedig csak a levegőbe lógjanak. Így a későbbiekben a rendszerek tervezésnél nem csak egymással asszociációban lévő osztályokban fognak gondolkodni, hanem teljesen izolált szereplőkben is, mely kommunikációs pontokon, portokon keresztül kommunikál a külvilággal. 
+
 
 \chapter{Program dokumentáció}
 A dolgozatban nem csak elemeztük a lehetséges megoldásokat, hanem kiválasztottunk egy lehetséges megoldást, melyet leprogramozva demonstrálni tudjuk a dolgozat eredményeit. A továbbiakban ennek a demonstrációs programnak a rövid felhasználói és fejlesztői dokumentációja következik.
@@ -454,48 +475,58 @@ A generált kódok megfelelőek, a modellek pedig az elvárt működésnek megfe
 
 
 \bibitem{uml_omg}
-	OMG, Superstructure
+	OMG, Superstructure \\
 	\emph{Unified Modeling Language (OMG UML)}
 
 \bibitem{uml_real}
-	Bran Selic, ObjecTime Limited
+	Bran Selic, ObjecTime Limited \\
 	Jim Rumbaugh, Rational Software Corporation
-	\emph{Using UML for Modeling Complex Real-Time Systems}
+	\emph{Using UML for Modeling Complex Real-Time Systems} \\
 	\url{ftp://ftp.omg.org/pub/umlrtf/UML_rt_ext_F56dist.pdf}
 	
 
 \bibitem{txtUML}
-  Gábor Ferenc Kovács, Ádám Ancsin, Gergely Dévai,
+  Gábor Ferenc Kovács, Ádám Ancsin, Gergely Dévai, \\
   \emph{Textual, executable, translatable UML},
   14th International Workshop on OCL and Textual Modeling, 
   2014. 
 
 \bibitem{alf}
-	Object Management Group. 	
-	\emph{Action Language for Foundational UML (ALF), standard, version 1.0.1.}
+	Object Management Group. 	\\
+	\emph{Action Language for Foundational UML (ALF), standard, version 1.0.1.}\\
 	\url{http://www.omg.org/spec/ALF/} 2013
 \bibitem{fmul}
-	Object Management Group. 
-	\emph{Semantics of a Foundational Subset for Executable UML Models (fUML), standard, version 1.1}
+	Object Management Group. \\
+	\emph{Semantics of a Foundational Subset for Executable UML Models (fUML), standard, version 1.1} \\
 	\url{http://www.omg.org/spec/FUML/1.1/} 2013
 	
 \bibitem{umple}
-	Andrew Forward, Omar Badreddin, and Timothy C Lethbridge
-	\emph{Umple: Towards combining model driven with prototype driven system development}
+	Andrew Forward, Omar Badreddin, and Timothy C Lethbridge \\
+	\emph{Umple: Towards combining model driven with prototype driven system development} \\
 	In Rapid System Prototyping (RSP), 2010 21st IEEE International Symposium on, pages 1–7. IEEE, 2010.
 
 \bibitem{bridge}
-	OneFact.	
-	\emph{BridgePoint xtUML tool.} 
+	OneFact. \\	
+	\emph{BridgePoint xtUML tool.} \\
 	\url{http://onefact.net}
 	
 \bibitem{startuml}
-	StartUML Tool
+	StartUML Tool \\
 	\url{http://staruml.io/}
 	
 \bibitem{typelist}
-	TypeLists and a TypeList Toolbox via Variadic Templates
+	TypeLists and a TypeList Toolbox via Variadic Templates \\
 	\url{https://www.codeproject.com/Articles/1077852/TypeLists-and-a-TypeList-Toolbox-via-Variadic-Temp}
+	
+\bibitem{fmi_standard}
+	Functional Mock-up Interface for Model Exchange and Co-Simulation \\
+	\emph{version 2.0, July 25, 2014}  \\
+	\url{https://fmi-standard.org/docs/2.0.1-develop/}
+	
+\bibitem{fmu_export}
+	Interoperability of the standards Modelica-UML-FMI \\ 
+	Nov 17, 2017 \\
+	
 
 	
 \end{thebibliography}
