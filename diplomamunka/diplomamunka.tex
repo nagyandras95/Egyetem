@@ -328,7 +328,7 @@ Hátrányok:
 
 \section{Kommunikáció megvalósítása C++-ban}
 Végül még érdemes néhány szót ejteni a kommunikációs szemantikáról. Ennek nagy részét már tisztáztuk. Megvizsgáltuk a portra való üzenetküldés szemantikát az enkapszuláción belülről. Ekkor az üzentet kifele áramoltatjuk, egy másik port fogja megkapni. Ebben a fejezetben csak az lesz az érdekes, hogy az üzenetáram végén, amikor eljut az üzenet egy állapotgéphez, hogyan fogjuk kezelni. Így csak az állapotgéppel összekapcsolt portok fogadó (\textit{receive}) műveletei lesznek érdekesek számunkra. A port tartalmaz egy referenciát az állapotgépre, így tudja neki továbbítani az üzenetet. Azonban a nyers továbbítás kevés lenne, mivel egy objektum állapotgépe egy adott porton történő állapotváltozásra kell reagáljon. Így az üzenet feldolgozásakor tisztában kell lennünk azzal, melyik porttól kaptuk meg az adott üzenetet. Az UML szabványban egy adott átmenetnél felsorolhatjuk az adott portokat, melyről az adott üzenetet várjuk. \textit{txtUML}-ben csak egy portot adhatunk meg, vagy jelezhetjük, hogy az adott üzenet bárhonnan érkezhet, porton kívülről is, vagy bármely portról. Ennek megfelelően megfelelően mindenképpen a meglévő állapot-átmenet táblát érdemes kibővíteni egy új dimenzióval: Megadni, hogy az átmenetben szereplő üzenet potenciálisan mely portokról jöhet, hogy az állapotgép reagáljon rá. \\
-Eddig esemény-állapot táblánk volt, mely megadta, melyik átmenetnek kell végrehajtódnia. Ezt kibővíthetjük az alábbi módokon:
+Eddig esemény-állapot táblánk volt, mely megadta, melyik átmenetnek kell végrehajtódnia. \cite{hack_dip} Most vizsgáljuk meg, hogyan tudjuk kiterjeszteni ezt a táblát.
 \begin{enumerate}
 \item Egy darab port típus, és állapot-esemény-port hármasokat fog tartalmazni az átmenet táblánk. Mielőtt egy port továbbítja az állapotgépnek az üzenetet, beállítja az eseményen a port infót, így tudni fogjuk, honnan érkezett. Ez az esetünkben jól fog működni, mivel csak egyféle portról jöhet az üzenet. Azonban, ha azt adjuk meg, hogy bármelyik portról érkezhet az üzenet, már problémákba ütközünk, mivel ilyenkor nincs megadva port dimenzió a táblában, az üzenetben viszont igen. Ezt speciálisan le tudjuk kezelni az üzenetfeldolgozás során, azonban ez nem elég általános megoldás. \\
 
@@ -517,6 +517,11 @@ A generált kódok megfelelőek, a modellek pedig az elvárt működésnek megfe
 \bibitem{typelist}
 	TypeLists and a TypeList Toolbox via Variadic Templates \\
 	\url{https://www.codeproject.com/Articles/1077852/TypeLists-and-a-TypeList-Toolbox-via-Variadic-Temp}
+	
+\bibitem{hack_dip}
+	Hack János
+	\emph{C++ kódgenerálás futtatható UML modellekből}
+	2015 Ezt kibővíthetjük az alábbi módokon:
 	
 \bibitem{fmi_standard}
 	Functional Mock-up Interface for Model Exchange and Co-Simulation \\

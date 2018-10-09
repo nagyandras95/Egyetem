@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  8 OCT 2018 12:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  8 OCT 2018 13:16
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1547,7 +1547,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
-<fmu_simple.png, id=422, 712.6625pt x 100.375pt>
+<fmu_simple.png, id=424, 712.6625pt x 100.375pt>
 File: fmu_simple.png Graphic file (type png)
 <use fmu_simple.png>
 Package pdftex.def Info: fmu_simple.png  used on input line 374.
@@ -1562,7 +1562,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 373--375
 
  []
 
-<fmu_with_ports.png, id=423, 762.85pt x 351.3125pt>
+<fmu_with_ports.png, id=425, 762.85pt x 351.3125pt>
 File: fmu_with_ports.png Graphic file (type png)
 <use fmu_with_ports.png>
 Package pdftex.def Info: fmu_with_ports.png  used on input line 377.
@@ -1592,7 +1592,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
-<external_with_ports.png, id=429, 722.7pt x 180.675pt>
+<external_with_ports.png, id=431, 722.7pt x 180.675pt>
 File: external_with_ports.png Graphic file (type png)
 <use external_with_ports.png>
 Package pdftex.def Info: external_with_ports.png  used on input line 395.
@@ -1652,25 +1652,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 518--520
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 527--529
+Underfull \hbox (badness 3098) in paragraph at lines 522--525
+[]\OT1/cmr/m/n/12 Hack Janos \OT1/cmr/m/it/12 C++ kodgeneralas fut-tat-hat
+o UML mo-del-lekb}ol \OT1/cmr/m/n/12 2015 Ezt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--534
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 534.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 539.
 [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 534.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 539.
  (diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 534.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 534.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 539.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 539.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
 (rerunfilecheck)             Checksum: 62911D1959E62B912B33F54B634B3248;8078.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 534.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 539.
  ) 
 Here is how much of TeX's memory you used:
- 12975 strings out of 493305
- 187899 string characters out of 3129803
- 266637 words of memory out of 3000000
- 16237 multiletter control sequences out of 15000+200000
+ 12977 strings out of 493305
+ 187922 string characters out of 3129803
+ 266669 words of memory out of 3000000
+ 16238 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,7n,35p,1555b,550s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1681,9 +1687,9 @@ lic/amsfonts/cm/cmr12.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Imola/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Imola/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (41 pages, 340474 bytes).
+Output written on diplomamunka.pdf (41 pages, 341411 bytes).
 PDF statistics:
- 545 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 137 named destinations out of 1000 (max. 500000)
  458 words of extra memory for PDF output out of 10000 (max. 10000000)
 
