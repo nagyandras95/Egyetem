@@ -1,60 +1,69 @@
 \select@language {magyar} \contentsline {chapter}{\numberline {1}Bevezet\IeC {\'e}s}{3}{chapter.1}
-\select@language {magyar} \contentsline {section}{\numberline {1.1}UML Komponens fogalmak}{4}{section.1.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {1.1.1}Enkapszul\IeC {\'a}lt elem}{4}{subsection.1.1.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {1.1.2}UML Interf\IeC {\'e}sz}{4}{subsection.1.1.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {1.1.3}UML Port}{4}{subsection.1.1.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {1.1.4}UML Connector}{5}{subsection.1.1.4}
-\select@language {magyar} \contentsline {chapter}{\numberline {2}\IeC {\'A}ttekint\IeC {\'e}s}{6}{chapter.2}
-\select@language {magyar} \contentsline {section}{\numberline {2.1}A probl\IeC {\'e}ma r\IeC {\"o}vid meghat\IeC {\'a}roz\IeC {\'a}sa}{6}{section.2.1}
-\select@language {magyar} \contentsline {section}{\numberline {2.2}Szabv\IeC {\'a}nyok \IeC {\'e}s keretrendszerek \IeC {\'a}ttekint\IeC {\'e}se}{6}{section.2.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.1}fUML - ALF}{6}{subsection.2.2.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.2}Umple}{7}{subsection.2.2.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.3}StartUML}{8}{subsection.2.2.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.4}BrigePoint UML}{8}{subsection.2.2.4}
-\select@language {magyar} \contentsline {section}{\numberline {2.3}\IeC {\"O}sszefoglal\IeC {\'a}s}{9}{section.2.3}
-\select@language {magyar} \contentsline {chapter}{\numberline {3}Reprezent\IeC {\'a}ci\IeC {\'o}s lehet\IeC {\H o}s\IeC {\'e}gek}{10}{chapter.3}
-\select@language {magyar} \contentsline {section}{\numberline {3.1}A megfelel\IeC {\H o} reprezent\IeC {\'a}ci\IeC {\'o}k megtal\IeC {\'a}l\IeC {\'a}sa}{10}{section.3.1}
-\select@language {magyar} \contentsline {section}{\numberline {3.2}Portok reprezent\IeC {\'a}l\IeC {\'a}sa}{10}{section.3.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}UML-ben}{10}{subsection.3.2.1}
-\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltet\IeC {\'e}s oszt\IeC {\'a}lydiagrammal}{11}{subsection.3.2.1}
-\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltet\IeC {\'e}s komponens diagrammal}{11}{subsection.3.2.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}C++-ban}{11}{subsection.3.2.2}
-\select@language {magyar} \contentsline {section}{\numberline {3.3}Portokra val\IeC {\'o} \IeC {\"u}zenetk\IeC {\"u}ld\IeC {\'e}s/fogad\IeC {\'a}s reprezent\IeC {\'a}l\IeC {\'a}sa}{12}{section.3.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.3.1}UML-ben}{12}{subsection.3.3.1}
-\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet k\IeC {\"u}ld\IeC {\'e}s}{12}{subsection.3.3.1}
-\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet fogad\IeC {\'a}s}{13}{subsection.3.3.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.3.2}C++-ban}{13}{subsection.3.3.2}
-\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet k\IeC {\"u}ld\IeC {\'e}s}{13}{subsection.3.3.2}
-\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet fogad\IeC {\'a}s}{13}{subsection.3.3.2}
-\select@language {magyar} \contentsline {section}{\numberline {3.4}Interf\IeC {\'e}szek reprezent\IeC {\'a}l\IeC {\'a}sa interf\IeC {\'e}sz portok eset\IeC {\'e}n}{14}{section.3.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4.1}UML-ben}{14}{subsection.3.4.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4.2}C++-ban}{14}{subsection.3.4.2}
-\select@language {magyar} \contentsline {subsubsection}{Nincs interf\IeC {\'e}sz}{14}{subsection.3.4.2}
-\select@language {magyar} \contentsline {subsubsection}{Van interf\IeC {\'e}sz}{15}{subsection.3.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4.3}Szolg\IeC {\'a}ltatott \IeC {\'e}s elv\IeC {\'a}rt interf\IeC {\'e}szek megk\IeC {\"u}l\IeC {\"o}nb\IeC {\"o}ztet\IeC {\'e}se}{19}{subsection.3.4.3}
-\select@language {magyar} \contentsline {subsubsection}{UML-ben}{19}{subsection.3.4.3}
-\select@language {magyar} \contentsline {subsubsection}{C++-ban}{19}{subsection.3.4.3}
-\select@language {magyar} \contentsline {subsubsection}{Interf\IeC {\'e}sz kiterjesztetett szintaxisa, konkr\IeC {\'e}t p\IeC {\'e}lda portok eset\IeC {\'e}n}{20}{subsection.3.4.3}
-\select@language {magyar} \contentsline {section}{\numberline {3.5}Konnektorok, \IeC {\"o}sszekapcsol\IeC {\'a}s m\IeC {\H u}velet reprezent\IeC {\'a}l\IeC {\'a}sa}{20}{section.3.5}
-\select@language {magyar} \contentsline {subsubsection}{Konnektor reprezent\IeC {\'a}ci\IeC {\'o} UML-ben}{21}{section.3.5}
-\select@language {magyar} \contentsline {subsubsection}{\IeC {\"O}sszekapcsol\IeC {\'a}s m\IeC {\H u}velet reprezent\IeC {\'a}ci\IeC {\'o}ja UML-ben}{21}{section.3.5}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5.1}\IeC {\"O}sszekapcsolt portok reprezent\IeC {\'a}ci\IeC {\'o}ja C++-ban}{23}{subsection.3.5.1}
-\select@language {magyar} \contentsline {subsubsection}{K\IeC {\"u}l\IeC {\"o}nb\IeC {\"o}z\IeC {\H o} port t\IeC {\'\i }pusok megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa szeml\IeC {\'e}ltetve}{25}{Item.10}
-\select@language {magyar} \contentsline {subsubsection}{Megold\IeC {\'a}s szeml\IeC {\'e}ltet\IeC {\'e}se}{27}{Item.13}
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5.2}Konnektorok reprezent\IeC {\'a}l\IeC {\'a}sa C++-ban}{27}{subsection.3.5.2}
-\select@language {magyar} \contentsline {section}{\numberline {3.6}Kommunik\IeC {\'a}ci\IeC {\'o} megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa C++-ban}{29}{section.3.6}
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Portok felhaszn\IeC {\'a}l\IeC {\'a}sa a modellez\IeC {\'e}sben}{31}{chapter.4}
-\select@language {magyar} \contentsline {section}{\numberline {4.1}FMU modellek gener\IeC {\'a}l\IeC {\'a}sa}{31}{section.4.1}
-\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltetve az egyes megold\IeC {\'a}sokat}{32}{Item.23}
-\select@language {magyar} \contentsline {section}{\numberline {4.2}K\IeC {\"u}ls\IeC {\H o} komponensek bek\IeC {\"o}t\IeC {\'e}se a modellbe}{33}{section.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Szeml\IeC {\'e}ltetve}{34}{subsection.4.2.1}
-\select@language {magyar} \contentsline {section}{\numberline {4.3}P\IeC {\'a}rhuzamos\IeC {\'\i }t\IeC {\'a}si lehet\IeC {\H o}s\IeC {\'e}gek kiterjeszt\IeC {\'e}se}{34}{section.4.3}
-\select@language {magyar} \contentsline {section}{\numberline {4.4}Testre szabhat\IeC {\'o} protokoll}{35}{section.4.4}
-\select@language {magyar} \contentsline {section}{\numberline {4.5}Az UML szabv\IeC {\'a}ny egyszer\IeC {\H u}bb szeml\IeC {\'e}ltet\IeC {\'e}se}{35}{section.4.5}
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Program dokument\IeC {\'a}ci\IeC {\'o}}{36}{chapter.5}
-\select@language {magyar} \contentsline {section}{\numberline {5.1}Felhaszn\IeC {\'a}l\IeC {\'o}i dokument\IeC {\'a}ci\IeC {\'o}}{36}{section.5.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.1.1}Sz\IeC {\"u}ks\IeC {\'e}ges eszk\IeC {\"o}z\IeC {\"o}k}{36}{subsection.5.1.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.1.2}Gener\IeC {\'a}l\IeC {\'a}s \IeC {\'e}s futtat\IeC {\'a}s}{37}{subsection.5.1.2}
-\select@language {magyar} \contentsline {section}{\numberline {5.2}Fejleszt\IeC {\H o}i dokument\IeC {\'a}ci\IeC {\'o}}{37}{section.5.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.2.1}Szerkezeti fel\IeC {\'e}p\IeC {\'\i }t\IeC {\'e}s}{37}{subsection.5.2.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.2.2}Tesztel\IeC {\'e}s}{38}{subsection.5.2.2}
+\select@language {magyar} \contentsline {section}{\numberline {1.1}txtUML keretrendszer}{4}{section.1.1}
+\select@language {magyar} \contentsline {section}{\numberline {1.2}A diplomamunka c\IeC {\'e}lja}{4}{section.1.2}
+\select@language {magyar} \contentsline {section}{\numberline {1.3}A diplomamunka f\IeC {\H o}bb eredm\IeC {\'e}nyei}{4}{section.1.3}
+\select@language {magyar} \contentsline {section}{\numberline {1.4}UML Komponens fogalmak}{5}{section.1.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {1.4.1}Struktur\IeC {\'a}lis elemek}{5}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsubsection}{Egys\IeC {\'e}gbe z\IeC {\'a}rt elem}{5}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsubsection}{UML Interf\IeC {\'e}sz}{5}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsubsection}{UML Port}{5}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsubsection}{Kompozit strukt\IeC {\'u}ra}{6}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsubsection}{UML Connector}{6}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {1.4.2}Akci\IeC {\'o} elemek}{6}{subsection.1.4.2}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet k\IeC {\"u}ld\IeC {\'e}s/fogad\IeC {\'a}s}{6}{subsection.1.4.2}
+\select@language {magyar} \contentsline {subsubsection}{Connect m\IeC {\H u}velet}{6}{subsection.1.4.2}
+\select@language {magyar} \contentsline {chapter}{\numberline {2}\IeC {\'A}ttekint\IeC {\'e}s}{7}{chapter.2}
+\select@language {magyar} \contentsline {section}{\numberline {2.1}Szabv\IeC {\'a}nyok \IeC {\'e}s keretrendszerek \IeC {\'a}ttekint\IeC {\'e}se}{7}{section.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.1}fUML - ALF}{7}{subsection.2.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.2}PSCS szabv\IeC {\'a}ny}{7}{subsection.2.1.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.3}Umple}{7}{subsection.2.1.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.4}StartUML}{8}{subsection.2.1.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.5}BrigePoint UML}{9}{subsection.2.1.5}
+\select@language {magyar} \contentsline {section}{\numberline {2.2}\IeC {\"O}sszefoglal\IeC {\'a}s}{10}{section.2.2}
+\select@language {magyar} \contentsline {chapter}{\numberline {3}Reprezent\IeC {\'a}ci\IeC {\'o}s lehet\IeC {\H o}s\IeC {\'e}gek}{11}{chapter.3}
+\select@language {magyar} \contentsline {section}{\numberline {3.1}A megfelel\IeC {\H o} reprezent\IeC {\'a}ci\IeC {\'o}k megtal\IeC {\'a}l\IeC {\'a}sa}{11}{section.3.1}
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Portok reprezent\IeC {\'a}l\IeC {\'a}sa}{11}{section.3.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}UML-ben}{11}{subsection.3.2.1}
+\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltet\IeC {\'e}s oszt\IeC {\'a}lydiagrammal}{12}{subsection.3.2.1}
+\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltet\IeC {\'e}s komponens diagrammal}{12}{subsection.3.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}C++-ban}{12}{subsection.3.2.2}
+\select@language {magyar} \contentsline {section}{\numberline {3.3}Portokra val\IeC {\'o} \IeC {\"u}zenetk\IeC {\"u}ld\IeC {\'e}s/fogad\IeC {\'a}s reprezent\IeC {\'a}l\IeC {\'a}sa}{13}{section.3.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3.1}UML-ben}{13}{subsection.3.3.1}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet k\IeC {\"u}ld\IeC {\'e}s}{13}{subsection.3.3.1}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet fogad\IeC {\'a}s}{14}{subsection.3.3.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3.2}C++-ban}{14}{subsection.3.3.2}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet k\IeC {\"u}ld\IeC {\'e}s}{14}{subsection.3.3.2}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet fogad\IeC {\'a}s}{14}{subsection.3.3.2}
+\select@language {magyar} \contentsline {section}{\numberline {3.4}Interf\IeC {\'e}szek reprezent\IeC {\'a}l\IeC {\'a}sa interf\IeC {\'e}sz portok eset\IeC {\'e}n}{15}{section.3.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4.1}UML-ben}{15}{subsection.3.4.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4.2}C++-ban}{15}{subsection.3.4.2}
+\select@language {magyar} \contentsline {subsubsection}{Nincs interf\IeC {\'e}sz}{15}{subsection.3.4.2}
+\select@language {magyar} \contentsline {subsubsection}{Van interf\IeC {\'e}sz}{16}{subsection.3.4.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4.3}Szolg\IeC {\'a}ltatott \IeC {\'e}s elv\IeC {\'a}rt interf\IeC {\'e}szek megk\IeC {\"u}l\IeC {\"o}nb\IeC {\"o}ztet\IeC {\'e}se}{20}{subsection.3.4.3}
+\select@language {magyar} \contentsline {subsubsection}{UML-ben}{20}{subsection.3.4.3}
+\select@language {magyar} \contentsline {subsubsection}{C++-ban}{21}{subsection.3.4.3}
+\select@language {magyar} \contentsline {subsubsection}{Interf\IeC {\'e}sz kiterjesztetett szintaxisa, konkr\IeC {\'e}t p\IeC {\'e}lda portok eset\IeC {\'e}n}{22}{subsection.3.4.3}
+\select@language {magyar} \contentsline {section}{\numberline {3.5}Konnektorok, \IeC {\"o}sszekapcsol\IeC {\'a}s m\IeC {\H u}velet reprezent\IeC {\'a}l\IeC {\'a}sa}{22}{section.3.5}
+\select@language {magyar} \contentsline {subsubsection}{Konnektor reprezent\IeC {\'a}ci\IeC {\'o} UML-ben}{23}{section.3.5}
+\select@language {magyar} \contentsline {subsubsection}{\IeC {\"O}sszekapcsol\IeC {\'a}s m\IeC {\H u}velet reprezent\IeC {\'a}ci\IeC {\'o}ja UML-ben}{23}{section.3.5}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5.1}\IeC {\"O}sszekapcsolt portok reprezent\IeC {\'a}ci\IeC {\'o}ja C++-ban}{25}{subsection.3.5.1}
+\select@language {magyar} \contentsline {subsubsection}{K\IeC {\"u}l\IeC {\"o}nb\IeC {\"o}z\IeC {\H o} port t\IeC {\'\i }pusok megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa szeml\IeC {\'e}ltetve}{27}{Item.10}
+\select@language {magyar} \contentsline {subsubsection}{Megold\IeC {\'a}s szeml\IeC {\'e}ltet\IeC {\'e}se}{28}{Item.13}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5.2}Konnektorok reprezent\IeC {\'a}l\IeC {\'a}sa C++-ban}{29}{subsection.3.5.2}
+\select@language {magyar} \contentsline {section}{\numberline {3.6}Kommunik\IeC {\'a}ci\IeC {\'o} megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa C++-ban}{30}{section.3.6}
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Portok felhaszn\IeC {\'a}l\IeC {\'a}sa a modellez\IeC {\'e}sben}{33}{chapter.4}
+\select@language {magyar} \contentsline {section}{\numberline {4.1}FMU modellek gener\IeC {\'a}l\IeC {\'a}sa}{33}{section.4.1}
+\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltetve az egyes megold\IeC {\'a}sokat}{34}{Item.23}
+\select@language {magyar} \contentsline {section}{\numberline {4.2}K\IeC {\"u}ls\IeC {\H o} komponensek bek\IeC {\"o}t\IeC {\'e}se a modellbe}{35}{section.4.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Szeml\IeC {\'e}ltetve}{36}{subsection.4.2.1}
+\select@language {magyar} \contentsline {section}{\numberline {4.3}P\IeC {\'a}rhuzamos\IeC {\'\i }t\IeC {\'a}si lehet\IeC {\H o}s\IeC {\'e}gek kiterjeszt\IeC {\'e}se}{36}{section.4.3}
+\select@language {magyar} \contentsline {section}{\numberline {4.4}Testre szabhat\IeC {\'o} protokoll}{37}{section.4.4}
+\select@language {magyar} \contentsline {section}{\numberline {4.5}Az UML szabv\IeC {\'a}ny egyszer\IeC {\H u}bb szeml\IeC {\'e}ltet\IeC {\'e}se}{37}{section.4.5}
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}s}{38}{chapter.5}
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Felhaszn\IeC {\'a}l\IeC {\'o}i interf\IeC {\'e}sz tervez\IeC {\'e}s}{38}{section.5.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.1.1}Sz\IeC {\"u}ks\IeC {\'e}ges eszk\IeC {\"o}z\IeC {\"o}k}{38}{subsection.5.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.1.2}Gener\IeC {\'a}l\IeC {\'a}s \IeC {\'e}s futtat\IeC {\'a}s}{39}{subsection.5.1.2}
+\select@language {magyar} \contentsline {section}{\numberline {5.2}Rendszerarchitekt\IeC {\'u}ra}{39}{section.5.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.2.1}Szerkezeti fel\IeC {\'e}p\IeC {\'\i }t\IeC {\'e}s}{39}{subsection.5.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {5.2.2}Tesztel\IeC {\'e}s}{40}{subsection.5.2.2}
+\select@language {magyar} \contentsline {chapter}{\numberline {6}A diplomamunka eredm\IeC {\'e}nyei}{42}{chapter.6}
