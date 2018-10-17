@@ -56,20 +56,20 @@ A diplomamunka célja teljes körű támogatást nyújtani az interfész portokk
 \section{UML Komponens fogalmak}
 \subsection{Strukturális elemek}
 \subsubsection{Egységbe zárt elem} \label{class}
-UML-ben az egységbe elem egy olyan absztrakt fogalom, egyfajta mechanizmust fejez ki, mellyel képesek vagyunk elszigetelni az objektumot a külvilágtól portok segítségével.\\ Ez a fogalom nem összekeverendő az UML komponenssel, mely egy egységbe zárt elem, és több logikai egységet elemet fog össze (mely lehet egy osztály vagy egy másik komponens), egy jól definiált interfésszel rendelkezik, mellyel valamilyen szolgáltatást nyújt a külvilág felé. A komponens fontos tulajdonsága, hogy az adott rendszerben könnyen cserélhető. \\
-Az UML Osztályok is egységbe zárt elemnek számítanak, a diplomamunka az osztályok portjainak exportálását járja körül.
+UML-ben az egységbe zárt elem egy olyan absztrakt fogalom,mely egyfajta mechanizmust fejez ki, mellyel képesek vagyunk elszigetelni az objektumot a külvilágtól portok segítségével.\\ Ez a fogalom nem összekeverendő az UML komponenssel, mely egy speciális fogalom az UML-ben: egy egységbe zárt elem, és több logikai egységet elemet fog össze (mely lehet egy osztály vagy egy másik komponens), egy jól definiált interfésszel rendelkezik, mellyel valamilyen szolgáltatást nyújt a külvilág felé. A komponens fontos tulajdonsága, hogy az adott rendszerben könnyen cserélhető, azonban ez bármely egységbe zárt elemre igaz, így a komponensek nincs különösebb jelentőségük, a továbbiakban nem is foglalkozunk velük. \\
+Az UML osztályok is egységbe zárt elemnek számítanak, a diplomamunka az osztályok portjainak exportálását járja körül, így mostantól egységbe zárt elemek helyett osztályokról beszélünk.
 \subsubsection{UML Interfész}
 UML-ben az interfész egy olyan klasszifikáció, melynek a szokványos operációs műveleteken kívül speciális kommunikációs műveletei, úgynevezett reception-ei vannak. Ezek olyan speciális műveletek, melyek egy eseményt várnak, tehát egy interfész leírja, milyen eseményekkel kommunikálhatunk az interfészeken keresztül.
 \subsubsection{UML Port}
-Egységbe zárt elemek egy adattagja, amely egy kommunikációs csomópontot reprezentál. A típusa lehet egy egyszerű primitív is, de gyakoribb eset, amikor a port egy interfészt valósít meg. Ilyen esetben megkülönböztetünk szolgáltatott és elvárt interfészeket. A szolgáltatott interfész a külvilágtól érkező üzenteteket foglalja magában, míg az elvárt interfész a külvilággal történő kommunikációra szolgál. Arra használjuk, hogy egy klasszifikációt függetlenítsünk a környezetétől, mivel így a külvilággal való kapcsolattartás egy bizonyos típusú porton keresztül történik, nem pedig referencia birtoklásával.
+Osztályok egy adattagja, amely egy kommunikációs csomópontot reprezentál. A típusa lehet egy egyszerű primitív is, de gyakoribb eset, amikor a port egy interfészt valósít meg. Ilyen esetben megkülönböztetünk szolgáltatott és elvárt interfészeket. A szolgáltatott interfész a külvilágtól érkező üzenteteket foglalja magában, míg az elvárt interfész a külvilággal történő kommunikációra szolgál. Arra használjuk, hogy egy klasszifikációt függetlenítsünk a környezetétől, mivel így a külvilággal való kapcsolattartás egy bizonyos típusú porton keresztül történik, nem pedig referencia birtoklásával.
 \subsubsection{Kompozit struktúra}
 UML-ben a kompozíció erős tartalmazást jelent, mely azt jelenti, hogy az egységbe zárt elemeknek szerves részei lehetnek további elemek. Ez azt jelenti, hogy az élettartamuk összefügg, a szülő elem hozza létre a gyerek elemet, és ő szünteti meg. Egy kompozícióban mindig van pontosan egy tartalmazó, és véges számú tartalmazott egy adott osztályból, melynek minden tartalmazott objektumához külön szerepet rendelhetünk.
-\subsubsection{UML Connector}
-Egy asszociációt realizál két port között. Leírja, hogy milyen portokat köt össze, assembly vagy delegáció kapcsolat van-e két port között, illetve a kommunikációra használt protokollt.
+\subsubsection{UML Konnektor}
+Egy asszociációt realizál két port között, melyeknek a tartalmazó osztályai valamilyen szereppel fel vannak tüntetve egy kompozit struktúrában. A konnektornak meg kell adni, milyen két szereplőt köt össze, milyen szerepekkel, a szereplők mely portján keresztül jön létre a kapcsolat. A Konnektoroknak kétféle fajtája van, Assembly vagy Delegációs kapcsolat. A különbség abban van, hogy egy Assembly kapcsolat két azonos szinten lévő szereplőt köt össze a kompozit struktúrában, míg a Delegáció a szülőt köti össze egy gyerek osztállyal a kompozit hiearchia mentén. Interfész portok esetén Assembly kapcsolódás olyan portok között lehet, melyek interfészei egymás inverzei (ami az egyiknek a szolgáltatott interfésze, az a másiknak az elvárt), delegáció esetén pedig az interfészeknek meg kell egyeznie (az elvárt és a szolgáltatott interfészek megegyeznek). Leírhatjuk benne továbbá a kommunikációra használt protokollt.
 
 \subsection{Akció elemek}
 \subsubsection{Üzenet küldés/fogadás}
-Interfész portok esetén az elvárt interfész leírni, hogy belülről milyen üzeneteket tudunk küldeni a portnak, mely a külvilág felé áramlik tovább, ezt nevezzük portra való üzenet küldésnek. \\ A szolgáltatott interfész pedig azt mondja meg, milyen üzeneteket tudunk fogadni az adott portról, tehát kívülről az egységbe zárt elemen kívülről milyen üzeneteket tudunk küldeni a portra. Ezt nevezzük üzenet fogadásnak.
+Interfész portok esetén az elvárt interfész leírni, hogy belülről milyen üzeneteket tudunk küldeni a portnak, mely a külvilág felé áramlik tovább, ezt nevezzük portra való üzenet küldésnek. \\ A szolgáltatott interfész pedig azt mondja meg, milyen üzeneteket tudunk fogadni az adott portról, tehát azt, hogy az osztályon kívülről milyen üzeneteket tudunk fogadni az adott portján. Ezt nevezzük üzenet fogadásnak.
 \subsubsection{Connect művelet}
 A \textit{connect} művelet alapvetően nem létezik UML-ben, \textit{txtUML}-ben azonban ezt használjuk két port összekötésére a konnektoron keresztül. Ahogy később látni fogjuk, a \textit{CreateLink} műveletet fogjuk használni ugyanerre a célra, mivel a szabvány szerint dinamikusan csak ezen művelet mentén tudunk összekötni két elemet.
 \chapter{Áttekintés}
@@ -156,7 +156,7 @@ A mi esetünkben az előbbi megoldás tűnt kézenfekvőnek, mivel az könnyen a
 
 \section{Portokra való üzenetküldés/fogadás reprezentálása} \label{message}
 \subsection{UML-ben}
-A PSCS szabvány definiálja, hogy szintaktikailag hogyan néz ki egy üzenet küldése, illetve fogadása porton keresztül.
+
 \subsubsection{Üzenet küldés}
 A  \textit{SendObjectAction} két paraméterből áll, egy célobjektumból és egy üzenetből.
 A célobjektum valamilyen \textit{InputPin}, vagyis valamilyen akciónak az eredménye.
@@ -165,21 +165,28 @@ Mivel a port egy strukturális elem, így a referenciáját egy \textit{ReadStru
 \item Könnyű reprezentálni, illeszkedik a modellfordító elvébe, aki feltételezi, hogy
 egy \textit{send} akciónak van egy cél objektuma, ahova az üzentet kell küldeni.
 \item Nem kell extra logikát beiktatni a C++ fordítóba az üzenetküldés terén.
+\item Szintaktailag könnyen kivitelezhető, azonban a PSCS szabvány nem ír róla semmit, mi lesz a szemantikája egy ilyen konstrukciónak.
 \end{itemize}
 
-\includegraphics[scale=0.8]{send_uml.png}
+\includegraphics[scale=0.8]{send_uml.png} \\
 
-\subsubsection{Üzenet fogadás}
-Ha egy objektumnak a portján keresztül szeretnénk üzenetet küldeni a külvilág felől, akkor a \textit{SendObjectAction}-nak a az \textit{nnPort} adattagját használhatjuk.Az onPort adattag egy Port típusú referencia adattag, melyet ha nem adunk meg, akkor az üzenetet a célobjektumnak küldjük el, és az objektumnak való üzenetküldés szemantikája nem változik. Azonban, ha ez ki van töltve, akkor az objektumnak lényegében a portján keresztül küldünk üzenetet, mely a gyakorlatban azt jelenti, hogy valamely portjáról érkezett üzenetet fogja fogadni.
+A PSCS szabvány definiálja, hogy szintaktikailag hogyan néz ki egy üzenet küldése, illetve fogadása porton keresztül, és mi lesz ennek a pontos szemantikája. \\
+Ha egy osztály példánynak a portján keresztül szeretnénk üzenetet küldeni, akkor a \textit{SendObjectAction}-nak a az \textit{OnPort} adattagját használhatjuk a szabvány szerint.  Az OnPort adattag egy Port típusú referencia adattag, melyet ha nem adunk meg, akkor az üzenetet a célobjektumnak küldjük el, és az objektumnak való üzenetküldés szemantikája nem változik.  Azonban, ha ez ki van töltve, akkor az objektumnak lényegében a portján keresztül áramoltatunk üzenetet. Ennek szemantikája pedig attól fog függeni, hogy milyen kontextusban hajtottuk végre az akciót. \\
+
+Ha az akció környezete szerint az üzenetküldés kezdeményezője az az objektum, akinek a portjára üzenetet szeretnék küldeni, vagyis megegyezik a \textit{target} referenciával, akkor üzenet küldésről beszélhetünk. \\
+Ha a \textit{SendObjectAction} kezdeményezése a cél objektumon kívülről történt, akkor pedig üzenet fogadásról beszélhetünk. \\
+ 
 
 \includegraphics[scale=0.6]{receive_uml.png}
 
 \subsection{C++-ban}
+C++ exportálás során magának az üzenet küldés fordítását át kell dolgozni, figyelembe kell venni az \textit{OnPort} referenciát, valamint az üzenetküldés kezdeményezőjét a szemantikának megfelelően. \textit{txtUML}-ben az üzenet fogadás nem megvalósított.
+
 \subsubsection{Üzenet küldés}
 Ez esetben már a \textit{send} művelet C++ végrehajtási szemantikája érdemes számunkra. A \textit{send} művelet azt jelenti, hogy a Portra teszünk egy üzenetet, melyet továbbítunk egy másik egység felé konnektoron keresztül. Ennek szemantikájával a \ref{connect} fejezetben majd foglalkozunk részletesen.
 
 \subsubsection{Üzenet fogadás}
-Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket. Előbbi megoldás tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf}) \\
+Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket egy környezet változóval, melyben megadhatjuk az üzenetküldés kontextusát a PSCS szabványhoz hasonlóan. Előbbi megoldás azonban tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf}) \\
 
 \includegraphics[scale=0.8]{send_rec.png}
 

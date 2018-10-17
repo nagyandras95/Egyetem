@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  11 OCT 2018 14:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  17 OCT 2018 11:09
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1239,26 +1239,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
 LaTeX Warning: Citation `my_szakdolg' on page 4 undefined on input line 45.
 
-[4] [5] [6]
+[4] [5] [6] [7]
 2. fejezet.
 
-LaTeX Warning: Citation `pscs' on page 7 undefined on input line 84.
+LaTeX Warning: Citation `pscs' on page 8 undefined on input line 84.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
-[7
+[8
 
-] [8] [9] [10]
+] [9] [10] [11]
 3. fejezet.
 
 Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-<uml_port_class.png, id=295, 1214.5375pt x 170.6375pt>
+<uml_port_class.png, id=299, 1214.5375pt x 170.6375pt>
 File: uml_port_class.png Graphic file (type png)
 <use uml_port_class.png>
 Package pdftex.def Info: uml_port_class.png  used on input line 141.
@@ -1268,15 +1268,15 @@ Overfull \hbox (423.37912pt too wide) in paragraph at lines 141--142
 [] 
  []
 
-[11
+[12
 
 ]
-<uml_port_comp.png, id=300, 351.3125pt x 150.5625pt>
+<uml_port_comp.png, id=304, 351.3125pt x 150.5625pt>
 File: uml_port_comp.png Graphic file (type png)
 <use uml_port_comp.png>
 Package pdftex.def Info: uml_port_comp.png  used on input line 144.
 (pdftex.def)             Requested size: 245.91707pt x 105.39302pt.
-<port_actfun.png, id=301, 672.5125pt x 140.525pt>
+<port_actfun.png, id=305, 672.5125pt x 140.525pt>
 File: port_actfun.png Graphic file (type png)
 <use port_actfun.png>
 Package pdftex.def Info: port_actfun.png  used on input line 150.
@@ -1298,7 +1298,7 @@ Overfull \hbox (6.09395pt too wide) in paragraph at lines 149--151
 [] 
  []
 
-<port_sendm.png, id=302, 672.5125pt x 150.5625pt>
+<port_sendm.png, id=306, 672.5125pt x 150.5625pt>
 File: port_sendm.png Graphic file (type png)
 <use port_sendm.png>
 Package pdftex.def Info: port_sendm.png  used on input line 152.
@@ -1325,407 +1325,422 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--153
 
  []
 
-[12 <./uml_port_class.png (PNG copy)> <./uml_port_comp.png (PNG copy)> <./port_
+[13 <./uml_port_class.png (PNG copy)> <./uml_port_comp.png (PNG copy)> <./port_
 actfun.png (PNG copy)>]
 Underfull \hbox (badness 1824) in paragraph at lines 157--157
 |[]\OT1/cmr/bx/n/17.28 Portokra valo uze-netkuldes/fogadas rep-re-
  []
 
-<send_uml.png, id=307, 401.5pt x 160.6pt>
+<send_uml.png, id=312, 401.5pt x 160.6pt>
 File: send_uml.png Graphic file (type png)
 <use send_uml.png>
-Package pdftex.def Info: send_uml.png  used on input line 170.
+Package pdftex.def Info: send_uml.png  used on input line 171.
 (pdftex.def)             Requested size: 321.20042pt x 128.48016pt.
-[13 <./port_sendm.png (PNG copy)> <./send_uml.png (PNG copy)>]
-<receive_uml.png, id=313, 521.95pt x 260.975pt>
-File: receive_uml.png Graphic file (type png)
-<use receive_uml.png>
-Package pdftex.def Info: receive_uml.png  used on input line 175.
-(pdftex.def)             Requested size: 313.17241pt x 156.5862pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
-[14 <./receive_uml.png (PNG copy)>]
-<send_rec.png, id=320, 451.6875pt x 170.6375pt>
+[14 <./port_sendm.png (PNG copy)> <./send_uml.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+
+ []
+
+<receive_uml.png, id=317, 521.95pt x 260.975pt>
+File: receive_uml.png Graphic file (type png)
+<use receive_uml.png>
+Package pdftex.def Info: receive_uml.png  used on input line 180.
+(pdftex.def)             Requested size: 313.17241pt x 156.5862pt.
+[15 <./receive_uml.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+<send_rec.png, id=324, 451.6875pt x 170.6375pt>
 File: send_rec.png Graphic file (type png)
 <use send_rec.png>
-Package pdftex.def Info: send_rec.png  used on input line 184.
+Package pdftex.def Info: send_rec.png  used on input line 191.
 (pdftex.def)             Requested size: 361.35048pt x 136.51016pt.
 
-Underfull \hbox (badness 2005) in paragraph at lines 186--186
+Underfull \hbox (badness 2005) in paragraph at lines 193--193
 |[]\OT1/cmr/bx/n/17.28 Interfeszek rep-re-zentalasa in-terfesz por-tok
  []
 
-[15 <./send_rec.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
+[16 <./send_rec.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 215--218
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
-
- []
-
-
-Underfull \hbox (badness 6157) in paragraph at lines 218--222
+Underfull \hbox (badness 6157) in paragraph at lines 225--229
 []\OT1/cmr/m/n/12 Generaljunk egy ures osztalyt az in-terfeszekb}ol, majd a
  szignalok
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--222
+Underfull \hbox (badness 10000) in paragraph at lines 225--229
 
  []
 
-[16]
-<inf_ver1.png, id=330, 582.175pt x 180.675pt>
+<inf_ver1.png, id=333, 582.175pt x 180.675pt>
 File: inf_ver1.png Graphic file (type png)
 <use inf_ver1.png>
-Package pdftex.def Info: inf_ver1.png  used on input line 223.
+Package pdftex.def Info: inf_ver1.png  used on input line 230.
 (pdftex.def)             Requested size: 407.51973pt x 126.47162pt.
 
-Overfull \hbox (10.10307pt too wide) in paragraph at lines 223--224
+Overfull \hbox (10.10307pt too wide) in paragraph at lines 230--231
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+[18 <./inf_ver1.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 []\OT1/cmr/m/n/12 Nem altalanostott meg-oldas. Az in-terfeszt barmilyen 
 sze-repl}o
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 232--233
+Underfull \hbox (badness 1281) in paragraph at lines 239--240
 \OT1/cmr/m/n/12 hasznalhat, es le is szarmazhat bel}ole, azon-ban ez-zel er}
 osen por-
  []
 
-<inf_ver2.png, id=331, 421.575pt x 301.125pt>
+<inf_ver2.png, id=339, 421.575pt x 301.125pt>
 File: inf_ver2.png Graphic file (type png)
 <use inf_ver2.png>
-Package pdftex.def Info: inf_ver2.png  used on input line 235.
+Package pdftex.def Info: inf_ver2.png  used on input line 242.
 (pdftex.def)             Requested size: 295.10048pt x 210.78606pt.
-[17 <./inf_ver1.png (PNG copy)>]
-<better_inf.png, id=337, 451.6875pt x 260.975pt>
+[19]
+<better_inf.png, id=346, 451.6875pt x 260.975pt>
 File: better_inf.png Graphic file (type png)
 <use better_inf.png>
-Package pdftex.def Info: better_inf.png  used on input line 252.
+Package pdftex.def Info: better_inf.png  used on input line 259.
 (pdftex.def)             Requested size: 361.35048pt x 208.78027pt.
- [18 <./inf_ver2.png (PNG copy)>] [19] [20 <./better_inf.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+ [20 <./inf_ver2.png (PNG copy)>] [21 <./better_inf.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
  []
 
-<seperate_inf.png, id=355, 572.1375pt x 552.0625pt>
+<seperate_inf.png, id=359, 572.1375pt x 552.0625pt>
 File: seperate_inf.png Graphic file (type png)
 <use seperate_inf.png>
-Package pdftex.def Info: seperate_inf.png  used on input line 272.
+Package pdftex.def Info: seperate_inf.png  used on input line 279.
 (pdftex.def)             Requested size: 400.49352pt x 386.4411pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
 
-[21] [22 <./seperate_inf.png (PNG copy)>]
-<preconnect_problem.png, id=365, 542.025pt x 220.825pt>
+[22] [23 <./seperate_inf.png (PNG copy)>]
+<preconnect_problem.png, id=369, 542.025pt x 220.825pt>
 File: preconnect_problem.png Graphic file (type png)
 <use preconnect_problem.png>
-Package pdftex.def Info: preconnect_problem.png  used on input line 286.
+Package pdftex.def Info: preconnect_problem.png  used on input line 293.
 (pdftex.def)             Requested size: 433.62057pt x 176.66022pt.
 
-Overfull \hbox (36.20392pt too wide) in paragraph at lines 285--287
+Overfull \hbox (36.20392pt too wide) in paragraph at lines 292--294
 [] 
  []
 
-[23]
-<connect_type.png, id=372, 572.1375pt x 190.7125pt>
+[24]
+<connect_type.png, id=376, 572.1375pt x 190.7125pt>
 File: connect_type.png Graphic file (type png)
 <use connect_type.png>
-Package pdftex.def Info: connect_type.png  used on input line 288.
+Package pdftex.def Info: connect_type.png  used on input line 295.
 (pdftex.def)             Requested size: 457.71062pt x 152.57019pt.
 
-Overfull \hbox (60.29396pt too wide) in paragraph at lines 287--289
+Overfull \hbox (60.29396pt too wide) in paragraph at lines 294--296
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
  []
 
-[24 <./preconnect_problem.png (PNG copy)> <./connect_type.png (PNG copy)>]
-<connection.png, id=378, 471.7625pt x 271.0125pt>
+[25 <./preconnect_problem.png (PNG copy)> <./connect_type.png (PNG copy)>]
+<connection.png, id=383, 471.7625pt x 271.0125pt>
 File: connection.png Graphic file (type png)
 <use connection.png>
-Package pdftex.def Info: connection.png  used on input line 302.
+Package pdftex.def Info: connection.png  used on input line 309.
 (pdftex.def)             Requested size: 330.23149pt x 189.70744pt.
 
-Underfull \hbox (badness 1824) in paragraph at lines 301--303
+Underfull \hbox (badness 1824) in paragraph at lines 308--310
 []\OT1/cmr/m/n/12 Virtualizacio hasznalata, \OT1/cmr/m/it/12 Port \OT1/cmr/m
 /n/12 re-fe-ren-cia he-lyett \OT1/cmr/m/it/12 Con-nec-ti-on \OT1/cmr/m/n/12 re-
 fe-ren-cia,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 307--309
+Underfull \hbox (badness 1960) in paragraph at lines 314--316
 []\OT1/cmr/m/n/12 Vizsgaljuk meg az uze-net fo-gadas sze-man-tikajat is. A
  fo-gadas m}uvelet
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
 
  []
 
-<behav_generalport_diag.png, id=387, 501.875pt x 311.1625pt>
+<behav_generalport_diag.png, id=391, 501.875pt x 311.1625pt>
 File: behav_generalport_diag.png Graphic file (type png)
 <use behav_generalport_diag.png>
-Package pdftex.def Info: behav_generalport_diag.png  used on input line 313.
+Package pdftex.def Info: behav_generalport_diag.png  used on input line 320.
 (pdftex.def)             Requested size: 351.31009pt x 217.81226pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
 
  []
 
-[26 <./connection.png (PNG copy)>]
-<simple_port_diag.png, id=393, 331.2375pt x 130.4875pt>
+[27 <./connection.png (PNG copy)>]
+<simple_port_diag.png, id=397, 331.2375pt x 130.4875pt>
 File: simple_port_diag.png Graphic file (type png)
 <use simple_port_diag.png>
-Package pdftex.def Info: simple_port_diag.png  used on input line 316.
+Package pdftex.def Info: simple_port_diag.png  used on input line 323.
 (pdftex.def)             Requested size: 231.86465pt x 91.3406pt.
-<unio_port_diag.png, id=394, 331.2375pt x 110.4125pt>
+<unio_port_diag.png, id=398, 331.2375pt x 110.4125pt>
 File: unio_port_diag.png Graphic file (type png)
 <use unio_port_diag.png>
-Package pdftex.def Info: unio_port_diag.png  used on input line 319.
+Package pdftex.def Info: unio_port_diag.png  used on input line 326.
 (pdftex.def)             Requested size: 231.86465pt x 77.28821pt.
- [27 <./behav_generalport_diag.png (PNG copy)> <./simple_port_diag.png (PNG cop
+ [28 <./behav_generalport_diag.png (PNG copy)> <./simple_port_diag.png (PNG cop
 y)> <./unio_port_diag.png (PNG copy)>]
-<extended_connection.png, id=402, 752.8125pt x 321.2pt>
+<extended_connection.png, id=406, 752.8125pt x 321.2pt>
 File: extended_connection.png Graphic file (type png)
 <use extended_connection.png>
-Package pdftex.def Info: extended_connection.png  used on input line 330.
+Package pdftex.def Info: extended_connection.png  used on input line 337.
 (pdftex.def)             Requested size: 451.69098pt x 192.72148pt.
 
-Overfull \hbox (54.27432pt too wide) in paragraph at lines 329--331
+Overfull \hbox (54.27432pt too wide) in paragraph at lines 336--338
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
-[28 <./extended_connection.png (PNG copy)>] [29]
-Underfull \hbox (badness 1515) in paragraph at lines 354--356
+[29 <./extended_connection.png (PNG copy)>] [30]
+Underfull \hbox (badness 1515) in paragraph at lines 361--363
 \OT1/cmr/m/n/12 Eddig esemeny-allapot tablank volt, mely meg-ad-ta, me-lyik
  atmenetnek kell
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 369--370
+Underfull \hbox (badness 1077) in paragraph at lines 376--377
 [][]\OT1/cmr/m/n/12 Altalanosabb meg-oldas, ha a port he-lyett meg-ad-hatnan
 k egy mask-ban
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 369--370
+Underfull \hbox (badness 1348) in paragraph at lines 376--377
 \OT1/cmr/m/n/12 sonloan az ed-di-gi-ek-hez, allapot-esemeny par alapjan ke
 -resunk, melyb}ol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--370
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
 
  []
 
-[31] [32]
+[32] [33]
 4. fejezet.
-[33
+[34
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
-<fmu_simple.png, id=444, 712.6625pt x 100.375pt>
+<fmu_simple.png, id=448, 712.6625pt x 100.375pt>
 File: fmu_simple.png Graphic file (type png)
 <use fmu_simple.png>
-Package pdftex.def Info: fmu_simple.png  used on input line 398.
+Package pdftex.def Info: fmu_simple.png  used on input line 405.
 (pdftex.def)             Requested size: 427.6008pt x 60.22545pt.
 
-Overfull \hbox (0.80945pt too wide) in paragraph at lines 397--399
+Overfull \hbox (0.80945pt too wide) in paragraph at lines 404--406
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--399
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
 
  []
 
-<fmu_with_ports.png, id=445, 762.85pt x 351.3125pt>
+<fmu_with_ports.png, id=449, 762.85pt x 351.3125pt>
 File: fmu_with_ports.png Graphic file (type png)
 <use fmu_with_ports.png>
-Package pdftex.def Info: fmu_with_ports.png  used on input line 401.
+Package pdftex.def Info: fmu_with_ports.png  used on input line 408.
 (pdftex.def)             Requested size: 457.71353pt x 210.78911pt.
 
-Overfull \hbox (30.92218pt too wide) in paragraph at lines 400--402
+Overfull \hbox (30.92218pt too wide) in paragraph at lines 407--409
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--402
+Underfull \hbox (badness 10000) in paragraph at lines 407--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
-[34 <./fmu_simple.png (PNG copy)> <./fmu_with_ports.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
-
- []
-
-
+[35 <./fmu_simple.png (PNG copy)> <./fmu_with_ports.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
-<external_with_ports.png, id=451, 722.7pt x 180.675pt>
-File: external_with_ports.png Graphic file (type png)
-<use external_with_ports.png>
-Package pdftex.def Info: external_with_ports.png  used on input line 419.
-(pdftex.def)             Requested size: 433.62334pt x 108.40582pt.
 
-Overfull \hbox (6.83199pt too wide) in paragraph at lines 419--420
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
-
- []
-
-[35]
 Underfull \hbox (badness 10000) in paragraph at lines 423--424
 
  []
 
-[36 <./external_with_ports.png (PNG copy)>]
-Underfull \hbox (badness 4096) in paragraph at lines 431--432
+<external_with_ports.png, id=455, 722.7pt x 180.675pt>
+File: external_with_ports.png Graphic file (type png)
+<use external_with_ports.png>
+Package pdftex.def Info: external_with_ports.png  used on input line 426.
+(pdftex.def)             Requested size: 433.62334pt x 108.40582pt.
+
+Overfull \hbox (6.83199pt too wide) in paragraph at lines 426--427
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 430--431
+
+ []
+
+[37 <./external_with_ports.png (PNG copy)>]
+Underfull \hbox (badness 4096) in paragraph at lines 438--439
 \OT1/cmr/m/n/12 Amikor kom-po-nen-sekr}ol, sze-repl}ok izolaciojarol, elva
 rt es szolgaltatott in-
  []
 
-[37]
+[38]
 5. fejezet.
 
-Underfull \hbox (badness 7981) in paragraph at lines 435--436
+Underfull \hbox (badness 7981) in paragraph at lines 442--443
 \OT1/cmr/m/n/12 A dol-go-zat-ban nem csak ele-meztuk a le-hetseges meg-oldas
 okat, ha-nem
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 438
+LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 445
 .
 
 ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\courier-scaled\ot1p
 crs.fd"
 File: ot1pcrs.fd 2004/07/09 font definitions for OT1/pcrs.
-) [38
+) [39
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
 
  []
 
-[39] [40] [41]
+[40] [41] [42]
 6. fejezet.
-[42
+[43
 
-] [43
+] [44
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
+Underfull \hbox (badness 10000) in paragraph at lines 552--554
 [][]$\OT1/pcrs/m/n/12 https : / / www . codeproject . com / Articles / 1077852 
 /
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 549--552
+Underfull \hbox (badness 3098) in paragraph at lines 556--559
 []\OT1/cmr/m/n/12 Hack Janos \OT1/cmr/m/it/12 C++ kodgeneralas fut-tat-hat
 o UML mo-del-lekb}ol \OT1/cmr/m/n/12 2015 Ezt
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--561
+Underfull \hbox (badness 10000) in paragraph at lines 566--568
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 566.
-[44]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 566.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
+[45]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
  (diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 566.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 566.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
 (rerunfilecheck)             Checksum: B237B4B8021D01170C2A6536A654E4B4;8446.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 566.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
  ) 
 Here is how much of TeX's memory you used:
- 12987 strings out of 493305
- 188438 string characters out of 3130237
- 266723 words of memory out of 3000000
+ 12988 strings out of 493305
+ 188445 string characters out of 3130237
+ 265723 words of memory out of 3000000
  16243 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,7n,35p,1551b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,7n,35p,1551b,564s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -1733,9 +1748,9 @@ Here is how much of TeX's memory you used:
 ype1/public/amsfonts/cm/cmr17.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nagy/AppData/Local/Prog
 rams/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (44 pages, 349529 bytes).
+Output written on diplomamunka.pdf (45 pages, 351893 bytes).
 PDF statistics:
- 573 PDF objects out of 1000 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
+ 577 PDF objects out of 1000 (max. 8388607)
+ 143 named destinations out of 1000 (max. 500000)
  474 words of extra memory for PDF output out of 10000 (max. 10000000)
 
