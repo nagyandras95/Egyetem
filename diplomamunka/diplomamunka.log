@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  17 OCT 2018 11:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  19 OCT 2018 10:31
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\report.cls"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size12.clo"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size12.clo"
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,20 +21,19 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+) ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.st
+y"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
+ ("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -275,7 +274,7 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -316,7 +315,7 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -340,17 +339,17 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.
+sty"
 Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-h
-yperref.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-
+hyperref.sty"
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-g
-eneric.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-
+generic.sty"
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -390,42 +389,43 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
-"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.st
+y"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.
+sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.st
-y"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.s
+ty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.
-sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions
+.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen103
 \Hy@linkcounter=\count88
 \Hy@pagecounter=\count89
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
-"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.de
+f"
 File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count90
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.c
-fg"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.
+cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4383.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\puenc.def
+"
 File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -439,7 +439,7 @@ Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
 \c@Hy@tempcnt=\count91
- ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
+ ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\url\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -463,44 +463,43 @@ LaTeX Info: Redefining \pageref on input line 6443.
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.de
-f"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.d
+ef"
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
 \Fld@listcount=\count96
 \c@bookmark@seq@number=\count97
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilec
-heck.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfile
+check.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip43
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2018/02/14 3.18 The Babel package
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch.def"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch.def
+"
 File: switch.def 2018/02/14 3.18 Babel switching mechanism
 )
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-hungarian\mag
-yar.ldf"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\babel-hungarian\magyar.ldf"
 Language: magyar 2017/08/30 v1.5c Magyar support from the babel v3.7 system
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2018/02/14 3.18 Babel common definitions
 \babel@savecnt=\count98
 \U@D=\dimen107
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\txtbabel.de
-f")
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\txtbabel.d
+ef")
 \bbl@dirlevel=\count99
 )
 \c@enumv=\count100
@@ -512,44 +511,41 @@ Package babel Info: Making ` an active character on input line 2801.
 \c@footnote@add=\count101
 \c@footnote@ch=\count102
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
+sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.
+sty"
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphi
-cs.cfg"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graph
+ics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex
-.def"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdfte
+x.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen108
 \Gin@req@width=\dimen109
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\textgreek\textgreek
-.sty"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\textgreek\textgreek.sty"
 Package: textgreek 2011/10/09 v0.7 Greek symbols in text
 Package textgreek Info: Loading the definitions for the Greek fontencoding. on 
 input line 39.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\greek-fontenc\lgren
-c.def"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\greek-fontenc\lgrenc.def"
 File: lgrenc.def 2015/12/07 v0.13.1 LGR Greek font encoding definitions
 Now handling font encoding LGR ...
 ... processing UTF-8 mapping file for font encoding LGR
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\greek-inputenc\lgre
-nc.dfu"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\greek-inputenc\lgrenc.dfu"
 File: lgrenc.dfu 2015/08/05 1.6 UTF-8 support for Greek
    defining Unicode char U+00A8 (decimal 168)
    defining Unicode char U+00AB (decimal 171)
@@ -906,39 +902,35 @@ File: lgrenc.dfu 2015/08/05 1.6 UTF-8 support for Greek
    defining Unicode char U+10146 (decimal 65862)
    defining Unicode char U+10147 (decimal 65863)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\greek-fontenc\greek
--fontenc.def"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\greek-fontenc\greek-fontenc.de
+f"
 File: greek-fontenc.def 2015/08/04 v0.13 Common Greek font encoding definitions
 
 ))
 Package textgreek Info: Loaded fontmap: {eur/*/*}{U/eur/*/*} {phv/*/*}{U/psy/*/
 *}. on input line 69.
-)
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lgreek\lgreek.sty"
+) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\lgreek\lgreek.sty"
 \vwl=\count103
 \acct=\count104
 Now handling font encoding LG ...
 ... no UTF-8 mapping file for font encoding LG
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\courier-scaled\cour
-iers.sty"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\courier-scaled\couriers.sty"
 Package: couriers 2004/07/10 Scaled Courier (HS) 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.st
-y"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.s
+ty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.
+sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks17
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\titlesec\titlesec.s
-ty"
+)) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\titlesec\titlesec.sty"
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box26
 \beforetitleunit=\skip44
@@ -958,9 +950,7 @@ Package titlesec Warning: Non standard sectioning command detected
 Package titlesec Warning: Non standard sectioning command detected
 (titlesec)                Using default spacing and no format.
 
-)
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.s
-ty"
+) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\booktabs\booktabs.sty"
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen115
 \lightrulewidth=\dimen116
@@ -980,7 +970,8 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count108
 \@thisrulewidth=\dimen127
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+"
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \c@tracingmulticols=\count109
 \mult@box=\box27
@@ -1029,8 +1020,8 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \colbreak@box=\box52
 \mc@col@check@num=\count117
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
+sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@cnth=\count118
 \Gm@cntv=\count119
@@ -1045,10 +1036,8 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layoutvoffset=\dimen144
 \Gm@dimlist=\toks19
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.c
-fg"))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\setspace\setspace.s
-ty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
+cfg")) ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (diplomamunka.aux)
 \openout1 = `diplomamunka.aux'.
@@ -1072,36 +1061,37 @@ LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 33.
 LaTeX Font Info:    Try loading font information for LGR+cmr on input line 33.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cbfonts-fd\lgrcmr.f
-d"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\cbfonts-fd\lgrcmr.fd"
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for LG/cmr/m/n on input line 33.
 LaTeX Font Info:    Try loading font information for LG+cmr on input line 33.
- ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lgreek\lgcmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\lgreek\lgcmr.fd"
 File: LGcmr.fd 1995/04/22 v2.3f Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 33.
 \AtBeginShipoutBox=\box53
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color.sty
+"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.
-cfg"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color
+.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
 Package hyperref Info: Link coloring ON on input line 33.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
-y"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.s
+ty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitle
-string.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitl
+estring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count121
@@ -1118,9 +1108,7 @@ LaTeX Info: Redefining \nameref on input line 33.
 LaTeX Warning: Please use \usepackage{t1enc} with
                \usepackage[magyar]{babel}, to get accented chars hyphenated.
 
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
-i"
+("C:\Program Files\MiKTeX 2.9\packages\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count122
 \scratchdimen=\dimen145
@@ -1134,12 +1122,12 @@ i"
 \makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks21
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-b
-ase.sty"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-
+base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
-"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.st
+y"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1183,26 +1171,24 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\report.cls"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\report.cls"
 LaTeX Info: Redefining \cal on input line 576.
 LaTeX Info: Redefining \mit on input line 577.
 )
 (diplomamunka.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 2.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 2.
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+("C:\Users\Imola\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-[1
+) [1
 
 
 
-{C:/Users/nagy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+{C:/Users/Imola/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
 ])
@@ -1235,84 +1221,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
 [3
 
-]
+] [4] [5]
+Underfull \hbox (badness 1521) in paragraph at lines 66--67
+\OT1/cmr/m/n/12 UML-ben a kom-pozcio er}os tar-tal-mazast je-lent, mely azt
+ je-len-ti, hogy az
+ []
 
-LaTeX Warning: Citation `my_szakdolg' on page 4 undefined on input line 45.
+<composit_stuct.png, id=267, 1164.35pt x 491.8375pt>
+File: composit_stuct.png Graphic file (type png)
+<use composit_stuct.png>
+Package pdftex.def Info: composit_stuct.png  used on input line 70.
+(pdftex.def)             Requested size: 931.48128pt x 393.47052pt.
 
-[4] [5] [6] [7]
+Overfull \hbox (522.31474pt too wide) in paragraph at lines 70--71
+[][] 
+ []
+
+[6] [7 <./composit_stuct.png (PNG copy)>] [8]
 2. fejezet.
 
-LaTeX Warning: Citation `pscs' on page 8 undefined on input line 84.
+LaTeX Warning: Citation `pscs' on page 9 undefined on input line 86.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
-[8
+[9
 
-] [9] [10] [11]
+] [10] [11] [12]
 3. fejezet.
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-<uml_port_class.png, id=299, 1214.5375pt x 170.6375pt>
+<uml_port_class.png, id=306, 1214.5375pt x 170.6375pt>
 File: uml_port_class.png Graphic file (type png)
 <use uml_port_class.png>
-Package pdftex.def Info: uml_port_class.png  used on input line 141.
+Package pdftex.def Info: uml_port_class.png  used on input line 143.
 (pdftex.def)             Requested size: 850.17047pt x 119.44542pt.
 
-Overfull \hbox (423.37912pt too wide) in paragraph at lines 141--142
+Overfull \hbox (423.37912pt too wide) in paragraph at lines 143--144
 [] 
  []
 
-[12
+[13
 
 ]
-<uml_port_comp.png, id=304, 351.3125pt x 150.5625pt>
+<uml_port_comp.png, id=312, 351.3125pt x 150.5625pt>
 File: uml_port_comp.png Graphic file (type png)
 <use uml_port_comp.png>
-Package pdftex.def Info: uml_port_comp.png  used on input line 144.
+Package pdftex.def Info: uml_port_comp.png  used on input line 146.
 (pdftex.def)             Requested size: 245.91707pt x 105.39302pt.
-<port_actfun.png, id=305, 672.5125pt x 140.525pt>
+<port_actfun.png, id=313, 672.5125pt x 140.525pt>
 File: port_actfun.png Graphic file (type png)
 <use port_actfun.png>
-Package pdftex.def Info: port_actfun.png  used on input line 150.
+Package pdftex.def Info: port_actfun.png  used on input line 152.
 (pdftex.def)             Requested size: 403.5106pt x 84.31564pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--151
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
 []\OT1/cmr/m/n/12 Hasonloan az esemenyek fel-dol-gozasahoz, ugy a por-to-k
 on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--151
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
 \OT1/cmr/m/n/12 torten}u uze-netaramlast is atmeneti fuggvenyekkel dol-
 goz-zuk fel.
- []
-
-
-Overfull \hbox (6.09395pt too wide) in paragraph at lines 149--151
-[] 
- []
-
-<port_sendm.png, id=306, 672.5125pt x 150.5625pt>
-File: port_sendm.png Graphic file (type png)
-<use port_sendm.png>
-Package pdftex.def Info: port_sendm.png  used on input line 152.
-(pdftex.def)             Requested size: 403.5106pt x 90.33818pt.
-
-Underfull \hbox (badness 3930) in paragraph at lines 151--153
-[]\OT1/cmr/m/n/12 Kulon ak-tivator fuggvenyeket valostunk meg az oszta
-lyon belul az
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
-\OT1/cmr/m/n/12 egyes por-tok-ra, me-lyek a por-tok allapotvaltozasok ak-tiv
-alodnak.
  []
 
 
@@ -1320,408 +1296,423 @@ Overfull \hbox (6.09395pt too wide) in paragraph at lines 151--153
 [] 
  []
 
+<port_sendm.png, id=314, 672.5125pt x 150.5625pt>
+File: port_sendm.png Graphic file (type png)
+<use port_sendm.png>
+Package pdftex.def Info: port_sendm.png  used on input line 154.
+(pdftex.def)             Requested size: 403.5106pt x 90.33818pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
+Underfull \hbox (badness 3930) in paragraph at lines 153--155
+[]\OT1/cmr/m/n/12 Kulon ak-tivator fuggvenyeket valostunk meg az oszta
+lyon belul az
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
+\OT1/cmr/m/n/12 egyes por-tok-ra, me-lyek a por-tok allapotvaltozasok ak-tiv
+alodnak.
+ []
+
+
+Overfull \hbox (6.09395pt too wide) in paragraph at lines 153--155
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
 
  []
 
-[13 <./uml_port_class.png (PNG copy)> <./uml_port_comp.png (PNG copy)> <./port_
+[14 <./uml_port_class.png (PNG copy)> <./uml_port_comp.png (PNG copy)> <./port_
 actfun.png (PNG copy)>]
-Underfull \hbox (badness 1824) in paragraph at lines 157--157
+Underfull \hbox (badness 1824) in paragraph at lines 159--159
 |[]\OT1/cmr/bx/n/17.28 Portokra valo uze-netkuldes/fogadas rep-re-
  []
 
-<send_uml.png, id=312, 401.5pt x 160.6pt>
+<send_uml.png, id=319, 401.5pt x 160.6pt>
 File: send_uml.png Graphic file (type png)
 <use send_uml.png>
-Package pdftex.def Info: send_uml.png  used on input line 171.
+Package pdftex.def Info: send_uml.png  used on input line 173.
 (pdftex.def)             Requested size: 321.20042pt x 128.48016pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
-[14 <./port_sendm.png (PNG copy)> <./send_uml.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
+[15 <./port_sendm.png (PNG copy)> <./send_uml.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 175--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
-<receive_uml.png, id=317, 521.95pt x 260.975pt>
+<receive_uml.png, id=324, 521.95pt x 260.975pt>
 File: receive_uml.png Graphic file (type png)
 <use receive_uml.png>
-Package pdftex.def Info: receive_uml.png  used on input line 180.
+Package pdftex.def Info: receive_uml.png  used on input line 182.
 (pdftex.def)             Requested size: 313.17241pt x 156.5862pt.
-[15 <./receive_uml.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+[16 <./receive_uml.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
-<send_rec.png, id=324, 451.6875pt x 170.6375pt>
+<send_rec.png, id=331, 451.6875pt x 170.6375pt>
 File: send_rec.png Graphic file (type png)
 <use send_rec.png>
-Package pdftex.def Info: send_rec.png  used on input line 191.
+Package pdftex.def Info: send_rec.png  used on input line 193.
 (pdftex.def)             Requested size: 361.35048pt x 136.51016pt.
 
-Underfull \hbox (badness 2005) in paragraph at lines 193--193
+Underfull \hbox (badness 2005) in paragraph at lines 195--195
 |[]\OT1/cmr/bx/n/17.28 Interfeszek rep-re-zentalasa in-terfesz por-tok
  []
 
-[16 <./send_rec.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
+[17 <./send_rec.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 217--220
 
  []
 
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
 
-Underfull \hbox (badness 6157) in paragraph at lines 225--229
+Underfull \hbox (badness 6157) in paragraph at lines 227--231
 []\OT1/cmr/m/n/12 Generaljunk egy ures osztalyt az in-terfeszekb}ol, majd a
  szignalok
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--229
+Underfull \hbox (badness 10000) in paragraph at lines 227--231
 
  []
 
-<inf_ver1.png, id=333, 582.175pt x 180.675pt>
+<inf_ver1.png, id=340, 582.175pt x 180.675pt>
 File: inf_ver1.png Graphic file (type png)
 <use inf_ver1.png>
-Package pdftex.def Info: inf_ver1.png  used on input line 230.
+Package pdftex.def Info: inf_ver1.png  used on input line 232.
 (pdftex.def)             Requested size: 407.51973pt x 126.47162pt.
 
-Overfull \hbox (10.10307pt too wide) in paragraph at lines 230--231
+Overfull \hbox (10.10307pt too wide) in paragraph at lines 232--233
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
-[18 <./inf_ver1.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
+[19 <./inf_ver1.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
 []\OT1/cmr/m/n/12 Nem altalanostott meg-oldas. Az in-terfeszt barmilyen 
 sze-repl}o
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 239--240
+Underfull \hbox (badness 1281) in paragraph at lines 241--242
 \OT1/cmr/m/n/12 hasznalhat, es le is szarmazhat bel}ole, azon-ban ez-zel er}
 osen por-
  []
 
-<inf_ver2.png, id=339, 421.575pt x 301.125pt>
+<inf_ver2.png, id=347, 421.575pt x 301.125pt>
 File: inf_ver2.png Graphic file (type png)
 <use inf_ver2.png>
-Package pdftex.def Info: inf_ver2.png  used on input line 242.
+Package pdftex.def Info: inf_ver2.png  used on input line 244.
 (pdftex.def)             Requested size: 295.10048pt x 210.78606pt.
-[19]
-<better_inf.png, id=346, 451.6875pt x 260.975pt>
+[20]
+<better_inf.png, id=353, 451.6875pt x 260.975pt>
 File: better_inf.png Graphic file (type png)
 <use better_inf.png>
-Package pdftex.def Info: better_inf.png  used on input line 259.
+Package pdftex.def Info: better_inf.png  used on input line 261.
 (pdftex.def)             Requested size: 361.35048pt x 208.78027pt.
- [20 <./inf_ver2.png (PNG copy)>] [21 <./better_inf.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
+ [21 <./inf_ver2.png (PNG copy)>] [22 <./better_inf.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
-<seperate_inf.png, id=359, 572.1375pt x 552.0625pt>
+<seperate_inf.png, id=366, 572.1375pt x 552.0625pt>
 File: seperate_inf.png Graphic file (type png)
 <use seperate_inf.png>
-Package pdftex.def Info: seperate_inf.png  used on input line 279.
+Package pdftex.def Info: seperate_inf.png  used on input line 281.
 (pdftex.def)             Requested size: 400.49352pt x 386.4411pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
 
  []
 
-[22] [23 <./seperate_inf.png (PNG copy)>]
-<preconnect_problem.png, id=369, 542.025pt x 220.825pt>
+[23] [24 <./seperate_inf.png (PNG copy)>]
+<preconnect_problem.png, id=376, 542.025pt x 220.825pt>
 File: preconnect_problem.png Graphic file (type png)
 <use preconnect_problem.png>
-Package pdftex.def Info: preconnect_problem.png  used on input line 293.
+Package pdftex.def Info: preconnect_problem.png  used on input line 295.
 (pdftex.def)             Requested size: 433.62057pt x 176.66022pt.
 
-Overfull \hbox (36.20392pt too wide) in paragraph at lines 292--294
+Overfull \hbox (36.20392pt too wide) in paragraph at lines 294--296
 [] 
  []
 
-[24]
-<connect_type.png, id=376, 572.1375pt x 190.7125pt>
+[25]
+<connect_type.png, id=384, 572.1375pt x 190.7125pt>
 File: connect_type.png Graphic file (type png)
 <use connect_type.png>
-Package pdftex.def Info: connect_type.png  used on input line 295.
+Package pdftex.def Info: connect_type.png  used on input line 297.
 (pdftex.def)             Requested size: 457.71062pt x 152.57019pt.
 
-Overfull \hbox (60.29396pt too wide) in paragraph at lines 294--296
+Overfull \hbox (60.29396pt too wide) in paragraph at lines 296--298
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 
  []
 
-[25 <./preconnect_problem.png (PNG copy)> <./connect_type.png (PNG copy)>]
-<connection.png, id=383, 471.7625pt x 271.0125pt>
+[26 <./preconnect_problem.png (PNG copy)> <./connect_type.png (PNG copy)>]
+<connection.png, id=390, 471.7625pt x 271.0125pt>
 File: connection.png Graphic file (type png)
 <use connection.png>
-Package pdftex.def Info: connection.png  used on input line 309.
+Package pdftex.def Info: connection.png  used on input line 311.
 (pdftex.def)             Requested size: 330.23149pt x 189.70744pt.
 
-Underfull \hbox (badness 1824) in paragraph at lines 308--310
+Underfull \hbox (badness 1824) in paragraph at lines 310--312
 []\OT1/cmr/m/n/12 Virtualizacio hasznalata, \OT1/cmr/m/it/12 Port \OT1/cmr/m
 /n/12 re-fe-ren-cia he-lyett \OT1/cmr/m/it/12 Con-nec-ti-on \OT1/cmr/m/n/12 re-
 fe-ren-cia,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--310
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--310
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--310
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
 
  []
 
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
 
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 314--316
+Underfull \hbox (badness 1960) in paragraph at lines 316--318
 []\OT1/cmr/m/n/12 Vizsgaljuk meg az uze-net fo-gadas sze-man-tikajat is. A
  fo-gadas m}uvelet
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
 
  []
 
-<behav_generalport_diag.png, id=391, 501.875pt x 311.1625pt>
+<behav_generalport_diag.png, id=398, 501.875pt x 311.1625pt>
 File: behav_generalport_diag.png Graphic file (type png)
 <use behav_generalport_diag.png>
-Package pdftex.def Info: behav_generalport_diag.png  used on input line 320.
+Package pdftex.def Info: behav_generalport_diag.png  used on input line 322.
 (pdftex.def)             Requested size: 351.31009pt x 217.81226pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--321
+Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--321
+Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
-[27 <./connection.png (PNG copy)>]
-<simple_port_diag.png, id=397, 331.2375pt x 130.4875pt>
+[28 <./connection.png (PNG copy)>]
+<simple_port_diag.png, id=404, 331.2375pt x 130.4875pt>
 File: simple_port_diag.png Graphic file (type png)
 <use simple_port_diag.png>
-Package pdftex.def Info: simple_port_diag.png  used on input line 323.
+Package pdftex.def Info: simple_port_diag.png  used on input line 325.
 (pdftex.def)             Requested size: 231.86465pt x 91.3406pt.
-<unio_port_diag.png, id=398, 331.2375pt x 110.4125pt>
+<unio_port_diag.png, id=405, 331.2375pt x 110.4125pt>
 File: unio_port_diag.png Graphic file (type png)
 <use unio_port_diag.png>
-Package pdftex.def Info: unio_port_diag.png  used on input line 326.
+Package pdftex.def Info: unio_port_diag.png  used on input line 328.
 (pdftex.def)             Requested size: 231.86465pt x 77.28821pt.
- [28 <./behav_generalport_diag.png (PNG copy)> <./simple_port_diag.png (PNG cop
+ [29 <./behav_generalport_diag.png (PNG copy)> <./simple_port_diag.png (PNG cop
 y)> <./unio_port_diag.png (PNG copy)>]
-<extended_connection.png, id=406, 752.8125pt x 321.2pt>
+<extended_connection.png, id=413, 752.8125pt x 321.2pt>
 File: extended_connection.png Graphic file (type png)
 <use extended_connection.png>
-Package pdftex.def Info: extended_connection.png  used on input line 337.
+Package pdftex.def Info: extended_connection.png  used on input line 339.
 (pdftex.def)             Requested size: 451.69098pt x 192.72148pt.
 
-Overfull \hbox (54.27432pt too wide) in paragraph at lines 336--338
+Overfull \hbox (54.27432pt too wide) in paragraph at lines 338--340
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
 
-[29 <./extended_connection.png (PNG copy)>] [30]
-Underfull \hbox (badness 1515) in paragraph at lines 361--363
+[30 <./extended_connection.png (PNG copy)>] [31]
+Underfull \hbox (badness 1515) in paragraph at lines 363--365
 \OT1/cmr/m/n/12 Eddig esemeny-allapot tablank volt, mely meg-ad-ta, me-lyik
  atmenetnek kell
  []
 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
 
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 376--377
+Underfull \hbox (badness 1077) in paragraph at lines 378--379
 [][]\OT1/cmr/m/n/12 Altalanosabb meg-oldas, ha a port he-lyett meg-ad-hatnan
 k egy mask-ban
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 376--377
+Underfull \hbox (badness 1348) in paragraph at lines 378--379
 \OT1/cmr/m/n/12 sonloan az ed-di-gi-ek-hez, allapot-esemeny par alapjan ke
 -resunk, melyb}ol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
 
-[32] [33]
+[33] [34]
 4. fejezet.
-[34
+[35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
-<fmu_simple.png, id=448, 712.6625pt x 100.375pt>
+<fmu_simple.png, id=455, 712.6625pt x 100.375pt>
 File: fmu_simple.png Graphic file (type png)
 <use fmu_simple.png>
-Package pdftex.def Info: fmu_simple.png  used on input line 405.
+Package pdftex.def Info: fmu_simple.png  used on input line 407.
 (pdftex.def)             Requested size: 427.6008pt x 60.22545pt.
 
-Overfull \hbox (0.80945pt too wide) in paragraph at lines 404--406
+Overfull \hbox (0.80945pt too wide) in paragraph at lines 406--408
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--406
+Underfull \hbox (badness 10000) in paragraph at lines 406--408
 
  []
 
-<fmu_with_ports.png, id=449, 762.85pt x 351.3125pt>
+<fmu_with_ports.png, id=456, 762.85pt x 351.3125pt>
 File: fmu_with_ports.png Graphic file (type png)
 <use fmu_with_ports.png>
-Package pdftex.def Info: fmu_with_ports.png  used on input line 408.
+Package pdftex.def Info: fmu_with_ports.png  used on input line 410.
 (pdftex.def)             Requested size: 457.71353pt x 210.78911pt.
 
-Overfull \hbox (30.92218pt too wide) in paragraph at lines 407--409
+Overfull \hbox (30.92218pt too wide) in paragraph at lines 409--411
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--409
+Underfull \hbox (badness 10000) in paragraph at lines 409--411
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
-[35 <./fmu_simple.png (PNG copy)> <./fmu_with_ports.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+[36 <./fmu_simple.png (PNG copy)> <./fmu_with_ports.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--424
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
 
  []
 
-<external_with_ports.png, id=455, 722.7pt x 180.675pt>
+<external_with_ports.png, id=462, 722.7pt x 180.675pt>
 File: external_with_ports.png Graphic file (type png)
 <use external_with_ports.png>
-Package pdftex.def Info: external_with_ports.png  used on input line 426.
+Package pdftex.def Info: external_with_ports.png  used on input line 428.
 (pdftex.def)             Requested size: 433.62334pt x 108.40582pt.
 
-Overfull \hbox (6.83199pt too wide) in paragraph at lines 426--427
+Overfull \hbox (6.83199pt too wide) in paragraph at lines 428--429
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
 
  []
 
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
 
  []
 
-[37 <./external_with_ports.png (PNG copy)>]
-Underfull \hbox (badness 4096) in paragraph at lines 438--439
+[38 <./external_with_ports.png (PNG copy)>]
+Underfull \hbox (badness 4096) in paragraph at lines 440--441
 \OT1/cmr/m/n/12 Amikor kom-po-nen-sekr}ol, sze-repl}ok izolaciojarol, elva
 rt es szolgaltatott in-
  []
 
-[38]
+[39]
 5. fejezet.
 
-Underfull \hbox (badness 7981) in paragraph at lines 442--443
+Underfull \hbox (badness 7981) in paragraph at lines 444--445
 \OT1/cmr/m/n/12 A dol-go-zat-ban nem csak ele-meztuk a le-hetseges meg-oldas
 okat, ha-nem
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 445
+LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 447
 .
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\courier-scaled\ot1p
-crs.fd"
+("C:\Program Files\MiKTeX 2.9\packages\tex\latex\courier-scaled\ot1pcrs.fd"
 File: ot1pcrs.fd 2004/07/09 font definitions for OT1/pcrs.
-) [39
+)
+[40
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
  []
 
-[40] [41] [42]
+[41] [42] [43]
 6. fejezet.
-[43
+[44
 
-] [44
+] [45
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 552--554
+Underfull \hbox (badness 10000) in paragraph at lines 563--565
 [][]$\OT1/pcrs/m/n/12 https : / / www . codeproject . com / Articles / 1077852 
 /
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 556--559
-[]\OT1/cmr/m/n/12 Hack Janos \OT1/cmr/m/it/12 C++ kodgeneralas fut-tat-hat
-o UML mo-del-lekb}ol \OT1/cmr/m/n/12 2015 Ezt
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 566--568
+Underfull \hbox (badness 10000) in paragraph at lines 574--576
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
-[45]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 581.
+[46]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 581.
  (diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 581.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 581.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
 (rerunfilecheck)             Checksum: B237B4B8021D01170C2A6536A654E4B4;8446.
 
@@ -1731,26 +1722,26 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 581.
  ) 
 Here is how much of TeX's memory you used:
- 12988 strings out of 493305
- 188445 string characters out of 3130237
- 265723 words of memory out of 3000000
- 16243 multiletter control sequences out of 15000+200000
+ 12995 strings out of 493305
+ 188142 string characters out of 3129803
+ 265758 words of memory out of 3000000
+ 16247 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,7n,35p,1551b,564s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
-<C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr17.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nagy/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (45 pages, 351893 bytes).
+ 28i,7n,35p,1551b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
+}<C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Imola/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Imola/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on diplomamunka.pdf (46 pages, 377626 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
- 143 named destinations out of 1000 (max. 500000)
- 474 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 586 PDF objects out of 1000 (max. 8388607)
+ 145 named destinations out of 1000 (max. 500000)
+ 479 words of extra memory for PDF output out of 10000 (max. 10000000)
 

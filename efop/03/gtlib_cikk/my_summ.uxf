@@ -5,11 +5,12 @@
     <id>UMLClass</id>
     <coordinates>
       <x>380</x>
-      <y>80</y>
-      <w>360</w>
+      <y>40</y>
+      <w>420</w>
       <h>190</h>
     </coordinates>
-    <panel_attributes>/Summation/
+    <panel_attributes>template=Item, Value = Item
+/Summation/ 
 --
 - _result : Value
 -
@@ -26,38 +27,39 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>370</x>
+      <x>340</x>
       <y>340</y>
-      <w>380</w>
+      <w>600</w>
       <h>160</h>
     </coordinates>
-    <panel_attributes>VectorSum
+    <panel_attributes>template=Item = int, Value = vector&lt;int&gt;
+VectorSum
 --
-Value func(const Item&amp; e) const override {return e}
-Value neutral() const override {return {}}
-Value add( const Value&amp; a, const Value&amp; b) const override {
- std::vector res = a
- for (int e : b) res.push_back(e)
- return res
+vector&lt;int&gt; func(const int&amp; e) const override {return {e}}
+vector&lt;int&gt; neutral() const override {return {}}
+vector&lt;int&gt; add( const vector&lt;int&gt;&amp; a, const vector&lt;int&gt;&amp; b) const override {
+  vector&lt;int&gt; res = a
+  for (int e : b) res.add(e)
+  return res
 }</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>260</y>
+      <x>610</x>
+      <y>220</y>
       <w>30</w>
-      <h>100</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>850</x>
-      <y>400</y>
+      <x>720</x>
+      <y>240</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -67,13 +69,13 @@ Value add( const Value&amp; a, const Value&amp; b) const override {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>400</y>
-      <w>130</w>
-      <h>40</h>
+      <x>710</x>
+      <y>250</y>
+      <w>60</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 r2=_enor</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
