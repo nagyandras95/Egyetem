@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>610</x>
-      <y>330</y>
+      <y>320</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>Relation</id>
     <coordinates>
       <x>800</x>
-      <y>350</y>
+      <y>340</y>
       <w>80</w>
       <h>30</h>
     </coordinates>

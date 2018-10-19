@@ -8,7 +8,7 @@
 \usepackage[magyar]{babel}
 \usepackage{graphicx}
 \usepackage{textgreek}
-\usepackage[delims]{lgreek}
+%\usepackage[delims]{lgreek}
 \usepackage{couriers}
 \usepackage{amssymb}
 
@@ -22,7 +22,9 @@
 \usepackage[top=25mm, bottom=25mm, left=35mm, right=25mm]{geometry}
 
 \usepackage{setspace}
-%\usepackage{listings}
+
+\usepackage{listings}
+
 
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}
 
@@ -192,11 +194,13 @@ Az üzenet küldés C++-ban egy \textit{send} műveletre fog fordulni, melynek e
 \subsubsection{Üzenet fogadás}
 Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket egy környezet változóval, melyben megadhatjuk az üzenetküldés kontextusát a PSCS szabványhoz hasonlóan. Előbbi megoldás azonban tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf}) \\
 
+A következő ábra azt szemlélteti, hogy melyik akciót kell lefuttatni attól függően, hogy a portra való üzenetküldés milyen kontextusban történt, melyik irányból. \\
+
 \includegraphics[scale=0.8]{send_rec.png}
 
 \section{Interfészek reprezentálása interfész portok esetén} \label{inf}
 \subsection{UML-ben}
-Az interfészeket UML-ben értelemszerűen reprezentáljuk, annyiban különböznek csak az osztályoktól, hogy megadhatunk neki. fogadási műveleteket, un. receptionöket.
+Az interfészeket UML-ben értelemszerűen reprezentáljuk, annyiban különböznek csak az osztályoktól, hogy megadhatunk neki. fogadási műveleteket, un. receptionöket. Egy-egy receptiön egy olyan metódusnak felel meg, melynek pontosan egy paramétere van, egy Singal típusú paraméter. 
 
 \subsection{C++-ban}
 C++-ban számos lehetőségünk van kifejezni egy UML interfészt.
@@ -204,24 +208,24 @@ C++-ban számos lehetőségünk van kifejezni egy UML interfészt.
 Egy lehetséges megoldás az is, ha nem vesszük figyelembe a szolgáltatott és elvárt interfészeket akkor, mikor egy adott portot manipulálunk, üzenetet küldünk rá. A forrásnyelv validációja hivatott kiszűrni az ilyen nem helyes üzenetküldéseket, hivatkozásokat. \\
 Előnyök:
 \begin{itemize}
-\item Kódgenerálás szempontjából nagyon triviális megoldás, nem szükséges foglalkozni egyáltalán vele.
-\item Alacsony szintű, hatékonysági kérdésekben a legjobb megoldás. 
+\item Kódgenerálás szempontjából nagyon triviális megoldás, nem szükséges foglalkozni egyáltalán az interfészek exportálásával C++-ban.
+\item Alacsony szintű, hatékonysági kérdésekben a legjobb megoldás, mivel se futás idejű se fordítás idejű validáció nincs. 
 \end{itemize}
 Hátrányok:
 \begin{itemize}
-\item Külső komponensek, portok esetén magunk sem tudunk felvenni interfészeket, ilyenkor már nem hagyatkozhatunk a forrásnyelv validációjára, könnyen hibázhatunk.
-\item Ha nem is vezetünk be új komponenst, külső kommutáció esetén tetszőleges üzentet küldhetünk a portra, ami szintén hibás lehet.
+\item Külső osztályok, portok esetén a felhasználó sem tudunk felvenni interfészeket, ilyenkor már nem hagyatkozhatunk a forrásnyelv validációjára, könnyen hibázhatunk.
+\item Ha nem is vezetünk be új komponenst, külső kommunikáció esetén tetszőleges üzentet küldhetünk a portra, ami szintén hibás lehet.
 \item A generált kód kevésbé lesz érthető
-\item Az interfészeket sehol máshol sem tudjuk felhasználni, osztályok esetén sem, mely szintén a modellel való kommunikációban jelent hátrányt. 
+\item Az interfészeket sehol máshol sem tudjuk felhasználni, osztályok sem tudják megvalósítani őket, esetén sem, mely szintén a modellel való kommunikációban jelent hátrányt, illetve annak későbbi kiterjesztésében. 
 \end{itemize}
 
 \subsubsection{Van interfész}
 Ezen belül meg kell vizsgálni az interfész port szintaxisát, valamint a mögöttes végrehajtási szemantikát,illetve magának az interfésznek a leírási módjait. \\
-Ahogy azt korábban írtuk, a port típusa az UML-ben a szolgáltatott interfész, ezért kézenfekvő megoldás lenne felvenni egy olyan adattagot, melynek ez az interfész a típusa. Ennek azonban több hátránya is van, sokkal nehezebben tudjuk kifejezni, milyen elvárt interfésze van a portnak, valamint nem tudjuk kifejezni a port típuson belül az üzenetküldés végrehajtási szemantikáját, valamilyen külső implementációra kényszerülünk. Ezáltal bonyolultjuk a megvalósítást, veszítünk az absztrakcióból, de a hatékonyságot nem növeljük. \\
-Így a másik lehetőségünk bevezetni a Port típust, melynek sablon paramétere a szolgáltatott és elvárt interfész. Ezáltal a következőképpen vehetünk fel egy portot egy osztályba: \\
+Ahogy azt korábban írtuk, a port típusa az UML-ben a szolgáltatott interfész, ezért kézenfekvő megoldás lenne felvenni egy olyan adattagot, melynek ez az interfész a típusa. Ennek azonban több hátránya is van, sokkal nehezebben tudjuk kifejezni, milyen elvárt interfésze van a portnak, valamint nem tudjuk kifejezni a port típuson belül az üzenetküldés végrehajtási szemantikáját, valamilyen külső implementációra kényszerülünk. Ezáltal bonyolultjuk a megvalósítást, veszítünk az absztrakcióból, de a hatékonyságot nem növeljük. 
+Így a másik lehetőségünk bevezetni a Port típust, melynek sablon paramétere a szolgáltatott és elvárt interfész. \\
 
+\includegraphics[scale=0.7]{port_class.png}
 
-%\lstinputlisting[language=C++]{port_decl.h}
 
 Ezek után technikailag többféle lehetőségünk van megvalósítani a validációt: \\
 \begin{enumerate}
@@ -242,7 +246,7 @@ Hátrányok:
 \begin{itemize}
 \item Nem általánosított megoldás. Az interfészt bármilyen szereplő használhat, és le is származhat belőle, azonban ezzel erősen portokra korlátozzuk a megoldást, mivel a küldő és fogadó műveletek a portok kódjába vannak beleégetve.
 \end{itemize}
-\item Ezt a gondolatmenetet folytatva vizsgáljuk meg azt az általános lehetőséget, hogy a Port megvalósítja az interfészt. A szintaxis nem változik, továbbra is sablon paraméterként szeretnénk megadni az interfészeket a portban. Mivel most a szignáloknak nincsen interfész őse, így minden egyes receptiön művelethez kelleni fog egy-egy függvény. Mivel az üzenetküldés végrehajtási szemantikája nem változik, így vezessünk be egy általános \textit{sendAny} védett metódust, mely bármilyen szignált képes fogadni, azonban a publikus interfészen nem látható. Ezt a leszármazott osztályban felül tudjuk definiálni az üzenetküldés szemantikájától függően. Amikor a \textit{sendAny} továbbítja az adott portnak a megfelelő szignált, a túloldalon lévő port már csak egy általános eseményt lát, nem tudjuk ellenőrizni a típuskonzisztenciát. Azonban két port összekapcsolásakor tudunk gondoskodni róla, hogy ne köthessünk össze inkonzisztens interfészű portokat. \\
+\item Ezt a gondolatmenetet folytatva vizsgáljuk meg azt az általános lehetőséget, hogy a Port megvalósítja az interfészt. A szintaxis nem változik, továbbra is sablon paraméterként szeretnénk megadni az interfészeket a portban. Mivel most a szignáloknak nincsen interfész őse, így minden egyes receptiön művelethez kelleni fog egy-egy függvény. Mivel az üzenetküldés végrehajtási szemantikája nem változik, így vezessünk be egy általános \textit{sendAny} védett metódust, mely bármilyen szignált képes fogadni, azonban a publikus interfészen nem látható. Ezt a leszármazott osztályban felül tudjuk definiálni az üzenetküldés szemantikájától függően. Amikor a \textit{sendAny} továbbítja az adott portnak a megfelelő szignált, a túloldalon lévő port már csak egy általános eseményt lát, nem tudjuk ellenőrizni a típuskonzisztenciát. Azonban két port összekapcsolásakor tudunk gondoskodni róla, hogy ne köthessünk össze inkonzisztens interfészű portokat. \ref{connect} \\
 \includegraphics[scale=0.7]{inf_ver2.png} \\
 Előnyök:
 \begin{itemize}
@@ -254,7 +258,10 @@ Hátrányok:
 \item A generált kód mérete azonban jelentősen megnő, mivel több \textit{send} függvény generálásra van szükségünk, melyek csak a várt szignál típusban különböznek.
 \end{itemize}
 \item Mint a fentiekből látjuk, az utóbbi megoldásnak egy hátránya van, hogy növeljük az interfész kódját az első megoldáshoz képest. Amíg csak generáljuk az interfészt, addig ez elhanyagolható tényező, azonban, ha kézzel kell hozzáadni a programunkhoz, hogy kiterjesszük a modellel való kommunikációt, már probléma lehet. Megfigyelhetjük, hogy minden interfész implementációja csak abban fog különbözni, hogy különböző szignálokat tudnak fogadni. A C++ template metaprogramozási lehetőségeit kihasználva próbáljuk meg az interfész kódját egészen odáig szűkíteni, hogy csak fel kelljen sorolni egy típuslistába, hogy milyen szignálokat tud küldeni illetve fogadni. \\
-Cél szintaxis: \textit{using PingPongInf = GeneralInterface<Ping,Pong>} \\
+Cél szintaxis: 
+\begin{lstlisting}
+using PingPongInf = GeneralInterface<Ping,Pong>
+\end{lstlisting}
 Ez azt jelentené, hogy a \textit{PingPongInf} egy olyan interfész lenne, amelynek két fogadó művelete van, a Ping és a Pong.\\
 Vizsgáljuk meg a szolgáltatott részt, az elvárt ezzel analóg. Vezessünk be egy olyan sablon \textit{send} függvényt, melynek a sablon paramétere az elküldendő szignál típusa. Ezt látjuk a publikus interfészen, eszerint bármilyen szignállal meg tudjuk hívni az adott függvényt. Azonban a függvény delegálja a hívást egy olyan védett sablon függvénynek, mely bármilyen szignált képes fogadni,és rendelkezik egy logikai sablon paraméterrel: ebben adhatjuk meg, hogy a delegált szignál része-e az interfésznek vagy sem. 
 Template specializáció segítségével kétféle implementációt adunk ennek a függvénynek: Az igaz ág, mely végrehajtja a szignál küldést, a hamis ág pedig szemantikai fordítási hibára fut, ezzel ellenőrizve fordítási időben, hogy ne adhassunk át olyan szignált, mely nem része az interfésznek. \\

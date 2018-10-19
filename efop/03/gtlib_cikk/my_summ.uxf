@@ -10,7 +10,7 @@
       <h>190</h>
     </coordinates>
     <panel_attributes>template=Item, Value = Item
-/Summation/ 
+Summation
 --
 - _result : Value
 -
