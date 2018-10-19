@@ -4,19 +4,19 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>580</x>
-      <y>230</y>
+      <x>620</x>
+      <y>320</y>
       <w>140</w>
-      <h>70</h>
+      <h>50</h>
     </coordinates>
-    <panel_attributes>PortedClassification</panel_attributes>
+    <panel_attributes>PortedClass</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>830</x>
-      <y>230</y>
+      <y>220</y>
       <w>160</w>
       <h>70</h>
     </coordinates>
@@ -27,14 +27,14 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>270</y>
-      <w>140</w>
+      <x>750</x>
+      <y>330</y>
+      <w>130</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
-m1=port</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+r2=port</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -47,5 +47,27 @@ m1=port</panel_attributes>
     <panel_attributes>Note..
 bg=blue</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>340</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Port</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>280</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>

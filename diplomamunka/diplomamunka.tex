@@ -140,17 +140,19 @@ A portok reprezentálása értelemszerű, egy speciális Property-t kell felvenn
 
 
 \subsubsection{Szemléltetés osztálydiagrammal}
-\includegraphics[scale=0.7]{uml_port_class.png}
+A diagramon láthatjuk, hogy a port leszármazik a szolgáltatott interfészből, megvalósítva azt, és az osztály pedig tartalmazza a Portot.
+\includegraphics[scale=0.8]{uml_port_class.png}
 
 \subsubsection{Szemléltetés komponens diagrammal}
+Az ábrán egy osztály látható, melynek a példához hasonlóan van egy portja, melyet kompozit struktúrákon egy négyzet jelöl. Nincs kapcsolatban senkivel, de egy interfész szabványa, melyet a kör jelöl, ez a kapcsolódási pontja.
 \includegraphics[scale=0.7]{uml_port_comp.png}
 
 \subsection{C++-ban}
 A portokat minden esetben adattagként reprezentáljuk, ezt mi sem tudjuk másképp megtenni. Többféleképpen használhatók kommunikációra, de minden esetben egyfajta ravaszként működik a rajtuk történő állapotváltozás. A port adattag értéke reprezentálja az üzentet. Ennek megfelelően általánosságban kétféle megoldás létezik a portokon történő kommunikációra:
 \begin{itemize}
-\item Hasonlóan az események feldolgozásához, úgy a portokon történű üzenetáramlást is átmeneti függvényekkel dolgozzuk fel.
+\item Hasonlóan az események feldolgozásához, úgy a portokon történű üzenetáramlást is átmeneti függvényekkel dolgozzuk fel. Ez esetben igazán nem érdekes számunka a port állapota, az üzenet az objektum üzenetsorába kerül be, mely majd feldolgozására kerül hasonlóan, mint egy normál üzenet.  \\
 \includegraphics[scale=0.6]{port_actfun.png}
-\item Külön aktivátor függvényeket valósítunk meg az osztályon belül az egyes portokra, melyek a portok állapotváltozások aktiválódnak. 
+\item Külön aktivátor függvényeket valósítunk meg az osztályon belül az egyes portokra, melyek a portok állapotváltozásakor aktiválódnak. Ez esetben számít a portnak az állapota, mivel az reprezentálja magát az üzenetet. Ennek megfelelően máshogy dolgozzuk fel, mint az a többi üzenetküldést. Interfész portok esetén a port tartalmazza a neki küldött üzenetet, az reprezentálja az állapotát, primitív esetben pedig a port értéke szolgál erre. \\
 \includegraphics[scale=0.6]{port_sendm.png} \\
 \end{itemize}
 
@@ -185,7 +187,7 @@ Ha a \textit{SendObjectAction} kezdeményezése a cél objektumon kívülről t�
 C++ exportálás során magának az üzenet küldés fordítását át kell dolgozni, figyelembe kell venni az \textit{OnPort} referenciát, valamint az üzenetküldés kezdeményezőjét a szemantikának megfelelően. \textit{txtUML}-ben az üzenet fogadás nem megvalósított.
 
 \subsubsection{Üzenet küldés}
-Ez esetben már a \textit{send} művelet C++ végrehajtási szemantikája érdemes számunkra. A \textit{send} művelet azt jelenti, hogy a Portra teszünk egy üzenetet, melyet továbbítunk egy másik egység felé konnektoron keresztül. Ennek szemantikájával a \ref{connect} fejezetben majd foglalkozunk részletesen.
+Az üzenet küldés C++-ban egy \textit{send} műveletre fog fordulni, melynek első paramétere az port, a második pedig a küldendő üzenet. A szintaxisa így lesz a legtisztább, inkább ennek a szemantikáját érdemes megvizsgálni. A \textit{send} művelet azt jelenti, hogy a Portra teszünk egy üzenetet, melyet továbbítunk egy másik egység felé konnektoron keresztül. Ennek szemantikájával a \ref{connect} fejezetben majd foglalkozunk részletesen.
 
 \subsubsection{Üzenet fogadás}
 Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé delegálunk, hanem a külvilág felől érkezett egy üzenet a Portra, melyet fel kell dolgoznunk állapotgéppel összekapcsolt portok esetén, vagy tovább delegálunk a belső komponensek felé. Erre két lehetősünk van: Vagy egy teljesen új függvényt vezetünk be (nevezzük ezt \textit{receive}-nek), vagy paraméterezzük a \textit{send} függvényünket egy környezet változóval, melyben megadhatjuk az üzenetküldés kontextusát a PSCS szabványhoz hasonlóan. Előbbi megoldás azonban tisztább, jobban érhető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf}) \\
