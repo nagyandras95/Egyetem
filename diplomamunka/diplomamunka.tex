@@ -300,14 +300,14 @@ A szabvány szerinti reprezentáció viszonylag értelemszerű, egy \textit{Conn
 A \textit{connect} akció kifejezése UML-ben már kevésbé egyértelmű, mivel \textit{connect} akció nem létezik explicit a szabványban. Több lehetőséget is megvizsgáltunk, mire eljutottunk a helyes reprezentációhoz.
 \begin{enumerate}
 \item Mivel a Portok adattagok az UML-ben (Property-k) így két portot kölcsönösen értékül adhatunk egymásnak. Ez egy lehetőség lehet kifejezni az összekapcsolást, szabványos modell keletkezik, de mégsem ez a helyes szabványa Portok összekapcsolásának. A probléma ugyanis az lesz, hogy bármilyen két portot összekapcsolhatok így, konkrét konnektor realizáció nélkül.
-\item Mivel a \textit{Connector} egy asszociáció példány, így már egy konkrét, létrejött kapcsolatról beszélhetünk. Ebből adódóan a komponensek struktúrájából következtethetünk az összekapcsolt portokra. Azonban ez megszorításokkal járna, ha például egy szülőnek két azonos típusú gyereke van, de csak az egyikkel szeretne delegáció révén kommunikálni, nem köthetem hozzá mindkét gyerek porthoz a szülő portját. \\
+\item A PSCS szabvány szerint, ha egy operáció egy konstruktor hívásnak felel meg (\textit{Create} sztereotípiával van ellátva), és nem adunk meg hozzá konkrét metódus törzset, mint akciót, akkor az osztály kompozit struktúráját valamilyen alapértelmezett konstrukciót strtaégia mentén fogja létrehozni. Mivel a \textit{Connector} egy asszociáció példány, így már egy konkrét, létrejött kapcsolatról beszélhetünk, az alapértelmezett konstrukciós stratégia pedig megmondhatja, hogyan kell összekötni a portokat. Ebből adódóan a kompozíció struktúrájából következtethetünk az összekapcsolt portokra. Azonban ez megszorításokkal járna, ha például egy szülőnek két azonos típusú gyereke van, de csak az egyikkel szeretne delegáció révén kommunikálni, nem köthetem hozzá mindkét gyerek porthoz a szülő portját.  \\
 \includegraphics[scale=0.8]{preconnect_problem.png}
-\item Nem maradt más lehetőség, mint a dinamikus összekapcsolás, és szintaktikailag sincs már más lehetőségem, mint a \textit{CreateLinkAction} használata, melyet a szabvány definíciója is sugall. Ehhez két dologra van szükségem: Végpontokra, valamint arra az asszociációra, melyet használni szeretnék az összekapcsoláshoz. Mint korábban láttuk, a Konnektorok fel vannak típusozva egy Asszociációval. Értelemszerű lenne ezt fölhasználni az összekapcsoláshoz, a kérdés csak az, mi legyen ez az Asszociáció. Az Asszociáció típusok között húzható, a Port önmagában nem típus, azonban adattag révén rendelkeznek típussal, a szolgáltatott interfészük típusával. Nem maradt más ésszerű lehetőségünk, mint ezek között az interfészek között létrehozni egy Asszociációt, melyet a Konnektor realizál a Portok összekapcsolásával. Így a \textit{CreateLinkAction}-be be tudjuk tenni Asszociációként a Konnektor típusát, ami mentén összekapcsolunk. Ezzel egy szabványos UML-t generálunk, és a Konnektorokat sem hagyjuk figyelmen kívül két port összekapcsolásánál. \\
+\item Nem maradt más lehetőség, mint a dinamikus összekapcsolás, tehát meg kell mondani egy konkrét metódusban, hogyan inicializáljunk fel egy struktúrát. Szintaktikailag sincs már más lehetőség, mint a \textit{CreateLinkAction} használata, melyet a PSCS szabvány definíciója is kimond. Ehhez két dologra van szükségem: Végpontokra (\textit{LinkEndData}), valamint arra az asszociációra, melyet használni szeretnék az összekapcsoláshoz. Az asszociáció végpontok egyértelműek, felhasználhatjuk a Konnektor végpontjait. Mint korábban láttuk, a Konnektorok fel vannak típusozva egy Asszociációval. Értelemszerű lenne ezt fölhasználni az összekapcsoláshoz, a kérdés csak az, mi legyen ez az Asszociáció. A szabvány biztosít nekünk egy alapértelmezett asszociációt (\textit{Generic Association}), melyet használhatunk abban az esetben, ha a Konnektornak nincs típusa. Arra is van lehetőségünk, hogy saját Asszociációt generáljunk a modellbe, mivel Asszociáció típusok között húzható, a Port önmagában ugyan nem típus, azonban adattag révén rendelkeznek típussal, a szolgáltatott interfészük típusával. Ennél fogva megtehetjük azt is, mint ezek között az interfészek között létrehozunk egy Asszociációt, melyet a Konnektor realizál a Portok összekapcsolásával. Így a \textit{CreateLinkAction}-be be tudjuk tenni Asszociációként a Konnektor típusát, ami mentén összekapcsolunk, nem kell használunk a \textit{Generic Association}-t. Ezzel egy szabványos UML-t generálunk, és a Konnektorokat sem hagyjuk figyelmen kívül két port összekapcsolásánál. \\
 \includegraphics[scale=0.8]{connect_type.png}
 \end{enumerate}
 
 \subsection{Összekapcsolt portok reprezentációja C++-ban} \label{conn_cpp}
-A szabvány szemantikája szerint, amikor egy üzenet küldünk a \textit{send} művelettel egy adott portra, annak továbbítania kell ezt a vele kapcsolatban álló port felé. Ehhez mindenképpen valami referenciát kell tárolni a kapcsolat Portra. Ezt alapvetően kétféle képen érhetük el:\\
+A szabvány szemantikája szerint, amikor egy üzenet küldünk a \textit{send} művelettel egy adott portra, annak továbbítania kell ezt a vele kapcsolatban álló port felé. Ehhez mindenképpen valami referenciát kell tárolni a kapcsolat Portra. Ezt alapvetően kétféleképpen érthetjük el:\\
 \begin{enumerate}
 \item Egy globális adatszerkezetben, példásul egy asszociatív tömbben megmondjuk, melyik porthoz ki kapcsolódik. Ennek előnye, hogy nem a Port kódja semleges marad, nem kell belekódolni a kapcsolatokhoz.
 Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet kell manipulálni, így sok szinkronizációt igényel a dolog, minek következtében csökken a hatékonyság
@@ -322,32 +322,38 @@ Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez mé
 
 \end{enumerate}
 
-Vizsgáljuk meg az üzenet fogadás szemantikáját is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt Portrol (Behavior Port) beszélünk-e vagy általános portról. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek klasszifikáció portjára. Ennek megvalósítására szintén a fent említett két lehetőségünk van, a virtualizáció, illetve a behavior jelző. Egy \textit{Behavior Port} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell szereznünk az állapotgépet birtokló objektumra, egyéb esetben pedig a gyerek komponens portjára. Ez különböző adattagokat igényel, az adat redundancia miatt leszármazás egy kézen fekvő választás. Unio típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
-\\
-
-\subsubsection{Különböző port típusok megvalósítása szemléltetve}
-\begin{enumerate}
-\item Leszármazással: \\\\
-\includegraphics[scale=0.7]{behav_generalport_diag.png} \\
-
-\item Behavior jelzéssel: \\
-\includegraphics[scale=0.7]{simple_port_diag.png}
-
-\item Unio típussal: \\
-\includegraphics[scale=0.7]{unio_port_diag.png}
-\end{enumerate}
 
 Hasonlóan az interfészekhez, a kapcsolatok esetén is a kevert megoldás lenne a leghatékonyabb. Ha dolgozhatnánk leszármazással, ugyanakkor nem kéne virtualizációt használni. Erre egy kézenfekvő megoldás az lenne, ha a leszármazáskor megadnánk az interfésznek, ki a leszármazottja. \\
-%\textit{class DelegateConnection : public Connection}<\textit{DelegateConnection}> \\
-Majd definiálnánk a speciális implementációkat, az interfész implementáció pedig statikus konverzióval a specializált \textit{Connection} osztályra konvertálná önmagát, és meghívná a megfelelő műveletet. Ehhez fordítási időben tudnom kell, hogy egy adott porthoz milyen típusú kapcsolaton keresztül fog létrejönni a referencia. \\ 
-A portokat akkor kapcsoljuk össze, mikor létre hozzuk a rendszer struktúráját. Minden port 1-1 kapcsolattal kapcsolódik egymáshoz. Ami azt jelenti, hogy egy állapotgéppel összekapcsolt port esetén egy referenciák lesz egy másik portra, melyet valamilyen ismert kapcsolaton keresztül kötünk majd hozzá. Általános port esetén pedig két referenciánk lesz, az egyik biztosan egy delegáció, a másik pedig ugyanazon az érvek mentén ismert, amit az előbb tárgyaltunk. Ebből következtetve úgy tűnik, hogy ha a pontos összekapcsolások nem is ismertek, a potenciális összekapcsolások típusai igen, így fordítási időben el tudjuk dönteni egy adott kapcsolatról, milyen típusú. Az is lehetséges, hogy egy félkész, vagy hibás modell exportálása esetén egyáltalán nem adunk meg Konnektort két port között. Ilyenkor exportálási hibát nem szeretnénk adni, mivel lehetséges, hogy a felhasználót tudatosan érdekel egy ilyen modellnek a C++ kódja, helyette inkább bevezetünk egy \textit{NoConnection} típusú leszármazást, melynek műveleteinek szemantikája megegyezik az üres utasítással. Akár sablon specializációval is dolgozhatunk, mely azért is lesz előnyös, mert megspórolhatjuk a benne eltárolt port referenciát.
+Cél szintaxis:
+\begin{lstlisting}
+class DelegateConnection : public Connection<DelegateConnection>
+\end{lstlisting}
+
+Majd definiálnánk a speciális implementációkat, az interfész implementáció pedig statikus konverzióval a specializált \textit{Connection} osztályra konvertálná önmagát, és meghívná a megfelelő műveletet. Ehhez fordítási időben tudnom kell, hogy egy adott porthoz milyen típusú kapcsolaton keresztül fog létrejönni a referencia. (Assembly vagy Delegáció) \\ 
+A portokat akkor kapcsoljuk össze, mikor létre hozzuk a rendszer struktúráját. Minden port 1-1 kapcsolattal kapcsolódik egymáshoz. Ami azt jelenti, hogy egy állapotgéppel összekapcsolt port esetén egy referenciák lesz egy másik portra, melyet valamilyen ismert kapcsolaton keresztül kötünk majd hozzá. Általános port esetén pedig két referenciánk lesz, az egyik biztosan egy delegáció, a másik pedig ugyanazon az érvek mentén ismert, amit az előbb tárgyaltunk. Ebből következtetve úgy tűnik, hogy ha a pontos összekapcsolások nem is ismerünk, a potenciális összekapcsolások típusait igen, így fordítási időben el tudjuk dönteni egy adott kapcsolatról, milyen típusú. Az is lehetséges, hogy egy félkész, vagy hibás modell exportálása esetén egyáltalán nem adunk meg Konnektort két port között. Ilyenkor exportálási hibát nem szeretnénk adni, mivel lehetséges, hogy a felhasználót tudatosan érdekel egy ilyen modellnek a C++ kódja, helyette inkább bevezetünk egy \textit{NoConnection} típusú leszármazást, melynek műveleteinek szemantikája megegyezik az üres utasítással. Akár sablon specializációval is dolgozhatunk, mely azért is lesz előnyös, mert a \textit{Connection} ősosztályban általánosan tárolunk egy port referenciát, melyeket az ősök megörökölnek, így ezt az adattagok megspórolhatnánk.
 
 \subsubsection{Megoldás szemléltetése}
 \begin{enumerate}
 \item \textit{NoConnection} leszármazással: \\
 \includegraphics[scale=0.6]{extended_connection.png}
 \item \textit{NoConnection} specliazizációval: \\
+\includegraphics[scale=0.6]{extended_connection_spec.png}
+\end{enumerate}
 
+\subsubsection{Különböző port típusok megvalósítása}
+Az üzenetküldés megvalósítása után vizsgáljuk meg az (üzenet fogadás \textit{receive} szemantikáját) is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt Portrol (Behavior Port) beszélünk-e vagy általános portról. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek klasszifikáció portjára. Ennek megvalósítására szintén a fent említett két lehetőségünk van, a virtualizáció, illetve a behavior jelző. Egy \textit{Behavior Port} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell szereznünk az állapotgépet birtokló objektumra, egyéb esetben pedig a gyerek komponens portjára. Ez különböző adattagokat igényel, az adat redundancia miatt leszármazás egy kézen fekvő választás. Unio típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
+\begin{enumerate}
+\item Leszármazással: \\\\
+\includegraphics[scale=0.7]{behav_generalport_diag.png} \\
+Nem szorul magyarázatra, az ábrán a két speciális port látható különböző adattagokkal.
+\newpage
+\item Behavior jelzéssel: \\
+\includegraphics[scale=0.7]{simple_port_diag.png}
+Az ábrán az a megoldás látható, hogy minden adatot egy osztályon belül eltárolunk, és a \textit{behavior} adattag dönti el port típusát. A másik lehetőség lehetne, hogy az alapján döntünk a típusról, hogy melyik adattag van kitöltve, bevezethetnénk akár egy \textit{Optional} típust is. 
+
+\item Unio típussal: \\
+\includegraphics[scale=0.7]{unio_port_diag.png}
+Itt mindenképpen kell a \textit{behavior} jelző, hogy el tudjuk dönteni, pontosan melyik adattagra hivatkozhatunk az unio-ból. 
 \end{enumerate}
 
 \subsection{Konnektorok reprezentálása C++-ban}
