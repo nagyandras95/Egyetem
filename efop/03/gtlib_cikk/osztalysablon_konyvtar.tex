@@ -1,0 +1,124 @@
+\documentclass[11pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{zi4}
+\usepackage{multirow}
+\usepackage{listings}
+
+\usetheme{Warsaw}
+
+\renewcommand\UrlFont{\ttfamily\footnotesize}
+
+% no navigation symbols
+\setbeamertemplate{navigation symbols}{} 
+
+% frame numbers
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\author{Gregorics Tibor, Nagy András}
+\title{Tapasztalatok az osztály-sablon könyvtár bevezetésével}
+\date{2018. november 24.}
+
+\logo{%
+	\makebox[0.95\paperwidth]{%
+		\hfill%
+		\includegraphics[width=3.2cm,keepaspectratio]{efop-logo.jpg}%
+	}%
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Osztálysablon könyvtár bemutatása}
+	
+	\begin{itemize}
+		\item Nevezetes algoritmusokat leíró osztályokat tartalmaz
+		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk
+		\item Az adott feladatra jellemző konkrét műveleteket és értékeket adhatjuk meg. (Pl. összegzésnél a neutrális elemet és az összegző műveletet)
+		\item Valamint azt a gyűjteményt, amit feldolgozunk
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Az osztálysablon könyvtár bevezetése az oktatásba}
+	\begin{itemize}
+		\item Néhány éve vezettük be
+		\vspace*{2px}
+		\item A célja az újrafelhasználás gyakorlása volt
+		\vspace*{2px}
+		\item Vegyes fogadtatásban részesült, számos probléma felmerült a használata során, melynek nagy részét orvosoltuk
+		\vspace*{2px}
+		\item A pozitív tapasztalataink is voltak..
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pozitívumok}
+	\begin{itemize}
+
+		\item Objektumorientált techinkák gyakorlása (leszármazás, függőség befecskendezés, stb..) 
+		\vspace*{8px}
+		\item Visszavezetéses techikák gyakorlása
+		\vspace*{8px}
+		\item C++ objektumorientált nyelvi elemek mélyítése, gyakorlása (sablonok, metódusok felül definiálása, stb..)
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Problémák, kritikák}
+	\begin{itemize}
+		\item Kritikák
+		\begin{itemize}
+			\item Nem ipari könyvtár
+			\item Nagyobb kódméret
+			\item Rossz konvenciók alapján íródott
+		\end{itemize}
+		\item Problémák
+		\begin{itemize}
+			\item Nem szakszerű használat
+			\item Túl erős technikákra épül
+			\item Egyre bővülő szabályrendszert kellett  bevezetni a használatára (mit lehet felüldefiniálni, kiből lehet származni..)
+			\item Összegzés tétele túl általános volt
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Összegzés átalakításai}
+	\begin{block}{Új összegzés C++ kódja}
+
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Új felsorolók}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Új nyelvi elemek}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Összefoglalás, eredmények}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tapasztalatok az osztály-sablon könyvtár bevezetésével}
+	\begin{center}
+		\Large{Köszönöm a figyelmet!}
+	
+	\vspace*{25px}
+	{\small A projekt az Európai Unió támogatásával, az Európai Szociális Alap társfinanszírozásával valósult meg (EFOP-3.6.3-VEKOP-16-2017-00002).}\end{center}
+\end{frame}
+
+\end{document}
