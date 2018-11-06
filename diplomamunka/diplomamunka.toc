@@ -6,18 +6,18 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {1.4.1}Struktur\IeC {\'a}lis elemek}{5}{subsection.1.4.1}
 \select@language {magyar} \contentsline {subsubsection}{Egys\IeC {\'e}gbe z\IeC {\'a}rt elem}{5}{subsection.1.4.1}
 \select@language {magyar} \contentsline {subsubsection}{UML Interf\IeC {\'e}sz}{5}{subsection.1.4.1}
-\select@language {magyar} \contentsline {subsubsection}{UML Port}{5}{subsection.1.4.1}
+\select@language {magyar} \contentsline {subsubsection}{UML Port}{6}{subsection.1.4.1}
 \select@language {magyar} \contentsline {subsubsection}{Kompozit strukt\IeC {\'u}ra}{6}{subsection.1.4.1}
 \select@language {magyar} \contentsline {subsubsection}{UML Konnektor}{6}{subsection.1.4.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {1.4.2}Akci\IeC {\'o} elemek}{7}{subsection.1.4.2}
 \select@language {magyar} \contentsline {subsubsection}{\IeC {\"U}zenet k\IeC {\"u}ld\IeC {\'e}s/fogad\IeC {\'a}s}{7}{subsection.1.4.2}
-\select@language {magyar} \contentsline {subsubsection}{Connect m\IeC {\H u}velet}{7}{subsection.1.4.2}
+\select@language {magyar} \contentsline {subsubsection}{Connect m\IeC {\H u}velet}{8}{subsection.1.4.2}
 \select@language {magyar} \contentsline {chapter}{\numberline {2}\IeC {\'A}ttekint\IeC {\'e}s}{9}{chapter.2}
 \select@language {magyar} \contentsline {section}{\numberline {2.1}Szabv\IeC {\'a}nyok \IeC {\'e}s keretrendszerek \IeC {\'a}ttekint\IeC {\'e}se}{9}{section.2.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {2.1.1}fUML - ALF}{9}{subsection.2.1.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {2.1.2}PSCS szabv\IeC {\'a}ny}{9}{subsection.2.1.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {2.1.3}Umple}{9}{subsection.2.1.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {2.1.4}StartUML}{10}{subsection.2.1.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.3}Umple}{10}{subsection.2.1.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.4}StartUML}{11}{subsection.2.1.4}
 \select@language {magyar} \contentsline {subsection}{\numberline {2.1.5}BrigePoint UML}{11}{subsection.2.1.5}
 \select@language {magyar} \contentsline {section}{\numberline {2.2}\IeC {\"O}sszefoglal\IeC {\'a}s}{12}{section.2.2}
 \select@language {magyar} \contentsline {chapter}{\numberline {3}Reprezent\IeC {\'a}ci\IeC {\'o}s lehet\IeC {\H o}s\IeC {\'e}gek}{13}{chapter.3}
@@ -66,3 +66,7 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {5.2.1}Szerkezeti fel\IeC {\'e}p\IeC {\'\i }t\IeC {\'e}s}{44}{subsection.5.2.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {5.2.2}Tesztel\IeC {\'e}s}{45}{subsection.5.2.2}
 \select@language {magyar} \contentsline {chapter}{\numberline {6}A diplomamunka eredm\IeC {\'e}nyei}{47}{chapter.6}
+\select@language {magyar} \contentsline {section}{\numberline {6.1}UML kompoz\IeC {\'\i }ci\IeC {\'o}s szabv\IeC {\'a}ny \IeC {\'a}ttekint\IeC {\'e}se, \IeC {\'e}rtelmez\IeC {\'e}se}{47}{section.6.1}
+\select@language {magyar} \contentsline {section}{\numberline {6.2}Modellez\IeC {\H o} keretrendszerek, UML szabv\IeC {\'a}nyok \IeC {\'a}ttekint\IeC {\'e}se}{47}{section.6.2}
+\select@language {magyar} \contentsline {section}{\numberline {6.3}C++ ford\IeC {\'\i }t\IeC {\'a}si lehet\IeC {\H o}s\IeC {\'e}gek elemz\IeC {\'e}se}{48}{section.6.3}
+\select@language {magyar} \contentsline {section}{\numberline {6.4}Protot\IeC {\'\i }pus k\IeC {\'e}sz\IeC {\'\i }t\IeC {\'e}se a megl\IeC {\'e}v\IeC {\H o} elemez\IeC {\'e}sek alapj\IeC {\'a}n}{48}{section.6.4}
