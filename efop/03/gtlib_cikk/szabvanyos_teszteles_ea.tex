@@ -1,0 +1,255 @@
+\documentclass[11pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{zi4}
+\usepackage{multirow}
+
+\usetheme{Warsaw}
+
+\renewcommand\UrlFont{\ttfamily\footnotesize}
+
+% no navigation symbols
+\setbeamertemplate{navigation symbols}{} 
+
+% frame numbers
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\author{Gregorics Tibor, Mózsi Krisztián, Szendrei Rudolf}
+\title{Hogyan tanítsunk tesztelni?}
+\date{2017. november 24.}
+
+\logo{%
+	\makebox[0.95\paperwidth]{%
+		\hfill%
+		\includegraphics[width=3.2cm,keepaspectratio]{efop-logo.jpg}%
+	}%
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Miért fontos a tesztelés?}
+	\begin{itemize}
+		\item a minőségbiztosítás egyik legfontosabb eszköze
+		\vspace*{2px}
+		\item a programozók emberek, hibáznak % kódolási hibák / a hibák felderítésének módja pedig a tesztelés
+		\vspace*{2px}
+		\item ipari környezetben tipikusan automatikusan futtatható fejlesztői tesztek készülnek (egység és integrációs tesztek)
+		\vspace*{2px}
+		\item ...
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{A cél}
+	\begin{itemize}
+
+		\item megmutatni a hallgatóknak a tanulmányaik korai szakaszában a tesztelés \textbf{szükségességét}, előnyeit 
+		\vspace*{8px}
+		\item a kezdő programozók tanításának egy alternatívája az \textit{analóg programozás}, ennek egyik változata a visszavezetés
+			\begin{itemize}
+				\item egy-egy programozási tételhez összegyűjteni a javasolt megvizsgálandó teszteseteket 
+				\item így \textbf{szabványt} adhatunk a programozó kezébe 
+				\item ezzel a tesztlefedettséget növelhetjük 
+			\end{itemize} 
+		\vspace*{8px}
+		\item \textbf{konkrét eszköz} ajánlása az \textit{automatizált} teszteléshez
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Esettanulmány}
+	\begin{block}{Feladat}
+		Válasszuk ki egy egész számokat tartalmazó mátrix azon sorát, melynek a legnagyobb a sorösszege.
+	\end{block}
+	\vspace*{6px}
+	\textbf{Megoldó program előállítása}
+	\begin{itemize}
+		\item analóg programozás, visszavezetés technikáját használva
+		\item ez a választás hatással van a programkészítés teljes életciklusára
+		\item egyszerű programok készítésének fázisai: elemzés, tervezés, megvalósítás, \textit{tesztelés}
+	\end{itemize}
+	\vspace*{10px}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elemzés}
+	\begin{block}{Specifikáció}
+		\textbf{Változók}:\hspace{13px}(data:$\mathbb{Z}^{nxm}$, maxSumIndex:$\mathbb{N}$, maxSum:$\mathbb{Z}$)
+		\smallskip\linebreak
+		\textbf{Előfeltétel}:\hspace{7px}(data = data' $\wedge$ n > 0)
+		\smallskip\linebreak
+		\textbf{Utófeltétel}: (Előfeltétel $\wedge$ maxSum = $MAX_{i=1}^n$ rowSum(i) $\wedge$
+		\linebreak
+		\hspace*{122px} maxSum = rowSum(maxSumIndex))
+		\bigskip\linebreak
+		ahol $rowSum: \mathbb{N} \rightarrow \mathbb{Z}$\linebreak	
+		\hspace*{19px} $rowSum(i) = \sum_{j=1}^m data[i,j]$
+	\end{block}
+	
+	\begin{itemize}
+		\item már az elemzés során az alkalmazandó programozási tételekről gondolkodhatunk (maximum kiválasztás, összegzés)
+	\end{itemize}
+	\vspace*{20px}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tervezés}
+	\textbf{Tervezés}
+	\begin{itemize}
+		\item a kiválasztott két programozási tételt kell adaptálni a konkrét részfeladatokra
+		\item az így kapott algoritmusokat kell megfelelően összeilleszteni
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Megvalósítás}
+	\textbf{Megvalósítás}
+	\begin{itemize}
+		\item procedurális megoldást adunk
+	\end{itemize}
+	\begin{block}{A megvalósított alprogramok szignatúrái}
+		\texttt{void maxRowSum(const vector<vector<int>> \&data, \\
+			\hspace*{82px}int \&maxSumIndex,\\
+			\hspace*{82px}int \&maxSum); \medskip\\
+			int rowSum(const vector<int> \&row);}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Tesztelés}
+	\begin{itemize}
+		\item a végrehajtható specifikáció alapján készülő tesztesetek között vannak olyanok, amik már belelátnak a megoldó programba is (\textbf{szürke doboz esetek}) 
+		\vspace*{8px}
+		\item szabványosítható a tesztelés
+		\vspace*{8px}
+		\item kiegészítve néhány ismert fekete doboz tesztesettel (érvénytelen bemenet) már jó lefedettséget ad 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Szürke doboz tesztesetek}
+	\textbf{Feldolgozott gyűjteményre vonatkozó esetek}
+	\begin{itemize}
+		\item a programozási tételek közösek abban, hogy egy gyűjtemény felsorolására épülnek
+		% ami sokminden lehet, pl halmaz, intervallum, sorozat, vagy akár seq input fájl
+	\end{itemize} \vspace*{-5px}
+	\begin{center}
+		\begin{tabular}{ | l | l | r | }
+			\hline
+			\multirow{2}{100px}
+			{Gyűjtemény határainak vizsgálata} & Első elem feldolgozásra kerül-e \\
+					& Utolsó elem feldolgozásra kerül-e \\
+					%?& Közbenső elem feldolgozásra kerül-e \\
+			\hline
+			\multirow{3}{*}
+			{Gyűjtemény mérete szerint} & \textit{Üres gyűjtemény kezelése} \\
+					& Egy elemű gyűjtemény kezelése \\
+					& Több elemű gyűjtemény kezelése \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	
+	Maximum kiválasztás:
+	\begin{itemize}
+		\item a határok vizsgálatához két tesztadat szükséges %az egyiknél az első, a másiknál az utolsó elem a maximális%
+	\end{itemize}
+	Összegzés:
+	\begin{itemize}
+		\item a határok vizsgálatához elegendő egy tesztadat %azt ellenőrizzük, hogy vajon minden elemet figyelembe vettünk
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Szürke doboz tesztesetek}
+	\textbf{Programozási tételek speciális tesztesetei}
+		
+	\begin{center}
+		\begin{tabular}{ | l | l | r | }
+			\hline
+			\multirow{2}{100px}
+			{Maximum kiválasztás} & Felsorolás közepén lévő maximális elem \hspace*{-1px}\\
+			& Több azonos maximális elem \\
+			\hline
+			Összegzés & Terheléses teszt \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+		\begin{center}
+			\begin{tabular}{ | l | l | r | }
+				\hline
+				\multirow{2}{100px}{Számlálás}
+				& Az adott tulajdonságnak nulla, egy, \\
+				& kettő vagy több elem tesz eleget\\
+				\hline
+				\multirow{2}{100px}{Keresés}
+				& Létezik/nem létezik a keresett tulajdon- \\
+				& ságnak megfelelő (közbenső) elem\\
+				\hline
+			\end{tabular}
+		\end{center}
+		...
+	
+	\begin{itemize}
+		\item ezen tesztesetekből előállíthatjuk a tesztelési tervet
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Tesztelő eszköz megválasztása}
+	\textbf{Szempontok}:
+	\begin{itemize}
+		\item ne kerüljön át a hangsúly a keretrendszer specialitásaira
+		\vspace*{2px}
+		\item legyen könnyen tanulható
+		\vspace*{2px}
+		\item egyszerű legyen az automatikus tesztkörnyezet kialakítása
+		\vspace*{2px}
+		\item jó dokumentáltság
+		\vspace*{2px}
+		\item C++
+		\vspace*{2px}
+		\item ne kelljen telepíteni, fejlesztői környezetbe integrálni; egy fejlécállományként legyen megvalósítva külső függőségek nélkül 
+		
+	\end{itemize}\pause
+	\vspace*{15px}
+	A választás a \textbf{Catch} eszközre esett.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tapasztalatok}
+	\begin{itemize}
+		\item az intuíció alapján dokumentált tesztesetekkel szemben a szabványos szürke doboz tesztesetek hatásosabban szűrik ki a kódolási hibákat\vspace*{3px}
+		\item az automatikusan futtatható tesztekkel a hallgatók által írt programok minősége javult\vspace*{3px}
+		\item az automatikus tesztekkel ellátott kódrészek gyorsan ellenőrizhetők\vspace*{3px}
+		\item a Catch használata gyorsan elsajátítható
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Szabványos tesztelés}
+	\begin{center}
+		\Large{Köszönöm a figyelmet!}
+	
+	\vspace*{25px}
+	{\small A projekt az Európai Unió támogatásával, az Európai Szociális Alap társfinanszírozásával valósult meg (EFOP-3.6.3-VEKOP-16-2017-00002).}\end{center}
+\end{frame}
+
+\end{document}
