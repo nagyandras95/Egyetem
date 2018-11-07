@@ -44,11 +44,12 @@
     <id>UMLClass</id>
     <coordinates>
       <x>380</x>
-      <y>560</y>
+      <y>550</y>
       <w>440</w>
-      <h>130</h>
+      <h>110</h>
     </coordinates>
-    <panel_attributes>Port
+    <panel_attributes>template=Provided=PingPongInterface, Required=PingPongInterface
+Port
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -58,10 +59,10 @@
       <x>440</x>
       <y>370</y>
       <w>30</w>
-      <h>210</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -69,21 +70,9 @@
       <x>530</x>
       <y>370</y>
       <w>30</w>
-      <h>210</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>590</x>
-      <y>520</y>
-      <w>230</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>Provided = PingPongInterface
-Required = PingPongInterface</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
 </diagram>

@@ -7,6 +7,7 @@
 \usepackage{zi4}
 \usepackage{multirow}
 \usepackage{listings}
+\usepackage{ragged2e} % For \justifying command
 
 \usetheme{Warsaw}
 
@@ -93,23 +94,73 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Összegzés átalakításai}
-	\begin{block}{Új összegzés C++ kódja}
+%\begin{frame}[fragile]
+%	\frametitle{Összegzés módosításai}
+%	\begin{block}{Régi összegzés}
+%	\begin{lstlisting}[basicstyle=\small]
+%template<typename Item, typename Value>
+%class Summation : public Procedure<Item> {
+% Value * _result;
+%public:
+% virtual void init() = 0;
+% virtual void add(const Item& e) = 0;
+% virtual void cond(const Item& e){return true;}
+%}
+%	\end{lstlisting}
+%	\end{block}
+%\end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Összegzés módosításai}
+	\begin{block}{Új összegzés metódusai}
+	\begin{lstlisting}[basicstyle=\small]
+void  init() override final{_result=neutral();}
+void  body(const Item& e) override final {
+ if(cond(e))_result = add(_result,e);
+}
+void  cond(const Item& e){return true;}
+void  add(const Item& a, const Item& b) const = 0;
+Value neutral() const = 0;
+
+	\end{lstlisting}
 	\end{block}
+	
+	\begin{itemize}
+	\item Neutrális elem bevezetése
+	\item Összeadás művelet bevezetése
+	\item Régen az \textit{add} nem volt konstans, ő változtatta meg az eredmény értékét
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Új felsorolók}
+	\begin{itemize}
+		\item \textit{StringStreamEnumerator} : Változó hosszúságú sor beolvasásakor hasznos
+		
+		\item \textit{IntervalEnumerator} : Egy $[m,n]$ diszkrét intervallum értékeit sorolja fel
+		
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Új nyelvi elemek}
+	\begin{itemize}
+		\item Final: Nem engedi a leszármazott osztályokban felül definiálni az adott metódust. Szakszerű használatot segíti elő.
+		\item Override: Jelzi, hogy felül definiáljuk egy ősosztály metódusát. Csökkenti a hibázási lehetőségeket a zárthelyiken, ha a hallgatók is használják.
+		\item Barát osztályok bevezetése: Korlátozzuk, hogy a \textit{Procedure} ősosztályból kik származzanak le. Nem kell külön kikötni, hogy nem származhatnak le az ősosztályból.
+		\item Template specializáció: Fájl létrehozó metódus specializálása karakterekre. Javít a kód konvencióján, az új összegzésnél elengedhetetlen összefűzések esetén.
+		\item \textit{nullptr}, \textit{pagrma once}..
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Összefoglalás, eredmények}
+	\begin{itemize}
+		\item Új helyre került a könyvtár bevezetése, a felsorolós programozási tételek után tanulják közvetlenül, gyakorolva a visszavezetési technikákat.
+		\item Javult a könyvtár kódjának tisztasága.
+		\item Az új nyelvi elemekkel elősegítettük a szakszerű használatot, nincs szükség annyira kikötésre.
+		\item A könyvtár hasznos didaktikai eszköznek bizonyult. (Hangsúlyozni kell a hallgatóknak a könyvtár célját..)
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
