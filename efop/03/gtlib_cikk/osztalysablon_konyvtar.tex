@@ -42,34 +42,92 @@
 	\frametitle{Osztálysablon könyvtár bemutatása}
 	
 	\begin{itemize}
-		\item Nevezetes algoritmusokat leíró osztályokat tartalmaz
-		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk
+		\item Nevezetes programozási tételeket leíró osztályokat tartalmaz
+		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk, visszavezetve a problémát egy nevezetes tételre
 		\item Az adott feladatra jellemző konkrét műveleteket és értékeket adhatjuk meg. (Pl. összegzésnél a neutrális elemet és az összegző műveletet)
-		\item Valamint azt a gyűjteményt, amit feldolgozunk
+		\item A feldolgozandó gyűjteményt futás időben adjuk meg (Függőség befecskendezés)
 	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Osztálysablon könyvtár bemutatása}
+	\includegraphics[scale=0.8]{sablon_hiearhica.png}
+	
+	\begin{block}{run() metódus}
+		\begin{lstlisting}[basicstyle=\small]
+init();
+for (enor->first(); !enor->end(); enor->next()) {
+    body(enor->current());
+}
+		\end{lstlisting}
+	\end{block}
+	
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Osztálysablon könyvtár bemutatása - Példa}	
+	\begin{block}{Feladat}
+		Számítsuk ki egy C++ vectorban elhelyezett számok összegét.
+	\end{block}
+	
+	Az alábbiakat kell meghatározni a megoldásához:
+	\begin{itemize}
+		\item Összegzéssel oldjuk meg a feladatot
+		\item Összegezendő elemek típusa, valamint az eredmény is egész szám. Az összegezendő elemek típusát leképező függvény az identitás.
+		\item Az összegző művelet egyszerű összeadás, a neutrális elem a 0.
+		\item A felsorolandó gyűjtemény pedig egy vector lesz.
+	\end{itemize}
+
+	
+\end{frame}
+
+\begin{frame}[fragile]	
+	\begin{block}{Megoldó osztály}
+		\begin{lstlisting}[basicstyle=\small]
+class SimpleSum : public Summation<int,int> {
+public:
+ int add(const int& a, const int& b) const {
+  return a + b;
+ }
+ int neutral() const {return 0;}
+ int func(const int& e) {return e;}
+}
+		\end{lstlisting}
+	\end{block}
+	
+	\begin{block}{Osztály használata}
+	  	\begin{lstlisting}[basicstyle=\small]
+SimpleSum sum;
+ArrayEnumerator e({1,2,3});
+sum.addProcedure(&e);
+sum.run();
+		\end{lstlisting}
+	\end{block}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Az osztálysablon könyvtár bevezetése az oktatásba}
 	\begin{itemize}
-		\item Néhány éve vezettük be
+		\item 2010-ben vezettük be az oktatásba
 		\vspace*{2px}
 		\item A célja az újrafelhasználás gyakorlása volt
 		\vspace*{2px}
 		\item Vegyes fogadtatásban részesült, számos probléma felmerült a használata során, melynek nagy részét orvosoltuk
 		\vspace*{2px}
-		\item A pozitív tapasztalataink is voltak..
+		\item A pozitív és negatív tapasztalatokat felhasználva megreformáltuk a könyvtárat
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Pozitívumok}
 	\begin{itemize}
-
-		\item Objektumorientált techinkák gyakorlása (leszármazás, függőség befecskendezés, stb..) 
+		\item Robusztus könyvtár, sok feladat megoldására alkalmas
+		\item Objektumorientált technológiák bemutatása, gyakorlása (leszármazás, függőség befecskendezés, stb..) 
 		\vspace*{8px}
-		\item Visszavezetéses techikák gyakorlása
+		\item Visszavezetéses technikák gyakorlása
 		\vspace*{8px}
+		\item Rákényszeríti a hallgatót az elemzésre, tervezésre egyszerű feladatok esetén is
 		\item C++ objektumorientált nyelvi elemek mélyítése, gyakorlása (sablonok, metódusok felül definiálása, stb..)
 		
 	\end{itemize}
@@ -81,34 +139,17 @@
 		\item Kritikák
 		\begin{itemize}
 			\item Nem ipari könyvtár
-			\item Nagyobb kódméret
+			\item Nagyobb kódméret, túl erős technológiákra épül
 			\item Rossz konvenciók alapján íródott
 		\end{itemize}
 		\item Problémák
 		\begin{itemize}
 			\item Nem szakszerű használat
-			\item Túl erős technikákra épül
-			\item Egyre bővülő szabályrendszert kellett  bevezetni a használatára (mit lehet felüldefiniálni, kiből lehet származni..)
+			\item Egyre bővülő szabályrendszert kellett  bevezetni, hogy helyesen használják a hallgatók (mit lehet felüldefiniálni, kiből lehet származni..)
 			\item Összegzés tétele túl általános volt
 		\end{itemize}
 	\end{itemize}
 \end{frame}
-
-%\begin{frame}[fragile]
-%	\frametitle{Összegzés módosításai}
-%	\begin{block}{Régi összegzés}
-%	\begin{lstlisting}[basicstyle=\small]
-%template<typename Item, typename Value>
-%class Summation : public Procedure<Item> {
-% Value * _result;
-%public:
-% virtual void init() = 0;
-% virtual void add(const Item& e) = 0;
-% virtual void cond(const Item& e){return true;}
-%}
-%	\end{lstlisting}
-%	\end{block}
-%\end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Összegzés módosításai}
@@ -119,35 +160,43 @@ void  body(const Item& e) override final {
  if(cond(e))_result = add(_result,e);
 }
 void  cond(const Item& e){return true;}
-void  add(const Item& a, const Item& b) const = 0;
+Value add(const Item& a, const Item& b) const = 0;
 Value neutral() const = 0;
+Value func(const Item& e) const = 0;
 
 	\end{lstlisting}
 	\end{block}
 	
 	\begin{itemize}
-	\item Neutrális elem bevezetése
-	\item Összeadás művelet bevezetése
-	\item Régen az \textit{add} nem volt konstans, ő változtatta meg az eredmény értékét
+	\item Neutrális elem, összeadás művelet, leképező művelet bevezetése
+	\item Az \textit{add} nem volt konstans, nagyon általános volt, ő változtatta meg az eredmény értékét tetszőleges módon
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Új felsorolók}
-	\begin{itemize}
-		\item \textit{StringStreamEnumerator} : Változó hosszúságú sor beolvasásakor hasznos
+		 \textit{StringStreamEnumerator} 
+		 \begin{itemize}
+		 	\item Változó hosszúságú sor beolvasásakor hasznos.
+		 	\item C++ specifikus
+		 	\item Példa: Egy sor egy receptet tartalmaz (pl: "tej 1 liter búzadara 13 evőkanál vaj 6 dkg cukor 5 evőkanál") A recept összetevőit szeretnék eltárolni egy tömbben.
+		 	\item Összegzéssel megoldva: Az \texctit{add} művelet az összefűzés, a semleges elem az üres tömb.
+		 \end{itemize}
 		
-		\item \textit{IntervalEnumerator} : Egy $[m,n]$ diszkrét intervallum értékeit sorolja fel
+		\textit{IntervalEnumerator}
+		\begin{itemize}
+			\item Egy $[m,n]$ diszkrét intervallum értékeit sorolja fel
+			\item Példa: Egy n szám faktoriálisa összegzéssel. Ilyenkor az intervallum $[2,n]$, az \textit{add} művelet egy összeszorzás, a semleges elem pedig az 1.
+		\end{itemize}
 		
-	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Új nyelvi elemek}
 	\begin{itemize}
-		\item Final: Nem engedi a leszármazott osztályokban felül definiálni az adott metódust. Szakszerű használatot segíti elő.
+		\item Final: Nem engedi a leszármazott osztályokban felül definiálni az adott metódust. (pl. az összegzésben a body-t) Nem kell külön kikötni, mit nem definiálhatnak felül a használata során.
 		\item Override: Jelzi, hogy felül definiáljuk egy ősosztály metódusát. Csökkenti a hibázási lehetőségeket a zárthelyiken, ha a hallgatók is használják.
-		\item Barát osztályok bevezetése: Korlátozzuk, hogy a \textit{Procedure} ősosztályból kik származzanak le. Nem kell külön kikötni, hogy nem származhatnak le az ősosztályból.
+		\item Barát osztályok bevezetése: Korlátozzuk, hogy a \textit{Procedure} ősosztályból csak a tételek osztályai származhatnak le. (Nem kell külön kikötni, hogy nem származhatnak le az ősosztályból.)
 		\item Template specializáció: Fájl létrehozó metódus specializálása karakterekre. Javít a kód konvencióján, az új összegzésnél elengedhetetlen összefűzések esetén.
 		\item \textit{nullptr}, \textit{pagrma once}..
 	\end{itemize}

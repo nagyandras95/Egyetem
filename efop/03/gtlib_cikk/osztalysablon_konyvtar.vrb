@@ -6,14 +6,14 @@ void  body(const Item& e) override final {
  if(cond(e))_result = add(_result,e);
 }
 void  cond(const Item& e){return true;}
-void  add(const Item& a, const Item& b) const = 0;
+Value add(const Item& a, const Item& b) const = 0;
 Value neutral() const = 0;
+Value func(const Item& e) const = 0;
 
 	\end{lstlisting}
 	\end{block}
 	
 	\begin{itemize}
-	\item Neutrális elem bevezetése
-	\item Összeadás művelet bevezetése
-	\item Régen az \textit{add} nem volt konstans, ő változtatta meg az eredmény értékét
+	\item Neutrális elem, összeadás művelet, leképező művelet bevezetése
+	\item Az \textit{add} nem volt konstans, nagyon általános volt, ő változtatta meg az eredmény értékét tetszőleges módon
 	\end{itemize}
