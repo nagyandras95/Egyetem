@@ -317,16 +317,17 @@ Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet 
 \item A másik lehetőségünk, hogy a port kódjában közvetlen referenciát tárolunk a kapcsolt portra. Mivel az nem lesz érdekes az üzenetküldés szemantikájában, hogy pontosan melyik konnektoron keresztül kapcsolódnak az adott portok egymáshoz (annak típusa azonban számítani fog), és csak 1-1 kapcsolatok valósítunk meg, így a port kódját nem kell a modell alapján generálnunk, nem fog bővülni, és hatékonyabb megoldást érhetünk el szekvenciális környezetben is, mint a globális adatszerkezettel. 
 \end{enumerate}
 
-Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez még nem elég önmagában. Figyelembe kell vennünk azt is, hogy milyen típusú konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha \textit{Assembly} kapcsolatról.\textit{Delegáció} esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. \textit{Assembly} kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens a műveletünk. (\textit{receive} művelet). Így tudunk kell, hogy a referenciánk milyen kapcsolatban áll a portunkkal. Két lehetőségünk van ennek kifejezésére, a választás nem egyértelmű:
+Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez még nem elég önmagában. Figyelembe kell vennünk azt is, hogy milyen típusú konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha \textit{Assembly} kapcsolatról. Delegációs kapcsolat esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. \textit{Assembly} kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens a műveletünk (\textit{receive} művelet). Így tudunk kell, hogy a referenciánk milyen kapcsolatban áll a portunkkal. Két lehetőségünk van ennek kifejezésére, a választás nem egyértelmű:
 \begin{enumerate}
 \item Virtualizáció használata, \textit{Port} típusú referencia helyett \textit{Connection} típusú referencia, melynek absztrakt művelet eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony. \\\\
 \includegraphics[scale=0.7]{connection.png} \\ \\
-\item Delegáció jelző használata: Marad a \textit{Port} típusú referencia, maga a Port dönti el, melyik művelet hívására van szükség a jelző alapján. Ez a megoldás kevésbé letisztult, de hatékonyabb. \\
+\item Delegáció jelző használata: Marad a \textit{Port} típusú referencia, maga a port dönti el, melyik művelet hívására van szükség a jelző alapján. Ez a megoldás kevésbé letisztult, de hatékonyabb. \\
+\includegraphics[scale=0.9]{connection_with_flag.png}
 
 \end{enumerate}
 
 
-Hasonlóan az interfészekhez, a kapcsolatok esetén is a kevert megoldás lenne a leghatékonyabb. Ha dolgozhatnánk leszármazással, ugyanakkor nem kéne virtualizációt használni. Erre egy kézenfekvő megoldás az lenne, ha a leszármazáskor megadnánk az interfésznek, ki a leszármazottja. \\
+Hasonlóan az interfészek megoldásához, itt is az a megoldás lenne hatékonyabb, mely mindkét megoldás előnyeit kombinálja, tehát nem veszítünk a hatékonyságból, de megtartjuk a tiszta implementációt. Ha dolgozhatnánk leszármazással, ugyanakkor nem kéne virtualizációt használni. Erre egy kézenfekvő megoldás az lenne, ha a leszármazáskor megadnánk az interfésznek sablon paraméterben, ki a leszármazottja. \\
 Cél szintaxis:
 \begin{lstlisting}
 class DelegateConnection : public Connection<DelegateConnection>
@@ -339,8 +340,10 @@ A portokat akkor kapcsoljuk össze, mikor létrehozzuk a rendszer struktúrájá
 \begin{enumerate}
 \item \textit{NoConnection} leszármazással: \\
 \includegraphics[scale=0.6]{extended_connection.png}
+Ebben az esetben a \textit{NoConnection} osztály leszármazik az \textit{IConenction}-ből, így tartalmazza a \textit{Port} típusú \textit{connected} referenciát.
 \item \textit{NoConnection} specializációval: \\
 \includegraphics[scale=0.6]{extended_connection_spec.png}
+Ebben az esetben a \textit{NoConnection} osztály csak egy szereposztály, mellyel specializáljuk az \textit{IConnection} osztályunkat, így elhagyhatjuk belőle a \textit{Port} típusú referenciát is.
 \end{enumerate}
 
 \subsubsection{Különböző port típusok megvalósítása}
