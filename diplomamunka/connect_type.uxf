@@ -9,7 +9,7 @@
       <w>100</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>/Interface1/
+    <panel_attributes>/t1: Interface1/
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -21,7 +21,7 @@
       <w>100</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>/Interface2/
+    <panel_attributes>/t2: Interface2/
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -29,12 +29,13 @@
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>230</y>
+      <y>220</y>
       <w>140</w>
-      <h>30</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+a1</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -54,11 +55,11 @@ m1=type
     <coordinates>
       <x>370</x>
       <y>320</y>
-      <w>110</w>
+      <w>130</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=.
-PortConnector</panel_attributes>
+c1: PortConnector</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -69,7 +70,7 @@ PortConnector</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Port1</panel_attributes>
+    <panel_attributes>p1: Port1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -80,7 +81,7 @@ PortConnector</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Port2</panel_attributes>
+    <panel_attributes>p2: Port2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -141,12 +142,12 @@ PortConnector</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
+      <x>490</x>
       <y>330</y>
-      <w>150</w>
+      <w>130</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
 </diagram>
