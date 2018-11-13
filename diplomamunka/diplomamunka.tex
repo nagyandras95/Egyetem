@@ -77,6 +77,71 @@ Egy asszociációt realizál két port között, melyeknek a tartalmazó osztál
 Interfész portok esetén az elvárt interfész leírja, hogy belülről milyen üzeneteket tudunk küldeni a portnak, mely a külvilág felé áramlik tovább, ezt nevezzük portra való üzenet küldésnek. \\ A szolgáltatott interfész pedig azt mondja meg, milyen üzeneteket tudunk fogadni az adott portról, tehát azt, hogy az osztályon kívülről milyen üzeneteket tudunk fogadni az adott portján. Ezt nevezzük üzenet fogadásnak.
 \subsubsection{Connect művelet}
 A \textit{connect} művelet alapvetően nem létezik UML-ben, \textit{txtUML}-ben azonban ezt használjuk két port összekötésére a konnektoron keresztül. Ahogy később látni fogjuk, a \textit{CreateLink} műveletet fogjuk használni ugyanerre a célra, mivel a szabvány szerint dinamikusan csak ezen művelet mentén tudunk összekötni két elemet.
+
+\section{A txtUML kompozit elemei}
+\subsection{Interfészek megadása}
+\begin{lstlisting}
+public interface ExampleInterface extends Interface {
+  public void reception(ExampleSignal1 signal);
+  public void reception(ExampleSignal2 signal);
+}
+\end{lstlisting}
+Ebben az esetben az \textit{ExampleSignal1} és az \textit{ExampleSignal2} eseményeket képes fogadni az \textit{ExampleInterface} a fogadó végpontjain keresztül.
+ 
+\subsection{Portok felvétele}
+\begin{lstlisting}
+public class ExamplePort extends Port<Interface1,Interface2> {}
+\end{lstlisting}
+\
+Állapotgéppel összekapcsolt portok:
+\begin{lstlisting}
+@BehaviorPort
+public class ExamplePort extends Port<Interface1,Interface2> {}
+\end{lstlisting}
+Ebben az esetben az \textit{ExamplePort} interfészei az \textit{Interface1} és az \textit{Interface2}
+
+
+\subsection{Konnektorok}
+\subsubsection{Konnektor} 
+Mivel a portok kompozíciók szerepei között húzódnak, nézzük meg, hogyan néz ki egy kompozíció leírása:
+\begin{lstlisting}
+class ExampleComposition extends Composition {
+  class a extends ContainerEnd<A> {}
+  class b extends End<One<B>> {}
+}
+\end{lstlisting}
+Itt \textit{A} a tartalmazó osztály \textit{a} szereppel van feltöltetve a kompozícióban, aki tartalmaz egy \textit{B} típusú osztályt \textit{b} szereppel.
+
+\subsubsection{Assembly konnektor}
+
+\textit{A}-nak legyen két része: \textit{Comp1.b} egy \textit{B} típusú része és \textit{Comp2.c} egy \textit{C} típusú. Legyen \textit{P} \textit{B}-nek egy portja és \textit{Q} \textit{C}-nek egy portja. Ekkor összeköthetjük \textit{P}-t \textit{b} és \textit{Q} \textit{b} és textit{c} szerepek mentén egy assembly konnektor segítségével. 
+
+\begin{lstlisting}
+public class ExampleConnector extends Connector {
+  public class connEnd1 extends One<Comp1.b, B.P> {}
+  public class connEnd2 extends One<Comp2.c, C.Q> {}
+}
+\end{lstlisting}
+
+\subsubsection{Delegációs konnektor}
+Ha \textit{Comp3.d} egy\textit{D} típusú része \textit{A}-nak, \textit{A}-nak a szerepe \textit{Comp3.a}, \textit{R} \textit{A}-nak egy portja, \textit{S} \textit{D}-nek egy portja, akkor egy delegációs konnektor \textit{R} és \textit{S} között a következőképpen nézhet ki:
+\begin{lstlisting}
+public class ExampleDelegation extends Delegation {
+  public class connEnd1 extends One<Comp3.a, A.R> {}
+  public class connEnd2 extends One<Comp3.d, D.S> {}
+}
+\end{lstlisting}
+
+\subsubsection{Átmenetek kibővítése}
+Az állapotátmeneteket \textit{Trigger}-ét kibővítettük egy \textit{port} dimenzióval, mely azt mondja meg, hogy az \textit{value} értéken szerepelő üzenetnek melyik port legyen a forrása, hogy az átmenet végbemenjen.
+\begin{lstlisting}
+@From(State1.class) @To(State2.class)
+@Trigger(port = ExamplePort.class, value = ExampleSignal.class)
+class ExampleTransition extends Transition {}
+\end{lstlisting}
+
+Ez esetben, ha \textit{State1}-ben vagyunk, és az állapotgépnek küldjünk egy  \textit{ExampleSignal}-t, akkor, ha ennek forrása a \textit{ExamplePort}, átlépünk a \textit{State2} állapotba.
+
 \chapter{Áttekintés}
 
 \section{Szabványok és keretrendszerek áttekintése}
@@ -232,7 +297,7 @@ Ezek után technikailag többféle lehetőségünk van megvalósítani a validá
 \begin{enumerate}
 
 \item Generáljunk egy üres osztályt az interfészekből, majd a szignálok származzanak le aszerint, hogy melyik interfész fogadó műveletei között vannak benne: \\
-PL: UML interfész neve: PingPongInterfce, a receptionjai pedig a következő szignálokat fogadják: Ping, Pong \\
+PL: UML interfész neve: PingPongInterfce, a fogadó végpontjai pedig a következő szignálokat fogadják: \textit{Ping}, \textit{Pong} \\
 Majd a portnak legyen egy \textit{send} művelete, ami az elvárt interfész alá sorolt szignálokat várja, vagyis olyan szignálokat, melyek implementálják a megfelelő interfészt.
 Mindezzel fordítási időben biztosítjuk, hogy ne adhassunk át olyan szignált, melyet nem soroltunk az elvárt interfész szignáljai közé. Hasonlóan, a \textit{receive} művelet olyan szignálokat vár, melyek leszármazottjai a szolgáltatott interfésznek. \\
 
@@ -389,14 +454,14 @@ Kompozit struktúra: \\
 Megoldás szemléltetés objektumdiagrammal: \\
 \includegraphics[scale=0.5]{conn_role.png}
 
-Ekkor az ábrán azt láthatjuk, hogy a p1 port, mely a kapcsolatban r1 szereppel áll, tartalmaz egy kapcsolt portot r2 szereppel, és fordítva. A \textit{Connection} objektumok pedig értelem szerűen a szerepüknek megfelelő portot tartalmazzák. Amikor pedig beállítjuk a megfelelő kapcsolatot, akkor csak a megfelelő típusú és megfelelő szerepű végpontot adhatjuk meg (a p1 portnak pl. csak Assembly végpontot r2 szereppel), egyébként pedig fordítási hibát kapnánk. 
+Ekkor az ábrán azt láthatjuk, hogy a \textit{p1} port - mely a kapcsolatban \textit{r1} szereppel áll - tartalmaz egy kapcsolt portot \textit{r2 }szereppel, és fordítva. A \textit{Connection} objektumok pedig értelem szerűen a szerepüknek megfelelő portot tartalmazzák. Amikor pedig beállítjuk a megfelelő kapcsolatot, akkor csak a megfelelő típusú és megfelelő szerepű végpontot adhatjuk meg (a \textit{p1} portnak \textit{rl} és szerepet csak Assembly végpontot \textit{r2} szereppel), egyébként pedig fordítási hibát kapnánk. 
 \end{enumerate}
 
 \section{Kommunikáció megvalósítása C++-ban}
-Végül még érdemes néhány szót ejteni a kommunikációs szemantikáról. Ennek nagy részét már tisztáztuk. Megvizsgáltuk a portra való üzenetküldés szemantikát az osztályon belülről. Ekkor az üzentet kifele továbbítjuk, egy másik port fogja megkapni. Ebben a fejezetben csak az lesz az érdekes, hogy az üzenetáram végén, amikor eljut az üzenet egy állapotgéphez, hogyan fogjuk feldolgozni. Így csak az állapotgéppel összekapcsolt portok fogadó (\textit{receive}) műveletei lesznek érdekesek számunkra ebben a fejezetben. A port tartalmaz egy referenciát az állapotgépre, így tudja neki továbbítani az üzenetet. \ref{cpp_gen_port} fejezetben láttuk, hogy a portokkal való kommunikációt hasonlóan fogjuk kezelni, mint ahogy eddig az üzenetküldést kezeltük, tehát továbbítjuk az üzenetet az állapotgép felé. Azonban a nyers továbbítás kevés lenne, mivel egy objektum állapotgépe egy adott porton történő állapotváltozásra kell reagáljon. Így az üzenet feldolgozásakor tisztában kell lennünk azzal, melyik porttól kaptuk meg az adott üzenetet. Az UML szabványban egy adott átmenetnél felsorolhatjuk az adott portokat, melyről az adott üzenetet várjuk. \textit{txtUML}-ben csak egy portot adhatunk meg, vagy jelezhetjük, hogy az adott üzenet bárhonnan érkezhet, porton kívülről is, vagy bármely portról. Ennek megfelelően megfelelően mindenképpen a meglévő állapot-átmenet táblát érdemes kibővíteni egy új dimenzióval: Megadni, hogy az átmenetben szereplő üzenet potenciálisan mely portokról jöhet, hogy az állapotgép reagáljon rá. \\
+Végül még érdemes néhány szót ejteni a kommunikációs szemantikáról. Ennek nagy részét már tisztáztuk. Megvizsgáltuk a portra való üzenetküldés szemantikát az osztályon belülről. Ekkor az üzentet kifele továbbítjuk, egy másik port fogja megkapni. Ebben a fejezetben csak az lesz az érdekes, hogy az üzenetáram végén, amikor eljut az üzenet egy állapotgéphez, hogyan fogjuk feldolgozni. Így csak az állapotgéppel összekapcsolt portok fogadó (\textit{receive}) műveletei lesznek érdekesek számunkra ebben a fejezetben. A port tartalmaz egy referenciát az állapotgépre, így tudja neki továbbítani az üzenetet. \ref{cpp_gen_port} fejezetben láttuk, hogy a portokkal való kommunikációt hasonlóan fogjuk kezelni, mint ahogy eddig az üzenetküldést kezeltük, tehát továbbítjuk az üzenetet az állapotgép felé. Azonban a nyers továbbítás kevés lenne, mivel egy objektum állapotgépe egy adott porton történő állapotváltozásra kell reagáljon. Így az üzenet feldolgozásakor tisztában kell lennünk azzal, melyik porttól kaptuk meg az adott üzenetet. Az \textit{UML} szabványban egy adott átmenetnél felsorolhatjuk az adott portokat, melyről az adott üzenetet várjuk. \textit{txtUML}-ben csak egy portot adhatunk meg, vagy jelezhetjük, hogy az adott üzenet bárhonnan érkezhet, porton kívülről is, vagy bármely másik portról. (\textit{AnyPort}) Ennek megfelelően a meglévő állapot-átmenet táblát érdemes kibővíteni egy új dimenzióval: Megadni, hogy az átmenetben szereplő üzenet potenciálisan mely portokról jöhet, hogy az állapotgép reagáljon rá. \\
 Eddig esemény-állapot táblánk volt, mely megadta, melyik átmenetnek kell végrehajtódnia. \cite{hack_dip} Most vizsgáljuk meg, hogyan tudjuk kiterjeszteni ezt a táblát.
 \begin{enumerate}
-\item Egy darab port típus, és állapot-esemény-port hármasokat fog tartalmazni az átmenet táblánk. Mielőtt egy port továbbítja az állapotgépnek az üzenetet, beállítja az eseményen a port infót, így tudni fogjuk, honnan érkezett. Ez az esetünkben jól fog működni, mivel csak egyféle portról jöhet az üzenet. Azonban, ha azt adjuk meg, hogy bármelyik portról érkezhet az üzenet, már problémákba ütközünk, mivel ilyenkor nincs megadva port dimenzió a táblában, az üzenetben viszont igen. Ezt speciálisan le tudjuk kezelni az üzenetfeldolgozás során, azonban ez nem elég általános megoldás. \\
+\item Egy darab port típus, és állapot-esemény-port hármasokat fog tartalmazni az átmenet táblánk. Mielőtt egy port továbbítja az állapotgépnek az üzenetet, beállítja az eseményen a port infót, így tudni fogjuk, honnan érkezett. Ez az esetünkben jól fog működni, mivel csak egyféle portról jöhet az üzenet. Azonban, ha azt adjuk meg, hogy bármelyik portról érkezhet (\textit{AnyPort}) az üzenet, már problémákba ütközünk, mivel ilyenkor nincs megadva port dimenzió a táblában, az üzenetben viszont a forrás port beállítja önmagát. Ezt speciálisan le tudjuk kezelni az üzenetfeldolgozás során, azonban ez nem elég általános megoldás. \\
 
 \begin{center}
 \begin{tabular}{@{}ccc|c@{}} \toprule
@@ -408,7 +473,7 @@ EventN 	& StateN 	& PortN & TtransitionN-GuardN
 \end{tabular}
 \small
 \end{center}
-\item Általánosabb megoldás, ha a port helyett megadhatnánk egy maskban azokat a portokat, melyek üzeneteit megfigyeli az adott átmenet. Mivel egy üzenet továbbra is csak egy helyről érkezhet, így elég lenne csak azt vizsgálunk, hogy az állapot-esemény alapján megkeresett átmenet portjai között szerepel-e a az a port, melyről az üzenet érkezett. Itt a Port dimenzió a táblázat értékei között jelenik meg. A táblából, hasonlóan az eddigiekhez, állapot-esemény pár alapján keresünk, melyből megkapjuk az átmenet függvénymutatót, az őrfeltételt, valamint a megfigyelt portokat. Ekkor azt az átmenetet hajtjuk végre, melynek portjai között szerepel az üzenet portja vagy a \textit{NoPort} speciális típus. \textit{AnyPort} esetén az összes lehetséges Portot belerakjuk az átmenetbe, valamint a \textit{NoPort} típust is. \\
+\item Általánosabb megoldás, ha a port helyett megadhatnánk egy maskban azokat a portokat, melyek üzeneteit megfigyeli az adott átmenet. Mivel egy üzenet továbbra is csak egy helyről érkezhet, így elég lenne csak azt vizsgálunk, hogy az állapot-esemény alapján megkeresett átmenet portjai között szerepel-e a az a port, melyről az üzenet érkezett. Itt a port dimenzió a táblázat értékei között jelenik meg. A táblából, hasonlóan az eddigiekhez, állapot-esemény pár alapján keresünk, melyből megkapjuk az átmenet függvénymutatót, az őrfeltételt, valamint a megfigyelt portokat. Ekkor azt az átmenetet hajtjuk végre, melynek portjai között szerepel az üzenet portja vagy a \textit{NoPort} speciális típus. \textit{AnyPort} esetén az osztály összes portját belerakjuk az átmenet tábla megfelelő értékei közép, valamint egy speciális \textit{NoPort} típust is, mely az alapértelmezett értéke lesz egy üzenet port infójának. \\
 
 \begin{center}
 \begin{tabular}{@{}cc|c@{}} \toprule
