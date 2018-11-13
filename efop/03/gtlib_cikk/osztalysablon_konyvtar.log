@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  8 NOV 2018 09:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  9 NOV 2018 12:37
 entering extended mode
 **./osztalysablon_konyvtar.tex
 (osztalysablon_konyvtar.tex
@@ -1660,17 +1660,6 @@ Package pdftex.def Info: efop-logo.jpg  used on input line 174.
 [9
 
 ]
-! Undefined control sequence.
-\beamer@doifinframe ...ssel megoldva: Az \texctit 
-                                                  {add} művelet az összef�...
-l.192 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1685,7 +1674,7 @@ File: efop-logo.jpg Graphic file (type jpg)
 <use efop-logo.jpg>
 Package pdftex.def Info: efop-logo.jpg  used on input line 192.
 (pdftex.def)             Requested size: 91.04872pt x 62.90826pt.
-[10
+ [10
 
 ]
 File: efop-logo.jpg Graphic file (type jpg)
@@ -1728,10 +1717,10 @@ Package rerunfilecheck Info: File `osztalysablon_konyvtar.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21580 strings out of 493305
- 397784 string characters out of 3129803
+ 21579 strings out of 493305
+ 397777 string characters out of 3129803
  483063 words of memory out of 3000000
- 24586 multiletter control sequences out of 15000+200000
+ 24585 multiletter control sequences out of 15000+200000
  67001 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,66p,791b,1664s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1746,7 +1735,7 @@ lic/lm/lmss10.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 ype1/public/lm/lmss8.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/lm/lmsso10.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy10.pfb>
-Output written on osztalysablon_konyvtar.pdf (13 pages, 218054 bytes).
+Output written on osztalysablon_konyvtar.pdf (13 pages, 218073 bytes).
 PDF statistics:
  151 PDF objects out of 1000 (max. 8388607)
  27 named destinations out of 1000 (max. 500000)
