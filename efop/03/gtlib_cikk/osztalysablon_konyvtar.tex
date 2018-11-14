@@ -44,8 +44,8 @@
 	\begin{itemize}
 		\item Nevezetes programozási tételeket leíró osztályokat tartalmaz
 		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk, visszavezetve a problémát egy nevezetes tételre
-		\item Az adott feladatra jellemző konkrét műveleteket és értékeket adhatjuk meg. (Pl. összegzésnél a neutrális elemet és az összegző műveletet)
-		\item A feldolgozandó gyűjteményt futás időben adjuk meg (Függőség befecskendezés)
+		\item Az adott feladatra jellemző tulajdonságokat és értékeket adhatjuk meg. (Pl. számlálásnál a feltételt)
+		\item A feldolgozandó elemek felsorolóját futás időben adjuk meg (Függőség befecskendezés)
 	\end{itemize}
 \end{frame}
 
@@ -68,15 +68,15 @@ for (enor->first(); !enor->end(); enor->next()) {
 \begin{frame}[fragile]
 	\frametitle{Osztálysablon könyvtár bemutatása - Példa}	
 	\begin{block}{Feladat}
-		Számítsuk ki egy C++ vectorban elhelyezett számok összegét.
+		Számítsuk ki egy C++ vektorban elhelyezett számok összegét.
 	\end{block}
 	
 	Az alábbiakat kell meghatározni a megoldásához:
 	\begin{itemize}
 		\item Összegzéssel oldjuk meg a feladatot
-		\item Összegezendő elemek típusa, valamint az eredmény is egész szám. Az összegezendő elemek típusát leképező függvény az identitás.
+		\item A feldolgozandó elemek, valamint az eredmény típusa is ugyanaz (egész szám).
 		\item Az összegző művelet egyszerű összeadás, a neutrális elem a 0.
-		\item A felsorolandó gyűjtemény pedig egy vector lesz.
+		\item Egy \textit{std::vector} elemeit kell felsorolni.
 	\end{itemize}
 
 	
@@ -109,13 +109,13 @@ sum.run();
 \begin{frame}
 	\frametitle{Az osztálysablon könyvtár bevezetése az oktatásba}
 	\begin{itemize}
-		\item 2010-ben vezettük be az oktatásba
+		\item 2009-ben vezettük be az oktatásba
 		\vspace*{2px}
 		\item A célja az újrafelhasználás gyakorlása volt
 		\vspace*{2px}
-		\item Vegyes fogadtatásban részesült, számos probléma felmerült a használata során, melynek nagy részét orvosoltuk
+		\item Számos negatív és pozitív tapasztalat gyűlt össze
 		\vspace*{2px}
-		\item A pozitív és negatív tapasztalatokat felhasználva megreformáltuk a könyvtárat
+		\item Ezeket tapasztalatokat felhasználva megreformáltuk a könyvtárat
 	\end{itemize}
 \end{frame}
 
@@ -138,14 +138,13 @@ sum.run();
 	\begin{itemize}
 		\item Kritikák
 		\begin{itemize}
-			\item Nem ipari könyvtár
+			\item Iparban nem használt könyvtár
 			\item Nagyobb kódméret, túl erős technológiákra épül
-			\item Rossz konvenciók alapján íródott
+			\item Elavult C++ nyelvi konvenciók
 		\end{itemize}
 		\item Problémák
 		\begin{itemize}
-			\item Nem szakszerű használat
-			\item Egyre bővülő szabályrendszert kellett  bevezetni, hogy helyesen használják a hallgatók (mit lehet felüldefiniálni, kiből lehet származni..)
+			\item Nem szakszerűen használták: Egyre bővülő szabályrendszert kellett  bevezetni, hogy helyesen használják a hallgatók (mit lehet felüldefiniálni, kiből lehet származni..)
 			\item Összegzés tétele túl általános volt
 		\end{itemize}
 	\end{itemize}
