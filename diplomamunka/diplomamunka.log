@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  13 NOV 2018 18:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  15 NOV 2018 16:51
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1618,30 +1618,12 @@ Overfull \hbox (59.28848pt too wide) in paragraph at lines 454--456
 [] 
  []
 
-
-Underfull \hbox (badness 1515) in paragraph at lines 461--463
-\OT1/cmr/m/n/12 Eddig esemeny-allapot tablank volt, mely meg-ad-ta, me-lyik
- atmenetnek kell
- []
-
 [37 <./conn_role_comp.png (PNG copy)> <./conn_role.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 [38]
-Underfull \hbox (badness 1077) in paragraph at lines 476--477
-[][]\OT1/cmr/m/n/12 Altalanosabb meg-oldas, ha a port he-lyett meg-ad-hatnan
-k egy mask-ban
- []
-
-
-Underfull \hbox (badness 1803) in paragraph at lines 476--477
-\OT1/cmr/m/n/12 allapot-esemeny par alapjan ke-resunk, melyb}ol meg-kap-ju
-k az atmenet
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
@@ -1811,7 +1793,7 @@ l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Imola
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C
 :/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.
 pfb>
-Output written on diplomamunka.pdf (52 pages, 479166 bytes).
+Output written on diplomamunka.pdf (52 pages, 479269 bytes).
 PDF statistics:
  711 PDF objects out of 1000 (max. 8388607)
  194 named destinations out of 1000 (max. 500000)
