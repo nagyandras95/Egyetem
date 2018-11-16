@@ -14,6 +14,6 @@ Value func(const Item& e) const = 0;
 	\end{block}
 	
 	\begin{itemize}
-	\item Neutrális elem, összeadás művelet, leképező művelet bevezetése
-	\item Az \textit{add} nem volt konstans, nagyon általános volt, ő változtatta meg az eredmény értékét tetszőleges módon
+	\item Neutrális elem, összeadás művelet, leképező művelet bevezetése.
+	\item Az \textit{add} nem volt konstans, nagyon általános volt, ő változtatta meg az eredmény értékét tetszőleges módon.
 	\end{itemize}

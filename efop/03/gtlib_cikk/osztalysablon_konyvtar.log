@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  14 NOV 2018 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  16 NOV 2018 11:55
 entering extended mode
 **./osztalysablon_konyvtar.tex
 (osztalysablon_konyvtar.tex
@@ -1660,23 +1660,23 @@ Package pdftex.def Info: efop-logo.jpg  used on input line 173.
 [9
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 191.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 191.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 191.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 191.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 191.
 File: efop-logo.jpg Graphic file (type jpg)
 <use efop-logo.jpg>
-Package pdftex.def Info: efop-logo.jpg  used on input line 191.
+Package pdftex.def Info: efop-logo.jpg  used on input line 184.
 (pdftex.def)             Requested size: 91.04872pt x 62.90826pt.
  [10
 
 ]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 202.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 202.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 202.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 202.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 202.
 File: efop-logo.jpg Graphic file (type jpg)
 <use efop-logo.jpg>
 Package pdftex.def Info: efop-logo.jpg  used on input line 202.
@@ -1735,7 +1735,7 @@ lic/lm/lmss10.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 ype1/public/lm/lmss8.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/lm/lmsso10.pfb><C:/Users/Imola/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy10.pfb>
-Output written on osztalysablon_konyvtar.pdf (13 pages, 218524 bytes).
+Output written on osztalysablon_konyvtar.pdf (13 pages, 219252 bytes).
 PDF statistics:
  151 PDF objects out of 1000 (max. 8388607)
  27 named destinations out of 1000 (max. 500000)

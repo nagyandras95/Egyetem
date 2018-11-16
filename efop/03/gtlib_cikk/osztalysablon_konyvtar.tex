@@ -42,10 +42,10 @@
 	\frametitle{Osztálysablon könyvtár bemutatása}
 	
 	\begin{itemize}
-		\item Nevezetes programozási tételeket leíró osztályokat tartalmaz
-		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk, visszavezetve a problémát egy nevezetes tételre
-		\item Az adott feladatra jellemző tulajdonságokat és értékeket adhatjuk meg. (Pl. számlálásnál a feltételt)
-		\item A feldolgozandó elemek felsorolóját futás időben adjuk meg (Függőség befecskendezés)
+		\item Nevezetes programozási tételeket leíró osztályokat tartalmaz.
+		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk, visszavezetve a problémát egy nevezetes tételre.
+		\item A leszármazott osztályban az adott feladatra jellemző tulajdonságokat és értékeket adhatjuk meg. (Pl. számlálásnál a feltételt)
+		\item A feldolgozandó elemek felsorolóját futás időben adjuk meg. (Függőség befecskendezés)
 	\end{itemize}
 \end{frame}
 
@@ -73,7 +73,7 @@ for (enor->first(); !enor->end(); enor->next()) {
 	
 	Az alábbiakat kell meghatározni a megoldásához:
 	\begin{itemize}
-		\item Összegzéssel oldjuk meg a feladatot
+		\item Összegzéssel oldjuk meg a feladatot.
 		\item A feldolgozandó elemek, valamint az eredmény típusa is ugyanaz (egész szám).
 		\item Az összegző művelet egyszerű összeadás, a neutrális elem a 0.
 		\item Egy \textit{std::vector} elemeit kell felsorolni.
@@ -109,26 +109,26 @@ sum.run();
 \begin{frame}
 	\frametitle{Az osztálysablon könyvtár bevezetése az oktatásba}
 	\begin{itemize}
-		\item 2009-ben vezettük be az oktatásba
+		\item 2009-ben vezettük be az oktatásba.
 		\vspace*{2px}
-		\item A célja az újrafelhasználás gyakorlása volt
+		\item A célja az újrafelhasználás gyakorlása volt.
 		\vspace*{2px}
-		\item Számos negatív és pozitív tapasztalat gyűlt össze
+		\item Számos negatív és pozitív tapasztalat gyűlt össze.
 		\vspace*{2px}
-		\item Ezeket tapasztalatokat felhasználva megreformáltuk a könyvtárat
+		\item Ezeket tapasztalatokat felhasználva megreformáltuk a könyvtárat.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Pozitívumok}
 	\begin{itemize}
-		\item Robusztus könyvtár, sok feladat megoldására alkalmas
-		\item Objektumorientált technológiák bemutatása, gyakorlása (leszármazás, függőség befecskendezés, stb..) 
+		\item Robusztus könyvtár, sok feladat megoldására alkalmas.
+		\item Objektumorientált technológiák bemutatása, gyakorlása. (leszármazás, függőség befecskendezés, stb..) 
 		\vspace*{8px}
-		\item Visszavezetéses technikák gyakorlása
+		\item Visszavezetéses technikák gyakorlása.
 		\vspace*{8px}
-		\item Rákényszeríti a hallgatót az elemzésre, tervezésre egyszerű feladatok esetén is
-		\item C++ objektumorientált nyelvi elemek mélyítése, gyakorlása (sablonok, metódusok felül definiálása, stb..)
+		\item Rákényszeríti a hallgatót az elemzésre, tervezésre egyszerű feladatok esetén is.
+		\item C++ objektumorientált nyelvi elemek mélyítése, gyakorlása. (sablonok, metódusok felül definiálása, stb..)
 		
 	\end{itemize}
 \end{frame}
@@ -138,14 +138,14 @@ sum.run();
 	\begin{itemize}
 		\item Kritikák
 		\begin{itemize}
-			\item Iparban nem használt könyvtár
-			\item Nagyobb kódméret, túl erős technológiákra épül
-			\item Elavult C++ nyelvi konvenciók
+			\item Iparban nem használt könyvtár.
+			\item Nagyobb kódméret, túl erős technológiákra épül.
+			\item Elavult C++ nyelvi konvenciók.
 		\end{itemize}
 		\item Problémák
 		\begin{itemize}
-			\item Nem szakszerűen használták: Egyre bővülő szabályrendszert kellett  bevezetni, hogy helyesen használják a hallgatók (mit lehet felüldefiniálni, kiből lehet származni..)
-			\item Összegzés tétele túl általános volt
+			\item Nem szakszerűen használták: Egyre bővülő szabályrendszert kellett  bevezetni, hogy helyesen használják a hallgatók (mit lehet felüldefiniálni, kiből lehet származni, stb..)
+			\item Összegzés tétele túl általános volt.
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -167,27 +167,9 @@ Value func(const Item& e) const = 0;
 	\end{block}
 	
 	\begin{itemize}
-	\item Neutrális elem, összeadás művelet, leképező művelet bevezetése
-	\item Az \textit{add} nem volt konstans, nagyon általános volt, ő változtatta meg az eredmény értékét tetszőleges módon
+	\item Neutrális elem, összeadás művelet, leképező művelet bevezetése.
+	\item Az \textit{add} nem volt konstans, nagyon általános volt, ő változtatta meg az eredmény értékét tetszőleges módon.
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Új felsorolók}
-		 \textit{StringStreamEnumerator} 
-		 \begin{itemize}
-		 	\item Változó hosszúságú sor beolvasásakor hasznos.
-		 	\item C++ specifikus
-		 	\item Példa: Egy sor egy receptet tartalmaz (pl: "tej 1 liter búzadara 13 evőkanál vaj 6 dkg cukor 5 evőkanál") A recept összetevőit szeretnék eltárolni egy tömbben.
-		 	\item Összegzéssel megoldva: Az \textit{add} művelet az összefűzés, a semleges elem az üres tömb.
-		 \end{itemize}
-		
-		\textit{IntervalEnumerator}
-		\begin{itemize}
-			\item Egy $[m,n]$ diszkrét intervallum értékeit sorolja fel
-			\item Példa: Egy n szám faktoriálisa összegzéssel. Ilyenkor az intervallum $[2,n]$, az \textit{add} művelet egy összeszorzás, a semleges elem pedig az 1.
-		\end{itemize}
-		
 \end{frame}
 
 \begin{frame}
@@ -195,18 +177,36 @@ Value func(const Item& e) const = 0;
 	\begin{itemize}
 		\item Final: Nem engedi a leszármazott osztályokban felül definiálni az adott metódust. (pl. az összegzésben a body-t) Nem kell külön kikötni, mit nem definiálhatnak felül a használata során.
 		\item Override: Jelzi, hogy felül definiáljuk egy ősosztály metódusát. Csökkenti a hibázási lehetőségeket a zárthelyiken, ha a hallgatók is használják.
-		\item Barát osztályok bevezetése: Korlátozzuk, hogy a \textit{Procedure} ősosztályból csak a tételek osztályai származhatnak le. (Nem kell külön kikötni, hogy nem származhatnak le az ősosztályból.)
-		\item Template specializáció: Fájl létrehozó metódus specializálása karakterekre. Javít a kód konvencióján, az új összegzésnél elengedhetetlen összefűzések esetén.
-		\item \textit{nullptr}, \textit{pagrma once}..
+		\item Barát osztályok bevezetése: Ezzel korlátozzuk, hogy a \textit{Procedure} ősosztályból csak a tételek osztályai származhatnak le. (Nem kell külön kikötni, hogy nem származhatnak le az ősosztályból.)
+		\item Template specializáció: Fájl létrehozó metódus specializálása karakterekre. Javít a kód konvencióján, az új összegzésnél a \textit{body} specializálása arra az esetre, amikor az eredmény egy kimeneti folyam.
+		\item Egyebek: \textit{nullptr}, \textit{pagrma once}.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Új felsorolók}
+		 \textit{StringStreamEnumerator} 
+		 \begin{itemize}
+		 	\item Olyankor hasznos, amikor egy sorból (sztringből) előre nem ismert számú adatot kell kinyerni.
+		 	\item C++ specifikus.
+		 	\item Példa: Egy sor egy receptet tartalmaz (pl: "tej 1 liter búzadara 13 evőkanál vaj 6 dkg cukor 5 evőkanál") A recept összetevőit szeretnék eltárolni egy tömbben.
+		 	\item Összegzéssel megoldva: Az \textit{add} művelet az összefűzés, a semleges elem az üres tömb. A \textit{StringStreamEnumerator} sorolja fel egyesével a recept összetevőit, melyet egy sorból nyer ki.
+		 \end{itemize}
+		
+		\textit{IntervalEnumerator}
+		\begin{itemize}
+			\item Egy $[m,n]$ diszkrét intervallum értékeit sorolja fel.
+			\item Példa: Egy n szám faktoriálisa összegzéssel. Ilyenkor az intervallum $[2,n]$, az \textit{add} művelet egy összeszorzás, a semleges elem pedig az \textit{1}.
+		\end{itemize}
+		
 \end{frame}
 
 \begin{frame}
 	\frametitle{Összefoglalás, eredmények}
 	\begin{itemize}
-		\item Új helyre került a könyvtár bevezetése, a felsorolós programozási tételek után tanulják közvetlenül, gyakorolva a visszavezetési technikákat.
+		\item Más tantárgyba került a bevezetése, a felsorolós programozási tételek után tanulják közvetlenül, gyakorolva a visszavezetési technikákat.
 		\item Javult a könyvtár kódjának tisztasága.
-		\item Az új nyelvi elemekkel elősegítettük a szakszerű használatot, nincs szükség annyira kikötésre.
+		\item Az új nyelvi elemekkel elősegítettük a szakszerű használatot, nincs szükség annyi szöveges kikötésre.
 		\item A könyvtár hasznos didaktikai eszköznek bizonyult. (Hangsúlyozni kell a hallgatóknak a könyvtár célját..)
 	\end{itemize}
 \end{frame}
