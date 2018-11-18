@@ -45,7 +45,7 @@
 		\item Nevezetes programozási tételeket leíró osztályokat tartalmaz.
 		\item Konkrét feladatok megoldása esetén leszármazással dolgozunk, visszavezetve a problémát egy nevezetes tételre.
 		\item A leszármazott osztályban az adott feladatra jellemző tulajdonságokat és értékeket adhatjuk meg. (Pl. számlálásnál a feltételt)
-		\item A feldolgozandó elemek felsorolóját futás időben adjuk meg. (Függőség befecskendezés)
+		\item A feldolgozandó elemek felsorolóját futási időben adjuk meg. (Függőség befecskendezés)
 	\end{itemize}
 \end{frame}
 
@@ -100,7 +100,7 @@ public:
 	  	\begin{lstlisting}[basicstyle=\small]
 SimpleSum sum;
 ArrayEnumerator e({1,2,3});
-sum.addProcedure(&e);
+sum.addEnumerator(&e);
 sum.run();
 		\end{lstlisting}
 	\end{block}
@@ -156,7 +156,7 @@ sum.run();
 	\begin{lstlisting}[basicstyle=\small]
 void  init() override final{_result=neutral();}
 void  body(const Item& e) override final {
- if(cond(e))_result = add(_result,e);
+ if(cond(e))_result = add(_result,func(e));
 }
 void  cond(const Item& e){return true;}
 Value add(const Item& a, const Item& b) const = 0;
@@ -178,8 +178,8 @@ Value func(const Item& e) const = 0;
 		\item Final: Nem engedi a leszármazott osztályokban felül definiálni az adott metódust. (pl. az összegzésben a body-t) Nem kell külön kikötni, mit nem definiálhatnak felül a használata során.
 		\item Override: Jelzi, hogy felül definiáljuk egy ősosztály metódusát. Csökkenti a hibázási lehetőségeket a zárthelyiken, ha a hallgatók is használják.
 		\item Barát osztályok bevezetése: Ezzel korlátozzuk, hogy a \textit{Procedure} ősosztályból csak a tételek osztályai származhatnak le. (Nem kell külön kikötni, hogy nem származhatnak le az ősosztályból.)
-		\item Template specializáció: Fájl létrehozó metódus specializálása karakterekre. Javít a kód konvencióján, az új összegzésnél a \textit{body} specializálása arra az esetre, amikor az eredmény egy kimeneti folyam.
-		\item Egyebek: \textit{nullptr}, \textit{pagrma once}.
+		\item Template specializáció: Két helyen alkalmaztuk. Egyrészt a \textit{SeqInFileEnumerator}-nál (a konstruktorban hívott \textit{create\_ifstream()} metódusra), amikor egy szöveges állomány elemeit karakterenként kell olvasni, másrészt a \textit{Summation}-nél (a \textit{body} metódusra), amikor az összegzés eredménye egy kimeneti folyam
+		\item Egyebek: \textit{nullptr}, \textit{\#pagrma once}.
 	\end{itemize}
 \end{frame}
 
@@ -187,10 +187,10 @@ Value func(const Item& e) const = 0;
 	\frametitle{Új felsorolók}
 		 \textit{StringStreamEnumerator} 
 		 \begin{itemize}
-		 	\item Olyankor hasznos, amikor egy sorból (sztringből) előre nem ismert számú adatot kell kinyerni.
+		 	\item Olyankor hasznos, amikor egy sztringből (például egy szöveges állomány egy sorából) előre nem ismert számú adatok kell kinyerni.
 		 	\item C++ specifikus.
 		 	\item Példa: Egy sor egy receptet tartalmaz (pl: "tej 1 liter búzadara 13 evőkanál vaj 6 dkg cukor 5 evőkanál") A recept összetevőit szeretnék eltárolni egy tömbben.
-		 	\item Összegzéssel megoldva: Az \textit{add} művelet az összefűzés, a semleges elem az üres tömb. A \textit{StringStreamEnumerator} sorolja fel egyesével a recept összetevőit, melyet egy sorból nyer ki.
+		 	\item Összegzéssel megoldva: \textit{StringStreamEnumerator} sorolja fel egyesével a recept összetevőit, mint olyan struktúrákat, amelyek anyagnévből, mennyiségből és mértékegységből állnak
 		 \end{itemize}
 		
 		\textit{IntervalEnumerator}
@@ -204,7 +204,7 @@ Value func(const Item& e) const = 0;
 \begin{frame}
 	\frametitle{Összefoglalás, eredmények}
 	\begin{itemize}
-		\item Más tantárgyba került a bevezetése, a felsorolós programozási tételek után tanulják közvetlenül, gyakorolva a visszavezetési technikákat.
+		\item Ma már a hallgatók egy másik tantárgy keretében találkoznak a könyvtárral. Ott, ahol a felsorolós programozási tételek megismerése után az azokra történő visszavezetési technikát tanulják
 		\item Javult a könyvtár kódjának tisztasága.
 		\item Az új nyelvi elemekkel elősegítettük a szakszerű használatot, nincs szükség annyi szöveges kikötésre.
 		\item A könyvtár hasznos didaktikai eszköznek bizonyult. (Hangsúlyozni kell a hallgatóknak a könyvtár célját..)

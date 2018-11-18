@@ -3,7 +3,7 @@
 	\begin{lstlisting}[basicstyle=\small]
 void  init() override final{_result=neutral();}
 void  body(const Item& e) override final {
- if(cond(e))_result = add(_result,e);
+ if(cond(e))_result = add(_result,func(e));
 }
 void  cond(const Item& e){return true;}
 Value add(const Item& a, const Item& b) const = 0;
