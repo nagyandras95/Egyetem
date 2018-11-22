@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  15 NOV 2018 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  22 NOV 2018 10:40
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1633,6 +1633,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 476--477
 [40
 
 ]
+Underfull \hbox (badness 1292) in paragraph at lines 500--501
+\OT1/cmr/m/n/12 portjat kell is-mer-nie. A mo-dell osztaly pe-dig az in-put 
+uze-ne-tet tetsz}oleges
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
@@ -1729,6 +1735,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 564--565
  []
 
 
+Underfull \hbox (badness 1152) in paragraph at lines 569--570
+\OT1/cmr/m/n/12 A prog-ram a \OT1/cmr/m/it/12 tx-tUML \OT1/cmr/m/n/12 ke-ret-re
+nd-szer C++ fordto es ex-portalo kom-po-nenset
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 569--570
 
  []
@@ -1743,6 +1755,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 607--607
 [49
 
 ]
+Underfull \hbox (badness 1048) in paragraph at lines 614--615
+\OT1/cmr/m/n/12 A dip-lo-ma-mun-ka egyik leg-fon-to-sabb eredmenye a C++ ford
+tasi le-het}osegek
+ []
+
+
 Underfull \hbox (badness 1796) in paragraph at lines 617--618
 \OT1/cmr/m/n/12 is al-kal-mas le-het. Tovabba az imp-le-mentacio segtseg
 evel el-len}orizhetjuk az
@@ -1776,10 +1794,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 690.
  ) 
 Here is how much of TeX's memory you used:
- 14645 strings out of 493305
- 210121 string characters out of 3129803
+ 14646 strings out of 493305
+ 210139 string characters out of 3129803
  291421 words of memory out of 3000000
- 17833 multiletter control sequences out of 15000+200000
+ 17834 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,7n,35p,1789b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1793,7 +1811,7 @@ l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Imola
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C
 :/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.
 pfb>
-Output written on diplomamunka.pdf (52 pages, 479269 bytes).
+Output written on diplomamunka.pdf (52 pages, 479967 bytes).
 PDF statistics:
  711 PDF objects out of 1000 (max. 8388607)
  194 named destinations out of 1000 (max. 500000)

@@ -491,13 +491,13 @@ EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 
 \section{FMU modellek generálása}
 Egy FMU (Functional Mockup Unit) alatt egy olyan funkcionális egységet értünk, mely az FMI (Functional Mockup Interface) \cite{fmi_standard} szabvány segítségével tud kommunikálni a külvilággal. Olyan folytonos modellekkel való kommunikációra használjuk őket, melyek adott időközönként mintát vesznek a külvilágból (pl. megmérik a levegő hőmérsékletét), majd ezeket az input adatokat elküldik egy FMU-nak, mely eszerint változtatja meg a belső állapotát. Az FMU logikája tehát lehet egy diszkrét modell, mely leírható állapotgépekkel és átmenetekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \cite{fmu_export} \\
-Ezt az alábbi módon valósíthatjuk meg: Létre hozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozása, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{Environmentet}.   \\
-Az asszociáció mellett azonban van egy tisztább lehetőségünk is, ha portokkal dolgozunk. Egy FMU-t felfoghatunk egy olyan strukturális rendszernek, melynek két eleme van:
+Ezt az alábbi módon valósíthatjuk meg: Létre hozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozása, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{FMUEnvironment}.   \\
+Az asszociáció helyett azonban portokkal is dolgozhatunk. Egy FMU-t felfoghatunk egy olyan strukturális rendszernek, melynek két eleme van:
 \begin{enumerate}
-\item Az \textit{FMUEnvironment}, mely megvalósítja az FMI-t. (Init FMU, DoStep, stb..)
+\item Az \textit{FMUEnvironment}, mely megvalósítja az FMI-t. (\textit{Init\_FMU}, \textit{DoStep}, stb..)
 \item Az FMU működését leíró \textit{txtUML} modell.
 \end{enumerate}
-Ezek után a környezet és a modell egy Assembly kapcsolat segítségével lesznek össze kötve. Így a környezetnek nem kell ismernie egy speciális kontroll osztályt, mellyel asszociációban van, de még a modell-re sem kell referenciát birtokolnia, csak a saját portját kell ismernie. A modell osztály pedig az input üzenetet tetszőleges gyerekének delegálhatja, az előzőekben említett kontroll osztálynak is. Az összekapcsolásokat pedig a legfelső osztály végzi el, mely összefogja az egész rendszert. Elég ennek az egy szereplőnek ismernie a modellt és a környezetet.  \\
+Ezek után a környezet és a modell egy assembly kapcsolat segítségével összekötjük. Így a környezetnek nem kell ismernie a speciális kontroll osztályt, mellyel asszociációban van, de még a modell-re sem kell referenciát birtokolnia, csak a saját portját kell ismernie. A modell osztály pedig az input üzenetet tetszőleges gyerekének delegálhatja, az előzőekben említett kontroll osztálynak is. Az összekapcsolásokat pedig a legfelső osztály végzi el, mely összefogja az egész rendszert. Elég ennek az egy szereplőnek ismernie a modellt és a környezetet.  \\
 
 \subsubsection{Szemléltetve az egyes megoldásokat}
 
@@ -510,32 +510,32 @@ Portos eset: \\
 Előnyök: \\
 \begin{itemize}
 \item A modellt függetleníteni tudjuk a környezettől.
-\item Ha nem szeretnék FMU generálást, akár arra is jobba lehetőségünk van, hogy figyelmen kívül hagyjuk a modellen kívüli szereplőket, mivel annak semmi külső függősége nem lesz így.
-\item Tisztább struktúra, külső kódból is könnyen felépíteni ezt a függőséget, mert a modell egy portjára kell rákötni a külvilágot.
+\item  Eddig, ha \textit{FMU} kompatibilisen írtuk meg a modellünket, akkor fel kellett venni egy asszociációt, melynek az egyik osztálya az \textit{FMUEnvironment}. Ha ennek ellenére nem szerettünk volna  \textit{FMU} generálását, akkor a generált kódban megjelent egy ismeretlen osztályként az \textit{FMUEnvironment} referencia. Mivel az új megoldásban a modell egy olyan egység, aminek csak interfész függőségei vannak a portok révén, így egyszerűen generálhatunk egy forduló modellt akkor is, ha nem szeretnénk \textit{FMU} csomagolást.
+\item Tisztább struktúra érhető el, könnyebbé válik bármilyen külső, modelltől független kódot hozzákötni a modellhez. 
 \end{itemize}
 Hátrányok: \\
 \begin{itemize}
 \item Nehezebb leírni ezt a strukturális felépítést \textit{txtUML}-ben.
 \end{itemize}
-Azonban a hátrányt kiküszöbölhető azzal, hogy ha a felhasználó beállítja, hogy ha szeretne FMU-t generálni a modellből, akkor minden szükséges strukturális kódot legenerálhatunk automatikusan, mivel a modell teljesen függetlenedett az \textit{FMUEnvironment}-től, így azt \textit{txtUML} modellben fel sem kell tüntetni, csak konfigurációnál kell megadnunk, mely portjára várjuk az üzeneteket.
+Azonban a hátrányt kiküszöbölhető azzal, hogy ha a felhasználó beállítja, hogy ha szeretne FMU-t generálni a modellből, akkor minden szükséges strukturális kódot legenerálhatunk automatikusan, mivel a modell teljesen függetlenedett az \textit{FMUEnvironment}-től, így azt \textit{txtUML} modellben fel sem kell tüntetni, csak konfigurációnál kell megadnunk, mely portja szolgál majd a külvilággal történő kommunikációra.
 
 \section{Külső szereplők bekötése a modellbe}
-Általánosságban elmondható, hogy ha szeretnénk egy külső szereplőt bekötni a modellünkbe anélkül, hogy a generált kódhoz kézzel hozzá kéne nyúlnunk, akkor a portok nagy szerepet játszanak. Elég csak felvenni egy csatlakozási pontot a modellben, meghatározni, hogy milyen interfészen keresztül kommunikálhatunk a külvilággal, és kívülről hozzácsatlakozni az adott porthoz. Így, a generált kód teljesen függetlenedik a kézzel írt kódtól, újragenerálás után csak arra kell figyelnünk, hogy a külső kommunikációs port neve ne változzon, az interfésze ne szűküljön. \\
+Általánosságban elmondható, hogy ha szeretnénk egy külső szereplőt bekötni a modellünkbe anélkül, hogy a generált kódhoz kézzel hozzá kéne nyúlnunk (pl. felvenni valamely osztályában referenciaként a külső osztályt), akkor a portok nagy szerepet játszanak ebben. Elég csak felvenni egy csatlakozási pontot a modellben, meghatározni, hogy milyen interfészen keresztül kommunikálhatunk a külvilággal, és kívülről hozzácsatlakozni az adott porthoz. Így, a generált kód teljesen függetlenedik a kézzel írt kódtól, újragenerálás után csak arra kell figyelnünk, hogy a külső kommunikációs port neve ne változzon, az interfésze ne szűküljön. \\
 
 \subsection{Szemléltetve}
 \includegraphics[scale=0.6]{external_with_ports.png} \\
 
 
 \section{Párhuzamosítási lehetőségek kiterjesztése}
-Anélkül, hogy precízen megvizsgálnánk, pontosan hogyan tudunk párhuzamosítani portok segítségével általánosan elmondható, ami már az eddigiekből is kiderült: a portok sokkal könnyebben tudnak függetleníteni két különböző logikai egységet. Portok segítségével úgy tud egymással két osztály kommunikálni, hogy nem tárolnak egymásra referenciát, melynek köszönhetően nem tudnak szinkron hívást kezdeményezni egymás metódusaira, nem tudják elérni egymásnak még a publikus adattagjaikat sem, egyedül aszinkron üzenetküldéssel tudnak kommunikálni egymással. Ennek következtében egy metódus végrehajtásnál egy osztály csak a saját adattagjait olvashatja vagy írhatja felül, vagy a metódus törzsében létrehozott változókat. Így nem lehet interferencia egy adattag elérésekor, ha a metódus végrehajtása közben nem ágazunk el, és hozunk létre újabb szálakat. Ehhez persze arra is szükségünk van, hogy egy szignál ne tartalmazzon referencia értékéket, csak lemásolt, vagy primitív objektumokat. Továbbá statikus függvényhívásokra és változóelérésekre sem szabad lehetőséget adni az egyes osztályoknak, vagy ezen eléréseket szinkronizálni kell. \\
+Anélkül, hogy precízen megvizsgálnánk, pontosan hogyan tudunk párhuzamosítani portok segítségével általánosan elmondható, hogy a portok sokkal könnyebben tudnak függetleníteni két különböző logikai egységet. Portok segítségével úgy tud egymással két osztály kommunikálni, hogy nem tárolnak egymásra referenciát, melynek köszönhetően nem tudnak szinkron hívást kezdeményezni egymás metódusaira, nem tudják elérni egymásnak még a publikus adattagjaikat sem, egyedül aszinkron üzenetküldéssel tudnak kommunikálni egymással. Ennek következtében egy metódus végrehajtásnál egy osztály csak a saját adattagjait olvashatja vagy írhatja felül, vagy a metódus törzsében létrehozott lokális változókat. Így nem lehet interferencia egy adattag elérésekor, ha a metódus végrehajtása közben nem ágazunk el, és hozunk létre újabb szálakat. Ehhez persze arra is szükségünk van, hogy egy szignál ne tartalmazzon referencia értékéket, csak lemásolt, vagy primitív objektumokat. Továbbá statikus függvényhívásokra és változóelérésekre sem szabad lehetőséget adni az egyes osztályoknak, vagy ezen eléréseket szinkronizálni kell. \\
 
-Ezen primitív szabályokat betartva elmondható, hogy két azonos szinten lévő, Assembly kapcsolattal kommunikáló osztály porton keresztül kommunikálva nem fog interferenciába keveredni egymással. Szülő-gyerek kapcsolat esetén azonban nem ilyen szerencsés a helyzet, mivel a szülő kompozícióban áll a gyerekével, így referenciát tárol rá a szabvány szerint. Így ezen osztályok párhuzamosítása egy nehezebb feladat, mely túlmutat a diplomamunka témakörén.
+Ezen primitív szabályokat betartva elmondható, hogy két azonos szinten lévő, assembly kapcsolattal kommunikáló osztály porton keresztül kommunikálva nem fog interferenciába keveredni egymással. Szülő-gyerek kapcsolat esetén azonban nem ilyen szerencsés a helyzet, mivel a szülő kompozícióban áll a gyerekével, így referenciát tárol rá a szabvány szerint. Így ezen osztályok párhuzamosítása egy nehezebb feladat, mely túlmutat a diplomamunka témakörén.
 
 \section{Testre szabható protokoll}
 Egy portra való üzenetküldés megvalósítását tetszőlegesen kicserélhetjük, a \textit{send} művelet megvalósítása akár egy, a modell mellé írt konfigurációtól is függhet. Ha két osztályt szeretnénk különböző szálakra helyezni, akkor valamilyen szálbiztos megvalósítást kell alkalmaznunk. Ha az egész modellünk egy szálon fut, akár valamilyen szinkron hívást is megvalósíthatunk a háttérben. Két osztály akár különböző processzoron is futhat, ez esetben a portoknak valamilyen interprocessz kommunikációt kell implementálnia. Ezen lehetőségek részletes kielemzése szintén túlmutat a diplomamunka témakörén. 
 
 \section{Az UML szabvány egyszerűbb szemléltetése}
-Amikor komponensekről, szereplők izolációjáról, elvárt és szolgáltatott interfészekről, konnektorokról beszélünk az UML kapcsán, akár egy egyetemi tanóra keretében, akkor a \textit{txtUML} portjai, annak szemantikájának demonstrálása egy modellen, és C++ megvalósítások elemzése hasznos anyag lehet, hogy a hallgatókhoz közelebb kerüljenek ezek a fogalmak. Így a későbbiekben a rendszerek tervezésnél nem csak egymással asszociációban lévő osztályokban fognak gondolkodni, hanem teljesen izolált szereplőkben is, mely kommunikációs pontokon, portokon keresztül kommunikál a külvilággal. 
+Amikor komponensekről, szereplők izolációjáról, elvárt és szolgáltatott interfészekről, konnektorokról beszélünk az UML kapcsán, akár egy egyetemi előadás keretében, akkor a \textit{txtUML} portjai, annak szemantikájának demonstrálása egy modellen, és C++ megvalósítások elemzése hasznos anyag lehet, hogy a hallgatókhoz közelebb kerüljenek ezek a fogalmak. Így a későbbiekben a rendszerek tervezésnél nem csak egymással asszociációban lévő osztályokban fognak gondolkodni, hanem teljesen izolált szereplőkben is, mely kommunikációs pontokon, portokon keresztül kommunikál a külvilággal. 
 
 
 \chapter{Megvalósítás}
@@ -550,12 +550,12 @@ A dolgozat szempontjából a Portok, Interfészek, Konnektorok leírása a legfo
 Az exportáláshoz az alábbi eszközökre van szükség:
 \begin{itemize}
 \item Java
-\item Eclipse IDE az export dialog eléréshez, minden szükséges függőség letöltődik a txtUML pluginnal
+\item Eclipse IDE az export dialog eléréshez, minden szükséges függőség letöltődik a txtUML pluginnal.
 \end{itemize}
 
 A fordításhoz az alábbiakra van szükségünk
 \begin{itemize}
-\item Cmake segítségével legenerálhatjuk a számunkra tetsző fordítási környezetet
+\item CMake segítségével legenerálhatjuk a számunkra tetsző fordítási környezetet
 \item GCC vagy Clang
 \item A generálandó fordítási környezet. (MinGW, Ninja, MSVC, stb..)
 \end{itemize}
@@ -563,17 +563,17 @@ A fordításhoz az alábbiakra van szükségünk
 \subsection{Generálás és futtatás}
 Kódot generálni legegyszerűbben Eclipse-ből tudunk egy txtUML modell megírása és egy kihelyezési konfiguráció alapján. A \textit{runtime} mappában az előre megírt fájlokat másoljuk, mely tartalmazza többek között a Portok osztályát is, az összekacsoló műveleteket, és azok szemantikáját. A konkrét port példányokat, konnektorokat, interfészeket pedig a \textit{runtime} mappán kívül generáljuk a modell alapján. \\
 
-A generált kódot fordítani a \textit{cmake}, valamint a választott build környzet parancsával tudunk. A \textit{cmake} parancs elhagyható, ha az exporter dialóguson kiválasztjuk a megfelelő környezetet. Fordítás után pedig már futtathatjuk a \textit{main} futtatható állományunkat.
+A generált kódot fordítani a \textit{cmake}, valamint a választott fordítási környezet parancsával tudunk. A \textit{cmake} parancs elhagyható, ha az exporter dialóguson kiválasztjuk a megfelelő környezetet. Fordítás után pedig már futtathatjuk a \textit{main} futtatható állományunkat.
 
 \section{Rendszerarchitektúra}
-A program a \textit{txtUML} keretrendszer C++ fordító és exporter komponensét fejleszti tovább, ennél fogja Java nyelven készült. A Java modellt JDT segítségével járjuk be, és az EMF keretrendszert használjuk a szabványos modell létrehozásához. \\
+A program a \textit{txtUML} keretrendszer C++ fordító és exportáló komponensét fejleszti tovább, ennél fogja Java nyelven készült. A Java modellt JDT segítségével járjuk be, és az EMF keretrendszert használjuk a szabványos modell létrehozásához. \\
 
 \subsection{Szerkezeti felépítés}
 A program négy jól elkülöníthető részből áll, mindhárom részt ki kellett egészíteni a Portok, Interfészek, Konnektorok exportáláshoz
 
 \begin{enumerate}
-\item A Java modellt UML modellre leképző algoritmusok. Ezek nem tiszta Java-ban, hanem a Xtend keretrendszerben készültek. A strukturális elemekhez fel kellett venni a \textbf{PortExporter.xtend}, \textbf{InterfaceExporter.xtend}, \textbf{ConnectorExorter.xtend} és a \textbf{ConnectorEndExporter.xtend} fájlokat. Az akcióelemekhez pedig felvettük a port referenciát kiolvasó \textbf{PortReferenceExporter.xtend} fájt, az üzenetküldéshez a \textbf{SendToPortActionExporter.xtend}, az összekapcsolásokhoz a \textbf{AssemblyConnect.xtend} valamint a \textbf{DelegateConnect.xtend} fájlokat.
-\item Az UML modellt feldolgozó algoritmusok. Itt hozzá kellett adni a  \textbf{PortExporter.java} és az \textbf{InterfaceExporter.java} osztályokat, melyek ezek struktúrájának az exportálásáért felelnek. A \textit{send} és a \textit{connect} műveletek exportálása végett hozzá kellett nyúlni az \textbf{ActivityExporter.java} osztályhoz, mely az akciókódok exportálásáért felelős.
+\item A \textit{Java} modellt \textit{UML} modellre leképző algoritmusok. Ezek nem tiszta Java-ban, hanem a \textit{Xtend} keretrendszerben készültek. A strukturális elemekhez fel kellett venni a \textbf{PortExporter.xtend}, \textbf{InterfaceExporter.xtend}, \textbf{ConnectorExorter.xtend} és a \textbf{ConnectorEndExporter.xtend} fájlokat. Az akcióelemekhez pedig felvettük a port referenciát kiolvasó \textbf{PortReferenceExporter.xtend} fájt, az üzenetküldéshez a \textbf{SendToPortActionExporter.xtend}, az összekapcsolásokhoz a \textbf{AssemblyConnect.xtend} valamint a \textbf{DelegateConnect.xtend} fájlokat.
+\item Az \textit{UML} modellt feldolgozó algoritmusok. Itt hozzá kellett adni a  \textbf{PortExporter.java} és az \textbf{InterfaceExporter.java} osztályokat, melyek ezek struktúrájának az exportálásáért felelnek. A \textit{send} és a \textit{connect} műveletek exportálása végett hozzá kellett nyúlni az \textbf{ActivityExporter.java} osztályhoz, mely az akciókódok exportálásáért felelős.
 \item C++ kódgenerálási sablonok: Itt bevezettük a \textbf{InterfaceTemplates.java} és \textbf{PortTemplates.java} fájlokat a strukturális elemek sablonjához. Az \textbf{AssociationTemplates.java} az összekapcsoláshoz szükséges sablonokról gondoskodik.
 \item Előre megírt C++ fájlok: Itt lényegében a \textbf{PortUtils.hpp} fájl tartalmaz minden portokhoz szükséges előre megírt elemet: A portok típusát, a kapcsolatokat, az összekapcsolásokat. Az \textbf{IEvent.hpp}-be is bele kellett nyúlni az eseményfeldolgozás megváltozása miatt. Valamint az \textbf{InterfaceUtils.hpp} tartalmazza az interfészek sablonját és az üres interfészt, a \textbf{AssociationUtils.hpp} pedig az összekapcsoláshoz szükséges asszociációk sablonját.
 \end{enumerate}
@@ -603,18 +603,18 @@ A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejez
 A generált kódok megfelelőek, a modellek pedig az elvárt működésnek megfelelően működnek.
 
 \chapter{A diplomamunka eredményei}
-Végül foglaljuk össze a diplomamunka eredményeit.
+Végül foglaljuk össze a diplomamunka főbb eredményeit.
 \section{UML kompozíciós szabvány áttekintése, értelmezése}
-A kompozíciós elemek az UML-nek kevésbé ismert és letisztult részei közé tartoznak, melyet már strukturális szinten is bonyolult értelmezni. A diplomamunka egy alap eszköztárat nyújt a bevezetésben az UML kapcsolódó fogalmaira. A portokkal kapcsolatos fogalmakat, az elvárt és szolgáltatott interfészeket, az üzenetküldés és fogadás szemantikáját, portok összekapcsolásáért felelős konnektorokat és konnektor műveletek helyes UML reprezentációját és annak szemantikáját mind elemzi a diplomamunka. A helyes leképezés elemzésére a szabványos modell előállításához van szükségünk, míg annak szemantikájára a helyes C++ kód generálásához.
+A kompozíciós elemek az \textit{UML}-nek kevésbé ismert és letisztult részei közé tartoznak, melyet már strukturális szinten is bonyolult értelmezni. A diplomamunka egy alap eszköztárat nyújt a bevezetésben az \textit{UML} kapcsolódó fogalmaira. A portokkal kapcsolatos fogalmakat, az elvárt és szolgáltatott interfészeket, az üzenetküldés és fogadás szemantikáját, portok összekapcsolásáért felelős konnektorokat és konnektor műveletek helyes \textit{UML} reprezentációját és annak szemantikáját mind elemzi a diplomamunka. A helyes leképezés elemzésére a szabványos modell előállításához van szükségünk, míg annak szemantikájára a helyes C++ kód generálásához.
 
 \section{Modellező keretrendszerek, UML szabványok áttekintése}
-Az elemzések előtt a diplomamunka megvizsgálja, milyen szabványos segítenek nekünk megtalálni a megfelelő UML reprezentációkat az egyes elemekhez, és mi ezeknek a pontos jelentésük. Majd áttekint különböző modellező keretrendszereket, melyeket tartalmaznak valamilyen kódgenerálást, és megvizsgálja a kompozíciós elemek exportálását. Itt arra jutunk, hogy a legtöbb kertrendszer a kompozíciós elemeket (portokat, konnektorokat) csak nagyon kezdetleges módon támogatja, vagy nem foglalkozik a precíz UML szabvánnyal.
+Az elemzések előtt a diplomamunka megvizsgálja, milyen szabványos segítenek nekünk megtalálni a megfelelő \textit{UML} reprezentációkat az egyes elemekhez, és mi ezeknek a pontos jelentésük. Majd áttekint különböző modellező keretrendszereket, melyeket tartalmaznak valamilyen kódgenerálást, és megvizsgálja a kompozíciós elemek exportálását. Itt arra jutunk, hogy a legtöbb kertrendszer a kompozíciós elemeket (portokat, konnektorokat) csak nagyon kezdetleges módon támogatja, vagy nem foglalkozik a precíz \textit{UML} szabvánnyal.
 
 \section{C++ fordítási lehetőségek elemzése}
-A diplomamunka egyik fő eredménye a C++ fordítási lehetőségek elemzése, melyben az UML elemek precíz szemantikájának tudatában megvizsgálja, milyen lehetőségek vannak megvalósítani C++ nyelven a kompozíciós elemeket. Itt a hatékonyságot és a minél tisztább és tömörebb kódot tartjuk szem előtt. A kód tisztaságára azért helyezünk hangsúlyt, mert feltételezzük, hogy a generált kódhoz a felhasználó C++-ban ad kiegészítést, integrálva egy meglévő projektbe, felhasználva azt az API-t, melyet a generálás során is használhatunk. (Pl. egy üzenetküldésnél) Az elemzések végén megvizsgáljuk azt is, hogy a kompozíciós modellezés milyen esetben válhat a hasznunkra.
+A diplomamunka egyik legfontosabb eredménye a C++ fordítási lehetőségek elemzése, melyben az \textit{UML} elemek precíz szemantikájának tudatában megvizsgálja, milyen lehetőségek vannak megvalósítani \textit{C++} nyelven a kompozíciós elemeket. Itt a hatékonyságot és a minél tisztább és tömörebb kódot tartjuk szem előtt. A kód tisztaságára azért helyezünk hangsúlyt, mert feltételezzük, hogy a generált kódhoz a felhasználó \textit{C++}-ban ad kiegészítést, integrálva egy meglévő projektbe, felhasználva azt az API-t, melyet a generálás során is használhatunk. (Pl. egy üzenetküldésnél) Az elemzések végén megvizsgáljuk azt is, hogy a kompozíciós modellezés milyen esetben válhat a hasznunkra.
 
 \section{Prototípus készítése a meglévő elemezések alapján}
-A diplomamunkához a leírtak alapján implementációt is készítettünk, mely az eredmények demonstrálására, az UML szabvány konkrét példákon való megértésére is alkalmas lehet. Továbbá az implementáció segítségével ellenőrizhetjük az elemzéseink helyességét, és hatékonyságát.
+A diplomamunkához a leírtak alapján implementációt is készítettünk, mely az eredmények demonstrálására, az \textit{UML} szabvány konkrét példákon való megértésére is alkalmas lehet. Továbbá az implementáció segítségével ellenőrizhetjük az elemzéseink helyességét, és hatékonyságát.
 
 \begin{thebibliography}{4}
 
