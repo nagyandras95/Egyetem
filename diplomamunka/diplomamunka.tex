@@ -494,7 +494,7 @@ EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 \chapter{Portok felhasználása a modellezésben}
 
 \section{FMU modellek generálása}
-A portok alapvetően a környezettől való szeparáció igénye miatt jöttek létre, mely elősegíti a komponens-alapú fejlesztést. Ebben a világban egy komponens bármilyen komplexitású lehet, akár az egész modellt tekinthetjük egy komponensnek, melynek van egy belső működése, és portokon keresztül kommunikál a külvilággal, hozzáköthetünk más, hasonló elven felépített modelleket. Ennek az elképzelésnek egy szabványa az FMI(Functional Mockup Interface) \cite{fmi_standard}, mely kommunikációs interfészt ír le funkcionális egységek, modellek között. Ezeket nevezzük FMU-nak (Functional Mockup Unit), mely alatt egy olyan egységet értünk, mely az FMI  szabvány segítségével tud kommunikálni a külvilággal, illetve más egységekkel. Az FMU funkcionalitása leírható egy diszkrét modellként állapotgéppel, mely input adatok hatására megváltoztatja a belső állapotát. Az FMI szabvány rendelkezik a \textit{DoStep} művelettel, melyben megadjuk az aktuális input adatokat, és végre hajtjuk a megfelelő állapotváltozást. Ezek olyan folytatonos modellekkel vannak összekötve, melyek folyamatosan mérik a külvilág állapotát (pl. egy fűtésrendsernél, hogy mennyi a hőmérséklet), ezeket adott időközönként továbbítják egy FMU-nak a \textit{DoStep} műveleten keresztül, mely megfelelően reagál változásra. (pl. abbahagyja a radiátortest melegítését) A portok, interfészek az \textit{OpenCPS}\cite{opencps} nemzetközi projektben is hasznosnak bizonyolultak, melyben a \textit{txtUML} segítségével írtunk meg egy \textit{FMU} diszkrét modellt, majd generáltunk belőle a szabványnak megfelelő \textit{C++} kódot, így a modellt össze lehet kötni más modellekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \cite{fmu_export} \\
+A portok alapvetően a környezettől való szeparáció igénye miatt jöttek létre, mely elősegíti a komponens-alapú fejlesztést. Ebben a világban egy komponens bármilyen komplexitású lehet, akár az egész modellt tekinthetjük egy komponensnek, melynek van egy belső működése, és portokon keresztül kommunikál a külvilággal, hozzáköthetünk más, hasonló elven felépített modelleket. Ennek az elképzelésnek egy szabványa az FMI(Functional Mockup Interface) \cite{fmi_standard}, mely kommunikációs interfészt ír le funkcionális egységek, modellek között. Ezeket nevezzük FMU-nak (Functional Mockup Unit), mely alatt egy olyan egységet értünk, mely az FMI  szabvány segítségével tud kommunikálni a külvilággal, illetve más egységekkel. Az FMU funkcionalitása leírható egy diszkrét modellként állapotgéppel, mely input adatok hatására megváltoztatja a belső állapotát. Az FMI szabvány rendelkezik a \textit{DoStep} művelettel, melyben megadjuk az aktuális input adatokat, és végre hajtjuk a megfelelő állapotváltozást. Ezek olyan folytatonos modellekkel vannak összekötve, melyek folyamatosan mérik a külvilág állapotát (pl. egy fűtésrendsernél, hogy mennyi a hőmérséklet), ezeket adott időközönként továbbítják egy FMU-nak a \textit{DoStep} műveleten keresztül, mely megfelelően reagál változásra. (pl. abbahagyja a radiátortest melegítését). Ezek kommunikációja nem triviális, felmerül például a az a kérdés, hogy milyen időközönként kapjunk inputot a diszkrét modell, amikor a külső tényezők változása általában nem lineáris. (pl. ha egyre nagyobb ütemben változik a hőmérséklet egy kabinban, lehet, túl későn reagálunk az állapotváltozásra, mely ember életekbe kerülhet) \\ A portok, interfészek az \textit{OpenCPS}\cite{opencps} nemzetközi projektben is hasznosnak bizonyolultak, melyben a \textit{txtUML} segítségével írtunk meg egy \textit{FMU} diszkrét modellt, majd generáltunk belőle a szabványnak megfelelő \textit{C++} kódot, így a modellt össze lehet kötni más modellekkel. Az FMI egy C-ben írt szabvány, így a C++ által generált modell összecsomagolható egy FMU-vá. \cite{fmu_export} \\
 Ezt az alábbi módon valósíthatjuk meg: Létrehozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az FMI-t. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozásra, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{FMUEnvironment}.   \\
 Az asszociáció helyett azonban portokkal is dolgozhatunk. Egy FMU-t felfoghatunk egy olyan strukturális rendszernek, melynek két eleme van:
 \begin{enumerate}
@@ -601,7 +601,7 @@ A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejez
 \item Assembly kapcsolattal összekapcsoljuk őket, mely fordítási hibát jelez.
 \item Inkompatibilis interfészekkel hozzuk létre őket, majd delegációval megpróbáljuk összekapcsolni, mely szintén fordítási hibát jelez.
 \end{enumerate}
-\item Komplex modell létrehozása, mely demonstrációs célokra is megfelelő: Egy ping-pong játék struktúra létrehozása, mely tartalmaz egy táblát, valamint egy bírót. Ezek tartalmaznak egy-egy portot, melyek Assembly kapcsolattal vannak összekötve. A tábla tartalmaz két játékost, melyek két portot tartalmaznak, egy ping-pong portot, valamint egy olyan portot, melyről a játék kezdése üzenetet várják. A ping-pong portok egymással vannak összekötve, ezen keresztül passzolgatnak egy szignált oda-vissza a játékosok egymás közt, az első játékos pedig delegációval hozzá van kötve a táblához. A játék indulásakor a bíró lead egy játék kezdése szignált a táblának, melyet tovább delegálunk a kezdő játékosnak, és ő elindítja az első szerválást.
+\item Demonstrációs célú modell létrehozása: Egy ping-pong játék struktúra létrehozása, mely tartalmaz egy táblát, valamint egy bírót. Ezek tartalmaznak egy-egy portot, melyek Assembly kapcsolattal vannak összekötve. A tábla tartalmaz két játékost, melyek két portot tartalmaznak, egy ping-pong portot, valamint egy olyan portot, melyről a játék kezdése üzenetet várják. A ping-pong portok egymással vannak összekötve, ezen keresztül passzolgatnak egy szignált oda-vissza a játékosok egymás közt, az első játékos pedig delegációval hozzá van kötve a táblához. A játék indulásakor a bíró lead egy játék kezdése szignált a táblának, melyet tovább delegálunk a kezdő játékosnak, és ő elindítja az első szerválást.
 \end{enumerate}
 
 A generált kódok megfelelőek, a modellek pedig az elvárt működésnek megfelelően működnek.
@@ -670,15 +670,17 @@ A diplomamunkához a leírtak alapján implementációt is készítettünk, mely
 	
 \bibitem{umple}
 	Andrew Forward, Omar Badreddin, and Timothy C Lethbridge \\
-	\emph{Umple: Towards combining model driven with prototype driven system development}, Article \\
+	\emph{Umple: Towards combining model driven with prototype driven system development}, article \\
 	In Rapid System Prototyping (RSP), 2010 21st IEEE International Symposium on, pages 1–7. IEEE, 2010.
 
 \bibitem{bridge}
-	OneFact,\emph{BridgePoint xtUML tool.}, Software \\
-	\url{http://onefact.net}, 2018. 11. 28.
+	OneFact \\
+	\emph{BridgePoint xtUML tool.}, software \\
+	\url{http://onefact.net}, November 2018
 	
 \bibitem{startuml}
-	MKLab, StartUML Documenation, software \\
+	MKLab \\
+	StartUML Documenation, software \\
 	\url{https://docs.staruml.io/developing-extensions/accessing-elements}, November 2018
 	
 \bibitem{typelist}
