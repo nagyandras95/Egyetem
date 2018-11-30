@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  30 NOV 2018 07:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.8)  30 NOV 2018 21:03
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1800,18 +1800,18 @@ Underfull \hbox (badness 1796) in paragraph at lines 621--622
  []
 
 [51]
-LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 629
+LaTeX Font Info:    Try loading font information for OT1+pcrs on input line 630
 .
  ("C:\Program Files\MiKTeX 2.9\packages\tex\latex\courier-scaled\ot1pcrs.fd"
 File: ot1pcrs.fd 2004/07/09 font definitions for OT1/pcrs.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 627--630
-\OT1/cmr/m/n/12 standard, 796, De-cem-ber 2017 [][]$\OT1/pcrs/m/n/12 https : / 
-/ www . omg . org / spec / UML /
+Underfull \hbox (badness 1005) in paragraph at lines 633--639
+\OT1/cmr/m/n/12 SIGPLAN Work-shop on Lan-gu-a-ges, Com-pi-lers, and To-ols for 
+Em-bed-ded
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 632--636
+Underfull \hbox (badness 10000) in paragraph at lines 633--639
 [][]$\OT1/pcrs/m/n/12 ftp : / / ftp . omg . org / pub / umlrtf / UML _ rt _ ext
  _ F56dist . pdf$[][] \OT1/cmr/m/n/12 No-
  []
@@ -1819,55 +1819,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 632--636
 [52
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 682--685
+Underfull \hbox (badness 10000) in paragraph at lines 681--683
 [][]$\OT1/pcrs/m/n/12 https : / / docs . staruml . io / developing-[]extensions
  /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--692
-\OT1/cmr/m/n/12 The Co-de Pro-ject Open Li-cen-se (CPOL), 16 Feb 2016
+Underfull \hbox (badness 6141) in paragraph at lines 685--688
+[]\OT1/cmr/m/n/12 Codeproject, \OT1/cmr/m/it/12 Type-Lists and a Type-List To-o
+l-box via Va-ri-a-dic Temp-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--692
-[][]$\OT1/pcrs/m/n/12 https : / / www . codeproject . com / Articles / 1077852 
-/
+Underfull \hbox (badness 10000) in paragraph at lines 685--688
+\OT1/cmr/m/it/12 la-tes\OT1/cmr/m/n/12 , At-ric-le, The Co-de Pro-ject Open Li-
+cen-se (CPOL), 16 Feb
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--692
+Underfull \hbox (badness 10000) in paragraph at lines 685--688
+\OT1/cmr/m/n/12 2016 [][]$\OT1/pcrs/m/n/12 https : / / www . codeproject . com 
+/ Articles / 1077852 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 685--688
 \OT1/pcrs/m/n/12 TypeLists-[]and-[]a-[]TypeList-[]Toolbox-[]via-[]Variadic-[]Te
 mp$[][]\OT1/cmr/m/n/12 , No-
  []
 
 
-Underfull \hbox (badness 1205) in paragraph at lines 701--704
+Underfull \hbox (badness 1205) in paragraph at lines 696--699
 \OT1/cmr/m/n/12 Boldizsar NE-METH, Daniel SE-GES-DI, Ger-gely Devai, []Akos 
 HOR-VATH,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 701--704
+Underfull \hbox (badness 10000) in paragraph at lines 696--699
 
  []
 
 [53]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 723.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 715.
  [54]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 723.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 715.
  (diplomamunka.aux (fedolap.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 723.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 723.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 715.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 715.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
 (rerunfilecheck)             Checksum: 6FBA48EEA7BDCB334BD8C9C01ED42F6A;10332.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 723.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 715.
  ) 
 Here is how much of TeX's memory you used:
- 14670 strings out of 493305
- 210498 string characters out of 3129803
+ 14672 strings out of 493305
+ 210521 string characters out of 3129803
  289950 words of memory out of 3000000
- 17843 multiletter control sequences out of 15000+200000
+ 17845 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,7n,35p,2300b,1228s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1881,9 +1888,9 @@ l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Imola
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C
 :/Users/Imola/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.
 pfb>
-Output written on diplomamunka.pdf (55 pages, 549657 bytes).
+Output written on diplomamunka.pdf (55 pages, 550367 bytes).
 PDF statistics:
- 739 PDF objects out of 1000 (max. 8388607)
+ 740 PDF objects out of 1000 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)
  573 words of extra memory for PDF output out of 10000 (max. 10000000)
 
