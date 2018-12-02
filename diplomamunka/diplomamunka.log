@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  1 DEC 2018 14:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  2 DEC 2018 18:01
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1700,7 +1700,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 513--515
 
  []
 
-[42 <./fmu_simple.png (PNG copy)>]
+[42]
 <fmu_with_ports.png, id=582, 762.85pt x 351.3125pt>
 File: fmu_with_ports.png Graphic file (type png)
 <use fmu_with_ports.png>
@@ -1726,7 +1726,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 525--526
 
  []
 
-[43 <./fmu_with_ports.png (PNG copy)>]
+[43 <./fmu_simple.png (PNG copy)> <./fmu_with_ports.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
@@ -1747,28 +1747,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 535--536
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 539--540
-\OT1/cmr/m/n/12 fuggvenyhvasokra es valtozoeleresekre sem sza-bad le-
-het}oseget ad-ni az egyes
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 539--540
 
  []
 
-[44 <./external_with_ports.png (PNG copy)>]
+[44 <./external_with_ports.png (PNG copy)>] [45]
 Underfull \hbox (badness 4096) in paragraph at lines 547--548
 \OT1/cmr/m/n/12 Amikor kom-po-nen-sekr}ol, sze-repl}ok izolaciojarol, elva
 rt es szolgaltatott in-
  []
 
-[45] [46]
+[46]
 5. fejezet.
 
 Underfull \hbox (badness 7981) in paragraph at lines 551--552
 \OT1/cmr/m/n/12 A dol-go-zat-ban nem csak ele-meztuk a le-hetseges meg-oldas
 okat, ha-nem
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 562--563
+[]\OT1/cmr/m/n/12 Eclipse IDE az ex-port-er dialogus elereshez, min-den szu
+kseges fugg}oseg
  []
 
 [47
@@ -1805,9 +1805,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 616--616
 [51
 
 ]
-Underfull \hbox (badness 1048) in paragraph at lines 623--624
-\OT1/cmr/m/n/12 A dip-lo-ma-mun-ka egyik leg-fon-to-sabb eredmenye a C++ ford
-tasi le-het}osegek
+Underfull \hbox (badness 1038) in paragraph at lines 623--624
+\OT1/cmr/m/n/12 A dip-lo-ma-mun-ka egyik leg-fon-to-sabb eredmenye a \OT1/cmr/
+m/it/12 C++ \OT1/cmr/m/n/12 fordtasi le-het}osegek
  []
 
 
@@ -1868,12 +1868,6 @@ mp$[][]\OT1/cmr/m/n/12 , No-
  []
 
 
-Underfull \hbox (badness 1205) in paragraph at lines 701--704
-\OT1/cmr/m/n/12 Boldizsar NE-METH, Daniel SE-GES-DI, Ger-gely Devai, []Akos 
-HOR-VATH,
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 701--704
 
  []
@@ -1896,7 +1890,7 @@ Here is how much of TeX's memory you used:
  17845 multiletter control sequences out of 15000+200000
  11571 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,7n,35p,2300b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,7n,35p,2432b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -1906,7 +1900,7 @@ type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX
 rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nagy/AppDat
 a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
 /nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (56 pages, 559309 bytes).
+Output written on diplomamunka.pdf (56 pages, 560008 bytes).
 PDF statistics:
  746 PDF objects out of 1000 (max. 8388607)
  203 named destinations out of 1000 (max. 500000)

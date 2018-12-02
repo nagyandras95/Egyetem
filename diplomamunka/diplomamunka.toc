@@ -60,12 +60,12 @@
 \select@language {magyar} \contentsline {section}{\numberline {3.6}Kommunik\IeC {\'a}ci\IeC {\'o} megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa C++-ban}{39}{section.3.6}
 \select@language {magyar} \contentsline {chapter}{\numberline {4}Portok felhaszn\IeC {\'a}l\IeC {\'a}sa a modellez\IeC {\'e}sben}{41}{chapter.4}
 \select@language {magyar} \contentsline {section}{\numberline {4.1}FMU modellek gener\IeC {\'a}l\IeC {\'a}sa}{41}{section.4.1}
-\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltetve az egyes megold\IeC {\'a}sokat}{42}{Item.25}
+\select@language {magyar} \contentsline {subsubsection}{Szeml\IeC {\'e}ltetve az egyes megold\IeC {\'a}sokat}{43}{Item.25}
 \select@language {magyar} \contentsline {section}{\numberline {4.2}K\IeC {\"u}ls\IeC {\H o} szerepl\IeC {\H o}k bek\IeC {\"o}t\IeC {\'e}se a modellbe}{44}{section.4.2}
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Szeml\IeC {\'e}ltetve}{44}{subsection.4.2.1}
-\select@language {magyar} \contentsline {section}{\numberline {4.3}P\IeC {\'a}rhuzamos\IeC {\'\i }t\IeC {\'a}si lehet\IeC {\H o}s\IeC {\'e}gek kiterjeszt\IeC {\'e}se}{44}{section.4.3}
+\select@language {magyar} \contentsline {section}{\numberline {4.3}P\IeC {\'a}rhuzamos\IeC {\'\i }t\IeC {\'a}si lehet\IeC {\H o}s\IeC {\'e}gek kiterjeszt\IeC {\'e}se}{45}{section.4.3}
 \select@language {magyar} \contentsline {section}{\numberline {4.4}Testre szabhat\IeC {\'o} protokoll}{45}{section.4.4}
-\select@language {magyar} \contentsline {section}{\numberline {4.5}Az UML szabv\IeC {\'a}ny egyszer\IeC {\H u}bb szeml\IeC {\'e}ltet\IeC {\'e}se}{45}{section.4.5}
+\select@language {magyar} \contentsline {section}{\numberline {4.5}Az UML szabv\IeC {\'a}ny egyszer\IeC {\H u}bb szeml\IeC {\'e}ltet\IeC {\'e}se}{46}{section.4.5}
 \select@language {magyar} \contentsline {chapter}{\numberline {5}Megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}s}{47}{chapter.5}
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Felhaszn\IeC {\'a}l\IeC {\'o}i interf\IeC {\'e}sz tervez\IeC {\'e}s}{47}{section.5.1}
 \select@language {magyar} \contentsline {subsection}{\numberline {5.1.1}Sz\IeC {\"u}ks\IeC {\'e}ges eszk\IeC {\"o}z\IeC {\"o}k}{47}{subsection.5.1.1}
