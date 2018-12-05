@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  2 DEC 2018 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  5 DEC 2018 12:31
 entering extended mode
 **./diplomamunka.tex
 (diplomamunka.tex
@@ -1273,6 +1273,12 @@ e-ret-rend-szer-ben keszult, mely egy szove-ges,
  []
 
 
+Underfull \hbox (badness 1009) in paragraph at lines 48--49
+\OT1/cmr/m/n/12 vegrehajthato es fordthato mo-del-lez}o eszkoz. A pro-je
+kt celja az UML mo-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
@@ -1879,8 +1885,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 720.
  (diplomamunka.aux (fedolap.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 720.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 720.
-Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
-(rerunfilecheck)             Checksum: 6FBA48EEA7BDCB334BD8C9C01ED42F6A;10332.
+
+
+Package rerunfilecheck Warning: File `diplomamunka.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `diplomamunka.out':
+(rerunfilecheck)             Before: 6FBA48EEA7BDCB334BD8C9C01ED42F6A;10332
+(rerunfilecheck)             After:  A811D6439D001D34BE326A190004C663;10337.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 720.
  ) 
 Here is how much of TeX's memory you used:
@@ -1900,7 +1913,7 @@ type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX
 rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nagy/AppDat
 a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
 /nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on diplomamunka.pdf (56 pages, 560008 bytes).
+Output written on diplomamunka.pdf (56 pages, 560019 bytes).
 PDF statistics:
  746 PDF objects out of 1000 (max. 8388607)
  203 named destinations out of 1000 (max. 500000)

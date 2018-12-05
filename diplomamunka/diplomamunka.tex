@@ -41,14 +41,14 @@
 \tableofcontents
 
 \chapter{Bevezetés}
-A szoftverfejlesztési folyamatban egyre nagyobb hangsúlyt kap a tervezés, a rendszer strukturálása a felelősségi körök szeparálásnak elve, az újrafelhasználhatóság, valamint a rendszer szereplőinek izoláltsága. Az UML \cite{uml_omg}, ezen belül is a végrehajtható UML ezen a ponton játszik nagy szerepet, melynek segítségével magas szinten leírhatjuk a rendszer struktúráját, felvehetjük az egyes szereplőket úgy, hogy már a rendszertervünk is tesztelhetővé, a kódgenerálás révén pedig közvetlenül felhasználhatóvá válik. \\ A szereplők izolálása érdekében kommunikációs csomópontokra, portokra és azokat összekapcsoló absztrakt kommunikációs protokollokra, konnektorokra van szükségünk, melynek révén az adott szereplőnek nem szükséges ismernie a kommunikációban részt vevő felet. Valós idejű rendszerek tervezésnél fontos szerepet játszanak a portok és konnektorok \cite{uml_real}\\ 
+A szoftverfejlesztési folyamatban egyre nagyobb hangsúlyt kap a tervezés, a rendszer strukturálása a felelősségi körök szeparálásnak elve, az újrafelhasználhatóság, valamint a rendszer szereplőinek izoláltsága. Az UML \cite{uml_omg}, ezen belül is a végrehajtható UML, ezen a ponton játszik nagy szerepet, melynek segítségével magas szinten leírhatjuk a rendszer struktúráját, felvehetjük az egyes szereplőket úgy, hogy már a rendszertervünk is tesztelhetővé, a kódgenerálás révén pedig közvetlenül felhasználhatóvá válik. \\ A szereplők izolálása érdekében kommunikációs csomópontokra, portokra és azokat összekapcsoló absztrakt kommunikációs protokollokra, konnektorokra van szükségünk, melynek révén az adott szereplőnek nem szükséges ismernie a kommunikációban részt vevő felet. Valós idejű rendszerek tervezésénél fontos szerepet játszanak a portok és konnektorok \cite{uml_real}\\ 
 A portok és konnektorok fordíthatóságához meg kell ismerni azok pontos UML szemantikáját,a szabvány szerinti reprezentációját, valamint kell találni egy olyan C++ reprezentációt, melynek API-ja letisztult, érthető a felhasználó számára, ugyanakkor az egyes műveletek hatékony megvalósítására törekszik. A következőkben ezeket a megvalósításokat fogjuk elemezni, egymással összehasonlítani, valamint kitérünk a szabványos UML leképezésre, annak problémáira is. \\
 
 \section{txtUML keretrendszer}
-A diplomamunka a \textit{txtUML} keretrendszerben készült, mely egy szöveges, végrehajtható és fordítható modellező eszköz. A project célja a UML modellezés megkönnyítése azáltal, hogy a felhasználó nem grafikusan, hanem egy jól definiált, Java szerű nyelvben írhat le modelleket, melyek a végrehajthatóság kapcsán helyben verifikálhatóak, valamint szabványos UML exportálás révén képes együtt működni más eszközökkel is. A projekt részét képezi még egy vizualizációs eszköz, valamint egy C++ fordító komponens.\\
+A diplomamunka a \textit{txtUML} keretrendszerben készült, mely egy szöveges, végrehajtható és fordítható modellező eszköz. A projekt célja az UML modellezés megkönnyítése azáltal, hogy a felhasználó nem grafikusan, hanem egy jól definiált, Java szerű nyelvben írhat le modelleket, melyek a végrehajthatóság kapcsán helyben verifikálhatóak, valamint szabványos UML exportálás révén képes együtt működni más eszközökkel is. A projekt részét képezi még egy vizualizációs eszköz, valamint egy C++ fordító komponens.\\
 
 \section{A diplomamunka célja}
-A diplomamunka célja teljes körű támogatást nyújtani az interfész portokkal történő kommunikációra a \textit{txtUML} keretrendszeren belül. A portokat és azok műveleteit az eszköz által helyesen és teljesen leírhatónak tekintjük, ennek problémájával nem foglalkozunk. A diplomamunka feladata megtalálni ennek a helyes UML reprezentációját, mellyel a kódgenerálás tovább tud dolgozni, valamint a megfelelő C++ kód reprezentációt, mely megfelelő hatékonyságú és tisztaságú. A diplomamunka tehát egy korábbi diplomamunkát fejleszt tovább\cite{hack_dip}, mely megalapozta a C++ generátort, valamint egy szakdolgozatot \cite{my_szakdolg}, mely konfigurálható párhuzamosítási lehetőségekről, valamint az akciókódok exportálásáról szól. A diplomamunka részben ezt fejleszti tovább, kiszélesíti a strukturális és akciókódok támogatását a kompozíciós elemekre. Az UML kompozíciós szabvány bonyolultsága miatt felmerül az igény a szabvány alapos elemzésére, a megfelelő reprezentációk megtervezésére, a kódgenerálási stratégiák elemzésére, összehasonlítására. Portok révén lehetőséget teremt az egyes osztályok teljes izolációára, így jobb párhuzamosítási lehetőségeket tesz lehetővé.
+A diplomamunka célja teljes körű támogatást nyújtani az interfész portokkal történő kommunikációra a \textit{txtUML} keretrendszeren belül. A portokat és azok műveleteit az eszköz által helyesen és teljesen leírhatónak tekintjük, ennek problémájával nem foglalkozunk. A diplomamunka feladata megtalálni ennek a helyes UML reprezentációját, mellyel a kódgenerálás tovább tud dolgozni, valamint a megfelelő C++ kód reprezentációt, mely megfelelő hatékonyságú és tisztaságú. A diplomamunka tehát egy korábbi diplomamunkát fejleszt tovább\cite{hack_dip}, mely megalapozta a C++ generátort, valamint egy szakdolgozatot \cite{my_szakdolg}, mely konfigurálható párhuzamosítási lehetőségekről, valamint az akciókódok exportálásáról szól. A diplomamunka részben ezt fejleszti tovább, kiszélesíti a strukturális és akciókódok támogatását a kompozíciós elemekre. Az UML kompozíciós szabvány bonyolultsága miatt felmerül az igény a szabvány alapos elemzésére, a megfelelő reprezentációk megtervezésére, a kódgenerálási stratégiák elemzésére, összehasonlítására. Portok révén lehetőséget teremt az egyes osztályok teljes izolációjára, így jobb párhuzamosítási lehetőségeket tesz lehetővé.
 
 \section{A diplomamunka főbb eredményei}
 A diplomamunka széles körben átjárja az UML kompozíciós elemeket, azok precíz szabványát és C++ kódgenerálását. Ennek megfelelően az alábbi főbb eredményeket lehet felsorolni:
@@ -63,12 +63,12 @@ A diplomamunka széles körben átjárja az UML kompozíciós elemeket, azok pre
 \section{UML Komponens fogalmak}
 \subsection{Strukturális elemek}
 \subsubsection{Egységbe zárt elem} \label{class}
-UML-ben az egységbe zárt elem egy olyan absztrakt fogalom,mely egyfajta mechanizmust fejez ki, mellyel képesek vagyunk elszigetelni az objektumot a külvilágtól portok segítségével.\\ Ez a fogalom nem összekeverendő az UML komponenssel, mely egy speciális fogalom az UML-ben: egy egységbe zárt elem, és több logikai egységet elemet fog össze (mely lehet egy osztály vagy egy másik komponens), egy jól definiált interfésszel rendelkezik, mellyel valamilyen szolgáltatást nyújt a külvilág felé. A komponens fontos tulajdonsága, hogy az adott rendszerben könnyen cserélhető, azonban ez bármely egységbe zárt elemre igaz, így a komponenseknek nincs különösebb jelentőségük, a továbbiakban nem is foglalkozunk velük. \\
+UML-ben az egységbe zárt elem egy olyan absztrakt fogalom,mely egyfajta mechanizmust fejez ki, mellyel képesek vagyunk elszigetelni az objektumot a külvilágtól portok segítségével.\\ Ez a fogalom nem összekeverendő az UML komponenssel, mely egy speciális fogalom az UML-ben: egy egységbe zárt elem, és több logikai egységet, elemet fog össze (mely lehet egy osztály vagy egy másik komponens), egy jól definiált interfésszel rendelkezik, mellyel valamilyen szolgáltatást nyújt a külvilág felé. A komponens fontos tulajdonsága, hogy az adott rendszerben könnyen cserélhető, azonban ez bármely egységbe zárt elemre igaz, így a komponenseknek nincs különösebb jelentőségük, a továbbiakban nem is foglalkozunk velük. \\
 Az UML osztályok is egységbe zárt elemnek számítanak, a diplomamunka az osztályok portjainak exportálását járja körül, így mostantól egységbe zárt elemek helyett osztályokról beszélünk.
 \subsubsection{UML Interfész}
-UML-ben az interfész egy olyan elem, melynek a szokványos operációs műveleteken kívül speciális kommunikációs műveletei, úgynevezett fogadó végpontjai  vannak. Ezek olyan speciális műveletek, melyek egy eseményt várnak, tehát egy interfész leírja, milyen eseményekkel kommunikálhatunk az interfészeken keresztül. (Az idegen nyelvű szakirodalom reception-nek szokta nevezni)
+UML-ben az interfész egy olyan elem, melynek a szokványos operációs műveleteken kívül speciális kommunikációs műveletei, úgynevezett fogadó végpontjai  vannak. Ezek olyan speciális műveletek, melyek egy eseményt várnak, tehát egy interfész leírja, milyen eseményekkel kommunikálhatunk az interfészeken keresztül (az idegen nyelvű szakirodalom \textit{reception}-nek szokta nevezni).
 \subsubsection{UML Port}
-Osztályok egy adattagja, amely egy kommunikációs csomópontot reprezentál. A típusa lehet egy egyszerű primitív típus is, de gyakoribb eset, amikor a port egy interfészt valósít meg. Ilyen esetben megkülönböztetünk szolgáltatott és elvárt interfészeket. A szolgáltatott interfész a külvilágtól érkező üzenteteket foglalja magában, míg az elvárt interfész a külvilággal történő kommunikációra szolgál. Arra használjuk, hogy egy klasszifikációt függetlenítsünk a környezetétől, mivel így a külvilággal való kapcsolattartás egy bizonyos típusú porton keresztül történik, nem pedig referencia birtoklásával.
+Osztályok egy adattagja, amely egy kommunikációs csomópontot reprezentál. A típusa lehet egy egyszerű primitív típus is, de gyakoribb eset, amikor a port egy interfészt valósít meg. Ilyen esetben megkülönböztetünk szolgáltatott és elvárt interfészeket. A szolgáltatott interfész a külvilágtól érkező üzeneteket foglalja magába, míg az elvárt interfész a külvilággal történő kommunikációra szolgál. Arra használjuk, hogy egy osztályt függetlenítsünk a környezetétől, mivel így a külvilággal való kapcsolattartás egy bizonyos típusú porton keresztül történik, nem pedig referencia birtoklásával.
 \subsubsection{Kompozit struktúra}
 UML-ben a kompozíció erős tartalmazást jelent, mely azt jelenti, hogy az osztályoknak szerves részei lehetnek további elemek. Ez azt jelenti, hogy az élettartamuk összefügg, a szülő elem hozza létre a gyerek elemet, és ő szünteti meg. Egy kompozícióban mindig van pontosan egy tartalmazó, és véges számú tartalmazott egy adott osztályból, melynek minden tartalmazott objektumához külön szerepet rendelhetünk.
 \subsubsection{UML Konnektor}
@@ -118,7 +118,7 @@ Itt \textit{A} a tartalmazó osztály \textit{a} szereppel van feltöltetve a ko
 
 \subsubsection{Assembly konnektor}
 
-\textit{A}-nak legyen két része: \textit{Comp1.b} egy \textit{B} típusú része és \textit{Comp2.c} egy \textit{C} típusú. Legyen \textit{P} \textit{B}-nek egy portja és \textit{Q} \textit{C}-nek egy portja. Ekkor összeköthetjük \textit{P}-t \textit{b} és \textit{Q} \textit{b} és textit{c} szerepek mentén egy assembly konnektor segítségével. 
+\textit{A}-nak legyen két része: \textit{Comp1.b} egy \textit{B} típusú része és \textit{Comp2.c} egy \textit{C} típusú. Legyen \textit{P} \textit{B}-nek egy portja és \textit{Q} \textit{C}-nek egy portja. Ekkor összeköthetjük \textit{P}-t \textit{b} és \textit{Q} \textit{b} és \textit{c} szerepek mentén egy assembly konnektor segítségével. 
 
 \begin{lstlisting}
 public class ExampleConnector extends Connector {
@@ -137,45 +137,45 @@ public class ExampleDelegation extends Delegation {
 \end{lstlisting}
 
 \subsubsection{Átmenetek kibővítése}
-Az állapotátmeneteket \textit{Trigger}-ét kibővítettük egy \textit{port} dimenzióval, mely azt mondja meg, hogy az \textit{value} értéken szerepelő üzenetnek melyik port legyen a forrása, hogy az átmenet végbemenjen.
+Az állapotátmeneteket \textit{Trigger}-ét kibővítettük egy \textit{port} dimenzióval, mely azt mondja meg, hogy a \textit{value} értéken szereplő üzenetnek melyik port legyen a forrása, hogy az átmenet végrehajtódjon.
 \begin{lstlisting}
 @From(State1.class) @To(State2.class)
 @Trigger(port = ExamplePort.class, value = ExampleSignal.class)
 class ExampleTransition extends Transition {}
 \end{lstlisting}
 
-Ez esetben, ha \textit{State1}-ben vagyunk, és az állapotgépnek küldjünk egy  \textit{ExampleSignal}-t, akkor, ha ennek forrása a \textit{ExamplePort}, átlépünk a \textit{State2} állapotba.
+Ez esetben, ha \textit{State1}-ben vagyunk, és az állapotgépnek küldünk egy  \textit{ExampleSignal}-t, akkor, ha ennek forrása a \textit{ExamplePort}, átlépünk a \textit{State2} állapotba.
 
 \chapter{Áttekintés}
 
 \section{Szabványok és keretrendszerek áttekintése}
 \subsection{fUML - ALF}
-A Foundational UML (fUML) \cite{fmul} egy Object Managment Group (OMG) által specifikált végrehajtató UML szabvány, 
+A Foundational UML (fUML) \cite{fmul} egy Object Managment Group (OMG) által specifikált végrehajtható UML szabvány, 
 melynek szöveges akciónyelvi szintaxisát az ALF (Action Language for Foundational UML) \cite{alf} definiálja.
 Mivel ALF az UML szabvány egy részhalmazán alapszik, így az akciónyelvi elemekhez és a strukturális elemekhez (osztály, asszociációk)  széleskörű támogatást nyújt, de az állapotgépekhez vagy a kompozíciókhoz nem definiál szintaxist.
 
 \subsection{PSCS szabvány}
-A  Precise Semantics of UML Composite Structures (PSCS)  szabvány \cite{pscs} szintén az OMG által specifikált UML szabvány, mely kiegészítve az fUML szabványt, a kompozit struktúrák elemihez definiál szemantikát. Ebben található meg többek között az osztályok, interfészek pontos szerepeinek leírása a kompozit struktúrákban, valamint a portok, konnektorok és ahhoz kapcsolódó akciókódok szemantikája. A PSCS szabvány szorosan kapcsolódik a \ref{reprezentation} fejezethez, melyben megvizsgáljuk az egyes kompozit elemek UML szabványát a megfelelő modell létrehozásához, valamint a kódgenerálás szemantikájához.
+A  Precise Semantics of UML Composite Structures (PSCS)  szabvány \cite{pscs} szintén az OMG által specifikált UML szabvány, mely kiegészítve az fUML szabványt, a kompozit struktúrák elemeihez definiál szemantikát. Ebben található meg többek között az osztályok, interfészek pontos szerepeinek leírása a kompozit struktúrákban, valamint a portok, konnektorok és ahhoz kapcsolódó akciókódok szemantikája. A PSCS szabvány szorosan kapcsolódik a \ref{reprezentation} fejezethez, melyben megvizsgáljuk az egyes kompozit elemek UML szabványát a megfelelő modell létrehozásához, valamint a kódgenerálás szemantikájához.
 
 \subsection{Umple}
-Az Umple \cite{umple} szöveges alapú modellezőeszköz támogatja a komponens struktúrák leírását. Itt a portok egyszerű adattagonként jelennek meg, melyekhez úgynevezett aktivátor metódusokat rendelhetünk, melynek hatása az attribútum változásakor érvényesül. A megváltozott állapot kihat a kapcsolatban álló portokra is, a konnektor másik végén álló portok állapota is meg változik, melyre szintén egy aktivátor függvény segítségével reagálhatunk. A konnektorok pedig egyszerűen portok egymáshoz kötésével jelennek meg (\textit{binding}), konnektor struktúrák és interfész kompatibilitási problémák nélkül. Ezzel szemben a \textit{txtUML}-ben interfész portokat adhatunk meg elvárt és szolgáltatott interfésszel, egyszerű attribútumokat nem, aktivátorok helyett pedig az állapotgép átmenteti vannak kiegészítve a portok dimenziójával. Az Umple nem foglalkozik a szabványos UML2-es reprezentációval, a C++ kódot közvetlen a modell szövege alapján állítja elő. Valamint saját akciónyelvvel sem rendelkezik, hanem azt a célnyelvben adhatjuk meg. \\
+Az Umple \cite{umple} szöveges alapú modellezőeszköz támogatja a komponens struktúrák leírását. Itt a portok egyszerű adattagonként jelennek meg, melyekhez úgynevezett aktivátor metódusokat rendelhetünk, melynek hatása az attribútum változásakor érvényesül. A megváltozott állapot kihat a kapcsolatban álló portokra is, a konnektor másik végén álló portok állapota is megváltozik, melyre szintén egy aktivátor függvény segítségével reagálhatunk. A konnektorok pedig egyszerűen portok egymáshoz kötésével jelennek meg (\textit{binding}), konnektor struktúrák és interfész kompatibilitási problémák nélkül. Ezzel szemben a \textit{txtUML}-ben interfész portokat adhatunk meg elvárt és szolgáltatott interfésszel, egyszerű attribútumokat nem, aktivátorok helyett pedig az állapotgép átmenetei vannak kiegészítve a portok dimenziójával. Az Umple nem foglalkozik a szabványos UML2-es reprezentációval, a C++ kódot közvetlen a modell szövege alapján állítja elő. Valamint saját akciónyelvvel sem rendelkezik, hanem azt a célnyelvben adhatjuk meg. \\
 
 Előnyei:
 \begin{itemize}
 \item Online eszközként is elérhető, nem szükséges hozzá semmit telepíteni.
 \item Letisztult, jól definiált szöveges szintaxisa van, beleértve a portokat is.
-\item Tartalmaz kódgenerálást
+\item Tartalmaz kódgenerálást.
 \end{itemize}
 Hátrányai:
 \begin{itemize}
 \item Nem generál egy szabványos UML modellt a kódgenerálás előtt, közvetlen a szövegre építkezik.
 \item A portokat egyszerű adattagként képzi le a feltípusozás alapján, nem lehet megadni szolgáltatott és elvárt interfészeket.
-\item Nincs saját akciónyelve
-\item Nincs lehetőség testre szabni az üzenetküldés implementációját a porton keresztül, nincs konfigurációs leírás
+\item Nincs saját akciónyelve.
+\item Nincs lehetőség testre szabni az üzenetküldés implementációját a porton keresztül, nincs konfigurációs leírás.
 \end{itemize}
 
 \subsection{StartUML}
-A StartUML  Támogatja a kompozit diagramok létrehozását, így a portok, konnektorok és interfészekét is. Vizuális modellezőeszköz, a létrehozott diagramokból C++ kódot tudunk exportálni. A Portok vázát exportálja, ahogy az interfészeket is, de primitív szinten, a portok féltípusozása után egy adattagként generálja hozzá az osztályhoz. A konnektorokat már nem exportálja, ahogy a portokhoz kapcsolódó műveleteket sem. \\
+A StartUML  támogatja a kompozit diagramok létrehozását, így a portok, konnektorok és interfészekét is. Vizuális modellezőeszköz, a létrehozott diagramokból C++ kódot tudunk exportálni. A Portok vázát exportálja, ahogy az interfészeket is, de primitív szinten, a portok feltípusozása után egy adattagként generálja hozzá az osztályhoz. A konnektorokat már nem exportálja, ahogy a portokhoz kapcsolódó műveleteket sem. \\
 Előnyei:
 \begin{itemize}
 \item Az UML szabványos elemeivel dolgozik
@@ -188,15 +188,15 @@ Hátrányai:
 \item Nehézkes, vizuális használat, az elemeket szabadon létrehozhatjuk, és könnyen nem szabványos modellt generálhatunk, míg a txtUML exportja a szabványos modellt exportálás révén hozza létre, így kisebb lehetőségünk van hibázni.
 \end{itemize}
 
-\subsection{BrigePoint UML}
-A StartUML-hez hasonlóan az UML szabványos elemeiből építhetünk fel vizuálisan egy szabványos UML diagramot, melyet kiegészíthetünk akár nem szabványos elemekkel is. Azonban nem tudunk osztályok között portokkal kommunikálni, csak komponensek között (melyről a \ref{class} fejeztben azt mondtuk, hogy egy kifejezetten speciális elem az UML-ben), így ez a megoldás nem elég általános. Portot, illetve konnektort önmagában nem tudunk felvenni, az interfészek segítségével tudunk egy kapcsolatot húzni két komponens között, mely leképződik egy porttá és konnektorrá. Hasonlóan a StartUML-hez, az akciókat aktivitás node-ok révén kézzel kell összerakni, így nehéz szabványos port műveleteket létrehozni. Összességében a BridgePoint-ról \cite{bridge} is elmondható, hogy kezdetlegesen támogatja a portokkal történő kommunikációt, az ezzel kapcsolatos részei eltérnek a szabványos UML-től, így a kódgenerálás támogatása ellenére nehéz érdemben kompozit elemek kódgenerálási stratégiájáról beszélni. 
+\subsection{BridgePoint UML}
+A StartUML-hez hasonlóan az UML szabványos elemeiből építhetünk fel vizuálisan egy szabványos UML diagramot, melyet kiegészíthetünk akár nem szabványos elemekkel is. Azonban nem tudunk osztályok között portokkal kommunikálni, csak komponensek között (melyről a \ref{class} fejezetben azt mondtuk, hogy egy kifejezetten speciális elem az UML-ben), így ez a megoldás nem elég általános. Portot, illetve konnektort önmagában nem tudunk felvenni, az interfészek segítségével tudunk egy kapcsolatot húzni két komponens között, mely leképződik egy porttá és konnektorrá. Hasonlóan a StartUML-hez, az akciókat aktivitás node-ok révén kézzel kell összerakni, így nehéz szabványos port műveleteket létrehozni. Összességében a BridgePoint-ról \cite{bridge} is elmondható, hogy kezdetlegesen támogatja a portokkal történő kommunikációt, az ezzel kapcsolatos részei eltérnek a szabványos UML-től, így a kódgenerálás támogatása ellenére nehéz érdemben kompozit elemek kódgenerálási stratégiájáról beszélni. 
 
 \section{Összefoglalás}
 Összességében az figyelhető meg az egyes exportálási módok között, hogy a portokat mindig valamilyen primitív feltípusozott adattagként exportáljuk. A másik lehetőségünk, melyet mi is követni fogunk, az interfész portokat összetett típusként exportálni, melyben benne van a szolgáltatott és elvárt interfész. Portok összekapcsolásának, a portokon történő kommunikáció végrehajtási szemantikájával pedig nem mindegyik keretrendszer foglalkozik, még ha részben támogatja is a portok exportálását. Ennek oka a szabvány nehezen érthetőségében és hiányosságában keresendő. Mindebből az figyelhető meg, hogy egy viszonylag új területről beszélünk, melyben egy teljes körű támogatás és elemzés referencia értékű lehet későbbi megoldások, fejlesztések számára. A diplomamunka kielemez több különböző, teljes körű támogatást a portok és interfészek C++ nyelvre történő exportáláshoz, mely magában foglalja a szabványos UML modell létrehozását egy jól definiált leírónyelv alapján.
 
 \chapter{Reprezentációs lehetőségek} \label{reprezentation}
 \section{A megfelelő reprezentációk megtalálása}
-Az eddig leírtakból kiderült, hogy a szabványos reprezentáció megtalálásával is problémákba ütközünk, mely a fellelhető irodalomból és eszközökből is csak nehezen derül ki, így kitérünk ezek ismertetésére is. A C++ reprezentációhoz pedig egy saját Port könyvtárat és generálási módszert választunk, mely a felellethető módszerek finomításából és több különböző ötlet elemzésének következtében hozunk létre. \\
+Az eddig leírtakból kiderült, hogy a szabványos reprezentáció megtalálásával is problémákba ütközünk, mely a fellelhető irodalomból és eszközökből is csak nehezen derül ki, így kitérünk ezek ismertetésére is. A C++ reprezentációhoz pedig egy saját Port könyvtárat és generálási módszert választunk, mely a fellelhető módszerek finomításából és több különböző ötlet elemzésének következtében hozunk létre. \\
 
 A továbbiakban a következő elemek reprezentációjával foglalkozunk:
 \begin{itemize}
