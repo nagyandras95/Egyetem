@@ -24,7 +24,7 @@ Port</panel_attributes>
     <panel_attributes>template=ConType
 /IConnection/
 --
-+ forward(Event e) {cast&lt;ConType&gt;(self).specFoward(e)}
++ forward(Event e) {cast&lt;ConType&gt;(self).specForward(e)}
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -39,7 +39,7 @@ Port</panel_attributes>
     <panel_attributes>template=ConnType=DelegateConnection
 DelegateConnection
 --
-+ specFoward(Event e)</panel_attributes>
++ specForward(Event e)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -53,7 +53,7 @@ DelegateConnection
     <panel_attributes>template=ConnType=AssemblyConnection
 AssemblyConnection
 --
-+ specFoward(Event e)</panel_attributes>
++ specForward(Event e)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,7 +67,7 @@ AssemblyConnection
     <panel_attributes>template=ConnType=NoConnection
 NoConnection
 --
-+ specFoward(Event e)</panel_attributes>
++ specForward(Event e)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

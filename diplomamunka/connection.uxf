@@ -11,7 +11,7 @@
     </coordinates>
     <panel_attributes>/Connection/
 --
-/#foward(GeneralEvent)/
+/#forward(GeneralEvent)/
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -25,7 +25,7 @@
     </coordinates>
     <panel_attributes>DelegateConnection
 --
-#foward(GeneralEvent) {sendAny..}
+#forward(GeneralEvent) {sendAny..}
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -39,7 +39,7 @@
     </coordinates>
     <panel_attributes>AssemblyConnection
 --
-#foward(GeneralEvent) {receiveAy..}</panel_attributes>
+#forward(GeneralEvent) {receiveAy..}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -91,12 +91,12 @@
     <coordinates>
       <x>480</x>
       <y>40</y>
-      <w>290</w>
+      <w>300</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Port
 --
-# sendAny(GeneralEvent e) {conn.foward(e)}</panel_attributes>
+# sendAny(GeneralEvent e) {conn.forward(e)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -113,7 +113,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
+      <x>600</x>
       <y>100</y>
       <w>60</w>
       <h>110</h>

@@ -4,7 +4,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>970</x>
+      <x>740</x>
       <y>370</y>
       <w>30</w>
       <h>70</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
+      <x>360</x>
       <y>390</y>
       <w>180</w>
       <h>40</h>
@@ -27,19 +27,19 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1060</x>
+      <x>830</x>
       <y>390</y>
       <w>160</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>Állapotgép 
-felolgozza az üzenetet</panel_attributes>
+feldolgozza az üzenetet</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLObject</id>
     <coordinates>
-      <x>940</x>
+      <x>710</x>
       <y>340</y>
       <w>100</w>
       <h>40</h>
@@ -50,7 +50,7 @@ felolgozza az üzenetet</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>910</x>
+      <x>680</x>
       <y>400</y>
       <w>170</w>
       <h>40</h>
@@ -62,7 +62,7 @@ felolgozza az üzenetet</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>750</x>
+      <x>520</x>
       <y>390</y>
       <w>170</w>
       <h>50</h>
