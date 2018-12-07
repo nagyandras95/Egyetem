@@ -4,9 +4,9 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>220</y>
-      <w>410</w>
+      <x>300</x>
+      <y>200</y>
+      <w>420</w>
       <h>220</h>
     </coordinates>
     <panel_attributes>/PingPongInterface/
@@ -16,14 +16,14 @@ IsReception&lt;Ping&gt; -&gt; True
 IsReception&lt;Pong&gt; -&gt; False
 
 --
-+ send &lt;ET&gt; (ET event) { selectSend&lt;IsReception&lt;ET(event) }
++ send &lt;ET&gt; (ET event) { selectSend&lt;IsReception&lt;ET&gt; &gt;(event) }
 
 --
 /#sendAny (GeneralEvent)/
 
 --
--selectSed &lt;bool&gt; (GeneralEvent event) {hiba..}
--selectSed &lt;True&gt; (GeneralEvent event) { sendAny(event) }
+-selectSend &lt;bool&gt; (GeneralEvent event) {hiba..}
+-selectSend &lt;True&gt; (GeneralEvent event) { sendAny(event) }
 </panel_attributes>
     <additional_attributes/>
   </element>

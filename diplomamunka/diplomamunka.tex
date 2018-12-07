@@ -7,6 +7,7 @@
 
 \usepackage[magyar]{babel}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{textgreek}
 %\usepackage[delims]{lgreek}
 \usepackage{couriers}
@@ -18,6 +19,7 @@
 \usepackage{titlesec}
 \usepackage{booktabs}
 \usepackage{multicol}
+\usepackage{float}
 
 \usepackage[top=25mm, bottom=25mm, left=35mm, right=25mm]{geometry}
 
@@ -72,9 +74,12 @@ Osztályok egy adattagja, amely egy kommunikációs csomópontot reprezentál. A
 \subsubsection{Kompozit struktúra}
 UML-ben a kompozíció erős tartalmazást jelent, mely azt jelenti, hogy az osztályoknak szerves részei lehetnek további elemek. Ez azt jelenti, hogy az élettartamuk összefügg, a szülő elem hozza létre a gyerek elemet, és ő szünteti meg. Egy kompozícióban mindig van pontosan egy tartalmazó, és véges számú tartalmazott egy adott osztályból, melynek minden tartalmazott objektumához külön szerepet rendelhetünk.
 \subsubsection{UML konnektor}
-Egy asszociációt realizál két port között, melyeknek a tartalmazó osztályai valamilyen szereppel fel vannak tüntetve egy kompozit struktúrában. A konnektornak meg kell adni, milyen két szereplőt köt össze, milyen szerepekkel, a szereplők mely portján keresztül jön létre a kapcsolat. A konnektoroknak kétféle fajtája van, assembly vagy delegációs kapcsolat. A különbség abban van, hogy egy assembly kapcsolat két azonos szinten lévő szereplőt köt össze a kompozit struktúrában, míg a delegáció a szülőt köti össze egy gyerek osztállyal a kompozit hierarchia mentén. Interfészportok esetén assembly kapcsolódás olyan portok között lehet, melyek interfészei egymás inverzei (ami az egyiknek a szolgáltatott interfésze, az a másiknak az elvárt), delegáció esetén pedig az interfészeknek meg kell egyeznie (az elvárt és a szolgáltatott interfészek megegyeznek). Leírhatjuk benne továbbá a kommunikációra használt protokollt.
+Egy asszociációt realizál két port között, melyeknek a tartalmazó osztályai valamilyen szereppel fel vannak tüntetve egy kompozit struktúrában. A konnektornak meg kell adni, milyen két szereplőt köt össze, milyen szerepekkel, a szereplők mely portján keresztül jön létre a kapcsolat. A konnektoroknak kétféle fajtája van, assembly vagy delegációs kapcsolat. A különbség abban van, hogy egy assembly kapcsolat két azonos szinten lévő szereplőt köt össze a kompozit struktúrában, míg a delegáció a szülőt köti össze egy gyerek osztállyal a kompozit hierarchia mentén. Interfészportok esetén assembly kapcsolódás olyan portok között lehet, melyek interfészei egymás inverzei (ami az egyiknek a szolgáltatott interfésze, az a másiknak az elvárt), delegáció esetén pedig az interfészeknek meg kell egyeznie (az elvárt és a szolgáltatott interfészek megegyeznek). Leírhatjuk benne továbbá a kommunikációra használt protokollt. \\
 
+\begin{figure}[H]
 \includegraphics[scale=0.8]{composit_stuct.png}
+\caption{Kompozit diagram elemei}
+\end{figure}
 
 \subsection{Akció elemek}
 \subsubsection{Üzenet küldés/fogadás}
@@ -212,12 +217,23 @@ A portok reprezentálása értelemszerű, egy speciális \textit{Property}-t kel
 
 
 \subsubsection{Szemléltetés osztálydiagrammal}
-A diagramon láthatjuk, hogy a port leszármazik a szolgáltatott interfészből, megvalósítva azt, és az osztály pedig tartalmazza a portot.
+A 3.1-es diagramon láthatjuk, hogy a port leszármazik a szolgáltatott interfészből, megvalósítva azt, és az osztály pedig tartalmazza a portot.
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.8]{uml_port_class.png}
+\end{center}
+\caption{Port UML megvalósításának szemléltetése osztálydiagramon}
+\end{figure}
 
 \subsubsection{Szemléltetés komponens diagrammal}
-Az ábrán egy osztály látható, mely tartalmaz egy portot, melyet a kompozit struktúrákon egy négyzet jelöl. Nincs kapcsolatban másik elemmel, de van egy kapcsolódási pontja, melyet a kör jelöl. \\
+Az 3.2-es ábrán egy osztály látható, mely tartalmaz egy portot, melyet a kompozit struktúrákon egy négyzet jelöl. Nincs kapcsolatban másik elemmel, de van egy kapcsolódási pontja, melyet a kör jelöl. \\
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{uml_port_comp.png}
+\end{center}
+\caption{Port UML megvalósításának szemléltetése kompozit diagramon}
+\end{figure}
 
 \subsection{C++-ban} \label{cpp_gen_port}
 A portokat C++ osztályok adattagjaiként reprezentáljuk. Hasonlóan a \textit{txtUML} Java szintaxisához, felveszünk egy \textit{Port} típust, melyet paraméterezhetünk az interfészek típusával. A \ref{inf} fejezetben részletesen beszélünk arról, hogyan valósítunk meg egy interfész portot C++-ban, és miért erre a szintaxisra esett a választásunk. 
@@ -228,7 +244,7 @@ A portokat C++ osztályok adattagjaiként reprezentáljuk. Hasonlóan a \textit{
 \subsubsection{Üzenetküldés}
 A  \textit{SendObjectAction} két paraméterből áll, egy célobjektumból és egy üzenetből.
 A célobjektum valamilyen \textit{InputPin}, vagyis valamilyen akciónak az eredménye.
-Mivel a port egy strukturális elem, így a referenciáját egy \textit{ReadStructuralFeatureAction} akcióval megszerezhetjük. 
+Mivel a port egy strukturális elem, így a referenciáját egy \textit{ReadStructuralFeatureAction} akcióval megszerezhetjük. A megoldást a 3.3-as ábrán szemléltetjük.
 \begin{itemize}
 \item Könnyű reprezentálni, illeszkedik a modellfordító elvébe, aki feltételezi, hogy
 egy \textit{send} akciónak van egy célobjektuma, ahova az üzenetet kell küldeni. Ez a célobjektum ilyenkor maga a port lesz, és nem az azt tartalmazó osztály.
@@ -236,7 +252,13 @@ egy \textit{send} akciónak van egy célobjektuma, ahova az üzenetet kell küld
 \item Szintaktikailag könnyen kivitelezhető, azonban a \textit{PSCS} szabvány nem ír róla semmit, mi lesz a szemantikája egy ilyen konstrukciónak.
 \end{itemize}
 
-\includegraphics[scale=0.8]{send_uml.png} \\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{send_uml.png}
+\end{center}
+\caption{Üzenetküldés a portnak \textit{SendObject} akcióval úgy, hogy a port a célobjektum}
+\end{figure} 
+
 
 A \textit{PSCS} szabvány definiálja, hogy szintaktikailag hogyan néz ki egy üzenetküldése, illetve fogadása porton keresztül, és mi lesz ennek a pontos szemantikája. \\
 Ha egy osztály példánynak a portján keresztül szeretnénk üzenetet küldeni, akkor a \textit{SendObjectAction}-nak az \textit{OnPort} adattagját használhatjuk a szabvány szerint.  Az \textit{OnPort} adattag egy \textit{Port} típusú referencia adattag, melyet ha nem adunk meg, akkor az üzenetet a célobjektumnak küldjük el, és az objektumnak való üzenetküldés szemantikája nem változik.  Azonban, ha ez ki van töltve, akkor az objektumnak a portján keresztül továbbítunk üzenetet. Ennek szemantikája pedig attól függ, hogy milyen kontextusban hajtottuk végre az akciót. \\
@@ -244,8 +266,12 @@ Ha egy osztály példánynak a portján keresztül szeretnénk üzenetet külden
 Ha az akció környezete szerint az üzenetküldés kezdeményezője az az objektum, akinek a portjára üzenetet szeretnénk küldeni, vagyis megegyezik a \textit{target} referenciával, akkor üzenetküldésről beszélhetünk (\textit{send} művelet). \\
 Ha a \textit{SendObjectAction} kezdeményezése a célobjektumon kívülről történt, akkor pedig üzenet fogadásról beszélhetünk (\textit{receive} művelet). \\
  
-
-\includegraphics[scale=0.6]{receive_uml.png}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.7]{receive_uml.png}
+\end{center}
+\caption{Üzenetküldés/fogadás port felhasználásával \textit{SendObject} akcióval a \textit{OnPort} referencia kitöltésével}
+\end{figure} 
 
 \subsection{C++-ban}
 C++ exportálás során az üzenetküldés fordítását kell átdolgozni, figyelembe kell venni az \textit{OnPort} referenciát, valamint az üzenetküldés kezdeményezőjét a szemantikának megfelelően. \textit{txtUML}-ben az üzenet fogadás nem megvalósított, de a kódgenerátor felkészíthető rá.
@@ -261,17 +287,37 @@ Valahogyan ki kell fejeznünk azt is, ha egy üzenetet nem a külvilág felé de
 \end{enumerate} 
 Előbbi megoldás azonban tisztább, jobban érthető a felhasználó számára, valamint a szolgáltatott és elvárt interfészek kifejezésénél is előnyösebb lesz. (\ref{inf}) \\
 
-A következő ábra azt szemlélteti, hogy melyik akciót kell lefuttatni attól függően, hogy a portra való üzenetküldés milyen kontextusban történt, melyik irányból. \\
+A 3.5-ös ábra azt szemlélteti, hogy melyik akciót kell lefuttatni attól függően, hogy a portra való üzenetküldés milyen kontextusban történt, melyik irányból. \\
 
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.8]{send_rec.png}
+\end{center}
+\caption{Üzenetküldés/fogadás kontextusa}
+\end{figure} 
 
 \subsubsection{Üzenetfogadás állapotgéppel összekapcsolt portok esetén}
 Az állapotgéppel összekapcsolt portok többféleképpen használhatók kommunikációra, de minden esetben egyfajta ravaszként működik a rajtuk történő állapotváltozás (amikor egy állapotgéppel összekapcsolt port értéke megváltozik, pl. üzenet érkezik rá). A port adattag értéke reprezentálja az üzenetet. Ennek megfelelően általánosságban kétféle megoldás létezik a portokon történő kommunikáció megvalósítására:
 \begin{itemize}
 \item Hasonlóan az események feldolgozásához, úgy a portokon történő üzenetfogadást is átmeneti függvényekkel dolgozzuk fel. Ez esetben nem érdekes számunka a port állapota, az üzenet az objektum üzenetsorába kerül be, mely majd feldolgozásra kerül hasonlóan, mint egy normál üzenet.  \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.6]{port_actfun.png}
-\item Külön aktivátor függvényeket valósítunk meg az osztályon belül az egyes portokra, melyek a portok állapotváltozásakor aktiválódnak. Ez esetben számít a portnak az állapota, mivel az reprezentálja magát az üzenetet. Ennek megfelelően máshogy dolgozzuk fel, mint a többi üzenetküldést. Interfészportok esetén a port tartalmazza a neki küldött üzenetet, az reprezentálja az állapotát, primitív esetben pedig a port értéke szolgál erre. \\
-\includegraphics[scale=0.6]{port_sendm.png} \\
+\end{center}
+\caption{Portról fogadott üzenet feldolgozása állapotgéppel}
+\end{figure} 
+
+\item Külön aktivátor (figyelő) függvényeket valósítunk meg az osztályon belül az egyes portokra, melyek a portok állapotváltozásakor aktiválódnak. Ez esetben számít a portnak az állapota, mivel az reprezentálja magát az üzenetet. Ennek megfelelően máshogy dolgozzuk fel, mint a többi üzenetküldést. Interfészportok esetén a port tartalmazza a neki küldött üzenetet, az reprezentálja az állapotát, primitív esetben pedig a port értéke szolgál erre. \\
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{port_sendm.png}
+\end{center}
+\caption{Portról fogadott üzenet feldolgozása aktivátor függvénnyel}
+\end{figure} 
+
 \end{itemize}
 
 A mi esetünkben az előbbi megoldás tűnt kézenfekvőnek, mivel az könnyen adaptálható a meglévő generálási szabályok közé, valamint a forrásnyelv is ezt a konvenciót követi. A \ref{comm} fejezetben kitérünk arra, hogy az osztály állapotgépe pontosan hogyan dolgozza fel az adott üzenetet. Nem-állapotgéppel összekapcsol portok esetén pedig továbbítanunk kell az üzenetet a belső port felé, ilyenkor az állapotgépnek nem kell reagálnia rá. Ezzel a \ref{connect} fejezetben részlesen foglalkozunk.
@@ -300,9 +346,14 @@ Hátrányok:
 \subsubsection{Van interfész}
 Ezen belül meg kell vizsgálni az interfész port szintaxisát, valamint a mögöttes végrehajtási szemantikát, illetve magának az interfésznek a leírási módjait. \\
 Ahogy azt korábban írtuk, a port típusa az UML-ben a szolgáltatott interfész, ezért kézenfekvő megoldás lenne felvenni egy olyan adattagot, melynek ez az interfész a típusa. Ennek azonban több hátránya is van, sokkal nehezebben tudjuk kifejezni, milyen elvárt interfésze van a portnak, valamint nem tudjuk kifejezni a port típuson belül az üzenetküldés végrehajtási szemantikáját sem, valamilyen külső implementációra kényszerülünk. Ezáltal bonyolítjuk a megvalósítást, veszítünk az absztrakcióból, de a hatékonyságot nem növeljük. 
-Így a másik lehetőségünk bevezetni a \textit{Port} típust, melynek sablon paramétere a szolgáltatott és elvárt interfész. \\
+Így a másik lehetőségünk bevezetni a \textit{Port} típust, melynek sablon paramétere a szolgáltatott és elvárt interfész, ahogy azt a 3.8-as ábrán is láthatjuk. \\
 
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{port_class.png}
+\end{center}
+\caption{Port az interfészek sablonparamétereivel}
+\end{figure} 
 
 
 Ezek után technikailag többféle lehetőségünk van megvalósítani a validációt: \\
@@ -311,21 +362,34 @@ Ezek után technikailag többféle lehetőségünk van megvalósítani a validá
 \item Generáljunk egy üres osztályt az interfészekből, majd a szignálok származzanak le aszerint, hogy melyik interfész fogadó műveletei között vannak benne: \\
 PL: UML interfész neve: \textit{PingPongInterface}, a fogadó végpontjai pedig a következő szignálokat fogadják: \textit{Ping}, \textit{Pong} \\
 Majd a portnak legyen egy \textit{send} művelete, ami az elvárt interfész alá sorolt szignálokat várja, vagyis olyan szignálokat, melyek implementálják a megfelelő interfészt.
-Mindezzel fordítási időben biztosítjuk, hogy ne adhassunk át olyan szignált, melyet nem soroltunk az elvárt interfész szignáljai közé. Hasonlóan, a \textit{receive} művelet olyan szignálokat vár, melyek leszármazottjai a szolgáltatott interfésznek. \\
+Mindezzel fordítási időben biztosítjuk, hogy ne adhassunk át olyan szignált, melyet nem soroltunk az elvárt interfész szignáljai közé. Hasonlóan, a \textit{receive} művelet olyan szignálokat vár, melyek leszármazottjai a szolgáltatott interfésznek (lásd 3.9-es ábra). \\
 
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{inf_ver1.png} \\
+\end{center}
+\caption{Szignálok csoportosítása leszármazással}
+\end{figure}
 
 Előnyök:
 \begin{itemize}
-\item Egyszerű megvalósítás, kevés extra kód generálásra van szükség hozzá, az interfészek lényegében csak üres, jelző osztályok.
+\item Egyszerű megvalósítás, kevés extra kód generálásra van szükség hozzá, az interfészek lényegében csak üres, csoportosító osztályok.
 \item Egyetlen \textit{send} függvénnyel meg lehet oldani a validációt, így a kód a lehető legkisebb lesz, nem lesz redundancia.
 \end{itemize}
 Hátrányok:
 \begin{itemize}
 \item Nem általánosított megoldás. Az interfészt bármilyen szereplő használhat, és le is származhat belőle, azonban ezzel erősen portokra korlátozzuk a megoldást, mivel a küldő és fogadó műveletek a portok kódjába vannak beleégetve.
 \end{itemize}
-\item Ezt a gondolatmenetet folytatva vizsgáljuk meg azt az általános lehetőséget, hogy a \textit{Port} osztály megvalósítja az interfészt. A szintaxis nem változik, továbbra is sablon paraméterként szeretnénk megadni az interfészeket a portban. Mivel most a szignáloknak nincsen interfész őse, így minden egyes fogadási végpont művelethez kelleni fog egy-egy függvény. Mivel az üzenetküldés végrehajtási szemantikája nem változik, így vezessünk be egy általános \textit{sendAny} védett metódust, mely bármilyen szignált képes fogadni, azonban a publikus interfészen nem látható. Ezt a leszármazott osztályban felül tudjuk definiálni az üzenetküldés szemantikájától függően. Amikor a \textit{sendAny} továbbítja az adott portnak a megfelelő szignált, a túloldalon lévő port már csak egy általános eseményt lát, nem tudjuk ellenőrizni a típuskonzisztenciát. Azonban két port összekapcsolásakor tudunk gondoskodni róla, hogy ne köthessünk össze inkonzisztens interfészű portokat. \ref{connect} \\
+\item Ezt a gondolatmenetet folytatva vizsgáljuk meg azt az általános lehetőséget, hogy a \textit{Port} osztály megvalósítja az interfészt. A szintaxis nem változik, továbbra is sablon paraméterként szeretnénk megadni az interfészeket a portban. Mivel most a szignáloknak nincsen interfész őse, így minden egyes fogadási végpont művelethez kelleni fog egy-egy függvény. Mivel az üzenetküldés végrehajtási szemantikája nem változik, így vezessünk be egy általános \textit{sendAny} védett metódust, mely bármilyen szignált képes fogadni, azonban a publikus interfészen nem látható. Ezt a leszármazott osztályban felül tudjuk definiálni az üzenetküldés szemantikájától függően. Amikor a \textit{sendAny} továbbítja az adott portnak a megfelelő szignált, a túloldalon lévő port már csak egy általános eseményt lát, nem tudjuk ellenőrizni a típuskonzisztenciát. Azonban két port összekapcsolásakor tudunk gondoskodni róla, hogy ne köthessünk össze inkonzisztens interfészű portokat (lásd részletesebben a \ref{connect} fejezetben). \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{inf_ver2.png} \\
+\end{center}
+\caption{Szignálok csoportosítása \textit{send} függvényekkel}
+\end{figure}
+
+
 Előnyök:
 \begin{itemize}
 \item Általános megoldás, az interfészt ténylegesen megvalósítjuk, így ez akár modell osztályokra is kiterjeszthető
@@ -344,8 +408,14 @@ Ez azt jelentené, hogy a \textit{PingPongInf} egy olyan interfész lenne, amely
 Vizsgáljuk meg a szolgáltatott részt, az elvárt ezzel analóg. Vezessünk be egy olyan sablon \textit{send} függvényt, melynek a sablon paramétere az elküldendő szignál típusa. Ezt látjuk a publikus interfészen, eszerint bármilyen szignállal meg tudjuk hívni az adott függvényt. Azonban a függvény delegálja a hívást egy olyan védett sablon függvénynek, mely bármilyen szignált képes fogadni, és rendelkezik egy logikai sablon paraméterrel: ebben adhatjuk meg, hogy a delegált szignál része-e az interfésznek vagy sem. 
 Sablon specializáció segítségével kétféle implementációt adunk ennek a függvénynek: Az igaz ág, mely végrehajtja a szignál küldését, a hamis ág pedig szemantikai fordítási hibára fut, ezzel ellenőrizve fordítási időben, hogy ne adhassunk át olyan eseményt, mely nem része az interfésznek. \\
 A kérdés már csak az maradt, hogyan döntjük el egy adott szignálról, hogy része-e az interfésznek. Az egyik lehetőség bevezetni egy sablon osztályt, melynek egy adattagja megmondja, hogy szignálról beszélünk-e, mely paramétere egy fogadási műveletnek. Ezt alapértelmezetten hamisra állítani, és specializálni igaz értékekkel a sablon osztályt a megfelelő szignálokkal. \\
-Összefoglalva az eddigieket egy ábrában: \\
-\includegraphics[scale=0.8]{better_inf.png} \\
+Összefoglalva az eddigieket egy ábrában:
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{better_inf.png} \\
+\end{center}
+\caption{Szignálok csoportosítása \textit{IsReception} sablonfügevénnyel}
+\end{figure}
+
 Ezzel azonban még nem értük el a kívánt egyszerű szintaxist, de a \textit{send} függvényt legalább nem duplikáltuk fölöslegesen. A \textit{TYPELIST} \cite{typelist} konstrukciót használva viszont eljutunk a cél szintaxisig, ugyanis felsorolhatjuk a megfelelő szignál típusokat egy listában, és elég arra vizsgálnunk, hogy az adott szignál típus része-e a listának.
 \end{enumerate}
 
@@ -365,8 +435,14 @@ A probléma, hogy a \textit{Using} relációk nem kölcsönösen egyértelműek,
 Mivel a portra tudunk üzenetet küldeni és fogadni egyaránt, így az interfészeknek két részük lesz, az egyik a fogadó, a másik a küldő műveleteket definiálja. Attól függően, hogy az adott interfészt szolgáltatott vagy elvárt interfésznek adtuk meg, a megfelelő részből fog leszármazni az adott port. A másik lehetőség az lenne, ha nem bontjuk két részre az interfészt, helyette a fogadó végpontok függvényeinek egy plusz paramétere lenne, hogy kívülről vagy belülről küldünk-e üzentet (ahogy azt a \ref{message} bekezdésben felvezettük). Ez esetben abba a problémába ütköznénk, hogy nem tudnánk elkülöníteni a fogadó műveleteket leszármazással aszerint, hogy a port milyen szolgáltatott és elvárt interfésszel rendelkezik. \\
 
 \subsubsection{Interfész kiterjesztett szintaxisa, konkrét példa portok esetén}
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{seperate_inf.png} \\
-Az ábrán a portnak a szolgáltatott és elvárt interfésze is a \textit{PingPongInterface} lesz. Az interfész maga nem tartalmaz egyetlen fogadó végpontot sem, helyette két különböző részből áll. Az egyik részben az üzenetküldő függvények, a másik részben pedig az üzenetfogadó függvények vannak felsorolva. Ha egy port szolgáltatott interfészének adjuk meg az adott interfészt, akkor az üzenetfogadó résztől (\textit{ProvidedPart}) örökli meg az egyes műveleteket. Ha elvárt interfésznek adjuk meg a \textit{PingPongInterface}-t, akkor pedig a \textit{RequiredPart}-tól örököljük meg az egyes üzenetküldő műveleteket. A konkrét példában azt láthatjuk, hogy a \textit{Port} a \textit{PingPongInterface} fogadó és küldő műveleteit is örökli, mivel az elvárt és szolgáltatott interfésze megegyezik.
+\end{center}
+\caption{Interfészek két részre bontva üzenetküldés/fogadás szerint}
+\end{figure}
+
+Az 3.12-es ábrán a portnak a szolgáltatott és elvárt interfésze is a \textit{PingPongInterface} lesz. Az interfész maga nem tartalmaz egyetlen fogadó végpontot sem, helyette két különböző részből áll. Az egyik részben az üzenetküldő függvények, a másik részben pedig az üzenetfogadó függvények vannak felsorolva. Ha egy port szolgáltatott interfészének adjuk meg az adott interfészt, akkor az üzenetfogadó résztől (\textit{ProvidedPart}) örökli meg az egyes műveleteket. Ha elvárt interfésznek adjuk meg a \textit{PingPongInterface}-t, akkor pedig a \textit{RequiredPart}-tól örököljük meg az egyes üzenetküldő műveleteket. A konkrét példában azt láthatjuk, hogy a \textit{Port} a \textit{PingPongInterface} fogadó és küldő műveleteit is örökli, mivel az elvárt és szolgáltatott interfésze megegyezik.
 
 \section{Konnektorok, összekapcsolás művelet reprezentálása} \label{connect}
 Az interfészeket (\ref{inf}) és portokat már tudjuk exportálni UML-ben, illetve megfelelő C++ reprezentációt is találtunk. A konnektorokat ezek segítségével már ki tudjuk fejezni. \\
@@ -380,10 +456,25 @@ A \textit{connect} akció kifejezése UML-ben már kevésbé egyértelmű, mivel
 \begin{enumerate}
 \item Mivel a port adattagok az UML-ben (\textit{Propertyk}) így két portot kölcsönösen értékül adhatunk egymásnak. Ez egy lehetőség arra, hogy kifejezzük UML-ben az összekapcsoló műveletet, szabványos modell keletkezik, de mégsem ez a helyes szabványa portok összekapcsolásának. A probléma ugyanis az, hogy bármilyen két portot összekapcsolhatunk, konkrét konnektor realizáció nélkül.
 \item A \textit{PSCS} szabvány szerint, ha egy operáció egy konstruktor hívásnak felel meg (\textit{Create} sztereotípiával van ellátva), és nem adunk meg hozzá konkrét metódustörzset, mint akciót, akkor az osztály kompozit struktúráját valamilyen alapértelmezett konstrukciós stratégia mentén fogja létrehozni (Ezt nevezi a szabvány \textit{DefaultConstruction}-nek). Mivel a \textit{Connector} egy asszociáció példány, így már egy konkrét, létrejött kapcsolatról beszélhetünk, az alapértelmezett konstrukciós stratégia pedig megmondhatja, hogyan kell összekötni a portokat. Ebből adódóan a kompozíció struktúrájából következtethetünk az összekapcsolt portokra. Azonban ez megszorításokkal járna, ha például egy szülőnek két azonos típusú gyereke van, de csak az egyikkel szeretne delegáció révén kommunikálni, nem lehet hozzá kötni mindkét gyerek porthoz a szülő portját.  \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.8]{preconnect_problem.png}
+\end{center}
+\caption{Probléma a statikus összekapcsolással}
+\end{figure}
+
+
 \item Nem maradt más lehetőség, mint a dinamikus összekapcsolás, tehát meg kell mondani egy konkrét metódusban, hogyan inicializáljunk fel egy struktúrát. Szintaktikailag sincs már más lehetőség, mint a \textit{CreateLinkAction} használata, melyet a \textit{PSCS} szabvány definíciója is kimond. Ehhez két dologra van szükség: végpontokra (\textit{LinkEndData}), valamint arra az asszociációra, melyet használni szeretnénk az összekapcsoláshoz. Az asszociáció végpontok egyértelműek, felhasználhatjuk a konnektor végpontjait. Mint korábban láttuk, a konnektorok fel vannak típusozva egy \textit{Association} típussal. Értelemszerű lenne ezt fölhasználni az összekapcsoláshoz, a kérdés csak az, mi legyen ez az asszociáció. A szabvány biztosít nekünk egy alapértelmezett asszociációt (\textit{GenericAssociation}), melyet használhatunk abban az esetben, ha a konnektornak nincs típusa. Arra is van lehetőségünk, hogy saját asszociációt generáljunk a modellbe. Asszociáció típusok között húzható, a port önmagában nem típus, hanem egy adattag, de ennek révén rendelkeznek típussal, a szolgáltatott interfészének a típusával. Vegyük két port interfészét, nevezzük ezeket \textit{t1}-nek, illetve \textit{t2}-nek.  Megtehetjük, hogy generálunk \textit{t1} és \textit{t2} között egy \textit{a1} asszociációt, melyet a konnektor realizál a portok összekapcsolásával. Így a \textit{CreateLinkAction}-be be tudjuk tenni asszociációként az \textit{a1}-et, mint a konnektor típusát, ami mentén összekapcsolunk, nem kell használnunk a \textit{GenericAssociation}-t. Ezzel egy szabványos UML-t generálunk, és a konnektorokat sem hagyjuk figyelmen kívül két port összekapcsolásánál. \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.8]{connect_type.png}
-Az ábrán látható, hogy a \textit{p1} és \textit{p2} portnak a típusa az \textit{t1} és \textit{t2} interfészből származik, melyek között húzódik egy \textit{a1} asszociáció. Ezek után a \textit{c1} konnektor \textit{type} referenciájába az \textit{a1} asszociáció kerül bele. 
+\end{center}
+\caption{Konnektor típusának megadása}
+\end{figure}
+
+Az 3.14-es ábrán látható, hogy a \textit{p1} és \textit{p2} portnak a típusa az \textit{t1} és \textit{t2} interfészből származik, melyek között húzódik egy \textit{a1} asszociáció. Ezek után a \textit{c1} konnektor \textit{type} referenciájába az \textit{a1} asszociáció kerül bele. 
 \end{enumerate}
 
 \subsection{Összekapcsolt portok reprezentációja C++-ban} \label{conn_cpp}
@@ -397,10 +488,22 @@ Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet 
 Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez önmagában még nem elég. Figyelembe kell vennünk azt is, hogy milyen típusú konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha \textit{Assembly} kapcsolatról. Delegációs kapcsolat esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. \textit{Assembly} kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens (\textit{receive} művelet).”
 Így tudnunk kell, hogy a referenciánk milyen kapcsolatban áll a portunkkal. Két lehetőségünk van ennek kifejezésére, a választás nem egyértelmű:
 \begin{enumerate}
-\item Virtualizáció használata, \textit{Port} típusú referencia helyett \textit{Connection} típusú referencia, melynek absztrakt művelete eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony. \\\\
-\includegraphics[scale=0.7]{connection.png} \\ \\
+\item Virtualizáció használata, \textit{Port} típusú referencia helyett \textit{Connection} típusú referencia, melynek absztrakt művelete eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.65]{connection.png} \\
+\end{center}
+\caption{\textit{Connection} absztrakt osztály használata}
+\end{figure}
+
 \item Delegáció jelző használata: Marad a \textit{Port} típusú referencia, maga a port dönti el, melyik művelet hívására van szükség a jelző alapján. Ez a megoldás kevésbé letisztult, de hatékonyabb. \\
-\includegraphics[scale=0.9]{connection_with_flag.png}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.9]{connection_with_flag.png} \\
+\end{center}
+\caption{\textit{Delegatiom flag} használata}
+\end{figure}
 
 \end{enumerate}
 
@@ -417,26 +520,61 @@ A portokat akkor kapcsoljuk össze, mikor létrehozzuk a rendszer struktúrájá
 \subsubsection{Megoldás szemléltetése}
 \begin{enumerate}
 \item \textit{NoConnection} leszármazással: \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.6]{extended_connection.png}
+\end{center}
+\caption{\textit{Connection} osztály leszármazott sablonparaméterrel}
+\end{figure}
+
 Ebben az esetben a \textit{NoConnection} osztály leszármazik az \textit{IConenction}-ből, így tartalmazza a \textit{Port} típusú \textit{connected} referenciát.
 \item \textit{NoConnection} specializációval: \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.6]{extended_connection_spec.png}
+\end{center}
+\caption{\textit{Connection} osztály leszármazott sablonparaméterrel, \textit{NoConnection} specializációval}
+\end{figure}
+
 Ebben az esetben a \textit{NoConnection} osztály csak egy szereposztály, mellyel specializáljuk az \textit{IConnection} osztályunkat, így elhagyhatjuk belőle a \textit{Port} típusú referenciát is.
 \end{enumerate}
 
 \subsubsection{Különböző port típusok megvalósítása}
 Az üzenetküldés megvalósítása után vizsgáljuk meg az üzenetfogadás (\textit{receive}) szemantikáját is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt portról (\textit{BehaviorPort}) beszélünk-e vagy általános portról. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek osztály portjára. Ennek megvalósítására szintén a korábban említett lehetőségeink vannak, a leszármazás és virtualizációs technológia, illetve a \textit{behavior} jelző. Egy \textit{BehaviorPort} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell tárolnunk az állapotgépet birtokló objektumra, egyéb esetben pedig a gyerek osztály portjára. Ez különböző adattagokat igényel, az adat redundancia miatt a leszármazás egy kézen fekvő választás. \textit{Union} típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
 \begin{enumerate}
-\item Leszármazással: \\\\
+\item Leszármazással: \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{behav_generalport_diag.png} \\
-Az ábrán a két speciális port látható különböző adattagokkal.
+\end{center}
+\caption{Különböző típusú portok kezelése leszármazással}
+\end{figure}
+
+Az 3.19-es ábrán a két speciális port látható különböző adattagokkal.
 
 \item \textit{Behavior} jelzéssel: \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{simple_port_diag.png}
-Az ábrán az a megoldás látható, hogy minden adatot egy osztályon belül eltárolunk, és a \textit{behavior} adattag dönti el a port típusát. A másik lehetőség lehetne, hogy az alapján döntünk a típusról, hogy melyik adattag van kitöltve, bevezethetnénk akár egy \textit{Optional} típust is. 
+\end{center}
+\caption{Különböző típusú portok kezelése adattaggal}
+\end{figure}
+
+Az 3.20-as ábrán az a megoldás látható, hogy minden adatot egy osztályon belül eltárolunk, és a \textit{behavior} adattag dönti el a port típusát. A másik lehetőség lehetne, hogy az alapján döntünk a típusról, hogy melyik adattag van kitöltve, bevezethetnénk akár egy \textit{Optional} típust is. 
 
 \item \textit{Unio} típussal: \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.7]{unio_port_diag.png}
+\end{center}
+\caption{Különböző típusú portok kezelése \textit{unio} típusú adattaggal}
+\end{figure}
+
 Itt mindenképpen kell a \textit{behavior} jelző, hogy el tudjuk dönteni, pontosan melyik adattagra hivatkozhatunk az \textit{unio} típusú adattagból. 
 \end{enumerate}
 
@@ -457,17 +595,27 @@ Hátrányok:
 \item Azonban a portok kódja elbonyolódik sablonparaméterekkel, mely külső kód esetén nem optimális.
 \end{itemize}
 Példa:
-A példában van két portunk (\textit{p1 és p2}), \textit{r1} és \textit{r2} szerepekkel, melyek assembly kapcsolatban állnak egymással:
+A példában van két portunk (\textit{p1 és p2}), \textit{r1} és \textit{r2} szerepekkel, melyek assembly kapcsolatban állnak egymással (lásd 3.22-es ábra):
 \begin{lstlisting}
 (p1) r1 <-> (p2) r2
 \end{lstlisting}
-Kompozit struktúra: \\
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.6]{conn_role_comp.png}
+\end{center}
+\caption{Példa kompozit struktúrája}
+\end{figure} 
 
-Megoldás szemléltetés objektumdiagrammal: \\
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.5]{conn_role.png}
+\end{center}
+\caption{Megoldás objektumdiagramja}
+\end{figure}
 
-Ekkor az ábrán azt láthatjuk, hogy a \textit{p1} port - mely a kapcsolatban \textit{r1} szereppel áll - tartalmaz egy kapcsolt portot \textit{r2}szereppel, és fordítva. A \textit{Connection} objektumok pedig értelem szerűen a szerepüknek megfelelő portot tartalmazzák. Amikor pedig beállítjuk a megfelelő kapcsolatot, akkor csak a megfelelő típusú és megfelelő szerepű végpontot adhatjuk meg (a \textit{p1} portnak csak assembly végpontot \textit{r2} szereppel), egyébként pedig fordítási hibát kapnánk. 
+
+Ekkor az ábrán azt láthatjuk, hogy a \textit{p1} port - mely a kapcsolatban \textit{r1} szereppel áll - tartalmaz egy kapcsolt portot \textit{r2} szereppel, és fordítva. A \textit{Connection} objektumok pedig értelem szerűen a szerepüknek megfelelő portot tartalmazzák. Amikor pedig beállítjuk a megfelelő kapcsolatot, akkor csak a megfelelő típusú és megfelelő szerepű végpontot adhatjuk meg (a \textit{p1} portnak csak assembly végpontot \textit{r2} szereppel), egyébként pedig fordítási hibát kapnánk. 
 \end{enumerate}
 
 \section{Kommunikáció megvalósítása C++-ban} \label{comm}
@@ -476,6 +624,7 @@ Eddig \textit{(esemény,állapot)} kulcsú táblánk volt, melynek értékei ez 
 \begin{enumerate}
 \item A kulcsait kibővítjük egy port típusinformációval, így \textit{(állapot,esemény,port)} hármasokat fog tartalmazni az átmenet táblánk. Mielőtt egy port továbbítja az állapotgépnek az üzenetet, beállítja az eseményen a port infót, így tudni fogjuk, ki a forrás portja. Ez a \textit{txtUML} esetében jól fog működni, mivel csak egyféle portról jöhet az üzenet. Azonban, ha azt adjuk meg, hogy bármelyik portról érkezhet az üzenet, már problémákba ütközünk, mivel ilyenkor nincs megadva port dimenzió a táblában, az üzenetben viszont igen. Ezt speciálisan le tudjuk kezelni az üzenetfeldolgozás során, azonban ez nem egy elég általános megoldás. \\
 
+\begin{figure}[H]
 \begin{center}
 \begin{tabular}{@{}ccc|c@{}} \toprule
 \multicolumn{4}{c}{Átmenet tábla} \\\midrule
@@ -485,9 +634,13 @@ Event1 	& State1 	& Port1 & Ttransition1-Guard1 \\
 EventN 	& StateN 	& PortN & TtransitionN-GuardN
 \end{tabular}
 \small
+\caption{Port dimenzióval kiegészített ábra}
 \end{center}
+\end{figure}
+
 \item Általánosabb megoldás, ha a port helyett megadhatnánk egy maszkban azokat a portokat, melyek lehetséges forrásai lehetnek egy átmenetnek. Mivel egy üzenet továbbra is csak egy helyről érkezhet, így elég lenne csak azt vizsgálnunk, hogy az \textit{(állapot,esemény)} kulcs alapján megkeresett átmenet érték portjai között szerepel-e a az a port, melyről az üzenet érkezett. Itt a port dimenzió a táblázat értékei között jelenik meg. A táblából, hasonlóan az eddigiekhez, \textit{(állapot,esemény)} pár alapján keresünk, melyből megkapjuk az átmenet függvénymutatót, az őrfeltételt, valamint a megfigyelt portokat. Ekkor azt az átmenetet hajtjuk végre, melynek forrásportjai között szerepel az üzenet forrásportja. Azt az esetet, amikor egy üzenet forrása nem port, egy extremális \textit{NoPort} speciális értékkel jelezhetjük. \textit{AnyPort} esetén az osztály összes lehetséges portját belerakjuk az átmenetbe, valamint a \textit{NoPort} típust is. \\
 
+\begin{figure}[H]
 \begin{center}
 \begin{tabular}{@{}cc|c@{}} \toprule
 \multicolumn{3}{c}{Átmenet tábla} \\\midrule
@@ -497,7 +650,10 @@ Event1 	& State1 	&  Ttransition1-Guard1-Ports1 \\
 EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 \end{tabular}
 \small
+\caption{Port maszkkal kiegészített tábla}
 \end{center}
+\end{figure}
+
 \end{enumerate}
 
 \chapter{Portok felhasználása a modellezésben}
@@ -514,11 +670,22 @@ Ezek után a környezetet és a modellt egy assembly kapcsolat segítségével �
 
 \subsubsection{Szemléltetve az egyes megoldásokat}
 
-Egyszerű eset, amikor nincsenek portok: \\
-\includegraphics[scale=0.6]{fmu_simple.png} \\
 
-Portos eset: \\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{fmu_simple.png} \\
+\end{center}
+\caption{Asszociációval megvalósított összekapcsolás}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.6]{fmu_with_ports.png} \\
+\end{center}
+\caption{Portokkal megvalósított összekapcsolás}
+\end{figure}
+
 
 Előnyök: \\
 \begin{itemize}
@@ -536,7 +703,13 @@ Azonban a hátrány kiküszöbölhető azzal, hogy ha a felhasználó beállítj
 Általánosságban elmondható, hogy ha szeretnénk egy külső szereplőt bekötni a modellünkbe anélkül, hogy a generált kódot kézzel meg kéne változtatni (pl. felvenni valamely osztályában referenciaként a külső osztályt), akkor a portok nagy szerepet játszanak ebben. Elég csak felvenni egy csatlakozási pontot a modellben, meghatározni, hogy milyen interfészen keresztül kommunikálhatunk a külvilággal, és kívülről hozzácsatlakozni az adott porthoz. Így, a generált kód teljesen függetlenedik a kézzel írt kódtól, újragenerálás után csak arra kell figyelnünk, hogy a külső kommunikációs port neve ne változzon, az interfésze ne szűküljön. \\
 
 \subsection{Szemléltetve}
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.6]{external_with_ports.png} \\
+\end{center}
+\caption{Külső elemek bekötése a modellbe portokon keresztül}
+\end{figure}
+
 
 
 \section{Párhuzamosítási lehetőségek kiterjesztése}
