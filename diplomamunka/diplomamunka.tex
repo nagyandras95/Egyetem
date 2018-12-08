@@ -27,8 +27,17 @@
 
 \usepackage{listings}
 
+\lstset{
+  breaklines=true,                % sets automatic line breaking
+}
 
-\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\Huge\bfseries}
+{\thechapter}
+{20pt}
+{\huge}
 
 
 \sloppy
@@ -42,7 +51,8 @@
 
 \tableofcontents
 
-\chapter{Bevezetés}
+\chapter*{1. Bevezetés}
+\stepcounter{chapter}
 A szoftverfejlesztési folyamatban egyre nagyobb hangsúlyt kap a tervezés, a rendszer strukturálása a felelősségi körök szeparálásnak elve, az újrafelhasználhatóság, valamint a rendszer szereplőinek izoláltsága. Az UML \cite{uml_omg}, ezen belül is a végrehajtható UML, ezen a ponton játszik nagy szerepet, mert segítségével magas szinten leírhatjuk a rendszer struktúráját, felvehetjük az egyes szereplőket úgy, hogy már a rendszertervünk is tesztelhetővé, a kódgenerálás révén pedig közvetlenül felhasználhatóvá válik. \\ A szereplők izolálása érdekében kommunikációs csomópontokra, portokra és azokat összekapcsoló absztrakt kommunikációs protokollokra, konnektorokra van szükségünk, melynek révén az adott szereplőnek nem szükséges ismernie a kommunikációban részt vevő felet. Valós idejű rendszerek tervezésénél fontos szerepet játszanak a portok és konnektorok \cite{uml_real}\\ 
 A portok és konnektorok fordíthatóságához meg kell ismerni azok pontos UML szemantikáját, a szabvány szerinti reprezentációját, valamint kell találni egy olyan C++ reprezentációt, melynek API-ja letisztult, érthető a felhasználó számára, ugyanakkor az egyes műveletek hatékony megvalósítására törekszik. A következőkben ezeket a megvalósításokat fogjuk elemezni, egymással összehasonlítani, valamint kitérünk a szabványos UML leképezésre, annak problémáira is. \\
 
@@ -151,8 +161,8 @@ class ExampleTransition extends Transition {}
 
 Ez esetben, ha \textit{State1}-ben vagyunk, és az állapotgépnek küldünk egy  \textit{ExampleSignal}-t, akkor, ha ennek forrása a \textit{ExamplePort}, átlépünk a \textit{State2} állapotba.
 
-\chapter{Áttekintés}
-
+\chapter*{2. Áttekintés}
+\stepcounter{chapter}
 \section{Szabványok és keretrendszerek áttekintése}
 \subsection{fUML - ALF}
 A Foundational UML (fUML) \cite{fmul} egy Object Managment Group (OMG) által specifikált végrehajtható UML szabvány, 
@@ -199,7 +209,8 @@ A StartUML-hez hasonlóan az UML szabványos elemeiből építhetünk fel vizuá
 \section{Összefoglalás}
 Összességében az figyelhető meg az egyes exportálási módok között, hogy a portokat mindig valamilyen primitív feltípusozott adattagként exportáljuk. A másik lehetőségünk, melyet mi is követni fogunk, az interfészportokat összetett típusként exportálni, melyben benne van a szolgáltatott és elvárt interfész. Portok összekapcsolásának, a portokon történő kommunikáció végrehajtási szemantikájával pedig nem mindegyik keretrendszer foglalkozik, még ha részben támogatja is a portok exportálását. Ennek oka a szabvány nehezen érthetőségében és hiányosságában keresendő. Mindebből az figyelhető meg, hogy egy viszonylag új területről beszélünk, melyben egy teljes körű támogatás és elemzés referencia értékű lehet későbbi megoldások, fejlesztések számára. A diplomamunka elemez több különböző, teljes körű megoldást a portok és interfészek C++ nyelvre történő exportáláshoz, mely magában foglalja a szabványos UML modell létrehozását egy jól definiált leírónyelv alapján.
 
-\chapter{Reprezentációs lehetőségek} \label{reprezentation}
+\chapter*{3. Reprezentációs lehetőségek} \label{reprezentation}
+\stepcounter{chapter}
 \section{A megfelelő reprezentációk megtalálása}
 Az eddig leírtakból kiderült, hogy a szabványos reprezentáció megtalálásával is problémákba ütközünk, mely a fellelhető irodalomból és eszközökből is csak nehezen derül ki, így kitérünk ezek ismertetésére is. A C++ reprezentációhoz pedig egy saját port könyvtárat és generálási módszert választunk, mely a fellelhető módszerek finomításából és több különböző ötlet elemzésének alapján hozunk létre. \\
 
@@ -447,7 +458,7 @@ Az 3.12-es ábrán a portnak a szolgáltatott és elvárt interfésze is a \text
 \section{Konnektorok, összekapcsolás művelet reprezentálása} \label{connect}
 Az interfészeket (\ref{inf}) és portokat már tudjuk exportálni UML-ben, illetve megfelelő C++ reprezentációt is találtunk. A konnektorokat ezek segítségével már ki tudjuk fejezni. \\
 Mivel \textit{txtUML}-ben 1-1 kapcsolatokat tudunk csak leírni, így a mi megoldásainkat is erre korlátozzuk. Először megvizsgáljuk, mi lehet a szabványos reprezentáció UML-ben, majd kitérünk a különböző megoldásokra C++-ban. \\
-Mielőtt még tovább megyünk, elevenítsük fel, mik is azok a konnektorok és mely részei érdekesek számunkra. A konnektorok egy kompozit struktúrában szerepeket kötnek össze, amik olyan osztályokat fejeznek ki, melyek rendelkeznek porttal. A konnektor egyfajta absztrakciót fejez ki két szereplő portja között, leírja, a szereplő mely két portja kapcsolódik össze, delegációval vagy assembly kapcsolattal vannak-e összekötve, illetve leírja a kommunikáció prototípusát. A delegáció szülő-gyerek portok között jöhet lére, ilyenkor egy portra való üzenetküldést delegálunk a túloldalon lévő portra, mely továbbküldi a belső osztály felé, vagy a másik irány esetén a külvilág felé, az osztályon kívülre. \textit{Assembly} összekapcsolás esetén két egyenrangú osztályok portja között jön létre kapcsolat, kölcsönös, oda-vissza kommunikációval. Fontos, hogy szülő-gyerek osztályok között nem lehet assembly kapcsolat, illetve egyenrangú szereplők között delegációs kapcsolat.
+Mielőtt még tovább megyünk, elevenítsük fel, mik is azok a konnektorok és mely részei érdekesek számunkra. A konnektorok egy kompozit struktúrában szerepeket kötnek össze, amik olyan osztályokat fejeznek ki, melyek rendelkeznek porttal. A konnektor egyfajta absztrakciót fejez ki két szereplő portja között, leírja, a szereplő mely két portja kapcsolódik össze, delegációval vagy assembly kapcsolattal vannak-e összekötve. A delegáció szülő-gyerek portok között jöhet lére, ilyenkor egy portra való üzenetküldést delegálunk a túloldalon lévő portra, mely továbbküldi a belső osztály felé, vagy a másik irány esetén a külvilág felé, az osztályon kívülre. \textit{Assembly} összekapcsolás esetén két egyenrangú osztályok portja között jön létre kapcsolat, kölcsönös, oda-vissza kommunikációval. Fontos, hogy szülő-gyerek osztályok között nem lehet assembly kapcsolat, illetve egyenrangú szereplők között delegációs kapcsolat.
 \subsubsection{Konnektor reprezentáció UML-ben}
 A szabvány szerinti reprezentáció értelemszerű, egy \textit{Connector} UML elemet kell létrehozni, a végpontoknak megadni a kompozíció szereplő portjait, beállítani, hogy \textit{Assembly} vagy \textit{Delegációs} összekapcsolás van-e közöttük. A \textit{Connector} elemnek van egy \textit{Asszociáció} típusa, mivel a szabvány szerint a \textit{Connector} egy \textit{Asszociáció} egy konkrét realizációja. Hogy mi legyen ez a típus, azzal később foglalkozunk.
 
@@ -481,11 +492,11 @@ Az 3.14-es ábrán látható, hogy a \textit{p1} és \textit{p2} portnak a típu
 A szabvány szemantikája szerint, amikor egy üzenet küldünk a \textit{send} művelettel egy adott portra, annak továbbítania kell ezt a vele kapcsolatban álló port felé. Ehhez egy referenciát kell tárolni a kapcsolt portra. Ezt alapvetően kétféleképpen érthetjük el:\\
 \begin{enumerate}
 \item Egy globális adatszerkezetben, például egy asszociatív tömbben megmondjuk, melyik porthoz ki kapcsolódik. Ennek előnye, hogy a port kódja független marad a kapcsolatoktól, nem kell belekódolni a kapcsolatok kifejezéséhez új adattagokat.
-Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet kell manipulálni, mely sok szinkronizációt igényel, minek következtében csökken a hatékonyság
+Hátránya az, hogy egy párhuzamos környezetben egy globális adatszerkezetet kell manipulálni, mely sok szinkronizációt igényel, minek következtében csökken a hatékonyság.
 \item A másik lehetőségünk, hogy a port kódjában közvetlen referenciát tárolunk a kapcsolt portra. Mivel az nem lesz érdekes az üzenetküldés szemantikájában, hogy pontosan melyik konnektoron keresztül kapcsolódnak az adott portok egymáshoz (annak típusa azonban számítani fog), és csak 1-1 kapcsolatot valósítunk meg, így a port kódját nem kell a modell alapján generálnunk, nem fog bővülni, és hatékonyabb megoldást érhetünk el szekvenciális környezetben is, mint a globális adatszerkezettel. 
 \end{enumerate}
 
-Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez önmagában még nem elég. Figyelembe kell vennünk azt is, hogy milyen típusú konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha \textit{Assembly} kapcsolatról. Delegációs kapcsolat esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. \textit{Assembly} kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens (\textit{receive} művelet).”
+Az üzenetküldés szemantikájához már megvan a referenciánk, azonban ez önmagában még nem elég. Figyelembe kell vennünk azt is, hogy milyen típusú konnektoron keresztül kapcsolódtak az adott portok. Másképp kell átadni az üzenetet, ha Delegációról van szó, és másképp, ha \textit{Assembly} kapcsolatról. Delegációs kapcsolat esetén, ha üzenetet küldünk kívülről egy adott portra (\textit{send} művelet), akkor a szemantika szerint az üzenetküldésünk ekvivalens a kapcsolt portra való belső üzenetküldéssel. \textit{Assembly} kapcsolat esetén azonban ez az üzenetküldés a kapcsolt portra való külső üzenetküldéssel lesz ekvivalens (\textit{receive} művelet).
 Így tudnunk kell, hogy a referenciánk milyen kapcsolatban áll a portunkkal. Két lehetőségünk van ennek kifejezésére, a választás nem egyértelmű:
 \begin{enumerate}
 \item Virtualizáció használata, \textit{Port} típusú referencia helyett \textit{Connection} típusú referencia, melynek absztrakt művelete eldönti, a kapcsolt port melyik műveletét kell meghívni. Ez egy tisztább implementáció, azonban a virtualizáció nem elég hatékony.
@@ -515,7 +526,7 @@ class DelegateConnection : public Connection<DelegateConnection>
 \end{lstlisting}
 
 Majd definiálnánk a speciális implementációkat, az interfész implementáció pedig statikus konverzióval a specializált \textit{Connection} osztályra konvertálná önmagát, és meghívná a megfelelő műveletet. Ehhez fordítási időben tudni kell, hogy egy adott porthoz milyen típusú kapcsolaton keresztül fog létrejönni a referencia (\textit{Assembly} vagy \textit{Delegáció}). \\ 
-A portokat akkor kapcsoljuk össze, mikor létrehozzuk a rendszer struktúráját. Minden port 1-1 kapcsolattal kapcsolódik egymáshoz. Ami azt jelenti, hogy egy állapotgéppel összekapcsolt port esetén egy referenciánk lesz egy másik portra, melyet valamilyen ismert kapcsolaton keresztül kötünk majd hozzá. Általános port esetén pedig két referenciánk lesz, az egyik biztosan egy delegáció, a másik pedig ugyanazon az érvek mentén ismert, amit az előbb tárgyaltunk. Ebből következtetve úgy tűnik, hogy ha a pontos összekapcsolást nem is ismerjük, de a potenciális összekapcsolások típusait igen, akkor fordítási időben el tudjuk dönteni egy adott kapcsolatról, milyen típusú. Az is lehetséges, hogy egy félkész, vagy hibás modell exportálása esetén egyáltalán nem adunk meg konnektort két port között. Ilyenkor exportálási hibát nem célszerű adni, mivel lehetséges, hogy a felhasználót tudatosan érdekel egy ilyen modellnek a C++ kódja, helyette inkább bevezetünk egy \textit{NoConnection} típusú leszármazást, melynek műveleteinek szemantikája megegyezik az üres utasítással. Akár sablon specializációval is dolgozhatunk, mely azért is lesz előnyös, mert a \textit{Connection} ősosztályban általánosan tárolunk egy port referenciát, melyeket az ősök megörökölnek, így ezt az adattagok megspórolhatnánk.
+A portokat akkor kapcsoljuk össze, mikor létrehozzuk a rendszer struktúráját. Minden port 1-1 kapcsolattal kapcsolódik egymáshoz. Ami azt jelenti, hogy egy állapotgéppel összekapcsolt port esetén egy referenciánk lesz egy másik portra, melyet valamilyen ismert kapcsolaton keresztül kötünk majd hozzá. Általános port esetén pedig két referenciánk lesz, az egyik biztosan egy delegáció, a másik pedig ugyanazon az érvek mentén ismert, amit az előbb tárgyaltunk. Ebből következtetve úgy tűnik, hogy ha a pontos összekapcsolást nem is ismerjük, de a potenciális összekapcsolások típusait igen, akkor fordítási időben el tudjuk dönteni egy adott kapcsolatról, milyen típusú. Az is lehetséges, hogy egy félkész, vagy hibás modell exportálása esetén egyáltalán nem adunk meg konnektort két port között. Ilyenkor exportálási hibát nem célszerű adni, mivel lehetséges, hogy a felhasználót tudatosan érdekel egy ilyen modellnek a C++ kódja, helyette inkább bevezetünk egy \textit{NoConnection} típusú leszármazást, melynek műveleteinek szemantikája megegyezik az üres utasítással. Akár sablon specializációval is dolgozhatunk, mely azért is lesz előnyös, mert a \textit{Connection} ősosztályban általánosan tárolunk egy port referenciát, melyeket a leszármazottak megörökölnek, így ezt az adattagot megspórolhatnánk.
 
 \subsubsection{Megoldás szemléltetése}
 \begin{enumerate}
@@ -541,7 +552,7 @@ Ebben az esetben a \textit{NoConnection} osztály leszármazik az \textit{IConen
 Ebben az esetben a \textit{NoConnection} osztály csak egy szereposztály, mellyel specializáljuk az \textit{IConnection} osztályunkat, így elhagyhatjuk belőle a \textit{Port} típusú referenciát is.
 \end{enumerate}
 
-\subsubsection{Különböző port típusok megvalósítása}
+\subsection{Különböző port típusok megvalósítása C++-ban}
 Az üzenetküldés megvalósítása után vizsgáljuk meg az üzenetfogadás (\textit{receive}) szemantikáját is. A fogadás művelet végrehajtási szemantikája attól függ, hogy állapotgéppel összekapcsolt portról (\textit{BehaviorPort}) beszélünk-e vagy általános portról. Előbbi esetén egy objektum állapotgépéhez futnak be az üzenetek, a másik esetben pedig a szülő komponens portja delegálja az üzenetet a gyerek osztály portjára. Ennek megvalósítására szintén a korábban említett lehetőségeink vannak, a leszármazás és virtualizációs technológia, illetve a \textit{behavior} jelző. Egy \textit{BehaviorPort} esetén nem csak a \textit{receive} művelet törzse különbözik, de más-más adattagokkal dolgozik a két port. Állapotgép összekapcsolás esetén referenciát kell tárolnunk az állapotgépet birtokló objektumra, egyéb esetben pedig a gyerek osztály portjára. Ez különböző adattagokat igényel, az adat redundancia miatt a leszármazás egy kézen fekvő választás. \textit{Union} típus segítségével azonban el lehetne kerülni a redundáns tárolást, ami egy hatékonyabb, de nehezebben olvasható kódot eredményez.
 \begin{enumerate}
 \item Leszármazással: \\
@@ -588,7 +599,7 @@ A konnektorok reprezentálására is több lehetőségünk van, ezeket fogjuk mo
 Előnyök:
 \begin{itemize}
 \item Továbbra is elég csak asszociációkat generálni a megfelelő szerepekkel.
-\item A típus és szerep validációról is gondoskodunk, nem engedünk két olyan portot összekapcsolni, melyek között nincsen \textit{Connector}
+\item A típus és szerep validációról is gondoskodunk, nem engedünk két olyan portot összekapcsolni, melyek között nincsen \textit{Connector}.
 \end{itemize}
 Hátrányok:
 \begin{itemize}
@@ -656,11 +667,12 @@ EventN 	& StateN 	& Ttransition1-Guard1-PortsN
 
 \end{enumerate}
 
-\chapter{Portok felhasználása a modellezésben}
+\chapter*{4. Portok felhasználása a modellezésben}
+\stepcounter{chapter}
 
 \section{FMU modellek generálása}
-A portok alapvetően a környezettől való szeparáció igénye miatt jöttek létre, mely elősegíti a komponens-alapú fejlesztést. Ebben a világban egy komponens bármilyen komplexitású lehet, akár az egész modellt tekinthetjük egy komponensnek, melynek van egy belső működése, és portokon keresztül kommunikál a külvilággal, hozzáköthetünk más, hasonló elven felépített modelleket. Ennek az elképzelésnek egy szabványa az FMI (Functional Mockup Interface) \cite{fmi_standard}, mely kommunikációs interfészt ír le funkcionális egységek, modellek között. Ezeket nevezzük FMU-nak (Functional Mockup Unit), mely alatt egy olyan egységet értünk, mely az FMI  szabvány segítségével tud kommunikálni a külvilággal, illetve más egységekkel. Az FMU funkcionalitása leírható egy diszkrét modellként állapotgéppel, mely input adatok hatására megváltoztatja a belső állapotát. Az FMI szabvány rendelkezik a \textit{DoStep} művelettel, melyben megadjuk az aktuális input adatokat, és végrehajtjuk a megfelelő állapotváltozást. Ezek olyan folytonos modellekkel vannak összekötve, melyek logikáját differenciálegyenletekkel lehet leírni, melyek folyamatosan mérik a külvilág állapotváltozását (pl. egy fűtésrendszernél, hogy mennyi a hőmérséklet és egyéb külső tényezőket), ezeket adott időközönként továbbítják egy FMU-nak a \textit{DoStep} műveleten keresztül, mely megfelelően reagál a változásra (pl. abbahagyja a radiátortest melegítését). Ezek kommunikációja nem triviális, felmerül például az a kérdés, hogy milyen időközönként kapjon inputot a diszkrét modell, amikor a külső tényezők változása általában nem lineáris. (pl. ha egyre nagyobb ütemben változik a hőmérséklet egy kabinban, lehet, túl későn reagálunk az állapotváltozásra, mely ember életekbe kerülhet) \\ A portok, interfészek az \textit{OpenCPS}\cite{opencps} nemzetközi projektben is hasznosnak bizonyultak, melyben a \textit{txtUML} segítségével írtunk meg egy \textit{FMU} diszkrét modellt, majd generáltunk belőle a szabványnak megfelelő \textit{C++} kódot, így a modellt össze lehet kötni más modellekkel. Az \textit{FMI} egy \textit{C}-ben írt szabvány, így a \textit{C++} által generált modell összecsomagolható egy FMU-vá. \cite{fmu_export} \\
-Ezt az alábbi módon valósíthatjuk meg: létrehozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az \textit{FMI} szabványt. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozásra, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{FMUEnvironment}.   \\
+A portok alapvetően a környezettől való szeparáció igénye miatt jöttek létre, mely elősegíti a komponens-alapú fejlesztést. Ebben a világban egy komponens bármilyen komplexitású lehet, akár az egész modellt tekinthetjük egy komponensnek, melynek van egy belső működése, és portokon keresztül kommunikál a külvilággal, hozzáköthetünk más, hasonló elven felépített modelleket. Ennek az elképzelésnek egy szabványa az FMI (Functional Mockup Interface) \cite{fmi_standard}, mely kommunikációs interfészt ír le funkcionális egységek, modellek között. Ezeket nevezzük FMU-nak (Functional Mockup Unit), mely alatt egy olyan egységet értünk, mely az FMI  szabvány segítségével tud kommunikálni a külvilággal, illetve más egységekkel. Az FMU funkcionalitása leírható egy diszkrét modellként állapotgéppel, mely input adatok hatására megváltoztatja a belső állapotát. Az FMI szabvány rendelkezik a \textit{DoStep} művelettel, melyben megadjuk az aktuális input adatokat, és végrehajtjuk a megfelelő állapotváltozást. Ezek olyan folytonos modellekkel vannak összekötve, melyek logikáját differenciálegyenletekkel lehet leírni, melyek folyamatosan mérik a külvilág állapotváltozását (pl. egy fűtésrendszernél, hogy mennyi a hőmérséklet és egyéb külső tényezőket), ezeket adott időközönként továbbítják egy FMU-nak a \textit{DoStep} műveleten keresztül, mely megfelelően reagál a változásra (pl. abbahagyja a radiátortest melegítését). Ezek kommunikációja nem triviális, felmerül például az a kérdés, hogy milyen időközönként kapjon inputot a diszkrét modell, amikor a külső tényezők változása általában nem lineáris. (pl. ha egyre nagyobb ütemben változik a hőmérséklet egy kabinban, lehet, túl későn reagálunk az állapotváltozásra, mely emberéletekbe kerülhet.) \\ A portok, interfészek az \textit{OpenCPS}\cite{opencps} nemzetközi projektben is hasznosnak bizonyultak, melyben a \textit{txtUML} segítségével írtunk meg egy \textit{FMU} diszkrét modellt, majd generáltunk belőle a szabványnak megfelelő \textit{C++} kódot, így a modellt össze lehet kötni más modellekkel. Az \textit{FMI} egy \textit{C}-ben írt szabvány, így a \textit{C++} által generált modell összecsomagolható egy FMU-vá. \cite{fmu_export} \\
+Ezt az alábbi módon valósíthatjuk meg: létrehozunk egy \textit{FMUEnvironment} külső osztályt, mely implementálja az \textit{FMI} szabványt. A környezetet egy asszociáció segítségével hozzáköthetjük a modellünk egy osztályához,  melynek el tudja küldeni az input adatokat feldolgozásra, és megkapja tőle az output adatokat. Ehhez az \textit{FMUEnvironment}-nek ismernie kell a modellben egy osztályt, mellyel összekapcsoljuk, és az osztálynak is ismernie kell az \textit{FMUEnvironment}-et.   \\
 Az asszociáció helyett azonban portokkal is dolgozhatunk. Egy \textit{FMU}-t felfoghatunk egy olyan strukturális rendszernek, melynek két eleme van:
 \begin{enumerate}
 \item Az \textit{FMUEnvironment}, mely megvalósítja az FMI-t. (pl. a\textit{DoStep} műveletet)
@@ -713,18 +725,20 @@ Azonban a hátrány kiküszöbölhető azzal, hogy ha a felhasználó beállítj
 
 
 \section{Párhuzamosítási lehetőségek kiterjesztése}
-A diplomamunkának nem célja a modellekből történő párhuzamos vagy elosztott alkalmazások kódjának generálása. A portok használata azonban egy fontos lépés ezen cél elérésében, mivel portok segítségével úgy tud egymással két osztály kommunikálni, hogy nem tárolnak egymásra referenciát, melynek köszönhetően nem tudnak szinkron hívást kezdeményezni egymás metódusaira, nem tudják elérni egymás publikus adattagjait sem, egyedül aszinkron üzenetküldéssel tudnak kommunikálni egymással. Ennek következtében egy metódus végrehajtásnál egy osztály csak a saját adattagjait olvashatja, írhatja felül, vagy a metódus törzsében létrehozott lokális változókat. Így nem lehet interferencia egy adattag elérésekor, ha a metódus végrehajtása közben nem ágazunk el, és hozunk létre újabb szálakat, melyek ugyanazt az objektumot módosítják. Ehhez arra is szükségünk van, hogy egy szignál ne tartalmazzon referencia értékéket, csak lemásolt, vagy primitív objektumokat. Továbbá statikus függvényhívásokra és változóelérésekre sem szabad lehetőséget adni az egyes osztályoknak, vagy ezen eléréseket szinkronizálni kell. \\
+A diplomamunkának nem célja a modellekből történő párhuzamos vagy elosztott alkalmazások kódjának generálása. A portok használata azonban egy fontos lépés ezen cél elérésében, mivel portok segítségével úgy tud egymással két osztály kommunikálni, hogy nem tárolnak egymásra referenciát, melynek köszönhetően nem tudnak szinkron hívást kezdeményezni egymás metódusaira, nem tudják elérni egymás publikus adattagjait sem, egyedül aszinkron üzenetküldéssel tudnak kommunikálni egymással. Ennek következtében egy metódus végrehajtásnál egy osztály csak a saját adattagjait olvashatja, írhatja felül, vagy a metódus törzsében létrehozott lokális változókat. Így nem lehet interferencia egy adattag elérésekor akkor sem, ha a portokkal kommunikáló osztályokat külön szálak vagy processzek futtatják. Ehhez arra is szükségünk van, hogy egy szignál ne tartalmazzon referencia értékéket, csak lemásolt, vagy primitív objektumokat. Továbbá statikus függvényhívásokra és változóelérésekre sem szabad lehetőséget adni az egyes osztályoknak, vagy ezen eléréseket szinkronizálni kell. \\
 
 Ezen primitív szabályokat betartva elmondható, hogy két azonos szinten lévő, assembly kapcsolattal kommunikáló osztály porton keresztül kommunikálva nem fog interferenciába keveredni egymással. Szülő-gyerek kapcsolat esetén azonban nem ilyen szerencsés a helyzet, mivel a szülő kompozícióban áll a gyerekével, így referenciát tárol rá a szabvány szerint. Így ezen osztályok párhuzamosítása egy nehezebb feladat, és mivel a párhuzamosítás témája túlmutat a diplomamunka témakörén, így ezt sem vizsgájuk részletsebben.
 
 \section{Testre szabható protokoll}
-Egy portra való üzenetküldés megvalósítását tetszőlegesen kicserélhetjük, a \textit{send} művelet megvalósítása akár egy, a modell mellé írt konfigurációtól is függhet. Ha két osztályt szeretnénk különböző szálakra helyezni, akkor valamilyen szálbiztos megvalósítást kell alkalmaznunk. Ha az egész modellünk egy szálon fut, akár valamilyen szinkron hívást is megvalósíthatunk a háttérben. Két osztály akár különböző processzben is futhat, ez esetben a portoknak valamilyen interprocessz kommunikációt kell implementálnia. Ezen lehetőségek részletes kielemzése szintén túlmutat a diplomamunka témakörén. 
+Egy portra való üzenetküldés megvalósítását tetszőlegesen kicserélhetjük, a \textit{send} művelet megvalósítása akár egy, a modell mellé írt konfigurációtól is függhet. Ha két osztályt szeretnénk különböző szálakra helyezni, akkor valamilyen szálbiztos megvalósítást kell alkalmaznunk. Ha az egész modellünk egy szálon fut, akár valamilyen szinkron hívást is megvalósíthatunk a háttérben. Két osztály akár különböző processzben is futhat, ez esetben a portoknak valamilyen interprocessz kommunikációt kell implementálnia. Ezen lehetőségek részletes elemzése szintén túlmutat a diplomamunka témakörén. 
 
 \section{Az UML szabvány egyszerűbb szemléltetése}
-Amikor komponensekről, szereplők izolációjáról, elvárt és szolgáltatott interfészekről, konnektorokról beszélünk az UML kapcsán, akár egy egyetemi előadás keretében, akkor a \textit{txtUML} portjai, annak szemantikájának demonstrálása egy modellen, és C++ megvalósítások elemzése hasznos anyag lehet, hogy a hallgatókhoz közelebb kerüljenek ezek a fogalmak. Így a későbbiekben a rendszerek tervezésénél nem csak egymással asszociációban lévő osztályokban fognak gondolkodni, hanem teljesen izolált szereplőkben is, mely kommunikációs pontokon, portokon keresztül kommunikál a külvilággal. 
+Amikor komponensekről, szereplők izolációjáról, elvárt és szolgáltatott interfészekről, konnektorokról beszélünk az UML kapcsán, akár egy egyetemi előadás keretében, akkor a \textit{txtUML} portjai, annak szemantikájának demonstrálása egy modellen, és C++ megvalósítások elemzése hasznos anyag lehet, hogy a hallgatókhoz közelebb kerüljenek ezek a fogalmak. Így a későbbiekben a rendszerek tervezésénél nem csak egymással asszociációban lévő osztályokban fognak gondolkodni, hanem teljesen izolált szereplőkben is, melyek kommunikációs pontokon, portokon keresztül kommunikálnak a külvilággal. 
 
 
-\chapter{Megvalósítás}
+\chapter*{5. Megvalósítás}
+\stepcounter{chapter}
+
 A dolgozatban nem csak elemeztük a lehetséges megoldásokat, hanem kiválasztottunk egy lehetséges megoldást, melyet leprogramozva demonstrálni tudjuk a dolgozat eredményeit. A továbbiakban ennek a demonstrációs programnak a rövid felhasználói és fejlesztői dokumentációja következik.
 
 \section{Felhasználói interfész tervezés}
@@ -743,11 +757,11 @@ A fordításhoz az alábbiakra van szükségünk:
 \begin{itemize}
 \item CMake segítségével legenerálhatjuk a számunkra tetsző fordítási környezetet
 \item GCC vagy Clang
-\item A generálandó fordítási környezet. (MinGW, Ninja, MSVC, stb..)
+\item A generálandó fordítási környezet (MinGW, Ninja, MSVC, stb.).
 \end{itemize}
 
 \subsection{Generálás és futtatás}
-Kódot generálni legegyszerűbben Eclipse-ből tudunk egy \textit{txtUML} modell megírása és egy kihelyezési konfiguráció alapján. A kódgenerálás eredményeként különféle kódok keletkeznek, különböző szerepekkel, különböző helyeken, melyek két nagy csoportra bonthatók.  A \textit{runtime} mappában az előre megírt fájlokat másoljuk, mely tartalmazza többek között a \textit{Port} osztályt is, az összekapcsoló műveleteket, és azok szemantikáját. Ezek a kódok keretrendszerként funkcionálnak, minden modellnél megegyeznek. A konkrét port példányokat, konnektorokat, interfészeket pedig a \textit{runtime} mappán kívül generáljuk az input modell alapján. \\
+Kódot generálni legegyszerűbben Eclipse-ből tudunk egy \textit{txtUML} modell megírása és egy kihelyezési konfiguráció alapján. A kódgenerálás eredményeként különféle kódok keletkeznek, különböző szerepekkel, különböző helyeken, melyek két nagy csoportra bonthatók.  A \textit{runtime} mappában az előre megírt fájlokat másoljuk, mely tartalmazzák többek között a \textit{Port} osztályt is, az összekapcsoló műveleteket, és azok szemantikáját. Ezek a kódok keretrendszerként funkcionálnak, minden modellnél megegyeznek. A konkrét port példányokat, konnektorokat, interfészeket pedig a \textit{runtime} mappán kívül generáljuk az input modell alapján. \\
 
 A generált kódot fordítani a \textit{cmake}, valamint a kiválasztott fordítási környezet parancsával tudunk. A \textit{cmake} parancs elhagyható, ha az exporter dialóguson kiválasztjuk a megfelelő környezetet. Fordítás után pedig már futtathatjuk a \textit{main} futtatható állományunkat.
 
@@ -771,7 +785,7 @@ A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejez
 
 \begin{enumerate}
 \item Regresszió tesztelése: Portok nélküli modell létrehozása, melyben azt várjuk, hogy az eredmény maradjon az, ami eddig volt.
-\item Egyosztályos modell létrehozása egy darab porttal
+\item Egyosztályos modell létrehozása egy darab porttal:
 \begin{enumerate}
 \item Üres interfészekkel, \textit{send} művelet kipróbálása, mely hibás lesz
 \item Nem-üres interfésszel, \textit{send} művelet kipróbálása olyan szignállal, melyet tartalmaz az interfész. Nincs fordítási hiba, de nincs hatása sem. Majd egy olyannal, mely nem része az interfésznek, ekkor fordítási hibát kapunk.
@@ -788,7 +802,9 @@ A demonstrációs program néhány tesztesetét szedjük össze az alábbi fejez
 
 A generált kódok megfelelőek, a modellek pedig az elvárt működésnek megfelelően működnek.
 
-\chapter{A diplomamunka eredményei}
+\chapter*{6. A diplomamunka eredményei}
+\stepcounter{chapter}
+
 Végül foglaljuk össze a diplomamunka főbb eredményeit!
 \section{UML kompozíciós szabvány áttekintése, értelmezése}
 A kompozíciós elemek az \textit{UML}-nek kevésbé ismert és letisztult részei közé tartoznak, melyet már strukturális szinten is bonyolult értelmezni. A diplomamunka egy alap eszköztárat nyújt a bevezetésben az \textit{UML} kapcsolódó fogalmaira. A portokkal kapcsolatos fogalmakat, az elvárt és szolgáltatott interfészeket, az üzenetküldés és fogadás szemantikáját, portok összekapcsolásáért felelős konnektorokat és konnektor műveletek helyes \textit{UML} reprezentációját és annak szemantikáját mind elemzi a diplomamunka. A helyes leképezés elemzésére a szabványos modell előállításához van szükségünk, míg annak szemantikájára a helyes C++ kód generálásához.
@@ -797,10 +813,15 @@ A kompozíciós elemek az \textit{UML}-nek kevésbé ismert és letisztult rész
 Az elemzések előtt a diplomamunka megvizsgálja, milyen szabványok segítenek nekünk megtalálni a megfelelő \textit{UML} reprezentációkat az egyes elemekhez, és mi az elemek pontos szemantikája. Majd áttekint különböző modellező keretrendszereket, melyek mindegyike tartalmaz valamilyen kódgenerálást, és megvizsgálja a kompozíciós elemek exportálását. Itt arra jutunk, hogy a legtöbb kertrendszer a kompozíciós elemeket (portokat, konnektorokat) csak nagyon kezdetleges módon támogatja, vagy nem foglalkozik a precíz \textit{UML} szabvánnyal.
 
 \section{C++ fordítási lehetőségek elemzése}
-A diplomamunka egyik legfontosabb eredménye a \textit{C++} fordítási lehetőségek elemzése, melyben az \textit{UML} elemek precíz szemantikájának tudatában megvizsgálja, milyen lehetőségek vannak megvalósítani \textit{C++} nyelven a kompozíciós elemeket. Itt a hatékonyságot és a minél tisztább és tömörebb kódot tartjuk szem előtt. A kód tisztaságára azért helyezünk hangsúlyt, mert feltételezzük, hogy a generált kódhoz a felhasználó \textit{C++}-ban ad kiegészítést, integrálva egy meglévő projektbe, felhasználva azt az \textit{API}-t, melyet a generálás során is használhatunk (Pl. egy üzenetküldésnél). Az elemzések végén megvizsgáljuk azt is, hogy a kompozíciós modellezés milyen esetben válhat a hasznunkra.
+A diplomamunka egyik legfontosabb eredménye a \textit{C++} fordítási lehetőségek elemzése, melyben az \textit{UML} elemek precíz szemantikájának tudatában megvizsgálja, milyen lehetőségek vannak megvalósítani \textit{C++} nyelven a kompozíciós elemeket. Itt a hatékonyságot és a minél tisztább és tömörebb kódot tartjuk szem előtt. A kód tisztaságára azért helyezünk hangsúlyt, mert feltételezzük, hogy a generált kódhoz a felhasználó \textit{C++}-ban ad kiegészítést, integrálva egy meglévő projektbe, felhasználva azt az \textit{API}-t, melyet a generálás során is használhatunk (pl. egy üzenetküldésnél). Az elemzések végén megvizsgáljuk azt is, hogy a kompozíciós modellezés milyen esetben válhat a hasznunkra.
 
 \section{Prototípus készítése a meglévő elemezések alapján}
-A diplomamunkához a leírtak alapján implementációt is készítettünk, mely az eredmények demonstrálására, az \textit{UML} szabvány konkrét példákon való megértésére is alkalmas lehet. Továbbá az implementáció segítségével ellenőrizhetjük az elemzéseink helyességét, és hatékonyságát. Az implementációt felhasználva lehetőségünk nyílik átalakítani az \textit{fmu} exportálását is az \textit{OpenCPS} projekt keretein belül.
+A diplomamunkához a leírtak alapján implementációt is készítettünk, mely az eredmények demonstrálására, az \textit{UML} szabvány konkrét példákon való megértésére is alkalmas lehet. Továbbá az implementáció segítségével ellenőrizhetjük az elemzéseink helyességét, és hatékonyságát. Az implementációt felhasználva lehetőségünk nyílik átalakítani az \textit{FMU} exportálását is az \textit{OpenCPS} projekt keretein belül.
+
+
+\chapter*{Köszönetnyilvánítás}
+Szeretnénk köszönetet mondani mindazoknak, akik segítettek abban, hogy a diplomamunka létrejöjjön. A \textit{txtUML} egykori és jelenlegi csapatának, akik lefektették a keretrendszer és modellfordító alapjait. Külön köszönet Dévai Gergelynek, aki a \textit{txtUML} ötletgazdája és a diplomamunkám témavezetője volt. Végül szeretnénk köszönetet mondani barátaimnak, családomnak, különösképp nejemnek, akik mellettem voltak egyetemi tanulmányaim során, és támogatták az egyetem elvégzését.
+
 
 \begin{thebibliography}{4}
 
@@ -828,11 +849,13 @@ LCTES '98 Proceedings of the ACM SIGPLAN Workshop on Languages, Compilers, and T
   
 \bibitem{hack_dip}
 	Hack János, 
-	\emph{C++ kódgenerálás futtatható UML modellekből}, Thesis, 2015
+	\emph{C++ kódgenerálás futtatható UML modellekből}, 
+	Thesis, Pages 46, ELTE Informatika Kar, 2015
 	
 \bibitem{my_szakdolg}
 	Nagy András, 
-	\emph{Konfigurálható szálkezelés modellfordítóhoz}, Thesis, 2016
+	\emph{Konfigurálható szálkezelés modellfordítóhoz}, 
+	Thesis, Pages 50, ELTE Informatika Kar, 2016
 
 
 \bibitem{alf}
@@ -840,6 +863,7 @@ LCTES '98 Proceedings of the ACM SIGPLAN Workshop on Languages, Compilers, and T
 	\emph{Action Language for Foundational UML (ALF)}
 	Standard, Version 1.1, Pages 407, June 2017\\
 	\url{https://www.omg.org/spec/ALF/About-ALF/} November 2018
+	
 	
 \bibitem{fmul}
 	Object Management Group,  \emph{Semantics of a Foundational Subset for Executable UML Models (fUML)} 
@@ -875,10 +899,11 @@ LCTES '98 Proceedings of the ACM SIGPLAN Workshop on Languages, Compilers, and T
 	\url{https://fmi-standard.org/docs/2.0.1-develop/}, November 2018
 	
 \bibitem{fmu_export}
-	Jérémie Tatibouet, Ákos Horvath, Zoltan Gera, \\
-	Boldizsár Nemeth, Dániel Segesdi, Gergely Dévai, Sébastien Revol \\
+	Jérémie Tatibouet, Ákos Horváth, Zoltán Gera, Boldizsár Nemeth, \\ 
+	Dániel Segesdi, Gergely Dévai, Sébastien Revol, \\
 	\emph{Interoperability of the standards Modelica-UML-FMI}, Report, Pages 92, Nov 17 2017 \\
 	
+
 \bibitem{opencps}
 	OpenCPS projekt hivatalos oldala: \\
 	\url{https://www.opencps.eu/} November 2018
@@ -893,5 +918,4 @@ LCTES '98 Proceedings of the ACM SIGPLAN Workshop on Languages, Compilers, and T
 	
 	
 \end{thebibliography}
-
 \end{document}
