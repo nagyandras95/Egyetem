@@ -1,0 +1,8 @@
+\frametitle{Portról jött üzenet feldolgozása C++-ban}
+	\begin{itemize}
+	\item Az üzenet az objektum üzenetsorához fut be.
+	\item Azonban megjelöljük, hogy melyik portról érkezett.
+	\item Állapot-átmeneteknél megadhatjuk, mely portokról érkezett üzenetek érdekesek számunka.
+	\item Feldolgozáskor (esemény, állapot) alapján megkeressük a megfelelő átmenetet, és vizsgáljuk, hogy az átmenet lehetséges portjai között között ott van-e az üzenet portja.
+	\end{itemize}
+
