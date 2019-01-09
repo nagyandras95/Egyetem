@@ -1,16 +1,17 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.18)  8 JAN 2019 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.11)  9 JAN 2019 16:21
 entering extended mode
-**./osztalysablon_konyvtar.tex
-(osztalysablon_konyvtar.tex
+**./vedes_ea.tex
+(vedes_ea.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamer.cls"
+Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamer.cls
+"
 Document Class: beamer 2018/09/20 v3.54 A class for typesetting presentations
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasemo
-des.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+modes.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox
+.sty"
 Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count79
 )
@@ -18,16 +19,16 @@ Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \beamer@tempcount=\count80
 \c@beamerpauses=\count81
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasede
-code.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+decode.sty"
 \beamer@slideinframe=\count82
 \beamer@minimum=\count83
 )
 \beamer@commentbox=\box27
 \beamer@modecount=\count84
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.st
-y"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.
+sty"
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 \headdp=\dimen102
@@ -73,27 +74,27 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 \beamer@sectionadjust=\count102
 \beamer@tocsectionnumber=\count103
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseop
-tions.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
-"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+options.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.s
+ty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 ))
 \beamer@paperwidth=\skip42
 \beamer@paperheight=\skip43
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry
+.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex
+.sty"
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex
+.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count104
@@ -109,71 +110,82 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen125
 \Gm@dimlist=\toks15
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.c
-fg"))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size11.clo"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry
+.cfg"))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size11.clo"
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfc
-ore.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.s
-ty"
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pg
+fcore.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx
+.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.s
-ty"
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics
+.sty"
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
+"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphi
-cs.cfg"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\grap
+hics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex
-.def"
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdft
+ex.def"
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infwar
+err.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmd
+s.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count107
 ))
 \Gin@req@height=\dimen126
 \Gin@req@width=\dimen127
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgf
-sys.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrc
-s.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgf
-util-common.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\p
+gfsys.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgf
+rcs.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\p
+gfutil-common.tex"
 \pgfutil@everybye=\toks16
 \pgfutil@tempdima=\dimen128
 \pgfutil@tempdimb=\dimen129
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgf
-util-common-lists.tex"))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgf
-util-latex.def"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\p
+gfutil-common-lists.tex"))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\p
+gfutil-latex.def"
 \pgfutil@abb=\box34
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgf
-rcs.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\p
+gfrcs.code.tex"
 Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\p
-gfsys.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer
+\pgfsys.code.tex"
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgf
-keys.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\p
+gfkeys.code.tex"
 \pgfkeys@pathtoks=\toks17
 \pgfkeys@temptoks=\toks18
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgf
-keysfiltered.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\p
+gfkeysfiltered.code.tex"
 \pgfkeys@tmptoks=\toks19
 ))
 \pgf@x=\dimen130
@@ -186,43 +198,44 @@ keysfiltered.code.tex"
 \pgf@yc=\dimen137
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count107
-\c@pgf@countb=\count108
-\c@pgf@countc=\count109
-\c@pgf@countd=\count110
+\c@pgf@counta=\count108
+\c@pgf@countb=\count109
+\c@pgf@countc=\count110
+\c@pgf@countd=\count111
 \t@pgf@toka=\toks20
 \t@pgf@tokb=\toks21
 \t@pgf@tokc=\toks22
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\p
-gf.cfg"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer
+\pgf.cfg"
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\p
-gfsys-pdftex.def"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer
+\pgfsys-pdftex.def"
 File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\p
-gfsys-common-pdf.def"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer
+\pgfsys-common-pdf.def"
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\p
-gfsyssoftpath.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer
+\pgfsyssoftpath.code.tex"
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count111
-\pgfsyssoftpath@bigbuffer@items=\count112
+\pgfsyssoftpath@smallbuffer@items=\count112
+\pgfsyssoftpath@bigbuffer@items=\count113
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\p
-gfsysprotocol.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer
+\pgfsysprotocol.code.tex"
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+"
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.
-cfg"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\colo
+r.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -236,49 +249,49 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcore.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcore.code.tex"
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.
-code.tex"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathc
-alc.code.tex"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathu
-til.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathp
-arser.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+h.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hcalc.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hutil.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hparser.code.tex"
 \pgfmath@dimen=\dimen138
-\pgfmath@count=\count113
+\pgfmath@count=\count114
 \pgfmath@box=\box35
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
 \pgfmath@stack@operation=\toks25
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.code.tex"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.basic.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.trigonometric.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.random.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.comparison.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.base.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.round.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.misc.code.tex")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-unctions.integerarithmetics.code.tex")))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathf
-loat.code.tex"
-\c@pgfmathroundto@lastzeros=\count114
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.basic.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.trigonometric.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.random.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.comparison.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.base.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.round.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.misc.code.tex")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfunctions.integerarithmetics.code.tex")))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmat
+hfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count115
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorepoints.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorepoints.code.tex"
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen139
 \pgf@picmaxx=\dimen140
@@ -295,111 +308,103 @@ File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@zx=\dimen151
 \pgf@zy=\dimen152
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorepathconstruct.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorepathconstruct.code.tex"
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 \pgf@path@lastx=\dimen153
 \pgf@path@lasty=\dimen154
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorepathusage.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorepathusage.code.tex"
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
 \pgf@shorten@end@additional=\dimen155
 \pgf@shorten@start@additional=\dimen156
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorescopes.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorescopes.code.tex"
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box36
 \pgf@hbox=\box37
 \pgf@layerbox@main=\box38
-\pgf@picture@serial@count=\count115
+\pgf@picture@serial@count=\count116
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoregraphicstate.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoregraphicstate.code.tex"
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen157
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoretransformations.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoretransformations.code.tex"
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
 \pgf@pt@x=\dimen158
 \pgf@pt@y=\dimen159
 \pgf@pt@temp=\dimen160
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorequick.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorequick.code.tex"
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoreobjects.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoreobjects.code.tex"
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorepathprocessing.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorepathprocessing.code.tex"
 File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorearrows.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorearrows.code.tex"
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 \pgfarrowsep=\dimen161
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoreshade.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen162
-\pgf@sys@shading@range@num=\count116
+\pgf@sys@shading@range@num=\count117
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoreimage.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoreimage.code.tex"
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoreexternal.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoreexternal.code.tex"
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
 \pgfexternal@startupbox=\box39
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorelayers.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorelayers.code.tex"
 File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcoretransparency.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcoretransparency.code.tex"
 File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pg
-fcorepatterns.code.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\
+pgfcorepatterns.code.tex"
 File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\xxcol
-or.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\xxc
+olor.sty"
 Package: xxcolor 2003/10/24 ver 0.1
-\XC@nummixins=\count117
-\XC@countmixins=\count118
+\XC@nummixins=\count118
+\XC@countmixins=\count119
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\atbegshi
-.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\atbegs
+hi.sty"
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infwarer
-r.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.
-sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.s
-ty"
-Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref
+.sty"
+Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-h
-yperref.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub
+-hyperref.sty"
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-g
-eneric.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub
+-generic.sty"
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -416,7 +421,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -437,89 +442,91 @@ Package hobsub Info: Skipping package `atbegshi' (already loaded).
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.st
-y"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.
+sty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.
-sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoption
+s.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen163
-\Hy@linkcounter=\count119
-\Hy@pagecounter=\count120
+\Hy@linkcounter=\count120
+\Hy@pagecounter=\count121
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
-"
-File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.d
+ef"
+File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count121
+\Hy@SavedSpaceFactor=\count122
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.c
-fg"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref
+.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Option `bookmarks' set `true' on input line 4383.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 4383.
-Package hyperref Info: Option `implicit' set `false' on input line 4383.
-Package hyperref Info: Hyper figures OFF on input line 4509.
-Package hyperref Info: Link nesting OFF on input line 4514.
-Package hyperref Info: Hyper index ON on input line 4517.
-Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4374.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4374.
+Package hyperref Info: Option `implicit' set `false' on input line 4374.
+Package hyperref Info: Hyper figures OFF on input line 4498.
+Package hyperref Info: Link nesting OFF on input line 4503.
+Package hyperref Info: Hyper index ON on input line 4506.
+Package hyperref Info: Plain pages OFF on input line 4513.
+Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
-Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count122
- ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
+Package hyperref Info: Bookmarks ON on input line 4751.
+\c@Hy@tempcnt=\count123
+ ("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5115.
+LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen164
-\Fld@menulength=\count123
+\Fld@menulength=\count124
 \Field@Width=\dimen165
 \Fld@charsize=\dimen166
-Package hyperref Info: Hyper figures OFF on input line 6369.
-Package hyperref Info: Link nesting OFF on input line 6374.
-Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
-Package hyperref Info: Link coloring OFF on input line 6389.
-Package hyperref Info: Link coloring with OCG OFF on input line 6394.
-Package hyperref Info: PDF/A mode OFF on input line 6399.
-LaTeX Info: Redefining \ref on input line 6439.
-LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count124
+Package hyperref Info: Hyper figures OFF on input line 6358.
+Package hyperref Info: Link nesting OFF on input line 6363.
+Package hyperref Info: Hyper index ON on input line 6366.
+Package hyperref Info: backreferencing OFF on input line 6373.
+Package hyperref Info: Link coloring OFF on input line 6378.
+Package hyperref Info: Link coloring with OCG OFF on input line 6383.
+Package hyperref Info: PDF/A mode OFF on input line 6388.
+LaTeX Info: Redefining \ref on input line 6428.
+LaTeX Info: Redefining \pageref on input line 6432.
+\Hy@abspage=\count125
 
 
 Package hyperref Message: Stopped early.
 
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.de
-f"
-File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count125
-\c@bookmark@seq@number=\count126
+Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilec
-heck.sty"
+
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.
+def"
+File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+\Fld@listcount=\count126
+\c@bookmark@seq@number=\count127
+
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfil
+echeck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasere
-quires.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseco
-mpatibility.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasefo
-nt.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.st
-y"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+requires.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+compatibility.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+font.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.
+sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts
+.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks26
 \symAMSa=\mathgroup4
@@ -527,89 +534,89 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\sansmathaccent\sans
-mathaccent.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\sansmathaccent\sa
+nsmathaccent.sty"
 Package: sansmathaccent 2013/03/28
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\filehook\filehook.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\filehook\filehook
+.sty"
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasetr
-anslator.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+translator.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator.sty"
 Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasemi
-sc.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasetw
-oscreens.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseov
-erlay.sty"
-\beamer@argscount=\count127
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+misc.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+twoscreens.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+overlay.sty"
+\beamer@argscount=\count128
 \beamer@lastskipcover=\skip44
-\beamer@trivlistdepth=\count128
+\beamer@trivlistdepth=\count129
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseti
-tle.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasese
-ction.sty"
-\c@lecture=\count129
-\c@part=\count130
-\c@section=\count131
-\c@subsection=\count132
-\c@subsubsection=\count133
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+title.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+section.sty"
+\c@lecture=\count130
+\c@part=\count131
+\c@section=\count132
+\c@subsection=\count133
+\c@subsubsection=\count134
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasefr
-ame.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+frame.sty"
 \beamer@framebox=\box40
 \beamer@frametitlebox=\box41
 \beamer@zoombox=\box42
-\beamer@zoomcount=\count134
-\beamer@zoomframecount=\count135
+\beamer@zoomcount=\count135
+\beamer@zoomframecount=\count136
 \beamer@frametextheight=\dimen167
-\c@subsectionslide=\count136
+\c@subsectionslide=\count137
 \beamer@frametopskip=\skip45
 \beamer@framebottomskip=\skip46
 \beamer@frametopskipautobreak=\skip47
 \beamer@framebottomskipautobreak=\skip48
 \beamer@envbody=\toks27
 \framewidth=\dimen168
-\c@framenumber=\count137
+\c@framenumber=\count138
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseve
-rbatim.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+verbatim.sty"
 \beamer@verbatimfileout=\write4
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasefr
-amesize.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+framesize.sty"
 \beamer@splitbox=\box43
-\beamer@autobreakcount=\count138
+\beamer@autobreakcount=\count139
 \beamer@autobreaklastheight=\dimen169
 \beamer@frametitletoks=\toks28
 \beamer@framesubtitletoks=\toks29
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasefr
-amecomponents.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+framecomponents.sty"
 \beamer@footins=\box44
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseco
-lor.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseno
-tes.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+color.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+notes.sty"
 \beamer@frameboxcopy=\box45
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseto
-c.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasete
-mplates.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+toc.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+templates.sty"
 \beamer@sbttoks=\toks30
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseau
-xtemplates.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasebo
-xes.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+auxtemplates.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+boxes.sty"
 \bmb@box=\box46
 \bmb@colorbox=\box47
 \bmb@boxshadow=\box48
@@ -622,53 +629,57 @@ xes.sty"
 )
 \beamer@blockheadheight=\dimen174
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaselo
-calstructure.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\enumerate.sty
-"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+localstructure.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\enumerate.s
+ty"
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks31
 )
-\c@figure=\count139
-\c@table=\count140
+\c@figure=\count140
+\c@table=\count141
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasena
-vigation.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+navigation.sty"
 \beamer@section@min@dim=\dimen175
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseth
-eorems.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
-"
-Package: amsmath 2017/09/02 v2.17a AMS math features
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+theorems.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.s
+ty"
+Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
-"
+
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.s
+ty"
 Package: amstext 2000/06/29 v2.01 AMS text
- ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
-"
+
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.st
+y"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks32
 \ex@=\dimen176
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.st
+y"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen177
-) ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.st
+)
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.st
 y"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count141
+\inf@bad=\count142
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count142
-\leftroot@=\count143
+\uproot@=\count143
+\leftroot@=\count144
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count144
-\DOTSCASE@=\count145
+\classnum@=\count145
+\DOTSCASE@=\count146
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -677,15 +688,15 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen178
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count146
-\c@MaxMatrixCols=\count147
+\macc@depth=\count147
+\c@MaxMatrixCols=\count148
 \dotsspace@=\muskip11
-\c@parentequation=\count148
-\dspbrk@lvl=\count149
+\c@parentequation=\count149
+\dspbrk@lvl=\count150
 \tag@help=\toks33
-\row@=\count150
-\column@=\count151
-\maxfields@=\count152
+\row@=\count151
+\column@=\count152
+\maxfields@=\count153
 \andhelp@=\toks34
 \eqnshift@=\dimen179
 \alignsep@=\dimen180
@@ -700,8 +711,9 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
-Package: amsthm 2017/10/31 v2.20.4
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
+"
+Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks37
 \thm@bodyfont=\toks38
 \thm@headfont=\toks39
@@ -712,36 +724,36 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip56
 \dth@everypar=\toks42
 )
-\c@theorem=\count153
+\c@theorem=\count154
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaseth
-emes.sty"))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerthemed
-efault.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerfontth
-emedefault.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamercolort
-hemedefault.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinnert
-hemedefault.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbase
+themes.sty"))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerthem
+edefault.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerfont
+themedefault.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamercolo
+rthemedefault.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinne
+rthemedefault.sty"
 \beamer@dima=\dimen185
 \beamer@dimb=\dimen186
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beameroutert
-hemedefault.sty")))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beameroute
+rthemedefault.sty")))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty
+"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks43
 \inpenc@posthook=\toks44
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
+ ("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -982,7 +994,7 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -1022,8 +1034,7 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -1048,45 +1059,41 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.st
-y"
-Package: babel 2018/02/14 3.18 The Babel package
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch.def"
-File: switch.def 2018/02/14 3.18 Babel switching mechanism
-)
+))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty
+"
+Package: babel 2017/05/19 3.10 The Babel package
+
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-hungarian\mag
-yar.ldf"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-hungarian\m
+agyar.ldf"
 Language: magyar 2017/08/30 v1.5c Magyar support from the babel v3.7 system
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count154
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def
+"
+File: babel.def 2017/05/19 3.10 Babel common definitions
+\babel@savecnt=\count155
 \U@D=\dimen187
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\txtbabel.de
-f")
-LaTeX Info: Redefining \textlatin on input line 1839.
-\bbl@dirlevel=\count155
+LaTeX Info: Redefining \textlatin on input line 1648.
 )
 Package babel Info: Making ` an active character on input line 2801.
 \c@footnote@add=\count156
 \c@footnote@ch=\count157
 ))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.def"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\lmodern.sty"
+)) ("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\lmodern.sty
+"
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -1121,11 +1128,12 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\inconsolata\zi4.sty
-"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\inconsolata\zi4.s
+ty"
 Package: zi4 2017/01/04 v1.112
  `inconsolata-zi4' v1.112, 2017/01/04 Text macros for Inconsolata (msharpe)
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
+"
 Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -1139,13 +1147,11 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+ ("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
-
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
+ ("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
 File: ts1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
@@ -1280,14 +1286,15 @@ Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
 Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
-) ("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.s
+)
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.s
 ty"
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.t
-ex"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.
-tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkeyval
+.tex"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkvutil
+s.tex"
 \XKV@toks=\toks45
 \XKV@tempa@toks=\toks46
 )
@@ -1296,16 +1303,16 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \zifour@ocount=\count159
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow
+.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip57
 \multirow@cntb=\count160
 \multirow@dima=\skip58
 \bigstrutjot=\dimen188
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.s
-ty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings
+.sty"
 \lst@mode=\count161
 \lst@gtempboxa=\box53
 \lst@token=\toks47
@@ -1319,23 +1326,23 @@ ty"
 \lst@lineno=\count166
 \lst@maxwidth=\dimen192
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.st
-y"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.
+sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count167
 \lst@skipnumbers=\count168
 \lst@framebox=\box54
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.c
-fg"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings
+.cfg"
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everysel.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everysel.sty"
 Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 )
 \CenteringLeftskip=\skip59
@@ -1353,19 +1360,19 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 \RaggedRightParindent=\skip71
 \JustifyingParindent=\skip72
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerthemeW
-arsaw.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinnert
-hemerounded.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beameroutert
-hemeshadow.sty"
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beameroutert
-hemesplit.sty"))
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamercolort
-hemeorchid.sty")
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamercolort
-hemewhale.sty")) (osztalysablon_konyvtar.aux)
-\openout1 = `osztalysablon_konyvtar.aux'.
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerthem
+eWarsaw.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinne
+rthemerounded.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beameroute
+rthemeshadow.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beameroute
+rthemesplit.sty"))
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamercolo
+rthemeorchid.sty")
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamercolo
+rthemewhale.sty")) (vedes_ea.aux)
+\openout1 = `vedes_ea.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
@@ -1384,13 +1391,13 @@ LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 28.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 28.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1428,8 +1435,8 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
-i"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.m
+kii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count169
 \scratchdimen=\dimen193
@@ -1443,30 +1450,30 @@ i"
 \makeMPintoPDFobject=\count174
 \everyMPtoPDFconversion=\toks49
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-b
-ase.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf
+-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
-"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.s
+ty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box56
 Package hyperref Info: Link coloring OFF on input line 28.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
-y"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.
+sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitle
-string.sty"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettit
+lestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count175
@@ -1474,9 +1481,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 28.
 LaTeX Info: Redefining \pageref on input line 28.
 LaTeX Info: Redefining \nameref on input line 28.
- (osztalysablon_konyvtar.out) (osztalysablon_konyvtar.out)
+ (vedes_ea.out) (vedes_ea.out)
 \@outlinefile=\write5
-\openout5 = `osztalysablon_konyvtar.out'.
+\openout5 = `vedes_ea.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 28.
@@ -1525,134 +1532,137 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  T1/zi4/m/n --> T1/zi4/bx/n on input line 28.
 
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or-basic-dictionary-English.dict"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator-basic-dictionary-English.dict"
 Dictionary: translator-basic-dictionary, Language: English 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or-bibliography-dictionary-English.dict"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator-bibliography-dictionary-English.dict"
 Dictionary: translator-bibliography-dictionary, Language: English 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or-environment-dictionary-English.dict"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator-environment-dictionary-English.dict"
 Dictionary: translator-environment-dictionary, Language: English 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or-months-dictionary-English.dict"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator-months-dictionary-English.dict"
 Dictionary: translator-months-dictionary, Language: English 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or-numbers-dictionary-English.dict"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator-numbers-dictionary-English.dict"
 Dictionary: translator-numbers-dictionary, Language: English 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translat
-or-theorem-dictionary-English.dict"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\transl
+ator-theorem-dictionary-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-("C:\Users\nagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\upquote\upquote.sty
-"
+("C:\Users\AnNagy\AppData\Local\Programs\MiKTeX 2.9\tex\latex\upquote\upquote.s
+ty"
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
 \c@lstlisting=\count176
  ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 28.
- (osztalysablon_konyvtar.nav)
-[1
+ (vedes_ea.nav) [1
 
-{C:/Users/nagy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
+{C:/Users/AnNagy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
 
 ]
-\openout4 = `osztalysablon_konyvtar.vrb'.
+\openout4 = `vedes_ea.vrb'.
 
-
-(osztalysablon_konyvtar.vrb
+ (vedes_ea.vrb
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 4.
-) [3
+)
+[3
 
 ]
-\openout4 = `osztalysablon_konyvtar.vrb'.
+\openout4 = `vedes_ea.vrb'.
 
- (osztalysablon_konyvtar.vrb
-<composit_stuct_ea.png, id=49, 582.175pt x 491.8375pt>
-File: composit_stuct_ea.png Graphic file (type png)
-<use composit_stuct_ea.png>
-Package pdftex.def Info: composit_stuct_ea.png  used on input line 2.
-(pdftex.def)             Requested size: 232.86588pt x 196.7315pt.
+ (vedes_ea.vrb <vedes_demo.png, id=49, 692.5875pt x 491.8375pt>
+File: vedes_demo.png Graphic file (type png)
+
+<use vedes_demo.png>
+Package pdftex.def Info: vedes_demo.png used on input line 2.
+(pdftex.def)             Requested size: 277.03009pt x 196.7315pt.
 ) [4
 
- <./composit_stuct_ea.png (PNG copy)>]
-\openout4 = `osztalysablon_konyvtar.vrb'.
+ <./vedes_demo.png (PNG copy)>]
+\openout4 = `vedes_ea.vrb'.
 
- (osztalysablon_konyvtar.vrb) [5
-
-] [6
-
-] [7
-
-] [8
-
-] [9
-
-]
-[10
-
-] [11
-
-]
-\openout4 = `osztalysablon_konyvtar.vrb'.
-
- (osztalysablon_konyvtar.vrb) [12
+ (vedes_ea.vrb) [5
 
 ]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 166.
- [13
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 87.
+
+[6
+
+]
+\openout4 = `vedes_ea.vrb'.
+
+ (vedes_ea.vrb) [7
+
+] <BallAtPlayerPort.png, id=77, 572.1375pt x 291.0875pt>
+File: BallAtPlayerPort.png Graphic file (type png)
+
+<use BallAtPlayerPort.png>
+Package pdftex.def Info: BallAtPlayerPort.png used on input line 111.
+(pdftex.def)             Requested size: 228.85094pt x 116.43292pt.
+ [8
+
+ <./BallAtPlayerPort.png (PNG copy)>] [9
+
+] [10
+
+]
+\openout4 = `vedes_ea.vrb'.
+
+
+(vedes_ea.vrb) [11
+
+] [12
+
+] [13
 
 ] [14
 
-] [15
-
-] [16
-
 ]
 \tf@nav=\write6
-\openout6 = `osztalysablon_konyvtar.nav'.
+\openout6 = `vedes_ea.nav'.
 
 \tf@toc=\write7
-\openout7 = `osztalysablon_konyvtar.toc'.
+\openout7 = `vedes_ea.toc'.
 
 \tf@snm=\write8
-\openout8 = `osztalysablon_konyvtar.snm'.
+\openout8 = `vedes_ea.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
-
-(osztalysablon_konyvtar.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
-Package rerunfilecheck Info: File `osztalysablon_konyvtar.out' has not changed.
-
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+ (vedes_ea.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package rerunfilecheck Info: File `vedes_ea.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21175 strings out of 493305
- 394988 string characters out of 3130237
- 467975 words of memory out of 3000000
- 24215 multiletter control sequences out of 15000+200000
+ 21159 strings out of 493323
+ 394525 string characters out of 3129581
+ 467985 words of memory out of 3000000
+ 24193 multiletter control sequences out of 15000+200000
  27265 words of font info for 25 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,66p,791b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc
-}<C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss10.
-pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss
-12.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
-mss8.pfb><C:/Users/nagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm
-/lmsso10.pfb>
-Output written on osztalysablon_konyvtar.pdf (16 pages, 137876 bytes).
+ 56i,15n,66p,777b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.e
+nc}<C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lms
+s10.pfb><C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
+m/lmss12.pfb><C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/lm/lmss8.pfb><C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/lm/lmsso10.pfb>
+Output written on vedes_ea.pdf (14 pages, 147868 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 142 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 
