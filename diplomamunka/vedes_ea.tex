@@ -99,60 +99,164 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Példa: Interfész implementált kódgenerálási stratégiája}
+	\frametitle{Üzenetáram eleje}
+	\includegraphics[scale=0.5]{vedes_demo_send.png}
+	
+	Kérdések:
 	\begin{itemize}
-	\item Az interfész tartalmazzon annyi \textit{send} műveletet, ahány fogadó művelete van.
-	\item Szedjük szét két részre az interfészt.
-	\item +1: C++ sablon metaprogramozással leszűkíthetjük a kódot. (lásd diplomamunka) 	
+	\item Hogyan reprezentáljuk a szabványban a portra való üzenetküldést, hogyan kell ezt értelmezni?
+	\item Interfész portok reprezentálása, generálása?
 	\end{itemize}
 	
-	\includegraphics[scale=0.4]{BallAtPlayerPort.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Portok naiv ábrázolása}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_simple_send.png}
+	\end{center}
+	Problémák: 
+	\begin{itemize}
+	\item A port bármilyen üzenetet fogadhat, hol vannak az interfészek?
+	\item Mi a send szemantikája, milyen UML akciónak felel meg?
+	\end{itemize}
+
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Interfész portok keretrendszere C++-ban}
+	\frametitle{Interfész portok üzenetküldéssel}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_interface_send.png}
+	\end{center}
+	
 	\begin{itemize}
-	\item Bevezetünk egy port osztályt, sablonparaméterei az interfészek.
-	\item Felveszünk minden porta egy port típusú adattagot a megfelelő interfészekkel.
-	\item A portoknak két típusa lehet, a normál port, illetve az állapotgéppel összekapcsolt port.
-	\item A normál port a befutó üzenetet egy gyerek felé továbbítja, az állapotgéppel összekapcsolt port a tartalmazó osztály állapotgépe felé.
-	\item Ez más viselkedést és referencia tárolásokat jelent, melyeket leszármazással a legtisztább megoldani.
+	\item A típushelyességet biztosítottuk.
+	\item A továbbiakban a \textit{send} szemantika érdekes.
 	\end{itemize}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Üzenetküldés C++}
+	\frametitle{Üzenet továbbítása a szülő komponens felé - Delegáció}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_connect.png}
+	\end{center}
+	
+	Problémák:
 	\begin{itemize}
-	\item Interfész felosztása kintről illetve bentről jövő üzenetek megkülönböztetésére.
-	\item A fent említett \textit{PSCS} szabvány szerinti szemantikának megfelelő művelet generálása. (\textit{send} vagy \textit{receive})
-	\item Mi ennek a szemantikája, mit jelent ez C++-ban?
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Portról jött üzenet feldolgozása C++-ban}
-	\begin{itemize}
-	\item Az üzenet az objektum üzenetsorához fut be.
-	\item Azonban megjelöljük, hogy melyik portról érkezett.
-	\item Állapot-átmeneteknél megadhatjuk, mely portokról érkezett üzenetek érdekesek számunka.
-	\item Feldolgozáskor (esemény, állapot) alapján megkeressük a megfelelő átmenetet, és vizsgáljuk, hogy az átmenet lehetséges portjai között között ott van-e az üzenet portja.
+	\item Hogyan adom tovább az üzenet a szülő felé?
+	\item Hogyan kapcsolom össze a gyerek és a szülő portját?
+	\item Honnan tudom, hogy delegációs kapcsolat áll a két port között?
 	\end{itemize}
 
 \end{frame}
-
 
 
 \begin{frame}
-	\frametitle{Portok összekapcsolása C++-ban}
+	\frametitle{Naiv kapcsolat referencia tárolás}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_delegref.png}
+	\end{center}
+	Problémák:
 	\begin{itemize}
-	\item A referencia tárolását választottuk.
-	\item Probléma: assembly vagy delegációs kapcsolatban áll a referenciával?
-	\item Megoldás: Csomagoljuk be a port referenciát egy kapcsolat osztályra, mely eldönti, hogy a kapcsolatban álló portnak mely műveletét kell meghívni üzenetküldés/üzenetfogadás esetén. Ennek leszármazással két típusa van, a \textit{DelegationConnect} illetve az \textit{AssemblyConnect} 
-	\item \textit{connect} műveletnél ezeket a referenciákat kell kölcsönösen kitölteni, ahol megadhatjuk annak a konnektornak a típusát, mely szerint összekapcsolunk, ez validálja az összekapcsolás helyességét. 
+	\item Delegációs kapcsolat esetén működik csak.
+	\item Delegációs összekapcsolás esetén kell beállítani a referenciát.
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Üzenet átadása testvér komponensek - Assembly}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_assconnect.png}
+	\end{center}
+	Újabb problémák:
+	\begin{itemize}
+	\item A \textit{send} másképp viselkedik, mint delegációs kapcsolat esetén.
+	\item A jobb oldali célportnak nem delegálok, hanem fogadja az üzenetet, ami befele áramol tovább. (Az elvárt interfész érdekes számomra)
 	\end{itemize}
 		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Interfészek szétbontása}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_interface_send_rec.png}
+	\end{center}
+	\begin{itemize}
+	\item Az PSCS szemantika szerint az üzenetküldés kontextusától függ az üzenetáram iránya.
+	\item \textit{send} - belülről jött üzenetküldés, \textit{receive} - kívülről jött üzenet fogadása
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kapcsolat referencia szétbontása}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_interface_send_rec.png}
+	\end{center}
+	\begin{itemize}
+	\item A kapcsolat referenciát öröklődéssel tehetjük a legtisztábban poliformmá.
+	\item Az assembly kapcsolódás miatt \textit{send} helyett \textit{receive}-et kell hívni a kapcsolt porton.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Kapcsolat referencia szétbontása}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_recived.png}
+	\end{center}
+	\begin{itemize}
+	\item A delegáció miatt továbbítani kell az üzenetet a belső komponens felé.
+	\item Ez a kapcsolat azonban különbözik az általános kapcsolat referenciától.
+	\item Mintha a gyerek \textit{receive}-jét hívtuk volna..
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Gyerek felé továbbítás delegáció esetén}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_notbehav_port.png}
+	\end{center}
+	\begin{itemize}
+	\item A gyerek referenciát egy delegációs összekapcsolás állítja be.
+	\item Más lesz ennek a viselkedése állapotgéppel összekapcsolt port esetén, ezért kell az interfész..
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Gyerek felé továbbítás delegáció esetén}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_class_recived.png}
+	\end{center}
+	\begin{itemize}
+	\item Gyerek komponens referencia helyett az állapotgépre kell referenciát birtokolnunk. 
+	\item Más viselkedés, más adattagok.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Gyerek felé továbbítás delegáció esetén}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_behav_port.png}
+	\end{center}
+	\begin{itemize}
+	\item A \textit{send} hatására bekerül az állapotgép üzenetsorába az \textit{Ball} üzenet.
+	\item Tudnunk kell, melyik portról érkezett az üzenet, amikor átmenetben dolgozzuk fel.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Gyerek felé továbbítás delegáció esetén}
+	\begin{center}
+	\includegraphics[scale=0.5]{vedes_demo_recived_proc.png}
+	\end{center}
+	\begin{itemize}
+	\item Átmeneteknél (esemény,állapot) mellett megadhatjuk, mely portokról jött üzenetek relevánsak az átmenet szempontjából.
+	\item Állapotgép reprezentálása mint eddig, figyelembe véve, honnan érkezett az üzenet (átmenet tábla bővítése, maszkolás). 
+	\end{itemize}
 \end{frame}
 
 \begin{frame}

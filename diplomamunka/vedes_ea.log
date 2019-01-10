@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.11)  9 JAN 2019 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.11)  10 JAN 2019 15:47
 entering extended mode
 **./vedes_ea.tex
 (vedes_ea.tex
@@ -1604,29 +1604,155 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
 
  (vedes_ea.vrb) [7
 
-] <BallAtPlayerPort.png, id=77, 572.1375pt x 291.0875pt>
-File: BallAtPlayerPort.png Graphic file (type png)
+] <vedes_demo_send.png, id=77, 652.4375pt x 271.0125pt>
+File: vedes_demo_send.png Graphic file (type png)
 
-<use BallAtPlayerPort.png>
-Package pdftex.def Info: BallAtPlayerPort.png used on input line 111.
-(pdftex.def)             Requested size: 228.85094pt x 116.43292pt.
- [8
+<use vedes_demo_send.png>
+Package pdftex.def Info: vedes_demo_send.png used on input line 111.
+(pdftex.def)             Requested size: 326.21794pt x 135.5059pt.
 
- <./BallAtPlayerPort.png (PNG copy)>] [9
+Overfull \hbox (18.92807pt too wide) in paragraph at lines 111--111
+[][]  
+ []
 
-] [10
+[8
+
+ <./vedes_demo_send.png (PNG copy)>]
+<vedes_demo_simple_send.png, id=84, 461.725pt x 100.375pt>
+File: vedes_demo_simple_send.png Graphic file (type png)
+
+<use vedes_demo_simple_send.png>
+Package pdftex.def Info: vedes_demo_simple_send.png used on input line 125.
+(pdftex.def)             Requested size: 230.86194pt x 50.18736pt.
+ [9
+
+ <./vedes_demo_simple_send.png (PNG copy)>]
+<vedes_demo_interface_send.png, id=91, 481.8pt x 220.825pt>
+File: vedes_demo_interface_send.png Graphic file (type png)
+
+<use vedes_demo_interface_send.png>
+Package pdftex.def Info: vedes_demo_interface_send.png used on input line 138.
+(pdftex.def)             Requested size: 240.8994pt x 110.41222pt.
+ [10
+
+ <./vedes_demo_interface_send.png (PNG copy)>] <vedes_demo_connect.png, id=98, 
+652.4375pt x 271.0125pt>
+File: vedes_demo_connect.png Graphic file (type png)
+
+<use vedes_demo_connect.png>
+Package pdftex.def Info: vedes_demo_connect.png used on input line 153.
+(pdftex.def)             Requested size: 326.21794pt x 135.5059pt.
+
+Overfull \hbox (18.92807pt too wide) in paragraph at lines 153--153
+ [] 
+ []
+
+[11
+
+ <./vedes_demo_connect.png (PNG copy)>]
+<vedes_demo_delegref.png, id=105, 481.8pt x 281.05pt>
+File: vedes_demo_delegref.png Graphic file (type png)
+
+<use vedes_demo_delegref.png>
+Package pdftex.def Info: vedes_demo_delegref.png used on input line 167.
+(pdftex.def)             Requested size: 240.8994pt x 140.52464pt.
+ [12
+
+ <./vedes_demo_delegref.png (PNG copy)>]
+<vedes_demo_assconnect.png, id=112, 652.4375pt x 271.0125pt>
+File: vedes_demo_assconnect.png Graphic file (type png)
+
+<use vedes_demo_assconnect.png>
+Package pdftex.def Info: vedes_demo_assconnect.png used on input line 181.
+(pdftex.def)             Requested size: 326.21794pt x 135.5059pt.
+
+Overfull \hbox (18.92807pt too wide) in paragraph at lines 181--181
+ [] 
+ []
+
+[13
+
+ <./vedes_demo_assconnect.png (PNG copy)>]
+<vedes_demo_interface_send_rec.png, id=120, 552.0625pt x 291.0875pt>
+File: vedes_demo_interface_send_rec.png Graphic file (type png)
+
+<use vedes_demo_interface_send_rec.png>
+Package pdftex.def Info: vedes_demo_interface_send_rec.png used on input line 1
+92.
+(pdftex.def)             Requested size: 276.03056pt x 145.54338pt.
+ [14
+
+ <./vedes_demo_interface_send_rec.png (PNG copy)>]
+File: vedes_demo_interface_send_rec.png Graphic file (type png)
+ <use vedes_demo_interface_send_rec.png>
+Package pdftex.def Info: vedes_demo_interface_send_rec.png used on input line 2
+03.
+(pdftex.def)             Requested size: 276.03056pt x 145.54338pt.
+ [15
 
 ]
-\openout4 = `vedes_ea.vrb'.
+<vedes_demo_recived.png, id=133, 652.4375pt x 260.975pt>
+File: vedes_demo_recived.png Graphic file (type png)
 
+<use vedes_demo_recived.png>
+Package pdftex.def Info: vedes_demo_recived.png used on input line 216.
+(pdftex.def)             Requested size: 326.21794pt x 130.48718pt.
 
-(vedes_ea.vrb) [11
+Overfull \hbox (18.92807pt too wide) in paragraph at lines 216--216
+ [] 
+ []
 
-] [12
+[16
 
-] [13
+ <./vedes_demo_recived.png (PNG copy)>]
+<vedes_demo_notbehav_port.png, id=140, 592.2125pt x 200.75pt>
+File: vedes_demo_notbehav_port.png Graphic file (type png)
 
-] [14
+<use vedes_demo_notbehav_port.png>
+Package pdftex.def Info: vedes_demo_notbehav_port.png used on input line 227.
+(pdftex.def)             Requested size: 296.10551pt x 100.37474pt.
+ [17
+
+ <./vedes_demo_notbehav_port.png (PNG copy)>] <vedes_demo_class_recived.png, id
+=147, 702.625pt x 250.9375pt>
+File: vedes_demo_class_recived.png Graphic file (type png)
+
+<use vedes_demo_class_recived.png>
+Package pdftex.def Info: vedes_demo_class_recived.png used on input line 238.
+(pdftex.def)             Requested size: 351.31163pt x 125.46843pt.
+
+Overfull \hbox (44.02176pt too wide) in paragraph at lines 238--238
+ [] 
+ []
+
+[18
+
+ <./vedes_demo_class_recived.png (PNG copy)>]
+<vedes_demo_behav_port.png, id=154, 521.95pt x 200.75pt>
+File: vedes_demo_behav_port.png Graphic file (type png)
+
+<use vedes_demo_behav_port.png>
+Package pdftex.def Info: vedes_demo_behav_port.png used on input line 249.
+(pdftex.def)             Requested size: 260.97435pt x 100.37474pt.
+ [19
+
+ <./vedes_demo_behav_port.png (PNG copy)>]
+<vedes_demo_recived_proc.png, id=162, 652.4375pt x 260.975pt>
+File: vedes_demo_recived_proc.png Graphic file (type png)
+
+<use vedes_demo_recived_proc.png>
+Package pdftex.def Info: vedes_demo_recived_proc.png used on input line 260.
+(pdftex.def)             Requested size: 326.21794pt x 130.48718pt.
+
+Overfull \hbox (18.92807pt too wide) in paragraph at lines 260--260
+ [] 
+ []
+
+[20
+
+ <./vedes_demo_recived_proc.png (PNG copy)>] [21
+
+] [22
 
 ]
 \tf@nav=\write6
@@ -1638,19 +1764,19 @@ Package pdftex.def Info: BallAtPlayerPort.png used on input line 111.
 \tf@snm=\write8
 \openout8 = `vedes_ea.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
  (vedes_ea.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
 Package rerunfilecheck Info: File `vedes_ea.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21159 strings out of 493323
- 394525 string characters out of 3129581
+ 21244 strings out of 493323
+ 396425 string characters out of 3129581
  467985 words of memory out of 3000000
- 24193 multiletter control sequences out of 15000+200000
+ 24253 multiletter control sequences out of 15000+200000
  27265 words of font info for 25 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,66p,777b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1660,9 +1786,9 @@ s10.pfb><C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
 m/lmss12.pfb><C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/lm/lmss8.pfb><C:/Users/AnNagy/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /public/lm/lmsso10.pfb>
-Output written on vedes_ea.pdf (14 pages, 147868 bytes).
+Output written on vedes_ea.pdf (22 pages, 244524 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 207 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
