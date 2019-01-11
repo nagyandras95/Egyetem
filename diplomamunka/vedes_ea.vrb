@@ -1,0 +1,8 @@
+\frametitle{C++-ra való fordítása}
+	\begin{itemize}
+	\item Sok alternatíva (típusbiztonság, adatreprezentációs különbségek, stb)
+	\item Különböző elvárások a generált kóddal szemben (hatékonyság, olvashatóság, külső kóddal történő biztonságos illesztés, stb.)
+	\item Ez főleg a megfelelő kertrendszerek kialakításából és az UML szemantika értelmezéséből áll.
+	\item Ezeket a szempontokat figyelembe véve elemezni az egyes elemek generálását (interfész: 3+1, különböző port típusok: 2, konnektor struktúrák: 2,  kapcsolódási végpontok tárolása: 2 + 1,  portok összekapcsolásának kifejezése 2 + 1, üzenetküldés/fogadás: 2, üzenetfeldolgozás: 2).
+	\end{itemize}
+
