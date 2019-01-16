@@ -14,10 +14,6 @@
 
 \renewcommand\UrlFont{\ttfamily\footnotesize}
 
-\definecolor{light-gray}{gray}{0.95}
-\lstset{columns=fullflexible, basicstyle=\ttfamily,
-    backgroundcolor=\color{light-gray},xleftmargin=0.5cm,frame=lr,framesep=8pt,framerule=0pt}
-
 % no navigation symbols
 \setbeamertemplate{navigation symbols}{} 
 
@@ -37,7 +33,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Kompozíciós modell szöveges megadása}
+	\frametitle{Problémakör háttere}
 	
 	\begin{itemize}
 		\item \textit{txtUML} keretrendszerben írjuk le a komponens-alapú modellt, Java-szerű nyelven, mely végrehajtható.
@@ -55,19 +51,24 @@
 \end{frame}
 
 \begin{frame}[fragile]	
-	\frametitle{Főbb UML reprezentációs problémák}	
+	\frametitle{Értelmezési és reprezentációs problémák}	
 	\begin{itemize}
-	\item Interfész port reprezentálása: mi a típusa, hogyan fejezzük ki az elvárt interfészt.
+	\item Port típusának reprezentálása, elvárt és szolgáltatott interfészek kifejezése.
 	\item Két port összekapcsolása futási időben.
 	\item Porta való üzenetküldés.
-	\item Mi a szabványos modell szemantikája?
+	\item Mi a szabványos modell végrehajtási szemantikája?
+	\begin{itemize}
+		\item UML2 szabvány.
+		\item \textit{FUML} egy részhalmazához ad precíz szemantikát.
+		\item \textit{PSCS} szabvány a kompozitokra próbálja kiegészíteni.
+	\end{itemize}
 	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}
 
-	\frametitle{Példa: Konnektor, konnent UML-ben}
+	\frametitle{Példa: Konnektor, portok összekötése UML-ben}
 	\begin{block}{UML specifikáció szerint}
 	\textit{A Connector specifies links (see 11.5 Associations) between two or more instances playing owned or inherited roles within a StructuredClassifier." "A CreateLinkAction is a LinkAction for creating links."}
 	\end{block}
@@ -88,8 +89,8 @@
 	\begin{itemize}
 	\item Sok alternatíva (típusbiztonság, adatreprezentációs különbségek, stb.)
 	\item Különböző elvárások a generált kóddal szemben (hatékonyság, olvashatóság, külső kóddal történő biztonságos illesztés, stb.)
-	\item Ez főleg a megfelelő kertrendszerek kialakításából és az UML szemantika értelmezéséből áll.
-	\item Ezeket a szempontokat figyelembe véve a munka elemzi az egyes elemek kompozit kódgenerálását.
+	\item Ez a futási idejű könyvtár kialakításából és kódgenerálásból áll  az UML szemantika alapján.
+	\item Ezeket a szempontokat figyelembe véve a munka elemzi az egyes kompozit elemek  kódgenerálási lehetőségeit.
 	\end{itemize}
 	
 \end{frame}
@@ -98,39 +99,8 @@
 	\frametitle{Üzenetáram eleje}
 	\includegraphics[scale=0.5]{vedes_demo_send.png}
 	
-	Kérdések:
-	\begin{itemize}
-	\item Hogyan reprezentáljuk a szabványban a portra való üzenetküldést, hogyan kell ezt értelmezni?
-	\item Interfész portok reprezentálása, generálása?
-	\end{itemize}
+	Kérdések: Hogyan alakítsuk ki a port osztályt C++-ban, hogyan küldünk rá üzenetet?
 	
-\end{frame}
-
-\begin{frame}
-	\frametitle{Portok naiv ábrázolása}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_simple_send.png}
-	\end{center}
-	Problémák: 
-	\begin{itemize}
-	\item A port bármilyen üzenetet fogadhat, hol vannak az interfészek?
-	\item Mi a send szemantikája, milyen UML akciónak felel meg?
-	\end{itemize}
-
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Interfész portok üzenetküldéssel}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_interface_send.png}
-	\end{center}
-	
-	\begin{itemize}
-	\item A típushelyességet biztosítottuk.
-	\item A továbbiakban a \textit{send} szemantika érdekes.
-	\end{itemize}
-
 \end{frame}
 
 \begin{frame}
@@ -139,25 +109,7 @@
 	\includegraphics[scale=0.5]{vedes_demo_connect.png}
 	\end{center}
 	
-	Problémák:
-	\begin{itemize}
-	\item Hogyan adom tovább az üzenet a szülő felé?
-	\item Hogyan kapcsolom össze a gyerek és a szülő portját?
-	\item Honnan tudom, hogy delegációs kapcsolat áll a két port között?
-	\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Naiv kapcsolat referencia tárolás}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_delegref.png}
-	\end{center}
-	\begin{itemize}
-	\item Delegációs kapcsolat esetén működik csak.
-	\item A referenciát összekapcsolásnál állítom be, ami már UML-ben is nehezen reprezentálható és értelmezhető.	
-	\end{itemize}
+	Problémák: Üzenet továbbítása szülő felé delegációs kapcsolat mentén.
 
 \end{frame}
 
@@ -167,39 +119,7 @@
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_assconnect.png}
 	\end{center}
-	Újabb problémák:
-	\begin{itemize}
-	\item A \textit{send} másképp viselkedik, mint delegációs kapcsolat esetén.
-	\item A jobb oldali célportnak nem delegálok, hanem fogadja az üzenetet, ami befele áramol tovább. (Az elvárt interfész érdekes számomra)
-	\end{itemize}
-		
-\end{frame}
-
-
-\begin{frame}[fragile]
-	\frametitle{Interfészek szétbontása}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_interface_send_rec.png}
-	\end{center}
-	\begin{itemize}
-	\item Az PSCS szemantika szerint az üzenetküldés kontextusától függ az üzenetáram iránya (send - belső, receive - külső).
-	\item \textit{TYPELIST} pattern
-	\begin{lstlisting}[basicstyle=\small])
-	GeneralInterface<Ball,..> 
-	\end{lstlisting}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Polimorf kapcsolat}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_connpolygref.png}
-	\end{center}
-	\begin{itemize}
-	\item Tisztább reprezentáció, mint az ömlesztett adattárolás.
-	\item Sablon interfésszel lehet javítani a hatékonyságon (lásd diplomamunka).
-	\item A típuskonzisztenciát az portok összekapcsolásakor kell biztosítani.
-	\end{itemize}
+	Problémák: Más a \textit{send} viselkedése, mint delegáció esetén, a port elvárt interfészének kell megfelelni. 
 		
 \end{frame}
 
@@ -209,55 +129,24 @@
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_recived.png}
 	\end{center}
-	\begin{itemize}
-	\item A delegáció miatt továbbítani kell az üzenetet a belső komponens felé.
-	\item Ez a kapcsolat azonban különbözik az általános kapcsolat referenciától.
-	\item Mintha a gyerek \textit{receive}-jét hívtuk volna..
-	\end{itemize}
+	Delegációs kapcsolat másik iránya, a gyerek komponense felé továbbítom az üzenetet.
 \end{frame}
 
-\begin{frame}
-	\frametitle{Gyerek felé továbbítás delegáció esetén}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_notbehav_port.png}
-	\end{center}
-	\begin{itemize}
-	\item A gyerek referenciát egy delegációs összekapcsolás állítja be.
-	\item Állapotgéppel összekapcsolt esetén más adatok tárolására és viselkedésre lesz szükségünk, ezért vezessünk be egy általános \textit{IPort} interfészt.
-	\end{itemize}
-\end{frame}
 
 \begin{frame}
 	\frametitle{Gyerek felé továbbítás delegáció esetén}
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_class_recived.png}
 	\end{center}
-	\begin{itemize}
-	\item Gyerek komponens referencia helyett az állapotgépre kell referenciát birtokolnunk. 
-	\item Más viselkedés, más adattagok.
-	\end{itemize}
+	A gyerek komponens fogadó portja másképp kell, hogy viselkedjen, mint a szülőé, mivel állapotgéppel összekapcsolt port.
 \end{frame}
 
 \begin{frame}
-	\frametitle{Gyerek felé továbbítás delegáció esetén}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_behav_port.png}
-	\end{center}
-	\begin{itemize}
-	\item A \textit{send} hatására bekerül az állapotgép üzenetsorába az \textit{Ball} üzenet.
-	\item Tudnunk kell, melyik portról érkezett az üzenet, amikor átmenetben dolgozzuk fel.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Gyerek felé továbbítás delegáció esetén}
+	\frametitle{Portról jött üzenet feldolgozás}
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_recived_proc.png}
 	\end{center}
-	\begin{itemize}
-	\item Átmeneteknél (esemény,állapot) mellett megadhatjuk, mely portokról jött üzenetek relevánsak az átmenet szempontjából.
-	\item Állapotgép reprezentálása mint eddig, figyelembe véve, honnan érkezett az üzenet (átmenet tábla bővítése, maszkolás). 
-	\end{itemize}
+		Az üzenet az üzenetsorba kerül, fel kell dolgoznunk. Honnan tudjuk, melyik portról jött, átmenetetek kiterjesztése, hogy portról jött üzeneteteket is kezeljen.
 \end{frame}
 
 \begin{frame}
@@ -266,19 +155,114 @@
 	\begin{center}
 	\includegraphics[scale=0.45]{vedes_demo_count.png}
 	\end{center}
-\end{frame}	
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Példa: Interfész kódgenerálási stratégiák}
+	Nincs interfész, a forráskód validációja kiszűri a nem típusbiztos üzenetküldéseket. \\
+	Előnyök:
+	\begin{itemize}
+		\item Triviális, nem kell dolgozni érte.
+		\item Hatékony.
+	\end{itemize}
+	Hátrányok:
+	\begin{itemize}
+		\item Külső kóddal való illesztés nem biztonságos.
+		\item Az interfész általánosabb fogalom, nem csak portok esetén akarom hsználni.
+	\end{itemize}
+	
+		\begin{block}{Kódja}
+	\begin{lstlisting}[basicstyle=\small])
+class Port {
+	...
+	void send(GeneralEvent e);
+	...
+};
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Példa: Interfész kódgenerálási stratégiák - Van interfész}
+	
+	A fogadó szignálokat csoportosítsuk az interfészből történő leszármazással, a portnak legyen \textit{send} művelete, ami interfész leszármazottakat vár.
+	Hátrányok:
+	\begin{itemize}
+	\item Nem elég általános megoldás.
+	\item Interfészt nem csak portok, hanem bármilyen szereplők használhatnak, de ezzel csak portokra korlátoznánk a megoldást.
+	\end{itemize}
+	
+		\begin{block}{Interfész kód}
+	\begin{lstlisting}[basicstyle=\small])
+class BallIfc {};
+class Ball : public BallIfc {};
+
+template<Ifc>
+class Port { void send(Ifc& e); };
+
+Port<BallIfc>
+	\end{lstlisting}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Példa: Interfész kódgenerálási stratégiák}
+	
+	Az interfész legyen általános osztály annyi darab művelettel, ahány fogadó végpontja van. A port osztály valósítsa meg az interfészt, 
+	Hátrányok:
+	\begin{itemize}
+	\item Jelentősen megnő a generált kód mérete.
+	\item Funkcionálisan az összes művelet ugyanazt csinálja (így sablon metaprogramozással egyszerűsíthető..).
+	\end{itemize}
+	
+	\begin{block}{Interfész kód}
+	\begin{lstlisting}[basicstyle=\small])
+class BallIfc {
+public:
+virtual void send(Ball& e) { sendAny(e)}; 
+};
+
+template<Ifc>
+class Port : public Ifc {  };
+	\end{lstlisting}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Példa: Interfész kódgenerálási stratégiák}
+	
+	Az interfészt bontsuk két részre, hogy a belső üzenetküldést, és a kívülről jött üzenetfogadást is ki tudja fejezni. 
+	
+	\begin{block}{Interfész kód}
+	\begin{lstlisting}[basicstyle=\small])
+class BallIfc {
+class RequiredPart {
+virtual void send(Ball& e) { sendAny(e)}; };
+class ProvidedPart {
+virtual void receive(Ball& e) { receiveAny(e)}; 
+};
+};
+template<Provided, Required>
+class Port :
+ public Provided::ProvidedPart, 
+ public Required::RequiredPart { 
+
+};
+	\end{lstlisting}
+	\end{block}
+
+\end{frame}
 
 \begin{frame}
 	\frametitle{A kertrendszer kompozíciós elemek támogatásának előnyei}
 	
 	\begin{itemize}
-	\item Generált modell beburkolása egy komponensbe, így a külvilággal interfészekkel tud kommunikálni.
-	\begin{itemize}
-	\item Generált kód és külső elemek teljes szétválasztását teszi lehetővé.
-	\item Pl: \textit{FMU} export során a modell egy funkcionális komponens, mellyel portokon keresztül köthetjük hozzá az \textit{FMI} szabványt megvalósító szereplőt.
-	\end{itemize}
-	\item Komponensek egyszerűbb párhuzamosítása (környezetfüggetlenség, nem birtoklunk referenciát, kommunikációs csatorna testre szabása).
-	\item Komponens-alapú fejlesztésről szóló előadáson hasonló egy ehhez demonstrációt lehet készíteni a kompozit elemek tisztázásra..
+	\item Komponens modellezés támogatása (környezetfüggetlenség, újrafelhasználhatóság, stb.). 
+	\item {txtUML} -> {FMU} exportálást hatékonyabban lehet megoldani. 
+	\item Oktatási célok.
 	\end{itemize}
 
 \end{frame}
@@ -286,10 +270,11 @@
 \begin{frame}
 	\frametitle{Összefoglalás, eredmények}
 	\begin{itemize}
-	\item Az UML kompozit szabvány alapos értelmezése, a megfelelő reprezentációk és szemantika megtalálása.
-	\item C++ kódgenerálási stratégiák készítése.
+	\item Az UML kompozit szabvány alapos értelmezése.
+	\item Helyes reprezentáció használata.
+	\item C++ kódgenerálási stratégiák elemezése, implementációval validálás.
 	\item Szabványos modell generálása txtUML modell alapján, egy stratégia implementációja.
-	\item A diplomamunka összefoglalja, hogy miben segítenek a portok a modellezésben (könnyebb párhuzamosíthatóság, jobb FMU wrapper, példamodellek készítése oktatási célokra komponens-alapú oktatáson, stb.).
+	\item \textit{txtUML} támogatja komponens-alapú modellezést, felhasználása..
 	\end{itemize}
 \end{frame}
 

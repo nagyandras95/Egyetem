@@ -1,11 +1,22 @@
-\frametitle{Interfészek szétbontása}
-	\begin{center}
-	\includegraphics[scale=0.5]{vedes_demo_interface_send_rec.png}
-	\end{center}
-	\begin{itemize}
-	\item Az PSCS szemantika szerint az üzenetküldés kontextusától függ az üzenetáram iránya (send - belső, receive - külső).
-	\item \textit{TYPELIST} pattern
+\frametitle{Példa: Interfész kódgenerálási stratégiák}
+	
+	Az interfészt bontsuk két részre, hogy a belső üzenetküldést, és a kívülről jött üzenetfogadást is ki tudja fejezni.
+	
+	\begin{block}{Interfész kód}
 	\begin{lstlisting}[basicstyle=\small])
-	GeneralInterface<Ball,..>
+class BallIfc {
+class RequiredPart {
+virtual void send(Ball& e) { sendAny(e)}; };
+class ProvidedPart {
+virtual void receive(Ball& e) { receiveAny(e)};
+};
+};
+template<Provided, Required>
+class Port :
+ public Provided::ProvidedPart,
+ public Required::RequiredPart {
+
+};
 	\end{lstlisting}
-	\end{itemize}
+	\end{block}
+
