@@ -70,26 +70,29 @@
 
 	\frametitle{Példa: Konnektor, portok összekötése UML-ben}
 	\begin{block}{UML specifikáció szerint}
-	\textit{A Connector specifies links (see 11.5 Associations) between two or more instances playing owned or inherited roles within a StructuredClassifier." "A CreateLinkAction is a LinkAction for creating links."}
+	\textit{A Connector specifies links (see 11.5 Associations) between two or more instances playing owned or inherited roles within a StructuredClassifier." "A CreateLinkAction is a LinkAction for creating links." "A Connector may be typed by an Association, in which case the links specified by the Connector are instances of the typing Association."}
 	\end{block}
 	\begin{itemize}
-	\item A \textit{Connector} értelemszerű (de mi az a \textit{type} referencia?)
+	\item A \textit{Connector} értelemszerű (van ilyen elem, de mi az a \textit{type} referencia?)
 	\item A problémás a \textit{connect} művelet
 		\begin{itemize}
 		\item Nincs \textit{connect} akció UML-ben
 		\item \textit{DefaultConstructionStrategy}  (de az a szerkezet nem mindig egyértelmű..)
-		\item A \textit{CreateLinkAction} segítségével összeköthetünk két portot a konnektor típusa mentén (Itt jön be a \textit{type} referencia, mely egy asszociációnak felel, ezt még ki kell generálni.).
+		\item A \textit{CreateLinkAction} segítségével összeköthetünk két portot a konnektor típusa mentén (Itt jön be a \textit{type} referencia, mely egy asszociációnak felel, ezt még ki kell generálni).
 		\end{itemize}
 	\end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]	
-	\frametitle{C++-ra való fordítása}	
+	\frametitle{Fordítás C++-ra}	
 	\begin{itemize}
 	\item Sok alternatíva (típusbiztonság, adatreprezentációs különbségek, stb.)
 	\item Különböző elvárások a generált kóddal szemben (hatékonyság, olvashatóság, külső kóddal történő biztonságos illesztés, stb.)
-	\item Ez a futási idejű könyvtár kialakításából és kódgenerálásból áll  az UML szemantika alapján.
+	\item Ez a futási idejű könyvtár kialakításából és kódgenerálásból áll.
+		\begin{itemize}
+		\item Ezeknek meg kell felelni az UML szemantikának.
+		\end{itemize}
 	\item Ezeket a szempontokat figyelembe véve a munka elemzi az egyes kompozit elemek  kódgenerálási lehetőségeit.
 	\end{itemize}
 	
@@ -157,6 +160,32 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Példa: Interfész kódgenerálási stratégiák}
+	\begin{itemize}
+		\item Nincs interfész (forráskód validációja elég).
+			\item 	A fogadó szignálokat csoportosítsuk az interfészből történő leszármazással, a portnak legyen \textit{send} művelete, ami interfész leszármazottakat vár.
+			\item 	Az interfész legyen általános osztály annyi darab művelettel, ahány fogadó végpontja van. A port osztály valósítsa meg az interfészt. 
+			\item	Az interfészt bontsuk két részre, hogy a belső üzenetküldést, és a kívülről jött üzenetfogadást is ki tudja fejezni (\textit{send} és \textit{receive} műveletek).
+			\item  Sablon metaprogramozással elkerülhetjük a fölösleges \textit{send} művelet generálását, melyek csak a típusparaméterben különböznek.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Összefoglalás, eredmények}
+	\begin{itemize}
+	\item Az UML kompozit szabvány alapos értelmezése.
+	\item Helyes reprezentáció használata.
+	\item C++ kódgenerálási stratégiák elemezése, implementációval validálás.
+	\item Szabványos modell generálása txtUML modell alapján, egy stratégia implementációja.
+	\item \textit{txtUML} támogatja komponens-alapú modellezést
+	\begin{itemize}
+	\item Környezetfüggetlen, újrafelhasználható, jobban párhuzamosítható modelleket írhatunk.
+	\item {txtUML} -> {FMU} exportálást hatékonyabban lehet megoldani.
+	\item Oktatási célok.
+	\end{itemize}
+	\end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Példa: Interfész kódgenerálási stratégiák}
@@ -170,14 +199,13 @@
 	\begin{itemize}
 		\item Külső kóddal való illesztés nem biztonságos.
 		\item Az interfész általánosabb fogalom, nem csak portok esetén akarom hsználni.
+		\item 	Az interfész legyen általános osztály annyi darab művelettel, ahány fogadó végpontja van. A port osztály valósítsa meg az interfészt.
 	\end{itemize}
 	
 		\begin{block}{Kódja}
 	\begin{lstlisting}[basicstyle=\small])
 class Port {
-	...
 	void send(GeneralEvent e);
-	...
 };
 	\end{lstlisting}
 	\end{block}
@@ -210,7 +238,7 @@ Port<BallIfc>
 \begin{frame}[fragile]
 	\frametitle{Példa: Interfész kódgenerálási stratégiák}
 	
-	Az interfész legyen általános osztály annyi darab művelettel, ahány fogadó végpontja van. A port osztály valósítsa meg az interfészt, 
+	Az interfész legyen általános osztály annyi darab művelettel, ahány fogadó végpontja van. A port osztály valósítsa meg az interfészt. 
 	Hátrányok:
 	\begin{itemize}
 	\item Jelentősen megnő a generált kód mérete.
@@ -254,35 +282,6 @@ class Port :
 	\end{lstlisting}
 	\end{block}
 
-\end{frame}
-
-\begin{frame}
-	\frametitle{A kertrendszer kompozíciós elemek támogatásának előnyei}
-	
-	\begin{itemize}
-	\item Komponens modellezés támogatása (környezetfüggetlenség, újrafelhasználhatóság, stb.). 
-	\item {txtUML} -> {FMU} exportálást hatékonyabban lehet megoldani. 
-	\item Oktatási célok.
-	\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Összefoglalás, eredmények}
-	\begin{itemize}
-	\item Az UML kompozit szabvány alapos értelmezése.
-	\item Helyes reprezentáció használata.
-	\item C++ kódgenerálási stratégiák elemezése, implementációval validálás.
-	\item Szabványos modell generálása txtUML modell alapján, egy stratégia implementációja.
-	\item \textit{txtUML} támogatja komponens-alapú modellezést, felhasználása..
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Komponens-alapú UML modellek fordításának vizsgálata}
-	\begin{center}
-		\Large{Köszönöm a figyelmet!}
-	\end{center}
 \end{frame}
 
 \end{document}

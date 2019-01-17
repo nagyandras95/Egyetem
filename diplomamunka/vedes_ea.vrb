@@ -1,7 +1,7 @@
 \frametitle{Példa: Interfész kódgenerálási stratégiák}
-	
+
 	Az interfészt bontsuk két részre, hogy a belső üzenetküldést, és a kívülről jött üzenetfogadást is ki tudja fejezni.
-	
+
 	\begin{block}{Interfész kód}
 	\begin{lstlisting}[basicstyle=\small])
 class BallIfc {

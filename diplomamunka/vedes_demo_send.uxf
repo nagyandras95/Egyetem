@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.3.0">
+<diagram program="umlet" version="14.2">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
@@ -42,7 +42,7 @@
       <w>120</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>r2 : Racker</panel_attributes>
+    <panel_attributes>r2 : Racket</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -99,7 +99,7 @@ to RacktetPort</panel_attributes>
       <w>120</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>r1 : Racker</panel_attributes>
+    <panel_attributes>r1 : Racket</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
