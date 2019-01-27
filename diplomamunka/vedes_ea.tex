@@ -36,7 +36,7 @@
 	\frametitle{Problémakör háttere}
 	
 	\begin{itemize}
-		\item \textit{txtUML} keretrendszerben írjuk le a komponens-alapú modellt, Java-szerű nyelven, mely végrehajtható.
+		\item \textit{txtUML} keretrendszerben írjuk le a komponens-alapú modellt, Java-szerű nyelven.
 		\item Lefordítható egy szabványos UML2 modellre.
 		\item A cél a kompozit struktúrák és akciók megfelelő UML2-es szabványának megtalálása, melyből hatékony C++ kódot szeretnénk generálni.
 	\end{itemize}
@@ -102,7 +102,7 @@
 	\frametitle{Üzenetáram eleje}
 	\includegraphics[scale=0.5]{vedes_demo_send.png}
 	
-	Kérdések: Hogyan alakítsuk ki a port osztályt C++-ban, hogyan küldünk rá üzenetet?
+	Kérdések: Hogyan alakítsuk ki a port osztályt C++-ban, hogyan küldünk rá üzenetet? Az elvárt interfésznek kell megfelelnünk, hogyan fejezzük ki ezt?
 	
 \end{frame}
 
@@ -112,7 +112,7 @@
 	\includegraphics[scale=0.5]{vedes_demo_connect.png}
 	\end{center}
 	
-	Problémák: Üzenet továbbítása szülő felé delegációs kapcsolat mentén.
+	Üzenet továbbítása szülő felé delegációs kapcsolat mentén (minta a szülő portra küldtem volna az üzenetet közvetlen).
 
 \end{frame}
 
@@ -122,7 +122,7 @@
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_assconnect.png}
 	\end{center}
-	Problémák: Más a \textit{send} viselkedése, mint delegáció esetén, a port elvárt interfészének kell megfelelni. 
+	 Más a \textit{send} viselkedése, mint delegáció esetén, illetve a port szolgáltatott interfészének kell megfelelni, mivel az üzenetet már befele továbbítjuk a továbbiakban.
 		
 \end{frame}
 
@@ -132,7 +132,7 @@
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_recived.png}
 	\end{center}
-	Delegációs kapcsolat másik iránya, a gyerek komponense felé továbbítom az üzenetet.
+	Delegációs kapcsolat másik iránya, a gyerek komponense felé, befele továbbítom az üzenetet.
 \end{frame}
 
 
@@ -141,7 +141,7 @@
 	\begin{center}
 	\includegraphics[scale=0.5]{vedes_demo_class_recived.png}
 	\end{center}
-	A gyerek komponens fogadó portja másképp kell, hogy viselkedjen, mint a szülőé, mivel állapotgéppel összekapcsolt port.
+	A gyerek komponens fogadó portja másképp kell, hogy viselkedjen üzenetfogadás hatására, mint a szülőé, mivel állapotgéppel összekapcsolt portról van szó.
 \end{frame}
 
 \begin{frame}
@@ -175,9 +175,9 @@
 	\frametitle{Összefoglalás, eredmények}
 	\begin{itemize}
 	\item Az UML kompozit szabvány alapos értelmezése.
-	\item Helyes reprezentáció használata.
+	\item Helyes reprezentációk megtalálása.
+	\item Szabványos modell generálása txtUML modell alapján.
 	\item C++ kódgenerálási stratégiák elemezése, implementációval validálás.
-	\item Szabványos modell generálása txtUML modell alapján, egy stratégia implementációja.
 	\item \textit{txtUML} támogatja komponens-alapú modellezést
 	\begin{itemize}
 	\item Környezetfüggetlen, újrafelhasználható, jobban párhuzamosítható modelleket írhatunk.
