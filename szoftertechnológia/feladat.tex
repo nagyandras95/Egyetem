@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Szoftvertechnológia feladatleírás}
+\begin{document}
+\maketitle
+A félév során egy grafikus felületű, több személyes stratégiai játékot kell megvalósítani 3 fős csapatban, amely lehet körökre osztott (a játékosok felváltva cselekszenek), vagy valós idejű. Utóbbi esetben a játék hálózatos implementációja elengedhetetlen (a vezérlés miatt). Ugyanakkor a hálózatos implementációnál is megengedett a körökre osztott mód választása. \\
+
+A hálózatos implementáció nem előfeltétele a jeles gyakorlati jegynek, de plusz egy jegyet von maga után.
+
+\section{Játék leírása}
+Egy naprendszeren belül különböző méretű és hőmérsékletű bolygók vannak. A játékosok azonos feltételekkel indulnak. Van egy anyabolygójuk, melyen van szénbányájuk, naperőművük, mely a bánya energiaellását biztosítja, valamint rendelkeznek egy flottával, melyben egy darab hajó van, az anyahajó van. \\
+
+Az nyer, akinek sikerül gyarmatosítania minden bolygót a naprendszerben. \\
+
+A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, vagy bolygót. Jobb gombbal kijelölhetjük a kiválasztott flottánk célját. Ha ez egy hely, a flotta repüljön oda. Ha egy bolygó, akkor még ki kell választani a végrehajtandó akciót: landolás, szállítás, gyarmatosítás, ellenséges bolygó esetén támadás. Saját bolygót kijelölve a bolygót lehet fejleszteni, új épületet építeni rá, vagy meglévőt fejleszteni. \\
+
+\subsection{Játék alapelemei}
+\begin{itemize}
+\item \textbf{Erőforrások:} fém, deutérium (üzemanyag), 
+\item \textbf{Bányák:} fémbánya, deutériumbánya
+\item \textbf{Építmények:} Hajógyár, Naperőmű (bányák működtetéséhez)
+\item \textbf{Hajók:} Anyahajó, Vadász, Csatahajó, Kolóniahajó, Szállítóhajó
+\item \textbf{Akadályok:} Meteorok, Fekete lyuk 
+\end{itemize}
+
+\subsection{Hajók tulajdonságai}
+\begin{tabular}{lllll}
+\textbf{Képességek} & \textbf{Anyahajó} & \textbf{Vadász} & \textbf{Csatahajó} & \textbf{Kolóniahajó} \\
+\textbf{Fémköltség} & magas & alacsony & közepes & közepes \\
+\textbf{Fogyasztás} & magas & alacsony & közepes & magas \\
+\textbf{Támadóerő} & közepes & alacsony & magas & alacsony \\
+\textbf{Életerő} & magas & alacsony & magas & közepes \\
+\textbf{Sebesség} & közepes & magas & közepes & alacsony
+
+\end{tabular}
+
+\subsection{Játék alapeleminek jellemzői}
+
+\textbf{Fémbánya/Deutériumbánya}:  Ha van a bolygón elég energia, a játékos adott időközönként fémet/deutériumot kap. Ennek mennyisége a bánya szintjétől függ. \\
+
+\textbf{Hajógyár}: Hajókat képes létrehozni a szintjétől függően.
+\textbf{Naperőmű}: Szinjétől függően adott mennyiségű energiát szolgáltat a bolygó számára, melyet a bányák használhatnak fel. \\
+
+\textbf{Anyahajó}: Ha a flotta rendelkezik anyahajóval, ellenséges bolygókat is képes megtámadni. \\
+
+\textbf{Vadász, csatahajó}: Ha a flottában megtalálhatók, megtámadhatunk ellenséges flottákat. \\
+
+\textbf{Szállító}: Fix kapacitással rendelkezik, erőforrásokat képes szállítani egyik bolygóról a másikra. \\
+
+\textbf{Kolóniahajó}: Üres bolygókat képes gyarmatosítani, akár a flottában egyedül is állhat. Egy új bolygó gyarmatosításakor valamennyi fix erőforrást automatikusan lehelyez a bolygón.
+
+Egy csata automatikusan zajlik le, a végeredmény a flotta hajóinak össz életerejétől és támadóerejétől függ. Ennek a megvalósítása többféleképpen történhet, például úgy, hogy körönként csapást mérnek egymásra az egyes hajók egy véletlenszerűen kiválasztott ellenséges hajóra.
+\end{document}
