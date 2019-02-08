@@ -9,16 +9,16 @@
 \title{Szoftvertechnológia feladatleírás}
 \begin{document}
 \maketitle
-A félév során egy grafikus felületű, több személyes stratégiai játékot kell megvalósítani 3 fős csapatban, amely lehet körökre osztott (a játékosok felváltva cselekszenek), vagy valós idejű. Utóbbi esetben a játék hálózatos implementációja elengedhetetlen (a vezérlés miatt). Ugyanakkor a hálózatos implementációnál is megengedett a körökre osztott mód választása. \\
+A félév során egy grafikus felületű, többszemélyes stratégiai játékot kell megvalósítani 3 fős csapatban, amely lehet körökre osztott (a játékosok felváltva cselekszenek), vagy valós idejű. Utóbbi esetben a játék hálózatos implementációja elengedhetetlen (a vezérlés miatt). Ugyanakkor a hálózatos implementációnál is megengedett a körökre osztott mód választása. \\
 
-A hálózatos implementáció nem előfeltétele a jeles gyakorlati jegynek, de plusz egy jegyet von maga után.
+A hálózatos implementáció előfeltétele a jeles gyakorlati jegynek.
 
 \section{Játék leírása}
-Egy naprendszeren belül különböző méretű és hőmérsékletű bolygók vannak. A játékosok azonos feltételekkel indulnak. Van egy anyabolygójuk, melyen van szénbányájuk, naperőművük, mely a bánya energiaellását biztosítja, valamint rendelkeznek egy flottával, melyben egy darab hajó van, az anyahajó van. \\
+Egy naprendszeren belül különböző méretű és hőmérsékletű bolygók vannak. A játékosok azonos feltételekkel indulnak. Van egy anyabolygójuk, melyen van szénbányájuk, naperőművük, mely a bánya energiaellását biztosítja, valamint rendelkeznek egy flottával, melyben egy darab anyahajó van. \\
 
 Az nyer, akinek sikerül gyarmatosítania minden bolygót a naprendszerben. \\
 
-A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, vagy bolygót. Jobb gombbal kijelölhetjük a kiválasztott flottánk célját. Ha ez egy hely, a flotta repüljön oda. Ha egy bolygó, akkor még ki kell választani a végrehajtandó akciót: landolás, szállítás, gyarmatosítás, ellenséges bolygó esetén támadás. Saját bolygót kijelölve a bolygót lehet fejleszteni, új épületet építeni rá, vagy meglévőt fejleszteni. \\
+A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, vagy bolygót. Jobb gombbal kijelölhetjük a kiválasztott flottánk célját. Ha ez egy hely, a flotta repüljön oda. Ha egy bolygó, akkor még ki kell választani a végrehajtandó akciót: landolás, szállítás, gyarmatosítás, ellenséges bolygó esetén támadás. Saját bolygót kijelölve a bolygót lehet fejleszteni, új épületet építeni rá, vagy meglévőt fejleszteni, ha van rajta elég hely. \\
 
 \subsection{Játék alapelemei}
 \begin{itemize}
@@ -30,17 +30,19 @@ A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, v
 \end{itemize}
 
 \subsection{Hajók tulajdonságai}
-\begin{tabular}{lllll}
-\textbf{Képességek} & \textbf{Anyahajó} & \textbf{Vadász} & \textbf{Csatahajó} & \textbf{Kolóniahajó} \\
-\textbf{Fémköltség} & magas & alacsony & közepes & közepes \\
-\textbf{Fogyasztás} & magas & alacsony & közepes & magas \\
-\textbf{Támadóerő} & közepes & alacsony & magas & alacsony \\
-\textbf{Életerő} & magas & alacsony & magas & közepes \\
-\textbf{Sebesség} & közepes & magas & közepes & alacsony
+\begin{tabular}{llllll}
+\textbf{Képességek} & \textbf{Anyahajó} & \textbf{Vadász} & \textbf{Csatahajó} & \textbf{Kolóniahajó} & \textbf{Szállítóhajó} \\
+\textbf{Fémköltség} & magas & alacsony & közepes & közepes & alacsony \\
+\textbf{Fogyasztás} & magas & alacsony & közepes & magas & közepes \\
+\textbf{Támadóerő} & közepes & alacsony & magas & - & - \\
+\textbf{Életerő} & magas & alacsony & magas & közepes & alacsony \\
+\textbf{Sebesség} & közepes & magas & közepes & alacsony & közepes
 
 \end{tabular}
 
 \subsection{Játék alapeleminek jellemzői}
+
+\textbf{Bolygók}: Épületeket/bányákat építhetünk rajta. Adott mérettel rendelkeznek, ami azt jelenti, hogy a rajta lévő épületeket csak egy bizonyos szintig lehet fejleszteni. A hőmérséklet azt befolyásolja, hogy egy naperőmű egy bizonyos szinten mennyi energiát termel.
 
 \textbf{Fémbánya/Deutériumbánya}:  Ha van a bolygón elég energia, a játékos adott időközönként fémet/deutériumot kap. Ennek mennyisége a bánya szintjétől függ. \\
 
