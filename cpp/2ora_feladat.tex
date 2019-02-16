@@ -1,0 +1,26 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Feladat: C++ osztály készítése}
+\begin{document}
+
+\section{Racionális számokat ábrázoló osztály elkészítése}
+
+Írjunk egy C++ osztályt, ami racionális számokat ábrázol. Egy racionális szám ábrázolható két egész szám hányadosaként, ezeket konstruktorparaméterekben adhatjuk meg. \\ \\
+Írjuk meg az alábbi műveleteket:
+\begin{itemize}
+\item Készítsünk egy konstruktort, mely két egész számot vár. A hányados alapértelmezetten legyen egy.
+\item \textit{add}, \textit{sub} művelet.
+\item \textit{mul}, \textit{div} művelet.
+\item \textit{eq} művelet, mely megmondja, hogy két racionális szám megegyezik-e.
+\item A műveleteket lehessen láncba fűzni. pl: \textit{r.add(..).sub(..).add(..)};
+\item Írjunk egy függvényt, mely egy racionális számokat tartalmazó \textit{vectort} vár, és összegzi az elemeit. 
+\item Gyakorlás, HF: Készítsünk egy \textit{write} műveletet, mely egy \textit{iostream}-et vár, és beleírja a racionális szám értékét normál alakban (A két szám relatív prím egymáshoz képest, ehhez le kell osztani őket a legnagyobb közös osztóval).
+\end{itemize}
+
+\end{document}
