@@ -26,7 +26,8 @@ A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, v
 \item \textbf{Bányák:} fémbánya, deutériumbánya
 \item \textbf{Építmények:} Hajógyár, Naperőmű (bányák működtetéséhez)
 \item \textbf{Hajók:} Anyahajó, Vadász, Csatahajó, Kolóniahajó, Szállítóhajó
-\item \textbf{Akadályok:} Meteorok, Fekete lyuk 
+\item \textbf{Akadályok:} Meteorit mező, Fekete lyuk
+\item \textbf{Védelmi objektumok}: Rakétaállás, Lézerágyú, Ion Ágyú, Pajzskupola
 \end{itemize}
 
 \subsection{Hajók tulajdonságai}
@@ -40,6 +41,16 @@ A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, v
 
 \end{tabular}
 
+
+\subsection{Védelem tulajdonságai}
+\begin{tabular}{lllll}
+\textbf{Képességek} & \textbf{Rakétaállás} & \textbf{Lézerágyú} & \textbf{Ion Ágyú} & \textbf{Pajzskupola} \\
+\textbf{Fémköltség} & alacsony & közepes & közepes & magas \\
+\textbf{Támadóerő} & alacsony & közepes & magas & - \\
+\textbf{Életerő} & alacsony & közepes & közepes & magas \\
+
+\end{tabular}
+
 \subsection{Játék alapeleminek jellemzői}
 
 \textbf{Bolygók}: Épületeket/bányákat építhetünk rajta. Adott mérettel rendelkeznek, ami azt jelenti, hogy a rajta lévő épületeket csak egy bizonyos szintig lehet fejleszteni. A hőmérséklet azt befolyásolja, hogy egy naperőmű egy bizonyos szinten mennyi energiát termel.
@@ -47,6 +58,7 @@ A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, v
 \textbf{Fémbánya/Deutériumbánya}:  Ha van a bolygón elég energia, a játékos adott időközönként fémet/deutériumot kap. Ennek mennyisége a bánya szintjétől függ. \\
 
 \textbf{Hajógyár}: Hajókat képes létrehozni a szintjétől függően.
+
 \textbf{Naperőmű}: Szinjétől függően adott mennyiségű energiát szolgáltat a bolygó számára, melyet a bányák használhatnak fel. \\
 
 \textbf{Anyahajó}: Ha a flotta rendelkezik anyahajóval, ellenséges bolygókat is képes megtámadni. \\
@@ -57,5 +69,16 @@ A játékot egérrel lehessen kezelni. Bal gombbal kijelölhetjük a flottát, v
 
 \textbf{Kolóniahajó}: Üres bolygókat képes gyarmatosítani, akár a flottában egyedül is állhat. Egy új bolygó gyarmatosításakor valamennyi fix erőforrást automatikusan lehelyez a bolygón.
 
+\textbf{Védelmi egységek}: Egy bolygó megtámadása esetén beszállnak automatikusan a harcba, és segítenek a csatában. A pajzskupola nem képes támadni, viszont pozitívan befolyásolja a védelmi erejét a flottának.
+
 Egy csata automatikusan zajlik le, a végeredmény a flotta hajóinak össz életerejétől és támadóerejétől függ. Ennek a megvalósítása többféleképpen történhet, például úgy, hogy körönként csapást mérnek egymásra az egyes hajók egy véletlenszerűen kiválasztott ellenséges hajóra.
+
+
+\subsection{A játék skálázása}
+\begin{itemize}
+\item Akadályok és civil hajók (kolóniahajó, szállítóhajó) legalább három fős csapatok esetén kellenek csak. Bolygót elfoglalni bármilyen hajóval lehet, nyersanyagot megosztani pedig nem lehet bolygók közt.
+
+\item Védelmi egységek csak 4 fős csapatok esetén kellenek. Négy fős csapatok esetén az épületnek van építési ideje: a bányáknak, naperőműveknek egy egység, a hajógyárnak két egység (az egység lehet kör, körökre osztott mód esetén, 1 másodperc valós idejű játék esetén). 
+\end{itemize}
+
 \end{document}
