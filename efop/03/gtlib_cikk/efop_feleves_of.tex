@@ -1,0 +1,80 @@
+\documentclass[11pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{zi4}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{ragged2e} % For \justifying command
+
+\usetheme{Warsaw}
+
+\renewcommand\UrlFont{\ttfamily\footnotesize}
+
+% no navigation symbols
+\setbeamertemplate{navigation symbols}{} 
+
+% frame numbers
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\author{Nagy András}
+\title{txtUML féléves eredmények}
+\date{2019. január 31.}
+
+\logo{%
+	\makebox[0.95\paperwidth]{%
+		\hfill%
+		\includegraphics[width=3.2cm,keepaspectratio]{efop-logo.jpg}%
+	}%
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Infodidact konferencia}
+	\begin{itemize}
+		\item Segítség a C++ osztálysablon könyvtár átdolgozássában.
+		\item Tapasztalatok, újdonságok összegyűjtése a könyvtárral kapcsolatban.
+		\item Eredmények publikálása.
+		\item Előadás az Infodiadct konferencián Zamárdiban.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Egyetem, szakma népszerűsítése}
+	\begin{itemize}
+		\item Codeweek hetén programozást, modellezést népszerűsítő előadás középiskolásoknak.
+		\item Pályaorientáció hetén érvelés amelett, miért ne menjenek el érettségi után az iparba, tudományos élet népszerűsítése.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kihelyezési konfiguráció átdolgozása}
+	\begin{itemize}
+		\item Tegyük egyszerűbbé és hatékonyabbá a szálkezelést.
+		\item Fix szálakkal dolgozzunk, amit vagy automatikusan a platform alapján határozunk meg, vagy a felhasználó mondja meg.
+		\item Legyen konfigurálható, hogy egy szálkezelő egység az összes szál hanyad részét kapja meg.
+		\item Ne hozunk létre futás közben új szálakat, és ne is szüntetünk meg, ami nagy overheaddel, sok szinkronizációval járt eddig. A terhelést eloszthatjuk az objektumok között.
+		\item Protoítpus készítése, ami még finomításokra szorul.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{txtUML féléves eredmények}
+	\begin{center}
+		\Large{Köszönöm az efop támogatását!}
+	
+	\vspace*{25px}
+	{\small A projekt az Európai Unió támogatásával, az Európai Szociális Alap társfinanszírozásával valósult meg (EFOP-3.6.3-VEKOP-16-2017-00002).}\end{center}
+\end{frame}
+
+\end{document}
