@@ -1,0 +1,46 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+
+A feladatokat gtlibbel kell megoldani, nem lehet elágazásokat és ciklusokat használni, ezeket egy meglévő könyvtárkomponensre kell visszavezetni. Használd GT honlapját segítségnek, mivel a ZH-n csak ez lesz elérhető. \\
+
+Konfiguráció \textit{CodebBocks}-ban: 
+\begin{itemize}
+\item Töltsd le libraryt gt honlapjáról.
+\item Hozz létre egy új projektet.
+\item Másold be a projekt fájl mellé a könyvtárban található fejállományokat.
+\item Add hozzá őket a projekthez (Project, Add Files..). 
+\item Kapcsold be az std=c++11-et (Project, Build Options..)
+\end{itemize}
+
+Feladatok:
+\begin{enumerate}
+\item Bemelegítő feladat, FSZ képzésen hármasért: A fájl egy sora egy hallgató nevét, és félév végén szerzett plusz-minuszok össz eredményét tartalmazza (egész szám). Igaz-e, hogy senki nem bukott meg (minden hallgatónak legalább nulla az összeredménye)? \\
+Pl: \\
+h1 4 \\
+h2 0 \\
+Válasz: Igaz
+\item BSc-n hármasért, FSZ-en ötösért: A fájl egy sora egy hallgató nevét, utána a félév folyamán írt plusz-minuszok eredményeit tartalmazza (-1, 0, 1). Igaz-e, hogy senki nem bukott meg (minden hallgatónak legalább nulla az összeredménye)? 
+ \\
+Pl: \\
+h1 -1 0 -1 1 \\
+h2 1 1 -1 0  \\
+Válasz: Hamis
+\item BSC-n ötösért: A fájlok sorainak formátuma nem változik az előzőhöz képest, viszont egy-egy hallgatónak több sorai is lehet, minden sor egy adott tárgyból elért plusz-minuszokat sorolja fel. Igaz-e, hogy  minden hallgatónak a legnagyobb össz eredménye nagyobb-e, mint 0? 
+ \\
+Pl: \\
+h1 -1 0 -1 1 \\
+h1 0 0 -1 \\
+h1 0 1 1 \\
+h2 1 1 0 \\
+h2 1 -1 -1 0  \\
+Válasz: Igaz
+\end{enumerate}
+
+
+\end{document}

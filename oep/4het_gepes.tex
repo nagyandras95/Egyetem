@@ -1,0 +1,22 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\title{Negyedik gépes óra feladat}
+\begin{document}
+
+\maketitle
+
+Adott egy számítástechnikai üzlet aznapi forgalma: számlák sorozata,ahol egy számlán szerepel a vásárló neve, az általa vásárolt termékek neve és mennyisége. Összesen hány terméket adtak el aznap? \\
+
+Megoldás gondoldatmenete:
+\begin{itemize}
+\item Készítünk egy felsorolót, amit egy fájlnév megadásával tudunk konstruálni, és felsorolja, hogy egy-egy sorban összesen hány terméket adtak el.
+\item Ezután már egy egyszerű végig iterálással és összegzéssel megoldható a feladat.
+\item Egy-egy sor beolvasása C++-ban bonyolultabb feladat, mivel változó hosszú sorokat kell feldolgozni. Ehhez használjuk a \textit{getline} függvényt, mely egy \textit{string}-be helyezi a fájlnak egy sorát, majd a \textit{stringstream} osztályt, mellyel végig tudjuk olvasni a \textit{string}-et a $>>$ operátorral. 
+\end{itemize}
+
+\end{document}

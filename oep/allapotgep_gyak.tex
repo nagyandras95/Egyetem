@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+Állapotgépes feladatok
+
+\begin{enumerate}
+\item Egyszerűsített billentyűzet modellezése: ha a CapsLock aktivált, akkor minden más billentyű lenyomásra nagybetűs karaktereket, különben kisbetűs karaktereket kapunk. (Legyen két állapot: CapsLock aktív illetve inaktív. Legyen háromféle művelet: CapsLock lenyomása, más gomb lenyomása, kikapcsolás.)
+\item Video lejátszó: Készítsük el egy magnó osztálydiagramját és állapotdiagramját a következő
+leírás alap ján! A magnóban található egy fej és egy motor, amelyeket négy
+gomb segítségével vezérelhetünk. A gombokat elegendő megérinteni a vezérlés
+során. \\ 
+A négy gomb és vezérlési szerepük: \\
+Állj: leállítja a motort, és a fejet leveszi a szalagról, ha az azon volt \\
+Lejátszás: Lejátszó sebességbe helyezi a motort, és a fejet a szalagra
+helyezi \\
+Előre: A motor előre tekeri a szalagot. \\
+Hátra: A motor hátra tekeri a szalagot. \\
+
+\item Egy bankautomata a következő módon működik. Azzal indul, hogy az ügyfél behelyezi a kártyáját, majd beviszi a pinkódot, amivel háromszor próbálkozhat (harmadik sikertelen kísérlet után a tranzakció elutasítva). Ha sikeres a pinkód megadása, akkor le lehet kérdezni az egyenleget, vagy ki lehet venni pénzt az automatából. Ha a megadott összeg nagyobb, mint az egyenleg, akkor sikeres a pénzkivét, különben nem.
+
+\item Egy közlekedési lámpán piros, piros-sárga, zöld, sárga fények vannak. A lámpa 60 másodpercig piros és 90 másodpercig zöld színű. Az átmeneti állapotok 5 másodpercig tartanak: pirosról a zöldre a piros-sárgán keresztül, zöldről a pirosra a sárgán keresztül. Kezdetben a lámpa piros.
+
+
+\item Verem állapotgépe 
+Vegyünk egy korlátos vermet, amelyet egy (t:array[0..max-1] of Elem) tömb, és egy (top:int) index reprezentál.  Három állapotot vezetünk be: „üres” (top=-1), „normál” (-1<top<max-1), „tele” (top=max-1), amelyek között a verem műveletek (push(), pop()) hatására következik be átmenet. Kezdetben (kezdeti átmenet) top:=0. 
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+\title{Prímhalmaz osztály megvalósítása Java osztály segítségével}
+\begin{document}
+
+Implementáljuk a természetes prímhalmaz (\textit{PrimeSet}) osztály Java nyelven. A prímhalmaz egy olyan halmaz, melyben csak prímek szerepelnek, és minden elem csak egyszer lehet benne. Egy ilyen halmaz reprezentálható egy természetes számmal, mely a halmaznak lévő elemek szorzatával egyezik meg. \\\\ 
+
+Implementáljuk az alábbi műveleteket:
+\begin{itemize}
+\item \textit{contains}: eldönti egy természetes számról, hogy eleme-e a halmaznak. (osztható-e a reprezentáns elemmel)
+\item \textit{insert}: beszúr egy prímet a halmazba (megszorozza a reprezentáns elemet az elemmel).
+\item \textit{remove}: kivesz egy elemet a halmazból (leosztja az reprezentáns szorzatot elemmel)
+\item \textit{write}:  írjuk ki a konzolra egy halmaz elemeit (nem kell optimálisnak lennie)
+\item HF, plusz ha lesz rá idő: Számoljuk meg, hány elem van a halmazban.
+\end{itemize} 
+
+Oldjuk meg a segítségével az alábbi feladatot: Parancssori argumentumokban olvassunk be tetszőleges természetes számot, melyek akár ismétlődhetnek is. Írjuk ki ezek közül csak a prím számokat duplikátumok nélkül.
+
+\end{document}
