@@ -1,7 +1,0 @@
-package sr.model;
-
-
-association SenderToReceiver {
-	hidden 1 Sender sender;
-	* Receiver receiver;
-}

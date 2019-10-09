@@ -1,6 +1,0 @@
-package sr.model;
-
-
-signal Signal {
-	int value;
-}
