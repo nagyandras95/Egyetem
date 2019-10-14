@@ -7,6 +7,7 @@ package catalog;
 
 import catalog.entity.Movie;
 import catalog.model.MovieCatalogModel;
+import catalog.view.MainWindow;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
@@ -30,18 +31,13 @@ public class MovieCatalogApp {
     private static final String DELIMITER = "(;(\r)?\n)|(--\n)";
     
     public static void main(String[] args) {
+        
         MovieCatalogApp app = new MovieCatalogApp();
         app.model.addNewMovie("Gyuruk ura", "Peter Jackson");
         app.model.addNewMovie("Batmen - Kezdodik", "Christofer Nolan");
         
-        List<Movie> movies = app.model.getAllMovie();
-        for(Movie movie : movies) {
-            System.out.println(movie.getMovieId().toString() + ". movie:");
-            System.out.println(movie.getTitle());
-            System.out.println(movie.getDirector());
-
-        }
-              
+        MainWindow mainWindow = new MainWindow(app.model);
+        mainWindow.setVisible(true); 
         
     }
     
@@ -51,7 +47,9 @@ public class MovieCatalogApp {
         model = new MovieCatalogModel(con);
     }
     
-    protected void finalize() {
+    @Override
+    protected void finalize() throws Throwable {
+       super.finalize();
        closeConnection();
     }
     
