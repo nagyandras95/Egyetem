@@ -8,7 +8,9 @@ package catalog.view;
 import catalog.entity.Movie;
 import catalog.model.MovieCatalogModel;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
@@ -20,7 +22,7 @@ import javax.swing.table.*;
 public class MainWindow extends JFrame {
     private MovieCatalogModel model;
 
-    
+
     public MainWindow(MovieCatalogModel model) {
         this.model = model;
         setFocusable(true);
@@ -28,27 +30,37 @@ public class MainWindow extends JFrame {
         setTitle("Progtech2E - Demo");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
         
-        //add the table to the frame
-        listMovies();
-        JScrollPane tableScrollPane = new JScrollPane(movieTable);
-        add(tableScrollPane, BorderLayout.CENTER);
-         
+        redrawTable();
+        
         addNewMovieButton = new JButton();
-        cancelButton = new JButton();
         addNewMovieButton.setText("Film hozzáadása");
+        addNewMovieButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                addNewMovie();
+            }
+        });
+             
+        cancelButton = new JButton();
         cancelButton.setText("Kilepés");
+        
         JPanel buttonPanel = new JPanel();;
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         buttonPanel.add(Box.createHorizontalGlue());
         buttonPanel.add(addNewMovieButton);
         buttonPanel.add(cancelButton);   
-        add(buttonPanel, BorderLayout.PAGE_END);       
-                                        
+        add(buttonPanel, BorderLayout.PAGE_END);
+                                                
     }
     
-    private void listMovies() {
-        String[] columns = new String[] {
+    private void redrawTable() {
+        List<Component> componentList =  Arrays.asList(getComponents());
+        if(componentList.contains(tableScrollPane)) {
+            remove(tableScrollPane);
+        }
+        
+        Object[] columns = new String[] {
             "Cím", "Rendező"
         };
               
@@ -56,16 +68,32 @@ public class MainWindow extends JFrame {
         Object[][] data = new Object[movies.size()][];
         for(int i = 0; i < movies.size(); ++i) {           
             data[i] = new Object[]{movies.get(i).getTitle(), movies.get(i).getDirector()};
-        }      
+        }  
+        
         //create table with data
-        movieTable = new JTable(data, columns);
+        movieTable = new JTable(new DefaultTableModel(data, columns));
         movieTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-   
+        
+        tableScrollPane = new JScrollPane(movieTable);  
+        add(tableScrollPane, BorderLayout.CENTER);
     }
-    private JButton addNewMovieButton;
-    private JButton cancelButton;
+    
+    private void addNewMovie() {
+            String title = JOptionPane.showInputDialog(this, "Add meg a film címét");
+            String director = JOptionPane.showInputDialog(this, "Add meg a film rendezőjét");          
+            model.addNewMovie(title, director);
+            
+            DefaultTableModel movieTableModel =  (DefaultTableModel) movieTable.getModel();
+            movieTableModel.addRow(new Object[]{title, director});
+            movieTableModel.fireTableDataChanged();
+
+ 
+    }
+    
+    private final JButton addNewMovieButton;
+    private final JButton cancelButton;
     private JTable movieTable;
-    private DefaultTableModel movieTableModel;
+    private JScrollPane tableScrollPane;
 
 
 }
